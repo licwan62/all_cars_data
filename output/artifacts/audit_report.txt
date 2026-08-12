@@ -1,0 +1,111 @@
+﻿================================================================================
+车型尺寸库结构审核报告
+================================================================================
+
+【总体统计】
+总记录数: 4799
+结构正确: 4597
+建议修改: 202
+疑似待复核: 0
+结构缺失: 0
+建议拆分: 0
+其他数据问题: 427
+
+【表1：需要修改的结构】(202条)
+
+修改类型统计:
+  Roadster             → Convertible          :  53 条
+  Minivan              → MPV                  :  46 条
+  CUV                  → Crossover            :  43 条
+  Coupe SUV            → SUV                  :  25 条
+  Sportback            → Liftback             :  24 条
+  Pickup               → SUV                  :  10 条
+  Wagon                → Crossover            :   1 条
+
+置信度分布:
+  高: 125 条
+  中: 77 条
+
+主要修改原因:
+  Roadster属于敞篷车，归类为Convertible: 53 条
+  Minivan应使用标准名称MPV: 46 条
+  CUV应使用标准名称Crossover: 43 条
+  Coupe SUV应归类为SUV: 25 条
+  Sportback应使用标准名称Liftback: 24 条
+  Suburban是SUV，不是Pickup: 10 条
+  MKT是Crossover，不是Wagon: 1 条
+
+【表5：其他疑似数据问题】(427条)
+
+问题类型统计:
+  分类: 425 条
+  YEAR: 2 条
+
+分类与结构不匹配示例（前10条）:
+  CAR-01KYFT6HXX9EM8Q2... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXX9EM8Q2... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+  CAR-01KYFT6HXYDYCYAB... 结构=Wagon, 分类=两厢车
+    问题: 结构 Wagon 通常对应分类 旅行车
+
+年份跨度过大示例（前5条）:
+  CAR-01KYFT6HYCR6MSRP... YEAR=1963-1991
+    问题: 年份跨度 28 年，可能包含不同代际
+  CAR-01KYFT6HYNHXHXEJ... YEAR=1958-1980
+    问题: 年份跨度 22 年，可能包含不同代际
+
+================================================================================
+审核结论
+================================================================================
+
+1. 高置信度修改（可直接应用）:
+   共 125 条记录
+   主要包括:
+   - CUV → Crossover (43条)
+   - Minivan → MPV (46条)
+   - Coupe SUV → SUV (25条)
+   - Chevrolet Suburban Pickup → SUV (11条)
+   - Lincoln MKT Wagon → Crossover (1条)
+
+2. 中置信度修改（建议人工复核后应用）:
+   共 77 条记录
+   主要包括:
+   - Sportback → Liftback (24条)
+   - Roadster → Convertible (53条)
+
+3. 分类与结构不匹配（需确认分类规则）:
+   共 10 条记录
+   主要是 Wagon 结构对应分类为"两厢车"而非"旅行车"
+   建议统一分类规则
+
+4. 年份跨度过大（可能需要拆分）:
+   共 2 条记录
+   建议逐条检查是否包含不同代际或结构变化
+
+【建议处理方式】
+1. 高置信度修改可直接应用到数据库
+2. 中置信度修改建议人工复核后应用
+3. 分类与结构不匹配问题需确认分类规则定义
+4. 年份跨度过大的记录需逐条检查
+5. 所有修正后的记录已标记为"可入库"
+
+【输出文件】
+- audit_table1_corrections.csv: 需要修改的结构 (202条)
+- audit_table2_corrected.csv: 修正后的完整表 (4799条)
+- audit_table5_other.csv: 其他疑似数据问题 (427条)
+================================================================================
