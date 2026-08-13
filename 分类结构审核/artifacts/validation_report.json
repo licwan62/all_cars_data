@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T05:16:34.768935+00:00",
+  "generated_at": "2026-08-13T10:49:51.358904+00:00",
   "passed": true,
   "checks": [
     {
@@ -9,7 +9,7 @@
     {
       "check": "audit_table1_corrections.csv:schema",
       "passed": true,
-      "rows": 0,
+      "rows": 1,
       "actual": [
         "DIMENSION-ID",
         "修改类型",
@@ -159,8 +159,8 @@
     {
       "check": "done_changed_findings_equal_table1",
       "passed": true,
-      "expected_changes": 0,
-      "table1_rows": 0,
+      "expected_changes": 1,
+      "table1_rows": 1,
       "missing_from_table1": [],
       "extra_in_table1": []
     },

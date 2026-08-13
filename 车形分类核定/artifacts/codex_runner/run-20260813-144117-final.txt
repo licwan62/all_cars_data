@@ -1,0 +1,13 @@
+完成本次单一批次，共核定 10 个待定车型：
+
+- Chrysler：Aspen、Cirrus、Concorde、Crossfire、LHS、PT Cruiser、Sebring、Town & Country、Voyager
+- Dodge：Avenger
+
+结果：
+
+- 新增 13 条缓存规则，含按 `结构` 拆分的 Sebring、Avenger
+- 待定车型由 470 降至 460
+- 新增批次文件：[batch_chrysler_dodge_2026-08-13.json](D:\Licheng\Workflow\all_cars_data\车形分类核定\research_queue\batch_chrysler_dodge_2026-08-13.json)
+- `validate_project.py` 全部检查通过
+- `codex-cli` 无遗留 claimed 项
+- 未修改源数据、未提交或推送，也未触碰无关改动

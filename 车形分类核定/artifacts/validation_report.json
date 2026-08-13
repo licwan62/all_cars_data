@@ -31,7 +31,7 @@
     {
       "check": "cache_shapes_valid",
       "passed": true,
-      "rows": 180
+      "rows": 956
     },
     {
       "check": "cache_keys_unique",
@@ -40,12 +40,25 @@
     {
       "check": "queue_status_valid",
       "passed": true,
-      "rows": 548
+      "rows": 0
     },
     {
-      "check": "result_not_generated_until_complete",
+      "check": "result_schema",
       "passed": true,
-      "unresolved_models": 548
+      "actual": [
+        "DIMENSION-ID",
+        "车形"
+      ]
+    },
+    {
+      "check": "result_exact_coverage",
+      "passed": true,
+      "source_rows": 4801,
+      "result_rows": 4801
+    },
+    {
+      "check": "result_shapes_valid",
+      "passed": true
     }
   ]
 }

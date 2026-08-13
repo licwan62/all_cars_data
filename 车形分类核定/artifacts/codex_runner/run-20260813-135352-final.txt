@@ -1,0 +1,20 @@
+完成一个限定批次，共处理 10 个车型，生成 12 条缓存决策：
+
+- XT5 41、XT6 41、XTS 30
+- Astro 21、Avalanche 0、Bel Air 32、Beretta 31、Blazer EV 42
+- Aveo：Hatchback 20 / Sedan 30
+- Blazer：1969–2005 为 40 / 2019–2026 为 42
+
+结果：
+
+- pending：528 → 518
+- 缓存：207 → 219 条
+- 验证：全部通过
+- 本批次无遗留 `in_progress`，无无法安全分类车型
+- 未修改源数据或无关改动
+
+文件：
+
+- [批次 JSON](D:\Licheng\Workflow\all_cars_data\车形分类核定\research_queue\batch_cadillac_chevrolet_2026-08-13.json)
+- [缓存](D:\Licheng\Workflow\all_cars_data\车形分类核定\cache\model_shape_cache.csv)
+- [验证报告](D:\Licheng\Workflow\all_cars_data\车形分类核定\artifacts\validation_report.json)
