@@ -1,0 +1,211 @@
+{
+  "generated_at": "2026-08-13T05:16:34.768935+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "source_dimension_group_ids",
+      "passed": true
+    },
+    {
+      "check": "audit_table1_corrections.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "修改类型",
+        "原结构",
+        "建议结构",
+        "原分类",
+        "建议分类",
+        "置信度",
+        "修改原因",
+        "主要依据",
+        "是否需要拆分记录"
+      ]
+    },
+    {
+      "check": "audit_table2_corrected.csv:schema",
+      "passed": true,
+      "rows": 4796,
+      "actual": [
+        "DIMENSION-ID",
+        "结构",
+        "分类",
+        "迭代状态"
+      ]
+    },
+    {
+      "check": "corrected.csv:schema",
+      "passed": true,
+      "rows": 4801,
+      "actual": [
+        "DIMENSION-ID",
+        "MAKE",
+        "MODEL",
+        "版本",
+        "CAB",
+        "BED",
+        "结构",
+        "代际",
+        "YEAR",
+        "分类",
+        "L-IN",
+        "W-IN",
+        "H-IN",
+        "参考车型",
+        "备注",
+        "迭代状态"
+      ]
+    },
+    {
+      "check": "audit_table3_uncertain.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "疑似结构",
+        "问题",
+        "需要补充的信息",
+        "建议处理方式"
+      ]
+    },
+    {
+      "check": "audit_table4_split.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "建议YEAR",
+        "建议结构",
+        "拆分原因"
+      ]
+    },
+    {
+      "check": "audit_table5_other.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "字段",
+        "当前值",
+        "疑似问题",
+        "建议检查"
+      ]
+    },
+    {
+      "check": "audit_full_inventory.csv:schema",
+      "passed": true,
+      "rows": 4796,
+      "actual": [
+        "DIMENSION-ID",
+        "输出结构",
+        "输出分类",
+        "审核结果",
+        "修改类型",
+        "审核依据"
+      ]
+    },
+    {
+      "check": "corrected_alias_matches_table2",
+      "passed": true,
+      "table2_rows": 4796,
+      "corrected_rows": 4801
+    },
+    {
+      "check": "table2_uses_only_five_cover_categories",
+      "passed": true,
+      "illegal_values": []
+    },
+    {
+      "check": "split_dimensions_are_numeric_or_blank",
+      "passed": true,
+      "examples": []
+    },
+    {
+      "check": "table2_preserves_source_and_generated_ids",
+      "passed": true,
+      "source_rows": 4801,
+      "table2_rows": 4801,
+      "generated_rows": 2,
+      "generated_missing": [],
+      "shared_dimension_group_ids": 5
+    },
+    {
+      "check": "table1_applied_to_table2",
+      "passed": true,
+      "mismatch_count": 0,
+      "examples": []
+    },
+    {
+      "check": "blocked_queue_equals_table3",
+      "passed": true,
+      "blocked_rows": 0,
+      "table3_rows": 0,
+      "missing_from_table3": [],
+      "extra_in_table3": []
+    },
+    {
+      "check": "blocked_rows_preserved_and_marked_for_review",
+      "passed": true,
+      "mismatch_count": 0,
+      "examples": []
+    },
+    {
+      "check": "table1_has_traceable_evidence",
+      "passed": true,
+      "missing_count": 0,
+      "examples": []
+    },
+    {
+      "check": "done_changed_findings_equal_table1",
+      "passed": true,
+      "expected_changes": 0,
+      "table1_rows": 0,
+      "missing_from_table1": [],
+      "extra_in_table1": []
+    },
+    {
+      "check": "full_inventory_audit_covers_every_source_row",
+      "passed": true,
+      "source_rows": 4801,
+      "audit_rows": 4796,
+      "missing_fingerprints": 0,
+      "extra_fingerprints": 0
+    },
+    {
+      "check": "table1_change_types_are_precise",
+      "passed": true,
+      "invalid_count": 0,
+      "examples": []
+    },
+    {
+      "check": "every_product_category_change_is_highlighted",
+      "passed": true,
+      "category_change_rows": 0,
+      "unflagged_count": 0,
+      "examples": []
+    }
+  ],
+  "protected_files": {
+    "车型尺寸库.csv": {
+      "exists": true,
+      "sha256": "71b8badec0952751f69cc482e0fd30aba0d752334c10261aeadd4ee2e3df3564"
+    },
+    "车型尺寸库.xlsx": {
+      "exists": true,
+      "sha256": "89f243814ec81f9dcc662beaf3ebd311908dc05049f2aaf6028e82b025ab8c21"
+    },
+    "车型数据尺码-只有长匹配.xlsx": {
+      "exists": true,
+      "sha256": "fcf70e4481cbc24904db8b9b2d970ed610a1fa879867687f65c3d9648cfd84d5"
+    },
+    "车型数据尺码.xlsx": {
+      "exists": true,
+      "sha256": "5c66eebc05003cfce3820463e264d1de96d980cb356d3394001730aee1d466c5"
+    },
+    "子车系维护表.csv": {
+      "exists": true,
+      "sha256": "f134e7bae6666beb1c1dedb52ac1999d084073f53a34d2a81d01f4cb288aa1fe"
+    }
+  }
+}

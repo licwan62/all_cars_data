@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "source_schema",
+      "passed": true,
+      "rows": 4801,
+      "actual": [
+        "DIMENSION-ID",
+        "MAKE",
+        "MODEL",
+        "版本",
+        "CAB",
+        "BED",
+        "结构",
+        "代际",
+        "YEAR",
+        "分类",
+        "L-IN",
+        "W-IN",
+        "H-IN",
+        "参考车型",
+        "备注",
+        "迭代状态"
+      ]
+    },
+    {
+      "check": "source_dimension_ids",
+      "passed": true
+    },
+    {
+      "check": "cache_shapes_valid",
+      "passed": true,
+      "rows": 180
+    },
+    {
+      "check": "cache_keys_unique",
+      "passed": true
+    },
+    {
+      "check": "queue_status_valid",
+      "passed": true,
+      "rows": 548
+    },
+    {
+      "check": "result_not_generated_until_complete",
+      "passed": true,
+      "unresolved_models": 548
+    }
+  ]
+}

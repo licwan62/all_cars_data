@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated pipeline artifacts
+output/*.csv
+output/*.json
+logs/*.log
+
+# Keep empty project directories
+!output/.gitkeep
+!logs/.gitkeep
+
