@@ -17,6 +17,8 @@ def export_cluster_summary(clusters: list[dict], output_dir: str) -> str:
             "BED_GROUP": c.get("BED_GROUP", ""),
             "AXLE_TYPE": c.get("AXLE_TYPE", ""),
             "CONSUMER_NAME": c.get("CONSUMER_NAME", ""),
+            "CONSUMER_NAME_OPTIMIZED": c.get("CONSUMER_NAME_OPTIMIZED", ""),
+            "YEAR_GAP_FILLED": c.get("YEAR_GAP_FILLED", 0),
             "YEAR_COMPACT": c.get("YEAR_COMPACT", ""),
             "FITMENT_SUMMARY": c.get("FITMENT_SUMMARY", ""),
             "MAKE_COUNT": len(c.get("makes", [])),

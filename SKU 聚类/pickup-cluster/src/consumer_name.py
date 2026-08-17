@@ -122,3 +122,83 @@ def generate_year_compact(cluster: dict) -> str:
             year_ranges.append((int(row["YEAR_START"]), int(row["YEAR_END"])))
     merged = merge_year_ranges(year_ranges)
     return format_year_ranges(merged)
+
+
+# ── Raptor / Widebody variant labeling ──────────────────────────────
+
+def _is_raptor_row(row) -> bool:
+    """Check if a row is a Raptor/TRX/widebody variant."""
+    version = str(row.get("版本", "")).strip()
+    return version.lower() in ("raptor", "trx")
+
+
+def _is_trx_row(row) -> bool:
+    """Check if a row is a TRX variant."""
+    version = str(row.get("版本", "")).strip()
+    return version.lower() == "trx"
+
+
+def _cluster_has_raptor(cluster: dict) -> bool:
+    """Check if any row in the cluster is a Raptor variant."""
+    rows = cluster.get("rows", pd.DataFrame())
+    if rows.empty:
+        return False
+    return rows.apply(_is_raptor_row, axis=1).any()
+
+
+def _cluster_is_all_raptor(cluster: dict) -> bool:
+    """Check if ALL rows in the cluster are Raptor variants."""
+    rows = cluster.get("rows", pd.DataFrame())
+    if rows.empty:
+        return False
+    return rows.apply(_is_raptor_row, axis=1).all()
+
+
+def _same_model_has_raptor_cluster(cluster: dict, all_clusters: list[dict]) -> bool:
+    """Check if the same model (MAKE + MODEL_FAMILY) has a Raptor-only cluster elsewhere."""
+    rows = cluster.get("rows", pd.DataFrame())
+    if rows.empty:
+        return False
+
+    makes = set(rows["MAKE_NORMALIZED"].unique())
+    models = set(rows["MODEL_FAMILY"].unique())
+
+    for other in all_clusters:
+        if other is cluster:
+            continue
+        other_rows = other.get("rows", pd.DataFrame())
+        if other_rows.empty:
+            continue
+        other_makes = set(other_rows["MAKE_NORMALIZED"].unique())
+        other_models = set(other_rows["MODEL_FAMILY"].unique())
+        # Check if there's overlap in make+model
+        if makes & other_makes and models & other_models:
+            if _cluster_has_raptor(other):
+                return True
+    return False
+
+
+def add_raptor_label(name: str, cluster: dict, all_clusters: list[dict]) -> str:
+    """Append Raptor/TRX label to a consumer name.
+
+    Rules:
+    - All Raptor rows → "(Raptor)"
+    - Mixed Raptor + non-Raptor → "(Includes Raptor)"
+    - No Raptor, but same model has Raptor cluster → "(Excludes Raptor)"
+    - Otherwise → no change
+    """
+    if not name:
+        return name
+
+    has_raptor = _cluster_has_raptor(cluster)
+    all_raptor = _cluster_is_all_raptor(cluster)
+    has_other_raptor = _same_model_has_raptor_cluster(cluster, all_clusters)
+
+    if all_raptor:
+        return f"{name} (Raptor)"
+    elif has_raptor:
+        return f"{name} (Includes Raptor)"
+    elif has_other_raptor:
+        return f"{name} (Excludes Raptor)"
+
+    return name

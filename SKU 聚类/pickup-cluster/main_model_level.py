@@ -82,6 +82,36 @@ def main():
         c["YEAR_COMPACT"] = generate_year_compact(c)
         c["CONFIDENCE"] = assign_confidence(c)
 
+    # 7b. Optimize year gaps
+    from year_gap_filler import optimize_consumer_name
+    print("\nOptimizing year gaps...")
+    gap_filled_count = 0
+    for c in clusters:
+        optimized = optimize_consumer_name(c, valid_df)
+        if optimized:
+            c["CONSUMER_NAME_OPTIMIZED"] = optimized
+            c["YEAR_GAP_FILLED"] = 1
+            gap_filled_count += 1
+        else:
+            c["CONSUMER_NAME_OPTIMIZED"] = ""
+            c["YEAR_GAP_FILLED"] = 0
+    print(f"  Clusters with filled gaps: {gap_filled_count}")
+
+    # 7c. Raptor / widebody labeling
+    from consumer_name import add_raptor_label
+    print("\nAdding Raptor/TRX labels...")
+    raptor_count = 0
+    for c in clusters:
+        new_name = add_raptor_label(c["CONSUMER_NAME"], c, clusters)
+        if new_name != c["CONSUMER_NAME"]:
+            c["CONSUMER_NAME"] = new_name
+            raptor_count += 1
+        if c.get("CONSUMER_NAME_OPTIMIZED"):
+            opt_name = add_raptor_label(c["CONSUMER_NAME_OPTIMIZED"], c, clusters)
+            if opt_name != c["CONSUMER_NAME_OPTIMIZED"]:
+                c["CONSUMER_NAME_OPTIMIZED"] = opt_name
+    print(f"  Clusters with Raptor labels: {raptor_count}")
+
     # 8. Export
     print("\nExporting results...")
     summary_path = export_cluster_summary(clusters, str(output_dir))
