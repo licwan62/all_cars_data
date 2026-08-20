@@ -19,8 +19,8 @@ from year_parser import parse_years
 from pickup_classifier import classify_truck_type
 from clustering import run_clustering
 from cluster_score import score_clusters, assign_confidence
-from consumer_name import generate_consumer_name, generate_fitment_summary, generate_year_compact
-from export import export_cluster_summary, export_cluster_detail, export_exceptions
+from consumer_name import generate_consumer_name, generate_fitment_summary, generate_year_compact, generate_merged_consumer_name
+from export import export_cluster_summary, export_cluster_detail, export_exceptions, export_gap_investigation
 
 
 def main():
@@ -75,12 +75,27 @@ def main():
     # 6. Score clusters
     clusters = score_clusters(clusters, str(config_dir))
 
-    # 7. Generate consumer names
+    # 7. Generate consumer names — split by variant composition
+    from consumer_name import generate_variant_split_names
+    print("\nGenerating variant-split consumer names...")
+    split_count = 0
     for c in clusters:
-        c["CONSUMER_NAME"] = generate_consumer_name(c)
+        splits = generate_variant_split_names(c, clusters)
+        c["_split_names"] = splits
+        if len(splits) > 1:
+            split_count += 1
+            # Build split-specific CLUSTER_ID mapping for detail export
+            split_cid_map = {}
+            for sp in splits:
+                for idx in sp["rows"].index:
+                    split_cid_map[idx] = sp["split_cluster_id"]
+            c["_split_cluster_map"] = split_cid_map
+        # Primary name: merged name with variant inclusion
+        c["CONSUMER_NAME"] = generate_merged_consumer_name(c, clusters)
         c["FITMENT_SUMMARY"] = generate_fitment_summary(c)
         c["YEAR_COMPACT"] = generate_year_compact(c)
         c["CONFIDENCE"] = assign_confidence(c)
+    print(f"  Clusters split by variant: {split_count}")
 
     # 7b. Optimize year gaps
     from year_gap_filler import optimize_consumer_name
@@ -97,30 +112,22 @@ def main():
             c["YEAR_GAP_FILLED"] = 0
     print(f"  Clusters with filled gaps: {gap_filled_count}")
 
-    # 7c. Raptor / widebody labeling
-    from consumer_name import add_raptor_label
-    print("\nAdding Raptor/TRX labels...")
-    raptor_count = 0
-    for c in clusters:
-        new_name = add_raptor_label(c["CONSUMER_NAME"], c, clusters)
-        if new_name != c["CONSUMER_NAME"]:
-            c["CONSUMER_NAME"] = new_name
-            raptor_count += 1
-        if c.get("CONSUMER_NAME_OPTIMIZED"):
-            opt_name = add_raptor_label(c["CONSUMER_NAME_OPTIMIZED"], c, clusters)
-            if opt_name != c["CONSUMER_NAME_OPTIMIZED"]:
-                c["CONSUMER_NAME_OPTIMIZED"] = opt_name
-    print(f"  Clusters with Raptor labels: {raptor_count}")
-
     # 8. Export
     print("\nExporting results...")
     summary_path = export_cluster_summary(clusters, str(output_dir))
     detail_path = export_cluster_detail(clusters, valid_df, str(output_dir))
     exc_path = export_exceptions(exceptions_df, str(output_dir))
 
+    # 8b. Gap investigation
+    from year_gap_filler import generate_gap_investigation
+    gap_df = generate_gap_investigation(clusters, valid_df, df)
+    gap_path = export_gap_investigation(gap_df, str(output_dir))
+
     print(f"  Summary: {summary_path}")
     print(f"  Detail:  {detail_path}")
     print(f"  Exceptions: {exc_path}")
+    if gap_path:
+        print(f"  Gap Investigation: {gap_path}")
 
     # 9. Console report
     print("\n" + "=" * 60)

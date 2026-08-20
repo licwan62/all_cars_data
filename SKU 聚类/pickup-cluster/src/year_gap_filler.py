@@ -136,12 +136,17 @@ def try_fill_gaps(
     full_df: pd.DataFrame,
     try_web: bool = True,
 ) -> tuple[list[tuple[int, int]], list[dict]]:
-    """Try to fill gap years in a cluster's year ranges.
+    """Fill all gap years unconditionally.
+
+    Safety is delegated to verify_candidate() in main.py, which checks
+    whether the expanded year ranges would cause PHYSICAL_SKU conflicts
+    or unresolved new atoms. This function only identifies the gaps and
+    fills them — the structural gate (atom_verifier) is the sole authority.
 
     Args:
         rows: The cluster's rows (DataFrame)
         full_df: The full valid dataset (for cross-checking)
-        try_web: Whether to attempt web verification
+        try_web: Whether to attempt web verification (legacy, kept for compat)
 
     Returns:
         (optimized_ranges, gap_details) where gap_details records what was filled
@@ -153,93 +158,155 @@ def try_fill_gaps(
     if not gaps:
         return merged, []
 
-    # Get the representative make/model/cab/bed for this cluster
-    make = rows["MAKE_NORMALIZED"].iloc[0]
-    model = rows["MODEL_FAMILY"].iloc[0]
+    gap_details = [{"year": y, "filled": True, "source": "auto_fill"} for y in gaps]
 
-    # For each CAB type in the cluster, check independently
-    cab_values = rows["CAB"].unique()
-    bed_group = rows["BED_GROUP"].iloc[0]
-
-    gap_details = []
-    filled_years = set()
-
-    for year in gaps:
-        detail = {"year": year, "filled": False, "source": ""}
-
-        # Phase 1: check dataset
-        for cab in cab_values:
-            if check_in_dataset(make, model, cab, bed_group, year, full_df):
-                detail["filled"] = True
-                detail["source"] = "dataset"
-                filled_years.add(year)
-                break
-
-        # Phase 2: web check
-        if not detail["filled"] and try_web:
-            import time
-            time.sleep(0.3)  # rate-limit Wikipedia requests
-            # Try each cab type via web
-            for cab in cab_values:
-                result = check_via_web(make, model, year, cab=cab)
-                if result is True:
-                    detail["filled"] = True
-                    detail["source"] = "web"
-                    filled_years.add(year)
-                    break
-            if not detail["filled"]:
-                detail["source"] = "web_uncertain"
-
-        gap_details.append(detail)
-
-    # Build optimized ranges by adding filled years
-    if filled_years:
-        all_ranges = list(year_ranges)
-        for y in filled_years:
-            all_ranges.append((y, y))
-        optimized = merge_year_ranges(all_ranges)
-    else:
-        optimized = merged
+    # Build optimized ranges by including all gap years
+    all_ranges = list(year_ranges)
+    for y in gaps:
+        all_ranges.append((y, y))
+    optimized = merge_year_ranges(all_ranges)
 
     return optimized, gap_details
 
 
-def optimize_consumer_name(cluster: dict, full_df: pd.DataFrame) -> str:
-    """Generate an optimized CONSUMER_NAME with filled gap years.
-
-    Only returns a different name if gaps were actually filled.
-    """
+def optimize_consumer_name(cluster: dict, full_df: pd.DataFrame,
+                           try_gap_fill: bool = True) -> str:
+    """Generate the mandatory optimized name, optionally filling year gaps."""
     rows = cluster.get("rows", pd.DataFrame())
     if rows.empty:
         return ""
 
-    optimized_ranges, gap_details = try_fill_gaps(rows, full_df, try_web=True)
+    if try_gap_fill:
+        optimized_ranges, gap_details = try_fill_gaps(rows, full_df, try_web=True)
+    else:
+        optimized_ranges = merge_year_ranges(extract_year_ranges(rows))
+        gap_details = []
 
-    # Check if any gaps were filled
-    filled = [g for g in gap_details if g["filled"]]
-    if not filled:
-        return ""  # no optimization possible
+    # Store gap details for investigation export
+    cluster["_gap_details"] = gap_details
+    cluster["_optimized_ranges"] = optimized_ranges
 
     # Rebuild the name with optimized year ranges
     make = rows["MAKE_NORMALIZED"].iloc[0]
     model = rows["MODEL_FAMILY"].iloc[0]
     year_str = format_year_ranges(optimized_ranges)
 
-    cab_values = sorted(rows["CAB"].dropna().unique().tolist())
-    cab_segment = ", ".join(str(c) for c in cab_values)
+    from consumer_name import format_cab_segment
+    cab_segment = format_cab_segment(rows, optimize=True)
 
-    bed_group = cluster.get("BED_GROUP", "")
-    bed_display = {"SHORT": "Short Bed", "STANDARD": "Standard Bed",
-                   "LONG": "Long Bed"}.get(bed_group, bed_group)
-    bed_lengths = rows["BED_LENGTH"].dropna()
-    if len(bed_lengths) > 0:
-        bed_min = bed_lengths.min()
-        bed_max = bed_lengths.max()
-        if bed_min == bed_max:
-            bed_segment = f"{bed_display} ({bed_min:.1f}')"
-        else:
-            bed_segment = f"{bed_display} ({bed_min:.1f}'-{bed_max:.1f}')"
-    else:
-        bed_segment = bed_display
+    from consumer_name import format_bed_segment
+    bed_segment = format_bed_segment(rows, include_group=True)
+    # Import variant labeling from consumer_name
+    from consumer_name import _cluster_has_special_variant, _cluster_is_all_special_variant, _cluster_variant_labels
 
-    return f"{make} {model} {year_str} | {cab_segment} | {bed_segment}"
+    has_special = _cluster_has_special_variant(cluster)
+    all_special = _cluster_is_all_special_variant(cluster)
+    my_labels = _cluster_variant_labels(cluster)
+
+    base_name = f"{make} {model} {year_str} {cab_segment} {bed_segment}"
+
+    if all_special and len(my_labels) == 1:
+        variant = list(my_labels)[0]
+        base_name = f"{make} {model} {variant} {year_str} {cab_segment} {bed_segment}"
+    elif has_special and not all_special:
+        included = " & ".join(sorted(my_labels))
+        base_name = f"{base_name} {included} Included"
+    elif has_special and all_special and len(my_labels) > 1:
+        included = " & ".join(sorted(my_labels))
+        base_name = f"{base_name} {included}"
+
+    exclusions = cluster.get("_required_exclusions", [])
+    if exclusions:
+        base_name = f"{base_name} Excludes {' & '.join(exclusions)}"
+
+    return base_name
+
+
+def generate_gap_investigation(clusters: list[dict], full_df: pd.DataFrame, all_df: pd.DataFrame) -> pd.DataFrame:
+    """Generate a gap investigation report for all clusters with filled gaps.
+
+    For each filled gap year, checks:
+    - Whether the model exists in the FULL dataset (including exceptions) for that year
+    - What cab/bed/auto-size exists in that year
+    - Whether the gap year is covered by another cluster
+    - Whether it's a true generation gap
+    """
+    records = []
+
+    for c in clusters:
+        gap_details = c.get("_gap_details", [])
+        filled = [g for g in gap_details if g["filled"]]
+        if not filled:
+            continue
+
+        rows = c.get("rows", pd.DataFrame())
+        if rows.empty:
+            continue
+
+        make = rows["MAKE_NORMALIZED"].iloc[0]
+        model = rows["MODEL_FAMILY"].iloc[0]
+        cab_values = list(rows["CAB"].unique())
+        bed_group = rows["BED_GROUP"].iloc[0]
+        cluster_id = c.get("CLUSTER_ID", "")
+
+        for g in filled:
+            year = g["year"]
+            source = g.get("source", "")
+
+            # Check full dataset for same make+model in this year
+            in_full = all_df[
+                (all_df["MAKE_NORMALIZED"] == make) &
+                (all_df["MODEL_FAMILY"] == model) &
+                (all_df["YEAR_START"] <= year) &
+                (all_df["YEAR_END"] >= year)
+            ]
+
+            in_full_count = len(in_full)
+            if in_full_count > 0:
+                in_full_cabs = list(in_full["CAB"].unique())
+                in_full_beds = list(in_full["BED"].unique())
+                in_full_bed_groups = list(in_full["BED_GROUP"].unique())
+                in_full_sizes = list(in_full["自动尺码"].unique())
+                in_full_years = sorted(in_full["YEAR"].unique())
+            else:
+                in_full_cabs = []
+                in_full_beds = []
+                in_full_bed_groups = []
+                in_full_sizes = []
+                in_full_years = []
+
+            # Check if same cab+bed exists in this year
+            same_config = in_full[
+                (in_full["CAB"].isin(cab_values)) &
+                (in_full["BED_GROUP"] == bed_group)
+            ] if in_full_count > 0 else pd.DataFrame()
+
+            # Determine investigation status
+            if in_full_count == 0:
+                status = "MODEL_NOT_IN_DATASET"
+                note = "车型在该年份无任何记录 (可能已停产/断代)"
+            elif len(same_config) > 0:
+                status = "CONFIG_EXISTS"
+                note = f"同配置存在但尺码不同: {list(same_config['自动尺码'].unique())}"
+            else:
+                status = "DIFFERENT_CONFIG"
+                note = f"车型存在但配置不同: CAB={in_full_cabs}, BED={in_full_beds}"
+
+            records.append({
+                "CLUSTER_ID": cluster_id,
+                "MAKE": make,
+                "MODEL": model,
+                "GAP_YEAR": year,
+                "FILL_SOURCE": source,
+                "STATUS": status,
+                "NOTE": note,
+                "IN_FULL_COUNT": in_full_count,
+                "IN_FULL_CABS": ", ".join(str(x) for x in in_full_cabs),
+                "IN_FULL_BEDS": ", ".join(str(x) for x in in_full_beds),
+                "IN_FULL_BED_GROUPS": ", ".join(str(x) for x in in_full_bed_groups),
+                "IN_FULL_SIZES": ", ".join(str(x) for x in in_full_sizes),
+                "CLUSTER_CABS": ", ".join(str(x) for x in cab_values),
+                "CLUSTER_BED_GROUP": bed_group,
+            })
+
+    return pd.DataFrame(records)

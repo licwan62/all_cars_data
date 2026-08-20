@@ -1,4 +1,8 @@
 /.qsyncclient
 /desktop.ini
+
+# CSV data: only source directories are synchronized
+*.[cC][sS][vV]
+!**/source/**/*.[cC][sS][vV]
 /output/code/__pycache__/
 /车形分类核定/code/__pycache__/

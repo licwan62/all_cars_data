@@ -60,36 +60,42 @@ def filter_valid_rows(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     return valid, exceptions
 
 
-def build_initial_clusters(df: pd.DataFrame, config: dict, model_level: bool = False) -> list[dict]:
-    """Build initial clusters based on hard constraints.
+def build_initial_clusters(df: pd.DataFrame, config: dict) -> list[dict]:
+    """Build initial clusters driven by cluster_config.yaml.
 
-    Group by: 自动尺码 + AXLE_TYPE + TRUCK_TYPE + CAB_GROUP + BED_GROUP
-    If model_level=True, also group by MAKE_NORMALIZED + MODEL_FAMILY.
+    Group columns derived from config:
+      - 自动尺码, TRUCK_TYPE (always)
+      - AXLE_TYPE, CAB_GROUP, BED_GROUP, MAKE_NORMALIZED, MODEL_FAMILY
+        added only when the corresponding allow_cross_* is false.
     """
     cfg = config["pickup"]
 
-    group_cols = ["自动尺码", "AXLE_TYPE", "TRUCK_TYPE", "CAB_GROUP", "BED_GROUP"]
-    if model_level:
-        group_cols = ["自动尺码", "AXLE_TYPE", "TRUCK_TYPE", "CAB_GROUP", "BED_GROUP",
-                       "MAKE_NORMALIZED", "MODEL_FAMILY"]
+    group_cols = ["自动尺码", "TRUCK_TYPE"]
+    if not cfg.get("allow_drw_srw_merge", False):
+        group_cols.append("AXLE_TYPE")
+    if not cfg.get("allow_cross_cab", False):
+        group_cols.append("CAB_GROUP")
+    if not cfg.get("allow_cross_bed_group", False):
+        group_cols.append("BED_GROUP")
+    if not cfg.get("allow_cross_make", False):
+        group_cols.append("MAKE_NORMALIZED")
+    if not cfg.get("allow_cross_model", False):
+        group_cols.append("MODEL_FAMILY")
 
     clusters = []
     cluster_id = 0
 
     for keys, group in df.groupby(group_cols, dropna=False):
         cluster_id += 1
-        if model_level:
-            size, axle, truck, cab, bed, make, model_family = keys
-        else:
-            size, axle, truck, cab, bed = keys
+        key_dict = dict(zip(group_cols, keys))
 
         cluster = {
             "cluster_id": cluster_id,
-            "自动尺码": size,
-            "AXLE_TYPE": axle,
-            "TRUCK_TYPE": truck,
-            "CAB_GROUP": cab,
-            "BED_GROUP": bed,
+            "自动尺码": key_dict.get("自动尺码", ""),
+            "AXLE_TYPE": key_dict.get("AXLE_TYPE", group["AXLE_TYPE"].iloc[0]),
+            "TRUCK_TYPE": key_dict.get("TRUCK_TYPE", ""),
+            "CAB_GROUP": key_dict.get("CAB_GROUP", group["CAB_GROUP"].iloc[0]),
+            "BED_GROUP": key_dict.get("BED_GROUP", group["BED_GROUP"].iloc[0]),
             "rows": group,
             "makes": sorted(group["MAKE_NORMALIZED"].unique()),
             "models": sorted(group["MODEL_FAMILY"].unique()),
@@ -106,8 +112,6 @@ def build_initial_clusters(df: pd.DataFrame, config: dict, model_level: bool = F
             "h_spread": group["H-MM"].max() - group["H-MM"].min(),
             "length_margin_min": group["自动长度余量"].min(),
             "length_margin_median": group["自动长度余量"].median(),
-            "diff_median": group["相差数值"].median() if "相差数值" in group.columns else 0,
-            "diff_p90": group["相差数值"].quantile(0.9) if "相差数值" in group.columns else 0,
             "year_min": int(group["YEAR_START"].min()),
             "year_max": int(group["YEAR_END"].max()),
         }
@@ -166,23 +170,30 @@ def merge_model_years(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(records)
 
 
-def generate_cluster_id(cluster: dict, model_level: bool = False) -> str:
-    """Generate a CLUSTER_ID like P1-FULLSIZE-CREW-SHORT-SRW or P1-FULLSIZE-CREW-SHORT-SRW-Ford-F150."""
-    size = cluster["自动尺码"]
-    truck = cluster["TRUCK_TYPE"]
-    cab = cluster["CAB_GROUP"]
-    bed = cluster["BED_GROUP"]
-    axle = cluster["AXLE_TYPE"]
-    base = f"{size}-{truck}-{cab}-{bed}-{axle}"
-    if model_level:
+def generate_cluster_id(cluster: dict, config: dict) -> str:
+    """Generate CLUSTER_ID from config-driven grouping.
+
+    Parts: 自动尺码-TRUCK_TYPE[-AXLE_TYPE][-CAB_GROUP][-BED_GROUP][-MAKE-MODEL]
+    AXLE_TYPE / CAB_GROUP / BED_GROUP / MAKE-MODEL only included when they
+    were part of the grouping (allow_cross_* is false).
+    """
+    cfg = config["pickup"]
+    parts = [cluster["自动尺码"], cluster["TRUCK_TYPE"]]
+    if not cfg.get("allow_drw_srw_merge", False):
+        parts.append(cluster["AXLE_TYPE"])
+    if not cfg.get("allow_cross_cab", False):
+        parts.append(cluster["CAB_GROUP"])
+    if not cfg.get("allow_cross_bed_group", False):
+        parts.append(cluster["BED_GROUP"])
+    if not cfg.get("allow_cross_make", False):
         make = cluster.get("makes", [""])[0] if cluster.get("makes") else ""
         model = cluster.get("models", [""])[0] if cluster.get("models") else ""
         model_slug = f"{make}-{model}".replace(" ", "-").replace("/", "-")
-        return f"{base}-{model_slug}"
-    return base
+        parts.append(model_slug)
+    return "-".join(parts)
 
 
-def run_clustering(df: pd.DataFrame, config_dir: str, model_level: bool = False) -> tuple[list[dict], pd.DataFrame, pd.DataFrame]:
+def run_clustering(df: pd.DataFrame, config_dir: str) -> tuple[list[dict], pd.DataFrame, pd.DataFrame]:
     """Run the full clustering pipeline.
 
     Returns (clusters, valid_df, exceptions_df).
@@ -191,11 +202,10 @@ def run_clustering(df: pd.DataFrame, config_dir: str, model_level: bool = False)
 
     valid, exceptions = filter_valid_rows(df)
 
-    clusters = build_initial_clusters(valid, config, model_level=model_level)
+    clusters = build_initial_clusters(valid, config)
 
-    # Mark cluster safety
     for c in clusters:
         c["safety_pass"] = check_cluster_safety(c, config)
-        c["CLUSTER_ID"] = generate_cluster_id(c, model_level=model_level)
+        c["CLUSTER_ID"] = generate_cluster_id(c, config)
 
     return clusters, valid, exceptions

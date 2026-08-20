@@ -51,7 +51,6 @@ def test_build_initial_clusters():
         "预估销量 的总和": [100, 200, 300, 400],
         "MAKE_NORMALIZED": ["Ford", "Chevy", "Toyota", "Nissan"],
         "MODEL_FAMILY": ["F-150", "Silverado 1500", "Tacoma", "Frontier"],
-        "相差数值": [10, 20, 30, 40],
     })
 
     config = {
@@ -60,6 +59,11 @@ def test_build_initial_clusters():
             "max_width_spread_mm": 180,
             "max_height_spread_mm": 200,
             "min_length_margin_mm": 50,
+            "allow_cross_make": True,
+            "allow_cross_model": True,
+            "allow_cross_cab": True,
+            "allow_cross_bed_group": True,
+            "allow_drw_srw_merge": True,
         }
     }
 
