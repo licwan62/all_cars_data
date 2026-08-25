@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 from load_data import load_data, load_fitment_with_atom_sales, filter_pickups
 from normalize import run_normalize
-from year_parser import parse_years
+from year_parser import parse_years, format_year_ranges
 from pickup_classifier import classify_truck_type
 from clustering import run_clustering
 from cluster_score import score_clusters, assign_confidence
@@ -28,8 +28,13 @@ from consumer_name import (
     generate_year_compact,
     assign_required_exclusions,
 )
-from export import export_cluster_summary, export_cluster_detail, export_exceptions, export_gap_investigation
-from atom_verifier import build_verified_candidates, build_atom_map, verify_candidate
+from export import (export_cluster_summary, export_cluster_detail,
+                    export_exceptions, export_gap_investigation,
+                    export_fallback_conflicts)
+from atom_verifier import (build_verified_candidates, build_atom_map,
+                           verify_candidate, verify_unique_real_atom_ownership,
+                           verify_unique_real_atom_title_coverage)
+from link_registry import assign_persistent_link_ids, save_link_registry
 
 
 def main():
@@ -92,6 +97,8 @@ def main():
     # 7. Candidate merge gate: only verified row combinations may become names.
     print("\nBuilding and verifying merge candidates...")
     clusters, candidate_audit = build_verified_candidates(clusters)
+    registry_path = config_dir / "link_id_registry.csv"
+    pending_registry = assign_persistent_link_ids(clusters, registry_path)
     assign_required_exclusions(clusters)
     print(f"  Final verified candidates: {len(clusters)}")
     print(f"  Rejected merge attempts: {sum(a['MERGE_STATUS'] == 'REJECT' for a in candidate_audit)}")
@@ -115,6 +122,14 @@ def main():
         if optimized:
             diag = verify_candidate(c["rows"], c["自动尺码"], atom_map,
                                     c["CLUSTER_ID"], c.get("_optimized_ranges"))
+            c["_optimization_attempt"] = {
+                "name": optimized,
+                "year_ranges": format_year_ranges(c.get("_optimized_ranges", [])),
+                "gap_years": ", ".join(
+                    str(g["year"]) for g in c.get("_gap_details", []) if g.get("filled")
+                ),
+                "diagnostics": diag,
+            }
             c["_optimized_diagnostics"] = diag
             candidate_audit.append({"BASE_CLUSTER_ID": c["CLUSTER_ID"],
                                     "CANDIDATE_TYPE": "YEAR_GAP_OPTIMIZATION",
@@ -142,11 +157,49 @@ def main():
                 c["_optimized_diagnostics"] = fallback_diag
                 c["CONSUMER_NAME_OPTIMIZED"] = optimized
                 c["YEAR_GAP_FILLED"] = 0
+                c["_fallback"] = {
+                    "name": optimized,
+                    "year_ranges": format_year_ranges(c.get("_optimized_ranges", [])),
+                    "diagnostics": fallback_diag,
+                }
                 optimized_name_count += 1
         else:
             raise RuntimeError(f"Optimized name was not generated: {c['CLUSTER_ID']}")
     print(f"  Clusters with filled gaps: {gap_filled_count}")
     print(f"  Clusters with optimized names: {optimized_name_count}")
+
+    # Every real source atom must be covered by exactly one final consumer
+    # cluster. Generated combinations that do not exist in the source are
+    # intentionally ignored by this final ownership gate.
+    ownership_diag = verify_unique_real_atom_ownership(clusters)
+    candidate_audit.append({
+        "BASE_CLUSTER_ID": "__FINAL__",
+        "CANDIDATE_TYPE": "FINAL_REAL_ATOM_UNIQUENESS",
+        "CANDIDATE_ROW_COUNT": sum(len(c["rows"]) for c in clusters),
+        **ownership_diag,
+    })
+    if ownership_diag["MERGE_STATUS"] == "REJECT":
+        raise RuntimeError(
+            f"{ownership_diag['REJECT_REASON']}; "
+            f"samples: {ownership_diag['CONFLICT_ATOM_SAMPLES']}"
+        )
+    print(f"  Real atoms with unique final CLUSTER_ID: {ownership_diag['ORIGINAL_ATOM_COUNT']}")
+
+    title_coverage_diag = verify_unique_real_atom_title_coverage(clusters)
+    candidate_audit.append({
+        "BASE_CLUSTER_ID": "__FINAL__",
+        "CANDIDATE_TYPE": "FINAL_REAL_ATOM_TITLE_COVERAGE_UNIQUENESS",
+        "CANDIDATE_ROW_COUNT": sum(len(c["rows"]) for c in clusters),
+        **title_coverage_diag,
+    })
+    if title_coverage_diag["MERGE_STATUS"] == "REJECT":
+        raise RuntimeError(
+            f"{title_coverage_diag['REJECT_REASON']}; "
+            f"samples: {title_coverage_diag['CONFLICT_ATOM_SAMPLES']}"
+        )
+    print(f"  Real atoms covered by exactly one final title: {title_coverage_diag['ORIGINAL_ATOM_COUNT']}")
+    registry_output = save_link_registry(pending_registry, registry_path)
+    print(f"  Persistent link registry: {registry_output}")
 
     # 10. Report final (already gated) statuses.
     statuses = {}
@@ -166,6 +219,7 @@ def main():
     from year_gap_filler import generate_gap_investigation
     gap_df = generate_gap_investigation(clusters, valid_df, df)
     gap_path = export_gap_investigation(gap_df, str(output_dir))
+    fallback_path = export_fallback_conflicts(clusters, str(output_dir))
     from export import export_candidate_audit
     audit_path = export_candidate_audit(candidate_audit, str(output_dir))
 
@@ -174,6 +228,7 @@ def main():
     print(f"  Exceptions: {exc_path}")
     if gap_path:
         print(f"  Gap Investigation: {gap_path}")
+    print(f"  Fallback Conflicts: {fallback_path}")
     print(f"  Candidate Audit: {audit_path}")
 
     # 10. Console report

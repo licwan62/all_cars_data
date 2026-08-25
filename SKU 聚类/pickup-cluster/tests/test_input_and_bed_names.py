@@ -38,12 +38,79 @@ def test_optimized_name_is_always_generated_for_mixed_bed_range():
     })
     cluster = {"rows": frame, "BED_GROUP": "MIXED"}
     name = optimize_consumer_name(cluster, frame, try_gap_fill=False)
-    assert name == "Ford F-150 2020 | Regular | 5.5'-8.0' Bed"
+    assert name == "Ford F-150 2020 Regular 5.5'-8.0' Bed"
+    assert cluster["MAIN_PART"] == "2020 Ford F-150"
+    assert cluster["ADDITION_PART"] == "Regular Cab Bed (5.5'-8.0')"
+
+
+def test_optimized_name_parts_follow_catalog_layout():
+    f150_rows = pd.DataFrame({
+        "MAKE_NORMALIZED": ["Ford", "Ford"],
+        "MODEL_FAMILY": ["F-150", "F-150"],
+        "版本": ["", "Raptor"],
+        "CAB": ["SuperCrew", "SuperCrew"],
+        "BED_LENGTH": [5.5, 5.5],
+        "YEAR_START": [2001, 2001],
+        "YEAR_END": [2020, 2020],
+    })
+    f150 = {"rows": f150_rows, "_required_exclusions": []}
+    optimize_consumer_name(f150, f150_rows, try_gap_fill=False)
+    assert f150["MAIN_PART"] == "2001-2020 Ford F-150 (Incl Raptor)"
+    assert f150["ADDITION_PART"] == "SuperCrew Short Bed (5.5')"
+
+    silverado_rows = pd.DataFrame({
+        "MAKE_NORMALIZED": ["Chevrolet"],
+        "MODEL_FAMILY": ["Silverado 1500"],
+        "版本": [""],
+        "CAB": ["Crew"],
+        "BED_LENGTH": [5.8],
+        "YEAR_START": [2004],
+        "YEAR_END": [2026],
+    })
+    silverado = {
+        "rows": silverado_rows,
+        "_required_exclusions": ["2021-2026 Trail Boss"],
+    }
+    optimize_consumer_name(silverado, silverado_rows, try_gap_fill=False)
+    assert silverado["MAIN_PART"] == (
+        "2004-2026 Chevrolet Silverado 1500 (Excl Trail Boss)"
+    )
+    assert silverado["ADDITION_PART"] == "Crew Cab Short Bed (5.8')"
 
 
 def test_optimized_cab_collapses_approved_club_quad_synonyms():
     frame = pd.DataFrame({"CAB": ["Club/Quad", "Quad"]})
     assert format_cab_segment(frame, optimize=True) == "Club/Quad"
+
+
+def test_addition_part_compresses_shared_cab_suffix():
+    frame = pd.DataFrame({
+        "MAKE_NORMALIZED": ["Ford", "Ford"],
+        "MODEL_FAMILY": ["Ranger", "Ranger"],
+        "版本": ["", ""],
+        "CAB": ["Extended", "Regular"],
+        "BED_LENGTH": [6.0, 6.0],
+        "YEAR_START": [2000, 2000],
+        "YEAR_END": [2005, 2005],
+    })
+    cluster = {"rows": frame}
+    optimize_consumer_name(cluster, frame, try_gap_fill=False)
+    assert cluster["ADDITION_PART"] == "Extended/Regular Cab Standard Bed (6.0')"
+
+
+def test_addition_part_keeps_branded_supercab_uncompressed():
+    frame = pd.DataFrame({
+        "MAKE_NORMALIZED": ["Ford", "Ford"],
+        "MODEL_FAMILY": ["Ranger", "Ranger"],
+        "版本": ["", ""],
+        "CAB": ["Regular", "SuperCab"],
+        "BED_LENGTH": [6.0, 6.0],
+        "YEAR_START": [2000, 2000],
+        "YEAR_END": [2005, 2005],
+    })
+    cluster = {"rows": frame}
+    optimize_consumer_name(cluster, frame, try_gap_fill=False)
+    assert cluster["ADDITION_PART"] == "Regular Cab/SuperCab Standard Bed (6.0')"
 
 
 def _semantic_cluster(make, model, version, sku, cab, bed, start, end):

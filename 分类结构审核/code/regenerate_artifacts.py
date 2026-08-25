@@ -9,6 +9,7 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
 ARTIFACTS = PROJECT / "artifacts"
+AUDIT = ARTIFACTS / "audit"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 SOURCE = ROOT / "source" / "车型尺寸库.csv"
 SPLITS = PROJECT / "research_queue" / "approved_splits.json"
@@ -192,7 +193,7 @@ def main() -> None:
     priority = {"拆分并发生产品类型变化（重点）": 0, "产品类型变化（重点）": 1, "类型修改（重点）": 2, "结构修改": 3, "拆分记录": 4, "结构改名": 5}
     corrections.sort(key=lambda row: (priority.get(row["修改类型"], 9), row["MAKE"], row["MODEL"], row["YEAR"], row["DIMENSION-ID"]))
     uncertain.sort(key=lambda row: (row["MAKE"], row["MODEL"], row["YEAR"], row["DIMENSION-ID"]))
-    write(ARTIFACTS / "audit_table1_corrections.csv", T1_FIELDS, corrections)
+    write(AUDIT / "audit_table1_corrections.csv", T1_FIELDS, corrections)
     process_rows_by_id: OrderedDict[str, dict[str, str]] = OrderedDict()
     for row in corrected_rows:
         projected = {field: row.get(field, "") for field in T2_FIELDS}
@@ -204,11 +205,11 @@ def main() -> None:
             previous["迭代状态"] = " | ".join(statuses)
         else:
             process_rows_by_id[row["DIMENSION-ID"]] = projected
-    write(ARTIFACTS / "audit_table2_corrected.csv", T2_FIELDS, process_rows_by_id.values())
+    write(AUDIT / "audit_table2_corrected.csv", T2_FIELDS, process_rows_by_id.values())
     write(ARTIFACTS / "corrected.csv", SOURCE_FIELDS, corrected_rows)
-    write(ARTIFACTS / "audit_table3_uncertain.csv", T3_FIELDS, uncertain)
-    write(ARTIFACTS / "audit_table4_split.csv", T4_FIELDS, split_rows)
-    write(ARTIFACTS / "audit_table5_other.csv", T5_FIELDS, [])
+    write(AUDIT / "audit_table3_uncertain.csv", T3_FIELDS, uncertain)
+    write(AUDIT / "audit_table4_split.csv", T4_FIELDS, split_rows)
+    write(AUDIT / "audit_table5_other.csv", T5_FIELDS, [])
 
     correction_by_id = {row["DIMENSION-ID"]: row for row in corrections}
     output_by_id = {row["DIMENSION-ID"]: row for row in corrected_rows}
@@ -250,7 +251,7 @@ def main() -> None:
                 previous[field] = " | ".join(values)
         else:
             full_audit_by_id[row["DIMENSION-ID"]] = row
-    write(ARTIFACTS / "audit_full_inventory.csv", FULL_FIELDS, full_audit_by_id.values())
+    write(AUDIT / "audit_full_inventory.csv", FULL_FIELDS, full_audit_by_id.values())
     print(f"产物已从源表+研究队列重建：表1={len(corrections)}，表2={len(corrected_rows)}，表3={len(uncertain)}，表4={len(split_rows)}，表5=0；全库复审={len(full_audit)}")
 
 

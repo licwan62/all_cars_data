@@ -91,7 +91,7 @@
 
 ---
 
-## 规则 2：CLUSTER_ID 最好唯一，但允许多个
+## 规则 2：最终发布的 CLUSTER_ID 必须唯一
 
 理想情况下：
 
@@ -101,7 +101,9 @@
 
 `COUNT(DISTINCT CLUSTER_ID) = 1`
 
-但是如果一个原子事实对应多个 `CLUSTER_ID`，只要这些 `CLUSTER_ID` 最终全部属于**同一个 `PHYSICAL_SKU`**，可以暂时允许。
+候选搜索阶段如果一个原子事实对应多个 `CLUSTER_ID`，只要这些 `CLUSTER_ID`
+最终全部属于**同一个 `PHYSICAL_SKU`**，可以暂时允许并用于寻找更好的分区。
+但最终发布到电商链接前必须消除重叠，保证一个真实原子事实只被一个活动链接覆盖。
 
 例如：
 
@@ -111,11 +113,11 @@
 
 `ATOM X → CLUSTER_ID 205 → SKU-A`
 
-这是：
+在候选阶段这是：
 
 **Cluster 重叠，但不是 Physical SKU 冲突。**
 
-可以允许，但应记录为需要优化的数据质量问题。
+可以暂时允许，但不能直接进入最终发布结果。
 
 而下面这种情况绝对禁止：
 
@@ -462,11 +464,12 @@
 
 `ATOM → 单一 CLUSTER_ID → 单一 PHYSICAL_SKU`
 
-如果做不到单一 `CLUSTER_ID`：
+候选搜索阶段如果暂时做不到单一 `CLUSTER_ID`：
 
 `ATOM → 多个 CLUSTER_ID → 同一个 PHYSICAL_SKU`
 
-可以接受，但应记录并尽量优化。
+可以记录为候选重叠，但发布前必须继续拆分或合并，直至真实 ATOM 只覆盖一个
+活动 `CLUSTER_ID`。
 
 绝对不能出现：
 
@@ -479,3 +482,19 @@
 整个算法的最高原则是：
 
 **允许扩大 CONSUMER_NAME 的原子事实覆盖范围，但绝对不能扩大到另一个 PHYSICAL_SKU 的领地。**
+
+---
+
+# 十三、电商链接身份与物理 SKU 分离
+
+最终数据模型为：
+
+`ATOM → 唯一 LINK_ID/CLUSTER_ID → PHYSICAL_SKU`
+
+- `CLUSTER_ID` 使用持久化的 `LINK_ID`，不得由 `PHYSICAL_SKU`、年份或本次运行的
+  `__M01/__M02` 序号实时拼接；
+- `CLUSTER_KEY` 是当前覆盖内容的可变指纹；
+- `PROVISIONAL_CLUSTER_ID` 只用于诊断本次候选分组；
+- 一个 `PHYSICAL_SKU` 可以对应多个 `LINK_ID`；
+- LINK 拆分时由覆盖重叠最高的主子组继承旧 ID，其他子组获取新 ID；
+- LINK 合并时保留一个旧 ID，其余 ID 标记为 `RETIRED/MERGED_INTO`。

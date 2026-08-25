@@ -1,6 +1,6 @@
 # 车形分类核定
 
-本项目根据 `doc/车型车形号码判断 SOP.md`，为 `../source/车型尺寸库.csv` 中的每个 `DIMENSION-ID` 核定车形号码。
+本项目根据 `doc/AGENT.md`，为 `../分类结构审核/changes/2026-08-24_03_sedan-coupe/correct.csv` 中的每个 `DIMENSION-ID` 核定车形号码。可用环境变量 `SHAPE_SOURCE` 临时指定其他同结构源表。
 
 ## 目录
 

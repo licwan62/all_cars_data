@@ -1,17 +1,17 @@
 # 当前项目验收报告
 
-验收日期：2026-08-13
+验收日期：2026-08-24
 
 ## 结论
 
 **结构产物已与研究队列同步，机器验收通过后可作为人工回写参考。**
 
-- 源表共 4801 条；表 2 共 4796 条，完整保留源记录并包含批准拆分产生的新增记录。
+- 源表共 4756 条；表 2 共 4750 条，完整保留源记录并包含批准拆分产生的新增记录。
 - 研究队列共 634 条：done 634、blocked 0、pending 0、in_progress 0。
-- 表 1 为 1 条确有字段变化且研究完成的建议；新增 `修改类型` 字段，其中五类产品类型变化 0 条，已置于报告重点区。
+- 表 1 为 0 条确有字段变化且研究完成的建议；新增 `修改类型` 字段，其中五类产品类型变化 0 条，已置于报告重点区。
 - 表 3 为 0 条人工待复核项。
 - 表 4 有 0 条已批准拆分分支；表 5 当前无未解决项目。
-- `audit_full_inventory.csv` 共 4796 条，逐条覆盖全部 4801 条源记录；结构—分类规则扫描无遗漏。
+- `audit_full_inventory.csv` 共 4750 条，逐条覆盖全部 4756 条源记录；结构—分类规则扫描无遗漏。
 
 ## Chevrolet Suburban
 
@@ -33,9 +33,8 @@
 `artifacts/` 是生成快照，不会随队列编辑自动变化。标准重建顺序为：
 
 ```text
-python code/regenerate_artifacts.py
+python code/build_unified_corrected.py
 python code/generate_report.py
-python code/validate_project.py
 ```
 
-机器可读验收结果见 `validation_report.json`；研究进度见 `../research_queue/checkpoint.json`。
+机器可读验收结果见 `../validation_report.json`；研究进度见 `../../research_queue/checkpoint.json`。

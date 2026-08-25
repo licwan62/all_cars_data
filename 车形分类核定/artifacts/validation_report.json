@@ -1,10 +1,11 @@
 {
   "passed": true,
+  "source": "D:\\Licheng\\Workflow\\all_cars_data\\分类结构审核\\changes\\2026-08-24_03_sedan-coupe\\correct.csv",
   "checks": [
     {
       "check": "source_schema",
       "passed": true,
-      "rows": 4801,
+      "rows": 4786,
       "actual": [
         "DIMENSION-ID",
         "MAKE",
@@ -29,9 +30,14 @@
       "passed": true
     },
     {
+      "check": "source_dimension_ids_unique",
+      "passed": true,
+      "unique_ids": 4786
+    },
+    {
       "check": "cache_shapes_valid",
       "passed": true,
-      "rows": 956
+      "rows": 1061
     },
     {
       "check": "cache_keys_unique",
@@ -53,8 +59,13 @@
     {
       "check": "result_exact_coverage",
       "passed": true,
-      "source_rows": 4801,
-      "result_rows": 4801
+      "source_rows": 4786,
+      "result_rows": 4786
+    },
+    {
+      "check": "result_dimension_ids_unique",
+      "passed": true,
+      "unique_ids": 4786
     },
     {
       "check": "result_shapes_valid",

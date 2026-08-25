@@ -4,7 +4,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 import pandas as pd
 from atom_verifier import (build_atom_map, build_verified_candidates,
-                           expand_original_atoms, verify_candidate)
+                           expand_original_atoms, verify_candidate,
+                           verify_unique_real_atom_ownership,
+                           verify_unique_real_atom_title_coverage)
+from export import export_fallback_conflicts
 
 
 def rows(sku, cid, facts):
@@ -54,17 +57,61 @@ def test_cross_sku_candidate_is_rejected_and_split_before_output():
     assert all(c["_diagnostics"]["PHYSICAL_SKU_CONFLICT_ATOM_COUNT"] == 0 for c in final)
 
 
-def test_unsupported_cab_bed_cartesian_combinations_are_rejected():
+def test_fallback_conflict_export_traces_every_real_owner_record(tmp_path):
+    target = rows("A", "A1", [
+        {"YEAR_START": 2020, "YEAR_END": 2020, "CAB": "Crew", "BED": "5.5"},
+        {"YEAR_START": 2021, "YEAR_END": 2021, "CAB": "Crew", "BED": "6.5"},
+    ])
+    owner = rows("B", "B1", [
+        {"YEAR_START": 2020, "YEAR_END": 2020, "CAB": "Crew", "BED": "6.5"},
+    ])
+    owner["rows"]["DIMENSION-ID"] = "B-DIMENSION"
+    diag = verify_candidate(
+        target["rows"], "A", build_atom_map([target, owner]), "A1"
+    )
+    assert diag["CONFLICT_ATOMS"] == "Ford|F-150||2020|Crew|6.5"
+    target["_optimization_attempt"] = {
+        "name": "attempted", "year_ranges": "2020-2021", "gap_years": "",
+        "diagnostics": diag,
+    }
+    target["_fallback"] = {
+        "name": "fallback", "year_ranges": "2020/2021",
+        "diagnostics": {"MERGE_STATUS": "ACCEPT"},
+    }
+
+    path = export_fallback_conflicts([target, owner], str(tmp_path))
+    exported = pd.read_csv(path)
+    assert len(exported) == 1
+    assert exported.loc[0, "EXISTING_PHYSICAL_SKU"] == "B"
+    assert exported.loc[0, "EXISTING_CLUSTER_ID"] == "B1"
+    assert exported.loc[0, "SOURCE_DIMENSION_ID"] == "B-DIMENSION"
+
+
+def test_nonexistent_cab_bed_cartesian_combinations_are_allowed():
     cluster = rows("A", "A1", [
         {"YEAR_START": 2020, "YEAR_END": 2020, "CAB": "Regular", "BED": "8.0"},
         {"YEAR_START": 2021, "YEAR_END": 2021, "CAB": "Crew", "BED": "5.5"},
     ])
     diag = verify_candidate(cluster["rows"], "A", build_atom_map([cluster]), "A1")
-    assert diag["MERGE_STATUS"] == "REJECT"
-    assert diag["UNRESOLVED_NEW_ATOM_COUNT"] == 4
+    assert diag["MERGE_STATUS"] == "ACCEPT"
+    assert diag["UNRESOLVED_NEW_ATOM_COUNT"] == 0
+    assert diag["INFERRED_NEW_ATOM_COUNT"] == 6
     final, _ = build_verified_candidates([cluster])
-    assert len(final) == 2
+    assert len(final) == 1
     assert all(c["MERGE_STATUS"] == "ACCEPT" for c in final)
+
+
+def test_ram_style_variants_merge_when_only_generated_bed_combinations_are_missing():
+    cluster = rows("PK-XL", "RAM", [
+        {"YEAR_START": 2019, "YEAR_END": 2026, "CAB": "Crew", "BED": "5.6", "版本": ""},
+        {"YEAR_START": 2019, "YEAR_END": 2026, "CAB": "Crew", "BED": "6.4", "版本": ""},
+        {"YEAR_START": 2021, "YEAR_END": 2024, "CAB": "Crew", "BED": "5.6", "版本": "TRX"},
+        {"YEAR_START": 2025, "YEAR_END": 2026, "CAB": "Crew", "BED": "5.6", "版本": "RHO"},
+    ])
+    final, _ = build_verified_candidates([cluster])
+    assert len(final) == 1
+    assert final[0]["MERGE_STATUS"] == "ACCEPT"
+    assert final[0]["_diagnostics"]["INFERRED_NEW_ATOM_COUNT"] == 26
 
 
 def test_mixed_cab_and_bed_metadata_is_not_copied_from_first_row():
@@ -92,3 +139,39 @@ def test_missing_year_is_safe_when_structure_has_historical_other_sku():
     assert diag["MERGE_STATUS"] == "ACCEPT"
     assert diag["INFERRED_NEW_ATOM_COUNT"] == 1
     assert diag["PHYSICAL_SKU_CONFLICT_ATOM_COUNT"] == 0
+
+
+def test_final_real_atom_coverage_requires_one_cluster_id():
+    left = rows("A", "A1", [
+        {"YEAR_START": 2020, "YEAR_END": 2022, "CAB": "Crew", "BED": "5.5"},
+    ])
+    right = rows("A", "A2", [
+        {"YEAR_START": 2021, "YEAR_END": 2021, "CAB": "Crew", "BED": "5.5"},
+    ])
+    diag = verify_unique_real_atom_ownership([left, right])
+    assert diag["MERGE_STATUS"] == "REJECT"
+    assert diag["MULTI_CLUSTER_ATOM_COUNT"] == 1
+
+
+def test_final_real_atom_coverage_ignores_nonexistent_combinations():
+    cluster = rows("A", "A1", [
+        {"YEAR_START": 2020, "YEAR_END": 2020, "CAB": "Regular", "BED": "8.0"},
+        {"YEAR_START": 2021, "YEAR_END": 2021, "CAB": "Crew", "BED": "5.5"},
+    ])
+    diag = verify_unique_real_atom_ownership([cluster])
+    assert diag["MERGE_STATUS"] == "ACCEPT"
+    assert diag["ORIGINAL_ATOM_COUNT"] == 2
+
+
+def test_final_title_coverage_detects_same_sku_overlap():
+    broad = rows("A", "A1", [
+        {"YEAR_START": 2020, "YEAR_END": 2020, "CAB": "Crew", "BED": "5.5"},
+        {"YEAR_START": 2021, "YEAR_END": 2021, "CAB": "Crew", "BED": "6.5"},
+    ])
+    exact = rows("A", "A2", [
+        {"YEAR_START": 2020, "YEAR_END": 2020, "CAB": "Crew", "BED": "6.5"},
+    ])
+    assert verify_unique_real_atom_ownership([broad, exact])["MERGE_STATUS"] == "ACCEPT"
+    diag = verify_unique_real_atom_title_coverage([broad, exact])
+    assert diag["MERGE_STATUS"] == "REJECT"
+    assert diag["MULTI_CLUSTER_ATOM_COUNT"] == 1

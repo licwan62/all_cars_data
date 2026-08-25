@@ -15,6 +15,7 @@ PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
 SOURCE_DIR = ROOT / "source"
 ARTIFACTS = PROJECT / "artifacts"
+AUDIT = ARTIFACTS / "audit"
 QUEUE_DIR = PROJECT / "research_queue"
 QUEUE_FILE = QUEUE_DIR / "queue.csv"
 CHECKPOINT_FILE = QUEUE_DIR / "checkpoint.json"
@@ -135,10 +136,10 @@ def candidate_rows() -> list[dict[str, str]]:
     result = []
     source_by_id = {row.get("DIMENSION-ID", ""): row for row in read_rows(SOURCE_DIR / "车型尺寸库.csv")}
     sources = [
-        (ARTIFACTS / "audit_table1_corrections.csv", "correction", "原结构", "建议结构", "修改原因"),
-        (ARTIFACTS / "audit_table3_uncertain.csv", "uncertain", "当前结构", "疑似结构", "问题"),
-        (ARTIFACTS / "audit_table4_split.csv", "split", "当前结构", "建议结构", "拆分原因"),
-        (ARTIFACTS / "audit_table5_other.csv", "other", "当前值", "", "疑似问题"),
+        (AUDIT / "audit_table1_corrections.csv", "correction", "原结构", "建议结构", "修改原因"),
+        (AUDIT / "audit_table3_uncertain.csv", "uncertain", "当前结构", "疑似结构", "问题"),
+        (AUDIT / "audit_table4_split.csv", "split", "当前结构", "建议结构", "拆分原因"),
+        (AUDIT / "audit_table5_other.csv", "other", "当前值", "", "疑似问题"),
     ]
     for path, issue_type, current_col, suspected_col, detail_col in sources:
         for row in read_rows(path):

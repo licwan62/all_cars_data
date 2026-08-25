@@ -284,6 +284,98 @@ def _cluster_is_all_special_variant(cluster: dict) -> bool:
     return rows.apply(_is_special_variant_row, axis=1).all()
 
 
+def _format_addition_cab_segment(rows: pd.DataFrame) -> str:
+    """Format CAB names for the standalone ADDITION_PART field."""
+    values = [_canonical_cab(v) for v in rows["CAB"].dropna().unique()]
+    display = {
+        "Regular": "Regular Cab",
+        "Crew": "Crew Cab",
+        "Extended": "Extended Cab",
+        "Single": "Single Cab",
+        "Standard": "Standard Cab",
+        "Mega": "Mega Cab",
+        "King": "King Cab",
+        "Access": "Access Cab",
+        "Double": "Double Cab",
+        "Quad": "Quad Cab",
+        "Club/Quad": "Club/Quad Cab",
+    }
+    rendered = [display.get(v, v) for v in sorted(set(values))]
+    if len(rendered) > 1 and all(v.endswith(" Cab") for v in rendered):
+        return "/".join(v[:-4] for v in rendered) + " Cab"
+    return "/".join(rendered)
+
+
+def _format_addition_bed_segment(rows: pd.DataFrame) -> str:
+    """Format a Bed label followed by its length, matching catalog style."""
+    lengths = pd.to_numeric(
+        rows.get("BED_LENGTH", pd.Series(dtype=float)), errors="coerce"
+    ).dropna()
+    if lengths.empty:
+        return "Bed"
+
+    low, high = float(lengths.min()), float(lengths.max())
+    length_text = f"{low:.1f}'" if low == high else f"{low:.1f}'-{high:.1f}'"
+    if high < 6.0:
+        bed_name = "Short Bed"
+    elif low >= 6.0 and high < 7.0:
+        bed_name = "Standard Bed"
+    elif low >= 7.0:
+        bed_name = "Long Bed"
+    else:
+        bed_name = "Bed"
+    return f"{bed_name} ({length_text})"
+
+
+def _exclusion_label(value: str) -> str:
+    """Remove the diagnostic year prefix from an exclusion for compact display."""
+    import re
+
+    return re.sub(
+        r"^\d{4}(?:-\d{4})?(?:/\d{4}(?:-\d{4})?)*\s+", "", str(value)
+    ).strip()
+
+
+def generate_optimized_name_parts(cluster: dict, year_str: str) -> tuple[str, str]:
+    """Build catalog-friendly MAIN_PART and ADDITION_PART values.
+
+    MAIN_PART contains year, make/model, and variant inclusion/exclusion.
+    ADDITION_PART contains the CAB and Bed description.
+    """
+    rows = cluster.get("rows", pd.DataFrame())
+    if rows.empty:
+        return "", ""
+
+    make = str(rows["MAKE_NORMALIZED"].iloc[0]).strip()
+    model = str(rows["MODEL_FAMILY"].iloc[0]).strip()
+    labels = sorted(_cluster_variant_labels(cluster))
+    has_special = _cluster_has_special_variant(cluster)
+    all_special = _cluster_is_all_special_variant(cluster)
+
+    main_part = f"{year_str} {make} {model}"
+    qualifiers = []
+    if all_special and labels:
+        # A pure special-variant cluster names the variant as part of the model.
+        main_part = f"{main_part} {' & '.join(labels)}"
+    elif has_special and labels:
+        qualifiers.append(f"Incl {' & '.join(labels)}")
+
+    exclusions = []
+    for value in cluster.get("_required_exclusions", []):
+        label = _exclusion_label(value)
+        if label and label not in exclusions:
+            exclusions.append(label)
+    if exclusions:
+        qualifiers.append(f"Excl {' & '.join(exclusions)}")
+    if qualifiers:
+        main_part = f"{main_part} ({'; '.join(qualifiers)})"
+
+    cab_part = _format_addition_cab_segment(rows)
+    bed_part = _format_addition_bed_segment(rows)
+    addition_part = " ".join(part for part in (cab_part, bed_part) if part)
+    return main_part, addition_part
+
+
 def _same_model_has_special_cluster(cluster: dict, all_clusters: list[dict]) -> set[str]:
     """Get variant labels from other clusters of the same model."""
     rows = cluster.get("rows", pd.DataFrame())

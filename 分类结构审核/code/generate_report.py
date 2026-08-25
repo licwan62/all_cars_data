@@ -10,6 +10,8 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
 ART = PROJECT / "artifacts"
+AUDIT = ART / "audit"
+REPORTS = ART / "reports"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 SOURCE = ROOT / "source" / "车型尺寸库.csv"
 
@@ -20,7 +22,8 @@ def read(path: Path) -> list[dict[str, str]]:
 
 
 def main() -> None:
-    tables = {number: read(ART / f"audit_table{number}_{name}.csv") for number, name in [
+    REPORTS.mkdir(parents=True, exist_ok=True)
+    tables = {number: read(AUDIT / f"audit_table{number}_{name}.csv") for number, name in [
         (1, "corrections"), (2, "corrected"), (3, "uncertain"), (4, "split"), (5, "other")
     ]}
     queue = read(QUEUE)
@@ -39,7 +42,7 @@ def main() -> None:
     changes = Counter((row["原结构"], row["建议结构"]) for row in tables[1])
     change_types = Counter(row["修改类型"] for row in tables[1])
     product_type_changes = [row for row in tables[1] if row["原分类"] != row["建议分类"]]
-    full_audit = read(ART / "audit_full_inventory.csv")
+    full_audit = read(AUDIT / "audit_full_inventory.csv")
     suburban = [row for row in tables[3] if row["MAKE"] == "Chevrolet" and row["MODEL"] == "Suburban"]
     approved_suburban = [row for row in tables[1] if row["MAKE"] == "Chevrolet" and row["MODEL"] == "Suburban"]
     review_ids = {row["DIMENSION-ID"] for row in tables[3]}
@@ -107,7 +110,7 @@ def main() -> None:
         "",
         "【产物维护说明】",
         "artifacts 不是实时数据库，而是可重复生成的审核快照。",
-        "运行 python code/regenerate_artifacts.py 后，再运行本脚本与 validate_project.py，即可与 queue.csv 同步。",
+        "运行 python code/build_unified_corrected.py 后，再运行本脚本，即可与 queue.csv 及全部审核层同步。",
         "audit_table2_corrected.csv 当前包含源表全部记录、所有 done 且确有变化的结论，以及批准拆分后自动生成 ID 的新增记录。",
         "",
         "【文件行数】",
@@ -120,8 +123,8 @@ def main() -> None:
         "=" * 80,
     ])
     text = "\n".join(lines) + "\n"
-    (ART / "audit_report.txt").write_text(text, encoding="utf-8")
-    (ART / "analysis_output.txt").write_text(text, encoding="utf-8")
+    (REPORTS / "audit_report.txt").write_text(text, encoding="utf-8")
+    (REPORTS / "analysis_output.txt").write_text(text, encoding="utf-8")
 
     acceptance = f"""# 当前项目验收报告
 
@@ -158,14 +161,13 @@ def main() -> None:
 `artifacts/` 是生成快照，不会随队列编辑自动变化。标准重建顺序为：
 
 ```text
-python code/regenerate_artifacts.py
+python code/build_unified_corrected.py
 python code/generate_report.py
-python code/validate_project.py
 ```
 
-机器可读验收结果见 `validation_report.json`；研究进度见 `../research_queue/checkpoint.json`。
+机器可读验收结果见 `../validation_report.json`；研究进度见 `../../research_queue/checkpoint.json`。
 """
-    (ART / "acceptance_report.md").write_text(acceptance, encoding="utf-8")
+    (REPORTS / "acceptance_report.md").write_text(acceptance, encoding="utf-8")
     print(json.dumps({"total": total, "corrections": len(tables[1]), "uncertain": len(tables[3]), "suburban": len(suburban)}, ensure_ascii=False))
 
 

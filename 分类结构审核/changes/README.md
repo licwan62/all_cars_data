@@ -1,0 +1,21 @@
+# 单次修改包
+
+本目录按修改批次保存可独立交付和回溯的快照。每个批次必须至少包含 `correct.csv`、`changes.csv` 和 `report.md`。
+
+## 当前批次
+
+- `2026-08-24_01_version-normalization`：SUV 门数 VERSION 规范化及同外廓冗余版本合并。
+- `2026-08-24_02_year-reference-us-market`：补归档原 year_reference 与美国市场尺寸修复；该阶段快照为 4,791 行。
+- `2026-08-24_03_sedan-coupe`：补归档原 Sedan/Coupe 分类与尺寸修复；该阶段快照为 4,788 行。
+
+`02`、`03` 是补建修改包的目录序号；实际数据处理顺序为 year/美规 → Sedan/Coupe → VERSION 规范化。
+
+## 约定
+
+- 目录名：`YYYY-MM-DD_NN_short-description`。
+- `correct.csv` 是该批次完成时的全量结果，不是增量补丁。
+- `changes.csv` 只记录该批次实际执行的修改。
+- `candidates.csv` 记录未自动应用、仍需审核的候选。
+- `report.md` 说明规则、统计、例外和风险。
+- `validation.json` 保存该批次机器验收结果。
+- 已交付批次不得被下一次修改覆盖；下一次使用新的顺序号和目录。

@@ -14,6 +14,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from id_scheme import dimension_id
 OUT = PROJECT / "artifacts"
+AUDIT = OUT / "audit"
 SOURCE_DIR = ROOT / "source"
 SOURCE = SOURCE_DIR / "车型尺寸库.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
@@ -57,7 +58,7 @@ def main() -> None:
     report["passed"] &= dimension_ids_ok
     tables = {}
     for name, expected in EXPECTED.items():
-        path = OUT / name
+        path = (OUT if name == "corrected.csv" else AUDIT) / name
         if not path.exists():
             report["checks"].append({"check": name, "passed": False, "error": "missing"}); report["passed"] = False; continue
         header, rows = read(path); tables[name] = rows

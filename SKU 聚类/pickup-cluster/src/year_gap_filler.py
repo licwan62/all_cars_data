@@ -191,7 +191,7 @@ def optimize_consumer_name(cluster: dict, full_df: pd.DataFrame,
     model = rows["MODEL_FAMILY"].iloc[0]
     year_str = format_year_ranges(optimized_ranges)
 
-    from consumer_name import format_cab_segment
+    from consumer_name import format_cab_segment, generate_optimized_name_parts
     cab_segment = format_cab_segment(rows, optimize=True)
 
     from consumer_name import format_bed_segment
@@ -218,6 +218,10 @@ def optimize_consumer_name(cluster: dict, full_df: pd.DataFrame,
     exclusions = cluster.get("_required_exclusions", [])
     if exclusions:
         base_name = f"{base_name} Excludes {' & '.join(exclusions)}"
+
+    main_part, addition_part = generate_optimized_name_parts(cluster, year_str)
+    cluster["MAIN_PART"] = main_part
+    cluster["ADDITION_PART"] = addition_part
 
     return base_name
 

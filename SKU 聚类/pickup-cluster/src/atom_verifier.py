@@ -65,48 +65,36 @@ def expand_candidate_atoms(rows, year_ranges=None):
 
 def verify_candidate(rows, target_sku, atom_map, cluster_id="", year_ranges=None,
                      structure_map=None):
+    """Verify only facts that actually exist in ``atom_map``.
+
+    Cartesian combinations produced by a broad consumer name are allowed when
+    no source atom exists for them.  A candidate is rejected only when an
+    existing atom crosses a physical-SKU boundary or an existing atom already
+    has more than one source CLUSTER_ID.
+    """
     original = expand_original_atoms(rows)
     expanded = expand_candidate_atoms(rows, year_ranges)
-    structure_map = structure_map or build_structure_map(atom_map)
     conflicts = multi = unresolved = inferred = 0
-    samples, unresolved_samples = [], []
-    for key in expanded:
+    samples, conflict_atoms, unresolved_samples = [], [], []
+    for key in sorted(expanded):
         owners = atom_map.get(key, [])
         if not owners:
-            make, model, version, _year, cab, bed = key.split("|", 5)
-            owners = structure_map.get((make, model, version, cab, bed), [])
-            if not owners:
-                unresolved += 1
-                if len(unresolved_samples) < 5: unresolved_samples.append(key)
-                continue
-            skus = {o["PHYSICAL_SKU"] for o in owners}
-            # The exact atom does not exist, so historical ownership of this
-            # structure by another SKU is not an atom conflict. If the target
-            # SKU has established the structure, the missing year is a safe
-            # expansion. Exact atoms owned by another SKU are still rejected
-            # in the branch below.
-            if target_sku not in skus:
-                conflicts += 1
-                if len(samples) < 5: samples.append(key)
-                continue
+            # A generated combination that has no real source fact is allowed.
+            # It is diagnostic inference only and cannot create an ownership
+            # conflict by itself.
             inferred += 1
-            target_cids = {o["CLUSTER_ID"] for o in owners
-                           if o["PHYSICAL_SKU"] == target_sku}
-            if len(target_cids) > 1:
-                multi += 1
             continue
         skus = {o["PHYSICAL_SKU"] for o in owners}
         if skus != {target_sku}:
             conflicts += 1
+            conflict_atoms.append(key)
             if len(samples) < 5: samples.append(key)
         elif len({o["CLUSTER_ID"] for o in owners}) > 1:
             multi += 1
     if conflicts:
         status, reason = "REJECT", f"PHYSICAL_SKU conflict: {conflicts} atoms cross SKU boundary"
-    elif unresolved:
-        status, reason = "REJECT", f"UNRESOLVED_NEW_ATOM: {unresolved} atoms introduce unsupported VERSION/CAB/BED combinations"
     elif multi:
-        status, reason = "REVIEW", f"{multi} atoms map to multiple CLUSTER_IDs (same SKU)"
+        status, reason = "REJECT", f"REAL_ATOM_NON_UNIQUE: {multi} atoms map to multiple CLUSTER_IDs"
     else:
         status, reason = "ACCEPT", ""
     return {
@@ -120,8 +108,104 @@ def verify_candidate(rows, target_sku, atom_map, cluster_id="", year_ranges=None
         "PHYSICAL_SKU_CONFLICT_ATOM_COUNT": conflicts,
         "TARGET_PHYSICAL_SKU": target_sku, "MERGE_STATUS": status,
         "REJECT_REASON": reason, "CONFLICT_ATOM_SAMPLES": "; ".join(samples),
+        "CONFLICT_ATOMS": "; ".join(conflict_atoms),
         "UNRESOLVED_ATOM_SAMPLES": "; ".join(unresolved_samples),
     }
+
+
+def verify_unique_real_atom_ownership(clusters):
+    """Ensure every real source atom is owned by exactly one final cluster.
+
+    Candidate-name Cartesian coverage is deliberately excluded here: generated
+    combinations do not remap source facts. Ownership comes only from the
+    original rows carried by each final cluster.
+    """
+    atom_map = build_atom_map(clusters)
+    real_atoms = set(atom_map)
+    ownership = {
+        key: {owner["CLUSTER_ID"] for owner in owners}
+        for key, owners in atom_map.items()
+    }
+    non_unique = {key: cids for key, cids in ownership.items() if len(cids) != 1}
+    samples = [f"{key} => {','.join(sorted(cids))}" for key, cids in non_unique.items()]
+    status = "REJECT" if non_unique else "ACCEPT"
+    reason = (
+        f"REAL_ATOM_NON_UNIQUE: {len(non_unique)} atoms do not map to exactly one final CLUSTER_ID"
+        if non_unique else ""
+    )
+    return {
+        "ORIGINAL_ATOM_COUNT": len(real_atoms),
+        "EXPANDED_ATOM_COUNT": len(real_atoms),
+        "NEW_ATOM_COUNT": 0,
+        "EXISTING_ATOM_COUNT": len(real_atoms),
+        "UNRESOLVED_NEW_ATOM_COUNT": 0,
+        "INFERRED_NEW_ATOM_COUNT": 0,
+        "INFERRED_CLUSTER_ID": "",
+        "MULTI_CLUSTER_ATOM_COUNT": len(non_unique),
+        "PHYSICAL_SKU_CONFLICT_ATOM_COUNT": 0,
+        "TARGET_PHYSICAL_SKU": "",
+        "MERGE_STATUS": status,
+        "REJECT_REASON": reason,
+        "CONFLICT_ATOM_SAMPLES": "; ".join(samples[:5]),
+        "CONFLICT_ATOMS": "; ".join(sorted(non_unique)),
+        "UNRESOLVED_ATOM_SAMPLES": "",
+    }
+
+
+def verify_unique_real_atom_title_coverage(clusters):
+    """Ensure expanded final titles cover each real atom exactly once."""
+    atom_map = build_atom_map(clusters)
+    real_atoms = set(atom_map)
+    coverage = {key: set() for key in real_atoms}
+    expanded_total = 0
+    for cluster in clusters:
+        cid = cluster.get("CLUSTER_ID", "")
+        expanded = expand_candidate_atoms(
+            cluster.get("rows", pd.DataFrame()), cluster.get("_optimized_ranges")
+        )
+        expanded_total += len(expanded)
+        for key in expanded & real_atoms:
+            coverage[key].add(cid)
+
+    non_unique = {key: cids for key, cids in coverage.items() if len(cids) != 1}
+    samples = [f"{key} => {','.join(sorted(cids))}" for key, cids in non_unique.items()]
+    status = "REJECT" if non_unique else "ACCEPT"
+    reason = (
+        f"REAL_ATOM_TITLE_COVERAGE_NON_UNIQUE: {len(non_unique)} atoms are covered by multiple final titles"
+        if non_unique else ""
+    )
+    return {
+        "ORIGINAL_ATOM_COUNT": len(real_atoms),
+        "EXPANDED_ATOM_COUNT": expanded_total,
+        "NEW_ATOM_COUNT": 0,
+        "EXISTING_ATOM_COUNT": len(real_atoms),
+        "UNRESOLVED_NEW_ATOM_COUNT": 0,
+        "INFERRED_NEW_ATOM_COUNT": 0,
+        "INFERRED_CLUSTER_ID": "",
+        "MULTI_CLUSTER_ATOM_COUNT": len(non_unique),
+        "PHYSICAL_SKU_CONFLICT_ATOM_COUNT": 0,
+        "TARGET_PHYSICAL_SKU": "",
+        "MERGE_STATUS": status,
+        "REJECT_REASON": reason,
+        "CONFLICT_ATOM_SAMPLES": "; ".join(samples[:5]),
+        "CONFLICT_ATOMS": "; ".join(sorted(non_unique)),
+        "UNRESOLVED_ATOM_SAMPLES": "",
+    }
+
+
+def _overlapping_real_atoms(groups, real_atoms):
+    coverage = {}
+    for group_no, rows in enumerate(groups):
+        for key in expand_candidate_atoms(rows) & real_atoms:
+            coverage.setdefault(key, set()).add(group_no)
+    return {key: owners for key, owners in coverage.items() if len(owners) > 1}
+
+
+def _partition_by_exact_structure(rows):
+    """Safe fallback: one group per exact VERSION+CAB+BED relationship."""
+    columns = ["MAKE_NORMALIZED", "MODEL_FAMILY", "版本", "CAB", "BED"]
+    ordered = rows.sort_values(columns + ["YEAR_START", "YEAR_END"])
+    return [group.copy() for _, group in ordered.groupby(columns, dropna=False, sort=True)]
 
 def _refresh(base, rows, cid):
     c = copy(base); c["rows"] = rows.copy(); c["CLUSTER_ID"] = cid
@@ -138,7 +222,8 @@ def _refresh(base, rows, cid):
         c[p+"_spread"] = c[p+"_max"] - c[p+"_min"]
     c["length_margin_min"] = rows["自动长度余量"].min()
     c["length_margin_median"] = rows["自动长度余量"].median()
-    for key in ("_split_names", "_split_cluster_map", "_diagnostics", "CONSUMER_NAME", "CONSUMER_NAME_OPTIMIZED"):
+    for key in ("_split_names", "_split_cluster_map", "_diagnostics", "CONSUMER_NAME",
+                "CONSUMER_NAME_OPTIMIZED", "MAIN_PART", "ADDITION_PART"):
         c.pop(key, None)
     return c
 
@@ -166,6 +251,29 @@ def build_verified_candidates(clusters):
                 groups.append(unit)
             else:
                 groups[best[1]] = best[2]
+        overlaps = _overlapping_real_atoms(groups, set(atom_map))
+        if overlaps:
+            audit.append({
+                "BASE_CLUSTER_ID": base["CLUSTER_ID"],
+                "CANDIDATE_TYPE": "REAL_ATOM_COVERAGE_REPARTITION",
+                "CANDIDATE_ROW_COUNT": len(base["rows"]),
+                "ORIGINAL_ATOM_COUNT": len(expand_original_atoms(base["rows"])),
+                "EXPANDED_ATOM_COUNT": sum(len(expand_candidate_atoms(g)) for g in groups),
+                "NEW_ATOM_COUNT": 0,
+                "EXISTING_ATOM_COUNT": len(expand_original_atoms(base["rows"])),
+                "UNRESOLVED_NEW_ATOM_COUNT": 0,
+                "INFERRED_NEW_ATOM_COUNT": 0,
+                "INFERRED_CLUSTER_ID": "",
+                "MULTI_CLUSTER_ATOM_COUNT": len(overlaps),
+                "PHYSICAL_SKU_CONFLICT_ATOM_COUNT": 0,
+                "TARGET_PHYSICAL_SKU": base["自动尺码"],
+                "MERGE_STATUS": "REPARTITION",
+                "REJECT_REASON": f"{len(overlaps)} real atoms covered by multiple candidate titles",
+                "CONFLICT_ATOM_SAMPLES": "; ".join(sorted(overlaps)[:5]),
+                "CONFLICT_ATOMS": "; ".join(sorted(overlaps)),
+                "UNRESOLVED_ATOM_SAMPLES": "",
+            })
+            groups = _partition_by_exact_structure(base["rows"])
         multiple = len(groups) > 1
         for n, rows in enumerate(groups, 1):
             cid = f"{base['CLUSTER_ID']}__M{n:02d}" if multiple else base["CLUSTER_ID"]

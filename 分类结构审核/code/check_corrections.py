@@ -2,8 +2,9 @@ import csv
 from pathlib import Path
 
 ARTIFACTS = Path(__file__).resolve().parents[1] / 'artifacts'
+AUDIT = ARTIFACTS / 'audit'
 
-with (ARTIFACTS / 'audit_table1_corrections.csv').open(encoding='utf-8-sig') as f:
+with (AUDIT / 'audit_table1_corrections.csv').open(encoding='utf-8-sig') as f:
     data = list(csv.DictReader(f))
 
 print('=== Coupe -> Sedan 例子 ===')
