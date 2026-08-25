@@ -14,13 +14,13 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
-DEFAULT_SOURCE = ROOT / "分类结构审核" / "changes" / "2026-08-24_03_sedan-coupe" / "correct.csv"
+DEFAULT_SOURCE = ROOT / "分类结构审核" / "changes" / "2026-08-25_05_final-review-progression" / "correct.csv"
 SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
 LOCK_FILE = PROJECT / "research_queue" / ".shape_project.lock"
-ALLOWED_SHAPES = {"0", "1", "10", "11", "20", "21", "22", "23", "30", "31", "32", "40", "41", "42", "50"}
+ALLOWED_SHAPES = {"0", "1", "10", "11", "20", "21", "25", "26", "30", "31", "32", "40", "41", "42", "50"}
 CACHE_FIELDS = ["MAKE", "MODEL", "match_pattern", "generation", "year_start", "year_end", "shape", "source_url", "note", "updated_at"]
 QUEUE_FIELDS = ["queue_key", "MAKE", "MODEL", "record_count", "year_ranges", "example_reference", "status", "worker", "updated_at"]
 STATUSES = {"pending", "in_progress", "done", "blocked"}
@@ -58,20 +58,20 @@ def project_lock():
 
 # SOP 自带的典型车型属于项目规则，不需要再次联网确认。
 SOP_SEEDS = {
-    "Ford": {"F-150": "0", "Ranger": "1", "F-250": "1", "F-350": "1", "Mustang": "31", "Transit": "22", "Bronco": "50", "Bronco Sport": "40", "Expedition": "40"},
-    "Chevrolet": {"Silverado 1500": "0", "Colorado": "1", "Silverado 2500HD": "1", "Silverado 3500HD": "1", "Express": "22", "Tahoe": "40", "Malibu": "30"},
-    "GMC": {"Sierra 1500": "0", "Terrain": "41", "Yukon": "40"},
-    "Ram": {"1500": "0", "2500": "1", "3500": "1", "ProMaster": "22"},
-    "Toyota": {"Tacoma": "1", "Sienna": "21", "Camry": "30", "GR86": "31", "4Runner": "40", "RAV4": "41", "Highlander": "41"},
-    "Honda": {"Odyssey": "21", "Accord": "30", "CR-V": "41"},
-    "Chrysler": {"Pacifica": "21"}, "Kia": {"Carnival": "21"},
+    "Ford": {"F-150": "0", "Ranger": "1", "F-250": "1", "F-350": "1", "Mustang": "31", "Transit": "26", "Bronco": "50", "Bronco Sport": "42", "Expedition": "42"},
+    "Chevrolet": {"Silverado 1500": "0", "Colorado": "1", "Silverado 2500HD": "1", "Silverado 3500HD": "1", "Express": "26", "Tahoe": "42", "Malibu": "30"},
+    "GMC": {"Sierra 1500": "0", "Terrain": "40", "Yukon": "42"},
+    "Ram": {"1500": "0", "2500": "1", "3500": "1", "ProMaster": "26"},
+    "Toyota": {"Tacoma": "1", "Sienna": "25", "Camry": "30", "GR86": "31", "4Runner": "42", "RAV4": "40", "Highlander": "40"},
+    "Honda": {"Odyssey": "25", "Accord": "30", "CR-V": "40"},
+    "Chrysler": {"Pacifica": "25"}, "Kia": {"Carnival": "25"},
     "Volkswagen": {"Golf": "20"}, "Mazda": {"Mazda3": "20", "CX-5": "41"},
-    "Nissan": {"Altima": "30", "Rogue": "41"}, "Genesis": {"G80": "30"},
-    "Tesla": {"Model 3": "30", "Model Y": "42"}, "Porsche": {"Taycan": "31"},
-    "Mercedes-Benz": {"CLA": "30", "GLB": "40", "G-Class": "50", "Sprinter": "22"},
-    "Audi": {"A5 Sportback": "30", "Q8": "42"}, "BMW": {"X6": "42", "XM": "42"},
-    "Jeep": {"Wrangler": "50"}, "Land Rover": {"Defender": "50", "Range Rover Velar": "42", "Range Rover Sport": "42"},
-    "Cadillac": {"Escalade": "40"}, "Acura": {"ADX": "41", "RDX": "41"},
+    "Nissan": {"Altima": "30", "Rogue": "40"}, "Genesis": {"G80": "30"},
+    "Tesla": {"Model 3": "30", "Model Y": "41"}, "Porsche": {"Taycan": "31"},
+    "Mercedes-Benz": {"CLA": "30", "GLB": "42", "G-Class": "50", "Sprinter": "26"},
+    "Audi": {"A5 Sportback": "30", "Q8": "41"}, "BMW": {"X6": "41", "XM": "41"},
+    "Jeep": {"Wrangler": "50"}, "Land Rover": {"Defender": "50", "Range Rover Velar": "41", "Range Rover Sport": "40"},
+    "Cadillac": {"Escalade": "42"}, "Acura": {"ADX": "40", "RDX": "40"},
 }
 SOP_SPECIAL_SEEDS = [
     ("Ford", "F-150", r"\bRaptor\b", "10", "SOP 原厂 Wide-body 例外"),
@@ -161,6 +161,13 @@ def seed_cache() -> list[dict[str, str]]:
         for model, shape in models.items():
             actual = source_pairs.get((norm(make), norm(model)))
             if not actual: continue
+            if shape in {"30", "31", "32"} and any(
+                norm(row.get("MAKE", "")) == norm(actual[0])
+                and norm(row.get("MODEL", "")) == norm(actual[1])
+                and row.get("note", "").startswith("按新版 AGENT 代际复用")
+                for row in rows
+            ):
+                continue
             key = (norm(actual[0]), norm(actual[1]), "", "", "", "")
             if key not in existing:
                 rows.append({"MAKE": actual[0], "MODEL": actual[1], "match_pattern": "", "generation": "", "year_start": "", "year_end": "", "shape": shape, "source_url": "", "note": "SOP 典型车型", "updated_at": now()}); existing.add(key)

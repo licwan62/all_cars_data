@@ -7,6 +7,11 @@
 - `2026-08-24_01_version-normalization`：SUV 门数 VERSION 规范化及同外廓冗余版本合并。
 - `2026-08-24_02_year-reference-us-market`：补归档原 year_reference 与美国市场尺寸修复；该阶段快照为 4,791 行。
 - `2026-08-24_03_sedan-coupe`：补归档原 Sedan/Coupe 分类与尺寸修复；该阶段快照为 4,788 行。
+- `2026-08-25_01_atomic-structures`：删除 21 条旧复合结构压缩行；原子化快照为 4,765 行。
+- `2026-08-25_02_year-generation-audit`：修正明确代际错标并合并连续同外廓记录；规范快照为 4,400 行。
+- `2026-08-25_03_identity-gap-distinction`：区分门数/轴距/Sportback，清理聚合残留并细分缺年候选；规范快照为 4,390 行。
+- `2026-08-25_04_generation-conflicts`：归一组合代际标签，修复明确错代并登记合法并行；规范快照为 4,389 行。
+- `2026-08-25_05_final-review-progression`：按宽松终核规则补齐同代同分支短缺口；35 个缺口并入 31 组，规范快照为 4,354 行。
 
 `02`、`03` 是补建修改包的目录序号；实际数据处理顺序为 year/美规 → Sedan/Coupe → VERSION 规范化。
 

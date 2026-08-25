@@ -33,7 +33,8 @@ SOURCES = {
 }
 
 # Only groups whose existing result changes are listed here. Every pre-1994
-# Sedan/Coupe group is still emitted to REPORT, including retained decisions.
+# Sedan/Coupe/Convertible branch and every historical 3x result is still
+# emitted to REPORT, including retained decisions.
 # Each tuple is MAKE, MODEL, GENERATION, DIMENSION-ID regex, SHAPE.
 DECISIONS = [
     ("Acura", "Legend", "gen1", r"结构=Sedan", "32"),
@@ -50,6 +51,7 @@ DECISIONS = [
     ("Buick", "LeSabre", "gen4", r"结构=(?:Coupe|Sedan)", "32"),
     ("Buick", "LeSabre", "gen5", r"结构=(?:Coupe|Sedan)", "32"),
     ("Buick", "LeSabre", "gen6", r"结构=(?:Coupe|Sedan)", "32"),
+    ("Buick", "Roadmaster", "gen6", r"结构=(?:Coupe|Sedan)", "32"),
     ("Buick", "Regal", "gen1", r"结构=Coupe", "32"),
     ("Buick", "Regal", "gen2", r"结构=Coupe", "32"),
     ("Buick", "Riviera", "gen5", r"结构=Coupe", "32"),
@@ -61,23 +63,34 @@ DECISIONS = [
     ("Buick", "Skylark", "gen6", r"结构=(?:Coupe|Sedan)", "32"),
     ("Cadillac", "Eldorado", "gen3", r"结构=Coupe", "32"),
     ("Cadillac", "Eldorado", "gen4", r"结构=Coupe", "32"),
+    ("Cadillac", "DeVille", "gen2", r"结构=Convertible", "32"),
     ("Chevrolet", "Caprice", "gen1", r"结构=Coupe", "32"),
     ("Chevrolet", "Caprice", "gen2", r"结构=Coupe", "32"),
     ("Chevrolet", "Cavalier", "gen1", r"结构=Sedan", "32"),
     ("Chevrolet", "Chevelle", "gen1", r"结构=Coupe", "32"),
     ("Chevrolet", "Impala", "gen5", r"结构=Coupe", "32"),
-    ("Chevrolet", "Impala", "gen6", r"结构=Coupe", "32"),
+    ("Chevrolet", "Bel Air", "", r"结构=Convertible", "31"),
+    ("Chevrolet", "Bel Air", "", r"结构=Wagon", "21"),
     ("Chevrolet", "Malibu", "gen1", r"结构=(?:Coupe|Sedan)", "32"),
     ("Chevrolet", "Malibu", "gen2", r"结构=Coupe", "31"),
     ("Chevrolet", "Malibu", "gen2", r"结构=Sedan", "32"),
     ("Chevrolet", "Malibu", "gen3", r"结构=Coupe", "31"),
     ("Chevrolet", "Malibu", "gen3", r"结构=Sedan", "32"),
     ("Chevrolet", "Malibu", "gen4", r"结构=(?:Coupe|Sedan)", "32"),
+    ("Chevrolet", "Malibu", "", r"结构=Convertible", "31"),
+    ("Chevrolet", "Malibu", "", r"结构=Wagon", "21"),
+    ("Chevrolet", "Monte Carlo", "gen3", r"结构=Coupe", "32"),
+    ("Chevrolet", "Monte Carlo", "gen4", r"结构=Coupe", "32"),
     ("Chevrolet", "Nova", "gen1", r"结构=Coupe", "32"),
     ("Chevrolet", "Nova", "gen2", r"结构=Coupe", "32"),
     ("Ford", "Thunderbird", "gen5", r"结构=Sedan", "32"),
+    ("Ford", "Thunderbird", "gen6", r"结构=Coupe", "32"),
+    ("Ford", "Thunderbird", "gen7", r"结构=Coupe", "32"),
+    ("Ford", "Thunderbird", "gen8", r"结构=Coupe", "32"),
     ("Honda", "Accord", "gen1", r"结构=Sedan", "32"),
     ("Honda", "Accord", "gen2", r"结构=Sedan", "32"),
+    ("Honda", "Accord", "gen1", r"结构=Hatchback", "21"),
+    ("Honda", "Accord", "gen2", r"结构=Hatchback", "21"),
     ("Honda", "Civic", "gen1", r"结构=Sedan", "32"),
     ("Honda", "Civic", "gen2", r"结构=Sedan", "32"),
     ("Honda", "Civic", "gen3", r"结构=Sedan", "32"),
@@ -95,6 +108,10 @@ DECISIONS = [
     ("Mercury", "Monterey", "gen5", r"结构=Coupe", "32"),
     ("Mercury", "Monterey", "gen6", r"结构=Coupe", "32"),
     ("Mercury", "Monterey", "gen7", r"结构=Coupe", "32"),
+    ("Mercury", "Monterey", "gen1", r"结构=Convertible", "31"),
+    ("Mercury", "Monterey", "gen5", r"结构=Convertible", "31"),
+    ("Mercury", "Monterey", "gen6", r"结构=Convertible", "31"),
+    ("Mercury", "Monterey", "gen2", r"结构=Hatchback", "21"),
     ("Nissan", "Sentra", "gen1", r"结构=Coupe", "32"),
     ("Oldsmobile", "88", "gen4", r"结构=Coupe", "32"),
     ("Oldsmobile", "88", "gen5", r"结构=Coupe", "32"),
@@ -114,46 +131,81 @@ DECISIONS = [
     ("Plymouth", "Valiant", "gen2", r"结构=Coupe", "32"),
     ("Plymouth", "Valiant", "gen3", r"结构=Coupe", "32"),
     ("Plymouth", "Valiant", "gen4", r"结构=Coupe", "32"),
+    ("Pontiac", "Bonneville", "gen1", r"结构=Coupe", "32"),
     ("Pontiac", "Bonneville", "gen2", r"结构=Coupe", "32"),
     ("Pontiac", "Bonneville", "gen3", r"结构=Coupe", "32"),
     ("Pontiac", "Bonneville", "gen4", r"结构=Coupe", "32"),
     ("Pontiac", "Bonneville", "gen5", r"结构=Coupe", "32"),
     ("Pontiac", "Bonneville", "gen6", r"结构=Coupe", "32"),
+    ("Pontiac", "Bonneville", "gen1", r"结构=Hatchback", "21"),
     ("Pontiac", "Grand Prix", "gen4", r"结构=Coupe", "32"),
     ("Pontiac", "Grand Prix", "gen5", r"结构=Coupe", "32"),
     ("Pontiac", "LeMans", "gen5", r"结构=Coupe", "32"),
+    ("Pontiac", "LeMans", "gen2", r"结构=Hatchback", "21"),
+    ("Pontiac", "LeMans", "gen3", r"结构=Hatchback", "21"),
+    ("Pontiac", "LeMans", "gen4", r"结构=Hatchback", "21"),
+    ("Pontiac", "LeMans", "gen5", r"结构=Hatchback", "21"),
+    ("Pontiac", "LeMans", "gen6", r"结构=Hatchback", "21"),
     ("Saturn", "S-Series", "gen1", r"结构=Sedan", "30"),
     ("Toyota", "Camry", "gen1", r"结构=Sedan", "32"),
     ("Toyota", "Camry", "gen2", r"结构=Sedan", "32"),
+    ("Toyota", "Camry", "gen1", r"结构=Hatchback", "21"),
+    ("Toyota", "Camry", "gen2", r"结构=Wagon", "21"),
     ("Toyota", "Corolla", "gen1", r"结构=Coupe", "32"),
     ("Toyota", "Corolla", "gen3", r"结构=Coupe", "32"),
     ("Toyota", "Tercel", "gen3", r"结构=Coupe", "32"),
 ]
 
 
-def is_classic_record(row: dict[str, str]) -> bool:
-    if not re.search(r"Sedan|Coupe", row.get("结构", ""), re.IGNORECASE):
-        return False
+def is_classic_record(row: dict[str, str], before_cache: list[dict[str, str]], after_cache: list[dict[str, str]]) -> bool:
     lo, _ = project.years(row.get("YEAR", ""))
-    return lo is not None and lo <= CUTOFF
+    if lo is None or lo > CUTOFF:
+        return False
+    structure_branch = re.search(r"Sedan|Coupe|Convertible|Hardtop|Roadster|Targa", row.get("结构", ""), re.IGNORECASE)
+    before = project.select_cache(row, before_cache)
+    after = project.select_cache(row, after_cache)
+    shape_branch = (before and re.fullmatch(r"3[012]", before["shape"])) or (after and re.fullmatch(r"3[012]", after["shape"]))
+    return bool(structure_branch or shape_branch)
 
 
 def note_for(shape: str) -> str:
+    if shape == "20":
+        return "按新版 AGENT 扩展 3x 分支复核：参考车型和车身结构表明该记录实际为 Hatchback/Wagon 长顶尾门轮廓，不应沿用 Sedan/Coupe 的 3x 规则。"
     if shape == "32":
         return "按新版 AGENT 以换代为边界复核：该代具有平直车顶、相对直立柱体及明确三段式方正轮廓，Boxy Classic 优先于名称或双门属性。"
     if shape == "31":
-        return "按新版 AGENT 以换代为边界复核：该代 Coupe 的低 CAB 和快速后降轮廓强于方正特征，归 Low Sport。"
+        return "按新版 AGENT 以换代为边界复核：该代固定硬顶或敞篷分支的低 CAB 轮廓强于方正特征，归 Low Sport。"
+    if shape == "21":
+        return "按新版 AGENT 以换代为边界复核：该代两厢/旅行车的俯视车头保持较宽，前角较方、向前收窄少，归 Boxy Front。"
     return "按新版 AGENT 以换代为边界复核：该代已呈现代流线 CAB，不满足 Boxy Classic，归 Standard-Fastback。"
 
 
 def apply_review() -> None:
     source = project.read_csv(project.SOURCE)
     cache = project.read_csv(project.CACHE)
+    # Replace the previous review layer rather than stacking new patterns on
+    # top of it. This also upgrades the old substring structure regexes to
+    # exact-value matches, so Coupe no longer captures Coupe/Convertible.
+    cache = [
+        row for row in cache
+        if not row.get("note", "").startswith(("按新版 AGENT 以换代", "按新版 AGENT 扩展 3x"))
+    ]
+    # 早期缓存把 Convertible 名称本身当作 Low Sport 依据；新版规则改为看实际轮廓。
+    cache = [
+        row for row in cache
+        if not (
+            row.get("MAKE") == "Cadillac"
+            and row.get("MODEL") == "DeVille"
+            and row.get("generation") == "gen2"
+            and row.get("match_pattern") == "结构=Convertible"
+        )
+    ]
     before_cache = [dict(row) for row in cache]
     stamp = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
     matched_decisions: list[dict[str, object]] = []
 
     for make, model, generation, pattern, shape in DECISIONS:
+        pattern = pattern + r"(?:\s|\||$)"
         rule = {
             "MAKE": make,
             "MODEL": model,
@@ -183,7 +235,7 @@ def apply_review() -> None:
     groups: dict[tuple[str, str, str, str], list[dict[str, str]]] = {}
     changed_records = 0
     for row in source:
-        if not is_classic_record(row):
+        if not is_classic_record(row, before_cache, cache):
             continue
         key = (row["MAKE"], row["MODEL"], row.get("代际", ""), row.get("结构", ""))
         groups.setdefault(key, []).append(row)
@@ -194,8 +246,8 @@ def apply_review() -> None:
 
     reviewed_groups = []
     for (make, model, generation, structure), rows in sorted(groups.items()):
-        before_shapes = sorted({project.select_cache(row, before_cache)["shape"] for row in rows})
-        after_shapes = sorted({project.select_cache(row, cache)["shape"] for row in rows})
+        before_shapes = sorted({selected["shape"] if (selected := project.select_cache(row, before_cache)) else "UNCLASSIFIED" for row in rows})
+        after_shapes = sorted({selected["shape"] if (selected := project.select_cache(row, cache)) else "UNCLASSIFIED" for row in rows})
         reviewed_groups.append({
             "make": make,
             "model": model,
@@ -209,7 +261,7 @@ def apply_review() -> None:
 
     report = {
         "cutoff_start_year": CUTOFF,
-        "scope": "All source Sedan/Coupe records whose year range starts no later than 1993",
+        "scope": "All source Sedan/Coupe/Convertible/Hardtop/Roadster/Targa branches plus every historical 30/31/32 result whose year range starts no later than 1993",
         "source_records_reviewed": sum(len(rows) for rows in groups.values()),
         "generation_body_groups_reviewed": len(groups),
         "models_reviewed": len({(item["make"], item["model"]) for item in reviewed_groups}),
@@ -229,6 +281,9 @@ def main() -> None:
     if not args.apply:
         raise SystemExit("请显式使用 --apply")
     apply_review()
+    # 经典车复核产生的分支结论最终必须归并成车型+代际缓存，禁止保留结构直映射 3x。
+    from review_generation_shape_cache import apply_review as apply_generation_review
+    apply_generation_review()
 
 
 if __name__ == "__main__":

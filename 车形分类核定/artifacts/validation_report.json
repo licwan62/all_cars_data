@@ -1,11 +1,11 @@
 {
   "passed": true,
-  "source": "D:\\Licheng\\Workflow\\all_cars_data\\分类结构审核\\changes\\2026-08-24_03_sedan-coupe\\correct.csv",
+  "source": "D:\\Licheng\\Workflow\\all_cars_data\\分类结构审核\\changes\\2026-08-25_05_final-review-progression\\correct.csv",
   "checks": [
     {
       "check": "source_schema",
       "passed": true,
-      "rows": 4786,
+      "rows": 4354,
       "actual": [
         "DIMENSION-ID",
         "MAKE",
@@ -32,12 +32,22 @@
     {
       "check": "source_dimension_ids_unique",
       "passed": true,
-      "unique_ids": 4786
+      "unique_ids": 4354
     },
     {
       "check": "cache_shapes_valid",
       "passed": true,
-      "rows": 1061
+      "rows": 1490
+    },
+    {
+      "check": "cache_3x_not_mapped_from_structure",
+      "passed": true,
+      "rules": 0
+    },
+    {
+      "check": "cache_3x_only_from_independent_generation_review",
+      "passed": true,
+      "rules": 0
     },
     {
       "check": "cache_keys_unique",
@@ -59,17 +69,27 @@
     {
       "check": "result_exact_coverage",
       "passed": true,
-      "source_rows": 4786,
-      "result_rows": 4786
+      "source_rows": 4354,
+      "result_rows": 4354
     },
     {
       "check": "result_dimension_ids_unique",
       "passed": true,
-      "unique_ids": 4786
+      "unique_ids": 4354
     },
     {
       "check": "result_shapes_valid",
       "passed": true
+    },
+    {
+      "check": "result_3x_reused_by_generation",
+      "passed": true,
+      "mixed_generations": []
+    },
+    {
+      "check": "agent_reference_shapes",
+      "passed": true,
+      "failures": []
     }
   ]
 }

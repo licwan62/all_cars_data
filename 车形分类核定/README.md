@@ -1,6 +1,6 @@
 # 车形分类核定
 
-本项目根据 `doc/AGENT.md`，为 `../分类结构审核/changes/2026-08-24_03_sedan-coupe/correct.csv` 中的每个 `DIMENSION-ID` 核定车形号码。可用环境变量 `SHAPE_SOURCE` 临时指定其他同结构源表。
+本项目根据 `doc/AGENT.md`，为 `../分类结构审核/changes/2026-08-25_05_final-review-progression/correct.csv` 中的每个 `DIMENSION-ID` 核定车形号码。可用环境变量 `SHAPE_SOURCE` 临时指定普通车与老爷车的规范合并结果；项目不会回写 `source`。
 
 ## 目录
 
@@ -8,6 +8,8 @@
 - `research_queue/queue.csv`：尚未命中缓存的车型研究队列。
 - `artifacts/record_shape.csv`：最终 `DIMENSION-ID,车形` 映射；只有全部记录均已核定时才生成。
 - `artifacts/validation_report.json`：机器验收结果。
+- `artifacts/hatch_wagon_front_review_2026-08-25.json`：新版 20/21 前脸边界、旧编号迁移及逐代复核明细。
+- `artifacts/generation_shape_cache_review_2026-08-25.json`：30/31/32 的车型＋代际结论，以及已移除的结构直映射审计。
 
 ## 标准流程
 
