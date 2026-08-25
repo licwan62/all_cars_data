@@ -17,6 +17,7 @@ SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
+ALL_ID_AUDIT = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-08-25.csv"
 ALLOWED = {"0", "1", "10", "11", "20", "21", "25", "26", "30", "31", "32", "40", "41", "42", "50"}
 
 
@@ -64,6 +65,22 @@ def main() -> None:
                 generation_3x.setdefault((row["MAKE"], row["MODEL"], row["代际"]), set()).add(result_map[row["DIMENSION-ID"]])
         mixed_generations = [" | ".join(key) for key, shapes in generation_3x.items() if len(shapes) > 1]
         check("result_3x_reused_by_generation", not mixed_generations, mixed_generations=mixed_generations)
+        from review_generation_shape_cache import CLASSIC_BOXY_CORRECTIONS
+        classic_boxy_failures = []
+        for make, model, generation in sorted(CLASSIC_BOXY_CORRECTIONS):
+            matched = [
+                row for row in source
+                if row["MAKE"] == make and row["MODEL"] == model and row["代际"] == generation
+                and row["结构"] in {"Sedan", "Coupe", "Convertible", "Hardtop", "Roadster", "Targa"}
+            ]
+            if matched and any(result_map.get(row["DIMENSION-ID"]) != "32" for row in matched):
+                classic_boxy_failures.append(f"{make} | {model} | {generation}")
+        check(
+            "classic_boxy_generation_coverage",
+            not classic_boxy_failures,
+            registered_generations=len(CLASSIC_BOXY_CORRECTIONS),
+            failures=classic_boxy_failures,
+        )
         reference_expectations = [
             ("Mazda", "3", "Hatchback", "", "20"),
             ("Honda", "Fit", "Hatchback", "", "20"),
@@ -94,6 +111,13 @@ def main() -> None:
             if not matched or any(result_map.get(row["DIMENSION-ID"]) != expected for row in matched):
                 reference_failures.append(f"{make} {model} {structure or '*'} {generation or '*'} -> {expected}")
         check("agent_reference_shapes", not reference_failures, failures=reference_failures)
+        audit_header, audit_rows = read(ALL_ID_AUDIT)
+        audit_ids = [row.get("DIMENSION-ID", "") for row in audit_rows]
+        check(
+            "all_dimension_shape_audit_exact_coverage",
+            bool(audit_rows) and audit_ids == source_ids and all(row.get("审计状态") == "APPLIED" for row in audit_rows),
+            rows=len(audit_rows),
+        )
     else: check("result_not_generated_until_complete", bool(queue), unresolved_models=len(queue))
     report = {"passed": all(x["passed"] for x in checks), "source": str(SOURCE), "checks": checks}
     out = PROJECT / "artifacts" / "validation_report.json"; out.parent.mkdir(parents=True, exist_ok=True); out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

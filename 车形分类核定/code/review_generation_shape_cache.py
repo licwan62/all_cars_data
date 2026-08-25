@@ -34,7 +34,7 @@ SPORTY_MODELS = {
     ("Jaguar", "F-Type"), ("Jaguar", "XJS"), ("Jaguar", "XK"),
     ("Karma Automotive", "GS-6"), ("Karma Automotive", "Revero"),
     ("Lexus", "LC"), ("Lexus", "LFA"), ("Lexus", "RC"), ("Lexus", "SC"),
-    ("Lincoln", "Continental"), ("Lincoln", "Mark VII"), ("Lincoln", "Mark VIII"),
+    ("Lincoln", "Mark VII"), ("Lincoln", "Mark VIII"),
     ("Maserati", "GranTurismo"), ("Maserati", "MC20"),
     ("Mazda", "Miata"), ("Mazda", "MX-5"), ("Mazda", "MX-6"), ("Mazda", "RX-7"), ("Mazda", "RX-8"),
     ("Mercedes-Benz", "CL-Class"), ("Mercedes-Benz", "CLK-Class"), ("Mercedes-Benz", "CLS-Class"),
@@ -80,6 +80,57 @@ CLASSIC_BOXY_CORRECTIONS = {
     ("Pontiac", "Grand Prix", "gen1"), ("Pontiac", "Grand Prix", "gen2"), ("Pontiac", "Grand Prix", "gen3"),
     ("Pontiac", "GTO", "gen1"), ("Pontiac", "GTO", "gen2"), ("Pontiac", "GTO", "gen3"),
     ("Pontiac", "LeMans", "gen1"),
+
+    # 全量代际重建曾把未列入专项 DECISIONS 的旧 32 默认降为 30/31。
+    # 以下代际已重新按正面轮廓确认：车头宽、前角方、向前收窄少。
+    ("Cadillac", "DeVille", "gen0"), ("Cadillac", "DeVille", "gen1"),
+    ("Cadillac", "DeVille", "gen2"), ("Cadillac", "DeVille", "gen3"),
+    ("Cadillac", "DeVille", "gen4"), ("Cadillac", "DeVille", "gen5"),
+    ("Cadillac", "Seville", "gen1"), ("Cadillac", "Seville", "gen2"),
+    ("Cadillac", "Seville", "gen3"),
+    ("Chevrolet", "Bel Air", "gen1"), ("Chevrolet", "Bel Air", "gen2"),
+    ("Chevrolet", "Bel Air", "gen3"), ("Chevrolet", "Bel Air", "gen4"),
+    ("Chevrolet", "Bel Air", "gen5"), ("Chevrolet", "Bel Air", "gen6"),
+    ("Chevrolet", "Bel Air", "gen7"),
+    ("Chevrolet", "Chevelle", "gen2"), ("Chevrolet", "Chevelle", "gen3"),
+    ("Chevrolet", "Nova", "gen3"), ("Chevrolet", "Nova", "gen4"),
+    ("Ford", "Crown Victoria", "gen1"), ("Ford", "Escort", "gen1"),
+    ("Infiniti", "G", "gen1"),
+    ("Jaguar", "XJ", "gen2"),
+    ("Lexus", "LS", "gen1"),
+    ("Lincoln", "Continental", "gen3"), ("Lincoln", "Continental", "gen4"),
+    ("Lincoln", "Continental", "gen7"),
+    ("Lincoln", "Town Car", "gen1"), ("Lincoln", "Town Car", "gen2"),
+    ("Mazda", "Protege", "gen1"),
+    ("Mercedes-Benz", "190", "gen1"), ("Mercedes-Benz", "S-Class", "gen1"),
+    ("Mercury", "Grand Marquis", "gen0"), ("Mercury", "Grand Marquis", "gen1"),
+    ("Mercury", "Marquis", "gen5"),
+    ("Mitsubishi", "Galant", "gen6"),
+    ("Nissan", "Maxima", "gen1"), ("Nissan", "Maxima", "gen2"),
+    ("Oldsmobile", "Cutlass", "gen3"), ("Oldsmobile", "Cutlass", "gen4"),
+    ("Oldsmobile", "Cutlass", "gen5"),
+    ("Plymouth", "Acclaim", "gen1"), ("Plymouth", "Valiant", "gen1"),
+    ("Pontiac", "Astre", "gen1"), ("Pontiac", "Bonneville", "gen7"),
+    ("Pontiac", "LeMans", "gen2"), ("Pontiac", "LeMans", "gen3"),
+    ("Pontiac", "LeMans", "gen4"),
+    ("Toyota", "Corolla", "gen2"), ("Toyota", "Corolla", "gen4"),
+    ("Toyota", "Tercel", "gen1"),
+    ("Volkswagen", "Jetta", "gen1"), ("Volkswagen", "Jetta", "gen2"),
+    ("Volkswagen", "Passat", "gen2"),
+    ("Volvo", "S70", "gen1"), ("Volvo", "S90", "gen1"),
+}
+
+# 旧快照中曾为 32，但按新版“方形宽车头”优先级重核后排除的代际。
+# 显式登记可防止它们落入无证据的默认 30，也证明旧 32 候选已全部复核。
+REVIEWED_PREVIOUS_BOXY_EXCLUSIONS = {
+    ("Infiniti", "Q45", "gen1"): ("30", "车头向前收窄且前角圆化，不满足方形宽车头。"),
+    ("Infiniti", "Q45", "gen2"): ("30", "车头和前角进一步圆化，不满足 32。"),
+    ("Jaguar", "XJ", "gen1"): ("30", "发动机盖和前翼子板向车头明显收窄，不是方形宽头。"),
+    ("Lexus", "LS", "gen2"): ("30", "第二代前角与车头已圆化收窄，排除 32。"),
+    ("Lincoln", "Continental", "gen8"): ("30", "该代为空气动力学圆化车头，且不是 Low Sport。"),
+    ("Subaru", "Legacy", "gen1"): ("30", "车头呈楔形收窄，前角不足以支持 32。"),
+    ("Toyota", "Corolla", "gen5"): ("30", "该代已采用圆化、向前收窄的车头。"),
+    ("Volkswagen", "Passat", "gen3"): ("30", "无格栅楔形前脸向前收窄，排除方形宽车头。"),
 }
 
 NON_3X_EXCEPTIONS = [
@@ -122,6 +173,8 @@ def decide(key: tuple[str, str, str], rows: list[dict[str, str]]) -> tuple[str, 
         return "41", "该记录实际为 Fastback SUV/Coupe SUV，结构名称不改变 SUV 主体。"
     if key in researched_boxy_generations():
         return "32", "该代已独立核定为方形宽车头、前角较方且向前收窄少；32 具有最高优先级。"
+    if key in REVIEWED_PREVIOUS_BOXY_EXCLUSIONS:
+        return REVIEWED_PREVIOUS_BOXY_EXCLUSIONS[key]
     if (make, model) in SPORTY_MODELS:
         return "31", "排除方形宽车头后，该产品线具备低矮、下宽上窄的实际运动比例。"
     return "30", "独立轮廓核定未发现方形宽车头或 Low Sport 比例，归普通现代乘用车。"
