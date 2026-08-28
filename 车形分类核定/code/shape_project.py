@@ -14,7 +14,7 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
-DEFAULT_SOURCE = ROOT / "分类结构审核" / "changes" / "2026-08-25_05_final-review-progression" / "correct.csv"
+DEFAULT_SOURCE = ROOT / "source" / "车型尺寸库.csv"
 SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"

@@ -25,6 +25,8 @@ python 分类结构审核/code/generate_report.py
 
 `build_unified_corrected.py` 会先运行原结构审核生成器，再叠加确定性的 year_reference、美规尺寸、Sedan/Coupe 与 VERSION 规范化结论。带 `approx`、范围值、配置依赖、“需要确认”或 `REVIEW_ONLY` 的结论只保留在审核表，不自动写入 corrected。统一写入结果见 `artifacts/validation/unified_corrected_validation.json`。
 
+项目只生成 `artifacts/corrected.csv` 候选，不自动回写真源。验收后在仓库根目录运行 `python data_workflow.py publish-plan 车型尺寸库` 获取人工覆盖步骤。
+
 ## 单次修改包
 
 每次实际修改必须在 `changes/` 下创建独立目录，命名为：

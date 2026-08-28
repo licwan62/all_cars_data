@@ -1,0 +1,69 @@
+{
+  "schema_version": "3.0",
+  "counts": {
+    "dimension_rows": 4354,
+    "dimension_year_atoms": 15180,
+    "trim_rows": 23382,
+    "mapped_dimension_year_atoms": 14274,
+    "unmapped_dimension_year_atoms": 129,
+    "pending_online_review_dimension_year_atoms": 794,
+    "generated_candidate_rows_before_online_review": 24794,
+    "published_exact_candidate_rows": 23048,
+    "published_online_approved_candidate_rows": 334,
+    "pending_or_rejected_online_candidate_rows": 1412,
+    "unique_fitment_atoms": 12659,
+    "multi_dimension_fitment_expansions": 5480,
+    "pending_online_review_groups": 255
+  },
+  "candidate_matching_methods": {
+    "继承现有精确键": 14020,
+    "继承结构规范化键": 684,
+    "4A品牌车型精确匹配": 220,
+    "待人工核验": 129,
+    "继承单一规范化键": 83,
+    "继承同车型跨年映射": 23,
+    "4A历史名称规则": 21
+  },
+  "published_matching_methods": {
+    "继承现有精确键": 23048,
+    "继承结构规范化键": 226,
+    "联网证据新增候选": 80,
+    "继承单一规范化键": 22,
+    "继承同车型跨年映射": 6
+  },
+  "checks": {
+    "dimension_ids_unique": true,
+    "all_candidates_exist_in_4a_year": true,
+    "all_years_within_dimension_range": true,
+    "trim_primary_key_unique": true,
+    "coverage_partition_complete": true,
+    "all_overrides_target_existing_dimension_year": true,
+    "all_non_exact_published_have_online_evidence": true,
+    "online_evidence_fields_match_dimension": true,
+    "online_evidence_entries_target_current_candidates": true
+  },
+  "warnings": [],
+  "hard_errors": [],
+  "sources": {
+    "dimensions": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\source\\车型尺寸库.csv",
+      "sha256": "D247F1FEA7516FDA8A5F90364218820526ECADA054BA88A959C0045F27768418"
+    },
+    "fitment": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\source\\4afitment_data.csv",
+      "sha256": "9FBA241FC0FF4CC0DF0EF486C3EC7481603FC9B5EA3A1C392FA9DA9DFC5B0A9A"
+    },
+    "maintenance": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\source\\子车系维护表.csv",
+      "sha256": "F134E7BAE6666BEB1C1DEDB52AC1999D084073F53A34D2A81D01F4CB288AA1FE"
+    },
+    "overrides": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\适配器-Trim生成\\input\\trim_overrides.csv",
+      "sha256": "0A6BA30B6CA75CB899F97F7873B5ED420FB97F92EC1E8497FD2B200996C1820E"
+    },
+    "online_evidence": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\适配器-Trim生成\\input\\online_evidence.csv",
+      "sha256": "927C1D45127CFB9A1D0CA4A9937018F2F13ED410BD58D61106C1C8F910A5CF28"
+    }
+  }
+}

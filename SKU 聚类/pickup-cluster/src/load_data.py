@@ -28,8 +28,14 @@ def load_data(filepath: str) -> pd.DataFrame:
 def load_fitment_with_atom_sales(workbook_path: str, atom_sales_path: str,
                                  sheet_name: str = "尺码匹配") -> pd.DataFrame:
     """Join fitment dimensions to annual atom sales by DIMENSION-ID."""
-    fitment = pd.read_excel(workbook_path, sheet_name=sheet_name)
+    fitment_path = Path(workbook_path)
+    if fitment_path.suffix.lower() == ".csv":
+        fitment = pd.read_csv(fitment_path, encoding="utf-8-sig")
+    else:
+        fitment = pd.read_excel(fitment_path, sheet_name=sheet_name)
     fitment.columns = fitment.columns.str.strip()
+    if "TRIM" in fitment.columns and "SUB-MODEL" not in fitment.columns:
+        fitment["SUB-MODEL"] = fitment["TRIM"]
     sales = load_data(atom_sales_path)
     if "DIMENSION-ID" not in fitment.columns:
         raise ValueError("尺码匹配缺少字段: DIMENSION-ID")

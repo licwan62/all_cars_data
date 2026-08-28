@@ -11,8 +11,8 @@ python main.py
 
 默认输入：
 
-- `input/车型数据尺码.xlsx` 的 `尺码匹配` 工作表
-- `input/atom_sales.csv`（按 `DIMENSION-ID` 汇总年度原子销量）
+- `../../source/尺码分析.csv`
+- `../../source/atom_sales.csv`（按 `DIMENSION-ID` 汇总年度原子销量）
 
 或指定输入输出：
 
@@ -22,6 +22,8 @@ python main.py --input "../销量统计.CSV" --output "output"
 
 `--input` 仅用于兼容历史合并 CSV；也可用 `--size-input` 和
 `--sales-input` 分别指定新输入。
+
+项目只写 `output`。审核完成后，用仓库根目录的 `python data_workflow.py publish-plan 皮卡尺码簇明细` 等命令取得人工发布步骤；程序不会直接写 `source/pk-cluster`。
 
 ## 输出文件
 

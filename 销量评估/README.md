@@ -20,6 +20,8 @@ python -m unittest discover -s tests -v
 
 流水线会先规范缓存字段与品牌/车型大小写，再展开年份、构建原子、分配销量、验证守恒并导出最终表。无可靠美国销量时保留空值，不自动猜测。
 
+项目只生成 `artifacts/atom_sales.csv` 候选。验收后在仓库根目录运行 `python data_workflow.py publish-plan 原子销量` 获取人工覆盖步骤，流水线本身不会写 `source`。
+
 ## 缓存要求
 
 - 每个规范化 `MAKE + MODEL + YEAR` 只能有一行。

@@ -3,10 +3,11 @@ from collections import defaultdict, Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-ARTIFACTS = ROOT / 'output' / 'artifacts'
+PROJECT = Path(__file__).resolve().parents[1]
+ARTIFACTS = PROJECT / 'artifacts'
 
 # 读取数据
-with (ROOT / '车型尺寸库.csv').open(encoding='utf-8-sig') as f:
+with (ROOT / 'source' / '车型尺寸库.csv').open(encoding='utf-8-sig') as f:
     reader = list(csv.reader(f))
 header = reader[0]
 data = reader[1:]

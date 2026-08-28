@@ -12,7 +12,7 @@ ROOT = PROJECT.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from id_scheme import dimension_id
-DEFAULT_SOURCE = ROOT / "分类结构审核" / "changes" / "2026-08-25_05_final-review-progression" / "correct.csv"
+DEFAULT_SOURCE = ROOT / "source" / "车型尺寸库.csv"
 SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
@@ -65,9 +65,10 @@ def main() -> None:
                 generation_3x.setdefault((row["MAKE"], row["MODEL"], row["代际"]), set()).add(result_map[row["DIMENSION-ID"]])
         mixed_generations = [" | ".join(key) for key, shapes in generation_3x.items() if len(shapes) > 1]
         check("result_3x_reused_by_generation", not mixed_generations, mixed_generations=mixed_generations)
-        from review_generation_shape_cache import CLASSIC_BOXY_CORRECTIONS
+        from review_generation_shape_cache import CLASSIC_BOXY_CORRECTIONS, ROUNDED_CLASSIC_LINEAGE_32
         classic_boxy_failures = []
-        for make, model, generation in sorted(CLASSIC_BOXY_CORRECTIONS):
+        registered_boxy_generations = CLASSIC_BOXY_CORRECTIONS | ROUNDED_CLASSIC_LINEAGE_32
+        for make, model, generation in sorted(registered_boxy_generations):
             matched = [
                 row for row in source
                 if row["MAKE"] == make and row["MODEL"] == model and row["代际"] == generation
@@ -78,7 +79,7 @@ def main() -> None:
         check(
             "classic_boxy_generation_coverage",
             not classic_boxy_failures,
-            registered_generations=len(CLASSIC_BOXY_CORRECTIONS),
+            registered_generations=len(registered_boxy_generations),
             failures=classic_boxy_failures,
         )
         reference_expectations = [
@@ -98,6 +99,8 @@ def main() -> None:
             ("Chrysler", "Pacifica", "", "", "25"),
             ("Chevrolet", "Express", "", "", "26"),
             ("Cadillac", "DeVille", "Convertible", "gen2", "32"),
+            ("Cadillac", "DeVille", "", "gen6", "32"),
+            ("Cadillac", "DeVille", "", "gen7", "32"),
             ("Cadillac", "Eldorado", "Convertible", "gen1", "32"),
         ]
         reference_failures = []

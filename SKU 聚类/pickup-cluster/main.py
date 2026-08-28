@@ -5,7 +5,7 @@ Single entry point — no separate model_level variant needed.
 
 Usage:
     python main.py
-    python main.py --input "source/销量统计.CSV" --output "output"
+    python main.py --size-input "..\\..\\source\\尺码分析.csv" --output "output"
 """
 
 import sys
@@ -40,12 +40,13 @@ from link_registry import assign_persistent_link_ids, save_link_registry
 def main():
     parser = argparse.ArgumentParser(description="Pickup Fitment Clustering")
     parser.add_argument("--input", default=None, help="Path to 销量统计.CSV")
-    parser.add_argument("--size-input", default=None, help="Path to 车型数据尺码.xlsx")
-    parser.add_argument("--sales-input", default=None, help="Path to atom_sales.csv")
+    parser.add_argument("--size-input", default=None, help="Path to 尺码分析 CSV/Excel（默认读取 source/尺码分析.csv）")
+    parser.add_argument("--sales-input", default=None, help="Path to atom_sales.csv（默认读取仓库 source）")
     parser.add_argument("--output", default="output", help="Output directory")
     args = parser.parse_args()
 
     project_dir = Path(__file__).parent
+    source_dir = project_dir.parents[1] / "source"
     config_dir = project_dir / "config"
     output_dir = project_dir / args.output
 
@@ -61,8 +62,8 @@ def main():
         print(f"\nLoading legacy combined data from: {input_path}")
         df = load_data(str(input_path))
     else:
-        size_path = Path(args.size_input) if args.size_input else project_dir / "input" / "车型数据尺码.xlsx"
-        sales_path = Path(args.sales_input) if args.sales_input else project_dir / "input" / "atom_sales.csv"
+        size_path = Path(args.size_input) if args.size_input else source_dir / "尺码分析.csv"
+        sales_path = Path(args.sales_input) if args.sales_input else source_dir / "atom_sales.csv"
         print(f"\nLoading fitment dimensions from: {size_path}")
         print(f"Loading atom sales from: {sales_path}")
         df = load_fitment_with_atom_sales(str(size_path), str(sales_path))

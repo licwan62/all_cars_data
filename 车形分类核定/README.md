@@ -1,6 +1,6 @@
 # 车形分类核定
 
-本项目根据 `doc/AGENT.md`，为 `../分类结构审核/changes/2026-08-25_05_final-review-progression/correct.csv` 中的每个 `DIMENSION-ID` 核定车形号码。可用环境变量 `SHAPE_SOURCE` 临时指定普通车与老爷车的规范合并结果；项目不会回写 `source`。
+本项目根据 `doc/AGENT.md`，为 `../source/车型尺寸库.csv` 中的每个 `DIMENSION-ID` 核定车形号码。可用环境变量 `SHAPE_SOURCE` 临时指定待验证输入；项目不会回写 `source`，也不再默认读取其他项目的历史 `changes` 批次。
 
 ## 目录
 
@@ -27,6 +27,8 @@ python 车形分类核定/code/validate_project.py
 ```
 
 `build` 在仍有未核定记录时会拒绝生成不完整的最终表，这是预期保护行为。
+
+完成审核后，在仓库根目录运行 `python data_workflow.py publish-plan 车型形状分类`，再由人工决定是否用 `artifacts/record_shape.csv` 覆盖真源。
 
 ## 批次交付
 

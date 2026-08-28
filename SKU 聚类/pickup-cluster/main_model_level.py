@@ -4,7 +4,7 @@
 
 Usage:
     python main_model_level.py
-    python main_model_level.py --input "../销量统计.CSV" --output "output_model_level"
+    python main_model_level.py --output "output_model_level"
 """
 
 import sys
@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from load_data import load_data, filter_pickups
+from load_data import load_data, load_fitment_with_atom_sales, filter_pickups
 from normalize import run_normalize
 from year_parser import parse_years
 from pickup_classifier import classify_truck_type
@@ -26,17 +26,15 @@ from export import export_cluster_summary, export_cluster_detail, export_excepti
 def main():
     parser = argparse.ArgumentParser(description="Pickup Fitment Clustering - Model Level")
     parser.add_argument("--input", default=None, help="Path to 销量统计.CSV")
+    parser.add_argument("--size-input", default=None, help="Path to 尺码分析 CSV/Excel（默认读取 source/尺码分析.csv）")
+    parser.add_argument("--sales-input", default=None, help="Path to atom_sales.csv（默认读取仓库 source）")
     parser.add_argument("--output", default="output_model_level", help="Output directory")
     args = parser.parse_args()
 
     project_dir = Path(__file__).parent
+    source_dir = project_dir.parents[1] / "source"
     config_dir = project_dir / "config"
     output_dir = project_dir / args.output
-
-    if args.input:
-        input_path = Path(args.input)
-    else:
-        input_path = project_dir.parent / "销量统计.CSV"
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -45,8 +43,16 @@ def main():
     print("=" * 60)
 
     # 1. Load data
-    print(f"\nLoading data from: {input_path}")
-    df = load_data(str(input_path))
+    if args.input:
+        input_path = Path(args.input)
+        print(f"\nLoading legacy combined data from: {input_path}")
+        df = load_data(str(input_path))
+    else:
+        size_path = Path(args.size_input) if args.size_input else source_dir / "尺码分析.csv"
+        sales_path = Path(args.sales_input) if args.sales_input else source_dir / "atom_sales.csv"
+        print(f"\nLoading fitment dimensions from: {size_path}")
+        print(f"Loading atom sales from: {sales_path}")
+        df = load_fitment_with_atom_sales(str(size_path), str(sales_path))
     total_rows = len(df)
 
     df = filter_pickups(df)

@@ -5,9 +5,10 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-ART = ROOT / "output" / "artifacts"
-QUEUE = ROOT / "output" / "research_queue" / "queue.csv"
+PROJECT = Path(__file__).resolve().parents[1]
+ROOT = PROJECT.parent
+ART = PROJECT / "artifacts"
+QUEUE = PROJECT / "research_queue" / "queue.csv"
 QUEUE_FIELDS = ["queue_key", "DIMENSION-ID", "MAKE", "MODEL", "版本", "YEAR", "issue_type", "current_structure", "suspected_structure", "status", "worker", "suggested_structure", "suggested_category", "confidence", "source_url", "note", "updated_at"]
 SUBURBAN_SOURCE = "https://media.chevrolet.com/content/dam/Media/images/INTL/chevrolet/company-tab/2013/history/chevrolet_history_en_2013.pdf"
 SUBURBAN_SPEC = "https://news.chevrolet.com/content/dam/company/no_search/heritage-archive-docs/vehicle-information-kits/chevrolet-trucks/1955-Chevrolet-Truck-1st-Series.pdf"
@@ -28,7 +29,7 @@ def write(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
 
 
 def main() -> None:
-    source_fields, source = read(ROOT / "车型尺寸库.csv")
+    source_fields, source = read(ROOT / "source" / "车型尺寸库.csv")
     source_by_id = {row["DIMENSION-ID"]: row for row in source}
 
     t1_fields, t1 = read(ART / "audit_table1_corrections.csv")

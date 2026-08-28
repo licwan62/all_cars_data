@@ -1,0 +1,113 @@
+{
+  "version": 2,
+  "policy": "source is the only manually maintained canonical data directory; projects never publish automatically",
+  "datasets": [
+    {
+      "name": "车型尺寸库",
+      "path": "source/车型尺寸库.csv",
+      "format": "csv",
+      "required_columns": ["DIMENSION-ID", "MAKE", "MODEL", "版本", "CAB", "BED", "结构", "代际", "YEAR", "分类", "L-IN", "W-IN", "H-IN"],
+      "primary_key": ["DIMENSION-ID"],
+      "producer": "分类结构审核",
+      "candidate": "分类结构审核/artifacts/corrected.csv"
+    },
+    {
+      "name": "车型形状分类",
+      "path": "source/车型形状分类.csv",
+      "format": "csv",
+      "required_columns": ["DIMENSION-ID", "车形"],
+      "primary_key": ["DIMENSION-ID"],
+      "key_reference": {
+        "path": "source/车型尺寸库.csv",
+        "fields": ["DIMENSION-ID"],
+        "reference_fields": ["DIMENSION-ID"],
+        "relationship": "exact"
+      },
+      "producer": "车形分类核定",
+      "candidate": "车形分类核定/artifacts/record_shape.csv"
+    },
+    {
+      "name": "原子销量",
+      "path": "source/atom_sales.csv",
+      "format": "csv",
+      "required_columns": ["atom_record_id", "预估销量"],
+      "primary_key": ["atom_record_id"],
+      "producer": "销量评估",
+      "candidate": "销量评估/artifacts/atom_sales.csv"
+    },
+    {
+      "name": "尺码分析",
+      "path": "source/尺码分析.csv",
+      "format": "csv",
+      "required_columns": ["MAKE", "MODEL", "TRIM", "版本", "结构", "CAB", "BED", "代际", "YEAR", "分类", "L-MM", "W-MM", "H-MM", "销量合计", "车形", "前宽-MM", "后宽-MM", "参考侧高", "参考插片", "自动尺码", "自动长度余量", "候选", "原因", "相差数值", "DIMENSION-ID"],
+      "primary_key": ["DIMENSION-ID"],
+      "key_reference": {
+        "path": "source/车型尺寸库.csv",
+        "fields": ["DIMENSION-ID"],
+        "reference_fields": ["DIMENSION-ID"],
+        "relationship": "exact"
+      },
+      "producer": "尺码计算",
+      "candidate": "尺码计算/output/pandas_output.csv"
+    },
+    {
+      "name": "4A适配数据",
+      "path": "source/4afitment_data.csv",
+      "format": "csv",
+      "required_columns": ["year", "make", "model"],
+      "primary_key": ["year", "make", "model"],
+      "producer": "人工或外部系统"
+    },
+    {
+      "name": "子车系维护表",
+      "path": "source/子车系维护表.csv",
+      "format": "csv",
+      "required_columns": ["Year", "主车型", "结构", "版本", "候选车型"],
+      "primary_key": ["Year", "主车型", "结构", "版本", "候选车型"],
+      "producer": "人工维护"
+    },
+    {
+      "name": "车型数据尺码历史工作簿",
+      "path": "source/车型数据尺码.xlsx",
+      "format": "xlsx",
+      "producer": "人工维护（历史兼容）"
+    },
+    {
+      "name": "DIMENSION-ID迁移表",
+      "path": "source/dimension_id_migration.csv",
+      "format": "csv",
+      "required_columns": ["old_dimension_id", "DIMENSION-ID"],
+      "producer": "人工维护"
+    },
+    {
+      "name": "皮卡尺码簇明细",
+      "path": "source/pk-cluster/pickup_cluster_detail.csv",
+      "format": "csv",
+      "required_columns": ["CLUSTER_ID", "PHYSICAL_SKU", "DIMENSION-ID"],
+      "primary_key": ["CLUSTER_ID", "DIMENSION-ID"],
+      "producer": "SKU 聚类/pickup-cluster",
+      "candidate": "SKU 聚类/pickup-cluster/output/pickup_cluster_detail.csv",
+      "allow_schema_change": true
+    },
+    {
+      "name": "皮卡尺码簇异常",
+      "path": "source/pk-cluster/pickup_cluster_exceptions.csv",
+      "format": "csv",
+      "required_columns": ["DIMENSION-ID", "EXCEPTION_REASON"],
+      "primary_key": ["DIMENSION-ID"],
+      "producer": "SKU 聚类/pickup-cluster",
+      "candidate": "SKU 聚类/pickup-cluster/output/pickup_cluster_exceptions.csv",
+      "allow_schema_change": true
+    },
+    {
+      "name": "皮卡尺码簇汇总",
+      "path": "source/pk-cluster/pickup_cluster_summary.csv",
+      "format": "csv",
+      "required_columns": ["CLUSTER_ID", "PHYSICAL_SKU"],
+      "primary_key": ["CLUSTER_ID"],
+      "producer": "SKU 聚类/pickup-cluster",
+      "candidate": "SKU 聚类/pickup-cluster/output/pickup_cluster_summary.csv",
+      "allow_schema_change": true
+    }
+  ]
+}

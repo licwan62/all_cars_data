@@ -1,0 +1,106 @@
+{
+  "passed": true,
+  "source": "D:\\Licheng\\Workflow\\all_cars_data\\分类结构审核\\changes\\2026-08-25_06_confirmed-branch-gaps\\correct.csv",
+  "checks": [
+    {
+      "check": "source_schema",
+      "passed": true,
+      "rows": 4437,
+      "actual": [
+        "DIMENSION-ID",
+        "MAKE",
+        "MODEL",
+        "版本",
+        "CAB",
+        "BED",
+        "结构",
+        "代际",
+        "YEAR",
+        "分类",
+        "L-IN",
+        "W-IN",
+        "H-IN",
+        "参考车型",
+        "备注",
+        "迭代状态"
+      ]
+    },
+    {
+      "check": "source_dimension_ids",
+      "passed": true
+    },
+    {
+      "check": "source_dimension_ids_unique",
+      "passed": true,
+      "unique_ids": 4437
+    },
+    {
+      "check": "cache_shapes_valid",
+      "passed": true,
+      "rows": 1490
+    },
+    {
+      "check": "cache_3x_not_mapped_from_structure",
+      "passed": true,
+      "rules": 0
+    },
+    {
+      "check": "cache_3x_only_from_independent_generation_review",
+      "passed": true,
+      "rules": 0
+    },
+    {
+      "check": "cache_keys_unique",
+      "passed": true
+    },
+    {
+      "check": "queue_status_valid",
+      "passed": true,
+      "rows": 0
+    },
+    {
+      "check": "result_schema",
+      "passed": true,
+      "actual": [
+        "DIMENSION-ID",
+        "车形"
+      ]
+    },
+    {
+      "check": "result_exact_coverage",
+      "passed": true,
+      "source_rows": 4437,
+      "result_rows": 4437
+    },
+    {
+      "check": "result_dimension_ids_unique",
+      "passed": true,
+      "unique_ids": 4437
+    },
+    {
+      "check": "result_shapes_valid",
+      "passed": true
+    },
+    {
+      "check": "result_3x_reused_by_generation",
+      "passed": true,
+      "mixed_generations": []
+    },
+    {
+      "check": "classic_boxy_generation_coverage",
+      "passed": true,
+      "registered_generations": 131,
+      "failures": []
+    },
+    {
+      "check": "agent_reference_shapes",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check": "all_dimension_shape_audit_exact_coverage",
+      "passed": true,
+      "rows": 4437
+    }
+  ]
+}

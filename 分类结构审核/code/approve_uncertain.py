@@ -11,9 +11,10 @@ from research_queue import atomic_write, read_rows
 
 
 ROOT = Path(__file__).resolve().parents[2]
-QUEUE = ROOT / "output" / "research_queue" / "queue.csv"
-SOURCE = next(path for path in (ROOT / "车型尺寸库.csv", ROOT / "source" / "车型尺寸库.csv") if path.exists())
-SPLITS = ROOT / "output" / "research_queue" / "approved_splits.json"
+PROJECT = Path(__file__).resolve().parents[1]
+QUEUE = PROJECT / "research_queue" / "queue.csv"
+SOURCE = ROOT / "source" / "车型尺寸库.csv"
+SPLITS = PROJECT / "research_queue" / "approved_splits.json"
 CROCKFORD = "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
 
 

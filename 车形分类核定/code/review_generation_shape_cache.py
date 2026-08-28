@@ -127,10 +127,32 @@ REVIEWED_PREVIOUS_BOXY_EXCLUSIONS = {
     ("Infiniti", "Q45", "gen2"): ("30", "车头和前角进一步圆化，不满足 32。"),
     ("Jaguar", "XJ", "gen1"): ("30", "发动机盖和前翼子板向车头明显收窄，不是方形宽头。"),
     ("Lexus", "LS", "gen2"): ("30", "第二代前角与车头已圆化收窄，排除 32。"),
-    ("Lincoln", "Continental", "gen8"): ("30", "该代为空气动力学圆化车头，且不是 Low Sport。"),
     ("Subaru", "Legacy", "gen1"): ("30", "车头呈楔形收窄，前角不足以支持 32。"),
     ("Toyota", "Corolla", "gen5"): ("30", "该代已采用圆化、向前收窄的车头。"),
     ("Volkswagen", "Passat", "gen3"): ("30", "无格栅楔形前脸向前收窄，排除方形宽车头。"),
+}
+
+# 保险杠虽圆化，但俯视下仍保留宽肩、宽机盖前缘和缓慢横向收窄的
+# 方正老爷车连续迭代。边界不清时依 AGENT 向 32 倾斜，不因表面圆角降为 30/31。
+ROUNDED_CLASSIC_LINEAGE_32 = {
+    ("Buick", "LeSabre", "gen7"), ("Buick", "LeSabre", "gen8"),
+    ("Buick", "Park Avenue", "gen1"), ("Buick", "Park Avenue", "gen2"),
+    ("Buick", "Regal", "gen3"), ("Buick", "Regal", "gen4"),
+    ("Buick", "Riviera", "gen1"), ("Buick", "Riviera", "gen2"),
+    ("Buick", "Riviera", "gen4"), ("Buick", "Riviera", "gen7"),
+    ("Buick", "Riviera", "gen8"), ("Buick", "Roadmaster", "gen7"),
+    ("Cadillac", "DeVille", "gen6"), ("Cadillac", "DeVille", "gen7"),
+    ("Cadillac", "Eldorado", "gen9"),
+    ("Cadillac", "Seville", "gen4"), ("Cadillac", "Seville", "gen5"),
+    ("Chevrolet", "Impala", "gen7"),
+    ("Ford", "Crown Victoria", "gen2"),
+    ("Lincoln", "Continental", "gen8"), ("Lincoln", "Continental", "gen9"),
+    ("Lincoln", "Town Car", "gen3"),
+    ("Mercury", "Grand Marquis", "gen2"), ("Mercury", "Grand Marquis", "gen3"),
+    ("Mercury", "Grand Marquis", "gen4"),
+    ("Oldsmobile", "88", "gen10"),
+    ("Pontiac", "Bonneville", "gen8"), ("Pontiac", "Bonneville", "gen9"),
+    ("Pontiac", "Bonneville", "gen10"),
 }
 
 NON_3X_EXCEPTIONS = [
@@ -155,7 +177,7 @@ def selected_shape(row: dict[str, str], cache: list[dict[str, str]]) -> str:
 
 def researched_boxy_generations() -> set[tuple[str, str, str]]:
     from review_classic_shapes import DECISIONS
-    return CLASSIC_BOXY_CORRECTIONS | {
+    return CLASSIC_BOXY_CORRECTIONS | ROUNDED_CLASSIC_LINEAGE_32 | {
         (make, model, generation)
         for make, model, generation, _pattern, shape in DECISIONS
         if generation and shape == "32"

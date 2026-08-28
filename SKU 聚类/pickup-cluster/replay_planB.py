@@ -7,7 +7,7 @@ from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 BASE = Path(__file__).parent
-xl = pd.ExcelFile(str(BASE / "input" / "车型数据尺码.xlsx"))
+xl = pd.ExcelFile(str(BASE.parents[1] / "source" / "车型数据尺码.xlsx"))
 sizes = xl.parse("尺码")
 match = xl.parse("尺码匹配")
 match.columns = [c.strip() for c in match.columns]

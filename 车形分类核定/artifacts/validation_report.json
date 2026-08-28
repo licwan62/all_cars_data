@@ -1,6 +1,6 @@
 {
-  "passed": true,
-  "source": "D:\\Licheng\\Workflow\\all_cars_data\\分类结构审核\\changes\\2026-08-25_05_final-review-progression\\correct.csv",
+  "passed": false,
+  "source": "D:\\Licheng\\Workflow\\all_cars_data\\source\\车型尺寸库.csv",
   "checks": [
     {
       "check": "source_schema",
@@ -68,14 +68,14 @@
     },
     {
       "check": "result_exact_coverage",
-      "passed": true,
+      "passed": false,
       "source_rows": 4354,
-      "result_rows": 4354
+      "result_rows": 4442
     },
     {
       "check": "result_dimension_ids_unique",
       "passed": true,
-      "unique_ids": 4354
+      "unique_ids": 4442
     },
     {
       "check": "result_shapes_valid",
@@ -89,7 +89,7 @@
     {
       "check": "classic_boxy_generation_coverage",
       "passed": true,
-      "registered_generations": 102,
+      "registered_generations": 131,
       "failures": []
     },
     {
@@ -99,8 +99,8 @@
     },
     {
       "check": "all_dimension_shape_audit_exact_coverage",
-      "passed": true,
-      "rows": 4354
+      "passed": false,
+      "rows": 4442
     }
   ]
 }
