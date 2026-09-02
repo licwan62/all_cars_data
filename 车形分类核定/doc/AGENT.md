@@ -1,129 +1,149 @@
-|     车形 | 分类              | Body                  | 描述                                                                   | 参考车型                                                                                    |
-| -----: | --------------- | --------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-|  **0** | Pickup          | Standard Body         | 普通皮卡车身，轮拱没有明显向外突出，车头宽度和车身主体基本协调，作为普通 Pickup 的基础板型。                   | F-150、Silverado 1500、RAM 1500                                                           |
-|  **1** | Pickup          | Flared Fender         | 轮拱明显向外突出，比普通皮卡更宽，尤其前轮区域需要更大的横向余量。                                    | Ranger、Tacoma、Colorado、F-250/F-350 SRW、Silverado/Sierra HD SRW、RAM 2500/3500 SRW        |
-| **10** | Pickup          | Wide-body Performance | 性能宽体皮卡，前后轮拱明显大幅外扩，车头和车身整体更宽，需要明显更大的补宽。                               | F-150 Raptor、RAM TRX、Ranger Raptor                                                      |
-| **11** | Pickup          | DRW                   | 双后轮皮卡，后轮区域大幅向外突出，主要增加车衣后半部分的宽度需求。                                    | F-350 DRW、Silverado 3500HD DRW、Sierra 3500HD DRW、RAM 3500 DRW                           |
-| **20** | Hatchback/Wagon | Rounded Front         | 圆润型两厢/旅行车。俯视车头两侧明显向前收窄，前角较圆，所以实际车头覆盖宽度相对较小。                          | Mazda3 Hatchback、Honda Fit、Fiesta Hatchback、Yaris Hatchback、Chevrolet Bolt、BMW i3       |
-| **21** | Hatchback/Wagon | Boxy Front            | 方正型两厢/旅行车。俯视车头较宽、两侧收窄较少，前角较方，所以比圆润车型需要更宽的前部插片。                       | Chevrolet Malibu Wagon、Volvo 240/740 Wagon、Buick Roadmaster Estate、Nissan Cube、Kia Soul |
-| **25** | Minivan         | Standard Minivan      | 车头较短但整体较宽，前挡根部和车顶也较宽，前部到车顶的宽度变化较小。                                   | Sienna、Odyssey、Carnival、Pacifica                                                        |
-| **26** | Van             | Full-size Van         | 车头、车身和车顶都比较方正且宽，前部向上收窄很少，属于整体宽度需求较大的板型。                              | Transit、Sprinter、ProMaster                                                              |
-| **30** | Sedan           | Standard / Fastback   | 普通现代轿车板型，车头通常有一定圆角并逐渐收窄。传统 Sedan、Fastback、Sportback 均归这一类，不单独区分尾部形状。 | Camry、Accord、Altima、Malibu Sedan、Model 3、Mercedes CLA、Audi A5 Sportback                 |
-| **31** | Sedan/Coupe     | Low Sport             | 低矮运动型车。车身和前轮区域可能很宽，但前挡和车顶明显更窄，属于“下宽上窄”的车身结构。                         | Mustang、GR86、Camaro、Porsche Taycan、Corvette                                             |
-| **32** | Sedan/Coupe     | Boxy Classic          | 老式方正轿车。车头宽且方，俯视两侧较平直，前部不会像现代轿车那样明显收窄，因此需要更大的前部覆盖宽度。                  | Chevrolet Bel Air 4-Door Sedan、Chevrolet Caprice、经典 Cadillac Sedan                      |
-| **40** | SUV             | Conventional SUV      | 普通现代 SUV，车头较宽但前角圆润，向车头和车顶方向都会逐渐收窄，作为常规 SUV 基础板型。                     | CR-V、RAV4、Highlander、CX-5                                                               |
-| **41** | SUV             | Fastback SUV          | 前部结构与普通现代 SUV 接近，主要区别是车顶后半段明显向下倾斜。前部插片宽度不能只因为 Fastback 造型而增加。        | Model Y、BMW X6、Audi Q8、Range Rover Velar、GLC Coupe                                      |
-| **42** | SUV             | Boxy SUV              | 方正 SUV，车头比普通 SUV 更宽、更方，俯视两侧收窄较少，因此通常需要更大的前部覆盖宽度。                     | 4Runner、Bronco Sport、GLB、Tahoe、Yukon、Escalade、Expedition                                |
-| **50** | SUV             | Jeep-like Boxy        | 硬派方盒 SUV，车头、前挡根部和车顶都比较宽，整体从下到上收窄很少，属于前部和车顶宽度需求都较大的类型。                | Wrangler、Bronco、G-Class、Defender 90/110                                                 |
+# 车形分类核定规则
 
-## 判定重点
+## 1. 唯一规则源
 
-本项目中的车形分类优先看以下特征：
+本项目必须以同目录的 `reference.csv` 为车形定义唯一真源。每次核定前都要重新读取该文件，不得沿用旧版 `AGENT.md` 中的数字编号、分类名称或边界。
 
-1. **俯视车头是圆还是方**
-2. **车头从最大车宽向前收窄多少**
-3. **轮拱是否明显向外突出**
-4. **车头到前挡、车顶是否快速变窄**
-5. 最后才看车顶后段、尾门、Fastback 等侧面差异
+- 最终 `车形` 字段必须填写 `reference.csv` 的 `车身号`，大小写和连字符必须完全一致。
+- `分类`、`结构细分`、`描述`、`参考车型`共同定义轮廓语义。
+- `下摆上限`及五个系数是下游版型/尺寸参数，不是车形判定阈值；空值不得自行补造。
+- 历史编号 `0/1/10/11/20/21/25/26/30/31/32/40/41/42/50` 已废止，不得写入新结果。
+- `source` 目录只读。本项目只更新 `cache`、`research_queue`、`artifacts` 和新增的 `changes` 批次。
 
-### 30/31/32 缓存约束
+## 2. 当前固定车形
 
-- `STRUCTURE` 只用于找到待核分支，不得作为 `30`、`31`、`32` 的直接映射条件。
-- `Convertible`、`Coupe`、`Sedan` 都可能根据实际轮廓归入 `30`、`31` 或 `32`；尤其不得因为 `Convertible` 名称默认归 `31`。
-- 优先按 `MAKE + MODEL + 代际`登记并复用已经核定的轮廓结论。同代际分支只有在实车轮廓确有差异且存在版本证据时才单独登记，不能仅用结构名称拆分。
-- 方形宽车头、前角较方且向前收窄少是 `32 Boxy Classic` 的最高优先级特征；一旦确认，直接归 `32`，不再与 `31` 比较，也不能被低车顶、敞篷或运动名称覆盖。
-- 判定前部收窄时必须参考俯视投影：前翼子板宽度、左右肩部延伸位置、机盖前缘宽度、大灯是否贴近车身外缘，以及从前轮最大宽度到保险杠最前端的横向收缩速度。
-- 由方正老爷车连续迭代而来的车型，即使保险杠和前角做了大量圆角，只要俯视下肩部仍延伸至靠近车头、机盖前缘仍宽且横向收缩慢，仍归 `32`。“比上一代圆润”不是排除 `32` 的证据。
-- 对历史上已有多个 `32` 代际的连续车系，如果俯视证据不足以证明它已像 Camry/Model 3 那样快速收窄，边界判定向 `32` 倾斜。不得仅因外观圆润就改判 `20` 或 `31`。
-- `31 Low Sport` 只在已经排除上述方形宽车头特征后，且低矮、下宽上窄的实际比例成立时使用。
-- 原有分类只能用于列出待复核差异，不得作为新代际结论的依据；只有按本规则重新核定正确的代际缓存才允许复用。
-- 上述优先级必须落实到最终输出中的每个 `DIMENSION-ID`；2000 年以前的历史车型需要作为重点审计范围，不能只审核车型名称或抽样年份。
+下表是 `reference.csv` 的可读快照；CSV 与本文冲突时始终以 CSV 为准。
 
-### 简单理解
+| 车身号 | 分类 | 结构细分 | 核心轮廓 | 参考车型 |
+| --- | --- | --- | --- | --- |
+| `dodge-challenger` | 专用 | Dodge Challenger | Challenger 专用版型 | Dodge Challenger |
+| `H0` | Hatchback | Low Sloping Hatch | 低矮、流线，后顶较早下降 | Civic Hatchback、Mazda3 Hatchback、Corolla Hatchback、Focus Hatchback、i30 Hatchback、Peugeot 308 |
+| `H1` | Hatchback | Tall Box Hatch | 高 CAB、短机舱、平顶、直尾 | Kia Soul、Nissan Cube、Scion xB、Toyota bB；N-Box/Wagon R 为极端参考 |
+| `H2` | Wagon | Wagon Touring | 低 CAB、斜前挡、长车顶、现代流线 Wagon | A6/RS6 Avant、V60/V90、3/5 Series Touring、E-Class Wagon、Golf Variant |
+| `H3` | Wagon | Classic Estate | 长平顶、较直 A/D 柱、小后圆角、经典方正 Wagon | W123 Estate、Volvo 240/740/760/940/850/early V70、Roadmaster/Caprice/Custom Cruiser Estate |
+| `JP` | SUV | Jeep-like Boxy | 硬派方盒，车头、前挡根部和车顶都宽，向上收窄很少 | Wrangler、Bronco、G-Class、Defender 90/110 |
+| `P0` | Pickup | Standard Body | 普通皮卡，轮拱无明显外扩 | F-150、Silverado 1500、RAM 1500 普通版 |
+| `P1` | Pickup | Flared Fender | 轮拱明显外扩，尤其前轮区域需要更大横向余量 | Ranger、Tacoma、Colorado、F-Series/GM HD/RAM HD SRW |
+| `P2` | Pickup | Wide-body Performance | 性能宽体，前后轮拱大幅外扩 | F-150 Raptor、RAM TRX、Ranger Raptor |
+| `DUAL` | Pickup | DRW | 双后轮，后轮区域大幅外扩 | F-350、Silverado/Sierra 3500HD、RAM 3500 DRW |
+| `SD0` | Sedan/Coupe | Low Sport | 低矮运动、下宽上窄，前挡和车顶明显窄于车身 | Mustang、GR86、Camaro、Taycan、Corvette |
+| `SD1` | Sedan | Standard / Fastback | 普通现代 Sedan/Fastback/Sportback | Avalon、Camry、Accord、Altima、Malibu、Model 3、CLA、A5 Sportback |
+| `SD2` | Sedan/Coupe | Boxy Classic | 老式方正轿车，宽方车头，俯视两侧平直且向前收窄少 | Bel Air Sedan、Caprice、经典 Cadillac Sedan、Lincoln Continental |
+| `SU0` | SUV | Fastback SUV | 普通现代 SUV 前部，车顶后半段明显下倾 | Model X/Y、X6、Q8、Velar、GLC Coupe |
+| `SU1` | SUV | Conventional SUV | 普通现代 SUV，前角圆润，向车头和车顶逐渐收窄 | CR-V、RAV4、Highlander、CX-5 |
+| `SU2` | SUV | Boxy SUV | 方正 SUV，宽方车头，俯视两侧收窄较少 | 4Runner、Bronco Sport、GLB、Tahoe、Yukon、Escalade、Expedition |
+| `V0` | Minivan | Standard Minivan | 短车头、宽车身，前挡根部和车顶也宽 | Sienna、Odyssey、Carnival、Pacifica |
+| `V1` | Van | Full-size Van | 车头、车身和车顶均方正且宽，向上收窄很少 | Transit、Sprinter、ProMaster |
 
-**圆头车型**
-
-车头越往前越窄，前角比较圆：
+合法车身号固定为：
 
 ```text
-    ______
-  /        \
- /          \
+dodge-challenger
+H0 H1 H2 H3
+JP
+P0 P1 P2 DUAL
+SD0 SD1 SD2
+SU0 SU1 SU2
+V0 V1
 ```
 
-这类车型通常需要的前部插片较窄。
+不得擅自新增、合并、重命名或重新解释。
 
-**方头车型**
+## 3. 判定总原则
 
-车头一直保持较宽，前角比较方：
+车形表示车罩所需的外轮廓，不等同于营销名称、车门数或数据库 `结构` 字段。`分类`、`结构`、`版本`、`参考车型`只用于定位候选分支；最终结论必须服从真实车身比例。
 
-```text
-  __________
- |          |
- |          |
+按以下顺序核定：
+
+1. 先识别专用车型、DRW、性能宽体等不可被普通分类覆盖的例外。
+2. 判断真实大类：Pickup、Hatchback、Wagon、Sedan/Coupe、SUV、Minivan、Full-size Van。
+3. 在大类内比较决定车罩轮廓的比例：车头收窄、轮拱外扩、CAB 高度、车顶长度和后段斜率、A/D 柱角度、车身向上收窄程度。
+4. 以 `MAKE + MODEL + 代际 + 实际车身分支`复用结论。同代相同外壳应一致；确有不同外壳时才按版本/结构拆分。
+5. 原车形和历史缓存只能帮助列出复核对象，不得成为新结论本身。
+
+尺寸（长、宽、高、轴距）不用于创造新车形，也不能仅凭一个绝对尺寸跨大类归类。
+
+## 4. 各大类决策规则
+
+### 4.1 专用 Dodge Challenger
+
+`MAKE=Dodge` 且 `MODEL=Challenger` 的量产代际和 Widebody 分支统一为 `dodge-challenger`。不得再落入 `SD0` 或 `SD2`。
+
+### 4.2 Pickup
+
+优先级为 `DUAL` > `P2` > `P1` > `P0`。
+
+- 只有明确的 DRW、Dually 或 Dual Rear Wheel 证据才用 `DUAL`。
+- Raptor、TRX 等确有大幅宽体轮拱的性能分支用 `P2`；普通越野套件名称本身不够。
+- 明显外扩轮拱或 HD SRW 轮廓用 `P1`。
+- 排除以上特征后使用 `P0`。
+
+### 4.3 Hatchback 与 Wagon
+
+先判断短尾两厢还是长顶旅行车，再判断轮廓；不能继续使用旧 `20/21` 的“圆头/方头”二分。
+
+- `H0`：车身较低、前挡较斜、车顶或后顶较早下降的流线两厢。
+- `H1`：高 CAB、短机舱、车顶较平、尾门较直的高方两厢。Kia Soul、Cube、xB 是正常参考，N-Box/Wagon R 只表示极端上界。
+- `H2`：具有明显长车顶和旅行车比例，但 A/D 柱、前脸及转角属于现代流线设计。
+- `H3`：长平顶、直立 A/D 柱、后角半径小的经典 Estate。不能仅因生产年份早就自动判为 `H3`；必须有方正长顶轮廓。
+
+数据库把 Liftback 写作 Hatchback 时，如果整车仍是普通 Sedan/Fastback 比例，应保留 `SD1`；低矮运动型掀背/快背可为 `SD0`。数据库把实际 Wagon 写作 Hatchback 时，应按真实长顶轮廓判 `H2/H3`。
+
+### 4.4 Sedan/Coupe
+
+优先级为：先确认 `SD2`，再判断 `SD0`，最后 `SD1`。
+
+- `SD2` 的最高优先特征是宽方车头、平直肩线和俯视向前收窄慢。圆角、敞篷或 Coupe 名称不能覆盖这一证据。
+- 排除 `SD2` 后，只有低矮且“下宽上窄”比例明确时才用 `SD0`。
+- 普通 Sedan、Fastback、Sportback 统一为 `SD1`，不因尾门开启方式单独改类。
+- `Sedan/Coupe/Convertible/Hardtop/Roadster/Targa` 等 `结构` 值不得直接映射到某个 `SD*`。
+
+### 4.5 SUV
+
+优先判断是否为 `JP`，再在普通 SUV 中判断 `SU2/SU0/SU1`。
+
+- `JP`：硬派方盒，车头、前挡根部和车顶都宽，整体向上收窄极少。
+- `SU2`：方正但不满足 Jeep-like 全高度方盒特征，重点是宽方车头和俯视收窄少。
+- `SU0`：前部近似普通现代 SUV，但后半车顶有明确持续下倾；不能只因 Coupe 营销名判定。
+- `SU1`：排除以上特征后的常规现代 SUV。
+
+### 4.6 Minivan 与 Full-size Van
+
+- `V0`：乘用 Minivan，短车头、宽前挡根部与宽车顶。
+- `V1`：Full-size Van，车头、侧壁和车顶更直、更方、更高。
+- Compact MPV 若真实轮廓更接近高方两厢，可判 `H1`；不得仅按 `MPV/Van` 字段机械映射。
+
+## 5. 证据与缓存
+
+- `reference.csv` 中的参考车型可直接作为规则锚点，不要求重复联网确认。
+- 非参考车型优先使用制造商资料、官方图库/规格页或可确认代际的多角度图片；俯视或前 3/4 视角用于车头收窄，正侧视图用于 CAB、车顶和 D 柱。
+- 来源必须对应具体代际。仅有车型名、营销结构名或另一代车型的图片，不足以拆分边界类。
+- 缓存键至少包含 `MAKE + MODEL`；跨代轮廓变化时增加 `generation`，同代真实外壳不同才增加 `match_pattern` 或年份范围。
+- 缓存冲突必须报错，不能按文件顺序静默取值。
+
+## 6. 输出、审计与验收
+
+最终结果为 UTF-8 CSV：
+
+```csv
+DIMENSION-ID,车形
 ```
 
-这类车型通常需要更宽的前部插片。
+必须满足：
 
-**下宽上窄车型**
+- 与 `../source/车型尺寸库.csv` 顺序一致并全量覆盖；
+- `DIMENSION-ID` 唯一，且不增删源记录；
+- 每个 `车形` 都存在于当前 `reference.csv`；
+- Dodge Challenger、CSV 参考车型和同代际缓存通过专项断言；
+- 每条记录在全量审计中登记旧值、新值、命中的规则和判定理由；
+- 机器验收失败时不得将结果视为完成。
 
-例如 Low Sport：
+每轮完成后在 `changes/YYYY-MM-DD_NN_short-description/` 新建不可覆盖批次，至少包含：
 
-```text
-宽车身
-  ↓
-宽车头
-  ↓
-较窄前挡
-  ↓
-窄车顶
-```
+- `correct.csv`：本轮全量结果；
+- `changes.csv`：相对明确基线的实际差异；
+- `report.md`：规则版本、统计、例外和风险；
+- `validation.json`：机器验收结果；
+- `all_dimension_audit.csv/json`：全量可追溯判定。
 
-前部可能需要补宽，但车顶不一定宽。
-
-**下宽上也宽车型**
-
-例如 Jeep-like Boxy：
-
-```text
-宽车头
-  ↓
-宽前挡
-  ↓
-宽车顶
-```
-
-前部和车顶都需要较大的宽度余量。
-
-## 固定车形编号
-
-以下编号固定，不得修改、新增或重新排序：
-
-```text
-0
-1
-10
-11
-20
-21
-25
-26
-30
-31
-32
-40
-41
-42
-50
-```
-
-Size、车长、车宽、车高、轴距等数据由后续尺寸系统单独分析，不用于新增车形分类。
-
-## 修改批次交付
-
-- 每轮车形核定都必须在 `changes/YYYY-MM-DD_NN_short-description/` 中追加独立批次，不得覆盖旧批次。
-- 批次至少包含 `correct.csv`、`changes.csv`、`report.md` 和 `validation.json`。
-- `correct.csv` 保存本轮完成时的全量 `DIMENSION-ID,车形` 结果；`changes.csv` 只保存相对明确基线的实际增删和改类。
-- `report.md` 必须登记输入基线、核定规则、数量统计、例外、风险和附件；专项复核报告应随批次归档。
-- 归档前必须完成全量覆盖、ID 唯一性、固定车形编号、代际复用一致性及结构不直映射 3x 的机器验收。
-- 车形核定项目不写入、修改或接管 `source` 目录。
+发布到 `source/车型形状分类.csv` 属于独立人工批准步骤，本项目不得自动执行。

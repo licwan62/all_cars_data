@@ -12,7 +12,8 @@ from src.trimlist import build_files
 ROOT = Path(__file__).resolve().parent
 WORKSPACE = ROOT.parent
 SOURCE = WORKSPACE / "source"
-LOCAL_INPUT = ROOT / "input"
+DATA = ROOT / "data"
+OUTPUT = ROOT / "output"
 
 
 def parse_args() -> argparse.Namespace:
@@ -27,7 +28,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--fitment",
         type=Path,
-        default=SOURCE / "4afitment_data.csv",
+        default=SOURCE / "4A全数据.csv",
     )
     parser.add_argument(
         "--maintenance",
@@ -37,18 +38,25 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--overrides",
         type=Path,
-        default=LOCAL_INPUT / "trim_overrides.csv",
+        default=DATA / "trim_overrides.csv",
     )
     parser.add_argument(
         "--online-evidence",
         type=Path,
-        default=LOCAL_INPUT / "online_evidence.csv",
+        default=DATA / "online_evidence.csv",
         help="非现有精确键候选的联网审核凭证",
+    )
+    parser.add_argument(
+        "--data-dir",
+        type=Path,
+        default=DATA,
+        help="TrimList、研究报告、校验报告等中间产物目录",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=ROOT / "output",
+        default=OUTPUT,
+        help="仅存放适配器.csv 和 DimensionTrimMap.csv 的最终输出目录",
     )
     parser.add_argument(
         "--size-source",
@@ -90,33 +98,39 @@ def main() -> None:
         args.maintenance.resolve(),
         args.overrides.resolve() if args.overrides else None,
         args.online_evidence.resolve() if args.online_evidence else None,
-        args.output_dir.resolve(),
+        args.data_dir.resolve(),
     )
     counts = result.report["counts"]
     print(json.dumps(result.report, ensure_ascii=False, indent=2))
-    print(f"\nTrimList: {(args.output_dir / 'TrimList.csv').resolve()}")
+    print(f"\nTrimList 中间产物: {(args.data_dir / 'TrimList.csv').resolve()}")
 
     if not args.skip_fitment_coverage:
         coverage_result = build_fitment_coverage_files(
             args.fitment.resolve(),
             args.dimensions.resolve(),
-            (args.output_dir / "TrimList.csv").resolve(),
-            (args.output_dir / "TrimList_online_review.csv").resolve(),
-            args.output_dir.resolve(),
+            (args.data_dir / "TrimList.csv").resolve(),
+            (args.data_dir / "TrimList_online_review.csv").resolve(),
+            args.data_dir.resolve(),
         )
         print("\n4A fitment coverage:")
         print(json.dumps(coverage_result.report, ensure_ascii=False, indent=2))
 
     if not args.skip_size_analysis:
         size_result = build_size_analysis_files(
-            (args.output_dir / "TrimList.csv").resolve(),
-            (args.output_dir / "TrimList_audit.csv").resolve(),
+            (args.data_dir / "TrimList.csv").resolve(),
+            (args.data_dir / "TrimList_audit.csv").resolve(),
             args.size_source.resolve(),
             args.size_sheet,
             args.output_dir.resolve(),
+            args.data_dir.resolve(),
         )
         print("\nSize analysis:")
         print(json.dumps(size_result.report, ensure_ascii=False, indent=2))
+        print(f"\n最终适配器: {(args.output_dir / '适配器.csv').resolve()}")
+        print(
+            "DIMENSION-ID 与 Trims 映射: "
+            f"{(args.output_dir / 'DimensionTrimMap.csv').resolve()}"
+        )
 
     failures: list[str] = []
     if args.fail_on_unmapped and counts["unmapped_dimension_year_atoms"]:

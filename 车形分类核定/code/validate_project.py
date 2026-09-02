@@ -7,124 +7,233 @@ import re
 import sys
 from pathlib import Path
 
+
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from id_scheme import dimension_id
-DEFAULT_SOURCE = ROOT / "source" / "车型尺寸库.csv"
+
+DEFAULT_SOURCE = ROOT / "source" / "尺寸库.csv"
 SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
+REFERENCE = PROJECT / "doc" / "reference.csv"
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
-ALL_ID_AUDIT = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-08-25.csv"
-ALLOWED = {"0", "1", "10", "11", "20", "21", "25", "26", "30", "31", "32", "40", "41", "42", "50"}
+ALL_ID_AUDIT = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-02.csv"
+AUDIT_SUMMARY = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-02.json"
+LEGACY_SHAPES = {
+    "0", "1", "10", "11", "20", "21", "25", "26",
+    "30", "31", "32", "40", "41", "42", "50",
+}
 
 
-def read(path: Path, delimiter: str = ","):
-    if not path.exists(): return [], []
-    with path.open(encoding="utf-8-sig", newline="") as f:
-        r = csv.DictReader(f, delimiter=delimiter); return r.fieldnames or [], list(r)
+def read(path: Path):
+    if not path.exists():
+        return [], []
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        return reader.fieldnames or [], list(reader)
 
 
 def main() -> None:
-    checks = []
-    source_header, source = read(SOURCE); cache_header, cache = read(CACHE); queue_header, queue = read(QUEUE)
-    def check(name: str, passed: bool, **detail): checks.append({"check": name, "passed": passed, **detail})
-    expected_source = ["DIMENSION-ID","MAKE","MODEL","版本","CAB","BED","结构","代际","YEAR","分类","L-IN","W-IN","H-IN","参考车型","备注","迭代状态"]
+    checks: list[dict[str, object]] = []
+
+    def check(name: str, passed: bool, **detail: object) -> None:
+        checks.append({"check": name, "passed": passed, **detail})
+
+    reference_header, reference = read(REFERENCE)
+    reference_ids = [row.get("车身号", "") for row in reference]
+    allowed = set(reference_ids)
+    check(
+        "reference_schema",
+        reference_header == [
+            "车身号", "分类", "结构细分", "描述", "参考车型", "下摆上限",
+            "后宽系数", "前宽系数", "颈宽系数", "弧长系数", "周长系数",
+        ],
+        actual=reference_header,
+    )
+    check(
+        "reference_shape_ids_nonempty_unique",
+        bool(reference_ids)
+        and all(reference_ids)
+        and len(reference_ids) == len(allowed),
+        ids=reference_ids,
+    )
+    check(
+        "reference_has_no_legacy_ids",
+        not (allowed & LEGACY_SHAPES),
+        failures=sorted(allowed & LEGACY_SHAPES),
+    )
+
+    source_header, source = read(SOURCE)
+    _, cache = read(CACHE)
+    _, queue = read(QUEUE)
+    expected_source = [
+        "DIMENSION-ID", "MAKE", "MODEL", "版本", "CAB", "BED", "结构",
+        "代际", "YEAR", "分类", "L-IN", "W-IN", "H-IN", "参考车型",
+        "备注", "迭代状态",
+    ]
     check("source_schema", source_header == expected_source, rows=len(source), actual=source_header)
     check("source_dimension_ids", all(row.get("DIMENSION-ID") == dimension_id(row) for row in source))
     source_ids = [row.get("DIMENSION-ID", "") for row in source]
-    check("source_dimension_ids_unique", len(source_ids) == len(set(source_ids)), unique_ids=len(set(source_ids)))
-    check("cache_shapes_valid", bool(cache) and all(x.get("shape") in ALLOWED for x in cache), rows=len(cache))
-    structural_3x = [
-        x for x in cache
-        if x.get("shape") in {"30", "31", "32"}
-        and re.search(r"Sedan|Coupe|Convertible|Hardtop|Roadster|Targa|STRUCTURE\s*=|结构\s*=", x.get("match_pattern", ""), re.IGNORECASE)
-    ]
-    check("cache_3x_not_mapped_from_structure", not structural_3x, rules=len(structural_3x))
-    legacy_3x = [
-        x for x in cache
-        if x.get("shape") in {"30", "31", "32"}
-        and not x.get("note", "").startswith("按新版 AGENT 代际复用")
-    ]
-    check("cache_3x_only_from_independent_generation_review", not legacy_3x, rules=len(legacy_3x))
-    identities = [(x.get("MAKE"), x.get("MODEL"), x.get("match_pattern"), x.get("generation"), x.get("year_start"), x.get("year_end")) for x in cache]
-    check("cache_keys_unique", len(identities) == len(set(identities)))
-    check("queue_status_valid", all(x.get("status") in {"pending", "in_progress", "blocked"} for x in queue), rows=len(queue))
-    if RESULT.exists():
-        header, result = read(RESULT); result_ids = [x.get("DIMENSION-ID", "") for x in result]
-        check("result_schema", header == ["DIMENSION-ID", "车形"], actual=header)
-        check("result_exact_coverage", result_ids == source_ids, source_rows=len(source), result_rows=len(result))
-        check("result_dimension_ids_unique", len(result_ids) == len(set(result_ids)), unique_ids=len(set(result_ids)))
-        check("result_shapes_valid", all(x.get("车形") in ALLOWED for x in result))
-        result_map = {row["DIMENSION-ID"]: row["车形"] for row in result}
-        generation_3x: dict[tuple[str, str, str], set[str]] = {}
-        for row in source:
-            if row.get("结构") in {"Sedan", "Coupe", "Convertible", "Hardtop", "Roadster", "Targa"}:
-                generation_3x.setdefault((row["MAKE"], row["MODEL"], row["代际"]), set()).add(result_map[row["DIMENSION-ID"]])
-        mixed_generations = [" | ".join(key) for key, shapes in generation_3x.items() if len(shapes) > 1]
-        check("result_3x_reused_by_generation", not mixed_generations, mixed_generations=mixed_generations)
-        from review_generation_shape_cache import CLASSIC_BOXY_CORRECTIONS, ROUNDED_CLASSIC_LINEAGE_32
-        classic_boxy_failures = []
-        registered_boxy_generations = CLASSIC_BOXY_CORRECTIONS | ROUNDED_CLASSIC_LINEAGE_32
-        for make, model, generation in sorted(registered_boxy_generations):
-            matched = [
-                row for row in source
-                if row["MAKE"] == make and row["MODEL"] == model and row["代际"] == generation
-                and row["结构"] in {"Sedan", "Coupe", "Convertible", "Hardtop", "Roadster", "Targa"}
-            ]
-            if matched and any(result_map.get(row["DIMENSION-ID"]) != "32" for row in matched):
-                classic_boxy_failures.append(f"{make} | {model} | {generation}")
-        check(
-            "classic_boxy_generation_coverage",
-            not classic_boxy_failures,
-            registered_generations=len(registered_boxy_generations),
-            failures=classic_boxy_failures,
+    check(
+        "source_dimension_ids_unique",
+        len(source_ids) == len(set(source_ids)),
+        unique_ids=len(set(source_ids)),
+    )
+
+    check(
+        "cache_shapes_from_reference",
+        bool(cache) and all(row.get("shape") in allowed for row in cache),
+        rows=len(cache),
+    )
+    cache_legacy = sorted({row.get("shape", "") for row in cache} & LEGACY_SHAPES)
+    check("cache_has_no_legacy_shapes", not cache_legacy, failures=cache_legacy)
+    structural_sd = [
+        row
+        for row in cache
+        if row.get("shape") in {"SD0", "SD1", "SD2"}
+        and re.search(
+            r"STRUCTURE\s*=\s*(?:Sedan|Coupe|Convertible|Hardtop|Roadster|Targa)",
+            row.get("match_pattern", ""),
+            re.IGNORECASE,
         )
-        reference_expectations = [
-            ("Mazda", "3", "Hatchback", "", "20"),
-            ("Honda", "Fit", "Hatchback", "", "20"),
-            ("Ford", "Fiesta", "Hatchback", "", "20"),
-            ("Toyota", "Yaris", "Hatchback", "", "20"),
-            ("Chevrolet", "Bolt", "Hatchback", "gen1", "20"),
-            ("BMW", "i3", "Hatchback", "", "20"),
-            ("Chevrolet", "Malibu", "Wagon", "", "21"),
-            ("Buick", "Roadmaster", "Wagon", "gen7", "21"),
-            ("Nissan", "Cube", "Wagon", "", "21"),
-            ("Kia", "Soul", "", "", "21"),
-            ("Toyota", "Sienna", "", "", "25"),
-            ("Honda", "Odyssey", "", "", "25"),
-            ("Kia", "Carnival", "", "", "25"),
-            ("Chrysler", "Pacifica", "", "", "25"),
-            ("Chevrolet", "Express", "", "", "26"),
-            ("Cadillac", "DeVille", "Convertible", "gen2", "32"),
-            ("Cadillac", "DeVille", "", "gen6", "32"),
-            ("Cadillac", "DeVille", "", "gen7", "32"),
-            ("Cadillac", "Eldorado", "Convertible", "gen1", "32"),
+    ]
+    unsupported_structural_sd = [
+        row for row in structural_sd
+        if "reference.csv" not in row.get("note", "")
+    ]
+    check(
+        "cache_sd_structure_selectors_are_reviewed",
+        not unsupported_structural_sd,
+        selectors=len(structural_sd),
+        unsupported=len(unsupported_structural_sd),
+    )
+    identities = [
+        tuple(
+            row.get(field, "")
+            for field in (
+                "MAKE", "MODEL", "match_pattern", "generation",
+                "year_start", "year_end",
+            )
+        )
+        for row in cache
+    ]
+    check("cache_keys_unique", len(identities) == len(set(identities)))
+    check(
+        "queue_status_valid",
+        all(row.get("status") in {"pending", "in_progress", "blocked"} for row in queue),
+        rows=len(queue),
+    )
+
+    if RESULT.exists():
+        result_header, result = read(RESULT)
+        result_ids = [row.get("DIMENSION-ID", "") for row in result]
+        result_map = {row["DIMENSION-ID"]: row["车形"] for row in result}
+        check("result_schema", result_header == ["DIMENSION-ID", "车形"], actual=result_header)
+        check(
+            "result_exact_coverage",
+            result_ids == source_ids,
+            source_rows=len(source),
+            result_rows=len(result),
+        )
+        check(
+            "result_dimension_ids_unique",
+            len(result_ids) == len(set(result_ids)),
+            unique_ids=len(set(result_ids)),
+        )
+        check("result_shapes_from_reference", all(row.get("车形") in allowed for row in result))
+        result_legacy = sorted({row.get("车形", "") for row in result} & LEGACY_SHAPES)
+        check("result_has_no_legacy_shapes", not result_legacy, failures=result_legacy)
+
+        challenger = [
+            row for row in source
+            if row.get("MAKE") == "Dodge" and row.get("MODEL") == "Challenger"
+        ]
+        check(
+            "dodge_challenger_custom_shape",
+            bool(challenger)
+            and all(result_map.get(row["DIMENSION-ID"]) == "dodge-challenger" for row in challenger),
+            rows=len(challenger),
+        )
+
+        expectations = [
+            ("Honda", "Civic", "Hatchback", "", "H0"),
+            ("Kia", "Soul", "", "", "H1"),
+            ("Nissan", "Cube", "", "", "H1"),
+            ("Audi", "RS6", "Wagon", "", "H2"),
+            ("Volvo", "V60", "Wagon", "", "H2"),
+            ("Buick", "Roadmaster", "Wagon", "gen7", "H3"),
+            ("Oldsmobile", "Custom Cruiser", "Wagon", "", "H3"),
+            ("Ford", "F-150", "Pickup", "gen9", "P0"),
+            ("Toyota", "Tacoma", "", "", "P1"),
+            ("Ford", "Mustang", "Coupe", "", "SD0"),
+            ("Toyota", "Camry", "Sedan", "gen9", "SD1"),
+            ("Chevrolet", "Bel Air", "Sedan", "", "SD2"),
+            ("Tesla", "Model Y", "", "", "SU0"),
+            ("Honda", "CR-V", "", "", "SU1"),
+            ("Toyota", "4Runner", "", "", "SU2"),
+            ("Jeep", "Wrangler", "", "", "JP"),
+            ("Toyota", "Sienna", "", "", "V0"),
+            ("Chevrolet", "Express", "", "", "V1"),
         ]
         reference_failures = []
-        for make, model, structure, generation, expected in reference_expectations:
+        for make, model, structure, generation, expected in expectations:
             matched = [
                 row for row in source
-                if row["MAKE"] == make and row["MODEL"] == model
-                and (not structure or row["结构"] == structure)
-                and (not generation or row["代际"] == generation)
+                if row.get("MAKE") == make
+                and row.get("MODEL") == model
+                and (not structure or row.get("结构") == structure)
+                and (not generation or row.get("代际") == generation)
             ]
-            if not matched or any(result_map.get(row["DIMENSION-ID"]) != expected for row in matched):
-                reference_failures.append(f"{make} {model} {structure or '*'} {generation or '*'} -> {expected}")
-        check("agent_reference_shapes", not reference_failures, failures=reference_failures)
-        audit_header, audit_rows = read(ALL_ID_AUDIT)
-        audit_ids = [row.get("DIMENSION-ID", "") for row in audit_rows]
+            if not matched or any(
+                result_map.get(row["DIMENSION-ID"]) != expected for row in matched
+            ):
+                reference_failures.append(
+                    f"{make} {model} {structure or '*'} {generation or '*'} -> {expected}"
+                )
+        check("reference_examples", not reference_failures, failures=reference_failures)
+
+        audit_header, audit = read(ALL_ID_AUDIT)
+        audit_ids = [row.get("DIMENSION-ID", "") for row in audit]
         check(
-            "all_dimension_shape_audit_exact_coverage",
-            bool(audit_rows) and audit_ids == source_ids and all(row.get("审计状态") == "APPLIED" for row in audit_rows),
-            rows=len(audit_rows),
+            "all_dimension_audit_exact_coverage",
+            bool(audit)
+            and audit_ids == source_ids
+            and all(row.get("审计状态") == "APPLIED" for row in audit),
+            rows=len(audit),
+            actual=audit_header,
         )
-    else: check("result_not_generated_until_complete", bool(queue), unresolved_models=len(queue))
-    report = {"passed": all(x["passed"] for x in checks), "source": str(SOURCE), "checks": checks}
-    out = PROJECT / "artifacts" / "validation_report.json"; out.parent.mkdir(parents=True, exist_ok=True); out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps(report, ensure_ascii=False, indent=2)); raise SystemExit(0 if report["passed"] else 1)
+        check(
+            "all_dimension_audit_matches_result",
+            all(result_map.get(row.get("DIMENSION-ID", "")) == row.get("车形") for row in audit),
+        )
+        if AUDIT_SUMMARY.exists():
+            summary = json.loads(AUDIT_SUMMARY.read_text(encoding="utf-8-sig"))
+            check(
+                "audit_summary_matches_reference",
+                set(summary.get("reference_shape_ids", [])) == allowed
+                and not summary.get("legacy_shape_values_remaining")
+                and summary.get("records") == len(source),
+            )
+        else:
+            check("audit_summary_exists", False)
+    else:
+        check("result_not_generated_until_complete", bool(queue), unresolved_models=len(queue))
+
+    report = {
+        "passed": all(item["passed"] for item in checks),
+        "source": str(SOURCE),
+        "reference": str(REFERENCE),
+        "checks": checks,
+    }
+    output = PROJECT / "artifacts" / "validation_report.json"
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(json.dumps(report, ensure_ascii=False, indent=2))
+    raise SystemExit(0 if report["passed"] else 1)
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

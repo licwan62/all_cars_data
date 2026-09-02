@@ -12,6 +12,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+if str(Path(__file__).resolve().parents[2]) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from id_scheme import dimension_id
+
+
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
 ARTIFACTS = PROJECT / "artifacts"
@@ -72,15 +78,7 @@ def append_note(row: dict[str, str], note: str) -> None:
 
 
 def rebuild_dimension_id(row: dict[str, str]) -> str:
-    result = (
-        f'MAKE={row.get("MAKE", "")}|MODEL={row.get("MODEL", "")}|'
-        f'VERSION={row.get("版本", "")}|STRUCTURE={row.get("结构", "")}|YEAR={row.get("YEAR", "")}'
-    )
-    if row.get("CAB", ""):
-        result += f'|CAB={row["CAB"]}'
-    if row.get("BED", ""):
-        result += f'|BED={row["BED"]}'
-    return result
+    return dimension_id(row)
 
 
 def year_range(value: str) -> tuple[int, int] | None:
@@ -101,11 +99,11 @@ def year_overlaps(left: str, right: str) -> bool:
 def is_already_unified(rows: list[dict[str, str]]) -> bool:
     by_id = {row.get("DIMENSION-ID", ""): row for row in rows}
     return all([
-        "MAKE=GMC|MODEL=Jimmy|VERSION=2dr|STRUCTURE=SUV|YEAR=1983-1994" in by_id,
-        "MAKE=GMC|MODEL=Jimmy|VERSION=|STRUCTURE=SUV|YEAR=1983-1994" not in by_id,
-        "MAKE=Chevrolet|MODEL=Cobalt|VERSION=SS|STRUCTURE=Coupe|YEAR=2005-2010" not in by_id,
-        "MAKE=Toyota|MODEL=Tercel|VERSION=|STRUCTURE=Sedan|YEAR=1995-1998" in by_id,
-        by_id.get("MAKE=Audi|MODEL=A8/S8|VERSION=|STRUCTURE=Sedan|YEAR=2019-2026", {}).get("L-IN") == "209.5",
+        "GMC Jimmy 2dr SUV 1983-1994" in by_id,
+        "GMC Jimmy SUV 1983-1994" not in by_id,
+        "Chevrolet Cobalt SS Coupe 2005-2010" not in by_id,
+        "Toyota Tercel Sedan 1995-1998" in by_id,
+        by_id.get("Audi A8/S8 Sedan 2019-2026", {}).get("L-IN") == "209.5",
     ])
 
 
@@ -380,18 +378,18 @@ def main() -> None:
     duplicate_ids = [rid for rid, count in __import__("collections").Counter(row["DIMENSION-ID"] for row in final_rows).items() if count > 1]
     by_id = {row["DIMENSION-ID"]: row for row in final_rows}
     expected_results = {
-        "audi_us_body": by_id.get("MAKE=Audi|MODEL=A8/S8|VERSION=|STRUCTURE=Sedan|YEAR=2019-2026", {}).get("L-IN") == "209.5",
-        "audi_lwb_duplicate_removed": "MAKE=Audi|MODEL=A8/S8|VERSION=LWB|STRUCTURE=Sedan|YEAR=2019-2026" not in by_id,
-        "bmw_e30_coupe_removed": "MAKE=BMW|MODEL=3 Series|VERSION=|STRUCTURE=Coupe|YEAR=1984-1991" not in by_id,
-        "sentra_b13_coupe_removed": "MAKE=Nissan|MODEL=Sentra|VERSION=|STRUCTURE=Coupe|YEAR=1991-1992" not in by_id,
-        "tercel_coupe_removed": "MAKE=Toyota|MODEL=Tercel|VERSION=|STRUCTURE=Coupe|YEAR=1995-1999" not in by_id,
-        "tercel_sedan_year_corrected": "MAKE=Toyota|MODEL=Tercel|VERSION=|STRUCTURE=Sedan|YEAR=1995-1998" in by_id,
-        "cobalt_sedan_dimensions": lwh(by_id.get("MAKE=Chevrolet|MODEL=Cobalt|VERSION=|STRUCTURE=Sedan|YEAR=2005-2010", {})) == "180.3x67.9x57.1",
-        "cobalt_coupe_umbrella_dimensions": lwh(by_id.get("MAKE=Chevrolet|MODEL=Cobalt|VERSION=|STRUCTURE=Coupe|YEAR=2005-2010", {})) == "180.5x67.9x55.5",
-        "cobalt_ss_redundant_removed": "MAKE=Chevrolet|MODEL=Cobalt|VERSION=SS|STRUCTURE=Coupe|YEAR=2005-2010" not in by_id,
-        "jimmy_2dr_version": "MAKE=GMC|MODEL=Jimmy|VERSION=2dr|STRUCTURE=SUV|YEAR=1983-1994" in by_id,
-        "jimmy_4dr_default": "MAKE=GMC|MODEL=Jimmy|VERSION=|STRUCTURE=SUV|YEAR=1991-1994" in by_id,
-        "wrangler_unlimited_rubicon": "MAKE=Jeep|MODEL=Wrangler|VERSION=2dr Unlimited Rubicon|STRUCTURE=SUV|YEAR=2005-2006" in by_id,
+        "audi_us_body": by_id.get("Audi A8/S8 Sedan 2019-2026", {}).get("L-IN") == "209.5",
+        "audi_lwb_duplicate_removed": "Audi A8/S8 LWB Sedan 2019-2026" not in by_id,
+        "bmw_e30_coupe_removed": "BMW 3 Series Coupe 1984-1991" not in by_id,
+        "sentra_b13_coupe_removed": "Nissan Sentra Coupe 1991-1992" not in by_id,
+        "tercel_coupe_removed": "Toyota Tercel Coupe 1995-1999" not in by_id,
+        "tercel_sedan_year_corrected": "Toyota Tercel Sedan 1995-1998" in by_id,
+        "cobalt_sedan_dimensions": lwh(by_id.get("Chevrolet Cobalt Sedan 2005-2010", {})) == "180.3x67.9x57.1",
+        "cobalt_coupe_umbrella_dimensions": lwh(by_id.get("Chevrolet Cobalt Coupe 2005-2010", {})) == "180.5x67.9x55.5",
+        "cobalt_ss_redundant_removed": "Chevrolet Cobalt SS Coupe 2005-2010" not in by_id,
+        "jimmy_2dr_version": "GMC Jimmy 2dr SUV 1983-1994" in by_id,
+        "jimmy_4dr_default": "GMC Jimmy SUV 1991-1994" in by_id,
+        "wrangler_unlimited_rubicon": "Jeep Wrangler 2dr Unlimited Rubicon SUV 2005-2006" in by_id,
         "all_version_decisions_applied": len(version_review_rows) == len(version_decisions["version_updates"]) + len(version_decisions["redundant_version_ids"]),
         "audit_table2_matches_corrected": read_csv(AUDIT / "audit_table2_corrected.csv") == list(audit2.values()),
         "expected_action_count": len(logs) == 59 + len(version_review_rows),

@@ -4,27 +4,25 @@ import hashlib
 from collections.abc import Mapping
 
 
-def _escape(value: str) -> str:
-    return (value or "").strip().replace("%", "%25").replace("|", "%7C")
+def _clean(value: str) -> str:
+    return (value or "").strip()
 
 
 def dimension_id(row: Mapping[str, str]) -> str:
-    fields = [
-        ("MAKE", "MAKE"),
-        ("MODEL", "MODEL"),
-        ("VERSION", "版本"),
-        ("STRUCTURE", "结构"),
-        ("YEAR", "YEAR"),
-    ]
+    """Return the compact, human-readable vehicle dimension identity.
+
+    Values keep the established business order. Empty optional values are
+    omitted, so a blank version does not leave doubled spaces in the ID.
+    Pickup identities append CAB and BED after the year as before.
+    """
+    fields = ["MAKE", "MODEL", "版本", "结构", "YEAR"]
     if (row.get("分类", "") or "").strip() == "皮卡":
-        fields.extend((("CAB", "CAB"), ("BED", "BED")))
-    return "|".join(
-        f"{label}={_escape(row.get(source, ''))}" for label, source in fields
-    )
+        fields.extend(("CAB", "BED"))
+    return " ".join(value for field in fields if (value := _clean(row.get(field, ""))))
 
 
 def atom_record_id(record_id: str, year: str) -> str:
-    return f"{record_id}|ATOM_YEAR={_escape(year)}"
+    return f"{record_id}|ATOM_YEAR={_clean(year)}"
 
 
 def research_queue_key(record_id: str, issue_type: str, detail: str) -> str:

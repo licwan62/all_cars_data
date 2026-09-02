@@ -43,7 +43,7 @@ CONFIRMED_ADDITIONS = {
 
 # These are real rows with one inconsistent body label, not missing parallel atoms.
 STRUCTURE_CORRECTIONS = {
-    "MAKE=Scion|MODEL=xB|VERSION=|STRUCTURE=Wagon|YEAR=2008-2010": {
+    "Scion xB Wagon 2008-2010": {
         "结构": "Hatchback",
         "reason": "同一代 xB 单一五门车身被前后记录登记为 Hatchback；Wagon 不是独立并行分支。",
         "evidence": f"{EPA}?year=2008&make=Scion",

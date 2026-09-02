@@ -204,6 +204,7 @@ def decide(key: tuple[str, str, str], rows: list[dict[str, str]]) -> tuple[str, 
 
 def apply_review() -> None:
     source = project.read_csv(project.SOURCE)
+    source_by_id = {row["DIMENSION-ID"]: row for row in source}
     original_cache = project.read_csv(project.CACHE)
     stamp = datetime.now(timezone.utc).astimezone().isoformat(timespec="seconds")
 
@@ -314,7 +315,10 @@ def apply_review() -> None:
     unexpected_non_target = [
         item for item in non_target_changes
         if not (
-            item["dimension_id"].startswith("MAKE=Porsche|MODEL=Panamera|VERSION=|STRUCTURE=Hatchback|")
+            source_by_id[item["dimension_id"]].get("MAKE") == "Porsche"
+            and source_by_id[item["dimension_id"]].get("MODEL") == "Panamera"
+            and not source_by_id[item["dimension_id"]].get("版本")
+            and source_by_id[item["dimension_id"]].get("结构") == "Hatchback"
             and item["after"] == "30"
         )
     ]

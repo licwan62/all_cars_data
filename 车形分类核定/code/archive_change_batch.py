@@ -34,15 +34,16 @@ def main() -> None:
     before = parser.add_mutually_exclusive_group(required=True)
     before.add_argument("--before-revision")
     before.add_argument("--before-file", type=Path)
-    parser.add_argument("--title", default="全量 DIMENSION-ID 代际轮廓复核")
+    parser.add_argument("--title", default="依据 reference.csv 的全量车形重核")
     args = parser.parse_args()
 
     project = Path(__file__).resolve().parents[1]
     repo = project.parent
     current_path = project / "artifacts" / "record_shape.csv"
-    audit_path = project / "artifacts" / "all_dimension_shape_audit_2026-08-25.csv"
-    audit_summary_path = project / "artifacts" / "all_dimension_shape_audit_2026-08-25.json"
+    audit_path = project / "artifacts" / "all_dimension_shape_audit_2026-09-02.csv"
+    audit_summary_path = project / "artifacts" / "all_dimension_shape_audit_2026-09-02.json"
     validation_path = project / "artifacts" / "validation_report.json"
+    reference_path = project / "doc" / "reference.csv"
     relative_current = current_path.relative_to(repo).as_posix()
 
     current_rows = read_rows(current_path)
@@ -70,7 +71,7 @@ def main() -> None:
             reason = "上游规范快照删除、合并或重组该 DIMENSION-ID。"
         else:
             action = "RECLASSIFY"
-            reason = "按实际轮廓和代际重核；结构名不作为 30/31/32 直接映射。"
+            reason = "依据新版 reference.csv 的车身号、真实轮廓及代际重新核定。"
         changes.append(
             {
                 "ACTION": action,
@@ -91,36 +92,34 @@ def main() -> None:
     shutil.copy2(audit_path, args.batch / "all_dimension_audit.csv")
     shutil.copy2(audit_summary_path, args.batch / "all_dimension_audit.json")
     shutil.copy2(validation_path, args.batch / "validation.json")
-    for source_name, target_name in (
-        ("hatch_wagon_front_review_2026-08-25.json", "hatch_wagon_front_review.json"),
-        ("classic_shape_review_2026-08-25.json", "classic_shape_review.json"),
-        ("generation_shape_cache_review_2026-08-25.json", "generation_shape_review.json"),
-    ):
-        shutil.copy2(project / "artifacts" / source_name, args.batch / target_name)
+    shutil.copy2(reference_path, args.batch / "reference.csv")
 
     audit_summary = json.loads(audit_summary_path.read_text(encoding="utf-8-sig"))
     validation = json.loads(validation_path.read_text(encoding="utf-8-sig"))
     action_counts = Counter(row["ACTION"] for row in changes)
     shape_counts = Counter(current.values())
+    reference_rows = read_rows(reference_path)
+    shape_order = [row["车身号"] for row in reference_rows]
     report = f"""# {args.title}
 
-本批次以 `{baseline}` 为变更对比基线，以分类结构审核最新规范快照为输入，将车形规则落实到全部 `{len(current_rows):,}` 个 `DIMENSION-ID`。本轮未写入 `source` 目录。
+本批次以 `{baseline}` 为变更对比基线，以 `doc/reference.csv` 为车形定义唯一真源，将新版车身号落实到全部 `{len(current_rows):,}` 个 `DIMENSION-ID`。本轮未写入 `source` 目录。
 
 ## 核定规则
 
-- `STRUCTURE` 只用于定位分支，不直接映射 `30/31/32`。
-- 方形宽车头是 `32` 最高优先级特征；确认后不再与 `31` 比较。
-- `31` 仅在排除方形宽车头后，按低矮、下宽上窄的实际比例核定。
-- `20/21` 按车头收窄和前角轮廓逐代复核。
-- 2000 年以前历史车型逐条审计，仅复用已独立核定的同代轮廓结论。
+- 只允许输出 `reference.csv` 的 18 个车身号，旧数字编号全部废止。
+- `H0/H1/H2/H3` 按低斜两厢、高方两厢、现代流线 Wagon、经典方正 Estate 重新拆分，不沿用旧 `20/21` 边界。
+- Dodge Challenger 全系使用专用 `dodge-challenger`。
+- Pickup 按 `DUAL > P2 > P1 > P0` 的例外优先级；SUV 按 `JP/SU2/SU0/SU1` 的真实轮廓核定。
+- `STRUCTURE` 只用于定位真实分支，不能代替轮廓证据。
+- 同车型同代际同外壳复用结论；源数据代际粒度不足且轮廓确有变化时细化到年份分支。
 
 ## 结果统计
 
 - 全量结果：{len(current_rows):,} 条，唯一 ID {len(current):,} 个。
 - 2000 年以前重点审计：{audit_summary['pre_2000_records_audited']:,} 条。
 - 对比基线的增量记录：{len(changes):,} 条；`RECLASSIFY` {action_counts['RECLASSIFY']:,}，`ADD` {action_counts['ADD']:,}，`REMOVE` {action_counts['REMOVE']:,}。
-- 车形分布：{', '.join(f'{key}={shape_counts[key]}' for key in sorted(shape_counts, key=lambda value: int(value)))}。
-- 非独立代际的 3x 失败：{audit_summary['independent_generation_3x_failures']}。
+- 车形分布：{', '.join(f'{key}={shape_counts[key]}' for key in shape_order)}。
+- 历史编号残留：{len(audit_summary['legacy_shape_values_remaining'])}。
 - 机器验收：{'PASS' if validation['passed'] else 'FAIL'}。
 
 ## 文件说明
@@ -128,14 +127,12 @@ def main() -> None:
 - `correct.csv`：本批次完成时的全量 `DIMENSION-ID,车形` 快照。
 - `changes.csv`：相对基线的实际新增、删除和改类。
 - `all_dimension_audit.csv/json`：全 ID 逐条判定与摘要。
-- `hatch_wagon_front_review.json`：`20/21` 前脸边界复核。
-- `classic_shape_review.json`：历史车型轮廓复核。
-- `generation_shape_review.json`：`30/31/32` 代际缓存和结构直映射清理审计。
+- `reference.csv`：本批次实际使用的规则源快照。
 - `validation.json`：本批次机器验收结果。
 
 ## 保留风险
 
-- `ADD/REMOVE` 中包含上游年份合并、结构原子化和 `DIMENSION-ID` 重组，不应解读为单纯车形改类。
+- 本轮 `RECLASSIFY` 同时包含定义等价的编号迁移和 `H*` 等边界重判；逐条原因以 `all_dimension_audit.csv` 为准。
 - 新证据如推翻已核代际，应追加新批次，不覆盖本快照。
 """
     (args.batch / "report.md").write_text(report, encoding="utf-8")

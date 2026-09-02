@@ -98,6 +98,11 @@ DIMENSION_SIZE_HEADER = [
     "分类",
 ]
 
+DIMENSION_TRIM_HEADER = [
+    "DIMENSION-ID",
+    "Trims",
+]
+
 ADAPTER_SIZE_HEADER = [
     "DIMENSION-ID",
     "Size",
@@ -109,6 +114,14 @@ ADAPTER_SIZE_HEADER = [
     "匹配方式",
     "审核状态",
     "证据URL",
+]
+
+FINAL_ADAPTER_HEADER = [
+    "DIMENSION-ID",
+    "Size",
+    "Year",
+    "Make",
+    "Model",
 ]
 
 NO_SIZE_HEADER = [
@@ -128,6 +141,7 @@ SIZE_WORKBOOK_COLUMNS = [
     "自动尺码",
     "MAKE",
     "MODEL",
+    "TRIM",
     "版本",
     "结构",
     "CAB",
@@ -144,7 +158,9 @@ class SizeAnalysisResult:
     multi_size_detail_rows: list[dict[str, object]]
     no_size_rows: list[dict[str, object]]
     dimension_size_rows: list[dict[str, object]]
+    dimension_trim_rows: list[dict[str, object]]
     adapter_size_rows: list[dict[str, object]]
+    final_adapter_rows: list[dict[str, object]]
     report: dict[str, object]
 
 
@@ -228,6 +244,19 @@ def joined(values: set[str]) -> str:
     return "; ".join(sorted(value for value in values if value))
 
 
+def normalized_trims(value: object) -> str:
+    trims: list[str] = []
+    seen: set[str] = set()
+    for item in clean(value).replace("；", ",").replace(";", ",").split(","):
+        trim = clean(item)
+        key = trim.casefold()
+        if not trim or key in seen:
+            continue
+        seen.add(key)
+        trims.append(trim)
+    return " | ".join(trims)
+
+
 def classify_expansion(
     source_models: set[str],
     versions: set[str],
@@ -257,6 +286,16 @@ def build_size_analysis(
             f"车型数据尺码存在重复 DIMENSION-ID: {duplicate_size_ids[:10]}"
         )
     size_map = {row["DIMENSION-ID"]: row for row in size_rows}
+    dimension_trim_rows = sorted(
+        (
+            {
+                "DIMENSION-ID": row["DIMENSION-ID"],
+                "Trims": normalized_trims(row["TRIM"]),
+            }
+            for row in size_rows
+        ),
+        key=lambda row: str(row["DIMENSION-ID"]),
+    )
     audit_map = {
         (
             row["DIMENSION-ID"],
@@ -454,6 +493,10 @@ def build_size_analysis(
     valid_assignments: list[dict[str, object]] = [
         row for row in assignments if row["是否可发布Size"] == "Y"
     ]
+    final_adapter_rows = [
+        {column: row[column] for column in FINAL_ADAPTER_HEADER}
+        for row in assignments
+    ]
     dimension_size_index: dict[tuple[str, str], dict[str, object]] = {}
     for row in size_rows:
         size = row["自动尺码"]
@@ -518,7 +561,7 @@ def build_size_analysis(
         hard_errors.append(f"关联后有 {blank_sizes} 行自动尺码为空")
 
     report: dict[str, object] = {
-        "schema_version": "2.0",
+        "schema_version": "2.2",
         "counts": {
             "trim_assignment_rows": len(trim_rows),
             "joined_assignment_rows": len(assignments),
@@ -530,7 +573,14 @@ def build_size_analysis(
             "mixed_status_and_publishable_size_keys": mixed_status_and_size_keys,
             "publishable_assignment_rows": len(valid_assignments),
             "dimension_id_size_rows": len(dimension_size_rows),
+            "dimension_id_trim_rows": len(dimension_trim_rows),
+            "dimension_id_trim_blank_rows": sum(
+                not clean(row["Trims"]) for row in dimension_trim_rows
+            ),
             "adapter_size_rows": len(adapter_size_rows),
+            "final_adapter_rows": len(final_adapter_rows),
+            "final_adapter_status_rows_retained": len(assignments)
+            - len(valid_assignments),
             "adapter_duplicate_rows_removed": len(valid_assignments)
             - len(adapter_size_rows),
             "unique_keys_with_publishable_size": unique_keys_with_valid_size,
@@ -566,8 +616,19 @@ def build_size_analysis(
             "analysis_partition_complete": len(analysis_rows) == len(groups),
             "dimension_id_size_primary_key_unique": len(dimension_size_rows)
             == len(dimension_size_index),
+            "dimension_id_trim_matches_size_source": len(dimension_trim_rows)
+            == len(size_rows),
+            "dimension_id_trim_primary_key_unique": len(
+                {str(row["DIMENSION-ID"]) for row in dimension_trim_rows}
+            )
+            == len(dimension_trim_rows),
             "adapter_atom_primary_key_unique": len(adapter_size_rows)
             == len(adapter_index),
+            "final_adapter_matches_trim_rows": len(final_adapter_rows)
+            == len(trim_rows),
+            "final_adapter_all_sizes_nonblank": all(
+                clean(row["Size"]) for row in final_adapter_rows
+            ),
             "all_published_assignments_reviewed": all(
                 row["审核状态"] in {"现有精确键", "联网证据批准"}
                 for row in assignments
@@ -592,7 +653,9 @@ def build_size_analysis(
         multi_size_detail_rows=multi_size_detail_rows,
         no_size_rows=no_size_rows,
         dimension_size_rows=dimension_size_rows,
+        dimension_trim_rows=dimension_trim_rows,
         adapter_size_rows=adapter_size_rows,
+        final_adapter_rows=final_adapter_rows,
         report=report,
     )
 
@@ -621,7 +684,11 @@ def summary_markdown(report: dict[str, object]) -> str:
 | 指标 | 数量 |
 |---|---:|
 | 过滤状态值后可发布行 | {counts['publishable_assignment_rows']:,} |
+| 最终适配器回填行 | {counts['final_adapter_rows']:,} |
+| 最终适配器保留状态行 | {counts['final_adapter_status_rows_retained']:,} |
 | 唯一 DIMENSION-ID + Size | {counts['dimension_id_size_rows']:,} |
+| DIMENSION-ID + Trims 映射 | {counts['dimension_id_trim_rows']:,} |
+| Trims 为空 | {counts['dimension_id_trim_blank_rows']:,} |
 | 完整适配原子行 | {counts['adapter_size_rows']:,} |
 | 可删除完整重复行 | {counts['adapter_duplicate_rows_removed']:,} |
 | 多 Size 正常展开 | {counts['multi_size_expansion_keys']:,} |
@@ -637,11 +704,13 @@ def summary_markdown(report: dict[str, object]) -> str:
 
 ## 发布规则
 
-1. 排除 `无可用尺码` 和 `数据不全`。
-2. `DimensionSizeMap.csv` 以 `DIMENSION-ID + Size` 为唯一键。
-3. 多结构或多版本导致多个 Size 时，保留并展开全部已核实分支。
-4. 完整发布原子键为 `DIMENSION-ID + Size + Year + Make + Model`。
-5. 无有效 Size 进入 `NoPublishableSizeReport.csv`。
+1. `适配器.csv` 对 `TrimList.csv` 全量回填，不丢弃 `无可用尺码` 和 `数据不全` 状态行。
+2. 可发布尺码分析继续排除 `无可用尺码` 和 `数据不全`。
+3. `DimensionSizeMap.csv` 以 `DIMENSION-ID + Size` 为唯一键。
+4. `DimensionTrimMap.csv` 每个 `DIMENSION-ID` 一行，`Trims` 仅来自尺码分析的 `TRIM` 列。
+5. 多结构或多版本导致多个 Size 时，保留并展开全部已核实分支。
+6. 完整发布原子键为 `DIMENSION-ID + Size + Year + Make + Model`。
+7. 无有效 Size 进入 `NoPublishableSizeReport.csv`。
 """
 
 
@@ -651,7 +720,9 @@ def build_size_analysis_files(
     size_source_path: Path,
     size_sheet: str,
     output_dir: Path,
+    data_dir: Path | None = None,
 ) -> SizeAnalysisResult:
+    data_dir = data_dir or output_dir
     trim_rows = read_csv(trim_path)
     audit_rows = read_csv(audit_path)
     size_rows = load_size_source(size_source_path, size_sheet)
@@ -669,39 +740,64 @@ def build_size_analysis_files(
     if result.report["hard_errors"]:
         raise ValueError("\n".join(result.report["hard_errors"]))
 
+    data_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
-    write_csv(output_dir / "SizeAnalysis.csv", ANALYSIS_HEADER, result.analysis_rows)
+    write_csv(data_dir / "SizeAnalysis.csv", ANALYSIS_HEADER, result.analysis_rows)
     write_csv(
-        output_dir / "MultipleSizeReport.csv",
+        data_dir / "MultipleSizeReport.csv",
         MULTI_SIZE_HEADER,
         result.multi_size_rows,
     )
     write_csv(
-        output_dir / "MultipleSizeDetail.csv",
+        data_dir / "MultipleSizeDetail.csv",
         MULTI_SIZE_DETAIL_HEADER,
         result.multi_size_detail_rows,
     )
     write_csv(
-        output_dir / "NoPublishableSizeReport.csv",
+        data_dir / "NoPublishableSizeReport.csv",
         NO_SIZE_HEADER,
         result.no_size_rows,
     )
     write_csv(
-        output_dir / "DimensionSizeMap.csv",
+        data_dir / "DimensionSizeMap.csv",
         DIMENSION_SIZE_HEADER,
         result.dimension_size_rows,
     )
+    dimension_trim_path = output_dir / "DimensionTrimMap.csv"
     write_csv(
-        output_dir / "AdapterSizeList.csv",
+        dimension_trim_path,
+        DIMENSION_TRIM_HEADER,
+        result.dimension_trim_rows,
+    )
+    write_csv(
+        data_dir / "AdapterSizeList.csv",
         ADAPTER_SIZE_HEADER,
         result.adapter_size_rows,
     )
-    with (output_dir / "SizeAnalysisSummary.json").open(
+    final_adapter_path = output_dir / "适配器.csv"
+    write_csv(
+        final_adapter_path,
+        FINAL_ADAPTER_HEADER,
+        result.final_adapter_rows,
+    )
+    result.report["outputs"] = {
+        "final_adapter": {
+            "path": str(final_adapter_path),
+            "sha256": sha256_file(final_adapter_path),
+            "rows": len(result.final_adapter_rows),
+        },
+        "dimension_trim_map": {
+            "path": str(dimension_trim_path),
+            "sha256": sha256_file(dimension_trim_path),
+            "rows": len(result.dimension_trim_rows),
+        },
+    }
+    with (data_dir / "SizeAnalysisSummary.json").open(
         "w", encoding="utf-8"
     ) as file:
         json.dump(result.report, file, ensure_ascii=False, indent=2)
         file.write("\n")
-    (output_dir / "SizeAnalysisSummary.md").write_text(
+    (data_dir / "SizeAnalysisSummary.md").write_text(
         summary_markdown(result.report), encoding="utf-8"
     )
     return result

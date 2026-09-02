@@ -6,10 +6,16 @@ import json
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
 
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from id_scheme import dimension_id
+
 SOURCE_DIR = (ROOT / "source").resolve()
 DEFAULT_OUTPUT = PROJECT / "artifacts" / "maintenance_union" / "车型尺寸库_规范合并.csv"
 
@@ -84,21 +90,8 @@ def identity_key(row: dict[str, str]) -> tuple[str, ...]:
     return tuple(row[field] for field in ("MAKE", "MODEL", "版本", "CAB", "BED", "结构", "代际"))
 
 
-def escape_id_value(value: str) -> str:
-    return (value or "").strip().replace("%", "%25").replace("|", "%7C")
-
-
 def expected_dimension_id(row: dict[str, str]) -> str:
-    parts = [
-        ("MAKE", "MAKE"),
-        ("MODEL", "MODEL"),
-        ("VERSION", "版本"),
-        ("STRUCTURE", "结构"),
-        ("YEAR", "YEAR"),
-    ]
-    if row.get("分类") == "皮卡":
-        parts.extend((("CAB", "CAB"), ("BED", "BED")))
-    return "|".join(f"{label}={escape_id_value(row.get(field, ''))}" for label, field in parts)
+    return dimension_id(row)
 
 
 def validate(

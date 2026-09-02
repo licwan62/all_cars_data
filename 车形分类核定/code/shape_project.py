@@ -14,16 +14,33 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
-DEFAULT_SOURCE = ROOT / "source" / "车型尺寸库.csv"
+DEFAULT_SOURCE = ROOT / "source" / "尺寸库.csv"
 SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
+REFERENCE = PROJECT / "doc" / "reference.csv"
 LOCK_FILE = PROJECT / "research_queue" / ".shape_project.lock"
-ALLOWED_SHAPES = {"0", "1", "10", "11", "20", "21", "25", "26", "30", "31", "32", "40", "41", "42", "50"}
 CACHE_FIELDS = ["MAKE", "MODEL", "match_pattern", "generation", "year_start", "year_end", "shape", "source_url", "note", "updated_at"]
 QUEUE_FIELDS = ["queue_key", "MAKE", "MODEL", "record_count", "year_ranges", "example_reference", "status", "worker", "updated_at"]
 STATUSES = {"pending", "in_progress", "done", "blocked"}
+
+
+def reference_shape_ids() -> set[str]:
+    """Load the only legal shape IDs from doc/reference.csv."""
+
+    if not REFERENCE.exists():
+        raise RuntimeError(f"找不到车形规则源: {REFERENCE}")
+    with REFERENCE.open(encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    shape_ids = {row.get("车身号", "").strip() for row in rows}
+    shape_ids.discard("")
+    if not shape_ids:
+        raise RuntimeError("reference.csv 没有有效的车身号")
+    return shape_ids
+
+
+ALLOWED_SHAPES = reference_shape_ids()
 
 
 @contextmanager
@@ -58,30 +75,32 @@ def project_lock():
 
 # SOP 自带的典型车型属于项目规则，不需要再次联网确认。
 SOP_SEEDS = {
-    "Ford": {"F-150": "0", "Ranger": "1", "F-250": "1", "F-350": "1", "Mustang": "31", "Transit": "26", "Bronco": "50", "Bronco Sport": "42", "Expedition": "42"},
-    "Chevrolet": {"Silverado 1500": "0", "Colorado": "1", "Silverado 2500HD": "1", "Silverado 3500HD": "1", "Express": "26", "Tahoe": "42", "Malibu": "30"},
-    "GMC": {"Sierra 1500": "0", "Terrain": "40", "Yukon": "42"},
-    "Ram": {"1500": "0", "2500": "1", "3500": "1", "ProMaster": "26"},
-    "Toyota": {"Tacoma": "1", "Sienna": "25", "Camry": "30", "GR86": "31", "4Runner": "42", "RAV4": "40", "Highlander": "40"},
-    "Honda": {"Odyssey": "25", "Accord": "30", "CR-V": "40"},
-    "Chrysler": {"Pacifica": "25"}, "Kia": {"Carnival": "25"},
-    "Volkswagen": {"Golf": "20"}, "Mazda": {"Mazda3": "20", "CX-5": "41"},
-    "Nissan": {"Altima": "30", "Rogue": "40"}, "Genesis": {"G80": "30"},
-    "Tesla": {"Model 3": "30", "Model Y": "41"}, "Porsche": {"Taycan": "31"},
-    "Mercedes-Benz": {"CLA": "30", "GLB": "42", "G-Class": "50", "Sprinter": "26"},
-    "Audi": {"A5 Sportback": "30", "Q8": "41"}, "BMW": {"X6": "41", "XM": "41"},
-    "Jeep": {"Wrangler": "50"}, "Land Rover": {"Defender": "50", "Range Rover Velar": "41", "Range Rover Sport": "40"},
-    "Cadillac": {"Escalade": "42"}, "Acura": {"ADX": "40", "RDX": "40"},
+    "Dodge": {"Challenger": "dodge-challenger"},
+    "Ford": {"F-150": "P0", "Ranger": "P1", "F-250": "P1", "F-350": "P1", "Mustang": "SD0", "Transit": "V1", "Bronco": "JP", "Bronco Sport": "SU2", "Expedition": "SU2", "Focus": "H0"},
+    "Chevrolet": {"Silverado 1500": "P0", "Colorado": "P1", "Silverado 2500HD": "P1", "Silverado 3500HD": "P1", "Express": "V1", "Tahoe": "SU2", "Malibu": "SD1"},
+    "GMC": {"Sierra 1500": "P0", "Terrain": "SU1", "Yukon": "SU2"},
+    "Ram": {"1500": "P0", "2500": "P1", "3500": "P1", "ProMaster": "V1"},
+    "Toyota": {"Tacoma": "P1", "Sienna": "V0", "Camry": "SD1", "GR86": "SD0", "4Runner": "SU2", "RAV4": "SU1", "Highlander": "SU1", "Corolla": "H0"},
+    "Honda": {"Odyssey": "V0", "Accord": "SD1", "CR-V": "SU1", "Civic": "H0"},
+    "Chrysler": {"Pacifica": "V0"}, "Kia": {"Carnival": "V0", "Soul": "H1"},
+    "Volkswagen": {"Golf": "H0"}, "Mazda": {"Mazda3": "H0", "CX-5": "SU1"},
+    "Nissan": {"Altima": "SD1", "Rogue": "SU1", "Cube": "H1"}, "Genesis": {"G80": "SD1"},
+    "Tesla": {"Model 3": "SD1", "Model X": "SU0", "Model Y": "SU0"}, "Porsche": {"Taycan": "SD0"},
+    "Mercedes-Benz": {"CLA": "SD1", "GLB": "SU2", "G-Class": "JP", "Sprinter": "V1"},
+    "Audi": {"A5 Sportback": "SD1", "Q8": "SU0", "RS6": "H2"}, "BMW": {"X6": "SU0", "XM": "SU0"},
+    "Jeep": {"Wrangler": "JP"}, "Land Rover": {"Defender": "JP", "Range Rover Velar": "SU0", "Range Rover Sport": "SU1"},
+    "Cadillac": {"Escalade": "SU2"}, "Acura": {"ADX": "SU1", "RDX": "SU1"},
+    "Scion": {"xB": "H1"},
 }
 SOP_SPECIAL_SEEDS = [
-    ("Ford", "F-150", r"\bRaptor\b", "10", "SOP 原厂 Wide-body 例外"),
-    ("Ford", "Ranger", r"\bRaptor\b", "10", "SOP 原厂 Wide-body 例外"),
-    ("Chevrolet", "Silverado 1500", r"\bZR2\s+Bison\b", "10", "SOP 原厂 Wide-body 例外"),
-    ("Ram", "1500", r"\b(?:TRX|RHO)\b", "10", "SOP 原厂 Wide-body 例外"),
-    ("Ford", "F-350", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "11", "SOP DRW 优先规则"),
-    ("Chevrolet", "Silverado 3500HD", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "11", "SOP DRW 优先规则"),
-    ("GMC", "Sierra 3500HD", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "11", "SOP DRW 优先规则"),
-    ("Ram", "3500", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "11", "SOP DRW 优先规则"),
+    ("Ford", "F-150", r"\bRaptor\b", "P2", "reference.csv 原厂 Wide-body 例外"),
+    ("Ford", "Ranger", r"\bRaptor\b", "P2", "reference.csv 原厂 Wide-body 例外"),
+    ("Chevrolet", "Silverado 1500", r"\bZR2\s+Bison\b", "P2", "reference.csv 原厂 Wide-body 例外"),
+    ("Ram", "1500", r"\b(?:TRX|RHO)\b", "P2", "reference.csv 原厂 Wide-body 例外"),
+    ("Ford", "F-350", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "DUAL", "reference.csv DRW 优先规则"),
+    ("Chevrolet", "Silverado 3500HD", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "DUAL", "reference.csv DRW 优先规则"),
+    ("GMC", "Sierra 3500HD", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "DUAL", "reference.csv DRW 优先规则"),
+    ("Ram", "3500", r"\b(?:DRW|Dually|Dual Rear Wheel)\b", "DUAL", "reference.csv DRW 优先规则"),
 ]
 
 
@@ -135,11 +154,21 @@ def matches(item: dict[str, str], row: dict[str, str]) -> bool:
     if start is not None and hi is not None and hi < start: return False
     if end is not None and lo is not None and lo > end: return False
     pattern = item.get("match_pattern", "")
-    # Research workers see DIMENSION-ID, so cache regexes must match that same
-    # canonical compact representation. Keep the legacy Chinese/value fields
-    # too, so rules created before the compact-input workflow still work.
+    # DIMENSION-ID is intentionally display-oriented and no longer contains
+    # field labels. Keep a separate labeled identity string so existing cache
+    # rules remain explicit and do not parse the public ID format.
     haystack = " | ".join(
-        [row.get("DIMENSION-ID", ""), f"结构={row.get('结构', '')}"]
+        [
+            row.get("DIMENSION-ID", ""),
+            f"MAKE={row.get('MAKE', '')}",
+            f"MODEL={row.get('MODEL', '')}",
+            f"VERSION={row.get('版本', '')}",
+            f"STRUCTURE={row.get('结构', '')}",
+            f"YEAR={row.get('YEAR', '')}",
+            f"CAB={row.get('CAB', '')}",
+            f"BED={row.get('BED', '')}",
+            f"结构={row.get('结构', '')}",
+        ]
         + [row.get(x, "") for x in ("版本", "CAB", "BED", "参考车型", "备注")]
     )
     return not pattern or re.search(pattern, haystack, re.IGNORECASE) is not None
@@ -154,6 +183,26 @@ def select_cache(row: dict[str, str], cache: list[dict[str, str]]) -> dict[str, 
     return candidates[0]
 
 
+def index_cache(
+    cache: list[dict[str, str]],
+) -> dict[tuple[str, str], list[dict[str, str]]]:
+    """Index rules by normalized make/model before record-level matching."""
+
+    indexed: dict[tuple[str, str], list[dict[str, str]]] = {}
+    for item in cache:
+        key = (norm(item.get("MAKE", "")), norm(item.get("MODEL", "")))
+        indexed.setdefault(key, []).append(item)
+    return indexed
+
+
+def select_indexed_cache(
+    row: dict[str, str],
+    indexed: dict[tuple[str, str], list[dict[str, str]]],
+) -> dict[str, str] | None:
+    key = (norm(row.get("MAKE", "")), norm(row.get("MODEL", "")))
+    return select_cache(row, indexed.get(key, []))
+
+
 def seed_cache() -> list[dict[str, str]]:
     rows = read_csv(CACHE); existing = {(norm(x["MAKE"]), norm(x["MODEL"]), x.get("match_pattern", ""), x.get("generation", ""), x.get("year_start", ""), x.get("year_end", "")) for x in rows}
     source_pairs = {(norm(x["MAKE"]), norm(x["MODEL"])): (x["MAKE"], x["MODEL"]) for x in read_csv(SOURCE)}
@@ -161,7 +210,7 @@ def seed_cache() -> list[dict[str, str]]:
         for model, shape in models.items():
             actual = source_pairs.get((norm(make), norm(model)))
             if not actual: continue
-            if shape in {"30", "31", "32"} and any(
+            if shape in {"SD0", "SD1", "SD2"} and any(
                 norm(row.get("MAKE", "")) == norm(actual[0])
                 and norm(row.get("MODEL", "")) == norm(actual[1])
                 and row.get("note", "").startswith("按新版 AGENT 代际复用")
@@ -182,9 +231,9 @@ def seed_cache() -> list[dict[str, str]]:
 
 
 def sync_queue() -> tuple[int, int]:
-    source = read_csv(SOURCE); cache = read_csv(CACHE); old = {x["queue_key"]: x for x in read_csv(QUEUE)}; groups: dict[tuple[str, str], list[dict[str, str]]] = {}
+    source = read_csv(SOURCE); cache = read_csv(CACHE); cache_index = index_cache(cache); old = {x["queue_key"]: x for x in read_csv(QUEUE)}; groups: dict[tuple[str, str], list[dict[str, str]]] = {}
     for row in source:
-        if select_cache(row, cache) is None: groups.setdefault((row["MAKE"], row["MODEL"]), []).append(row)
+        if select_indexed_cache(row, cache_index) is None: groups.setdefault((row["MAKE"], row["MODEL"]), []).append(row)
     fresh = []
     for (make, model), items in groups.items():
         key = queue_key(make, model); prior = old.get(key, {})
@@ -282,9 +331,10 @@ def batch_update(path: Path, worker: str | None = None) -> None:
             for item in items
         }
         unmatched = []
+        cache_index = index_cache(cache)
         for source_row in read_csv(SOURCE):
             model_key = (norm(source_row["MAKE"]), norm(source_row["MODEL"]))
-            if model_key in submitted_models and select_cache(source_row, cache) is None:
+            if model_key in submitted_models and select_indexed_cache(source_row, cache_index) is None:
                 unmatched.append(source_row["DIMENSION-ID"])
         if unmatched:
             details = "\n".join(unmatched)
@@ -298,9 +348,9 @@ def batch_update(path: Path, worker: str | None = None) -> None:
 
 def build() -> None:
     with project_lock():
-        source = read_csv(SOURCE); cache = read_csv(CACHE); result = []; unresolved = []
+        source = read_csv(SOURCE); cache = read_csv(CACHE); cache_index = index_cache(cache); result = []; unresolved = []
         for row in source:
-            item = select_cache(row, cache)
+            item = select_indexed_cache(row, cache_index)
             if item is None: unresolved.append(row)
             else: result.append({"DIMENSION-ID": row["DIMENSION-ID"], "车形": item["shape"]})
         sync_queue()

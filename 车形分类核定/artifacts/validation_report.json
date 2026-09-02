@@ -1,7 +1,54 @@
 {
-  "passed": false,
-  "source": "D:\\Licheng\\Workflow\\all_cars_data\\source\\车型尺寸库.csv",
+  "passed": true,
+  "source": "D:\\Licheng\\Workflow\\all_cars_data\\source\\尺寸库.csv",
+  "reference": "D:\\Licheng\\Workflow\\all_cars_data\\车形分类核定\\doc\\reference.csv",
   "checks": [
+    {
+      "check": "reference_schema",
+      "passed": true,
+      "actual": [
+        "车身号",
+        "分类",
+        "结构细分",
+        "描述",
+        "参考车型",
+        "下摆上限",
+        "后宽系数",
+        "前宽系数",
+        "颈宽系数",
+        "弧长系数",
+        "周长系数"
+      ]
+    },
+    {
+      "check": "reference_shape_ids_nonempty_unique",
+      "passed": true,
+      "ids": [
+        "dodge-challenger",
+        "H0",
+        "H1",
+        "H2",
+        "H3",
+        "JP",
+        "P0",
+        "P1",
+        "P2",
+        "DUAL",
+        "SD0",
+        "SD1",
+        "SD2",
+        "SU0",
+        "SU1",
+        "SU2",
+        "V0",
+        "V1"
+      ]
+    },
+    {
+      "check": "reference_has_no_legacy_ids",
+      "passed": true,
+      "failures": []
+    },
     {
       "check": "source_schema",
       "passed": true,
@@ -35,19 +82,20 @@
       "unique_ids": 4354
     },
     {
-      "check": "cache_shapes_valid",
+      "check": "cache_shapes_from_reference",
       "passed": true,
-      "rows": 1490
+      "rows": 1805
     },
     {
-      "check": "cache_3x_not_mapped_from_structure",
+      "check": "cache_has_no_legacy_shapes",
       "passed": true,
-      "rules": 0
+      "failures": []
     },
     {
-      "check": "cache_3x_only_from_independent_generation_review",
+      "check": "cache_sd_structure_selectors_are_reviewed",
       "passed": true,
-      "rules": 0
+      "selectors": 536,
+      "unsupported": 0
     },
     {
       "check": "cache_keys_unique",
@@ -68,39 +116,55 @@
     },
     {
       "check": "result_exact_coverage",
-      "passed": false,
+      "passed": true,
       "source_rows": 4354,
-      "result_rows": 4442
+      "result_rows": 4354
     },
     {
       "check": "result_dimension_ids_unique",
       "passed": true,
-      "unique_ids": 4442
+      "unique_ids": 4354
     },
     {
-      "check": "result_shapes_valid",
+      "check": "result_shapes_from_reference",
       "passed": true
     },
     {
-      "check": "result_3x_reused_by_generation",
-      "passed": true,
-      "mixed_generations": []
-    },
-    {
-      "check": "classic_boxy_generation_coverage",
-      "passed": true,
-      "registered_generations": 131,
-      "failures": []
-    },
-    {
-      "check": "agent_reference_shapes",
+      "check": "result_has_no_legacy_shapes",
       "passed": true,
       "failures": []
     },
     {
-      "check": "all_dimension_shape_audit_exact_coverage",
-      "passed": false,
-      "rows": 4442
+      "check": "dodge_challenger_custom_shape",
+      "passed": true,
+      "rows": 6
+    },
+    {
+      "check": "reference_examples",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check": "all_dimension_audit_exact_coverage",
+      "passed": true,
+      "rows": 4354,
+      "actual": [
+        "DIMENSION-ID",
+        "旧车形",
+        "车形",
+        "审计状态",
+        "判定类型",
+        "命中定义",
+        "判定理由"
+      ]
+    },
+    {
+      "check": "all_dimension_audit_matches_result",
+      "passed": true
+    },
+    {
+      "check": "audit_summary_matches_reference",
+      "passed": true
     }
   ]
 }

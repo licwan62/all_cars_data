@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import csv
 import sys
 import unittest
 from pathlib import Path
@@ -101,73 +100,77 @@ class SizeMatcherTests(unittest.TestCase):
         self.assertEqual(value, "XF,XFR,XFRS")
 
 
+class BodyDimensionFormulaTests(unittest.TestCase):
+    def test_new_arc_formula_and_insert_ignore_neck_width(self) -> None:
+        vehicles = pd.DataFrame(
+            [{"DIMENSION-ID": "Acura ADX SUV 2025-2026", "W-MM": 1842, "H-MM": 1621}]
+        )
+        bodies = pd.DataFrame(
+            [{"DIMENSION-ID": "Acura ADX SUV 2025-2026", "车形": "SU1"}]
+        )
+        references = pd.DataFrame(
+            [
+                {
+                    "车身号": "SU1",
+                    "前宽系数": "0.7318",
+                    "后宽系数": "0.7457",
+                    # 特意设得很大：新规则不得把车颈等效宽并入参考插片。
+                    "颈宽系数": "0.99",
+                    "弧长系数": "0.81",
+                }
+            ]
+        )
+
+        row = analysis.add_body_dimensions(vehicles, bodies, references).iloc[0]
+
+        self.assertEqual(row["前宽-MM"], 1348)
+        self.assertEqual(row["后宽-MM"], 1374)
+        self.assertEqual(row["参考侧高"], 1309)
+        self.assertEqual(row["参考插片"], -70)
+
+
 class FullPipelineRegressionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.input_dir = PROJECT_DIR / "input"
-        cls.submodel_path = analysis.resolve_submodel_path(cls.input_dir, None, False)
-        cls.result = analysis.calculate(cls.input_dir, cls.submodel_path)
-
-    @staticmethod
-    def _read_legacy_example(path: Path) -> pd.DataFrame:
-        with path.open("r", encoding="utf-8-sig", newline="") as handle:
-            rows = list(csv.reader(handle))
-        header = [column.strip() for column in rows[0]]
-        repaired: list[list[str]] = []
-        for row in rows[1:]:
-            # 旧文件的销量千分位逗号没有加引号：14 个前置列 + 销量 + 10 个后置列。
-            sales = "".join(row[14:-10]).strip().replace(",", "")
-            repaired.append(row[:14] + [sales] + row[-10:])
-        return pd.DataFrame(repaired, columns=header)
+        cls.source_dir = PROJECT_DIR.parent / "source"
+        cls.config_dir = PROJECT_DIR / "rules"
+        cls.submodel_path = analysis.resolve_submodel_path(cls.source_dir, None, False)
+        cls.result = analysis.calculate(
+            cls.source_dir,
+            cls.submodel_path,
+            config_dir=cls.config_dir,
+        )
 
     def test_full_result_contract(self) -> None:
         summary = analysis.validate_result(self.result, 4354)
         self.assertEqual(summary["unique_dimension_ids"], 4354)
-        self.assertEqual(summary["matched_sizes"], 4099)
-        self.assertEqual(summary["unavailable_sizes"], 251)
-        self.assertEqual(summary["incomplete_rows"], 4)
+        self.assertEqual(summary["matched_sizes"], 4119)
+        self.assertEqual(summary["unavailable_sizes"], 162)
+        self.assertEqual(summary["incomplete_rows"], 73)
         self.assertEqual(summary["sales_total"], 671987183)
 
-        dimension_id = "MAKE=Chevrolet|MODEL=Bel Air|VERSION=|STRUCTURE=Coupe|YEAR=1960"
+        dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]
         self.assertEqual(row["TRIM"], "Bel Air")
         self.assertEqual(row["销量合计"], 74286)
-        self.assertEqual(row["前宽-MM"], 2031)
-        self.assertEqual(row["参考插片"], 266)
+        self.assertEqual(row["前宽-MM"], 2052)
+        self.assertEqual(row["参考插片"], 276)
         self.assertEqual(row["自动尺码"], "3WXXL-0")
         self.assertEqual(row["自动长度余量"], 146)
         self.assertEqual(self.result.columns[-1], "DIMENSION-ID")
         self.assertTrue(self.result["DIMENSION-ID"].is_monotonic_increasing)
         self.assertFalse(self.result["TRIM"].str.contains("|", regex=False).any())
         self.assertFalse(self.result["TRIM"].str.contains("-", regex=False).any())
-
-    def test_business_results_match_legacy_example(self) -> None:
-        legacy = self._read_legacy_example(PROJECT_DIR / "example_output.csv")
-        current = self.result.copy()
-        joined = current.merge(
-            legacy,
-            on="DIMENSION-ID",
-            suffixes=("_current", "_legacy"),
-            validate="one_to_one",
+        self.assertTrue(
+            self.result.loc[self.result["车形"].eq("V1"), "自动尺码"].eq("数据不全").all()
         )
-        self.assertEqual(len(joined), 4354)
 
-        for column in ["自动尺码", "自动长度余量", "候选", "原因"]:
-            current_values = joined[f"{column}_current"].fillna("").astype(str).str.strip()
-            legacy_values = joined[f"{column}_legacy"].fillna("").astype(str).str.strip()
-            self.assertTrue(current_values.equals(legacy_values), column)
-
-        for column in ["前宽-MM", "后宽-MM", "参考侧高", "参考插片"]:
-            current_values = pd.to_numeric(joined[f"{column}_current"], errors="coerce")
-            legacy_values = pd.to_numeric(joined[f"{column}_legacy"], errors="coerce")
-            difference = (current_values - legacy_values).abs().dropna()
-            self.assertLessEqual(float(difference.max()), 1.0, column)
-
-        current_sales = pd.to_numeric(joined["销量合计_current"], errors="coerce").fillna(0)
-        legacy_sales = pd.to_numeric(
-            joined["销量合计_legacy"].replace({"-": "0", "": "0"}), errors="coerce"
-        ).fillna(0)
-        self.assertTrue((current_sales.to_numpy() == legacy_sales.to_numpy()).all())
+    def test_acura_adx_uses_su1_formula(self) -> None:
+        row = self.result.set_index("DIMENSION-ID").loc["Acura ADX SUV 2025-2026"]
+        self.assertEqual(row["车形"], "SU1")
+        self.assertEqual(row["W-MM"], 1842)
+        self.assertEqual(row["H-MM"], 1621)
+        self.assertEqual(row["参考侧高"], 1309)
 
 
 if __name__ == "__main__":

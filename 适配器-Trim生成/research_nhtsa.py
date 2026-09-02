@@ -20,7 +20,7 @@ from src.trimlist import (
 
 
 ROOT = Path(__file__).resolve().parent
-LOCAL_INPUT = ROOT / "input"
+DATA = ROOT / "data"
 SAFE_VEHICLE_TYPES = {
     "SUV": "Multipurpose Passenger Vehicle (MPV)",
     "Crossover": "Multipurpose Passenger Vehicle (MPV)",
@@ -50,17 +50,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--review",
         type=Path,
-        default=ROOT / "output" / "TrimList_online_review.csv",
+        default=DATA / "TrimList_online_review.csv",
     )
     parser.add_argument(
         "--evidence",
         type=Path,
-        default=LOCAL_INPUT / "online_evidence.csv",
+        default=DATA / "online_evidence.csv",
     )
     parser.add_argument(
         "--report",
         type=Path,
-        default=ROOT / "output" / "NHTSAResearchReport.csv",
+        default=DATA / "NHTSAResearchReport.csv",
     )
     parser.add_argument(
         "--apply-safe-evidence",

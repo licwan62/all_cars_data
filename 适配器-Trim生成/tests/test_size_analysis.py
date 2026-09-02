@@ -4,7 +4,11 @@ import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from src.size_analysis import build_size_analysis, load_size_source
+from src.size_analysis import (
+    build_size_analysis,
+    build_size_analysis_files,
+    load_size_source,
+)
 
 
 def trim(dimension_id: str, year: int = 2020) -> dict[str, str]:
@@ -36,6 +40,7 @@ def size(
         "自动尺码": value,
         "MAKE": "Acura",
         "MODEL": model,
+        "TRIM": model,
         "版本": "",
         "结构": structure,
         "CAB": "",
@@ -56,6 +61,7 @@ class SizeAnalysisTests(unittest.TestCase):
                         "自动尺码",
                         "MAKE",
                         "MODEL",
+                        "TRIM",
                         "版本",
                         "结构",
                         "CAB",
@@ -64,7 +70,7 @@ class SizeAnalysisTests(unittest.TestCase):
                         "分类",
                     ]
                 )
-                + "\nD1,YL,Acura,ADX,,SUV,,,2025-2026,越野车\n",
+                + "\nD1,YL,Acura,ADX,ADX,,SUV,,,2025-2026,越野车\n",
                 encoding="utf-8-sig",
             )
             self.assertEqual(load_size_source(path)[0]["自动尺码"], "YL")
@@ -97,6 +103,82 @@ class SizeAnalysisTests(unittest.TestCase):
         )
         self.assertEqual(len(result.no_size_rows), 1)
         self.assertEqual(result.report["counts"]["single_size_keys"], 0)
+        self.assertEqual(len(result.final_adapter_rows), 1)
+        self.assertEqual(result.final_adapter_rows[0]["Size"], "无可用尺码")
+
+    def test_final_adapter_backfills_every_trim_row(self) -> None:
+        result = build_size_analysis(
+            [trim("D1"), trim("D2")],
+            [audit("D1"), audit("D2")],
+            [size("D1", "YL"), size("D2", "无可用尺码")],
+        )
+        self.assertEqual(len(result.final_adapter_rows), 2)
+        self.assertEqual(
+            list(result.final_adapter_rows[0]),
+            ["DIMENSION-ID", "Size", "Year", "Make", "Model"],
+        )
+        self.assertEqual(
+            [row["Size"] for row in result.final_adapter_rows],
+            ["YL", "无可用尺码"],
+        )
+        self.assertTrue(
+            result.report["checks"]["final_adapter_matches_trim_rows"]
+        )
+
+    def test_dimension_trim_map_uses_trim_column_and_pipe_separator(self) -> None:
+        size_row = size("D1", "YL")
+        size_row["TRIM"] = "Santa Fe,Santa Fe Sport,Santa Fe XL"
+        result = build_size_analysis(
+            [trim("D1")],
+            [audit("D1")],
+            [size_row],
+        )
+        self.assertEqual(
+            result.dimension_trim_rows,
+            [
+                {
+                    "DIMENSION-ID": "D1",
+                    "Trims": "Santa Fe | Santa Fe Sport | Santa Fe XL",
+                }
+            ],
+        )
+
+    def test_final_and_intermediate_outputs_use_separate_directories(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            trim_path = root / "TrimList.csv"
+            audit_path = root / "TrimList_audit.csv"
+            size_path = root / "尺码分析.csv"
+            data_dir = root / "data"
+            output_dir = root / "output"
+            trim_path.write_text(
+                "DIMENSION-ID,Year,Make,Model\nD1,2020,Acura,ADX\n",
+                encoding="utf-8-sig",
+            )
+            audit_path.write_text(
+                "DIMENSION-ID,Year,Make,Model,匹配方式,审核状态,证据URL\n"
+                "D1,2020,Acura,ADX,继承现有精确键,现有精确键,\n",
+                encoding="utf-8-sig",
+            )
+            size_path.write_text(
+                "DIMENSION-ID,自动尺码,MAKE,MODEL,TRIM,版本,结构,CAB,BED,YEAR,分类\n"
+                "D1,YL,Acura,ADX,ADX,,SUV,,,2020,越野车\n",
+                encoding="utf-8-sig",
+            )
+            build_size_analysis_files(
+                trim_path,
+                audit_path,
+                size_path,
+                "尺码匹配",
+                output_dir,
+                data_dir,
+            )
+            self.assertEqual(
+                {path.name for path in output_dir.iterdir()},
+                {"适配器.csv", "DimensionTrimMap.csv"},
+            )
+            self.assertTrue((data_dir / "DimensionSizeMap.csv").exists())
+            self.assertTrue((data_dir / "SizeAnalysisSummary.json").exists())
 
     def test_multiple_structures_are_retained_as_expansion(self) -> None:
         result = build_size_analysis(

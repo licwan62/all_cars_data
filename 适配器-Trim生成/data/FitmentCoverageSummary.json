@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "counts": {
+    "fitment_input_rows": 82354,
+    "unique_4a_atoms": 82350,
+    "attempted_4a_atoms": 82350,
+    "unattempted_4a_atoms": 0,
+    "coverage_candidate_rows": 935
+  },
+  "attempt_status_counts": {
+    "ATTEMPTED_NO_DIMENSION_CANDIDATE": 68677,
+    "MATCHED": 12626,
+    "ONLINE_REVIEW_ATTEMPTED": 697,
+    "SEMANTIC_CANDIDATE_ATTEMPTED": 350
+  },
+  "semantic_level_candidate_counts": {
+    "MODEL_CONTAINS": 541,
+    "MODEL_SIMILAR": 228,
+    "MODEL_COMPONENT_EXACT": 70,
+    "VERSION_EXACT": 62,
+    "MODEL_EXACT": 21,
+    "MODEL_VERSION_EXACT": 13
+  },
+  "checks": {
+    "every_unique_4a_atom_has_one_coverage_row": true,
+    "no_unattempted_4a_atoms": true,
+    "all_4a_input_rows_accounted_for": true,
+    "all_candidates_respect_year_and_make": true
+  },
+  "hard_errors": [],
+  "sources": {
+    "fitment": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\source\\4A全数据.csv",
+      "sha256": "9FBA241FC0FF4CC0DF0EF486C3EC7481603FC9B5EA3A1C392FA9DA9DFC5B0A9A"
+    },
+    "dimensions": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\source\\车型尺寸库.csv",
+      "sha256": "09559A9D6827E44EF02B9284E10A4104819542C9537B6FB417BCAE1DF5F7364E"
+    },
+    "trim": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\适配器-Trim生成\\data\\TrimList.csv",
+      "sha256": "4FA432C8B68ACDC4E83C187FC429DB3603956848EE1B9C22B28923E7C525B496"
+    },
+    "online_review": {
+      "path": "D:\\Licheng\\Workflow\\all_cars_data\\适配器-Trim生成\\data\\TrimList_online_review.csv",
+      "sha256": "9DCA7249F7E24A88752734C5307492A6ACA55E0B8ABAC111E372891AFD0283D8"
+    }
+  }
+}

@@ -68,13 +68,12 @@ DEFAULT_LIMITS = (
 )
 
 SOURCE_FILE_ALIASES = {
-    "dimensions": ("车型尺寸库.csv", "车型尺寸.csv"),
-    "bodies": ("车型形状分类.csv", "车型车身.csv"),
-    "sales": ("atom_sales.csv", "销量明细.csv"),
+    "dimensions": ("尺寸库.csv", "车型尺寸库.csv", "车型尺寸.csv"),
+    "bodies": ("车身分类.csv", "车型形状分类.csv", "车型车身.csv"),
+    "sales": ("销量明细.csv", "atom_sales.csv"),
 }
 
 CONFIG_FILES = {
-    "references": "参考尺寸计算.csv",
     "parameters": "尺码匹配参数.csv",
     "rules": "尺码匹配规则.csv",
 }
@@ -137,9 +136,13 @@ def _numeric(series: pd.Series) -> pd.Series:
     return pd.to_numeric(normalized, errors="coerce")
 
 
-def _percentage(series: pd.Series) -> pd.Series:
-    normalized = series.astype("string").str.strip().str.rstrip("%")
-    return pd.to_numeric(normalized, errors="coerce") / 100.0
+def _coefficient(series: pd.Series) -> pd.Series:
+    """Read decimal coefficients while retaining legacy ``81%`` support."""
+
+    normalized = series.astype("string").str.strip()
+    has_percent_sign = normalized.str.endswith("%", na=False)
+    numeric = pd.to_numeric(normalized.str.rstrip("%"), errors="coerce")
+    return numeric.where(~has_percent_sign, numeric / 100.0)
 
 
 def _round_nullable(series: pd.Series, digits: int = 0) -> pd.Series:
@@ -304,38 +307,37 @@ def add_body_dimensions(
     bodies: pd.DataFrame,
     references: pd.DataFrame,
 ) -> pd.DataFrame:
-    _require_columns(bodies, ["DIMENSION-ID", "车形"], "车型车身")
+    _require_columns(bodies, ["DIMENSION-ID", "车形"], "车身分类")
     reference_columns = [
-        "车形",
+        "车身号",
         "前宽系数",
         "后宽系数",
-        "顶宽系数",
-        "颈宽系数",
-        "CAB弧长系数",
+        "弧长系数",
     ]
     _require_columns(references, reference_columns, "参考尺寸计算")
     if bodies["DIMENSION-ID"].duplicated().any():
-        raise DataContractError("车型车身的 DIMENSION-ID 必须唯一")
-    if references["车形"].duplicated().any():
-        raise DataContractError("参考尺寸计算的车形必须唯一")
+        raise DataContractError("车身分类的 DIMENSION-ID 必须唯一")
+    if references["车身号"].duplicated().any():
+        raise DataContractError("参考尺寸计算的车身号必须唯一")
 
     body_map = bodies[["DIMENSION-ID", "车形"]].copy()
-    body_map["车形"] = pd.to_numeric(body_map["车形"], errors="coerce").astype("Int64")
+    body_map["车形"] = body_map["车形"].astype("string").str.strip()
+    body_map["车形"] = body_map["车形"].mask(body_map["车形"].eq(""))
     factors = references[reference_columns].copy()
-    factors["车形"] = pd.to_numeric(factors["车形"], errors="coerce").astype("Int64")
+    factors = factors.rename(columns={"车身号": "车形"})
+    factors["车形"] = factors["车形"].astype("string").str.strip()
     for column in reference_columns[1:]:
-        factors[column] = _percentage(factors[column])
+        factors[column] = _coefficient(factors[column])
 
     result = vehicles.merge(body_map, on="DIMENSION-ID", how="left", validate="one_to_one")
     result = result.merge(factors, on="车形", how="left", validate="many_to_one")
 
     width = result["W-MM"].astype("Float64")
     height = result["H-MM"].astype("Float64")
-    front_factor = result[["前宽系数", "颈宽系数"]].max(axis=1, skipna=False)
-    result["前宽-MM"] = _round_nullable(width * front_factor)
+    result["前宽-MM"] = _round_nullable(width * result["前宽系数"])
     result["后宽-MM"] = _round_nullable(width * result["后宽系数"])
     result["参考侧高"] = _round_nullable(
-        height * result["CAB弧长系数"] + width * result["顶宽系数"] / 2 - PANEL_OFFSET_MM
+        (height + width / 2) * result["弧长系数"] - PANEL_OFFSET_MM
     )
     result["参考插片"] = _round_nullable(
         (result["前宽-MM"].astype("Float64") + result["后宽-MM"].astype("Float64"))
@@ -613,11 +615,11 @@ def calculate(
     sort_output: bool = True,
     config_dir: Path | None = None,
 ) -> pd.DataFrame:
-    config_dir = config_dir or input_dir
+    config_dir = config_dir or Path(__file__).resolve().parent / "rules"
     dimensions = _read_csv(resolve_data_file(input_dir, "dimensions"))
     bodies = _read_csv(resolve_data_file(input_dir, "bodies"))
     sales = _read_csv(resolve_data_file(input_dir, "sales"))
-    references = _read_csv(config_dir / CONFIG_FILES["references"])
+    references = _read_csv(input_dir / "参考尺寸计算.csv")
     parameters = _read_csv(config_dir / CONFIG_FILES["parameters"])
     rules = _read_csv(config_dir / CONFIG_FILES["rules"])
     submodels = _read_csv(submodel_path) if submodel_path is not None else None
@@ -735,8 +737,8 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--config-dir",
         type=Path,
-        default=script_dir / "input",
-        help="项目规则目录（默认：脚本同级 input；只读取参考尺寸和尺码规则）",
+        default=script_dir / "rules",
+        help="尺码匹配规则目录（默认：脚本同级 rules）",
     )
     parser.add_argument(
         "--output",

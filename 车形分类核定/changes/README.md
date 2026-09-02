@@ -9,6 +9,8 @@
 - `2026-08-25_03_rounded-classic-top-view-review`：增加俯视横向收缩速度规则，复核由方正老爷车迭代而来的 29 个圆角代际，70 条恢复 `32`。
 - `2026-08-25_04_confirmed-branch-gap-shapes`：同步分类结构审核新建的 83 条确认分支，车形结果覆盖全部 4,437 个 `DIMENSION-ID`。
 - `2026-08-25_05_verified-atomic-gap-shapes`：同步 5 个已核实缺年原子及 1 条 Scion xB 结构别名纠正；车形结果覆盖全部 4,442 个 `DIMENSION-ID`。
+- `2026-09-02_01_reference-suv-id-migration`：依据 `doc/reference.csv` 和新版 `doc/AGENT.md` 迁移 SUV 编号语义；当前 4,354 个 `DIMENSION-ID` 全量通过验收。
+- `2026-09-02_02_reference-schema-reclassification`：以新版 `reference.csv` 为唯一规则源，将全部 4,354 条记录重核为 18 个语义车身号；拆分 `H0-H3`、启用 `dodge-challenger`，旧数字编号残留为 0，机器验收通过。
 
 ## 约定
 

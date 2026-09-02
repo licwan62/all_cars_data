@@ -10,7 +10,7 @@
 python 尺码计算\pandas_analysis.py
 ```
 
-默认从仓库 `source` 读取 `车型尺寸库.csv`、`车型形状分类.csv`、`atom_sales.csv` 和 `子车系维护表.csv`；项目自己的 `参考尺寸计算.csv`、`尺码匹配参数.csv`、`尺码匹配规则.csv` 仍放在 `尺码计算/input`。程序只生成 `尺码计算/output/pandas_output.csv`，不会自动覆盖 `source`。该 CSV 审核通过后人工发布为 `source/尺码分析.csv`。
+默认从仓库 `source` 读取 `尺寸库.csv`、`车身分类.csv`、`销量明细.csv`、`子车系维护表.csv` 和 `参考尺寸计算.csv`；尺码匹配参数与规则放在 `尺码计算/rules`。程序只生成 `尺码计算/output/pandas_output.csv`，不会自动覆盖 `source`。该 CSV 审核通过后人工发布为 `source/全量数据.csv`。
 
 CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引号的 `74,286`，因此可被 pandas、Excel 和数据库稳定解析。
 
@@ -20,7 +20,7 @@ CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引
 # 指定共享数据、项目规则和输出
 python 尺码计算\pandas_analysis.py `
   --source-dir source `
-  --config-dir 尺码计算\input `
+  --config-dir 尺码计算\rules `
   --output 尺码计算\output\pandas_output.csv
 
 # 兼容旧的全量 input 副本，仅用于历史回归
@@ -39,7 +39,7 @@ python 尺码计算\pandas_analysis.py `
 
 `TRIM` 使用仓库既有 `q_全量.pq` 的子车系关联规则，但输出时会去掉 `品牌|` 前缀和连字符，并用无空格逗号连接。例如 `Jaguar|XF; Jaguar|XFR; Jaguar|XFR-S` 输出为 `XF,XFR,XFRS`。默认读取 `source/子车系维护表.csv`；不存在时该列留空，其余尺码计算不受影响。
 
-结果审核通过后，可运行 `python data_workflow.py publish-plan 尺码分析` 获取人工覆盖步骤。
+结果审核通过后，可运行 `python data_workflow.py publish-plan 全量数据` 获取人工覆盖步骤。
 
 最终结果默认按 `DIMENSION-ID` 升序排列，并把 `DIMENSION-ID` 放在最后一列。
 
@@ -49,10 +49,10 @@ python 尺码计算\pandas_analysis.py `
 |---|---|
 | 英寸转毫米 | `L/W/H-IN × 25.4`，按 Power Query 默认的五成双方式取整 |
 | 销量汇总 | 去掉 `atom_record_id` 的 `\|ATOM_YEAR=...` 后缀，按 `DIMENSION-ID` 求和，缺失补 0 |
-| 车形参数 | `车型车身` 左连接 `参考尺寸计算` |
-| 前宽 | `W-MM × max(前宽系数, 颈宽系数)` |
+| 车形参数 | `车身分类.车形` 左连接 `参考尺寸计算.车身号` |
+| 前宽 | `W-MM × 前宽系数`；不再把车颈等效宽并入插片计算 |
 | 后宽 | `W-MM × 后宽系数` |
-| 参考侧高 | `H-MM × CAB弧长系数 + W-MM × 顶宽系数 / 2 - 750` |
+| 参考侧高 | `(H-MM + W-MM / 2) × 弧长系数 - 750` |
 | 参考插片 | `(前宽-MM + 后宽-MM) / 4 - 750` |
 | 尺码基础候选 | 所有动态上限均覆盖车型值时，取档位序号最小者 |
 | 长度容差 | 基础候选长度余量不得超过参数 `余量长容差` |
@@ -63,7 +63,7 @@ python 尺码计算\pandas_analysis.py `
 
 默认只启用 `尺码匹配规则.csv` 中 `使用=y` 的规则；`--include-disabled-rules` 可用于排查停用规则。算法先建立尺码池索引，再缓存相同分类、CAB、版本和尺寸组合的结果，避免逐车型扫描整张规则表。
 
-参考计算表中的百分比 CSV 是当前权威输入。旧 Excel 示例曾使用过显示值背后的额外小数精度，因此少数派生尺寸可能相差 1 mm；当前输入下的尺码、候选和原因不受影响。
+参考计算表中的小数系数是当前权威输入；为兼容历史文件，脚本也能读取带 `%` 的系数。`V1` 当前没有系数，其派生尺寸和自动尺码会明确标记为数据不全，不会借用旧参数。
 
 ## 验证
 
@@ -71,4 +71,4 @@ python 尺码计算\pandas_analysis.py `
 python -m unittest discover -s 尺码计算\tests -v
 ```
 
-测试覆盖完整数据回归、旧示例的异常销量格式、DRW 池、三厢车降级、数据不全和最近候选原因。
+测试覆盖完整数据回归、新参考侧高与插片公式、DRW 池、三厢车降级、数据不全和最近候选原因。
