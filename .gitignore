@@ -21,9 +21,15 @@
 !/尺码计算/input/尺码匹配规则.[cC][sS][vV]
 !/适配器-Trim生成/output/适配器.[cC][sS][vV]
 !/适配器-Trim生成/output/DimensionTrimMap.[cC][sS][vV]
-!/车形分类核定/changes/**/*.[cC][sS][vV]
-!/分类结构审核/changes/2026-08-25_06_confirmed-branch-gaps/**/*.[cC][sS][vV]
-!/分类结构审核/changes/2026-08-25_07_verified-atomic-gaps/**/*.[cC][sS][vV]
+
+# Research iteration history is permanent evidence; track every file type.
+!/车形分类核定/changes/**
+!/车型代表分析/changes/**
+!/尺码簇分析/changes/**
+!/尺码计算/changes/**
+!/分类结构审核/changes/**
+!/适配器-Trim生成/changes/**
+!/销量评估/changes/**
 /output/code/__pycache__/
 /车形分类核定/code/__pycache__/
 **/__pycache__/
