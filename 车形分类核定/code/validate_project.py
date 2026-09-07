@@ -14,14 +14,14 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from id_scheme import dimension_id
 
-DEFAULT_SOURCE = ROOT / "source" / "尺寸库.csv"
+DEFAULT_SOURCE = ROOT / "public" / "尺寸库.csv"
 SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
-REFERENCE = PROJECT / "doc" / "reference.csv"
+REFERENCE = ROOT / "public" / "参考尺寸计算.csv"
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
-ALL_ID_AUDIT = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-02.csv"
-AUDIT_SUMMARY = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-02.json"
+ALL_ID_AUDIT = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-06.csv"
+AUDIT_SUMMARY = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-06.json"
 LEGACY_SHAPES = {
     "0", "1", "10", "11", "20", "21", "25", "26",
     "30", "31", "32", "40", "41", "42", "50",
@@ -172,6 +172,15 @@ def main() -> None:
             ("Toyota", "Camry", "Sedan", "gen9", "SD1"),
             ("Chevrolet", "Bel Air", "Sedan", "", "SD2"),
             ("Tesla", "Model Y", "", "", "SU0"),
+            ("Tesla", "Model Y L", "", "", "SU0"),
+            ("Porsche", "Macan", "", "", "SU0"),
+            ("Genesis", "GV60", "", "", "SU0"),
+            ("Volkswagen", "ID.4", "", "", "SU0"),
+            ("BMW", "X6", "", "", "SU1"),
+            ("Audi", "Q8", "", "", "SU1"),
+            ("Land Rover", "Range Rover Velar", "", "", "SU1"),
+            ("Volvo", "C40", "", "", "SU1"),
+            ("Volvo", "EX40", "", "", "SU1"),
             ("Honda", "CR-V", "", "", "SU1"),
             ("Toyota", "4Runner", "", "", "SU2"),
             ("Jeep", "Wrangler", "", "", "JP"),
@@ -194,6 +203,19 @@ def main() -> None:
                     f"{make} {model} {structure or '*'} {generation or '*'} -> {expected}"
                 )
         check("reference_examples", not reference_failures, failures=reference_failures)
+
+        split_failures = []
+        split_count = 0
+        for row in source:
+            pair = row['MAKE'], row['MODEL']
+            if pair not in {('Acura', 'ZDX'), ('Land Rover', 'Range Rover Sport')}:
+                continue
+            last_year = max(int(x) for x in re.findall(r'(?:19|20)\d{2}', row['YEAR']))
+            expected = ('SU0' if last_year <= 2013 else 'SU1') if pair[0] == 'Acura' else ('SU2' if last_year <= 2013 else 'SU1')
+            split_count += 1
+            if result_map.get(row['DIMENSION-ID']) != expected:
+                split_failures.append(row['DIMENSION-ID'])
+        check('suv_taper_generation_boundaries', split_count == 14 and not split_failures, rows=split_count, failures=split_failures)
 
         audit_header, audit = read(ALL_ID_AUDIT)
         audit_ids = [row.get("DIMENSION-ID", "") for row in audit]

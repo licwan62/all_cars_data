@@ -14,12 +14,12 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
-DEFAULT_SOURCE = ROOT / "source" / "尺寸库.csv"
+DEFAULT_SOURCE = ROOT / "public" / "尺寸库.csv"
 SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
-REFERENCE = PROJECT / "doc" / "reference.csv"
+REFERENCE = ROOT / "public" / "参考尺寸计算.csv"
 LOCK_FILE = PROJECT / "research_queue" / ".shape_project.lock"
 CACHE_FIELDS = ["MAKE", "MODEL", "match_pattern", "generation", "year_start", "year_end", "shape", "source_url", "note", "updated_at"]
 QUEUE_FIELDS = ["queue_key", "MAKE", "MODEL", "record_count", "year_ranges", "example_reference", "status", "worker", "updated_at"]
@@ -27,7 +27,7 @@ STATUSES = {"pending", "in_progress", "done", "blocked"}
 
 
 def reference_shape_ids() -> set[str]:
-    """Load the only legal shape IDs from doc/reference.csv."""
+    """Load legal shape IDs from public/参考尺寸计算.csv."""
 
     if not REFERENCE.exists():
         raise RuntimeError(f"找不到车形规则源: {REFERENCE}")
@@ -87,8 +87,8 @@ SOP_SEEDS = {
     "Nissan": {"Altima": "SD1", "Rogue": "SU1", "Cube": "H1"}, "Genesis": {"G80": "SD1"},
     "Tesla": {"Model 3": "SD1", "Model X": "SU0", "Model Y": "SU0"}, "Porsche": {"Taycan": "SD0"},
     "Mercedes-Benz": {"CLA": "SD1", "GLB": "SU2", "G-Class": "JP", "Sprinter": "V1"},
-    "Audi": {"A5 Sportback": "SD1", "Q8": "SU0", "RS6": "H2"}, "BMW": {"X6": "SU0", "XM": "SU0"},
-    "Jeep": {"Wrangler": "JP"}, "Land Rover": {"Defender": "JP", "Range Rover Velar": "SU0", "Range Rover Sport": "SU1"},
+    "Audi": {"A5 Sportback": "SD1", "Q8": "SU1", "RS6": "H2"}, "BMW": {"X6": "SU1", "XM": "SU1"},
+    "Jeep": {"Wrangler": "JP"}, "Land Rover": {"Defender": "JP", "Range Rover Velar": "SU1"},
     "Cadillac": {"Escalade": "SU2"}, "Acura": {"ADX": "SU1", "RDX": "SU1"},
     "Scion": {"xB": "H1"},
 }

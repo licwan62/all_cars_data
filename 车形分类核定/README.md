@@ -1,6 +1,8 @@
 # 车形分类核定
 
-本项目以 `doc/reference.csv` 为车形定义唯一真源，并根据 `doc/AGENT.md` 的判定流程，为 `../source/尺寸库.csv` 中的每个 `DIMENSION-ID` 核定车身号。可用环境变量 `SHAPE_SOURCE` 临时指定待验证输入；项目不会回写 `source`，也不再默认读取其他项目的历史 `changes` 批次。
+本项目以 `../public/参考尺寸计算.csv` 为车形定义唯一真源，并根据 `doc/AGENT.md` 的判定流程，为 `../public/尺寸库.csv` 中的每个 `DIMENSION-ID` 核定车身号。可用环境变量 `SHAPE_SOURCE` 临时指定待验证输入；分类结果生成到 `artifacts` 和 `changes`，不会自动覆盖 `public/车身分类.csv`。
+
+2026-09-06 起，SU0 表示前部及座舱明显收窄的流线 SUV，SU1 表示更饱满的常规 SUV，溜背不再单独决定类别。本轮 939 条专项审计、78 条改类及证据限制见 [核定报告](changes/2026-09-06_01_suv-taper-review/report.md)。`code/review_suv_taper_20260906.py` 是本轮一次性迁移记录；已有批次不允许覆盖，日常重建使用 `shape_project.py build`。
 
 当前合法车身号为 `dodge-challenger`、`H0-H3`、`JP`、`P0-P2`、`DUAL`、`SD0-SD2`、`SU0-SU2`、`V0-V1`。旧数字车形编号已经废止。
 

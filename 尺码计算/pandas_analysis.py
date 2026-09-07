@@ -39,6 +39,7 @@ DEFAULT_OUTPUT_COLUMNS = [
     "后宽-MM",
     "参考侧高",
     "参考插片",
+    "参考半周长",
     "自动尺码",
     "自动长度余量",
     "候选",
@@ -347,6 +348,25 @@ def add_body_dimensions(
     return result.drop(columns=reference_columns[1:])
 
 
+def add_reference_half_perimeter(vehicles: pd.DataFrame, references: pd.DataFrame) -> pd.DataFrame:
+    """参考半周长（毫米）；仅作输出，不改变正式尺码匹配条件。"""
+    _require_columns(vehicles, ["车形", "L-MM", "H-MM"], "车型计算结果")
+    _require_columns(references, ["车身号", "周长系数"], "参考尺寸计算")
+    if references["车身号"].duplicated().any():
+        raise DataContractError("参考尺寸计算的车身号必须唯一")
+    factors = references.set_index("车身号")["周长系数"]
+    factors.index = factors.index.str.strip()
+    if factors.index.duplicated().any():
+        raise DataContractError("参考尺寸计算的车身号去空格后必须唯一")
+    factor = vehicles["车形"].map(_coefficient(factors))
+    result = vehicles.copy()
+    result["参考半周长"] = _round_nullable(
+        (result["L-MM"].astype("Float64") + result["H-MM"].astype("Float64"))
+        * factor - PANEL_OFFSET_MM
+    )
+    return result
+
+
 class SizeMatcher:
     """Power Query 尺码函数的索引化 pandas 实现。"""
 
@@ -604,7 +624,7 @@ def resolve_submodel_path(
     local_path = input_dir / "子车系维护表.csv"
     if local_path.is_file():
         return local_path
-    repository_path = Path(__file__).resolve().parent.parent / "source" / "子车系维护表.csv"
+    repository_path = Path(__file__).resolve().parent.parent / "public" / "子车系维护表.csv"
     return repository_path if repository_path.is_file() else None
 
 
@@ -614,10 +634,12 @@ def calculate(
     include_disabled_rules: bool = False,
     sort_output: bool = True,
     config_dir: Path | None = None,
+    body_path: Path | None = None,
+    trim_source: Path | None = None,
 ) -> pd.DataFrame:
     config_dir = config_dir or Path(__file__).resolve().parent / "rules"
     dimensions = _read_csv(resolve_data_file(input_dir, "dimensions"))
-    bodies = _read_csv(resolve_data_file(input_dir, "bodies"))
+    bodies = _read_csv(body_path or resolve_data_file(input_dir, "bodies"))
     sales = _read_csv(resolve_data_file(input_dir, "sales"))
     references = _read_csv(input_dir / "参考尺寸计算.csv")
     parameters = _read_csv(config_dir / CONFIG_FILES["parameters"])
@@ -625,12 +647,23 @@ def calculate(
     submodels = _read_csv(submodel_path) if submodel_path is not None else None
 
     result = build_vehicle_base(dimensions, submodels)
+    if submodels is None and trim_source is not None:
+        prior = _read_csv(trim_source)
+        _require_columns(prior, ["DIMENSION-ID", "TRIM"], "TRIM 保留来源")
+        if prior["DIMENSION-ID"].duplicated().any():
+            raise DataContractError("TRIM 保留来源的 DIMENSION-ID 必须唯一")
+        trims = prior.set_index("DIMENSION-ID")["TRIM"]
+        missing = ~result["DIMENSION-ID"].isin(trims.index)
+        if missing.any():
+            raise DataContractError(f"TRIM 保留来源缺少 {int(missing.sum())} 个 DIMENSION-ID")
+        result["TRIM"] = result["DIMENSION-ID"].map(trims)
     sales_total = aggregate_sales(sales)
     result = result.merge(sales_total, on="DIMENSION-ID", how="left", validate="one_to_one")
     result["销量合计"] = result["销量合计"].fillna(0)
     if np.allclose(result["销量合计"].dropna() % 1, 0):
         result["销量合计"] = result["销量合计"].round().astype("Int64")
     result = add_body_dimensions(result, bodies, references)
+    result = add_reference_half_perimeter(result, references)
     matcher = SizeMatcher(
         parameters,
         rules,
@@ -731,8 +764,8 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--source-dir",
         type=Path,
-        default=workspace_dir / "source",
-        help="共享数据源目录（默认：仓库 source）",
+        default=workspace_dir / "public",
+        help="共享数据源目录（默认：仓库 public）",
     )
     parser.add_argument(
         "--config-dir",
@@ -761,6 +794,14 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         "--no-workbook-output",
         action="store_true",
         help="只生成 CSV，不生成 Excel 候选",
+    )
+    parser.add_argument(
+        "--body-source", type=Path,
+        help="可选车形核定候选，覆盖数据源目录中的车身分类表",
+    )
+    parser.add_argument(
+        "--trim-source", type=Path,
+        help="缺少子车系维护表时，按 DIMENSION-ID 保留该表的 TRIM；默认使用数据源目录的全量数据.csv",
     )
     parser.add_argument(
         "--submodel-source",
@@ -796,12 +837,19 @@ def main(argv: Sequence[str] | None = None) -> int:
             args.submodel_source.resolve() if args.submodel_source else None,
             args.no_submodel,
         )
+        trim_source = args.trim_source or (input_dir / "全量数据.csv")
+        if args.no_submodel or submodel_path is not None:
+            trim_source = None
+        elif args.trim_source is None and not trim_source.is_file():
+            trim_source = None
         result = calculate(
             input_dir,
             submodel_path=submodel_path,
             include_disabled_rules=args.include_disabled_rules,
             sort_output=not args.keep_source_order,
             config_dir=config_dir,
+            body_path=args.body_source.resolve() if args.body_source else None,
+            trim_source=trim_source,
         )
         expected_rows = len(_read_csv(resolve_data_file(input_dir, "dimensions")))
         summary = validate_result(result, expected_rows)
@@ -825,6 +873,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     summary["source_dir"] = str(input_dir)
     summary["config_dir"] = str(config_dir)
     summary["submodel_source"] = str(submodel_path) if submodel_path else None
+    summary["trim_source"] = str(trim_source) if trim_source else None
+    summary["body_source"] = str(args.body_source.resolve()) if args.body_source else str(resolve_data_file(input_dir, "bodies"))
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 

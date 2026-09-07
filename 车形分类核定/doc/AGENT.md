@@ -2,9 +2,9 @@
 
 ## 1. 唯一规则源
 
-本项目必须以同目录的 `reference.csv` 为车形定义唯一真源。每次核定前都要重新读取该文件，不得沿用旧版 `AGENT.md` 中的数字编号、分类名称或边界。
+本项目必须以仓库 `public/参考尺寸计算.csv` 为车形定义唯一真源（下文简称参考表）。每次核定前都要重新读取该文件，不得沿用历史批次中的 `reference.csv` 或旧版分类边界。
 
-- 最终 `车形` 字段必须填写 `reference.csv` 的 `车身号`，大小写和连字符必须完全一致。
+- 最终 `车形` 字段必须填写 参考表的 `车身号`，大小写和连字符必须完全一致。
 - `分类`、`结构细分`、`描述`、`参考车型`共同定义轮廓语义。
 - `下摆上限`及五个系数是下游版型/尺寸参数，不是车形判定阈值；空值不得自行补造。
 - 历史编号 `0/1/10/11/20/21/25/26/30/31/32/40/41/42/50` 已废止，不得写入新结果。
@@ -12,7 +12,7 @@
 
 ## 2. 当前固定车形
 
-下表是 `reference.csv` 的可读快照；CSV 与本文冲突时始终以 CSV 为准。
+下表是参考表的可读快照；参考表与本文冲突时始终以参考表为准。
 
 | 车身号 | 分类 | 结构细分 | 核心轮廓 | 参考车型 |
 | --- | --- | --- | --- | --- |
@@ -29,8 +29,8 @@
 | `SD0` | Sedan/Coupe | Low Sport | 低矮运动、下宽上窄，前挡和车顶明显窄于车身 | Mustang、GR86、Camaro、Taycan、Corvette |
 | `SD1` | Sedan | Standard / Fastback | 普通现代 Sedan/Fastback/Sportback | Avalon、Camry、Accord、Altima、Malibu、Model 3、CLA、A5 Sportback |
 | `SD2` | Sedan/Coupe | Boxy Classic | 老式方正轿车，宽方车头，俯视两侧平直且向前收窄少 | Bel Air Sedan、Caprice、经典 Cadillac Sedan、Lincoln Continental |
-| `SU0` | SUV | Fastback SUV | 普通现代 SUV 前部，车顶后半段明显下倾 | Model X/Y、X6、Q8、Velar、GLC Coupe |
-| `SU1` | SUV | Conventional SUV | 普通现代 SUV，前角圆润，向车头和车顶逐渐收窄 | CR-V、RAV4、Highlander、CX-5 |
+| `SU0` | SUV | Streamlined Tapered SUV | 圆顺前部向前收窄明显，座舱向上收窄明显，前挡通常较平躺 | Model X/Y、Macan、GV60 |
+| `SU1` | SUV | Conventional SUV | 相对 SU0 更饱满方正，保留现代圆角；溜背不单独改类 | CR-V、RAV4、Highlander、CX-5；X6、Q8、Velar |
 | `SU2` | SUV | Boxy SUV | 方正 SUV，宽方车头，俯视两侧收窄较少 | 4Runner、Bronco Sport、GLB、Tahoe、Yukon、Escalade、Expedition |
 | `V0` | Minivan | Standard Minivan | 短车头、宽车身，前挡根部和车顶也宽 | Sienna、Odyssey、Carnival、Pacifica |
 | `V1` | Van | Full-size Van | 车头、车身和车顶均方正且宽，向上收窄很少 | Transit、Sprinter、ProMaster |
@@ -104,8 +104,10 @@ V0 V1
 
 - `JP`：硬派方盒，车头、前挡根部和车顶都宽，整体向上收窄极少。
 - `SU2`：方正但不满足 Jeep-like 全高度方盒特征，重点是宽方车头和俯视收窄少。
-- `SU0`：前部近似普通现代 SUV，但后半车顶有明确持续下倾；不能只因 Coupe 营销名判定。
-- `SU1`：排除以上特征后的常规现代 SUV。
+- `SU0`：前角圆滑，俯视车头向前收窄明显，车身向前挡和车顶的横向收窄也明显。前挡通常更平躺，即与水平面夹角较小，但前挡倾角不能单独推导横向宽度。溜背既非必要条件，也非充分条件。
+- `SU1`：相对 SU0，前部与座舱更饱满方正、收窄较弱，但仍保留现代圆角，不达到 SU2 的宽方前部或 JP 的全高度方盒。Coupe、Sportback、Fastback 分支必须单独看前部和座舱，不能自动映射 SU0。
+
+2026-09-06 起取消 Fastback SUV 的旧 SU0 语义。格栅大小、装饰折线、动力类型、风阻系数和后窗斜率均不能替代实际收窄证据。只有前部与座舱共同支持明显收窄时才采用 SU0；边界资料不足时采用常规 SU1 并记录置信度及证据限制。分类系数不作判定阈值，也不因本轮描述更新而自动重标定。
 
 ### 4.6 Minivan 与 Full-size Van
 
@@ -115,7 +117,7 @@ V0 V1
 
 ## 5. 证据与缓存
 
-- `reference.csv` 中的参考车型可直接作为规则锚点，不要求重复联网确认。
+- 参考表中的参考车型可直接作为规则锚点，不要求重复联网确认。
 - 非参考车型优先使用制造商资料、官方图库/规格页或可确认代际的多角度图片；俯视或前 3/4 视角用于车头收窄，正侧视图用于 CAB、车顶和 D 柱。
 - 来源必须对应具体代际。仅有车型名、营销结构名或另一代车型的图片，不足以拆分边界类。
 - 缓存键至少包含 `MAKE + MODEL`；跨代轮廓变化时增加 `generation`，同代真实外壳不同才增加 `match_pattern` 或年份范围。
@@ -131,9 +133,9 @@ DIMENSION-ID,车形
 
 必须满足：
 
-- 与 `../source/车型尺寸库.csv` 顺序一致并全量覆盖；
+- 与 `public/尺寸库.csv` 顺序一致并全量覆盖；
 - `DIMENSION-ID` 唯一，且不增删源记录；
-- 每个 `车形` 都存在于当前 `reference.csv`；
+- 每个 `车形` 都存在于当前参考表；
 - Dodge Challenger、CSV 参考车型和同代际缓存通过专项断言；
 - 每条记录在全量审计中登记旧值、新值、命中的规则和判定理由；
 - 机器验收失败时不得将结果视为完成。
@@ -146,4 +148,4 @@ DIMENSION-ID,车形
 - `validation.json`：机器验收结果；
 - `all_dimension_audit.csv/json`：全量可追溯判定。
 
-发布到 `source/车型形状分类.csv` 属于独立人工批准步骤，本项目不得自动执行。
+发布到 `public/车身分类.csv` 属于独立人工批准步骤，本项目不得自动执行。

@@ -5,6 +5,12 @@
 
 # Shared CSV data lives in source. Project-local CSV rules/evidence are explicit exceptions.
 *.[cC][sS][vV]
+!/public/参考尺寸计算.[cC][sS][vV]
+!/public/全量数据.[cC][sS][vV]
+!/public/车身分类.[cC][sS][vV]
+!/尺码计算/rules/尺码匹配参数.[cC][sS][vV]
+!/尺码计算/rules/尺码匹配规则.[cC][sS][vV]
+!/车形分类核定/artifacts/all_dimension_shape_audit_2026-09-06.[cC][sS][vV]
 !**/source/**/*.[cC][sS][vV]
 !**/config/**/*.[cC][sS][vV]
 !**/data/**/*.[cC][sS][vV]

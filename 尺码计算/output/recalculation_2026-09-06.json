@@ -1,0 +1,33 @@
+{
+  "rows": 4354,
+  "baseline_reproduced_exactly": true,
+  "changed_columns": {
+    "车形": 78,
+    "前宽-MM": 78,
+    "后宽-MM": 78,
+    "参考侧高": 5,
+    "参考插片": 78
+  },
+  "half_perimeter_formula": "ROUND_HALF_EVEN((L-MM + H-MM) * 周长系数 - 750)",
+  "half_perimeter_filled": 4281,
+  "half_perimeter_blank": 73,
+  "trim_preserved": true,
+  "candidate_shapes_match": true,
+  "all_half_perimeters_independently_verified": true,
+  "tests_passed": 7,
+  "rules_source": "尺码计算/output/车型数据尺码.xlsx: 参数!容差参数表(A1:B2), 尺码!tb_size(A1:J44)",
+  "published_files": [
+    {
+      "file": "public\\车身分类.csv",
+      "before_sha256": "02b1da3fa2f31d02c0d0411cab23113d1cd499bfe271e10b03426f956704af56",
+      "after_sha256": "65cbcaa20940de96223f5e044c944cef1d0b77c1436391afe6ef1f2a789de780"
+    },
+    {
+      "file": "public\\全量数据.csv",
+      "before_sha256": "b1d92cfa2b73b1aae57c485cac0c1900afa4c68bd502a7b8a69af026a9e8e134",
+      "after_sha256": "c9908c6d7f5f9fdc9600dfd5ea5b59e5988b24503e50d6d24118c13bf3347ef8"
+    }
+  ],
+  "backup_directory": "尺码计算\\output\\2026-09-06_public_publish_backup",
+  "published": true
+}

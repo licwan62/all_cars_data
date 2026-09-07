@@ -1,0 +1,73 @@
+{
+  "records": 4354,
+  "reviewed_records": 939,
+  "越野车记录": 932,
+  "关联SUV分支": 7,
+  "changed_records": 78,
+  "transitions": {
+    "SU0 -> SU1": 64,
+    "SU1 -> SU0": 9,
+    "SU0 -> SU2": 4,
+    "SU2 -> SU1": 1
+  },
+  "before_distribution": {
+    "SU1": 423,
+    "SU2": 345,
+    "SU0": 104,
+    "V0": 5,
+    "JP": 61,
+    "H2": 1
+  },
+  "after_distribution": {
+    "SU1": 479,
+    "SU2": 348,
+    "SU0": 45,
+    "V0": 5,
+    "JP": 61,
+    "H2": 1
+  },
+  "evidence_methods": {
+    "历史轮廓证据复用": 806,
+    "代际拆分复核（本轮官方资料）": 2,
+    "新边界定向复核（本轮官方资料）": 43,
+    "新边界定向复核": 39,
+    "原SU0逐车型边界复核（复用历史资料）": 35,
+    "代际拆分复核": 14
+  },
+  "reference_shape_ids": [
+    "DUAL",
+    "H0",
+    "H1",
+    "H2",
+    "H3",
+    "JP",
+    "P0",
+    "P1",
+    "P2",
+    "SD0",
+    "SD1",
+    "SD2",
+    "SU0",
+    "SU1",
+    "SU2",
+    "V0",
+    "V1",
+    "dodge-challenger"
+  ],
+  "legacy_shape_values_remaining": [],
+  "input_sha256": {
+    "尺寸库.csv": "492a94cf944e780cb316bc4c3f4045950e53ee76c0715dd3cadc5e9a2f80dbea",
+    "车身分类.csv": "02b1da3fa2f31d02c0d0411cab23113d1cd499bfe271e10b03426f956704af56",
+    "参考尺寸计算.csv": "301de2c6e8b33275e0f41dfa92693f39e84e3c2f1988a71271fc175e4a24a192"
+  },
+  "passed": true,
+  "checks": {
+    "exact_coverage": true,
+    "unique_ids": true,
+    "legal_shapes": true,
+    "out_of_scope_unchanged": true,
+    "cache_matches_every_result": true
+  },
+  "classification_published": false,
+  "coefficient_recalibration_performed": false
+}

@@ -101,6 +101,22 @@ class SizeMatcherTests(unittest.TestCase):
 
 
 class BodyDimensionFormulaTests(unittest.TestCase):
+    def test_half_perimeter_units_rounding_and_missing_coefficients(self) -> None:
+        vehicles = pd.DataFrame([
+            {"车形": "SU0", "L-MM": 4500, "H-MM": 1500},
+            {"车形": "TEST", "L-MM": 4001, "H-MM": 1500},
+            {"车形": "TEST", "L-MM": 4003, "H-MM": 1500},
+            {"车形": "V1", "L-MM": 6000, "H-MM": 2500},
+        ])
+        refs = pd.DataFrame([
+            {"车身号": "SU0", "周长系数": "91%"},
+            {"车身号": "TEST", "周长系数": "0.5"},
+            {"车身号": "V1", "周长系数": ""},
+        ])
+        result = analysis.add_reference_half_perimeter(vehicles, refs)["参考半周长"]
+        self.assertEqual(result.iloc[:3].tolist(), [4710, 2000, 2002])
+        self.assertTrue(pd.isna(result.iloc[3]))
+
     def test_new_arc_formula_and_insert_ignore_neck_width(self) -> None:
         vehicles = pd.DataFrame(
             [{"DIMENSION-ID": "Acura ADX SUV 2025-2026", "W-MM": 1842, "H-MM": 1621}]
@@ -132,13 +148,14 @@ class BodyDimensionFormulaTests(unittest.TestCase):
 class FullPipelineRegressionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        cls.source_dir = PROJECT_DIR.parent / "source"
+        cls.source_dir = PROJECT_DIR.parent / "public"
         cls.config_dir = PROJECT_DIR / "rules"
         cls.submodel_path = analysis.resolve_submodel_path(cls.source_dir, None, False)
         cls.result = analysis.calculate(
             cls.source_dir,
             cls.submodel_path,
             config_dir=cls.config_dir,
+            trim_source=cls.source_dir / "全量数据.csv",
         )
 
     def test_full_result_contract(self) -> None:
