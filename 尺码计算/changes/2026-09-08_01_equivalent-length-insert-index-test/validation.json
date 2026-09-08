@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "publish_ready": true,
+  "decision": "L-MM 正式匹配与参考等效长口径验证通过",
+  "checks": [
+    {
+      "check": "result_exact_coverage",
+      "passed": true,
+      "source_rows": 4354,
+      "result_rows": 4354
+    },
+    {
+      "check": "result_dimension_ids_unique",
+      "passed": true,
+      "unique_ids": 4354
+    },
+    {
+      "check": "result_status_complete",
+      "passed": true,
+      "blank_status_rows": 0
+    },
+    {
+      "check": "pickup_insert_index_formula",
+      "passed": true,
+      "formula": "ROUND_HALF_EVEN(前宽-MM / 2 - 750)",
+      "rows_checked": 465
+    },
+    {
+      "check": "equivalent_length_spot_check",
+      "passed": true,
+      "dimension_id": "Acura ADX SUV 2025-2026",
+      "expected": 4569,
+      "actual": 4569
+    },
+    {
+      "check": "pickup_wide_group_removed",
+      "passed": true,
+      "pk_wx_or_wxxl_rows": 0
+    },
+    {
+      "check": "baseline_status_counts_preserved",
+      "passed": true,
+      "matched_rows": 4119,
+      "unavailable_rows": 162,
+      "incomplete_rows": 73
+    }
+  ],
+  "sha256": {
+    "input_参考尺寸计算.csv": "5D4AA18D1744984355B8AE9E34E0C6E7032631C257751FF351FD93F2352D058F",
+    "input_全量数据.csv": "DA03F2441AF04007D02A1E3FA3B6E7C5B93A2B71F2405A83726A0F1CDDF0C272",
+    "pandas_analysis.py": "4569775BAADAAA2F2E34D5EF30DA1891CB2088545494A908D097D8DD01612508",
+    "reference_插片必要性.md": "DD1A6FE2EE2AA5828691EC13F8F0D728DF4D73E36071B4D2697780FDB55224FE",
+    "report.md": "BA4786CD07591A679B63B10DB2B39FEF38EF4A7F1B25E1FC6EB3C3BF6A7F7ABB",
+    "result_尺码计算测试-0908.csv": "1772340F6FC4CF9097D3B1D3A1618CEEF11F6D11EDEBD0F7A2ACAB14AC117A51",
+    "rules_尺码匹配参数.csv": "1CC973A290617428F9DB4B29EBCF28696416ABDF23E848790EA11A2F3FB98FBF",
+    "rules_尺码匹配规则-0908.csv": "AE5010E9887A9C9EA9D8EF828D64BDC990ADB93AA182B7D7280854B48C7C45CA",
+    "run_test.py": "2C6B731000EE3F8E97AC8B084D65F803D3788A07EA92EA5440FF2ED39A6C3587",
+    "summary_尺码计算测试-0908.json": "794E50392629E2FC4E7FF6E93185858C252789A51B285245B97356B3C1A3B713"
+  }
+}

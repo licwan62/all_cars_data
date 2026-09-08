@@ -159,9 +159,9 @@ let
                 用于长度 = true
             ],
             [
-                尺码表字段 = Record.FieldOrDefault(尺码字段配置, "参考插片", "参考插片上限"),
-                源表字段 = Record.FieldOrDefault(源字段配置, "参考插片", "参考插片"),
-                原因 = "参考插片超上限",
+                尺码表字段 = Record.FieldOrDefault(尺码字段配置, "插片指数", "插片指数上限"),
+                源表字段 = Record.FieldOrDefault(源字段配置, "插片指数", "插片指数"),
+                原因 = "插片指数超上限",
                 用于长度 = false
             ]
         },

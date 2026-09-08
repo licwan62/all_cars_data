@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""隔离运行 07 车衣数据的半周长尺码匹配测试，不发布到 source。"""
+"""隔离运行 07 车衣数据的等效长尺码匹配测试，不发布到 source。"""
 
 from __future__ import annotations
 
@@ -36,18 +36,18 @@ EXPLICIT_COVER_ALIASES = {
 }
 
 TEST_LIMITS = (
-    base.LimitSpec("半周长上限", "参考半周长", "半周长超上限", is_length=True),
-    base.LimitSpec("参考插片上限", "参考插片", "参考插片超上限"),
+    base.LimitSpec("等效长上限", "等效长", "等效长超上限", is_length=True),
+    base.LimitSpec("插片指数上限", "插片指数", "插片指数超上限"),
 )
 
 
-def add_reference_half_perimeter(
+def add_equivalent_length(
     vehicles: pd.DataFrame,
     references: pd.DataFrame,
 ) -> pd.DataFrame:
-    """按车形周长系数计算参考半周长，单位为毫米。"""
+    """按车形周长系数计算等效长，单位为毫米。"""
 
-    base._require_columns(vehicles, ["车形", "L-MM", "H-MM"], "车型计算结果")
+    base._require_columns(vehicles, ["车形", "L-MM", "W-MM"], "车型计算结果")
     base._require_columns(references, ["车身号", "周长系数"], "参考尺寸计算")
     if references["车身号"].duplicated().any():
         raise base.DataContractError("参考尺寸计算的车身号必须唯一")
@@ -59,9 +59,9 @@ def add_reference_half_perimeter(
 
     result = vehicles.merge(factors, on="车形", how="left", validate="many_to_one")
     length = result["L-MM"].astype("Float64")
-    height = result["H-MM"].astype("Float64")
-    result["参考半周长"] = base._round_nullable(
-        (length + height) * result["周长系数"] - base.PANEL_OFFSET_MM
+    width = result["W-MM"].astype("Float64")
+    result["等效长"] = base._round_nullable(
+        (length + width) * result["周长系数"] - base.PANEL_OFFSET_MM
     )
     return result
 
@@ -87,7 +87,7 @@ def build_half_perimeter_rules(
     base_rules: pd.DataFrame,
     cover_sizes: pd.DataFrame,
 ) -> pd.DataFrame:
-    """把 07 侧片长作为半周长上限，并完整保留原规则优先级。"""
+    """把 07 侧片长作为等效长上限，并完整保留原规则优先级。"""
 
     base._require_columns(
         base_rules,
@@ -99,7 +99,7 @@ def build_half_perimeter_rules(
             "CAB",
             "版本",
             "长上限",
-            "参考插片上限",
+            "插片指数上限",
             "使用",
             "备注",
         ],
@@ -118,7 +118,7 @@ def build_half_perimeter_rules(
 
     result = base_rules.copy()
     result.insert(result.columns.get_loc("长上限") + 1, "原长上限", result["长上限"])
-    half_perimeter_limits: list[float | None] = []
+    equivalent_length_limits: list[float | None] = []
     cover_models: list[str | None] = []
     for _, rule in result.iterrows():
         selected_model: str | None = None
@@ -129,11 +129,11 @@ def build_half_perimeter_rules(
                 selected_value = float(cover_by_model[candidate]) * 10.0
                 break
         cover_models.append(selected_model)
-        half_perimeter_limits.append(selected_value)
+        equivalent_length_limits.append(selected_value)
 
-    result["半周长上限"] = pd.array(half_perimeter_limits, dtype="Float64")
+    result["等效长上限"] = pd.array(equivalent_length_limits, dtype="Float64")
     result["车衣数据型号"] = pd.array(cover_models, dtype="string")
-    result["半周长上限来源"] = result["车衣数据型号"].map(
+    result["等效长上限来源"] = result["车衣数据型号"].map(
         lambda value: "07-车衣数据.csv / 侧片长×10" if pd.notna(value) else "缺少可用侧片长"
     )
 
@@ -144,12 +144,12 @@ def build_half_perimeter_rules(
         "分类",
         "CAB",
         "版本",
-        "半周长上限",
-        "参考插片上限",
+        "等效长上限",
+        "插片指数上限",
         "使用",
         "备注",
         "车衣数据型号",
-        "半周长上限来源",
+        "等效长上限来源",
         "原长上限",
     ]
     return result[ordered_columns]
@@ -180,10 +180,10 @@ def calculate_test(
     if np.allclose(result["销量合计"].dropna() % 1, 0):
         result["销量合计"] = result["销量合计"].round().astype("Int64")
     result = base.add_body_dimensions(result, bodies, references)
-    result = add_reference_half_perimeter(result, references)
+    result = add_equivalent_length(result, references)
 
     matcher = base.SizeMatcher(parameters, rules, limits=TEST_LIMITS)
-    result = matcher.apply(result).rename(columns={"自动长度余量": "自动半周长余量"})
+    result = matcher.apply(result).rename(columns={"自动长度余量": "自动等效长余量"})
     if sort_output:
         result = result.sort_values(
             "DIMENSION-ID", ascending=True, na_position="last", kind="stable"
@@ -206,26 +206,26 @@ def calculate_test(
         "销量合计",
         "车形",
         "周长系数",
-        "参考半周长",
+        "等效长",
         "前宽-MM",
         "后宽-MM",
         "参考侧高",
-        "参考插片",
+        "插片指数",
         "自动尺码",
-        "自动半周长余量",
+        "自动等效长余量",
         "候选",
         "原因",
         "相差数值",
         "DIMENSION-ID",
     ]
     result = result[output_columns].copy()
-    result["自动半周长余量"] = base._compact_number_column(result["自动半周长余量"])
+    result["自动等效长余量"] = base._compact_number_column(result["自动等效长余量"])
     result["相差数值"] = base._compact_number_column(result["相差数值"])
     return result, rules
 
 
 def validate_test_result(result: pd.DataFrame, rules: pd.DataFrame, expected_rows: int) -> dict[str, object]:
-    summary = base.validate_result(result.rename(columns={"自动半周长余量": "自动长度余量"}), expected_rows)
+    summary = base.validate_result(result.rename(columns={"自动等效长余量": "自动长度余量"}), expected_rows)
     source_priorities = base._read_csv(DEFAULT_BASE_RULES)["档位序号"].reset_index(drop=True)
     test_priorities = rules["档位序号"].reset_index(drop=True)
     if not source_priorities.equals(test_priorities):
@@ -233,14 +233,14 @@ def validate_test_result(result: pd.DataFrame, rules: pd.DataFrame, expected_row
     summary.update(
         {
             "rules": int(len(rules)),
-            "rules_with_half_perimeter_limit": int(rules["半周长上限"].notna().sum()),
-            "active_rules_with_half_perimeter_limit": int(
+            "rules_with_equivalent_length_limit": int(rules["等效长上限"].notna().sum()),
+            "active_rules_with_equivalent_length_limit": int(
                 (
                     rules["使用"].astype("string").str.strip().str.casefold().eq("y")
-                    & rules["半周长上限"].notna()
+                    & rules["等效长上限"].notna()
                 ).sum()
             ),
-            "half_perimeter_formula": "(L-MM + H-MM) * 周长系数 - 750",
+            "equivalent_length_formula": "(L-MM + W-MM) * 周长系数 - 750",
             "published": False,
         }
     )

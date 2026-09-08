@@ -28,7 +28,7 @@ class SizeMatcherTests(unittest.TestCase):
                     "CAB": "",
                     "版本": "",
                     "长上限": "5000",
-                    "参考插片上限": "120",
+                    "插片指数上限": "120",
                     "使用": "y",
                 },
                 {
@@ -38,7 +38,7 @@ class SizeMatcherTests(unittest.TestCase):
                     "CAB": "",
                     "版本": "",
                     "长上限": "6000",
-                    "参考插片上限": "120",
+                    "插片指数上限": "120",
                     "使用": "y",
                 },
                 {
@@ -48,7 +48,7 @@ class SizeMatcherTests(unittest.TestCase):
                     "CAB": "",
                     "版本": "DRW",
                     "长上限": "6000",
-                    "参考插片上限": "999",
+                    "插片指数上限": "999",
                     "使用": "y",
                 },
             ]
@@ -73,7 +73,7 @@ class SizeMatcherTests(unittest.TestCase):
                     "CAB": "",
                     "版本": "",
                     "长上限": "4000",
-                    "参考插片上限": "120",
+                    "插片指数上限": "120",
                     "使用": "y",
                 }
             ]
@@ -101,25 +101,25 @@ class SizeMatcherTests(unittest.TestCase):
 
 
 class BodyDimensionFormulaTests(unittest.TestCase):
-    def test_half_perimeter_units_rounding_and_missing_coefficients(self) -> None:
+    def test_equivalent_length_units_rounding_and_missing_coefficients(self) -> None:
         vehicles = pd.DataFrame([
-            {"车形": "SU0", "L-MM": 4500, "H-MM": 1500},
-            {"车形": "TEST", "L-MM": 4001, "H-MM": 1500},
-            {"车形": "TEST", "L-MM": 4003, "H-MM": 1500},
-            {"车形": "V1", "L-MM": 6000, "H-MM": 2500},
+            {"车形": "SU0", "L-MM": 4500, "W-MM": 1800},
+            {"车形": "TEST", "L-MM": 4001, "W-MM": 1500},
+            {"车形": "TEST", "L-MM": 4003, "W-MM": 1500},
+            {"车形": "V1", "L-MM": 6000, "W-MM": 2500},
         ])
         refs = pd.DataFrame([
             {"车身号": "SU0", "周长系数": "91%"},
             {"车身号": "TEST", "周长系数": "0.5"},
             {"车身号": "V1", "周长系数": ""},
         ])
-        result = analysis.add_reference_half_perimeter(vehicles, refs)["参考半周长"]
-        self.assertEqual(result.iloc[:3].tolist(), [4710, 2000, 2002])
+        result = analysis.add_equivalent_length(vehicles, refs)["等效长"]
+        self.assertEqual(result.iloc[:3].tolist(), [4233, 1250, 1252])
         self.assertTrue(pd.isna(result.iloc[3]))
 
     def test_new_arc_formula_and_insert_ignore_neck_width(self) -> None:
         vehicles = pd.DataFrame(
-            [{"DIMENSION-ID": "Acura ADX SUV 2025-2026", "W-MM": 1842, "H-MM": 1621}]
+            [{"DIMENSION-ID": "Acura ADX SUV 2025-2026", "分类": "越野车", "W-MM": 1842, "H-MM": 1621}]
         )
         bodies = pd.DataFrame(
             [{"DIMENSION-ID": "Acura ADX SUV 2025-2026", "车形": "SU1"}]
@@ -130,7 +130,7 @@ class BodyDimensionFormulaTests(unittest.TestCase):
                     "车身号": "SU1",
                     "前宽系数": "0.7318",
                     "后宽系数": "0.7457",
-                    # 特意设得很大：新规则不得把车颈等效宽并入参考插片。
+                    # 特意设得很大：新规则不得把车颈等效宽并入插片指数。
                     "颈宽系数": "0.99",
                     "弧长系数": "0.81",
                 }
@@ -142,7 +142,20 @@ class BodyDimensionFormulaTests(unittest.TestCase):
         self.assertEqual(row["前宽-MM"], 1348)
         self.assertEqual(row["后宽-MM"], 1374)
         self.assertEqual(row["参考侧高"], 1309)
-        self.assertEqual(row["参考插片"], -70)
+        self.assertEqual(row["插片指数"], -70)
+
+    def test_pickup_insert_index_ignores_rear_width(self) -> None:
+        vehicles = pd.DataFrame(
+            [{"DIMENSION-ID": "DRW", "分类": "皮卡", "W-MM": 2400, "H-MM": 2000}]
+        )
+        bodies = pd.DataFrame([{"DIMENSION-ID": "DRW", "车形": "DUAL"}])
+        references = pd.DataFrame([{
+            "车身号": "DUAL", "前宽系数": "0.8", "后宽系数": "1.0", "弧长系数": "0.8"
+        }])
+        row = analysis.add_body_dimensions(vehicles, bodies, references).iloc[0]
+        self.assertEqual(row["前宽-MM"], 1920)
+        self.assertEqual(row["后宽-MM"], 2400)
+        self.assertEqual(row["插片指数"], 210)
 
 
 class FullPipelineRegressionTests(unittest.TestCase):
@@ -171,7 +184,7 @@ class FullPipelineRegressionTests(unittest.TestCase):
         self.assertEqual(row["TRIM"], "Bel Air")
         self.assertEqual(row["销量合计"], 74286)
         self.assertEqual(row["前宽-MM"], 2052)
-        self.assertEqual(row["参考插片"], 276)
+        self.assertEqual(row["插片指数"], 276)
         self.assertEqual(row["自动尺码"], "3WXXL-0")
         self.assertEqual(row["自动长度余量"], 146)
         self.assertEqual(self.result.columns[-1], "DIMENSION-ID")
