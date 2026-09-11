@@ -26,9 +26,9 @@
 | `P1` | Pickup | Flared Fender | 轮拱明显外扩，尤其前轮区域需要更大横向余量 | Ranger、Tacoma、Colorado、F-Series/GM HD/RAM HD SRW |
 | `P2` | Pickup | Wide-body Performance | 性能宽体，前后轮拱大幅外扩 | F-150 Raptor、RAM TRX、Ranger Raptor |
 | `DUAL` | Pickup | DRW | 双后轮，后轮区域大幅外扩 | F-350、Silverado/Sierra 3500HD、RAM 3500 DRW |
-| `SD0` | Sedan/Coupe | Low Sport | 低矮运动、下宽上窄，前挡和车顶明显窄于车身 | Mustang、GR86、Camaro、Taycan、Corvette |
-| `SD1` | Sedan | Standard / Fastback | 标准 Sedan/Fastback/Sportback；也包括视觉略方但实际覆盖需求不超过 Avalon 的轿车 | Avalon、Camry、Accord、Altima、Malibu、Model 3、CLA、A5 Sportback、1998 Maxima |
-| `SD2` | Sedan/Coupe | Boxy Classic | 仅限有正向几何证据的极端方正宽头车：车头接近最大车宽、俯视长距离近乎平行且向前收窄很少 | Bel Air Sedan、Caprice、经典 Cadillac Sedan、Lincoln Continental |
+| `SD0` | Sedan/Coupe | Low Sport | 低矮运动、下宽上窄，前挡和车顶明显窄于车身 | Mustang、GR86/BRZ、Camaro、Corvette、Z/370Z、911、Taycan |
+| `SD1` | Sedan | Standard / Fastback | 标准 Sedan/Fastback/Sportback；也包括视觉略方但实际覆盖需求不超过 Avalon 的轿车 | Avalon、Camry、Accord、Altima、1995–1999 Maxima、E30 3 Series Sedan、E34 5 Series Sedan、1988–1991 Civic Sedan、190、Model 3、CLA、A5 Sportback |
+| `SD2` | Sedan/Coupe | Boxy Classic | 仅限有正向几何证据的极端方正宽头车：车头接近最大车宽、俯视长距离近乎平行且向前收窄很少 | 1955–1957 Bel Air Sedan、1966–1976 Caprice、1959–1984 DeVille Sedan、1956–1957 Continental Mark II、1961–1980 Continental Sedan、1983–2011 Crown Victoria、1975–2011 Grand Marquis |
 | `SU0` | SUV | Streamlined Tapered SUV | 圆顺前部向前收窄明显，座舱向上收窄明显，前挡通常较平躺 | Model X/Y、Macan、GV60 |
 | `SU1` | SUV | Conventional SUV | 相对 SU0 更饱满方正，保留现代圆角；溜背不单独改类 | CR-V、RAV4、Highlander、CX-5；X6、Q8、Velar |
 | `SU2` | SUV | Boxy SUV | 方正 SUV，宽方车头，俯视两侧收窄较少 | 4Runner、Bronco Sport、GLB、Tahoe、Yukon、Escalade、Expedition |

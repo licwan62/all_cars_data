@@ -11,17 +11,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "public" / "全量数据.csv"
+RULES = ROOT / "public" / "尺码匹配规则.csv"
 OUTPUT = ROOT / "车型代表分析" / "output" / "代表车型.csv"
 OUTPUT_TSV = ROOT / "车型代表分析" / "output" / "代表车型.tsv"
-SNAPSHOT = (
-    ROOT
-    / "车型代表分析"
-    / "changes"
-    / "2026-09-07_01_all-size-representatives"
-    / "代表车型.csv"
-)
-SNAPSHOT_TSV = SNAPSHOT.with_suffix(".tsv")
-EXCLUDED_SIZES = {"", "数据不全", "无可用尺码"}
+TARGET_SIZES = ["3XL", "3XXL", "3L-W", "3XL-W", "3XXL-W", "3XXXL", "3XXXXL"]
 OUTPUT_FIELDS = ["车型", "dimension-id", "型号", "车长", "车宽", "车高", "车形", "销量", "参考半周长", "in_eagle"]
 TSV_FIELDS = ["车型", "型号", "车长", "车宽", "车高", "车形"]
 
@@ -50,12 +43,25 @@ def display_name(row: dict[str, str]) -> str:
     return " ".join(row.get(field, "").strip() for field in fields if row.get(field, "").strip())
 
 
+def logical_size(row: dict[str, str], rules: list[dict[str, str]]) -> str:
+    """Re-evaluate the logical size; 自动尺码 stores the internal size."""
+    category = row.get("分类", "").strip()
+    length = number(row, "L-MM")
+    insert = number(row, "插片指数")
+    for rule in rules:
+        if rule.get("分类", "").strip() != category:
+            continue
+        if number(rule, "长上限") >= length and number(rule, "插片指数上限") >= insert:
+            return rule.get("逻辑尺码", "").strip() if number(rule, "长上限") - length <= 500 else ""
+    return ""
+
+
 def rank_group(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     positive_sales = [row for row in rows if number(row, "销量合计") > 0]
     pool = positive_sales if len(positive_sales) >= 4 else rows
 
     lengths = [number(row, "L-MM") for row in pool]
-    girths = [number(row, "参考半周长") for row in pool]
+    girths = [number(row, "等效长") for row in pool]
     years = [end_year(row.get("YEAR", "")) for row in pool]
     sales_logs = [math.log10(1 + number(row, "销量合计")) for row in pool]
     bounds = (
@@ -65,7 +71,7 @@ def rank_group(rows: list[dict[str, str]]) -> list[dict[str, str]]:
 
     for row in pool:
         length_score = normalize(number(row, "L-MM"), bounds[0], bounds[1])
-        girth_score = normalize(number(row, "参考半周长"), bounds[2], bounds[3])
+        girth_score = normalize(number(row, "等效长"), bounds[2], bounds[3])
         year_score = normalize(end_year(row.get("YEAR", "")), bounds[4], bounds[5])
         sales_score = math.log10(1 + number(row, "销量合计")) / bounds[6] if bounds[6] else 0
         row["_score"] = 0.30 * length_score + 0.30 * girth_score + 0.20 * sales_score + 0.20 * year_score
@@ -104,15 +110,18 @@ def rank_group(rows: list[dict[str, str]]) -> list[dict[str, str]]:
 def main() -> None:
     with SOURCE.open("r", encoding="utf-8-sig", newline="") as handle:
         source_rows = list(csv.DictReader(handle))
+    with RULES.open("r", encoding="utf-8-sig", newline="") as handle:
+        rules = [row for row in csv.DictReader(handle) if row.get("使用", "").strip().casefold() == "y"]
+    rules.sort(key=lambda row: number(row, "档位序号"))
 
     groups: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in source_rows:
-        size = row.get("自动尺码", "").strip()
-        if size not in EXCLUDED_SIZES and number(row, "L-MM") and number(row, "参考半周长"):
+        size = logical_size(row, rules)
+        if size in TARGET_SIZES and number(row, "L-MM") and number(row, "等效长"):
             groups[size].append(row)
 
     output_rows = []
-    for size in sorted(groups):
+    for size in TARGET_SIZES:
         for row in rank_group(groups[size]):
             output_rows.append(
                 {
@@ -124,24 +133,23 @@ def main() -> None:
                     "车高": int(number(row, "H-MM")),
                     "车形": row.get("车形", ""),
                     "销量": int(number(row, "销量合计")),
-                    "参考半周长": int(number(row, "参考半周长")),
+                    # Keep the established output column name for consumers;
+                    # the current calculation field is 等效长.
+                    "参考半周长": int(number(row, "等效长")),
                     "in_eagle": 0,
                 }
             )
 
-    for target in (OUTPUT, SNAPSHOT):
-        target.parent.mkdir(parents=True, exist_ok=True)
-        with target.open("w", encoding="utf-8-sig", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=OUTPUT_FIELDS)
-            writer.writeheader()
-            writer.writerows(output_rows)
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    with OUTPUT.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=OUTPUT_FIELDS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(output_rows)
 
-    for target in (OUTPUT_TSV, SNAPSHOT_TSV):
-        target.parent.mkdir(parents=True, exist_ok=True)
-        with target.open("w", encoding="utf-8-sig", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=TSV_FIELDS, delimiter="\t")
-            writer.writeheader()
-            writer.writerows({field: row[field] for field in TSV_FIELDS} for row in output_rows)
+    with OUTPUT_TSV.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=TSV_FIELDS, delimiter="\t", lineterminator="\n")
+        writer.writeheader()
+        writer.writerows({field: row[field] for field in TSV_FIELDS} for row in output_rows)
 
     print(f"sizes={len(groups)} rows={len(output_rows)} output={OUTPUT} tsv={OUTPUT_TSV}")
 

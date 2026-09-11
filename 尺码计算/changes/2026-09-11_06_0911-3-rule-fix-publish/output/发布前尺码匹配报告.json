@@ -1,10 +1,10 @@
 {
   "published_at": "2026-09-11",
-  "source_batch": "尺码计算/changes/2026-09-11_08_3l-w-4850-3xlw-5050",
+  "source_batch": "尺码计算/changes/2026-09-11_05_0911-2-rule-fix-publish",
   "data_file": "public/全量数据.csv",
-  "data_sha256": "9d700dde134d59a4677b23f7597e5301527fcc3ea060e5f58a1cae92c4002072",
+  "data_sha256": "d2ac549c4504cada2124c5cbacfb7d670fee336066eb570956d61eac25810259",
   "rules_file": "public/尺码匹配规则.csv",
-  "rules_sha256": "0ff3160154a7a2d798ba5d98ad147a93d3acc015317bf79bd391b17be586c2de",
+  "rules_sha256": "2dd86643dec685106c29f6d1ff660b1515e2458d88a5f7a91985e7750df9573c",
   "body_file": "public/车身分类.csv",
   "body_sha256": "aaf49312fa9128e87d872b7a1cdc4ea07ab06c1c961614d4e0ab88a8af1f215a",
   "parameters_source": "尺码计算/rules/尺码匹配参数.csv",
@@ -25,16 +25,14 @@
     "超长": 42
   },
   "recalculation_changes": {
-    "changed_rows": 67,
-    "changed_sales": 12380765,
+    "changed_rows": 237,
+    "changed_sales": 22750915,
     "shape_changes": 0,
-    "size_changes": 67,
-    "size_change_sales": 12380765,
+    "size_changes": 237,
+    "size_change_sales": 22750915,
     "size_transitions": {
-      "3XL-W -> 3XXL-W": 28,
-      "3XL-W -> 3L-W": 27,
-      "3L-0 -> 3L-W": 6,
-      "3L -> 3L-W": 6
+      "3XXXXL-0 -> 3XXXL-0": 131,
+      "3XXXL-0 -> 3XXL": 106
     }
   }
 }
