@@ -500,12 +500,20 @@ class SizeMatcher:
         numeric_values = tuple(float(value) for value in values)
         base_candidate: dict[str, object] | None = None
         for rule in pool.candidates:
-            if all(
+            fits_upper_limits = all(
                 float(rule[spec.rule_column]) >= numeric_values[index]
                 for index, spec in enumerate(self.limits)
-            ):
-                base_candidate = rule
-                break
+            )
+            if not fits_upper_limits:
+                continue
+            if self.length_position is not None and self.length_rule_column is not None:
+                margin = float(rule[self.length_rule_column]) - numeric_values[
+                    self.length_position
+                ]
+                if margin > self.length_tolerance:
+                    continue
+            base_candidate = rule
+            break
 
         nearest: tuple[dict[str, object], float, str | None] | None = None
         for rule in pool.candidates:

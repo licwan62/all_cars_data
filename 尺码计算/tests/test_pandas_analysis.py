@@ -93,6 +93,36 @@ class SizeMatcherTests(unittest.TestCase):
         self.assertEqual(too_loose.reason, "超余量")
         self.assertEqual(too_loose.difference, 1000)
 
+    def test_skips_an_overly_loose_earlier_candidate(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {
+                    "内部尺码": "CLASSIC-LARGE",
+                    "档位序号": "17",
+                    "分类": "跑车",
+                    "CAB": "",
+                    "版本": "",
+                    "长上限": "6000",
+                    "插片指数上限": "999",
+                    "使用": "y",
+                },
+                {
+                    "内部尺码": "3XXL-W",
+                    "档位序号": "111",
+                    "分类": "跑车",
+                    "CAB": "",
+                    "版本": "",
+                    "长上限": "5500",
+                    "插片指数上限": "999",
+                    "使用": "y",
+                },
+            ]
+        )
+        result = analysis.SizeMatcher(self.parameters, rules).match("跑车", "", "", [5215, 223])
+
+        self.assertEqual(result.auto_size, "3XXL-W")
+        self.assertEqual(result.length_margin, 285)
+
     def test_trim_format_removes_brand_hyphen_and_spaces(self) -> None:
         value = analysis._format_trim_candidates(
             ["Jaguar|XF", "Jaguar|XFR", "Jaguar|XFR-S"]

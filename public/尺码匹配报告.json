@@ -1,10 +1,10 @@
 {
-  "published_at": "2026-09-10",
-  "source_batch": "尺码计算/changes/2026-09-10_06_0910.3-classic-car-dedicated",
+  "published_at": "2026-09-11",
+  "source_batch": "尺码计算/changes/2026-09-11_02_0911-recalculate-current-public-rules",
   "data_file": "public/全量数据.csv",
-  "data_sha256": "055b47636f5401cdbe8570a7ecb80e0293ea58e92dcd696b61a65f14fa71830a",
+  "data_sha256": "46de5a6795ba8bf27fff4194c60695a05fe47c4ce39a3e0adafec7490135d69b",
   "rules_file": "public/尺码匹配规则.csv",
-  "rules_sha256": "3d0a10eba08521e40dd42b3738d60c4f76c76e5f1c6b27b5ac22003c4c169119",
+  "rules_sha256": "55795dfc1ae38a0b142d1c633f3177685ab51a45d20e787323e470bfe94765b7",
   "body_file": "public/车身分类.csv",
   "body_sha256": "ea40941bfdfa5cae4bb8a8433dca9a2297cb17b2a23476aaba00c0e51eac5171",
   "parameters_source": "尺码计算/rules/尺码匹配参数.csv",
@@ -12,8 +12,8 @@
   "summary": {
     "rows": 4354,
     "unique_dimension_ids": 4354,
-    "matched_sizes": 3666,
-    "unavailable_sizes": 615,
+    "matched_sizes": 4169,
+    "unavailable_sizes": 112,
     "incomplete_rows": 73,
     "sales_total": 749626457,
     "rules": 41,
@@ -22,13 +22,16 @@
     "duplicate_equivalent_rules": 1
   },
   "unmatched_reasons": {
-    "未记录原因": 503,
     "超余量": 70,
     "超长": 42
   },
-  "manual_mapping_notes": [
-    "三厢车 3XXXL 输出内部尺码 3XXXL-0 为人工兼容规则",
-    "三厢车或跑车匹配到 3XXXXL-0 为人工兼容规则",
-    "重复等价规则按人工文件原样保留，不改变匹配结果"
-  ]
+  "recalculation_changes": {
+    "changed_rows": 503,
+    "changed_sales": 72566565,
+    "size_transitions": {
+      "无可用尺码 -> 3XXL-W": 256,
+      "无可用尺码 -> 3XL-W": 124,
+      "无可用尺码 -> 2XXL": 123
+    }
+  }
 }
