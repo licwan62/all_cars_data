@@ -9,6 +9,7 @@ import json
 import re
 import shutil
 import sys
+from datetime import date
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Mapping, Sequence
@@ -646,6 +647,7 @@ def calculate(
     include_disabled_rules: bool = False,
     sort_output: bool = True,
     config_dir: Path | None = None,
+    rules_path: Path | None = None,
     body_path: Path | None = None,
     trim_source: Path | None = None,
 ) -> pd.DataFrame:
@@ -655,7 +657,7 @@ def calculate(
     sales = _read_csv(resolve_data_file(input_dir, "sales"))
     references = _read_csv(input_dir / "参考尺寸计算.csv")
     parameters = _read_csv(config_dir / CONFIG_FILES["parameters"])
-    rules = _read_csv(config_dir / CONFIG_FILES["rules"])
+    rules = _read_csv(rules_path or config_dir / CONFIG_FILES["rules"])
     submodels = _read_csv(submodel_path) if submodel_path is not None else None
 
     result = build_vehicle_base(dimensions, submodels)
@@ -764,6 +766,22 @@ def write_workbook_candidate(
     workbook.close()
 
 
+def next_change_output_dir(changes_dir: Path, description: str = "size-calculation") -> Path:
+    """Return a new, non-overwriting batch output directory."""
+    batch_date = date.today().isoformat()
+    safe_description = re.sub(r"[^A-Za-z0-9_-]+", "-", description).strip("-")
+    safe_description = safe_description or "size-calculation"
+    existing_numbers = []
+    if changes_dir.is_dir():
+        pattern = re.compile(rf"^{re.escape(batch_date)}_(\d{{2}})_")
+        for candidate in changes_dir.iterdir():
+            match = pattern.match(candidate.name)
+            if candidate.is_dir() and match:
+                existing_numbers.append(int(match.group(1)))
+    next_number = max(existing_numbers, default=0) + 1
+    return changes_dir / f"{batch_date}_{next_number:02d}_{safe_description}" / "output"
+
+
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     script_dir = Path(__file__).resolve().parent
     workspace_dir = script_dir.parent
@@ -786,10 +804,25 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         help="尺码匹配规则目录（默认：脚本同级 rules）",
     )
     parser.add_argument(
+        "--rules-file",
+        type=Path,
+        help="尺码匹配规则 CSV；默认使用 config-dir/尺码匹配规则.csv",
+    )
+    parser.add_argument(
         "--output",
         type=Path,
-        default=script_dir / "output" / "pandas_output.csv",
-        help="输出 CSV 路径",
+        help="输出 CSV 路径；指定后不自动创建 changes 批次",
+    )
+    parser.add_argument(
+        "--changes-dir",
+        type=Path,
+        default=script_dir / "changes",
+        help="迭代批次根目录（默认：脚本同级 changes）",
+    )
+    parser.add_argument(
+        "--change-description",
+        default="size-calculation",
+        help="自动创建的批次目录说明（默认：size-calculation）",
     )
     parser.add_argument(
         "--workbook-template",
@@ -842,7 +875,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
     input_dir = (args.input_dir or args.source_dir).resolve()
     config_dir = (args.input_dir or args.config_dir).resolve()
-    output_path = args.output.resolve()
+    batch_output_dir = None
+    if args.output:
+        output_path = args.output.resolve()
+    else:
+        batch_output_dir = next_change_output_dir(
+            args.changes_dir.resolve(), args.change_description
+        )
+        output_path = batch_output_dir / "pandas_output.csv"
     try:
         submodel_path = resolve_submodel_path(
             input_dir,
@@ -860,6 +900,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             include_disabled_rules=args.include_disabled_rules,
             sort_output=not args.keep_source_order,
             config_dir=config_dir,
+            rules_path=args.rules_file.resolve() if args.rules_file else None,
             body_path=args.body_source.resolve() if args.body_source else None,
             trim_source=trim_source,
         )
@@ -884,9 +925,16 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     summary["source_dir"] = str(input_dir)
     summary["config_dir"] = str(config_dir)
+    summary["rules_file"] = str(args.rules_file.resolve()) if args.rules_file else str(config_dir / CONFIG_FILES["rules"])
     summary["submodel_source"] = str(submodel_path) if submodel_path else None
     summary["trim_source"] = str(trim_source) if trim_source else None
     summary["body_source"] = str(args.body_source.resolve()) if args.body_source else str(resolve_data_file(input_dir, "bodies"))
+    if batch_output_dir is not None:
+        status_path = batch_output_dir / "status.json"
+        status_path.write_text(
+            json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        summary["status"] = str(status_path)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 

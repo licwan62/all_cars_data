@@ -177,7 +177,7 @@ class FullPipelineRegressionTests(unittest.TestCase):
         self.assertEqual(summary["matched_sizes"], 4119)
         self.assertEqual(summary["unavailable_sizes"], 162)
         self.assertEqual(summary["incomplete_rows"], 73)
-        self.assertEqual(summary["sales_total"], 671987183)
+        self.assertEqual(summary["sales_total"], 749626457)
 
         dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]
