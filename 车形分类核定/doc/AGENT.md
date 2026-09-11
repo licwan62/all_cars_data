@@ -27,8 +27,8 @@
 | `P2` | Pickup | Wide-body Performance | 性能宽体，前后轮拱大幅外扩 | F-150 Raptor、RAM TRX、Ranger Raptor |
 | `DUAL` | Pickup | DRW | 双后轮，后轮区域大幅外扩 | F-350、Silverado/Sierra 3500HD、RAM 3500 DRW |
 | `SD0` | Sedan/Coupe | Low Sport | 低矮运动、下宽上窄，前挡和车顶明显窄于车身 | Mustang、GR86、Camaro、Taycan、Corvette |
-| `SD1` | Sedan | Standard / Fastback | 普通现代 Sedan/Fastback/Sportback | Avalon、Camry、Accord、Altima、Malibu、Model 3、CLA、A5 Sportback |
-| `SD2` | Sedan/Coupe | Boxy Classic | 老式方正轿车，宽方车头，俯视两侧平直且向前收窄少 | Bel Air Sedan、Caprice、经典 Cadillac Sedan、Lincoln Continental |
+| `SD1` | Sedan | Standard / Fastback | 标准 Sedan/Fastback/Sportback；也包括视觉略方但实际覆盖需求不超过 Avalon 的轿车 | Avalon、Camry、Accord、Altima、Malibu、Model 3、CLA、A5 Sportback、1998 Maxima |
+| `SD2` | Sedan/Coupe | Boxy Classic | 仅限有正向几何证据的极端方正宽头车：车头接近最大车宽、俯视长距离近乎平行且向前收窄很少 | Bel Air Sedan、Caprice、经典 Cadillac Sedan、Lincoln Continental |
 | `SU0` | SUV | Streamlined Tapered SUV | 圆顺前部向前收窄明显，座舱向上收窄明显，前挡通常较平躺 | Model X/Y、Macan、GV60 |
 | `SU1` | SUV | Conventional SUV | 相对 SU0 更饱满方正，保留现代圆角；溜背不单独改类 | CR-V、RAV4、Highlander、CX-5；X6、Q8、Velar |
 | `SU2` | SUV | Boxy SUV | 方正 SUV，宽方车头，俯视两侧收窄较少 | 4Runner、Bronco Sport、GLB、Tahoe、Yukon、Escalade、Expedition |
@@ -91,10 +91,12 @@ V0 V1
 
 ### 4.4 Sedan/Coupe
 
-优先级为：先确认 `SD2`，再判断 `SD0`，最后 `SD1`。
+默认类别为 `SD1`。先检查是否有足够证据升级为 `SD2`，否则再判断是否具备明确的 `SD0` 低矮收束比例；两者都不满足时保留 `SD1`。
 
-- `SD2` 的最高优先特征是宽方车头、平直肩线和俯视向前收窄慢。圆角、敞篷或 Coupe 名称不能覆盖这一证据。
-- 排除 `SD2` 后，只有低矮且“下宽上窄”比例明确时才用 `SD0`。
+- `SD2` 必须同时有正向几何证据：车头/前翼子板接近车身最大宽度、俯视两侧长距离近乎平行、前部向鼻端收窄很少，并足以说明 `SD1` 的前部覆盖宽度会不足。仅有老年代、方灯、直线肩线、垂直格栅或视觉方正均不成立。
+- 若缺少可确认代际的俯视或前 3/4 证据，或与 Avalon 的覆盖需求差异不显著，回退为 `SD1`，不得按旧 `32/SD2`、生产年代或同品牌经典车型继承。
+- 1998 Nissan Maxima 是强制反例：其视觉略方，但实测不比 Avalon 更方正，必须归 `SD1`。同类 1980–1990 年代普通进口/紧凑轿车不能仅因造型直线化归入 `SD2`。
+- 只有低矮且“下宽上窄”比例明确时才用 `SD0`；Coupe、Convertible 或性能版本名称本身不足。
 - 普通 Sedan、Fastback、Sportback 统一为 `SD1`，不因尾门开启方式单独改类。
 - `Sedan/Coupe/Convertible/Hardtop/Roadster/Targa` 等 `结构` 值不得直接映射到某个 `SD*`。
 

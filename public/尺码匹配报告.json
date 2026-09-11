@@ -1,12 +1,12 @@
 {
   "published_at": "2026-09-11",
-  "source_batch": "尺码计算/changes/2026-09-11_02_0911-recalculate-current-public-rules",
+  "source_batch": "尺码计算/changes/2026-09-11_03_sd-strict-evidence-publish",
   "data_file": "public/全量数据.csv",
-  "data_sha256": "46de5a6795ba8bf27fff4194c60695a05fe47c4ce39a3e0adafec7490135d69b",
+  "data_sha256": "0fa67b91dc94f3b78266b7f27c7e8ee21b9bc01e24ad2f734bf04855799e45de",
   "rules_file": "public/尺码匹配规则.csv",
-  "rules_sha256": "55795dfc1ae38a0b142d1c633f3177685ab51a45d20e787323e470bfe94765b7",
+  "rules_sha256": "3d0a10eba08521e40dd42b3738d60c4f76c76e5f1c6b27b5ac22003c4c169119",
   "body_file": "public/车身分类.csv",
-  "body_sha256": "ea40941bfdfa5cae4bb8a8433dca9a2297cb17b2a23476aaba00c0e51eac5171",
+  "body_sha256": "aaf49312fa9128e87d872b7a1cdc4ea07ab06c1c961614d4e0ab88a8af1f215a",
   "parameters_source": "尺码计算/rules/尺码匹配参数.csv",
   "parameters_sha256": "1cc973a290617428f9db4b29ebcf28696416abdf23e848790ea11a2f3fb98fbf",
   "summary": {
@@ -18,20 +18,26 @@
     "sales_total": 749626457,
     "rules": 41,
     "enabled_rules": 38,
-    "disabled_rules": 3,
-    "duplicate_equivalent_rules": 1
+    "disabled_rules": 3
   },
   "unmatched_reasons": {
     "超余量": 70,
     "超长": 42
   },
   "recalculation_changes": {
-    "changed_rows": 503,
-    "changed_sales": 72566565,
+    "changed_rows": 488,
+    "changed_sales": 66388332,
+    "shape_changes": 162,
+    "size_changes": 399,
+    "size_change_sales": 50907487,
     "size_transitions": {
-      "无可用尺码 -> 3XXL-W": 256,
-      "无可用尺码 -> 3XL-W": 124,
-      "无可用尺码 -> 2XXL": 123
+      "3XXL-W -> 3XXL-0": 210,
+      "3XL-W -> 3XL-0": 68,
+      "3XL-W -> 3XL": 56,
+      "3XXL-W -> 3XXL": 26,
+      "3XXXL-0 -> 3XXL": 19,
+      "3XXL-W -> 3XL+": 16,
+      "3XXL-W -> 3XL+0": 4
     }
   }
 }

@@ -20,8 +20,21 @@ REFERENCE = ROOT / "public" / "参考尺寸计算.csv"
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
-ALL_ID_AUDIT = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-06.csv"
-AUDIT_SUMMARY = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-06.json"
+AUDIT_CANDIDATES = sorted((PROJECT / "changes").glob("*/all_dimension_audit.csv"))
+ALL_ID_AUDIT = (
+    Path(os.environ["SHAPE_AUDIT"]).resolve()
+    if os.environ.get("SHAPE_AUDIT")
+    else AUDIT_CANDIDATES[-1]
+    if AUDIT_CANDIDATES
+    else PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-06.csv"
+)
+# Historical summary files are optional.  A current immutable batch audit is
+# authoritative when selected above, so do not pair it with an older summary.
+AUDIT_SUMMARY = (
+    PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-06.json"
+    if ALL_ID_AUDIT.parent == PROJECT / "artifacts"
+    else ALL_ID_AUDIT.parent / "validation.json"
+)
 LEGACY_SHAPES = {
     "0", "1", "10", "11", "20", "21", "25", "26",
     "30", "31", "32", "40", "41", "42", "50",
@@ -233,11 +246,18 @@ def main() -> None:
         )
         if AUDIT_SUMMARY.exists():
             summary = json.loads(AUDIT_SUMMARY.read_text(encoding="utf-8-sig"))
-            check(
-                "audit_summary_matches_reference",
+            summary_matches = (
                 set(summary.get("reference_shape_ids", [])) == allowed
                 and not summary.get("legacy_shape_values_remaining")
-                and summary.get("records") == len(source),
+                and summary.get("records") == len(source)
+                if "reference_shape_ids" in summary
+                else summary.get("passed") is True
+                and summary.get("records") == len(source)
+                and summary.get("allowed_shapes_only") is True
+            )
+            check(
+                "audit_summary_matches_reference",
+                summary_matches,
             )
         else:
             check("audit_summary_exists", False)
