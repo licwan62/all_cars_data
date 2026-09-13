@@ -14,4 +14,4 @@ python data_workflow.py check
 
 发布前使用 `python data_workflow.py publish-plan <数据集名称>`。命令只校验并打印人工复制步骤，不会写入 `source`。
 
-`全量数据.csv` 是 pandas 尺码计算经人工审核后发布的统一接口，SKU、Trim 和尺码簇分析都默认读取它。`尺码匹配规则.csv` 是该版本全量数据使用的规则快照，`尺码匹配报告.json` 是对应的发布校验记录。`尺寸库.csv`、`车身分类.csv`、`销量明细.csv`、`参考尺寸计算.csv` 和 `子车系维护表.csv` 是其上游真源；历史文件已移入 `lagacy/`。`pk-cluster/` 是人工确认后发布的派生真源快照，因此仍由 `source` 统一对外提供。
+`全量数据.csv` 是 pandas 尺码计算经人工审核后发布的统一接口，SKU、Trim 和尺码簇分析都默认读取它。`尺码匹配规则.csv` 是该版本全量数据使用的规则快照，`尺码匹配报告.json` 是对应的发布校验记录。`尺寸库.csv`、`车身分类.csv`、`销量明细.csv`、`参考尺寸计算.csv` 和 `子车系维护表.csv` 是其上游真源；历史文件已移入 `lagacy/`。`sku_cluster/` 保存人工确认后发布的 SKU 聚类派生数据，目前包含 W 型车和皮卡。
