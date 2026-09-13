@@ -18,7 +18,7 @@ import pandas as pd
 
 SIZE_ALIASES = ["PHYSICAL_SIZE", "PHYSICAL_SKU", "逻辑尺码", "尺码", "SIZENAME"]
 QTY_ALIASES = ["发货量", "SHIPMENT_QTY", "QUANTITY", "数量"]
-CLUSTER_NAME_ALIASES = ["CONSUMER_NAME_OPTIMIZED", "CONSUMER_NAME"]
+CLUSTER_NAME_ALIASES = ["链接名称", "CONSUMER_NAME_OPTIMIZED", "CONSUMER_NAME"]
 SALES_ALIASES = ["ESTIMATED_SALES", "销量合计", "预估销量 的总和"]
 
 OUTPUT_COLUMN_NAMES = {
@@ -367,7 +367,7 @@ def merge_test_year(
     capacities: dict[str, float] | None = None,
     length_tolerance_mm: float = 0,
 ) -> dict[str, object]:
-    """Expand year gaps when cross-size vehicles fit the target length tolerance."""
+    """Expand only unowned year gaps; never overlap a sibling cluster's source facts."""
     source_text = str(row.get("FITMENT_YEAR", "")).strip()
     source_years = sorted(set(parse_years(source_text)))
     if not source_years:
@@ -380,6 +380,10 @@ def merge_test_year(
         }
     candidate_years = set(range(source_years[0], source_years[-1] + 1))
     new_years = candidate_years - set(source_years)
+    unowned_new_years = {
+        year for year in new_years if not ownership.get((str(row["MAKE"]).strip(), str(row["MODEL"]).strip(), year))
+    }
+    occupied_new_years = new_years - unowned_new_years
     candidate_text = str(source_years[0]) if source_years[0] == source_years[-1] else f"{source_years[0]}-{source_years[-1]}"
     target_size = str(row["PHYSICAL_SIZE"]).strip()
     make = str(row["MAKE"]).strip()
@@ -407,21 +411,24 @@ def merge_test_year(
     checks: list[tuple[int, str, str, float | None, float | None, bool]] = []
     target_limit = (capacities or {}).get(final_size)
     max_overflow = None if not known_lengths or target_limit is None else max(known_lengths) - target_limit
-    for year in sorted(new_years):
+    for year in sorted(occupied_new_years):
         atom_owners = ownership.get((make, model, year), {})
         for (size, cid), length in sorted(atom_owners.items()):
             if size == final_size:
                 continue
             overflow = None if length is None or target_limit is None else length - target_limit
-            allowed = overflow is not None and overflow <= length_tolerance_mm
+            allowed = False
             checks.append((year, size, cid, length, overflow, allowed))
     failed_checks = [check for check in checks if not check[-1]]
     review_detail = summarize_size_checks(checks)
     conflict_detail = summarize_size_checks(failed_checks)
+    expanded_years = set(source_years) | unowned_new_years
+    consumer_text = compact_years(list(expanded_years))
     if failed_checks:
+        status = "MERGED_SAFE_PARTIAL" if unowned_new_years else "REJECTED_SOURCE_OCCUPIED"
         return {
-            "SOURCE_YEAR": source_text, "CONSUMER_YEAR": source_text,
-            "CANDIDATE_YEAR": candidate_text, "YEAR_MERGE_STATUS": "REJECTED_CROSS_SIZE",
+            "SOURCE_YEAR": source_text, "CONSUMER_YEAR": consumer_text,
+            "CANDIDATE_YEAR": candidate_text, "YEAR_MERGE_STATUS": status,
             "NEW_YEAR_COUNT": len(new_years), "NEW_YEARS": compact_years(list(new_years)),
             "YEAR_CONFLICT_DETAIL": conflict_detail,
             "FINAL_SIZE": final_size, "TARGET_LENGTH_LIMIT": target_limit,
@@ -434,7 +441,7 @@ def merge_test_year(
     else:
         merge_status = "MERGED_SAFE" if new_years else "UNCHANGED"
     return {
-        "SOURCE_YEAR": source_text, "CONSUMER_YEAR": candidate_text, "CANDIDATE_YEAR": candidate_text,
+        "SOURCE_YEAR": source_text, "CONSUMER_YEAR": consumer_text, "CANDIDATE_YEAR": candidate_text,
         "YEAR_MERGE_STATUS": merge_status,
         "NEW_YEAR_COUNT": len(new_years), "NEW_YEARS": compact_years(list(new_years)), "YEAR_CONFLICT_DETAIL": "",
         "FINAL_SIZE": final_size, "TARGET_LENGTH_LIMIT": target_limit,
@@ -465,6 +472,8 @@ def listing_detail(allocated: pd.DataFrame, detail: pd.DataFrame, config: dict) 
         raise ValueError(f"SKU_NAME 冲突，请在 JSON 中细化缩写规则：{duplicates}")
     status_cn = {
         "MERGED_SAFE": "安全合并：无跨尺码事实",
+        "MERGED_SAFE_PARTIAL": "部分合并：扩张无来源年份，保留已占用年份缺口",
+        "REJECTED_SOURCE_OCCUPIED": "保留分开：缺口年份已属于兄弟链接",
         "MERGED_SIZE_TOLERANCE": "安全合并：跨尺码但长度差在阈值内",
         "MERGED_FINAL_SIZE_RECOMMENDED": "安全合并：建议统一最终尺码",
         "REJECTED_CROSS_SIZE": "拒绝合并：长度差超过阈值",

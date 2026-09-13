@@ -61,7 +61,7 @@ def cluster_id(size: str, make: str, model: str) -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    repo = Path(__file__).resolve().parents[2]
+    repo = Path(__file__).resolve().parents[3]
     parser.add_argument("--data", type=Path, default=repo / "public" / "全量数据.csv")
     parser.add_argument("--rules", type=Path, default=repo / "public" / "尺码匹配规则.csv")
     parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "output")

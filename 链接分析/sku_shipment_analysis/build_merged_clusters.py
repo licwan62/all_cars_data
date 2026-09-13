@@ -52,26 +52,44 @@ def build_atom_audit(detail: pd.DataFrame) -> pd.DataFrame:
     return audit
 
 
-def build_summary(detail: pd.DataFrame, audit: pd.DataFrame) -> pd.DataFrame:
+def build_summary(
+    detail: pd.DataFrame,
+    audit: pd.DataFrame,
+    consumer_years: dict[str, str],
+) -> pd.DataFrame:
     rows: list[dict[str, object]] = []
     for (cid, size, make, model), group in detail.groupby(["CLUSTER_ID", "逻辑尺码", "MAKE", "MODEL"], sort=False):
         years = [year for value in group["YEAR"] for year in parse_years(value)]
-        year_text = compact_years(years)
+        year_text = consumer_years.get(cid, compact_years(years))
         rows.append({
-            "CLUSTER_ID": cid, "逻辑尺码": size, "自动尺码": joined(group["自动尺码"]),
-            "CONSUMER_NAME": f"{make} {model} {year_text}".strip(), "MAKE": make, "MODEL": model,
-            "分类": joined(group["分类"]), "结构": joined(group["结构"]), "版本": joined(group["版本"]),
-            "TRIM": joined(group["TRIM"]), "代际": joined(group["代际"]), "YEAR_COMPACT": year_text,
-            "YEAR_MIN": min(years), "YEAR_MAX": max(years), "SOURCE_RECORD_COUNT": len(group),
-            "ATOM_COUNT": int(((audit["聚类ID"] == cid)).sum()),
-            "L_MIN": group["L-MM"].min(), "L_MAX": group["L-MM"].max(), "L_SPREAD": group["L-MM"].max() - group["L-MM"].min(),
-            "W_MIN": group["W-MM"].min(), "W_MAX": group["W-MM"].max(), "W_SPREAD": group["W-MM"].max() - group["W-MM"].min(),
-            "H_MIN": group["H-MM"].min(), "H_MAX": group["H-MM"].max(), "H_SPREAD": group["H-MM"].max() - group["H-MM"].min(),
-            "LENGTH_MARGIN_MIN": group["自动长度余量"].min(), "LENGTH_MARGIN_MEDIAN": group["自动长度余量"].median(),
-            "DIFF_MEDIAN": group["相差数值"].median(), "ESTIMATED_SALES": group["销量合计"].sum(),
-            "PHYSICAL_SKU_CONFLICT_ATOM_COUNT": int((audit["状态"] == "跨尺码冲突").sum()), "MERGE_STATUS": "ACCEPT",
+            "CLUSTER_ID": cid, "逻辑尺码": size,
+            "链接名称": f"{make} {model} {year_text}".strip(), "MAKE": make, "MODEL": model,
+            "YEAR_COMPACT": year_text,
+            "YEAR_MIN": min(parse_years(year_text)), "YEAR_MAX": max(parse_years(year_text)),
+            "ESTIMATED_SALES": group["销量合计"].sum(), "MERGE_STATUS": "ACCEPT",
         })
-    return pd.DataFrame(rows).sort_values(["逻辑尺码", "ESTIMATED_SALES", "MAKE", "MODEL"], ascending=[True, False, True, True])
+    summary = pd.DataFrame(rows).sort_values(
+        ["逻辑尺码", "ESTIMATED_SALES", "MAKE", "MODEL"],
+        ascending=[True, False, True, True],
+    )
+    summary.insert(summary.columns.get_loc("链接名称") + 1, "兄弟链接数量", 0)
+    return summary
+
+
+def build_sibling_detail(summary: pd.DataFrame) -> pd.DataFrame:
+    rows: list[dict[str, object]] = []
+    for _, siblings in summary.groupby(["MAKE", "MODEL"], sort=False):
+        if len(siblings) < 2:
+            continue
+        for index, row in siblings.iterrows():
+            for _, sibling in siblings.drop(index=index).iterrows():
+                rows.append({
+                    "CLUSTER_ID": row["CLUSTER_ID"], "链接名称": row["链接名称"],
+                    "兄弟CLUSTER_ID": sibling["CLUSTER_ID"], "兄弟链接名称": sibling["链接名称"],
+                    "分开原因": f"同MAKE+MODEL、不同年份；逻辑尺码不同（{row['逻辑尺码']} / {sibling['逻辑尺码']}），已有原子事实不跨链接合并",
+                })
+            summary.at[index, "兄弟链接数量"] = len(siblings) - 1
+    return pd.DataFrame(rows)
 
 
 def main() -> None:
@@ -129,11 +147,19 @@ def main() -> None:
     audit = build_atom_audit(merged_detail)
     if (audit["状态"] != "正常").any():
         raise ValueError("合并后仍存在原子事实跨尺码或多聚类冲突")
-    merged_summary = build_summary(merged_detail, audit)
+    consumer_years = {}
+    for cid, group in test_frame.assign(
+        新聚类ID=test_frame["原聚类ID"].map(id_map)
+    ).groupby("新聚类ID"):
+        years = [year for value in group["最终命名年份"] for year in parse_years(value)]
+        consumer_years[cid] = compact_years(years)
+    merged_summary = build_summary(merged_detail, audit, consumer_years)
+    sibling_detail = build_sibling_detail(merged_summary)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     test_frame.to_csv(args.output_dir / "聚类合并测试.csv", index=False, encoding="utf-8-sig")
     mapping_frame.to_csv(args.output_dir / "新聚类ID映射.csv", index=False, encoding="utf-8-sig")
     merged_summary.to_csv(args.output_dir / "合并后聚类主表.csv", index=False, encoding="utf-8-sig")
+    sibling_detail.to_csv(args.output_dir / "兄弟链接明细.csv", index=False, encoding="utf-8-sig")
     merged_detail.to_csv(args.output_dir / "合并后聚类明细.csv", index=False, encoding="utf-8-sig")
 
     if args.publish:
@@ -144,6 +170,7 @@ def main() -> None:
         audit.to_csv(args.cluster_dir / "car_cluster_atom_audit.csv", index=False, encoding="utf-8-sig")
         shutil.copy2(args.output_dir / "聚类合并测试.csv", args.cluster_dir / "聚类合并测试.csv")
         shutil.copy2(args.output_dir / "新聚类ID映射.csv", args.cluster_dir / "新聚类ID映射.csv")
+        shutil.copy2(args.output_dir / "兄弟链接明细.csv", args.cluster_dir / "兄弟链接明细.csv")
     print(f"原聚类={len(summary)} 合并后聚类={len(merged_summary)} ID变更={(mapping_frame['是否变更'] == '是').sum()} 发布={args.publish}")
 
 

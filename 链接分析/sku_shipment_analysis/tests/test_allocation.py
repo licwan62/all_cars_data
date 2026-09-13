@@ -122,8 +122,8 @@ def test_year_merge_rejects_other_physical_size():
     })
     ownership = {("Chevrolet", "Malibu", 1976): {("3XXL-W", "CAR-OTHER"): 5300.0}}
     result = merge_test_year(row, ownership, {"3XL-W": 5050.0}, 50)
-    assert result["CONSUMER_YEAR"] == "1964-1974/1978-1983"
-    assert result["YEAR_MERGE_STATUS"] == "REJECTED_CROSS_SIZE"
+    assert result["CONSUMER_YEAR"] == "1964-1975/1977-1983"
+    assert result["YEAR_MERGE_STATUS"] == "MERGED_SAFE_PARTIAL"
     assert "1976=3XXL-W:CAR-OTHER" in result["YEAR_CONFLICT_DETAIL"]
 
 
@@ -140,14 +140,14 @@ def test_year_conflict_detail_compacts_consecutive_years():
     assert result["YEAR_CONFLICT_DETAIL"] == "1965-1966=3XXL-W:CAR-OTHER,车长=5200-5220mm,最大超出=170mm"
 
 
-def test_year_merge_accepts_adjacent_size_with_small_length_overflow():
+def test_year_merge_does_not_overlap_an_existing_sibling_source():
     row = pd.Series({
         "MAKE": "Pontiac", "MODEL": "Bonneville", "FITMENT_YEAR": "1959-1969/1971-1976",
         "PHYSICAL_SIZE": "3XXXL",
     })
     ownership = {("Pontiac", "Bonneville", 1970): {("3XXXXL", "CAR-LARGE"): 5705.0}}
     result = merge_test_year(row, ownership, {"3XXXL": 5700.0}, 50)
-    assert result["CONSUMER_YEAR"] == "1959-1976"
-    assert result["YEAR_MERGE_STATUS"] == "MERGED_SIZE_TOLERANCE"
+    assert result["CONSUMER_YEAR"] == "1959-1969/1971-1976"
+    assert result["YEAR_MERGE_STATUS"] == "REJECTED_SOURCE_OCCUPIED"
     assert result["FINAL_SIZE"] == "3XXXL"
     assert result["MAX_LENGTH_OVERFLOW"] == 5.0

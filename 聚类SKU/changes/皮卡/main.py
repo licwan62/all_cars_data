@@ -46,7 +46,7 @@ def main():
     args = parser.parse_args()
 
     project_dir = Path(__file__).parent
-    source_dir = project_dir.parents[1] / "source"
+    source_dir = project_dir.parents[2] / "source"
     config_dir = project_dir / "config"
     output_dir = project_dir / args.output
 
