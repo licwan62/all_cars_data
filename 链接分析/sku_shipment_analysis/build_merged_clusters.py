@@ -19,6 +19,15 @@ from main import (
 )
 
 
+# Dedicated patterns are intentionally not collapsed into a sibling's generic
+# size merely because the fitment years overlap.
+DEDICATED_SIZE_CAPACITIES = {
+    "BEL-AIR-5357": 5080.0,
+    "CHALLENGER": 5050.0,
+    "MODEL-X": 5057.0,
+}
+
+
 def new_cluster_id(size: str, make: str, model: str) -> str:
     digest = hashlib.sha1(f"{size}|{make}|{model}".encode("utf-8")).hexdigest()[:10].upper()
     return f"CAR-{digest}"
@@ -26,6 +35,71 @@ def new_cluster_id(size: str, make: str, model: str) -> str:
 
 def joined(values: pd.Series) -> str:
     return " / ".join(sorted({str(value).strip() for value in values if str(value).strip()}))
+
+
+def sibling_size_merge_targets(
+    summary: pd.DataFrame,
+    detail: pd.DataFrame,
+    capacities: dict[str, float],
+    tolerance: float,
+) -> dict[str, str]:
+    """Merge same-model sibling clusters when source years overlap and one size fits all.
+
+    An overlapping source year is strong evidence that two size clusters describe the
+    same consumer link.  Prefer the smallest existing sibling size whose length limit,
+    including the configured tolerance, covers every source row in the component.
+    """
+    cluster_years = {
+        str(row["CLUSTER_ID"]): set(parse_years(row["YEAR_COMPACT"]))
+        for _, row in summary.iterrows()
+    }
+    cluster_max_lengths = (
+        detail.groupby("CLUSTER_ID")["L-MM"].max().dropna().astype(float).to_dict()
+    )
+    targets: dict[str, str] = {}
+
+    for _, siblings in summary.groupby(["MAKE", "MODEL"], sort=False):
+        ids = [str(value) for value in siblings["CLUSTER_ID"]]
+        parent = {cid: cid for cid in ids}
+
+        def find(cid: str) -> str:
+            while parent[cid] != cid:
+                parent[cid] = parent[parent[cid]]
+                cid = parent[cid]
+            return cid
+
+        def union(left: str, right: str) -> None:
+            left_root, right_root = find(left), find(right)
+            if left_root != right_root:
+                parent[right_root] = left_root
+
+        for position, left in enumerate(ids):
+            for right in ids[position + 1:]:
+                if cluster_years.get(left, set()) & cluster_years.get(right, set()):
+                    union(left, right)
+
+        components: dict[str, list[str]] = {}
+        for cid in ids:
+            components.setdefault(find(cid), []).append(cid)
+
+        sibling_sizes = siblings.set_index("CLUSTER_ID")["逻辑尺码"].astype(str).to_dict()
+        for component in components.values():
+            if len(component) < 2:
+                continue
+            if any(sibling_sizes[cid] in DEDICATED_SIZE_CAPACITIES for cid in component):
+                continue
+            max_length = max(cluster_max_lengths.get(cid, float("inf")) for cid in component)
+            candidate_sizes = sorted(
+                {sibling_sizes[cid] for cid in component},
+                key=lambda size: (float(capacities.get(size, float("inf"))), size),
+            )
+            target = next(
+                (size for size in candidate_sizes if max_length <= float(capacities.get(size, -float("inf"))) + tolerance),
+                None,
+            )
+            if target is not None:
+                targets.update({cid: target for cid in component})
+    return targets
 
 
 def build_atom_audit(detail: pd.DataFrame) -> pd.DataFrame:
@@ -108,6 +182,8 @@ def main() -> None:
     tolerance = float(config.get("year_merge_length_tolerance_mm", 0))
     ownership = build_year_ownership(detail)
     capacities = size_length_capacities(detail)
+    capacities.update(DEDICATED_SIZE_CAPACITIES)
+    sibling_targets = sibling_size_merge_targets(summary, detail, capacities, tolerance)
 
     tests: list[dict[str, object]] = []
     mappings: list[dict[str, object]] = []
@@ -117,13 +193,16 @@ def main() -> None:
             "PHYSICAL_SIZE": row["逻辑尺码"],
         })
         result = merge_test_year(test_row, ownership, capacities, tolerance)
-        final_size = str(result["FINAL_SIZE"])
+        final_size = sibling_targets.get(str(row["CLUSTER_ID"]), str(result["FINAL_SIZE"]))
+        merge_status = str(result["YEAR_MERGE_STATUS"])
+        if str(row["CLUSTER_ID"]) in sibling_targets:
+            merge_status = "MERGED_SIBLING_SIZE_TOLERANCE"
         cid = new_cluster_id(final_size, str(row["MAKE"]), str(row["MODEL"]))
         tests.append({
             "原聚类ID": row["CLUSTER_ID"], "原逻辑尺码": row["逻辑尺码"], "品牌": row["MAKE"], "车型": row["MODEL"],
             "原始年份": result["SOURCE_YEAR"], "候选合并年份": result["CANDIDATE_YEAR"], "最终命名年份": result["CONSUMER_YEAR"],
             "建议最终尺码": final_size, "最大超出毫米": result["MAX_LENGTH_OVERFLOW"],
-            "合并测试状态": result["YEAR_MERGE_STATUS"], "尺码簇分析明细": result["SIZE_REVIEW_DETAIL"],
+            "合并测试状态": merge_status, "尺码簇分析明细": result["SIZE_REVIEW_DETAIL"],
             "冲突明细": result["YEAR_CONFLICT_DETAIL"],
         })
         mappings.append({

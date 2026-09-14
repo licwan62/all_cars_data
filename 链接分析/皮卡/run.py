@@ -13,10 +13,10 @@ def run(*args: object, cwd: Path | None = None) -> None:
 
 def main() -> None:
     repo = Path(__file__).resolve().parents[2]
-    cluster_project = repo / "聚类SKU" / "changes" / "皮卡"
+    cluster_project = repo / "聚类SKU" / "artifacts" / "皮卡"
     cluster_output = cluster_project / "output"
     engine = repo / "链接分析" / "sku_shipment_analysis"
-    output = Path(__file__).resolve().parent / "output"
+    output = Path(__file__).resolve().parent / "artifacts" / "0914"
 
     run(
         cluster_project / "main.py",

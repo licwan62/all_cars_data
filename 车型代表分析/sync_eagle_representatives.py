@@ -17,7 +17,7 @@ OUTPUT = ROOT / "车型代表分析" / "output" / "代表车型.csv"
 SNAPSHOT = (
     ROOT
     / "车型代表分析"
-    / "changes"
+    / "artifacts"
     / "2026-09-07_01_all-size-representatives"
     / "代表车型.csv"
 )

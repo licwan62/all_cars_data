@@ -20,7 +20,7 @@ REFERENCE = ROOT / "public" / "参考尺寸计算.csv"
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
-AUDIT_CANDIDATES = sorted((PROJECT / "changes").glob("*/all_dimension_audit.csv"))
+AUDIT_CANDIDATES = sorted((PROJECT / "artifacts").glob("*/all_dimension_audit.csv"))
 ALL_ID_AUDIT = (
     Path(os.environ["SHAPE_AUDIT"]).resolve()
     if os.environ.get("SHAPE_AUDIT")

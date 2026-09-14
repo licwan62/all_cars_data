@@ -92,6 +92,7 @@ Ford F-150 1994-1995 | SuperCab | 6.5' Standard Bed
 - 程序把 MAKE、MODEL、YEAR 作为原子车型事实，在全量聚类明细中检查新增年份。
 - 若新增年份落入不同 `PHYSICAL_SIZE`，程序会比较该年份车长与目标尺码长度上限。
 - 长度上限由明细中的 `L-MM + 自动长度余量` 反推；允许超出值由 JSON 的 `year_merge_length_tolerance_mm` 固定，当前为 50 mm。
+- 同一 MAKE、MODEL 的兄弟 Cluster 如果原始年份有交集，会在发货分配前尝试合并；程序选择能够容纳全部源记录（含长度容差）的最小现有兄弟尺码。
 - 在目标上限以内或超出不超过阈值时，建议使用当前 Cluster 的逻辑尺码并允许年份扩张；超过阈值才拒绝扩张。
 - 若没有不可接受的尺码冲突，保留单个 Cluster，并在 `CONSUMER_NAME` 与 `SKU_NAME` 中使用合并年份。
 - `listing_detail.csv` 使用中文审核字段；`年份合并测试报告.csv` 提供完整的中文审计明细；`适配车型` 仍保留原始事实范围。

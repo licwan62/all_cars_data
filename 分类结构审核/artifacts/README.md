@@ -13,4 +13,4 @@ artifacts/
 
 日常取数只使用根目录的 `corrected.csv`。`audit/`、`reviews/`、`reports/` 和 `validation/` 都是过程与证据文件，不应作为最终数据库导入。
 
-历史单次修改快照不放在此处，统一保存在项目 `changes/` 目录。
+历史单次修改快照与当前审计产物统一保存在项目 `artifacts/`；版本批次使用日期前缀目录。

@@ -13,7 +13,7 @@ CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 SOURCE = ROOT / "public" / "尺寸库.csv"
 BASELINE = ROOT / "public" / "车身分类.csv"
 RESULT = PROJECT / "artifacts" / "record_shape.csv"
-BATCH = PROJECT / "changes" / "2026-09-11_01_sd-strict-evidence-review"
+BATCH = PROJECT / "artifacts" / "2026-09-11_01_sd-strict-evidence-review"
 
 
 # These generations were previously promoted from legacy 32 mainly because

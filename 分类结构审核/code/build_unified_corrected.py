@@ -127,7 +127,7 @@ def main() -> None:
     source_probe = read_csv(SOURCE)
     if is_already_unified(source_probe):
         if args.export_year_us_dir or args.export_sedan_coupe_dir:
-            raise SystemExit("源表已包含全部统一修复，不能从当前源表重新导出历史阶段快照；请使用 changes/ 中的既有快照。")
+            raise SystemExit("源表已包含全部统一修复，不能从当前源表重新导出历史阶段快照；请使用 artifacts/ 中的既有版本快照。")
         subprocess.run([sys.executable, str(PROJECT / "code" / "regenerate_artifacts.py")], cwd=ROOT, check=True)
         # The migrated source is already the approved final dataset. Preserve
         # it byte-for-byte as the canonical corrected output; regeneration is

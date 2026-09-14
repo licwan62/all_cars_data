@@ -29,7 +29,7 @@ python 分类结构审核/code/generate_report.py
 
 ## 单次修改包
 
-每次实际修改必须在 `changes/` 下创建独立目录，命名为：
+每次实际修改必须在 `artifacts/` 下创建独立版本目录，命名为：
 
 ```text
 YYYY-MM-DD_NN_short-description/

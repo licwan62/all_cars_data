@@ -16,7 +16,7 @@ from pathlib import Path
 import shape_project as project
 
 ROOT = project.ROOT
-BATCH = project.PROJECT / 'changes' / '2026-09-06_01_suv-taper-review'
+BATCH = project.PROJECT / 'artifacts' / '2026-09-06_01_suv-taper-review'
 PUBLIC = ROOT / 'public'
 STAMP = '2026-09-06'
 

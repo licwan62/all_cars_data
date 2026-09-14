@@ -502,7 +502,10 @@ def listing_detail(allocated: pd.DataFrame, detail: pd.DataFrame, config: dict) 
         "SKU_NAME", "CLUSTER_ID", "PHYSICAL_SIZE", "CONSUMER_NAME", "SIZENAME", "适配车型", "行发货量",
         "原始年份", "命名年份", "年份合并结论", "新增年份数", "年份冲突明细",
     ]
-    output = listing.loc[listing["行发货量"] > 0, cols].sort_values(
+    # Keep the full naming catalogue here.  The final W-car workflow performs
+    # its own global allocation, so a cluster that is zero in this size-level
+    # preview can still receive a shipment there.
+    output = listing.loc[:, cols].sort_values(
         ["PHYSICAL_SIZE", "行发货量", "SKU_NAME"], ascending=[True, False, True]
     )
     return chinese_output(output, physical_size_name="逻辑尺码"), report

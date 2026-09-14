@@ -8,7 +8,7 @@
 - `分类`、`结构细分`、`描述`、`参考车型`共同定义轮廓语义。
 - `下摆上限`及五个系数是下游版型/尺寸参数，不是车形判定阈值；空值不得自行补造。
 - 历史编号 `0/1/10/11/20/21/25/26/30/31/32/40/41/42/50` 已废止，不得写入新结果。
-- `source` 目录只读。本项目只更新 `cache`、`research_queue`、`artifacts` 和新增的 `changes` 批次。
+- `source` 目录只读。本项目只更新 `cache`、`research_queue` 和新增的版本化 `artifacts` 批次。
 
 ## 2. 当前固定车形
 
@@ -142,7 +142,7 @@ DIMENSION-ID,车形
 - 每条记录在全量审计中登记旧值、新值、命中的规则和判定理由；
 - 机器验收失败时不得将结果视为完成。
 
-每轮完成后在 `changes/YYYY-MM-DD_NN_short-description/` 新建不可覆盖批次，至少包含：
+每轮完成后在 `artifacts/YYYY-MM-DD_NN_short-description/` 新建不可覆盖批次，至少包含：
 
 - `correct.csv`：本轮全量结果；
 - `changes.csv`：相对明确基线的实际差异；

@@ -3,7 +3,7 @@
 ## 范围与结果
 
 - 规则：`车形分类核定/doc/AGENT.md`。
-- 输入：`分类结构审核/changes/2026-08-24_03_sedan-coupe/correct.csv`。
+- 输入：`分类结构审核/artifacts/2026-08-24_03_sedan-coupe/correct.csv`。
 - 输入记录：原 `correct.csv` 为 4,788 条；唯一性修复后为 4,786 条，现有缓存全部命中，待研究车型为 0。
 - 输出：`record_shape.csv`，4,786 条，与输入 `DIMENSION-ID` 顺序和覆盖完全一致，且 4,786 个 ID 全部唯一。
 - 缓存：963 条规则；保留原研究来源，仅对新版规则明确影响的结论做迁移或细分。

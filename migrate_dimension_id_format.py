@@ -26,7 +26,7 @@ EXCLUDED_PARTS = {
     ".pytest_cache",
     ".qsyncclient",
     "__pycache__",
-    "changes",
+    "artifacts",
     "logs",
 }
 LEGACY_ID = re.compile(

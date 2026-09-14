@@ -123,6 +123,32 @@ class SizeMatcherTests(unittest.TestCase):
         self.assertEqual(result.auto_size, "3XXL-W")
         self.assertEqual(result.length_margin, 285)
 
+    def test_model_whitelist_rule_does_not_enter_generic_pool(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {
+                    "内部尺码": "GENERIC", "档位序号": "1", "分类": "三厢车",
+                    "CAB": "", "版本": "", "长上限": "5300", "插片指数上限": "999", "使用": "y",
+                    "车型白名单": "",
+                },
+                {
+                    "内部尺码": "BEL-AIR-5357", "档位序号": "205", "分类": "三厢车",
+                    "CAB": "", "版本": "", "长上限": "5080", "插片指数上限": "999", "使用": "y",
+                    "车型白名单": "仅 Chevrolet Bel Air 1953-1957 Sedan",
+                },
+            ]
+        )
+        vehicles = pd.DataFrame(
+            [
+                {"MAKE": "Chevrolet", "MODEL": "Bel Air", "YEAR": "1957", "结构": "Sedan", "分类": "三厢车", "CAB": "", "版本": "", "L-MM": 5080, "插片指数": 200},
+                {"MAKE": "Chevrolet", "MODEL": "Impala", "YEAR": "1957", "结构": "Sedan", "分类": "三厢车", "CAB": "", "版本": "", "L-MM": 5080, "插片指数": 200},
+                {"MAKE": "Chevrolet", "MODEL": "Bel Air", "YEAR": "1957", "结构": "Sedan", "分类": "三厢车", "CAB": "", "版本": "", "L-MM": 5200, "插片指数": 200},
+            ]
+        )
+        result = analysis.SizeMatcher(self.parameters, rules).apply(vehicles)
+        self.assertEqual(result["自动尺码"].tolist(), ["BEL-AIR-5357", "GENERIC", "无可用尺码"])
+        self.assertEqual(result.loc[2, "候选"], "BEL-AIR-5357")
+
     def test_trim_format_removes_brand_hyphen_and_spaces(self) -> None:
         value = analysis._format_trim_candidates(
             ["Jaguar|XF", "Jaguar|XFR", "Jaguar|XFR-S"]

@@ -405,6 +405,7 @@ class SizeMatcher:
             else None
         )
         self.length_tolerance = self._read_tolerance(parameters)
+        self.whitelist_rules = self._build_whitelist_rules(rules, include_disabled_rules)
         self.pools = self._build_pools(rules, include_disabled_rules)
         self.cache: dict[tuple[object, ...], MatchResult] = {}
 
@@ -438,6 +439,10 @@ class SizeMatcher:
             ].copy()
         for column in ["内部尺码", "分类", "CAB", "版本"]:
             normalized[column] = normalized[column].map(_clean_text)
+        if "车型白名单" in normalized.columns:
+            normalized["车型白名单"] = normalized["车型白名单"].map(_clean_text)
+            # Model-whitelist rules must never enter a category-wide pool.
+            normalized = normalized.loc[normalized["车型白名单"].isna()].copy()
         for column in ["档位序号", *[spec.rule_column for spec in self.limits]]:
             normalized[column] = _numeric(normalized[column])
         normalized = normalized.loc[normalized["分类"].notna()].copy()
@@ -465,6 +470,61 @@ class SizeMatcher:
             )
             pools[pool_key] = SizePool(candidates=candidates, max_length=max_length)
         return pools
+
+    def _build_whitelist_rules(
+        self, rules: pd.DataFrame, include_disabled_rules: bool
+    ) -> list[dict[str, object]]:
+        """Load model-specific rules that are intentionally excluded from generic pools."""
+        if "车型白名单" not in rules.columns:
+            return []
+        normalized = rules.copy()
+        if not include_disabled_rules and "使用" in normalized.columns:
+            normalized = normalized.loc[
+                normalized["使用"].astype("string").str.strip().str.casefold().eq("y")
+            ].copy()
+        normalized["车型白名单"] = normalized["车型白名单"].map(_clean_text)
+        normalized = normalized.loc[normalized["车型白名单"].notna()].copy()
+        for column in ["内部尺码", "分类", "CAB", "版本"]:
+            normalized[column] = normalized[column].map(_clean_text)
+        for column in ["档位序号", *[spec.rule_column for spec in self.limits]]:
+            normalized[column] = _numeric(normalized[column])
+        complete = normalized["分类"].notna() & normalized["档位序号"].notna()
+        for spec in self.limits:
+            complete &= normalized[spec.rule_column].notna()
+        return normalized.loc[complete].sort_values("档位序号", kind="stable").to_dict(orient="records")
+
+    @staticmethod
+    def _whitelist_matches(rule: Mapping[str, object], vehicle: Mapping[str, object]) -> bool:
+        """Match `[仅] MAKE MODEL YYYY-YYYY [结构]` whitelist syntax exactly."""
+        text = _clean_text(rule.get("车型白名单"))
+        make, model = _clean_text(vehicle.get("MAKE")), _clean_text(vehicle.get("MODEL"))
+        if text is None or make is None or model is None:
+            return False
+        match = re.fullmatch(r"(?:仅\s+)?(.+?)\s+(\d{4})(?:-(\d{4}))?(?:\s+(.+))?", text)
+        if match is None or match.group(1) != f"{make} {model}":
+            return False
+        allowed_start, allowed_end = int(match.group(2)), int(match.group(3) or match.group(2))
+        vehicle_years = [int(value) for value in re.findall(r"\d{4}", str(vehicle.get("YEAR", "")))]
+        if not vehicle_years or min(vehicle_years) < allowed_start or max(vehicle_years) > allowed_end:
+            return False
+        structures = [value.strip() for value in (match.group(4) or "").split("/") if value.strip()]
+        return not structures or _clean_text(vehicle.get("结构")) in structures
+
+    def _whitelist_result(
+        self, vehicle: Mapping[str, object], values: Sequence[object]
+    ) -> tuple[bool, MatchResult | None]:
+        identity_candidates = [
+            rule for rule in self.whitelist_rules if self._whitelist_matches(rule, vehicle)
+        ]
+        if not identity_candidates:
+            return False, None
+        category = _clean_text(vehicle.get("分类"))
+        candidates = [
+            rule for rule in identity_candidates if rule["分类"] == category
+        ]
+        if not candidates:
+            return True, MatchResult("无可用尺码")
+        return True, self._calculate_pool(SizePool(candidates=candidates, max_length=None), values)
 
     def _pool(self, category: str | None, cab: str | None, version: str | None) -> SizePool:
         if category is None:
@@ -614,12 +674,16 @@ class SizeMatcher:
         return result
 
     def apply(self, vehicles: pd.DataFrame) -> pd.DataFrame:
-        source_columns = ["分类", "CAB", "版本", *[spec.source_column for spec in self.limits]]
+        source_columns = ["MAKE", "MODEL", "YEAR", "结构", "分类", "CAB", "版本", *[spec.source_column for spec in self.limits]]
         _require_columns(vehicles, source_columns, "车型计算结果")
         results: list[MatchResult] = []
-        for row in vehicles[source_columns].itertuples(index=False, name=None):
-            category, cab, version, *values = row
-            results.append(self.match(category, cab, version, values))
+        for _, row in vehicles[source_columns].iterrows():
+            values = [row[spec.source_column] for spec in self.limits]
+            is_whitelisted, special = self._whitelist_result(row, values)
+            results.append(
+                special if is_whitelisted and special is not None
+                else self.match(row["分类"], row["CAB"], row["版本"], values)
+            )
         result_frame = pd.DataFrame(
             {
                 "自动尺码": [result.auto_size for result in results],
@@ -774,20 +838,20 @@ def write_workbook_candidate(
     workbook.close()
 
 
-def next_change_output_dir(changes_dir: Path, description: str = "size-calculation") -> Path:
+def next_artifact_output_dir(artifacts_dir: Path, description: str = "size-calculation") -> Path:
     """Return a new, non-overwriting batch output directory."""
     batch_date = date.today().isoformat()
     safe_description = re.sub(r"[^A-Za-z0-9_-]+", "-", description).strip("-")
     safe_description = safe_description or "size-calculation"
     existing_numbers = []
-    if changes_dir.is_dir():
+    if artifacts_dir.is_dir():
         pattern = re.compile(rf"^{re.escape(batch_date)}_(\d{{2}})_")
-        for candidate in changes_dir.iterdir():
+        for candidate in artifacts_dir.iterdir():
             match = pattern.match(candidate.name)
             if candidate.is_dir() and match:
                 existing_numbers.append(int(match.group(1)))
     next_number = max(existing_numbers, default=0) + 1
-    return changes_dir / f"{batch_date}_{next_number:02d}_{safe_description}" / "output"
+    return artifacts_dir / f"{batch_date}_{next_number:02d}_{safe_description}" / "output"
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
@@ -819,13 +883,13 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        help="输出 CSV 路径；指定后不自动创建 changes 批次",
+        help="输出 CSV 路径；指定后不自动创建 artifacts 版本批次",
     )
     parser.add_argument(
-        "--changes-dir",
+        "--artifacts-dir",
         type=Path,
-        default=script_dir / "changes",
-        help="迭代批次根目录（默认：脚本同级 changes）",
+        default=script_dir / "artifacts",
+        help="版本化产物根目录（默认：脚本同级 artifacts）",
     )
     parser.add_argument(
         "--change-description",
@@ -887,8 +951,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.output:
         output_path = args.output.resolve()
     else:
-        batch_output_dir = next_change_output_dir(
-            args.changes_dir.resolve(), args.change_description
+        batch_output_dir = next_artifact_output_dir(
+            args.artifacts_dir.resolve(), args.change_description
         )
         output_path = batch_output_dir / "pandas_output.csv"
     try:

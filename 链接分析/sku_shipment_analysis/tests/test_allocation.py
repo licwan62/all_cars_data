@@ -6,6 +6,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from main import allocate, fixed_consumer_name, merge_test_year, proportional_integer_allocation, sku_name, year_code
+from build_merged_clusters import sibling_size_merge_targets
 
 
 def test_proportional_integer_allocation_reconciles():
@@ -151,3 +152,23 @@ def test_year_merge_does_not_overlap_an_existing_sibling_source():
     assert result["YEAR_MERGE_STATUS"] == "REJECTED_SOURCE_OCCUPIED"
     assert result["FINAL_SIZE"] == "3XXXL"
     assert result["MAX_LENGTH_OVERFLOW"] == 5.0
+
+
+def test_overlapping_sibling_clusters_merge_into_smallest_compatible_size():
+    summary = pd.DataFrame({
+        "CLUSTER_ID": ["CAR-SMALL", "CAR-LARGE", "CAR-OTHER"],
+        "逻辑尺码": ["3L-W", "3XL-W", "3XXL-W"],
+        "MAKE": ["Oldsmobile"] * 3,
+        "MODEL": ["Cutlass"] * 3,
+        "YEAR_COMPACT": ["1961-1963", "1962-1963/1978", "1964-1977/1979"],
+    })
+    detail = pd.DataFrame({
+        "CLUSTER_ID": ["CAR-SMALL", "CAR-LARGE", "CAR-OTHER"],
+        "L-MM": [4780, 5022, 5479],
+    })
+
+    targets = sibling_size_merge_targets(
+        summary, detail, {"3L-W": 4850, "3XL-W": 5050, "3XXL-W": 5500}, 50
+    )
+
+    assert targets == {"CAR-SMALL": "3XL-W", "CAR-LARGE": "3XL-W"}
