@@ -458,7 +458,9 @@ def main():
         "config_dir": str(path.parent),
         "requirement_path": str(requirement_path),
     }
-    json.dump(config, sys.stdout, ensure_ascii=False)
+    # Keep the loader protocol ASCII-only so Windows PowerShell 5.1 can
+    # reliably consume it when a config path or field contains Chinese text.
+    json.dump(config, sys.stdout, ensure_ascii=True)
 
 
 if __name__ == "__main__":

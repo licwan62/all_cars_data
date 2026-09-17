@@ -50,6 +50,16 @@ python 尺码计算\pandas_analysis.py `
 
 结果审核通过后，可运行 `python data_workflow.py publish-plan 全量数据` 获取人工覆盖步骤。
 
+## 店铺分组全量
+
+`店铺分组/货架.yaml` 定义每个店铺的 `匹配尺码` 与 `发货尺码`。生成程序会先用完整规则输出全尺码全量，再为每个店铺只保留其匹配尺码作为候选池；成功结果及诊断候选统一转换为发货尺码。
+
+```powershell
+python 尺码计算\generate_store_outputs.py
+```
+
+默认在 `尺码计算/artifacts` 下新建版本批次，输出 `全尺码全量.csv`、`尺寸分析表.csv`、各店铺的 `店铺名全量.csv` 和 `status.json`，不会覆盖 `public` 发布数据。
+
 最终结果默认按 `DIMENSION-ID` 升序排列，并把 `DIMENSION-ID` 放在最后一列。US 全量发布结果会在基础 ID 末尾追加 `US`。
 
 ## 尺寸分析表

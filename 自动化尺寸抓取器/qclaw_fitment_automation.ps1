@@ -229,6 +229,7 @@ $PlaywrightBridgeToken = ""
 $SkipStatuses = @("成功", "Almost")
 $InputFilePattern = if ($env:FITMENT_INPUT_PATTERN) { $env:FITMENT_INPUT_PATTERN } else { "*.tsv" }
 $InputFileOrder = if ($env:FITMENT_INPUT_ORDER) { $env:FITMENT_INPUT_ORDER } else { "name_asc" }
+$FollowupOutputMode = if ($env:FITMENT_FOLLOWUP_OUTPUT) { $env:FITMENT_FOLLOWUP_OUTPUT.Trim().ToLowerInvariant() } else { "full" }
 $SkipProcessedFiles = ($env:FITMENT_SKIP_PROCESSED -ne "false")
 $InputSourcesJson = if ($env:FITMENT_INPUT_SOURCES_JSON) { [string]$env:FITMENT_INPUT_SOURCES_JSON } else { "" }
 $ProgressKeywords = @("更新点", "当前批次进度", "下一步优先处理", "下一步优先补缺失", "下一步优先核对", "待终核", "可入库", "数据抓取过程", "全量表", "TSV", "新增/拆出记录", "主要数值修改", "🟢", "🟡", "🔴")
@@ -248,7 +249,8 @@ $AutoEmptyReminder = if ($AutoEmptyColumns) { "以下自动字段必须保留列
 $DimensionGroupReminder = if ($DimensionGroupEnabled) { "另需维护完整 DIMENSION_GROUP TSV，表头固定为：$RequiredDimensionGroupHeader。缺少任一张表、任一映射引用的尺寸组，或尺寸组字段不完整时不得 COMPLETE；ALMOST 只能包含当前全部 READY 映射及其引用闭合的尺寸组。" } else { "" }
 $SubseriesReminder = if ($SubseriesEnabled) { "另需维护子车系匹配表，表头固定为：$RequiredSubseriesMatchHeader；以下自动字段必须保留列但值留空：$SubseriesAutoEmptyColumns。" } else { "不要输出子车系匹配表。" }
 $ConfiguredTaskRulesReminder = if ($ConfiguredTaskRules) { "`n$ConfiguredTaskRules" } else { "" }
-$HeaderReminder = "Ktype 映射 TSV 表头必须严格使用 requirement 指定的字段顺序：$RequiredTsvHeader。$AutoEmptyReminder$DimensionGroupReminder$SubseriesReminder$ConfiguredTaskRulesReminder"
+$PrimaryTableLabel = if ($DimensionGroupEnabled) { "Ktype 映射 TSV" } else { "全量 TSV" }
+$HeaderReminder = "$PrimaryTableLabel 表头必须严格使用 requirement 指定的字段顺序：$RequiredTsvHeader。$AutoEmptyReminder$DimensionGroupReminder$SubseriesReminder$ConfiguredTaskRulesReminder"
 $PhaseOrderReminder = if ($DimensionGroupEnabled) {
     '执行顺序固定为：第一阶段优先消除 PENDING 并补齐会阻塞两张最终表的数据。检测到 PENDING=0 后，第二阶段最多只做一次轻量机械收尾：核对固定表头、id 与 DIMENSION_GROUP_ID 唯一、映射引用闭合、长宽高和来源非空、两个任务指定下载链接齐全。第二阶段不得重新逐车型、逐年份或逐来源做深度检索，不得为了提高置信度反复核对，也不得因非阻塞的排序或措辞问题继续多轮。PENDING=0 后的下一条回复必须直接输出两张最终完整 TSV、两个精确 sandbox 下载链接，并以“推进信号：COMPLETE”结束；不要再输出 CONTINUE。若经过多轮可靠检索后，剩余 PENDING 明确因证据不足而无法可靠闭合，并且继续检索已不能推进，可改为 ALMOST 收尾：停止检索，输出当前全部 READY 映射、它们引用的完整尺寸组、两个精确 sandbox 下载链接和每个剩余 PENDING 的具体原因，最后一行输出“推进信号：ALMOST”。临时网络、浏览器、页面或工具故障，以及单轮无结果，不得使用 ALMOST。'
 }
@@ -262,16 +264,31 @@ $ContinueMessage = if ($DimensionGroupEnabled) {
     (Get-QClawPromptText -Name "dimension_continue") + $PhaseOrderReminder + $HeaderReminder
 }
 else {
-    '继续补强当前批次，并严格按以下格式回复：1) 更新点；2) 当前批次进度；3) 本轮更新后的完整 Ktype 映射 TSV（必须是真正更新过的 TSV，不能只写计划或说明，' + $HeaderReminder + '）' + $AdditionalOutputItems + '；下一步优先处理（有数据缺失时必须写下一步优先补缺失，缺失补齐后再写下一步优先核对）；若仍未完成，TSV 代码块外最后一行必须单独输出“推进信号：CONTINUE”；' + $CompletionScopeText + '时，最后一行才可单独输出“推进信号：COMPLETE”。' + $PhaseOrderReminder
+    if ($FollowupOutputMode -eq "delta") {
+        '继续补强当前批次。只研究仍待处理或有真实冲突的记录，不要重复检索已闭环记录。回复依次为：1) 更新点（仅实际新增证据或改动）；2) 当前进度（可入库/高置信可入库/待终核数量）；3) 本轮变更 TSV（仅新增、修改、拆分或状态变化的行，表头必须为：' + $RequiredTsvHeader + '）；4) 下一步优先处理。若未完成，最后一行单独输出“推进信号：CONTINUE”。只有整批结束时，才输出完整可替换全量 TSV，并以“推进信号：COMPLETE”作为最后一行。' + $PhaseOrderReminder
+    }
+    else {
+        '继续补强当前批次，并严格按以下格式回复：1) 更新点；2) 当前批次进度；3) 本轮更新后的完整全量 TSV（必须是真正更新过的 TSV，不能只写计划或说明，' + $HeaderReminder + '）' + $AdditionalOutputItems + '；下一步优先处理（有数据缺失时必须写下一步优先补缺失，缺失补齐后再写下一步优先核对）；若仍未完成，TSV 代码块外最后一行必须单独输出“推进信号：CONTINUE”；' + $CompletionScopeText + '时，最后一行才可单独输出“推进信号：COMPLETE”。' + $PhaseOrderReminder
+    }
 }
 $MissingSignalsMessage = if ($DimensionGroupEnabled) {
     (Get-QClawPromptText -Name "dimension_missing_signal") + $PhaseOrderReminder + $HeaderReminder
 }
 else {
-    '你的上一轮回复缺少正常推进信号。请立刻继续当前批次，并严格补齐以下内容：更新点、当前批次进度、本轮更新后的完整 Ktype 映射 TSV' + $RequiredExtraTablesText + '、下一步优先处理；如果还没完成，TSV 代码块外最后一行单独输出“推进信号：CONTINUE”；全部必需表完整且映射闭合才输出“推进信号：COMPLETE”。不得只给说明、计划、摘要或重复上一轮文本。' + $PhaseOrderReminder + $HeaderReminder
+    if ($FollowupOutputMode -eq "delta") {
+        '上一轮缺少推进信号。请给出实际新增证据或变更行的 TSV、当前三档状态计数和下一步；不要重贴未变更全量表。若未完成，最后一行单独输出“推进信号：CONTINUE”。仅在完成时输出完整可替换全量 TSV 后再输出 COMPLETE。' + $PhaseOrderReminder + $HeaderReminder
+    }
+    else {
+        '你的上一轮回复缺少正常推进信号。请立刻继续当前批次，并严格补齐以下内容：更新点、当前批次进度、本轮更新后的完整全量 TSV' + $RequiredExtraTablesText + '、下一步优先处理；如果还没完成，TSV 代码块外最后一行单独输出“推进信号：CONTINUE”；全部必需表完整且记录闭合才输出“推进信号：COMPLETE”。不得只给说明、计划、摘要或重复上一轮文本。' + $PhaseOrderReminder + $HeaderReminder
+    }
 }
-$FullTableRequestMessage = '给我当前批次更新后的完整可替换 Ktype 映射 TSV' + $RequiredExtraTablesText + '。必须包含未变更、已修改和合法拆分后的全部记录；不要只给变化部分、摘要或说明。若仍有数据缺失，先继续补缺失，不要提前完成。TSV 代码块外最后一行必须输出“推进信号：CONTINUE”或“推进信号：COMPLETE”。' + $PhaseOrderReminder + $HeaderReminder
-$CompletionFixMessage = '你刚才给了完成信号，但当前回复缺少完整 Ktype 映射 TSV' + $RequiredExtraTablesText + '，存在未引用/缺失/不完整的尺寸组，或仍有数据缺失。请补齐所有必需表；未完成时输出“推进信号：CONTINUE”，确认全部表完整且映射闭合后才输出“推进信号：COMPLETE”。' + $PhaseOrderReminder + $HeaderReminder
+$FullTableRequestMessage = '给我当前批次更新后的完整可替换 ' + $PrimaryTableLabel + $RequiredExtraTablesText + '。必须包含未变更、已修改和合法拆分后的全部记录；不要只给变化部分、摘要或说明。若仍有数据缺失，先继续补缺失，不要提前完成。TSV 代码块外最后一行必须输出“推进信号：CONTINUE”或“推进信号：COMPLETE”。' + $PhaseOrderReminder + $HeaderReminder
+$CompletionFixMessage = if ($DimensionGroupEnabled) {
+    '你刚才给了完成信号，但当前回复缺少完整 Ktype 映射 TSV' + $RequiredExtraTablesText + '，存在未引用/缺失/不完整的尺寸组，或仍有数据缺失。请补齐所有必需表；未完成时输出“推进信号：CONTINUE”，确认全部表完整且映射闭合后才输出“推进信号：COMPLETE”。' + $PhaseOrderReminder + $HeaderReminder
+}
+else {
+    '你刚才给了完成信号，但当前回复缺少完整全量 TSV，或仍有数据缺失、待终核记录或未闭合的证据。请补齐全量 TSV；未完成时输出“推进信号：CONTINUE”，确认全部记录闭合后才输出“推进信号：COMPLETE”。' + $PhaseOrderReminder + $HeaderReminder
+}
 $LightFinalizeMessage = if ($DimensionGroupEnabled) {
     (Get-QClawPromptText -Name "dimension_light_finalize") + $HeaderReminder
 }
@@ -1574,6 +1591,22 @@ function Update-TaskKtypeState {
         [string]$Reply = "",
         [int]$Round = 0
     )
+    # Ktype progress is the checkpoint protocol for the EU dimension-group
+    # contract.  US full-table tasks deliberately have no Ktype input column
+    # and must continue through their own full-table validation path.
+    if (-not $DimensionGroupEnabled) {
+        return [pscustomobject]@{
+            version = 1
+            task_id = [string]$Task.TaskId
+            round = $Round
+            progress = [pscustomobject]@{
+                input_ktype_count = 0
+                ready_ktype_count = 0
+                pending_ktype_count = 0
+                pending_ktypes = @()
+            }
+        }
+    }
     $paths = Get-TaskStatePaths -Task $Task
     if (-not (Test-Path -LiteralPath $paths.Directory -PathType Container)) {
         New-Item -ItemType Directory -Path $paths.Directory -Force | Out-Null
@@ -1740,6 +1773,10 @@ function Update-TaskKtypeState {
 
 function Get-TaskBranchHandoffMessage {
     param($Task, [string]$FallbackMessage = "")
+
+    # Only EU tasks have a Ktype-scoped checkpoint handoff.  US and moto
+    # retain their normal contract-specific follow-up prompt when branching.
+    if (-not $DimensionGroupEnabled) { return $FallbackMessage }
     $paths = Get-TaskStatePaths -Task $Task
     if (-not (Test-Path -LiteralPath $paths.Progress -PathType Leaf)) { return $FallbackMessage }
     $progress = Read-QClawJsonWithBackup -Path $paths.Progress
@@ -3512,6 +3549,16 @@ function Test-ReplyContainsFullTable {
 
     if (-not (Test-ReplyContainsRequiredDownloadLinks -Reply $Reply -Task $Task)) { return $false }
 
+    # US and moto contracts have one full table and no Ktype/DIMENSION_GROUP
+    # protocol.  Their task input therefore cannot be projected through the
+    # EU checkpoint snapshot below.
+    if (-not $DimensionGroupEnabled) {
+        if ($MinimumRows -gt 0 -and (Get-TSVDataRowCountFromText -Text $Reply) -lt $MinimumRows) {
+            return $false
+        }
+        return $true
+    }
+
     if ($null -eq $Task) {
         if ($MinimumRows -gt 0 -and (Get-TSVDataRowCountFromText -Text $Reply) -lt $MinimumRows) {
             return $false
@@ -5187,6 +5234,7 @@ function Process-TSVTask {
     $nextCount = 0
     $consecutiveEmptyTsvCount = 0
     $emptyTsvFinalSent = $false
+    $repeatedReplyRecoverySent = $false
     $round = 1
     $previousReply = ""
     $requestedFullTable = $false
@@ -5705,9 +5753,29 @@ function Process-TSVTask {
             }
 
             if (Test-RepeatedReply -Previous $previousReply -Current $reply) {
-                $status = "重复终止"
-                $remarks = "连续两轮回复高度相似，疑似未继续推进"
-                break
+                # A stale browser capture or an overloaded conversation can
+                # yield the immediately preceding complete reply once.  Make
+                # one explicit recovery attempt before treating it as a true
+                # non-progress loop.
+                if ($repeatedReplyRecoverySent -or $nextCount -ge $MaxNextSteps) {
+                    $status = "重复终止"
+                    $remarks = "重复回复经一次定向恢复后仍未推进"
+                    break
+                }
+                $repeatedReplyRecoverySent = $true
+                $previousReply = $reply
+                $nextCount++
+                $round++
+                $repeatRecoveryMessage = @"
+上一轮回复与前一轮高度相似，不能把重复的全量 TSV 当作新进展。请不要复述既有更新点、表格或来源；只针对仍为待终核/待补强的具体记录继续检索并核对，给出本轮实际新增或修正的证据。随后按当前任务合同重新输出完整全量 TSV，并以正确的推进信号结束。
+
+$taskContinueMessage
+"@
+                Write-Host "  检测到重复回复，发送一次定向恢复追问 ($nextCount/$MaxNextSteps)..." -ForegroundColor Yellow
+                Send-TrackedChatGPTMessage -OutputFile $outputFile -Label "重复回复定向恢复 / Round $round" -Message $repeatRecoveryMessage
+                $sendCount++
+                Save-TaskCheckpoint -Task $Task -Status "进行中" -Phase "waiting_reply" -Round $round -SendCount $sendCount -OutputFile $outputFile -ConversationUrl $conversationUrl
+                continue
             }
 
             if ($nextCount -ge $MaxNextSteps) {

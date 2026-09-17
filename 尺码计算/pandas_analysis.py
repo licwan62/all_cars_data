@@ -396,6 +396,7 @@ class SizeMatcher:
         rules: pd.DataFrame,
         limits: Sequence[LimitSpec] = DEFAULT_LIMITS,
         include_disabled_rules: bool = False,
+        allowed_sizes: Iterable[str] | None = None,
     ) -> None:
         self.limits = tuple(limits)
         if not self.limits:
@@ -413,6 +414,13 @@ class SizeMatcher:
         )
         self.length_tolerance = self._read_tolerance(parameters)
         rules = self._normalize_rule_schema(rules)
+        if allowed_sizes is not None:
+            allowed = {
+                text
+                for value in allowed_sizes
+                if (text := _clean_text(value)) is not None
+            }
+            rules = rules.loc[rules["内部尺码"].isin(allowed)].copy()
         self.whitelist_rules = self._build_whitelist_rules(rules, include_disabled_rules)
         self.pools = self._build_pools(rules, include_disabled_rules)
         self.cache: dict[tuple[object, ...], MatchResult] = {}
@@ -428,6 +436,15 @@ class SizeMatcher:
             if self.length_rule_column is None:
                 raise DataContractError("取消档位序号后，规则必须包含长上限")
             normalized["档位序号"] = _numeric(normalized[self.length_rule_column])
+        if "分类" in normalized.columns:
+            normalized["分类"] = normalized["分类"].map(
+                lambda value: (
+                    [part.strip() for part in text.split("|") if part.strip()]
+                    if (text := _clean_text(value)) is not None
+                    else [pd.NA]
+                )
+            )
+            normalized = normalized.explode("分类", ignore_index=True)
         return normalized
 
     @staticmethod
@@ -746,6 +763,7 @@ def calculate(
     body_path: Path | None = None,
     trim_source: Path | None = None,
     include_analysis: bool = False,
+    allowed_sizes: Iterable[str] | None = None,
 ) -> pd.DataFrame | tuple[pd.DataFrame, pd.DataFrame]:
     config_dir = config_dir or Path(__file__).resolve().parent / "rules"
     dimensions = _read_csv(resolve_data_file(input_dir, "dimensions"))
@@ -782,6 +800,7 @@ def calculate(
         parameters,
         rules,
         include_disabled_rules=include_disabled_rules,
+        allowed_sizes=allowed_sizes,
     )
     result = matcher.apply(result)
 

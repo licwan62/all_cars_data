@@ -1,6 +1,7 @@
 ﻿[CmdletBinding(PositionalBinding = $false)]
 param(
     [string]$ConfigPath = "",
+    [string]$ProjectPath = "",
     [ValidateSet("", "work", "check", "dry_run")]
     [string]$Mode = "",
     [ValidateRange(0, [int]::MaxValue)]
@@ -54,7 +55,28 @@ $effectiveMode = if ($Mode) { $Mode } else { [string](Get-Value $config "mode" "
 
 $workspace = $config.workspace
 $traversal = $workspace.traversal
-$workspaceRoot = Resolve-ConfigPath ([string](Get-Value $workspace "root" ".")) $configDir
+$requireProjectPath = [bool](Get-Value $workspace "require_project_path" $false)
+if ($requireProjectPath -and [string]::IsNullOrWhiteSpace($ProjectPath)) {
+    throw "此共享配置要求通过 -ProjectPath 指定任务目录"
+}
+
+$projectOverride = $null
+if (-not [string]::IsNullOrWhiteSpace($ProjectPath)) {
+    $projectPathValue = $ProjectPath
+    if (-not $IsWindows) { $projectPathValue = $projectPathValue.Replace("\", [System.IO.Path]::DirectorySeparatorChar) }
+    $resolvedProjectPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($projectPathValue)
+    if (-not (Test-Path -LiteralPath $resolvedProjectPath -PathType Container)) {
+        throw "ProjectPath 不存在: $resolvedProjectPath"
+    }
+    $projectOverride = Get-Item -LiteralPath $resolvedProjectPath
+}
+
+$workspaceRoot = if ($projectOverride) {
+    Split-Path -Path $projectOverride.FullName -Parent
+}
+else {
+    Resolve-ConfigPath ([string](Get-Value $workspace "root" ".")) $configDir
+}
 if (-not (Test-Path -LiteralPath $workspaceRoot -PathType Container)) { throw "workspace.root 不存在: $workspaceRoot" }
 
 $strategy = [string](Get-Value $traversal "strategy" "directories")
@@ -62,7 +84,10 @@ $include = @((Get-Value $traversal "include" @("*")))
 $exclude = @((Get-Value $traversal "exclude" @()))
 $projects = @()
 
-if ($strategy -eq "explicit") {
+if ($projectOverride) {
+    $projects = @($projectOverride)
+}
+elseif ($strategy -eq "explicit") {
     foreach ($item in @((Get-Value $traversal "projects" @()))) {
         $projectPath = Resolve-ConfigPath ([string]$item) $workspaceRoot
         if (-not (Test-Path -LiteralPath $projectPath -PathType Container)) { throw "项目目录不存在: $projectPath" }
@@ -155,6 +180,7 @@ $environmentMap = @{
     FITMENT_DIMENSION_REPRESENTATIVE_INSTRUCTION = [string](Get-Value $contract.dimension_representative "_instruction" "")
     FITMENT_INPUT_PATTERN = [string](Get-Value $runtime.input_files "pattern" "*.tsv")
     FITMENT_INPUT_ORDER = [string](Get-Value (Get-Value $runtime "input_sources" $runtime.input_files) "order" "name_asc")
+    FITMENT_FOLLOWUP_OUTPUT = [string](Get-Value $runtime "followup_output" "full")
     FITMENT_SKIP_PROCESSED = ([bool](Get-Value $runtime.input_files "skip_processed" $true)).ToString().ToLowerInvariant()
     FITMENT_INPUT_SOURCES_JSON = ""
 }

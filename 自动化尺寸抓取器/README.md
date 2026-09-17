@@ -35,6 +35,7 @@ qclaw_fitment_automation/
 │   └── QClaw.Runtime.psm1       # 原子写入、备份恢复、固定运行清单
 ├── prompts/                     # 可独立版本化和哈希的提示词模板
 ├── requirements/                # EU、US、摩托车等数据契约与任务规则
+├── configs/                     # 可跨任务重复调用的 requirement 配置预设
 ├── src/
 │   ├── load_fitment_config.py   # YAML 与 requirement 合约校验
 │   ├── merge_partition_tables.py# 分片完成检查、合并和最终审计
@@ -51,6 +52,26 @@ qclaw_fitment_automation/
 ```
 
 更详细的组件边界见 [ARCHITECTURE.md](./ARCHITECTURE.md)。
+
+## 共享配置预设
+
+`configs/` 中的 YAML 是长期落盘、可重复调用的配置。它们分别绑定对应的
+`requirements/` 数据契约，运行时通过 `-ProjectPath` 指向具体任务目录：
+
+```powershell
+pwsh -File .\run_from_config.ps1 `
+  -ConfigPath .\configs\us_edmund.yaml `
+  -ProjectPath .\artifacts\2026-09-17_03_添加mg品牌
+```
+
+可用预设：
+
+- `configs/us_edmund.yaml`：美国汽车，英寸尺寸；
+- `configs/moto.yaml`：摩托车，毫米尺寸；
+- `configs/eu_autodata.yaml`：EU Ktype，100 行分批和独立尺寸组表。
+
+任务目录统一把输入 TSV 放在 `input/` 下；输出、回复、表格、checkpoint、日志和
+摘要都会写回该任务目录。共享预设要求显式传入 `-ProjectPath`，防止误扫其他任务。
 
 ## 环境要求
 

@@ -165,6 +165,41 @@ class SizeMatcherTests(unittest.TestCase):
         )
         self.assertEqual(matcher.apply(vehicles).loc[0, "自动尺码"], "CUSTOM")
 
+    def test_pipe_delimited_categories_are_expanded(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {
+                    "尺码": "CLASSIC",
+                    "模式": "通用",
+                    "分类": "跑车|三厢车",
+                    "版本": "",
+                    "长上限": 5500,
+                    "插片指数上限": 999,
+                    "车型白名单": "",
+                }
+            ]
+        )
+        matcher = analysis.SizeMatcher(self.parameters, rules)
+
+        self.assertEqual(matcher.match("跑车", "", "", [5200, 200]).auto_size, "CLASSIC")
+        self.assertEqual(matcher.match("三厢车", "", "", [5200, 200]).auto_size, "CLASSIC")
+
+    def test_allowed_sizes_limit_the_candidate_pool(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {"尺码": "SMALL", "分类": "两厢车", "版本": "", "长上限": 4500, "插片指数上限": 999},
+                {"尺码": "LARGE", "分类": "两厢车", "版本": "", "长上限": 5000, "插片指数上限": 999},
+            ]
+        )
+        matcher = analysis.SizeMatcher(
+            self.parameters,
+            rules,
+            allowed_sizes={"LARGE"},
+        )
+
+        self.assertEqual(matcher.match("两厢车", "", "", [4400, 0]).auto_size, "无可用尺码")
+        self.assertEqual(matcher.match("两厢车", "", "", [4700, 0]).auto_size, "LARGE")
+
     def test_trim_format_removes_brand_hyphen_and_spaces(self) -> None:
         value = analysis._format_trim_candidates(
             ["Jaguar|XF", "Jaguar|XFR", "Jaguar|XFR-S"]
