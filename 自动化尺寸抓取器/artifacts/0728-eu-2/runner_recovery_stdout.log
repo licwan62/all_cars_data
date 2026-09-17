@@ -1,0 +1,25 @@
+配置: D:\Home\Scripts\fitment_sheet_generation\projects\qclaw_fitment_automation\workspaces\0728-eu\config.yaml
+模式: work；项目数: 1
+Requirement: D:\Home\Scripts\fitment_sheet_generation\projects\qclaw_fitment_automation\requirements\eu_autodata.md
+Ktype 映射表: 10 列；DIMENSION_GROUP 表: 6 列；子车系匹配表: 禁用
+  - D:\Home\Scripts\fitment_sheet_generation\projects\qclaw_fitment_automation\workspaces\0728-eu
+
+[work] 0728-eu
+========================================
+playwright 全量表补强自动化
+========================================
+找到 1 个去重后的 TSV 文件，生成 356 个独立任务（粒度: batch）。
+检查目录和文件...
+初始化 playwright browser...
+playwright browser 就绪。
+打开 ChatGPT: https://chatgpt.com/
+已从成功 checkpoint 更新累计最终 TSV: all 第 1-100 行
+跳过 checkpoint 已成功车型: all 第 1-100 行
+已从成功 checkpoint 更新累计最终 TSV: all 第 101-200 行
+跳过 checkpoint 已成功车型: all 第 101-200 行
+
+处理任务: all 第 201-300 行（来源: all.tsv）
+  从车型 checkpoint 恢复原对话（第 2 轮）...
+  复制按钮读取失败，回退到页面 DOM：点击复制按钮失败: copy-button-not-found
+  checkpoint 回复读取失败，使用状态文本: 读取最后一条回复失败: no-assistant-node
+  等待第 3 轮回复完成...

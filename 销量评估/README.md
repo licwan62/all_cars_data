@@ -28,3 +28,13 @@ python -m unittest discover -s tests -v
 - `MODEL_YEAR_US_SALES` 必须是非负整数。
 - `SALES_SCOPE` 使用 `US`；`SALES_PERIOD` 使用 `FULL_YEAR` 或 `YTD`。
 - 研究数据应填写来源 URL、来源类型和置信度。
+
+## 区域销量研究
+
+US、EU、RU 数据使用独立的 `REGION + MAKE + MODEL` 研究键，禁止跨区域复用销量。
+
+```powershell
+python scripts/sync_regional_sales.py
+```
+
+脚本生成区域事实缓存、研究队列和口径审计。US 与现有原子销量逐 `DIMENSION-ID` 核对；EU 表中的 0 按缺失占位处理；RU 的 `sale_detail` 仅标记为 Auto.ru 在售样本代理，不解释为年度销量。研究事实先保持 `RESEARCHED_ALLOCATION_PENDING`，在车型年份与尺寸行分配规则核定前不回写 `data/*/0916/01_*` 或 `02_*`。

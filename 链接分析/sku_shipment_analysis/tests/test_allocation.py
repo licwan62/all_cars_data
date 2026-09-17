@@ -51,6 +51,19 @@ def test_non_pickup_sku_omits_cab_bed_and_cluster_id():
     assert sku_name(row, config) == "CHEV_NOVA_Y62-72_3L-W"
 
 
+def test_new_make_and_model_use_deterministic_ascii_abbreviations():
+    config = {
+        "make_abbreviations": {}, "model_abbreviations": {},
+        "year_prefix": "Y", "non_pickup_include_cab": False,
+        "non_pickup_include_bed": False,
+    }
+    row = pd.Series({
+        "MAKE": "Toyota", "MODEL": "Camry Hybrid", "分类": "三厢车",
+        "FITMENT_YEAR": "2018-2024", "PHYSICAL_SIZE": "4L",
+    })
+    assert sku_name(row, config) == "TOYOTA_CAMRY-HYBRID_Y18-24_4L"
+
+
 def test_pickup_sku_includes_cab_and_bed():
     config = {
         "make_abbreviations": {"Chevrolet": "CHEV"},

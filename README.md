@@ -4,10 +4,13 @@
 
 本仓库采用一条明确的数据流：`source` 是唯一人工维护真源；研究项目只读 `source`，只向各自的 `output/`、`artifacts/`、`work/` 或 `cache/` 写结果；通过校验后，再由人手工覆盖对应的 `source` 文件。任何项目都不得在运行时自动回写 `source`。
 
+区域尺寸数据的统一发布链为：`尺寸库 → 尺寸分析表 → 全量表`。尺寸分析表包含完成尺寸换算与车形派生后的 21 列，不包含 `自动尺码`、`自动长度余量`、`候选`、`原因`、`相差数值`；全量表在此基础上增加这 5 个尺码匹配结果列。
+
 ## 项目与数据流
 
 | 项目 | 默认读取 | 项目候选输出 | 可人工发布到 |
 |---|---|---|---|
+| `自动化尺寸抓取器` | 原始 Ktype TSV、已审计映射与尺寸组 TSV | 标准区域 source 候选及 `尺寸库 → 尺寸分析表 → 全量表` 候选 | 审核后人工并入对应区域批次 |
 | `分类结构审核` | `source/尺寸库.csv` | `artifacts/corrected.csv` | `source/尺寸库.csv` |
 | `车形分类核定` | `source/尺寸库.csv` | `artifacts/record_shape.csv` | `source/车身分类.csv` |
 | `销量评估` | `source/尺寸库.csv` | `artifacts/atom_sales.csv` | `source/销量明细.csv` |
@@ -56,11 +59,12 @@
 
 ## DIMENSION-ID 格式
 
-`DIMENSION-ID` 只保留非空业务值，依次为 `MAKE MODEL 版本 结构 YEAR`；皮卡继续在末尾追加 `CAB BED`。各值以单个空格连接，不再包含字段名或竖线。例如：
+尺寸库中的基础 `DIMENSION-ID` 只保留非空业务值，依次为 `MAKE MODEL 版本 结构 YEAR`；皮卡继续在末尾追加 `CAB BED`。各值以单个空格连接，不再包含字段名或竖线。`data/us/US全量.csv`、`data/eu/EU全量.csv`、`data/ru/RU全量.csv` 的发布 ID 再在基础 ID 末尾追加国家代号 `US`、`EU`、`RU`。例如：
 
 ```text
 Acura ADX SUV 2025-2026
 Cadillac Escalade EXT Pickup 2002-2006 Crew 5.3
+Acura ADX SUV 2025-2026 US
 ```
 
 原子销量的 `atom_record_id` 仍在该 ID 后追加 `|ATOM_YEAR=YYYY`，供逐年销量聚合时稳定拆分。

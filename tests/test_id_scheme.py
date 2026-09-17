@@ -2,10 +2,24 @@ from __future__ import annotations
 
 import unittest
 
-from id_scheme import atom_record_id, dimension_id
+from id_scheme import append_country_code, atom_record_id, base_dimension_id, dimension_id
 
 
 class DimensionIdTests(unittest.TestCase):
+    def test_append_country_code_is_idempotent(self) -> None:
+        base = "Acura ADX SUV 2025-2026"
+        self.assertEqual(append_country_code(base, "us"), f"{base} US")
+        self.assertEqual(append_country_code(f"{base} US", "US"), f"{base} US")
+
+    def test_append_country_code_rejects_conflicting_suffix(self) -> None:
+        with self.assertRaises(ValueError):
+            append_country_code("Acura ADX SUV 2025-2026 EU", "US")
+
+    def test_base_dimension_id_removes_supported_country_suffix(self) -> None:
+        base = "Acura ADX SUV 2025-2026"
+        self.assertEqual(base_dimension_id(f"{base} US"), base)
+        self.assertEqual(base_dimension_id(base), base)
+
     def test_omits_labels_and_blank_version(self) -> None:
         row = {
             "MAKE": "Acura",

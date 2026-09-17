@@ -1,0 +1,31 @@
+﻿# 文件名：split_part_04.tsv
+
+
+--- Round 1 / 首次发送 ---
+ChatGPT 说：更新点：本轮针对 Ford F-350 Super Duty split_part_04 中 Crew Cab/Regular Cab 及 DRW 版本进行了逐年复核，参考已公开 Edmunds/KBB 数据和历史资料确认长度、高度及宽体情况；本轮新增可入库记录数量 0，本轮新增完成三维口径数量 0，仍有多条年份 DRW 宽体高度缺口需进一步核实。
+当前批次更新后的完整 TSV：
+主车型	分类	品牌	车型名	结构	版本	代际	年份区间	驾驶室类型	货斗长度_ft	max_length_in	max_width_in	max_height_in	参考车型	备注	迭代状态
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen1 Super Duty pickup	2000	Crew Cab	8	257.6	96	81.3	2000 F-350 Crew Cab DRW 8 ft	宽体后双轮; 暂按1999参考点控制; 缺DRW宽高完整来源	待终核: 缺少2000 Crew Cab DRW 8 ft宽体高度来源复核
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen1 Super Duty pickup	2001	Crew Cab	8	257.6	96	81.3	2001 F-350 Crew Cab DRW 8 ft	宽体后双轮; KBB 2001 Crew Cab 8ft已核长度257.6; 缺DRW宽高完整来源	待终核: 已核长度，缺2001 Crew Cab DRW 8 ft宽体高度来源复核
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen1 Super Duty pickup	2002	Crew Cab	8	257.6	96	81.3	2002 F-350 Crew Cab DRW 8 ft	宽体后双轮; 暂按1999/2001参考点控制; 缺DRW宽高完整来源	待终核: 缺少2002 Crew Cab DRW 8 ft宽体高度来源复核
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen1 Super Duty pickup	2003	Crew Cab	8	257.6	96	81.3	2003 F-350 Crew Cab DRW 8 ft	宽体后双轮; Edmunds 2003 Crew Cab为262/79.9/81.3，非本行DRW宽体口径; 暂按1999参考点控制	待终核: 已核公开页非本行口径，缺2003 Crew Cab DRW 8 ft完整三维
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen1 Super Duty pickup	2004	Crew Cab	8	257.6	96	81.3	2004 F-350 Crew Cab DRW 8 ft	宽体后双轮; Edmunds 2004 Crew Cab为262/79.9/81.3，非本行DRW宽体口径; 暂按1999参考点控制	待终核: 已核公开页非本行口径，缺2004 Crew Cab DRW 8 ft完整三维
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen1 Super Duty pickup	2005	Crew Cab	8	261.8	96	81.7	2005 F-350 Crew Cab DRW 8 ft	宽体后双轮; Edmunds 2005已核长度261.8/高度81.7/8ft床长98.6; 宽度79.9非DRW宽体口径	待终核: 已核长度/高度，缺2005 Crew Cab DRW 8 ft宽体96口径
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen1 Super Duty pickup	2006	Crew Cab	8	261.8	96	81.3	2006 F-350 Crew Cab DRW 8 ft	宽体后双轮; Edmunds 2006已核8ft床长98.6; 未核DRW宽体96与最大高度	待终核: 已核8ft床长，缺2006 Crew Cab DRW 8 ft宽体96与最大高度口径
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen2 Super Duty pickup	2008	Regular Cab	8	227	96	80.2	2008 F-350 DRW Regular Cab 8 ft	宽体后双轮; Edmunds 2008 Regular Cab已核8ft床长; 公开页未支撑DRW宽体96口径	待终核: 缺少2008 DRW Regular Cab 8 ft宽体高度来源复核
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen2 Super Duty pickup	2009	Regular Cab	8	227	96	80.2	2009 F-350 DRW Regular Cab 8 ft	宽体后双轮; KBB 2009 Regular Cab确认8ft版本; 暂按2010参考点控制	待终核: 缺少2009 DRW Regular Cab 8 ft宽体高度来源复核
+Ford F-350 Super Duty	皮卡	Ford	F-350 Super Duty	Pickup	DRW	gen3 Super Duty pickup	2011	Regular Cab	8	227.6	96	80	2011 F-350 DRW Regular Cab 8 ft	宽体后双轮; 已找到2011普通Regular Cab参考但缺DRW 8ft高度口径	待终核: 缺少2011 DRW Regular Cab 8 ft最大高度来源复核
+下一步优先核对：
+
+
+Edmunds、KBB 厂商官网针对 2000-2006 Crew Cab DRW 宽体高度完整数据。
+
+
+历史汽车论坛/专业文献辅助确认 2003-2004 DRW 宽体三维差异。
+
+
+2008-2011 Regular Cab DRW 宽体高度，补充 NHTSA 或官方 order guide 记录。
+
+
+下一步
+

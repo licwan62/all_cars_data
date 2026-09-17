@@ -1,0 +1,31 @@
+input:
+  path: ../public/全量数据.csv
+  encoding: utf-8-sig
+
+columns:
+  make: MAKE
+  model: MODEL
+  sales: 销量合计
+
+code:
+  width: 2
+  max_value: 99
+
+mapping:
+  make_path: mapping/make_mapping.csv
+  model_path: mapping/model_mapping.csv
+
+artifacts:
+  path: artifacts
+  slug: code-mapping-publish
+
+publish:
+  path: ../public/code/_mapping/vehicle_mapping.csv
+
+backup:
+  enabled: true
+  path: mapping/backups
+
+normalization:
+  trim_whitespace: true
+  case_insensitive_key: true

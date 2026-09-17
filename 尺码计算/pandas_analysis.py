@@ -17,6 +17,13 @@ from typing import Iterable, Mapping, Sequence
 import numpy as np
 import pandas as pd
 
+WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
+if str(WORKSPACE_ROOT) not in sys.path:
+    sys.path.insert(0, str(WORKSPACE_ROOT))
+
+from id_scheme import append_country_code, base_dimension_id
+from full_table_schema import build_dimension_analysis
+
 
 MM_PER_INCH = 25.4
 PANEL_OFFSET_MM = 750.0
@@ -405,9 +412,23 @@ class SizeMatcher:
             else None
         )
         self.length_tolerance = self._read_tolerance(parameters)
+        rules = self._normalize_rule_schema(rules)
         self.whitelist_rules = self._build_whitelist_rules(rules, include_disabled_rules)
         self.pools = self._build_pools(rules, include_disabled_rules)
         self.cache: dict[tuple[object, ...], MatchResult] = {}
+
+    def _normalize_rule_schema(self, rules: pd.DataFrame) -> pd.DataFrame:
+        """Accept both the legacy rule columns and the simplified 0915 structure."""
+        normalized = rules.copy()
+        if "内部尺码" not in normalized.columns and "尺码" in normalized.columns:
+            normalized["内部尺码"] = normalized["尺码"]
+        if "CAB" not in normalized.columns:
+            normalized["CAB"] = pd.NA
+        if "档位序号" not in normalized.columns:
+            if self.length_rule_column is None:
+                raise DataContractError("取消档位序号后，规则必须包含长上限")
+            normalized["档位序号"] = _numeric(normalized[self.length_rule_column])
+        return normalized
 
     @staticmethod
     def _read_tolerance(parameters: pd.DataFrame) -> float:
@@ -488,7 +509,7 @@ class SizeMatcher:
             normalized[column] = normalized[column].map(_clean_text)
         for column in ["档位序号", *[spec.rule_column for spec in self.limits]]:
             normalized[column] = _numeric(normalized[column])
-        complete = normalized["分类"].notna() & normalized["档位序号"].notna()
+        complete = normalized["档位序号"].notna()
         for spec in self.limits:
             complete &= normalized[spec.rule_column].notna()
         return normalized.loc[complete].sort_values("档位序号", kind="stable").to_dict(orient="records")
@@ -520,7 +541,9 @@ class SizeMatcher:
             return False, None
         category = _clean_text(vehicle.get("分类"))
         candidates = [
-            rule for rule in identity_candidates if rule["分类"] == category
+            rule
+            for rule in identity_candidates
+            if _clean_text(rule.get("分类")) is None or rule["分类"] == category
         ]
         if not candidates:
             return True, MatchResult("无可用尺码")
@@ -722,7 +745,8 @@ def calculate(
     rules_path: Path | None = None,
     body_path: Path | None = None,
     trim_source: Path | None = None,
-) -> pd.DataFrame:
+    include_analysis: bool = False,
+) -> pd.DataFrame | tuple[pd.DataFrame, pd.DataFrame]:
     config_dir = config_dir or Path(__file__).resolve().parent / "rules"
     dimensions = _read_csv(resolve_data_file(input_dir, "dimensions"))
     bodies = _read_csv(body_path or resolve_data_file(input_dir, "bodies"))
@@ -738,6 +762,9 @@ def calculate(
         _require_columns(prior, ["DIMENSION-ID", "TRIM"], "TRIM 保留来源")
         if prior["DIMENSION-ID"].duplicated().any():
             raise DataContractError("TRIM 保留来源的 DIMENSION-ID 必须唯一")
+        prior["DIMENSION-ID"] = prior["DIMENSION-ID"].map(base_dimension_id)
+        if prior["DIMENSION-ID"].duplicated().any():
+            raise DataContractError("TRIM 保留来源规范地区后缀后的 DIMENSION-ID 必须唯一")
         trims = prior.set_index("DIMENSION-ID")["TRIM"]
         missing = ~result["DIMENSION-ID"].isin(trims.index)
         if missing.any():
@@ -750,6 +777,7 @@ def calculate(
         result["销量合计"] = result["销量合计"].round().astype("Int64")
     result = add_body_dimensions(result, bodies, references)
     result = add_equivalent_length(result, references)
+    analysis = build_dimension_analysis(result)
     matcher = SizeMatcher(
         parameters,
         rules,
@@ -764,7 +792,11 @@ def calculate(
     result = result[DEFAULT_OUTPUT_COLUMNS].copy()
     result["自动长度余量"] = _compact_number_column(result["自动长度余量"])
     result["相差数值"] = _compact_number_column(result["相差数值"])
-    return result
+    if sort_output:
+        analysis = analysis.sort_values(
+            "DIMENSION-ID", ascending=True, na_position="last", kind="stable"
+        ).reset_index(drop=True)
+    return (result, analysis) if include_analysis else result
 
 
 def validate_result(result: pd.DataFrame, expected_rows: int) -> dict[str, object]:
@@ -886,6 +918,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         help="输出 CSV 路径；指定后不自动创建 artifacts 版本批次",
     )
     parser.add_argument(
+        "--analysis-output",
+        type=Path,
+        help="尺寸分析表路径；默认与全量输出同目录，文件名为尺寸分析表.csv",
+    )
+    parser.add_argument(
         "--artifacts-dir",
         type=Path,
         default=script_dir / "artifacts",
@@ -966,7 +1003,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             trim_source = None
         elif args.trim_source is None and not trim_source.is_file():
             trim_source = None
-        result = calculate(
+        result, analysis = calculate(
             input_dir,
             submodel_path=submodel_path,
             include_disabled_rules=args.include_disabled_rules,
@@ -975,9 +1012,27 @@ def main(argv: Sequence[str] | None = None) -> int:
             rules_path=args.rules_file.resolve() if args.rules_file else None,
             body_path=args.body_source.resolve() if args.body_source else None,
             trim_source=trim_source,
+            include_analysis=True,
+        )
+        result["DIMENSION-ID"] = result["DIMENSION-ID"].map(
+            lambda value: append_country_code(value, "US")
+        )
+        analysis["DIMENSION-ID"] = analysis["DIMENSION-ID"].map(
+            lambda value: append_country_code(value, "US")
         )
         expected_rows = len(_read_csv(resolve_data_file(input_dir, "dimensions")))
         summary = validate_result(result, expected_rows)
+        if args.analysis_output:
+            analysis_output_path = args.analysis_output.resolve()
+        elif output_path.stem.endswith("全量数据"):
+            prefix = output_path.stem[: -len("全量数据")]
+            analysis_output_path = output_path.with_name(f"{prefix}尺寸分析表{output_path.suffix}")
+        elif output_path.stem.endswith("全量"):
+            prefix = output_path.stem[: -len("全量")]
+            analysis_output_path = output_path.with_name(f"{prefix}尺寸分析表{output_path.suffix}")
+        else:
+            analysis_output_path = output_path.with_name("尺寸分析表.csv")
+        write_result(analysis, analysis_output_path)
         write_result(result, output_path)
         if args.workbook_output and not args.no_workbook_output:
             write_workbook_candidate(
@@ -990,6 +1045,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
 
     summary["output"] = str(output_path)
+    summary["analysis_output"] = str(analysis_output_path)
     summary["workbook_output"] = (
         str(args.workbook_output.resolve())
         if args.workbook_output and not args.no_workbook_output

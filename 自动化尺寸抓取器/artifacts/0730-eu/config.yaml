@@ -1,0 +1,67 @@
+version: 1
+
+# 默认直接工作。可临时改为 check（浏览器自检）或 dry_run（仅显示遍历结果）。
+mode: work
+
+workspace:
+  # config 位于 workspaces/0730-eu，因此上一级才是工作区集合目录。
+  root: ..
+  traversal:
+    # 只运行当前欧洲车型工作区。
+    strategy: explicit
+    projects:
+      - 0730-eu
+    include:
+      - "*"
+    exclude:
+      - "_*"
+      - "*.disabled"
+    order: name_asc
+    max_projects: 0
+
+project_layout:
+  # 当前 EU TSV 直接放在项目根目录；结果、日志和 checkpoint 单独存放。
+  input: .
+  output: output
+  log: log.csv
+  summary: summary.txt
+
+runtime:
+  max_rounds: 150
+  # 欧洲历史车型资料可能需要较长检索时间，沿用 moto 工作区的长等待配置。
+  max_reply_wait_seconds: 9999
+  browser: playwright
+  conversation:
+    # 一个完整 TSV 使用一个新对话，便于在同批 Ktype 之间复用已确认尺寸组。
+    mode: new
+    archive_code: ""
+    archive_path: conversation_archives.json
+  # 读取当前项目目录下的 TSV；每个文件会在 processing 中按 100 行分批。
+  input_sources:
+    directories:
+      - path: .
+        pattern: "*.tsv"
+        recursive: false
+    order: name_asc
+  processing:
+    # 每 100 条 Ktype 数据行建立一个独立对话；表头不计入 100 行。
+    mode: batch
+    rows_per_task: 100
+    row_label_columns:
+      - Make
+      - Model
+      - VariantName
+      - Ktype
+    checkpoint_dir: checkpoints
+  continue_on_error: false
+  only_files: []
+  input_files:
+    skip_processed: true
+
+data_contract:
+  # 相对当前 config.yaml：0728-eu -> workspaces -> qclaw_fitment_automation。
+  requirement: ..\..\requirements\eu_autodata.md
+  dimension_representative:
+    # EU 输入使用生产起止月份且由 DIMENSION_GROUP_ID 管理跨 Ktype 尺寸共享，
+    # 不适合套用要求单一 YEAR 字段的代表年算法。
+    enabled: false

@@ -1,0 +1,7 @@
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# 持久映射与当前发布结果属于项目交付物，覆盖仓库根目录的通用 CSV 忽略规则。
+!mapping/*.csv
+!artifacts/**/*.csv

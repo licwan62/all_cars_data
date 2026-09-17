@@ -1,0 +1,1502 @@
+{
+    "version":  1,
+    "run_id":  "e086ae81063f5cb759b1",
+    "created_at":  "2026-08-02T16:25:58.8443634Z",
+    "partition_count":  4,
+    "partition_strategy":  "contiguous",
+    "config_sha256":  "0a7da3b8ec9afe77362ced6e6e03ee809303d3b290cb3e7cc193edbf52d09323",
+    "requirement_sha256":  "508ef104ab38162c734aea70b8f3fd1b0cc32a994377c0e46bbdc8e153a8bacf",
+    "prompts_sha256":  "f7426d3aa22764604af5f23a0bdaa18fbc61d600cf4ee1af99a0fea9a14bd095",
+    "code_sha256":  "f88d262ded1de174ba2f1dd148309dbd2c22a5ce060cc86697883db07700b17d",
+    "git_commit":  "7f0fb48ccaa7fc9026b24f41ce2eabc8c99465bd",
+    "input_files":  [
+                        {
+                            "path":  "left18448.tsv",
+                            "sha256":  "51f88cf8964ad32a3a65c9e958e70da04eca0415febd19ba937ad4398e0a6d1a",
+                            "bytes":  1432105
+                        }
+                    ],
+    "task_count":  185,
+    "tasks":  [
+                  {
+                      "index":  0,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0001__e2a4cdfa",
+                      "display_name":  "left18448 第 1-100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0001__e2a4cdfa.json"
+                  },
+                  {
+                      "index":  1,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0002__29b98b05",
+                      "display_name":  "left18448 第 101-200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0002__29b98b05.json"
+                  },
+                  {
+                      "index":  2,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0003__e695b763",
+                      "display_name":  "left18448 第 201-300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0003__e695b763.json"
+                  },
+                  {
+                      "index":  3,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0004__7ffb9fba",
+                      "display_name":  "left18448 第 301-400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0004__7ffb9fba.json"
+                  },
+                  {
+                      "index":  4,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0005__795b6f53",
+                      "display_name":  "left18448 第 401-500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0005__795b6f53.json"
+                  },
+                  {
+                      "index":  5,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0006__04901a85",
+                      "display_name":  "left18448 第 501-600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0006__04901a85.json"
+                  },
+                  {
+                      "index":  6,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0007__6df4d70f",
+                      "display_name":  "left18448 第 601-700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0007__6df4d70f.json"
+                  },
+                  {
+                      "index":  7,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0008__85469644",
+                      "display_name":  "left18448 第 701-800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0008__85469644.json"
+                  },
+                  {
+                      "index":  8,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0009__a72bddcd",
+                      "display_name":  "left18448 第 801-900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0009__a72bddcd.json"
+                  },
+                  {
+                      "index":  9,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0010__824a3194",
+                      "display_name":  "left18448 第 901-1000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0010__824a3194.json"
+                  },
+                  {
+                      "index":  10,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0011__1d3b8125",
+                      "display_name":  "left18448 第 1001-1100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0011__1d3b8125.json"
+                  },
+                  {
+                      "index":  11,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0012__4b6a151c",
+                      "display_name":  "left18448 第 1101-1200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0012__4b6a151c.json"
+                  },
+                  {
+                      "index":  12,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0013__da5848f1",
+                      "display_name":  "left18448 第 1201-1300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0013__da5848f1.json"
+                  },
+                  {
+                      "index":  13,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0014__4abbde02",
+                      "display_name":  "left18448 第 1301-1400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0014__4abbde02.json"
+                  },
+                  {
+                      "index":  14,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0015__b1093c86",
+                      "display_name":  "left18448 第 1401-1500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0015__b1093c86.json"
+                  },
+                  {
+                      "index":  15,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0016__586dbccc",
+                      "display_name":  "left18448 第 1501-1600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0016__586dbccc.json"
+                  },
+                  {
+                      "index":  16,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0017__4d057db6",
+                      "display_name":  "left18448 第 1601-1700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0017__4d057db6.json"
+                  },
+                  {
+                      "index":  17,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0018__1347ece5",
+                      "display_name":  "left18448 第 1701-1800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0018__1347ece5.json"
+                  },
+                  {
+                      "index":  18,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0019__d91ca7a1",
+                      "display_name":  "left18448 第 1801-1900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0019__d91ca7a1.json"
+                  },
+                  {
+                      "index":  19,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0020__91364c57",
+                      "display_name":  "left18448 第 1901-2000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0020__91364c57.json"
+                  },
+                  {
+                      "index":  20,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0021__6d260cc2",
+                      "display_name":  "left18448 第 2001-2100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0021__6d260cc2.json"
+                  },
+                  {
+                      "index":  21,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0022__d5ee1dd9",
+                      "display_name":  "left18448 第 2101-2200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0022__d5ee1dd9.json"
+                  },
+                  {
+                      "index":  22,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0023__e4a94cee",
+                      "display_name":  "left18448 第 2201-2300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0023__e4a94cee.json"
+                  },
+                  {
+                      "index":  23,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0024__3b10ce8f",
+                      "display_name":  "left18448 第 2301-2400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0024__3b10ce8f.json"
+                  },
+                  {
+                      "index":  24,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0025__f2bf2d2b",
+                      "display_name":  "left18448 第 2401-2500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0025__f2bf2d2b.json"
+                  },
+                  {
+                      "index":  25,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0026__49189c06",
+                      "display_name":  "left18448 第 2501-2600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0026__49189c06.json"
+                  },
+                  {
+                      "index":  26,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0027__d378e4f9",
+                      "display_name":  "left18448 第 2601-2700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0027__d378e4f9.json"
+                  },
+                  {
+                      "index":  27,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0028__3e966ed4",
+                      "display_name":  "left18448 第 2701-2800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0028__3e966ed4.json"
+                  },
+                  {
+                      "index":  28,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0029__f530c13f",
+                      "display_name":  "left18448 第 2801-2900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0029__f530c13f.json"
+                  },
+                  {
+                      "index":  29,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0030__e84d571f",
+                      "display_name":  "left18448 第 2901-3000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0030__e84d571f.json"
+                  },
+                  {
+                      "index":  30,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0031__92d1d615",
+                      "display_name":  "left18448 第 3001-3100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0031__92d1d615.json"
+                  },
+                  {
+                      "index":  31,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0032__0c6dc423",
+                      "display_name":  "left18448 第 3101-3200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0032__0c6dc423.json"
+                  },
+                  {
+                      "index":  32,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0033__b6cfb8ef",
+                      "display_name":  "left18448 第 3201-3300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0033__b6cfb8ef.json"
+                  },
+                  {
+                      "index":  33,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0034__77233873",
+                      "display_name":  "left18448 第 3301-3400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0034__77233873.json"
+                  },
+                  {
+                      "index":  34,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0035__fe1ab626",
+                      "display_name":  "left18448 第 3401-3500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0035__fe1ab626.json"
+                  },
+                  {
+                      "index":  35,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0036__bf72c150",
+                      "display_name":  "left18448 第 3501-3600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0036__bf72c150.json"
+                  },
+                  {
+                      "index":  36,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0037__8487e47c",
+                      "display_name":  "left18448 第 3601-3700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0037__8487e47c.json"
+                  },
+                  {
+                      "index":  37,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0038__c3d069d2",
+                      "display_name":  "left18448 第 3701-3800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0038__c3d069d2.json"
+                  },
+                  {
+                      "index":  38,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0039__f72aa8d1",
+                      "display_name":  "left18448 第 3801-3900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0039__f72aa8d1.json"
+                  },
+                  {
+                      "index":  39,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0040__71081dc5",
+                      "display_name":  "left18448 第 3901-4000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0040__71081dc5.json"
+                  },
+                  {
+                      "index":  40,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0041__031d4503",
+                      "display_name":  "left18448 第 4001-4100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0041__031d4503.json"
+                  },
+                  {
+                      "index":  41,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0042__f7dd8cd4",
+                      "display_name":  "left18448 第 4101-4200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0042__f7dd8cd4.json"
+                  },
+                  {
+                      "index":  42,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0043__b16a49d7",
+                      "display_name":  "left18448 第 4201-4300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0043__b16a49d7.json"
+                  },
+                  {
+                      "index":  43,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0044__6cb2077a",
+                      "display_name":  "left18448 第 4301-4400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0044__6cb2077a.json"
+                  },
+                  {
+                      "index":  44,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0045__baf0f26c",
+                      "display_name":  "left18448 第 4401-4500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0045__baf0f26c.json"
+                  },
+                  {
+                      "index":  45,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0046__8e98c739",
+                      "display_name":  "left18448 第 4501-4600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0046__8e98c739.json"
+                  },
+                  {
+                      "index":  46,
+                      "partition":  1,
+                      "task_id":  "left18448__batch__0047__e0cbf046",
+                      "display_name":  "left18448 第 4601-4700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-01/left18448__batch__0047__e0cbf046.json"
+                  },
+                  {
+                      "index":  47,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0048__c4c3ed57",
+                      "display_name":  "left18448 第 4701-4800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0048__c4c3ed57.json"
+                  },
+                  {
+                      "index":  48,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0049__69cf3e1e",
+                      "display_name":  "left18448 第 4801-4900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0049__69cf3e1e.json"
+                  },
+                  {
+                      "index":  49,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0050__7e98ac2f",
+                      "display_name":  "left18448 第 4901-5000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0050__7e98ac2f.json"
+                  },
+                  {
+                      "index":  50,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0051__d83a14f4",
+                      "display_name":  "left18448 第 5001-5100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0051__d83a14f4.json"
+                  },
+                  {
+                      "index":  51,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0052__35351afe",
+                      "display_name":  "left18448 第 5101-5200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0052__35351afe.json"
+                  },
+                  {
+                      "index":  52,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0053__1aa944e9",
+                      "display_name":  "left18448 第 5201-5300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0053__1aa944e9.json"
+                  },
+                  {
+                      "index":  53,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0054__3369c6d6",
+                      "display_name":  "left18448 第 5301-5400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0054__3369c6d6.json"
+                  },
+                  {
+                      "index":  54,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0055__a0f707dd",
+                      "display_name":  "left18448 第 5401-5500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0055__a0f707dd.json"
+                  },
+                  {
+                      "index":  55,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0056__b8e17058",
+                      "display_name":  "left18448 第 5501-5600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0056__b8e17058.json"
+                  },
+                  {
+                      "index":  56,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0057__2b64831e",
+                      "display_name":  "left18448 第 5601-5700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0057__2b64831e.json"
+                  },
+                  {
+                      "index":  57,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0058__5ce4e54a",
+                      "display_name":  "left18448 第 5701-5800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0058__5ce4e54a.json"
+                  },
+                  {
+                      "index":  58,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0059__08df722d",
+                      "display_name":  "left18448 第 5801-5900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0059__08df722d.json"
+                  },
+                  {
+                      "index":  59,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0060__99acd93e",
+                      "display_name":  "left18448 第 5901-6000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0060__99acd93e.json"
+                  },
+                  {
+                      "index":  60,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0061__07abe0e0",
+                      "display_name":  "left18448 第 6001-6100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0061__07abe0e0.json"
+                  },
+                  {
+                      "index":  61,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0062__23d1ccb4",
+                      "display_name":  "left18448 第 6101-6200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0062__23d1ccb4.json"
+                  },
+                  {
+                      "index":  62,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0063__143f0d09",
+                      "display_name":  "left18448 第 6201-6300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0063__143f0d09.json"
+                  },
+                  {
+                      "index":  63,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0064__7a4701e0",
+                      "display_name":  "left18448 第 6301-6400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0064__7a4701e0.json"
+                  },
+                  {
+                      "index":  64,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0065__53ba85ff",
+                      "display_name":  "left18448 第 6401-6500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0065__53ba85ff.json"
+                  },
+                  {
+                      "index":  65,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0066__9328e0c5",
+                      "display_name":  "left18448 第 6501-6600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0066__9328e0c5.json"
+                  },
+                  {
+                      "index":  66,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0067__fa751bf1",
+                      "display_name":  "left18448 第 6601-6700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0067__fa751bf1.json"
+                  },
+                  {
+                      "index":  67,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0068__63ddfd86",
+                      "display_name":  "left18448 第 6701-6800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0068__63ddfd86.json"
+                  },
+                  {
+                      "index":  68,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0069__802bc892",
+                      "display_name":  "left18448 第 6801-6900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0069__802bc892.json"
+                  },
+                  {
+                      "index":  69,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0070__f788ca97",
+                      "display_name":  "left18448 第 6901-7000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0070__f788ca97.json"
+                  },
+                  {
+                      "index":  70,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0071__5815c279",
+                      "display_name":  "left18448 第 7001-7100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0071__5815c279.json"
+                  },
+                  {
+                      "index":  71,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0072__dbfe584e",
+                      "display_name":  "left18448 第 7101-7200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0072__dbfe584e.json"
+                  },
+                  {
+                      "index":  72,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0073__532d84c3",
+                      "display_name":  "left18448 第 7201-7300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0073__532d84c3.json"
+                  },
+                  {
+                      "index":  73,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0074__789f5361",
+                      "display_name":  "left18448 第 7301-7400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0074__789f5361.json"
+                  },
+                  {
+                      "index":  74,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0075__b2e0996a",
+                      "display_name":  "left18448 第 7401-7500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0075__b2e0996a.json"
+                  },
+                  {
+                      "index":  75,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0076__5e6e5c2c",
+                      "display_name":  "left18448 第 7501-7600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0076__5e6e5c2c.json"
+                  },
+                  {
+                      "index":  76,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0077__a65756b0",
+                      "display_name":  "left18448 第 7601-7700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0077__a65756b0.json"
+                  },
+                  {
+                      "index":  77,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0078__694c7a1f",
+                      "display_name":  "left18448 第 7701-7800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0078__694c7a1f.json"
+                  },
+                  {
+                      "index":  78,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0079__dfb2bdcf",
+                      "display_name":  "left18448 第 7801-7900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0079__dfb2bdcf.json"
+                  },
+                  {
+                      "index":  79,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0080__90114922",
+                      "display_name":  "left18448 第 7901-8000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0080__90114922.json"
+                  },
+                  {
+                      "index":  80,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0081__b8384225",
+                      "display_name":  "left18448 第 8001-8100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0081__b8384225.json"
+                  },
+                  {
+                      "index":  81,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0082__8c7d1cf1",
+                      "display_name":  "left18448 第 8101-8200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0082__8c7d1cf1.json"
+                  },
+                  {
+                      "index":  82,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0083__b160b312",
+                      "display_name":  "left18448 第 8201-8300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0083__b160b312.json"
+                  },
+                  {
+                      "index":  83,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0084__b95defbc",
+                      "display_name":  "left18448 第 8301-8400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0084__b95defbc.json"
+                  },
+                  {
+                      "index":  84,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0085__6d53cb53",
+                      "display_name":  "left18448 第 8401-8500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0085__6d53cb53.json"
+                  },
+                  {
+                      "index":  85,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0086__04b1b49e",
+                      "display_name":  "left18448 第 8501-8600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0086__04b1b49e.json"
+                  },
+                  {
+                      "index":  86,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0087__68b57551",
+                      "display_name":  "left18448 第 8601-8700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0087__68b57551.json"
+                  },
+                  {
+                      "index":  87,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0088__7a342a00",
+                      "display_name":  "left18448 第 8701-8800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0088__7a342a00.json"
+                  },
+                  {
+                      "index":  88,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0089__0a5d6b55",
+                      "display_name":  "left18448 第 8801-8900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0089__0a5d6b55.json"
+                  },
+                  {
+                      "index":  89,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0090__f3cc1935",
+                      "display_name":  "left18448 第 8901-9000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0090__f3cc1935.json"
+                  },
+                  {
+                      "index":  90,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0091__5de39dd6",
+                      "display_name":  "left18448 第 9001-9100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0091__5de39dd6.json"
+                  },
+                  {
+                      "index":  91,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0092__3554bcf4",
+                      "display_name":  "left18448 第 9101-9200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0092__3554bcf4.json"
+                  },
+                  {
+                      "index":  92,
+                      "partition":  2,
+                      "task_id":  "left18448__batch__0093__a16aad3e",
+                      "display_name":  "left18448 第 9201-9300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-02/left18448__batch__0093__a16aad3e.json"
+                  },
+                  {
+                      "index":  93,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0094__a422bfd1",
+                      "display_name":  "left18448 第 9301-9400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0094__a422bfd1.json"
+                  },
+                  {
+                      "index":  94,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0095__96e7c7d9",
+                      "display_name":  "left18448 第 9401-9500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0095__96e7c7d9.json"
+                  },
+                  {
+                      "index":  95,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0096__6a661694",
+                      "display_name":  "left18448 第 9501-9600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0096__6a661694.json"
+                  },
+                  {
+                      "index":  96,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0097__24124667",
+                      "display_name":  "left18448 第 9601-9700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0097__24124667.json"
+                  },
+                  {
+                      "index":  97,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0098__4717c83f",
+                      "display_name":  "left18448 第 9701-9800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0098__4717c83f.json"
+                  },
+                  {
+                      "index":  98,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0099__77f0d4b4",
+                      "display_name":  "left18448 第 9801-9900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0099__77f0d4b4.json"
+                  },
+                  {
+                      "index":  99,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0100__4ac25249",
+                      "display_name":  "left18448 第 9901-10000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0100__4ac25249.json"
+                  },
+                  {
+                      "index":  100,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0101__48e22b8a",
+                      "display_name":  "left18448 第 10001-10100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0101__48e22b8a.json"
+                  },
+                  {
+                      "index":  101,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0102__56eb5fc8",
+                      "display_name":  "left18448 第 10101-10200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0102__56eb5fc8.json"
+                  },
+                  {
+                      "index":  102,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0103__2fdf23fc",
+                      "display_name":  "left18448 第 10201-10300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0103__2fdf23fc.json"
+                  },
+                  {
+                      "index":  103,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0104__91d576d5",
+                      "display_name":  "left18448 第 10301-10400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0104__91d576d5.json"
+                  },
+                  {
+                      "index":  104,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0105__c0a54662",
+                      "display_name":  "left18448 第 10401-10500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0105__c0a54662.json"
+                  },
+                  {
+                      "index":  105,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0106__9dbe60ec",
+                      "display_name":  "left18448 第 10501-10600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0106__9dbe60ec.json"
+                  },
+                  {
+                      "index":  106,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0107__c4c1d2f6",
+                      "display_name":  "left18448 第 10601-10700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0107__c4c1d2f6.json"
+                  },
+                  {
+                      "index":  107,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0108__aad9da3d",
+                      "display_name":  "left18448 第 10701-10800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0108__aad9da3d.json"
+                  },
+                  {
+                      "index":  108,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0109__7f4de138",
+                      "display_name":  "left18448 第 10801-10900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0109__7f4de138.json"
+                  },
+                  {
+                      "index":  109,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0110__49353451",
+                      "display_name":  "left18448 第 10901-11000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0110__49353451.json"
+                  },
+                  {
+                      "index":  110,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0111__c8273e79",
+                      "display_name":  "left18448 第 11001-11100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0111__c8273e79.json"
+                  },
+                  {
+                      "index":  111,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0112__6619deb8",
+                      "display_name":  "left18448 第 11101-11200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0112__6619deb8.json"
+                  },
+                  {
+                      "index":  112,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0113__d7a1a5a1",
+                      "display_name":  "left18448 第 11201-11300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0113__d7a1a5a1.json"
+                  },
+                  {
+                      "index":  113,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0114__256daec4",
+                      "display_name":  "left18448 第 11301-11400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0114__256daec4.json"
+                  },
+                  {
+                      "index":  114,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0115__a12a2e8f",
+                      "display_name":  "left18448 第 11401-11500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0115__a12a2e8f.json"
+                  },
+                  {
+                      "index":  115,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0116__d995bac2",
+                      "display_name":  "left18448 第 11501-11600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0116__d995bac2.json"
+                  },
+                  {
+                      "index":  116,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0117__0e4bc1b9",
+                      "display_name":  "left18448 第 11601-11700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0117__0e4bc1b9.json"
+                  },
+                  {
+                      "index":  117,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0118__245e4db5",
+                      "display_name":  "left18448 第 11701-11800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0118__245e4db5.json"
+                  },
+                  {
+                      "index":  118,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0119__d39f8807",
+                      "display_name":  "left18448 第 11801-11900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0119__d39f8807.json"
+                  },
+                  {
+                      "index":  119,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0120__89403bd6",
+                      "display_name":  "left18448 第 11901-12000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0120__89403bd6.json"
+                  },
+                  {
+                      "index":  120,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0121__6136341c",
+                      "display_name":  "left18448 第 12001-12100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0121__6136341c.json"
+                  },
+                  {
+                      "index":  121,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0122__6e4be841",
+                      "display_name":  "left18448 第 12101-12200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0122__6e4be841.json"
+                  },
+                  {
+                      "index":  122,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0123__5cfded49",
+                      "display_name":  "left18448 第 12201-12300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0123__5cfded49.json"
+                  },
+                  {
+                      "index":  123,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0124__92a03369",
+                      "display_name":  "left18448 第 12301-12400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0124__92a03369.json"
+                  },
+                  {
+                      "index":  124,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0125__994669ce",
+                      "display_name":  "left18448 第 12401-12500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0125__994669ce.json"
+                  },
+                  {
+                      "index":  125,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0126__7a26e8b6",
+                      "display_name":  "left18448 第 12501-12600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0126__7a26e8b6.json"
+                  },
+                  {
+                      "index":  126,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0127__6f38ce5f",
+                      "display_name":  "left18448 第 12601-12700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0127__6f38ce5f.json"
+                  },
+                  {
+                      "index":  127,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0128__e2a1134e",
+                      "display_name":  "left18448 第 12701-12800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0128__e2a1134e.json"
+                  },
+                  {
+                      "index":  128,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0129__88a19068",
+                      "display_name":  "left18448 第 12801-12900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0129__88a19068.json"
+                  },
+                  {
+                      "index":  129,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0130__f965e930",
+                      "display_name":  "left18448 第 12901-13000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0130__f965e930.json"
+                  },
+                  {
+                      "index":  130,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0131__d1cc98e0",
+                      "display_name":  "left18448 第 13001-13100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0131__d1cc98e0.json"
+                  },
+                  {
+                      "index":  131,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0132__be5d6efd",
+                      "display_name":  "left18448 第 13101-13200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0132__be5d6efd.json"
+                  },
+                  {
+                      "index":  132,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0133__935e834b",
+                      "display_name":  "left18448 第 13201-13300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0133__935e834b.json"
+                  },
+                  {
+                      "index":  133,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0134__6f94332d",
+                      "display_name":  "left18448 第 13301-13400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0134__6f94332d.json"
+                  },
+                  {
+                      "index":  134,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0135__7bdc6a9e",
+                      "display_name":  "left18448 第 13401-13500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0135__7bdc6a9e.json"
+                  },
+                  {
+                      "index":  135,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0136__bc76a03c",
+                      "display_name":  "left18448 第 13501-13600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0136__bc76a03c.json"
+                  },
+                  {
+                      "index":  136,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0137__4d25da4c",
+                      "display_name":  "left18448 第 13601-13700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0137__4d25da4c.json"
+                  },
+                  {
+                      "index":  137,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0138__a00604e0",
+                      "display_name":  "left18448 第 13701-13800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0138__a00604e0.json"
+                  },
+                  {
+                      "index":  138,
+                      "partition":  3,
+                      "task_id":  "left18448__batch__0139__6f5bd22c",
+                      "display_name":  "left18448 第 13801-13900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-03/left18448__batch__0139__6f5bd22c.json"
+                  },
+                  {
+                      "index":  139,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0140__108cf9af",
+                      "display_name":  "left18448 第 13901-14000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0140__108cf9af.json"
+                  },
+                  {
+                      "index":  140,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0141__5e4c49f0",
+                      "display_name":  "left18448 第 14001-14100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0141__5e4c49f0.json"
+                  },
+                  {
+                      "index":  141,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0142__e3cfe7c4",
+                      "display_name":  "left18448 第 14101-14200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0142__e3cfe7c4.json"
+                  },
+                  {
+                      "index":  142,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0143__0f7d4eef",
+                      "display_name":  "left18448 第 14201-14300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0143__0f7d4eef.json"
+                  },
+                  {
+                      "index":  143,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0144__a4dcca35",
+                      "display_name":  "left18448 第 14301-14400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0144__a4dcca35.json"
+                  },
+                  {
+                      "index":  144,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0145__488c65c6",
+                      "display_name":  "left18448 第 14401-14500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0145__488c65c6.json"
+                  },
+                  {
+                      "index":  145,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0146__11160452",
+                      "display_name":  "left18448 第 14501-14600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0146__11160452.json"
+                  },
+                  {
+                      "index":  146,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0147__a0ddbad6",
+                      "display_name":  "left18448 第 14601-14700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0147__a0ddbad6.json"
+                  },
+                  {
+                      "index":  147,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0148__59486f66",
+                      "display_name":  "left18448 第 14701-14800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0148__59486f66.json"
+                  },
+                  {
+                      "index":  148,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0149__63a8c9c4",
+                      "display_name":  "left18448 第 14801-14900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0149__63a8c9c4.json"
+                  },
+                  {
+                      "index":  149,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0150__8e33fc88",
+                      "display_name":  "left18448 第 14901-15000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0150__8e33fc88.json"
+                  },
+                  {
+                      "index":  150,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0151__a99a6789",
+                      "display_name":  "left18448 第 15001-15100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0151__a99a6789.json"
+                  },
+                  {
+                      "index":  151,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0152__577e10e8",
+                      "display_name":  "left18448 第 15101-15200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0152__577e10e8.json"
+                  },
+                  {
+                      "index":  152,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0153__c8d3e4e8",
+                      "display_name":  "left18448 第 15201-15300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0153__c8d3e4e8.json"
+                  },
+                  {
+                      "index":  153,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0154__d5a822f0",
+                      "display_name":  "left18448 第 15301-15400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0154__d5a822f0.json"
+                  },
+                  {
+                      "index":  154,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0155__571ba389",
+                      "display_name":  "left18448 第 15401-15500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0155__571ba389.json"
+                  },
+                  {
+                      "index":  155,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0156__86f519be",
+                      "display_name":  "left18448 第 15501-15600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0156__86f519be.json"
+                  },
+                  {
+                      "index":  156,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0157__ec3a8ca0",
+                      "display_name":  "left18448 第 15601-15700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0157__ec3a8ca0.json"
+                  },
+                  {
+                      "index":  157,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0158__3164bc51",
+                      "display_name":  "left18448 第 15701-15800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0158__3164bc51.json"
+                  },
+                  {
+                      "index":  158,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0159__ec837699",
+                      "display_name":  "left18448 第 15801-15900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0159__ec837699.json"
+                  },
+                  {
+                      "index":  159,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0160__73981dc1",
+                      "display_name":  "left18448 第 15901-16000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0160__73981dc1.json"
+                  },
+                  {
+                      "index":  160,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0161__67780970",
+                      "display_name":  "left18448 第 16001-16100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0161__67780970.json"
+                  },
+                  {
+                      "index":  161,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0162__88674c01",
+                      "display_name":  "left18448 第 16101-16200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0162__88674c01.json"
+                  },
+                  {
+                      "index":  162,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0163__917565df",
+                      "display_name":  "left18448 第 16201-16300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0163__917565df.json"
+                  },
+                  {
+                      "index":  163,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0164__4e3300be",
+                      "display_name":  "left18448 第 16301-16400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0164__4e3300be.json"
+                  },
+                  {
+                      "index":  164,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0165__da4a29ec",
+                      "display_name":  "left18448 第 16401-16500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0165__da4a29ec.json"
+                  },
+                  {
+                      "index":  165,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0166__4a854ffd",
+                      "display_name":  "left18448 第 16501-16600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0166__4a854ffd.json"
+                  },
+                  {
+                      "index":  166,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0167__cd976849",
+                      "display_name":  "left18448 第 16601-16700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0167__cd976849.json"
+                  },
+                  {
+                      "index":  167,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0168__5ed60e57",
+                      "display_name":  "left18448 第 16701-16800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0168__5ed60e57.json"
+                  },
+                  {
+                      "index":  168,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0169__23d8e4fe",
+                      "display_name":  "left18448 第 16801-16900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0169__23d8e4fe.json"
+                  },
+                  {
+                      "index":  169,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0170__c90cd8bf",
+                      "display_name":  "left18448 第 16901-17000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0170__c90cd8bf.json"
+                  },
+                  {
+                      "index":  170,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0171__daf4a872",
+                      "display_name":  "left18448 第 17001-17100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0171__daf4a872.json"
+                  },
+                  {
+                      "index":  171,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0172__8c77e355",
+                      "display_name":  "left18448 第 17101-17200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0172__8c77e355.json"
+                  },
+                  {
+                      "index":  172,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0173__91127262",
+                      "display_name":  "left18448 第 17201-17300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0173__91127262.json"
+                  },
+                  {
+                      "index":  173,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0174__7e0f0406",
+                      "display_name":  "left18448 第 17301-17400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0174__7e0f0406.json"
+                  },
+                  {
+                      "index":  174,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0175__bf7d5e8d",
+                      "display_name":  "left18448 第 17401-17500 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0175__bf7d5e8d.json"
+                  },
+                  {
+                      "index":  175,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0176__0e079de2",
+                      "display_name":  "left18448 第 17501-17600 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0176__0e079de2.json"
+                  },
+                  {
+                      "index":  176,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0177__0039a650",
+                      "display_name":  "left18448 第 17601-17700 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0177__0039a650.json"
+                  },
+                  {
+                      "index":  177,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0178__f24f9b04",
+                      "display_name":  "left18448 第 17701-17800 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0178__f24f9b04.json"
+                  },
+                  {
+                      "index":  178,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0179__509be5ec",
+                      "display_name":  "left18448 第 17801-17900 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0179__509be5ec.json"
+                  },
+                  {
+                      "index":  179,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0180__9a722829",
+                      "display_name":  "left18448 第 17901-18000 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0180__9a722829.json"
+                  },
+                  {
+                      "index":  180,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0181__09213ece",
+                      "display_name":  "left18448 第 18001-18100 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0181__09213ece.json"
+                  },
+                  {
+                      "index":  181,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0182__ee2fe9f8",
+                      "display_name":  "left18448 第 18101-18200 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0182__ee2fe9f8.json"
+                  },
+                  {
+                      "index":  182,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0183__8f2c620e",
+                      "display_name":  "left18448 第 18201-18300 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0183__8f2c620e.json"
+                  },
+                  {
+                      "index":  183,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0184__c249918f",
+                      "display_name":  "left18448 第 18301-18400 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0184__c249918f.json"
+                  },
+                  {
+                      "index":  184,
+                      "partition":  4,
+                      "task_id":  "left18448__batch__0185__af591c1f",
+                      "display_name":  "left18448 第 18401-18448 行",
+                      "source_name":  "left18448.tsv",
+                      "checkpoint_path":  "checkpoints/part-04/left18448__batch__0185__af591c1f.json"
+                  }
+              ]
+}

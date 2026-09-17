@@ -1,0 +1,24 @@
+========================================
+playwright 全量表补强自动化
+========================================
+找到 1 个去重后的 TSV 文件，生成 185 个独立任务（粒度: batch）。
+当前只运行任务分片 162/185（contiguous，共 1 个任务）。
+检查目录和文件...
+初始化 playwright browser...
+playwright browser 就绪。
+打开 ChatGPT: https://chatgpt.com/
+ChatGPT 已登录，输入框已就绪。
+
+批次进度总览:
+  总计: 1 批次 | 成功: 0 | 错误: 0 | 处理中: 1 | 待处理: 0
+  下一批次: #1 left18448 第 16101-16200 行 [processing]
+
+
+处理任务: left18448 第 16101-16200 行（来源: left18448.tsv）
+  Ktype 状态已保存: READY=0 | PENDING=100 | revision=2
+  从车型 checkpoint 恢复原对话（第 1 轮）...
+  waiting_reply checkpoint 已存在完整最终回复；直接落盘完成。
+完成: left18448.tsv#left18448 第 16101-16200 行 -> 成功 (恢复 waiting_reply 时检测到服务器端已有完整表及下载链接；已更新累计最终 TSV)
+
+全部处理完成。汇总文件: D:\Licheng\Repo\fitment_sheet_generation\projects\qclaw_fitment_automation\workspaces\0802-eu\partitions\part-04\summary.txt
+关闭脚本托管的 Playwright Chrome...

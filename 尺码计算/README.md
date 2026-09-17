@@ -18,7 +18,7 @@
 python 尺码计算\pandas_analysis.py
 ```
 
-默认从仓库 `public` 读取 `尺寸库.csv`、`车身分类.csv`、`销量明细.csv` 和 `参考尺寸计算.csv`；`子车系维护表.csv` 为可选输入，缺失时按下文规则保留 TRIM。尺码匹配参数与规则放在 `尺码计算/rules`。程序只生成 `尺码计算/output/pandas_output.csv`，不会自动覆盖 `public`；审核后发布为 `public/全量数据.csv`。
+默认从仓库 `public` 读取 `尺寸库.csv`、`车身分类.csv`、`销量明细.csv` 和 `参考尺寸计算.csv`；`子车系维护表.csv` 为可选输入，缺失时按下文规则保留 TRIM。尺码匹配参数与规则放在 `尺码计算/rules`。程序生成 `尺码计算/output/尺寸分析表.csv` 与 `尺码计算/output/pandas_output.csv`，不会自动覆盖发布文件。
 
 CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引号的 `74,286`，因此可被 pandas、Excel 和数据库稳定解析。
 
@@ -29,6 +29,7 @@ CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引
 python 尺码计算\pandas_analysis.py `
   --source-dir public `
   --config-dir 尺码计算\rules `
+  --analysis-output 尺码计算\output\尺寸分析表.csv `
   --output 尺码计算\output\pandas_output.csv
 
 # 兼容旧的全量 input 副本，仅用于历史回归
@@ -49,13 +50,17 @@ python 尺码计算\pandas_analysis.py `
 
 结果审核通过后，可运行 `python data_workflow.py publish-plan 全量数据` 获取人工覆盖步骤。
 
-最终结果默认按 `DIMENSION-ID` 升序排列，并把 `DIMENSION-ID` 放在最后一列。
+最终结果默认按 `DIMENSION-ID` 升序排列，并把 `DIMENSION-ID` 放在最后一列。US 全量发布结果会在基础 ID 末尾追加 `US`。
+
+## 尺寸分析表
+
+尺寸分析表位于尺寸库和全量表之间，共 21 列。它保留 `MAKE` 至 `等效长` 的车型、销量、车形及尺寸派生字段，并把 `DIMENSION-ID` 放在最后一列；不包含 `自动尺码`、`自动长度余量`、`候选`、`原因`、`相差数值`。全量表以同一批尺寸分析数据为基础增加这 5 个尺码匹配结果列。
 
 ## 当前全量表计算列
 
 本节对应当前发布的 [`public/全量数据.csv`](../public/全量数据.csv)，以 [`pandas_analysis.py`](pandas_analysis.py) 的正式计算流程为准。下述尺寸均为 **毫米**；`R(x)` 表示按五成双取整，例如 `R(2000.5)=2000`、`R(2001.5)=2002`。
 
-输入基表为 `public/尺寸库.csv`。`MAKE`、`MODEL`、`版本`、`结构`、`CAB`、`BED`、`代际`、`YEAR`、`分类`、`DIMENSION-ID` 直接保留，不在尺码计算中重新分类或重建主键。其他列按下表生成。
+输入基表为 `public/尺寸库.csv`。`MAKE`、`MODEL`、`版本`、`结构`、`CAB`、`BED`、`代际`、`YEAR`、`分类`、基础 `DIMENSION-ID` 在计算链内直接保留，不重新分类或重建主键；写出 US 全量表前统一追加 `US`。其他列按下表生成。
 
 ### 尺寸、车形与销量
 
@@ -79,7 +84,7 @@ python 尺码计算\pandas_analysis.py `
 
 ### 尺码结果列
 
-规则来源为 `rules/尺码匹配规则.csv`，容差来源为 `rules/尺码匹配参数.csv`；当前 `余量长容差=500` mm。
+规则来源为 `rules/尺码匹配规则.csv`，容差来源为 `rules/尺码匹配参数.csv`；当前 `余量长容差=550` mm。
 
 | 输出列 | 生成方法 | 空值或异常情况 |
 | --- | --- | --- |

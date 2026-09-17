@@ -227,16 +227,22 @@ def bed_code(consumer_name: str, config: dict) -> str:
     return config.get("bed_prefix", "B") + "-".join(codes)
 
 
+def abbreviation(value: str, configured: dict[str, str], kind: str) -> str:
+    """Return a configured token, or a deterministic ASCII token for new names."""
+    if value in configured:
+        return configured[value]
+    token = re.sub(r"[^A-Za-z0-9]+", "-", value).strip("-").upper()
+    if not token:
+        raise ValueError(f"无法为 {kind} 生成 SKU 缩写：{value}")
+    return token
+
+
 def sku_name(row: pd.Series, config: dict) -> str:
     make = str(row.get("MAKE", "")).strip()
     model = str(row.get("MODEL", "")).strip()
     make_map = config["make_abbreviations"]
     model_map = config["model_abbreviations"]
-    if make not in make_map:
-        raise ValueError(f"sku_abbreviations.json 缺少 MAKE 缩写：{make}")
-    if model not in model_map:
-        raise ValueError(f"sku_abbreviations.json 缺少 MODEL 缩写：{model}")
-    tokens = [make_map[make], model_map[model]]
+    tokens = [abbreviation(make, make_map, "MAKE"), abbreviation(model, model_map, "MODEL")]
     is_pickup = str(row.get("分类", "")).strip() == "皮卡" or bool(str(row.get("TRUCK_TYPE", "")).strip())
     if is_pickup:
         axle = str(row.get("AXLE_TYPE", "")).strip()

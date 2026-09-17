@@ -1,0 +1,91 @@
+version: 1
+
+# 默认直接工作。可临时改为 check（浏览器自检）或 dry_run（仅显示遍历结果）。
+mode: work
+
+workspace:
+  root: ..
+  traversal:
+    # directories: 遍历 root 的直接子目录；glob: 使用 include 通配；explicit: 使用 projects 清单。
+    strategy: explicit
+    projects:
+      - 0724-moto
+    include:
+      - "*"
+    exclude:
+      - "_*"
+      - "*.disabled"
+    order: name_asc
+    max_projects: 0
+
+project_layout:
+  input: input
+  output: output
+  log: log.csv
+  summary: summary.txt
+
+runtime:
+  max_rounds: 150
+  # 单轮回复（含接管存档对话时等待其空闲）的最长等待时间，单位：秒。
+  max_reply_wait_seconds: 9999
+  browser: playwright # openclaw / playwright
+  conversation:
+    # 逐行模式会为每行打开全新对话；中断续跑使用各任务 checkpoint。
+    mode: new
+    archive_code: ""
+    archive_path: conversation_archives.json
+  # 输入来源可以同时包含目录遍历结果和单独指定的文件；重复文件会按绝对路径去重。
+  input_sources:
+    directories:
+      - path: input
+        pattern: "*.tsv"
+        recursive: false
+    files:
+      # 此文件也会被上面的目录找到，用于验证合并去重；可改成目录外的其他 TSV。
+      - input/list.tsv
+    order: name_asc
+  processing:
+    # file: 每个完整文件独立新对话；row: 每个非空数据行独立新对话。
+    mode: file
+    row_label_columns:
+      - MAKE
+      - MODEL
+    checkpoint_dir: checkpoints
+  continue_on_error: false
+  only_files: []
+  input_files:
+    skip_processed: true
+
+data_contract:
+  requirement: ..\..\requirements\moto.md
+  dimension_representative:
+    enabled: true
+    # 同一个完整组合才允许共享尺寸；任一字段不同就是不同尺寸 key。
+    key_columns:
+      - MAKE
+      - MODEL
+      - 代际
+      - 版本
+    year_column: YEAR
+    dimension_columns:
+      - L-MM
+      - W-MM
+      - H-MM
+    # 至少比较两个不同年份；实际研究还应尽量覆盖首年、末年和改款点。
+    minimum_comparison_years: 2
+    outlier:
+      # absolute_or_relative: 绝对差或相对差任一超限，就禁止整段复用。
+      comparison_rule: absolute_or_relative
+      max_absolute_difference:
+        L-MM: 100.0
+        W-MM: 50.0
+        H-MM: 50.0
+      max_relative_difference_percent: 3.0
+    representative_year:
+      # 在已验证无 outlier 的范围内，选择资料最好找、来源最可靠的一年。
+      strategy: best_documented
+    # 必须写下代表年、验证范围、spread、阈值结论和来源。
+    audit_columns:
+      - 参考车型
+      - 来源URL
+      - 备注

@@ -1,0 +1,765 @@
+﻿# 任务：all 第 1-100 行
+# 来源文件：all.tsv
+# 任务 ID：all__batch__0001__b08372bd
+
+
+--- 发送 / 首次任务 ---
+【任务名称】
+【全量表更新】all 第 1-100 行
+
+【任务要求】
+# EU Auto-Data Ktype 与尺寸组补全规则
+
+本规则适用于以下 Tab 分隔的欧洲车型输入表。`Ktype` 是输入车型标识，但不保证唯一对应一个物理车身。输出必须包含两张互相解耦的全量 TSV：
+
+1. `Ktype 映射表`：保存 Ktype、派生主键和尺寸组关系。
+2. `DIMENSION_GROUP 表`：保存每个尺寸组唯一一套长宽高及其来源。
+
+```tsv
+Make	Model	VariantName	BodyStyle	DriveType	Energy	EngineOutputKW	EngineOutputHP	Product Start Month-Year	Product End Month-Year	LastProcessedDate	Ktype	LatestStatus
+Opel	Corsa d	1.4	Schrägheck	Frontantrieb	Benzin	66	90	Jul 2006	Aug 2014	2024-03-01	1	NEW
+```
+
+<!-- fitment-data-contract
+full_table:
+  columns:
+    - id
+    - Ktype
+    - NormalizedBodyStyle
+    - Generation
+    - BodyCode
+    - Doors
+    - DIMENSION_GROUP_ID
+    - MatchConfidence
+    - Notes
+    - IterationStatus
+  auto_empty_columns: []
+dimension_group_table:
+  enabled: true
+  columns:
+    - DIMENSION_GROUP_ID
+    - LengthMM
+    - WidthMM
+    - HeightMM
+    - DimensionSource
+    - SourceURL
+  auto_empty_columns: []
+subseries_match:
+  enabled: false
+  columns: []
+  auto_empty_columns: []
+-->
+
+## 一、输出模型与粒度
+
+### 1. Ktype 映射表
+
+Ktype 映射表只表达车型和物理尺寸组之间的关系，不重复输入表字段，也不保存具体尺寸值或抓取过程字段。
+
+- `id`：映射表唯一主键，按文本处理。
+- `Ktype`：指向输入表的外键，必须逐字保留；禁止转为浮点数、改写前导零或生成不存在的 Ktype。
+- `DIMENSION_GROUP_ID`：指向 DIMENSION_GROUP 表的外键。
+- 一个 Ktype 可以对应多个 `id` 和多个 `DIMENSION_GROUP_ID`。
+- 多个 Ktype 也可以引用同一个 `DIMENSION_GROUP_ID`，因此业务关系允许多对多。
+- 每个输入 Ktype 至少输出一行；不得因待处理或共用尺寸组而删除。
+- 不输出 `Make`、`Model`、`VariantName`、生产年月等其他输入字段，需要时通过 Ktype 回查输入表。
+- 不在映射表保存 `WheelbaseMM`、`LengthMM`、`WidthMM`、`HeightMM`、`WidthBasis`、`EndDateStatus`、`ResolutionStatus`、`CacheSourceKtype`、`MatchReason`、`DimensionSource` 或 `SourceURL`。
+
+### 2. id 生成规则
+
+- 当一个 Ktype 唯一对应一条物理尺寸记录时，`id` 直接等于 Ktype，例如 `2`。
+- 当一个 Ktype 对应多个不同物理车身或尺寸时，分别输出多行，`id` 使用 `{Ktype}_{描述}`，例如 `1_3dr`、`1_5dr`。
+- 后缀必须简短、稳定、可读，并表达造成物理外廓差异的特征。优先使用 `3dr`、`5dr`、`swb`、`lwb`、`lowroof`、`highroof`、`srw`、`drw`、`prefl`、`facelift` 等小写 ASCII 标记；必要时组合，例如 `12_5dr_facelift`。
+- Ktype 拆成派生行后，不再保留无后缀的 `id=Ktype` 基础行。
+- 不得使用无语义临时序号掩盖未确认差异。
+- 已确认 Ktype 覆盖多个物理外廓时，必须输出全部派生行，不能任选一个，也不能仅因 Ktype 不唯一而保持 `PENDING`。
+- 若证据只表明可能存在多个外廓，但尚不能确认具体分支，则暂时保留 `id=Ktype` 的一行并标记 `PENDING`，不得创建猜测性派生行。
+
+### 3. DIMENSION_GROUP 表
+
+DIMENSION_GROUP 表是尺寸事实的唯一落盘位置。
+
+- 每个 `DIMENSION_GROUP_ID` 恰好出现一次。
+- 每行必须完整填写 `LengthMM`、`WidthMM`、`HeightMM`、`DimensionSource` 和 `SourceURL`。
+- Ktype 映射表中引用的每个 `DIMENSION_GROUP_ID` 都必须存在于本表。
+- 本表不得包含当前 Ktype 映射表完全未引用的孤立尺寸组。
+- 相同物理外廓只能复用同一个稳定 `DIMENSION_GROUP_ID`，不得因 Ktype、发动机或来源不同重复建组。
+- 物理外廓不同必须使用不同 `DIMENSION_GROUP_ID`。
+- 尺寸研究、来源冲突和缓存核验都在尺寸组层完成，不在 Ktype 映射表重复落盘。
+
+### 4. 首次建组与后续复用
+
+尺寸抓取以 `DIMENSION_GROUP_ID` 为单位，而不是以 Ktype 为单位：
+
+1. 处理 Ktype 前先查询当前批次及历史缓存中已有的 `DIMENSION_GROUP_ID`，再决定是否需要外部抓取。
+2. 首次创建一个 `DIMENSION_GROUP_ID` 时，完整核对一次物理车身边界、`LengthMM`、不含后视镜的 `WidthMM`、`HeightMM`、`DimensionSource` 和 `SourceURL`。
+3. 尺寸和来源闭合后，将该组作为稳定缓存。相同组在当前批次和后续批次均直接复用。
+4. 后续 Ktype 只判断它应该关联哪个现有尺寸组；不得为每个 Ktype 重复打开尺寸页面、重新抓取同一组三维或重复整理来源。
+5. 一次尺寸组核对应尽可能同时解决所有候选相同外廓的 Ktype，避免串行逐条查询。
+6. 后续关联不填写、不输出 `CacheSourceKtype`、`MatchReason`、`ResolutionStatus` 或重复来源说明。
+7. 只有出现以下情况才允许重新打开尺寸核对：
+   - 现有尺寸组缺字段或来源不可追溯；
+   - 新证据表明代际、BodyStyle、门数外形、轴距、车顶、宽体、改款或外部套件不同；
+   - 现有尺寸与可靠来源发生实质冲突；
+   - 宽度不能确认是不含后视镜口径。
+8. 发动机、功率、燃料、变速箱或普通配置不同，不能触发重复尺寸抓取。
+
+处理顺序应优先按候选物理车身聚类：先创建并闭合一个尺寸组，再批量将所有匹配 Ktype 链接到该组，避免逐 Ktype 重复查询。
+
+## 二、输入字段解释
+
+| 字段 | 处理规则 |
+| --- | --- |
+| Make | 原始品牌。查询时允许使用标准品牌写法；输出表不重复此字段。 |
+| Model | 原始车型/车系，可能包含代际提示，例如 `Corsa d`、`Megane iii`；输出表不重复此字段。 |
+| VariantName | 发动机或版本名称，用于核验 Ktype，不等于物理车身；输出表不重复此字段。 |
+| BodyStyle | 原始德语或欧洲市场车身形式；标准化结果写入 `NormalizedBodyStyle`。 |
+| DriveType | 通常不单独决定尺寸组，但需注意特殊底盘是否改变外廓。 |
+| Energy | 通常不单独决定尺寸组。 |
+| EngineOutputKW / EngineOutputHP | 仅用于版本核验，不得作为尺寸组相同或不同的唯一依据。 |
+| Product Start Month-Year | Ktype 的生产开始月，通常为 `MMM YYYY`。 |
+| Product End Month-Year | Ktype 的生产结束月；`-`、空值或未知值不能解释为生产至今。 |
+| LastProcessedDate | 上游处理日期，不是车型生产日期或资料发布日期。 |
+| Ktype | 输入车型标识和输出外键，不保证唯一对应一套尺寸。按文本处理。 |
+| LatestStatus | 上游状态；本轮状态写入 `IterationStatus`。 |
+
+输入必须按 Tab 解析；字段内空格不是分隔符。
+
+## 三、Ktype 映射字段
+
+### 1. NormalizedBodyStyle
+
+根据输入 `BodyStyle` 和可靠车型资料写入：
+
+| 常见原值 | NormalizedBodyStyle |
+| --- | --- |
+| Schrägheck、Hatchback | Hatchback |
+| Stufenheck、Limousine、Sedan | Sedan |
+| Kombi、Touring、Estate | Wagon |
+| Coupe、Coupé | Coupe |
+| Cabriolet、Roadster | Convertible |
+| SUV、Geländewagen | SUV |
+| Van、Großraumlimousine、MPV | MPV |
+| Kasten、Kastenwagen | Van |
+| Pritsche、Pickup | Pickup |
+
+无法可靠归类时保留最接近的来源写法，并在 `Notes` 说明，不得凭外观猜测。
+
+### 2. Generation、BodyCode、Doors
+
+- `Generation`：正式代际名称，例如 `Corsa D`，不能仅从生产年份推断。
+- `BodyCode`：厂商平台或车身代码；一行只能填写一个明确代码，不能写 `L08/L68` 等组合值。无可靠证据时留空。
+- `Doors`：只写整数，例如 `3`、`5`；一行只能表示一种门数。来源未明确时留空。
+- 不抓取、不推断、不输出 `WheelbaseMM`。
+- 不得把发动机代号、底盘配置或营销版本误写为 `BodyCode`。
+
+若门数、车身代码、轴距、车顶、驾驶室、货斗、宽体、改款或特殊外部套件造成不同外廓，必须拆成不同 `id` 并链接不同尺寸组。轴距只作为判断线索，不需要落盘。
+
+### 3. MatchConfidence、Notes、IterationStatus
+
+`MatchConfidence` 只允许 `HIGH`、`MEDIUM`、`LOW`，表示 Ktype/派生 id 与尺寸组之间的映射置信度，不表示尺寸来源质量。
+
+`Notes` 只记录映射层必要信息，例如派生原因、门数/车身代码边界或人工决定。具体尺寸、抓取来源、缓存来源、匹配理由和核验过程不得在这里重复落盘。能够由 `DIMENSION_GROUP_ID` 表达的内容不再写入 `Notes`。
+
+`IterationStatus` 只允许：
+
+- `READY`
+- `PENDING: <具体原因>`
+
+映射行只有同时满足以下条件才能写 `READY`：
+
+- `id` 唯一，Ktype 能回查输入表。
+- 必要的 Generation、NormalizedBodyStyle、BodyCode/Doors 物理边界已确认。
+- 已链接一个确定的 `DIMENSION_GROUP_ID`。
+- 被引用尺寸组存在于本轮完整 DIMENSION_GROUP 表中，且三维和来源完整。
+- 映射没有未解决冲突。
+
+`PENDING` 行的 `DIMENSION_GROUP_ID` 必须留空；候选组只能简要写入 `Notes`。
+
+## 四、尺寸组与统一尺寸口径
+
+### 1. DIMENSION_GROUP_ID
+
+只有物理车身边界和同一配置的三维均确认后才能创建或命中尺寸组。ID 必须跨当前批次和后续缓存保持稳定，推荐格式：
+
+```text
+EU-{MAKE}-{MODEL}-{GENERATION}-{BODYSTYLE}-{SEQUENCE}
+```
+
+示例：
+
+```text
+EU-OPEL-CORSA-D-HATCHBACK-3D-01
+```
+
+ID 只使用大写 ASCII、数字和连字符。不得把 `id` 或 Ktype 直接当作尺寸组 ID，也不得创建临时确认组。
+
+以下差异通常不单独创建尺寸组：
+
+- 发动机排量、功率、增压方式
+- 燃料或能源类型
+- 变速箱
+- 不改变外部轮廓的驱动形式
+- 普通配置等级
+
+以下差异必须独立核对，外廓不同则使用不同尺寸组：
+
+- 不同代际或车身代码
+- 不同 BodyStyle 或门数外形
+- 不同轴距、SWB/LWB
+- 普通车身/宽体、SRW/DRW
+- 普通顶/高顶
+- facelift 前后尺寸变化
+- 不同 CAB/BED
+- 特殊悬架高度、保险杠或外部套件
+- 同名车型停产后重新推出
+
+不得仅凭 `Make + Model + VariantName` 相似复用尺寸组。
+
+### 2. LengthMM、WidthMM、HeightMM
+
+- `LengthMM`：量产标准状态下的最大车身外部长度，单位 mm。
+- `WidthMM`：强制使用不含外后视镜的车身宽度，单位 mm。
+- `HeightMM`：量产标准状态下的外部高度，单位 mm。
+- 不输出 `WidthBasis`；所有落盘的 `WidthMM` 按规则即为 `WITHOUT_MIRRORS`。
+- 如果只能获得含后视镜宽度或宽度口径未知，该尺寸组不得进入完整 DIMENSION_GROUP 表，对应映射保持 `PENDING`。
+- 三个尺寸格只写正整数，不写单位、约数、范围或多个候选值。
+- 同一尺寸组的长宽高必须属于同一物理配置，不能从不同版本拼接。
+- 英寸换算使用 `1 in = 25.4 mm`，最终取整到 1 mm；厘米换算使用 `1 cm = 10 mm`。
+
+## 五、尺寸来源
+
+来源优先级：
+
+1. 厂商官网、官方 brochure、technical specification、press kit、历史资料、homologation 或 type approval。
+2. Auto-Data、Car.info、UltimateSpecs、Automobile-Catalog、Parkers。
+3. 其他可信规格数据库，仅用于交叉验证。
+
+二手车广告、论坛、搜索摘要、AI 摘要和无出处聚合页只能作为线索，不能单独支撑最终尺寸组。
+
+- `DimensionSource`：填写直接支持该组三维或关键物理边界的来源名称。
+- `SourceURL`：填写对应直接页面 URL，不得填写搜索结果页。
+- 多个来源使用分号分隔，并保持名称和 URL 顺序对应。
+- 来源冲突时核对市场、年份、代际、BodyStyle、门数、轴距、含镜口径和特殊版本；无法解决时不创建完整尺寸组，对应映射保持 `PENDING`。
+
+## 六、每轮固定输出
+
+为减少抓取频率和对话落盘体积，区分推进轮与最终轮。
+
+### CONTINUE 推进轮
+
+尚未完成时依次输出：
+
+1. `更新点`
+2. `当前批次进度`
+3. `本轮新增/修改的 Ktype 映射 TSV`，仅输出本轮发生变化的行；没有变化时明确写“无”
+4. `本轮新增/修改的 DIMENSION_GROUP TSV`，仅输出首次创建或本轮修正的尺寸组；复用既有组时不重复输出；没有变化时明确写“无”
+5. `下一步优先处理`
+6. 最后一行输出 `推进信号：CONTINUE`
+
+推进轮不得为了形式完整而重复打印未变化的 Ktype 行或既有尺寸组。尺寸组一旦闭合，后续轮只通过 `DIMENSION_GROUP_ID` 引用。
+
+### COMPLETE 最终轮
+
+只有准备完成时，依次输出：
+
+1. `更新点`
+2. `当前批次进度`
+3. `最终完整 Ktype 映射 TSV`
+4. Ktype 映射 TSV 的可点击 sandbox 下载链接
+5. `最终完整 DIMENSION_GROUP TSV`
+6. DIMENSION_GROUP TSV 的可点击 sandbox 下载链接
+7. 最后一行输出 `推进信号：COMPLETE`
+
+最终轮的两张表必须是当前批次可直接落盘的完整快照，不能只输出变化行、引用上一轮或写“其余不变”。自动化只在同一条最终回复中检测到两张完整表时接受 `COMPLETE`。
+
+下载文件名由当前任务提示明确给出，必须原样使用。分批任务示例：
+
+```text
+all_1-100_ktype_dimension_mapping_final.tsv
+all_1-100_dimension_groups_final.tsv
+```
+
+链接必须是可点击的 Markdown sandbox 链接，例如：
+
+```markdown
+[下载 Ktype 映射表](sandbox:/mnt/data/all_1-100_ktype_dimension_mapping_final.tsv)
+[下载 DIMENSION_GROUP 表](sandbox:/mnt/data/all_1-100_dimension_groups_final.tsv)
+```
+
+只有文字文件名、缺少链接、链接不是 `.tsv`、文件名与任务提示不一致，均不得输出 `COMPLETE`。
+
+自动化在接受 COMPLETE 后会从同一回复的两张内嵌 TSV 生成本批本地文件。分批模式固定使用首批文件名维护两张累计总表：
+
+```text
+all_1-100_ktype_dimension_mapping_final.tsv
+all_1-100_dimension_groups_final.tsv
+```
+
+第一批成功时创建这两张总表；此后每个批次成功都立即追加。累计合并以 `id` 和 `DIMENSION_GROUP_ID` 去重，可安全恢复或重复处理；尺寸组出现三维冲突时必须停止，不得静默覆盖首次确认的尺寸事实。首批文件名从第二批开始代表累计总表，不再是冻结的第一批快照。
+
+### Ktype 映射表排序
+
+1. 保持输入 Ktype 原始顺序。
+2. 同一 Ktype 有多行时按稳定物理分支排序，例如 `3dr` 在 `5dr` 前、`swb` 在 `lwb` 前。
+3. 后续轮次不得无故改变已确认 `id` 或行顺序。
+
+### DIMENSION_GROUP 表排序
+
+建议按各尺寸组第一次在 Ktype 映射表中被引用的顺序排列。一个组只出现一次。尺寸组顺序仅用于稳定输出，不得因非阻塞的排序差异延迟 `COMPLETE`。
+
+### 第二阶段轻量收尾
+
+1. 第一阶段只负责消除数据缺失；当进度达到 `PENDING=0`、`READY=全部输入行` 时，数据阶段结束。
+2. 第二阶段最多只允许一轮轻量机械检查：两张表表头固定、`id` 与 `DIMENSION_GROUP_ID` 唯一、每个映射引用闭合、长宽高和来源非空、两个任务指定下载链接存在。
+3. 第二阶段不得重新逐车型、逐年份或逐来源做深度检索，不得为了提高置信度反复抓取，也不得重新验证已经首次确认并缓存的尺寸组。
+4. `PENDING=0` 后的下一条回复必须直接输出两张最终完整 TSV、两个精确 sandbox 下载链接，并以 `推进信号：COMPLETE` 结束；不得再输出 `CONTINUE`。
+5. 非阻塞的排序、措辞、置信度微调或来源偏好不影响完成。只要既有尺寸组已按首次创建规则确认且映射闭合，应优先完成并给出链接。
+
+### CONTINUE 输出示例
+
+````text
+更新点
+- ……
+
+当前批次进度
+- READY 映射：……
+- PENDING 映射：……
+- 已确认尺寸组：……
+- 当前批次尚未完成。
+
+本轮新增/修改的 Ktype 映射 TSV
+
+```tsv
+id	Ktype	NormalizedBodyStyle	Generation	BodyCode	Doors	DIMENSION_GROUP_ID	MatchConfidence	Notes	IterationStatus
+1_3dr	1	Hatchback	Corsa D	L08	3	EU-OPEL-CORSA-D-HATCHBACK-3D-01	HIGH	L08三门物理外廓。	READY
+1_5dr	1	Hatchback	Corsa D	L68	5	EU-OPEL-CORSA-D-HATCHBACK-5D-01	HIGH	L68五门物理外廓。	READY
+```
+
+本轮新增/修改的 DIMENSION_GROUP TSV
+
+```tsv
+DIMENSION_GROUP_ID	LengthMM	WidthMM	HeightMM	DimensionSource	SourceURL
+EU-OPEL-CORSA-D-HATCHBACK-3D-01	3999	1713	1488	Vauxhall New Corsa official brochure	https://www.vauxhall.co.uk/content/dam/vauxhall/Home/PDFs/historical-brochures/discounted-models/corsa-d/CorsaD_February_2007.pdf
+EU-OPEL-CORSA-D-HATCHBACK-5D-01	3999	1737	1488	Vauxhall New Corsa official brochure	https://www.vauxhall.co.uk/content/dam/vauxhall/Home/PDFs/historical-brochures/discounted-models/corsa-d/CorsaD_February_2007.pdf
+```
+
+下一步优先处理
+1. ……
+
+推进信号：CONTINUE
+````
+
+## 七、COMPLETE 条件
+
+`PENDING=0` 后立即按以下机械条件组装最终产物；全部满足即可输出 `推进信号：COMPLETE`，无需再做第二轮外部核对：
+
+1. 两张最终完整 TSV 均已在同一条当前回复中输出，表头和顺序严格正确。
+2. 两个按任务指定文件名生成的 `.tsv` sandbox 下载链接均已提供。
+3. Ktype 映射表覆盖每个输入 Ktype，所有派生物理分支均无遗漏。
+4. 每个映射行都有唯一 `id`、有效 `DIMENSION_GROUP_ID`，且 `IterationStatus=READY`。
+5. 每个映射引用都能在 DIMENSION_GROUP 表中找到恰好一行。
+6. DIMENSION_GROUP 表中的每行都被当前映射表引用，不存在孤立组。
+7. 每个尺寸组的长宽高均为完整正整数，`WidthMM` 明确是不含后视镜宽度。
+8. 每个尺寸组的 `DimensionSource` 和 `SourceURL` 均完整、可追溯。
+9. 不存在 `PENDING`、缺失尺寸、未知宽度口径、未解决来源冲突或候选尺寸组。
+10. 同一物理尺寸组没有因多个 Ktype 而被重复建组或重复抓取。
+
+任一机械条件不满足时，只修复该具体产物问题；不得重新展开逐车型研究。修复后立即输出两张完整 TSV、下载链接和 `COMPLETE`。
+
+## 八、提交前强制检查
+
+1. Ktype 映射表是否严格为 10 列，DIMENSION_GROUP 表是否严格为 6 列。
+2. 映射表是否没有落盘已移除字段：`WheelbaseMM`、三维、`WidthBasis`、`EndDateStatus`、`ResolutionStatus`、`CacheSourceKtype`、`MatchReason`、来源字段。
+3. `id` 是否每行有值且唯一；Ktype 是否逐字匹配输入表。
+4. 每个输入 Ktype 是否至少出现一次；已确认多外廓 Ktype 是否完整派生且无基础重复行。
+5. 多行是否确由物理外廓差异造成，而不是发动机、功率、燃料或普通配置差异造成。
+6. 映射表的每个非空 `DIMENSION_GROUP_ID` 是否恰好命中尺寸组表一行。
+7. 每个尺寸组是否只出现一次并被至少一个映射引用。
+8. 长宽高是否来自同一配置、统一为 mm 且均为正整数。
+9. `WidthMM` 是否明确为不含外后视镜口径。
+10. 尺寸来源和 URL 是否完整对应且可追溯。
+11. 是否保持映射顺序和尺寸组首次引用顺序。
+12. 是否只有两张要求的 TSV，没有另建子车系表、缓存表或抓取明细表。
+13. 输出 COMPLETE 前是否确认两张表均完整、所有映射 READY 且无 PENDING。
+14. 是否仅在首次创建或纠错尺寸组时抓取三维和来源；后续 Ktype 是否只建立关联。
+15. CONTINUE 轮是否避免重复输出未变化记录，COMPLETE 轮是否一次性输出两张完整快照。
+16. COMPLETE 轮是否提供任务指定文件名的两个可点击 `.tsv` sandbox 下载链接。
+
+
+【执行顺序】
+执行顺序固定为：第一阶段优先消除 PENDING 并补齐会阻塞两张最终表的数据。检测到 PENDING=0 后，第二阶段最多只做一次轻量机械收尾：核对固定表头、id 与 DIMENSION_GROUP_ID 唯一、映射引用闭合、长宽高和来源非空、两个任务指定下载链接齐全。第二阶段不得重新逐车型、逐年份或逐来源做深度检索，不得为了提高置信度反复核对，也不得因非阻塞的排序或措辞问题继续多轮。PENDING=0 后的下一条回复必须直接输出两张最终完整 TSV、两个精确 sandbox 下载链接，并以“推进信号：COMPLETE”结束；不要再输出 CONTINUE。
+
+【配置附加规则】
+
+
+【当前文件名】
+all.tsv
+
+【当前独立任务】
+all 第 1-100 行
+
+【COMPLETE 下载文件硬性要求】
+准备 COMPLETE 时，除两张完整内嵌 TSV 外，还必须创建并提供以下两个可点击 sandbox 下载链接，文件名必须完全一致：
+- all_1-100_ktype_dimension_mapping_final.tsv
+- all_1-100_dimension_groups_final.tsv
+缺少任一下载链接时不得输出推进信号：COMPLETE。
+
+【TSV 数据】
+Make	Model	VariantName	BodyStyle	DriveType	Energy	EngineOutputKW	EngineOutputHP	Product Start Month-Year	Product End Month-Year	LastProcessedDate	Ktype
+Opel	Signum cc	3.0 V6 Cdti	Schrägheck	Frontantrieb	Diesel	135	184	Sep 2005	Dec 2008	2024-03-01	19111
+Opel	Astra h	1.3 Cdti	Schrägheck	Frontantrieb	Diesel	66	90	Aug 2005	Oct 2010	2024-03-01	19113
+Opel	Astra h caravan	1.3 Cdti	Kombi	Frontantrieb	Diesel	66	90	Aug 2005	Oct 2010	2024-03-01	19115
+Opel	Astra h	2.0 Turbo	Schrägheck	Frontantrieb	Benzin	177	240	Mar 2005	Oct 2010	2024-03-01	19116
+Opel	Astra h	1.9 Cdti	Schrägheck	Frontantrieb	Diesel	88	120	Jun 2004	Oct 2010	2024-03-01	19117
+Opel	Astra h caravan	1.9 Cdti	Kombi	Frontantrieb	Diesel	88	120	Sep 2005	Oct 2010	2024-03-01	19118
+Opel	Astra h	1.9 Cdti	Schrägheck	Frontantrieb	Diesel	74	100	Sep 2005	Oct 2010	2024-03-01	19119
+Opel	Astra h caravan	1.9 Cdti	Kombi	Frontantrieb	Diesel	74	100	Sep 2005	Oct 2010	2024-03-01	19120
+Audi	A4 b8	3.0 TDI	Stufenheck	Frontantrieb	Diesel	150	204	Nov 2011	Dec 2015	2024-03-01	19124
+Audi	A4 b8 avant	1.8 Tfsi	Kombi	Frontantrieb	Benzin	125	170	Nov 2011	Dec 2015	2024-03-01	19125
+Opel	Vectra c	2.8 V6 Turbo	Stufenheck	Frontantrieb	Benzin	169	230	Aug 2005	Oct 2006	2024-03-01	19137
+Opel	Vectra c	2.8 V6 Turbo	Stufenheck	Frontantrieb	Benzin	188	255	Aug 2005	Sep 2006	2024-03-01	19138
+Opel	Vectra c cc	1.6	Schrägheck	Frontantrieb	Benzin	74	100	Aug 2005	Aug 2008	2024-03-01	19139
+Opel	Vectra c cc	2.8 V6 Turbo	Schrägheck	Frontantrieb	Benzin	169	230	Aug 2005	Aug 2008	2024-03-01	19140
+Opel	Vectra c cc	2.8 V6 Turbo	Schrägheck	Frontantrieb	Benzin	188	255	Aug 2005	Sep 2008	2024-03-01	19141
+Opel	Vectra c caravan	2.8 V6 Turbo	Kombi	Frontantrieb	Benzin	169	230	Aug 2005	Oct 2008	2024-03-01	19143
+Opel	Vectra c caravan	2.8 V6 Turbo	Kombi	Frontantrieb	Benzin	188	255	Aug 2005	Sep 2008	2024-03-01	19144
+Opel	Corsa c	1.3 Cdti 16V	Kasten/Schrägheck	Frontantrieb	Diesel	51	69	Jul 2005	Jun 2006	2024-03-01	19145
+Opel	Combo	1.4 16V	Kasten/Großraumlimousine	Frontantrieb	Benzin	66	90	Aug 2005	-	2024-03-01	19146
+Opel	Combo	1.3 Cdti 16V	Kasten/Großraumlimousine	Frontantrieb	Diesel	51	69	Aug 2005	-	2024-03-01	19147
+Proton	Gen 2	1.3	Schrägheck	Frontantrieb	Benzin	70	95	Jun 2004	Dec 2009	2024-03-01	19148
+Proton	Gen 2	1.6	Schrägheck	Frontantrieb	Benzin	82	110	Jun 2004	-	2024-03-01	19149
+Proton	Jumbuck	1.5	Pick-up	Frontantrieb	Benzin	64	86	May 2002	Dec 2008	2024-03-01	19150
+Subaru	Impreza	2.0 I R AWD	Stufenheck	Allrad	Benzin	118	160	Sep 2005	Mar 2007	2024-03-01	19151
+Subaru	Impreza	2.5 I WRX AWD	Stufenheck	Allrad	Benzin	169	230	Sep 2005	Dec 2008	2024-03-01	19152
+Subaru	Impreza	2.5 WRX STI AWD	Stufenheck	Allrad	Benzin	206	280	Sep 2005	Dec 2007	2024-03-01	19153
+Subaru	Impreza station wagon	2.0 I R AWD	Kombi	Allrad	Benzin	118	160	Dec 2000	Jun 2007	2025-02-03	19154
+Subaru	Impreza station wagon	2.5 WRX AWD	Kombi	Allrad	Benzin	169	230	Sep 2005	Dec 2008	2024-03-01	19155
+Subaru	Forester	2.0 X AWD	SUV	Allrad	Benzin	116	158	Jun 2005	May 2008	2024-03-01	19156
+Subaru	Forester	2.5 AWD	SUV	Allrad	Benzin	169	230	Jun 2005	May 2008	2024-03-01	19157
+Porsche	911	3.6 Carrera 4	Cabriolet	Allrad	Benzin	239	325	Apr 2005	Dec 2008	2024-03-01	19158
+Porsche	911	3.8 Carrera 4S	Cabriolet	Allrad	Benzin	261	355	Apr 2005	Dec 2008	2024-03-01	19159
+Cadillac	Sts	3.6	Stufenheck	Heckantrieb	Benzin	189	257	May 2005	Dec 2007	2024-03-01	19160
+Cadillac	Sts	4.6	Stufenheck	Heckantrieb	Benzin	239	325	May 2005	Dec 2007	2024-03-01	19161
+Cadillac	Sts	4.4 Kompressor	Stufenheck	Heckantrieb	Benzin	350	476	Sep 2005	Dec 2007	2024-03-01	19162
+Alfa Romeo	Brera	2.2 JTS	Schrägheck	Frontantrieb	Benzin	136	185	Jan 2006	May 2011	2025-06-01	19163
+Alfa Romeo	Brera	3.2 JTS Q4	Schrägheck	Allrad	Benzin	191	260	Jan 2006	May 2011	2024-03-01	19164
+Jaguar	Xk ii	4.2 XK8	Coupe	Heckantrieb	Benzin	219	298	Mar 2006	Jul 2014	2024-03-01	19165
+Jaguar	Xk ii	4.2 XKR	Coupe	Heckantrieb	Benzin	291	396	Mar 2006	Jul 2014	2024-03-01	19166
+Ford	Focus ii	2.5 ST	Schrägheck	Frontantrieb	Benzin	166	225	Oct 2005	Sep 2012	2024-03-01	19167
+Audi	A4 b7	3.2 FSI	Cabriolet	Frontantrieb	Benzin	188	255	Jan 2006	Mar 2009	2024-03-01	19169
+Audi	A4 b7	3.2 FSI Quattro	Cabriolet	Allrad	Benzin	188	255	Jan 2006	Mar 2009	2024-03-01	19170
+Audi	A4 b7	2.0 TDI	Cabriolet	Frontantrieb	Diesel	103	140	Jan 2006	Mar 2009	2024-03-01	19171
+Audi	A4 b7	3.0 TDI Quattro	Cabriolet	Allrad	Diesel	171	233	Jan 2006	Mar 2009	2024-03-01	19172
+Jaguar	Xk ii	4.2 XK8	Cabriolet	Heckantrieb	Benzin	219	298	Mar 2006	Jul 2014	2024-03-01	19173
+Nissan	Note	1.4	Großraumlimousine	Frontantrieb	Benzin	65	88	Jan 2006	Aug 2013	2026-06-01	19174
+Nissan	Note	1.6	Großraumlimousine	Frontantrieb	Benzin	81	110	Mar 2006	Jun 2012	2024-03-01	19175
+Nissan	Note	1.5 DCI	Großraumlimousine	Frontantrieb	Diesel	50	68	Mar 2006	Jun 2012	2024-03-01	19176
+Nissan	Note	1.5 DCI	Großraumlimousine	Frontantrieb	Diesel	63	86	Mar 2006	Jun 2012	2024-03-01	19177
+Renault	Clio ii	1.5 DCI	Kasten/Schrägheck	Frontantrieb	Diesel	48	65	Jun 2001	-	2026-05-01	19178
+VW	Jetta iii	2.0 Tfsi	Stufenheck	Frontantrieb	Benzin	147	200	Oct 2005	Oct 2010	2024-03-01	19179
+Mazda	626 v	2.0 DI TD	Stufenheck	Frontantrieb	Diesel	66	90	Apr 1998	Oct 2002	2024-03-01	19180
+KIA	Cerato i	1.5 Crdi	Stufenheck	Frontantrieb	Diesel	75	102	Jul 2005	Aug 2006	2024-03-01	19181
+Nissan	Pathfinder iii	4.0 4WD	SUV	Allrad	Benzin	198	269	Sep 2005	-	2024-03-01	19182
+Ssangyong	Kyron	2.0 XDI 4X4	SUV	Allrad	Diesel	104	141	May 2005	Dec 2014	2024-03-01	19183
+Ssangyong	Kyron	2.0 XDI	SUV	Heckantrieb	Diesel	104	141	May 2005	Dec 2014	2024-03-01	19184
+Hyundai	Grandeur	3.3	Stufenheck	Frontantrieb	Benzin	173	235	Apr 2005	Dec 2010	2024-03-01	19185
+Jeep	Commander	3.7 V6 4X4	SUV	Allrad	Benzin	157	214	Sep 2005	Dec 2010	2024-03-01	19186
+Jeep	Commander	4.7 V8 4X4	SUV	Allrad	Benzin	170	231	Sep 2005	Dec 2010	2024-03-01	19187
+Jeep	Commander	5.7 V8 4X4	SUV	Allrad	Benzin	240	326	Sep 2005	Dec 2010	2024-03-01	19188
+Marcos	Ts 500	5.0 V8	Cabriolet	Heckantrieb	Benzin	235	320	Nov 2002	Dec 2004	2024-03-01	19190
+Marcos	Lm	4.0 Sport	Coupe	Heckantrieb	Benzin	220	299	Jan 1995	Nov 1999	2024-03-01	19191
+Renault	Thalia i	1.5 DCI	Stufenheck	Frontantrieb	Diesel	60	82	Jun 2001	Feb 2009	2024-03-01	19192
+Suzuki	Grand vitara ii	1.6 Allrad	Geländewagen geschlossen	Allrad	Benzin	78	106	Apr 2005	Feb 2015	2024-03-01	19193
+Suzuki	Grand vitara ii	2.0 Allrad	Geländewagen geschlossen	Allrad	Benzin	103	140	Oct 2005	Feb 2015	2024-03-01	19194
+KIA	Picanto i	1	Schrägheck	Frontantrieb	Benzin	45	61	Apr 2004	Apr 2011	2024-03-01	19195
+Isuzu	D-Max i	2.5 Ditd 4X4	Pick-up	Allrad	Diesel	74	101	May 2002	Jun 2012	2024-03-01	19198
+Isuzu	D-Max i	3.0 Ditd 4X4	Pick-up	Allrad	Diesel	96	131	May 2002	Jun 2012	2024-03-01	19199
+VW	Passat b6 variant	2.0 TDI	Kombi	Frontantrieb	Diesel	125	170	Aug 2005	Nov 2010	2024-03-01	19200
+BMW	6	M	Coupe	Heckantrieb	Benzin	373	507	Sep 2005	Jul 2010	2024-03-01	19201
+Isuzu	Ascender	4.2 4WD	SUV	Allrad	Benzin	217	295	Mar 2003	-	2024-03-01	19202
+Suzuki	Swift iii	1.3 Ddis	Schrägheck	Frontantrieb	Diesel	51	69	Aug 2005	Jun 2012	2026-05-01	19203
+Isuzu	Ascender	5.3 4WD	SUV	Allrad	Benzin	224	305	Mar 2003	-	2024-03-01	19204
+Suzuki	Swift iii	1.3 4X4	Schrägheck	Allrad	Benzin	66	90	Jan 2006	Jun 2012	2026-05-01	19205
+Suzuki	Carry	1.3 16 V	Kasten	Heckantrieb	Benzin	58	79	Mar 2000	-	2024-03-01	19206
+Subaru	Mv	1.6	Pick-up	Frontantrieb	Benzin	52	71	Jun 1978	Apr 1981	2024-03-01	19207
+Subaru	Mv	1.8	Pick-up	Allrad	Benzin	60	82	May 1981	Aug 1986	2024-03-01	19208
+KIA	Magentis ii	2	Stufenheck	Frontantrieb	Benzin	106	144	Nov 2005	Dec 2010	2024-03-01	19211
+KIA	Magentis ii	2.7	Stufenheck	Frontantrieb	Benzin	138	188	Nov 2005	Dec 2010	2024-03-01	19212
+KIA	Magentis ii	2.0 Crdi	Stufenheck	Frontantrieb	Diesel	103	140	Apr 2006	Dec 2010	2024-03-01	19213
+KIA	Picanto i	1.1 Crdi	Schrägheck	Frontantrieb	Diesel	55	75	Oct 2005	Apr 2011	2024-03-01	19214
+KIA	Sportage ii	2.0 Crdi 4WD	SUV	Allrad	Diesel	103	140	Jan 2006	Oct 2008	2024-05-01	19215
+VW	Passat b6	1.6	Stufenheck	Frontantrieb	Benzin	75	102	May 2005	Jul 2010	2024-03-01	19216
+KIA	K2700	2.7 D	Pritsche/Fahrgestell	Heckantrieb	Diesel	59	80	Oct 1999	-	2024-03-01	19217
+Renault	Kangoo	1.5 DCI	Kasten/Großraumlimousine	Frontantrieb	Diesel	62	84	Jun 2005	-	2024-03-01	19218
+Seat	Ibiza iii	1.4 TDI	Schrägheck	Frontantrieb	Diesel	51	70	May 2005	Nov 2009	2024-03-01	19219
+Seat	Ibiza iii	1.4 TDI	Schrägheck	Frontantrieb	Diesel	59	80	Jun 2005	Nov 2009	2024-03-01	19220
+Seat	Cordoba	1.4 TDI	Stufenheck	Frontantrieb	Diesel	51	70	May 2005	Nov 2009	2024-03-01	19221
+Seat	Cordoba	1.4 TDI	Stufenheck	Frontantrieb	Diesel	59	80	Jun 2005	Nov 2009	2024-03-01	19222
+BMW	5	520 D	Kombi	Heckantrieb	Diesel	120	163	Apr 2005	May 2010	2024-03-01	19223
+Seat	Leon	1.9 TDI	Schrägheck	Frontantrieb	Diesel	74	100	Oct 2005	Jun 2006	2024-03-01	19224
+Skoda	Fabia i	1.4 TDI	Schrägheck	Frontantrieb	Diesel	51	70	Oct 2005	Mar 2008	2024-03-01	19225
+Skoda	Fabia i	1.4 TDI	Schrägheck	Frontantrieb	Diesel	59	80	Oct 2005	Mar 2008	2024-03-01	19226
+Skoda	Fabia i	1.4 TDI	Stufenheck	Frontantrieb	Diesel	51	70	Oct 2005	Dec 2007	2024-03-01	19227
+Skoda	Fabia i	1.4 TDI	Stufenheck	Frontantrieb	Diesel	59	80	Oct 2005	Dec 2007	2024-03-01	19228
+Skoda	Fabia i combi	1.4 TDI	Kombi	Frontantrieb	Diesel	51	70	Oct 2005	Dec 2007	2024-03-01	19229
+Skoda	Fabia i combi	1.4 TDI	Kombi	Frontantrieb	Diesel	59	80	Oct 2005	Dec 2007	2024-03-01	19230
+Skoda	Fabia i praktik	1.4 TDI	Kasten/Kombi	Frontantrieb	Diesel	51	70	Oct 2005	Dec 2007	2024-03-01	19231
+Audi	A6 c6	2.0 TDI	Stufenheck	Frontantrieb	Diesel	100	136	Jul 2004	Mar 2011	2024-03-01	19232
+Audi	A6 c6 avant	2.0 TDI	Kombi	Frontantrieb	Diesel	100	136	Jun 2005	Aug 2011	2024-03-01	19233
+
+
+--- Round 1 / checkpoint 续跑 ---
+## 更新点
+
+* 已完成 100 个输入 Ktype 的物理车身聚类、派生拆分和尺寸组闭合。
+* 按门数、改款、驾驶室、轴距、车身形式和悬架高度拆分，共形成 130 条映射和 79 个尺寸组。
+* 最终修正了欧洲版 Pathfinder R51 尺寸、Focus II ST 外廓、Impreza Wagon 标准版与 WRX 高度差异，以及 Grand Vitara 五门版来源链接。([汽车目录][1])
+
+## 当前批次进度
+
+* 输入 Ktype：100
+* READY 映射：130
+* PENDING 映射：0
+* 已确认尺寸组：79
+* Ktype 映射表：10 列，`id` 唯一
+* DIMENSION_GROUP 表：6 列，`DIMENSION_GROUP_ID` 唯一
+* 映射引用全部闭合，无孤立尺寸组
+* 长宽高和来源字段均完整
+* 两个指定下载文件均已生成
+
+## 最终完整 Ktype 映射 TSV
+
+```tsv
+id	Ktype	NormalizedBodyStyle	Generation	BodyCode	Doors	DIMENSION_GROUP_ID	MatchConfidence	Notes	IterationStatus
+19111	19111	Hatchback	Signum	Z03	5	EU-OPEL-SIGNUM-Z03-HATCHBACK-01	HIGH		READY
+19113_3dr	19113	Hatchback	Astra H	L08	3	EU-OPEL-ASTRA-H-HATCHBACK-3D-01	HIGH	Ktype覆盖GTC三门外廓。	READY
+19113_5dr	19113	Hatchback	Astra H	L48	5	EU-OPEL-ASTRA-H-HATCHBACK-5D-01	HIGH	Ktype覆盖五门掀背外廓。	READY
+19115	19115	Wagon	Astra H	L35	5	EU-OPEL-ASTRA-H-WAGON-01	HIGH		READY
+19116_3dr	19116	Hatchback	Astra H	L08	3	EU-OPEL-ASTRA-H-HATCHBACK-3D-01	HIGH	Ktype覆盖GTC三门外廓。	READY
+19116_5dr	19116	Hatchback	Astra H	L48	5	EU-OPEL-ASTRA-H-HATCHBACK-5D-01	HIGH	Ktype覆盖五门掀背外廓。	READY
+19117_3dr	19117	Hatchback	Astra H	L08	3	EU-OPEL-ASTRA-H-HATCHBACK-3D-01	HIGH	Ktype覆盖GTC三门外廓。	READY
+19117_5dr	19117	Hatchback	Astra H	L48	5	EU-OPEL-ASTRA-H-HATCHBACK-5D-01	HIGH	Ktype覆盖五门掀背外廓。	READY
+19118	19118	Wagon	Astra H	L35	5	EU-OPEL-ASTRA-H-WAGON-01	HIGH		READY
+19119_3dr	19119	Hatchback	Astra H	L08	3	EU-OPEL-ASTRA-H-HATCHBACK-3D-01	HIGH	Ktype覆盖GTC三门外廓。	READY
+19119_5dr	19119	Hatchback	Astra H	L48	5	EU-OPEL-ASTRA-H-HATCHBACK-5D-01	HIGH	Ktype覆盖五门掀背外廓。	READY
+19120	19120	Wagon	Astra H	L35	5	EU-OPEL-ASTRA-H-WAGON-01	HIGH		READY
+19124	19124	Sedan	A4 B8 facelift	8K2	4	EU-AUDI-A4-B8-FACELIFT-SEDAN-01	HIGH		READY
+19125	19125	Wagon	A4 B8 facelift	8K5	5	EU-AUDI-A4-B8-FACELIFT-WAGON-01	HIGH		READY
+19137	19137	Sedan	Vectra C facelift	Z02	4	EU-OPEL-VECTRA-C-FACELIFT-SEDAN-01	HIGH		READY
+19138	19138	Sedan	Vectra C facelift	Z02	4	EU-OPEL-VECTRA-C-FACELIFT-SEDAN-01	HIGH		READY
+19139	19139	Hatchback	Vectra C facelift	Z02	5	EU-OPEL-VECTRA-C-FACELIFT-HATCHBACK-01	HIGH		READY
+19140	19140	Hatchback	Vectra C facelift	Z02	5	EU-OPEL-VECTRA-C-FACELIFT-HATCHBACK-01	HIGH		READY
+19141	19141	Hatchback	Vectra C facelift	Z02	5	EU-OPEL-VECTRA-C-FACELIFT-HATCHBACK-01	HIGH		READY
+19143	19143	Wagon	Vectra C facelift	Z02	5	EU-OPEL-VECTRA-C-FACELIFT-WAGON-01	HIGH		READY
+19144	19144	Wagon	Vectra C facelift	Z02	5	EU-OPEL-VECTRA-C-FACELIFT-WAGON-01	HIGH		READY
+19145	19145	Van	Corsa C facelift	F08	3	EU-OPEL-CORSA-C-FACELIFT-VAN-01	MEDIUM	三门轻型商用车壳体。	READY
+19146_van	19146	Van	Combo C facelift		4	EU-OPEL-COMBO-C-FACELIFT-VAN-01	MEDIUM	输入车身类型同时覆盖厢式货车。	READY
+19146_mpv	19146	MPV	Combo C facelift		5	EU-OPEL-COMBO-C-FACELIFT-MPV-01	MEDIUM	输入车身类型同时覆盖乘用MPV。	READY
+19147_van	19147	Van	Combo C facelift		4	EU-OPEL-COMBO-C-FACELIFT-VAN-01	MEDIUM	输入车身类型同时覆盖厢式货车。	READY
+19147_mpv	19147	MPV	Combo C facelift		5	EU-OPEL-COMBO-C-FACELIFT-MPV-01	MEDIUM	输入车身类型同时覆盖乘用MPV。	READY
+19148	19148	Hatchback	Gen-2	CM	5	EU-PROTON-GEN-2-CM-HATCHBACK-01	HIGH		READY
+19149	19149	Hatchback	Gen-2	CM	5	EU-PROTON-GEN-2-CM-HATCHBACK-01	HIGH		READY
+19150	19150	Pickup	Jumbuck		2	EU-PROTON-JUMBUCK-PICKUP-01	MEDIUM		READY
+19151	19151	Sedan	Impreza II facelift	GD	4	EU-SUBARU-IMPREZA-II-FACELIFT-SEDAN-01	HIGH		READY
+19152	19152	Sedan	Impreza II facelift	GD	4	EU-SUBARU-IMPREZA-II-FACELIFT-SEDAN-01	HIGH		READY
+19153	19153	Sedan	Impreza II facelift	GD	4	EU-SUBARU-IMPREZA-II-FACELIFT-SEDAN-01	HIGH		READY
+19154	19154	Wagon	Impreza II facelift	GG	5	EU-SUBARU-IMPREZA-II-GG-WAGON-FACELIFT-STANDARD-01	HIGH		READY
+19155	19155	Wagon	Impreza II facelift	GG	5	EU-SUBARU-IMPREZA-II-GG-WAGON-FACELIFT-WRX-01	HIGH		READY
+19156	19156	SUV	Forester II facelift	SG	5	EU-SUBARU-FORESTER-II-FACELIFT-SUV-01	HIGH		READY
+19157	19157	SUV	Forester II facelift	SG	5	EU-SUBARU-FORESTER-II-FACELIFT-SUV-01	HIGH		READY
+19158	19158	Convertible	911 997.1	997	2	EU-PORSCHE-911-997-CARRERA-4-CONVERTIBLE-01	HIGH	Carrera 4宽体敞篷外廓。	READY
+19159	19159	Convertible	911 997.1	997	2	EU-PORSCHE-911-997-CARRERA-4S-CONVERTIBLE-01	HIGH	Carrera 4S宽体敞篷外廓。	READY
+19160	19160	Sedan	STS I	GMX295	4	EU-CADILLAC-STS-GMX295-SEDAN-01	HIGH		READY
+19161	19161	Sedan	STS I	GMX295	4	EU-CADILLAC-STS-GMX295-SEDAN-01	HIGH		READY
+19162	19162	Sedan	STS I	GMX295	4	EU-CADILLAC-STS-GMX295-SEDAN-01	HIGH		READY
+19163	19163	Coupe	Brera	939	3	EU-ALFA-ROMEO-BRERA-939-COUPE-01	HIGH	厂商定义为三门Coupe。	READY
+19164	19164	Coupe	Brera	939	3	EU-ALFA-ROMEO-BRERA-939-COUPE-01	HIGH	厂商定义为三门Coupe。	READY
+19165	19165	Coupe	XK X150	X150	2	EU-JAGUAR-XK-X150-COUPE-01	HIGH		READY
+19166	19166	Coupe	XK X150	X150	2	EU-JAGUAR-XK-X150-COUPE-01	HIGH		READY
+19167_3dr	19167	Hatchback	Focus II	DA3	3	EU-FORD-FOCUS-II-ST-HATCHBACK-3D-01	HIGH	ST同时覆盖三门外廓。	READY
+19167_5dr	19167	Hatchback	Focus II	DA3	5	EU-FORD-FOCUS-II-ST-HATCHBACK-5D-01	HIGH	ST同时覆盖五门外廓。	READY
+19169	19169	Convertible	A4 B7	8H	2	EU-AUDI-A4-B7-CONVERTIBLE-01	HIGH		READY
+19170	19170	Convertible	A4 B7	8H	2	EU-AUDI-A4-B7-CONVERTIBLE-01	HIGH		READY
+19171	19171	Convertible	A4 B7	8H	2	EU-AUDI-A4-B7-CONVERTIBLE-01	HIGH		READY
+19172	19172	Convertible	A4 B7	8H	2	EU-AUDI-A4-B7-CONVERTIBLE-01	HIGH		READY
+19173	19173	Convertible	XK X150	X150	2	EU-JAGUAR-XK-X150-CONVERTIBLE-01	HIGH		READY
+19174_prefl	19174	MPV	Note E11	E11	5	EU-NISSAN-NOTE-E11-PREFL-MPV-01	HIGH	生产区间覆盖改款前外廓。	READY
+19174_facelift	19174	MPV	Note E11 facelift	E11	5	EU-NISSAN-NOTE-E11-FACELIFT-MPV-01	HIGH	生产区间覆盖2010年改款外廓。	READY
+19175_prefl	19175	MPV	Note E11	E11	5	EU-NISSAN-NOTE-E11-PREFL-MPV-01	HIGH	生产区间覆盖改款前外廓。	READY
+19175_facelift	19175	MPV	Note E11 facelift	E11	5	EU-NISSAN-NOTE-E11-FACELIFT-MPV-01	HIGH	生产区间覆盖2010年改款外廓。	READY
+19176_prefl	19176	MPV	Note E11	E11	5	EU-NISSAN-NOTE-E11-PREFL-MPV-01	HIGH	生产区间覆盖改款前外廓。	READY
+19176_facelift	19176	MPV	Note E11 facelift	E11	5	EU-NISSAN-NOTE-E11-FACELIFT-MPV-01	HIGH	生产区间覆盖2010年改款外廓。	READY
+19177_prefl	19177	MPV	Note E11	E11	5	EU-NISSAN-NOTE-E11-PREFL-MPV-01	HIGH	生产区间覆盖改款前外廓。	READY
+19177_facelift	19177	MPV	Note E11 facelift	E11	5	EU-NISSAN-NOTE-E11-FACELIFT-MPV-01	HIGH	生产区间覆盖2010年改款外廓。	READY
+19178	19178	Van	Clio II Phase III	SB	3	EU-RENAULT-CLIO-II-PHASE-III-VAN-01	MEDIUM	轻型商用三门壳体。	READY
+19179	19179	Sedan	Jetta V	1K2	4	EU-VOLKSWAGEN-JETTA-V-SEDAN-01	HIGH		READY
+19180	19180	Sedan	626 V	GF	4	EU-MAZDA-626-V-GF-SEDAN-01	HIGH		READY
+19181	19181	Sedan	Cerato I	LD	4	EU-KIA-CERATO-I-LD-SEDAN-01	HIGH		READY
+19182	19182	SUV	Pathfinder III	R51	5	EU-NISSAN-PATHFINDER-III-R51-SUV-01	HIGH		READY
+19183	19183	SUV	Kyron	DJ	5	EU-SSANGYONG-KYRON-DJ-SUV-01	HIGH		READY
+19184	19184	SUV	Kyron	DJ	5	EU-SSANGYONG-KYRON-DJ-SUV-01	HIGH		READY
+19185	19185	Sedan	Grandeur IV	TG	4	EU-HYUNDAI-GRANDEUR-IV-TG-SEDAN-01	HIGH		READY
+19186	19186	SUV	Commander	XK	5	EU-JEEP-COMMANDER-XK-SUV-01	HIGH		READY
+19187	19187	SUV	Commander	XK	5	EU-JEEP-COMMANDER-XK-SUV-01	HIGH		READY
+19188	19188	SUV	Commander	XK	5	EU-JEEP-COMMANDER-XK-SUV-01	HIGH		READY
+19190	19190	Convertible	TS		2	EU-MARCOS-TS-500-CONVERTIBLE-01	LOW	小批量TS 500版本边界按车型资料确认。	READY
+19191	19191	Coupe	LM		2	EU-MARCOS-LM-400-COUPE-01	LOW	小批量LM 4.0 Sport外廓。	READY
+19192	19192	Sedan	Thalia I facelift	LB	4	EU-RENAULT-THALIA-I-FACELIFT-SEDAN-01	HIGH		READY
+19193_prefl	19193	SUV	Grand Vitara II	JT	3	EU-SUZUKI-GRAND-VITARA-II-3D-PREFL-SUV-01	HIGH	生产区间覆盖初期三门外廓。	READY
+19193_facelift2008	19193	SUV	Grand Vitara II facelift 2008	JT	3	EU-SUZUKI-GRAND-VITARA-II-3D-FACELIFT-2008-SUV-01	HIGH	生产区间覆盖2008年三门改款外廓。	READY
+19193_facelift2012	19193	SUV	Grand Vitara II facelift 2012	JT	3	EU-SUZUKI-GRAND-VITARA-II-3D-FACELIFT-2012-SUV-01	HIGH	生产区间覆盖2012年三门改款外廓。	READY
+19194	19194	SUV	Grand Vitara II	JT	5	EU-SUZUKI-GRAND-VITARA-II-5D-SUV-01	HIGH		READY
+19195_prefl	19195	Hatchback	Picanto I	SA	5	EU-KIA-PICANTO-I-PREFL-HATCHBACK-01	HIGH	生产区间覆盖改款前外廓。	READY
+19195_facelift	19195	Hatchback	Picanto I facelift	SA	5	EU-KIA-PICANTO-I-FACELIFT-HATCHBACK-01	HIGH	生产区间覆盖2007年改款外廓。	READY
+19198_singlecab	19198	Pickup	D-Max I	RA	2	EU-ISUZU-D-MAX-I-SINGLE-CAB-PICKUP-01	MEDIUM	Ktype未限定驾驶室，列出原厂Single Cab分支。	READY
+19198_spacecab	19198	Pickup	D-Max I	RA	2	EU-ISUZU-D-MAX-I-SPACE-CAB-PICKUP-01	MEDIUM	Ktype未限定驾驶室，列出原厂Space Cab分支。	READY
+19198_doublecab	19198	Pickup	D-Max I	RA	4	EU-ISUZU-D-MAX-I-DOUBLE-CAB-PICKUP-01	MEDIUM	Ktype未限定驾驶室，列出原厂Double Cab分支。	READY
+19199_singlecab	19199	Pickup	D-Max I	RA	2	EU-ISUZU-D-MAX-I-SINGLE-CAB-PICKUP-01	MEDIUM	Ktype未限定驾驶室，列出原厂Single Cab分支。	READY
+19199_spacecab	19199	Pickup	D-Max I	RA	2	EU-ISUZU-D-MAX-I-SPACE-CAB-PICKUP-01	MEDIUM	Ktype未限定驾驶室，列出原厂Space Cab分支。	READY
+19199_doublecab	19199	Pickup	D-Max I	RA	4	EU-ISUZU-D-MAX-I-DOUBLE-CAB-PICKUP-01	MEDIUM	Ktype未限定驾驶室，列出原厂Double Cab分支。	READY
+19200	19200	Wagon	Passat B6	3C5	5	EU-VOLKSWAGEN-PASSAT-B6-WAGON-01	HIGH		READY
+19201	19201	Coupe	M6 E63	E63	2	EU-BMW-M6-E63-COUPE-01	HIGH		READY
+19202_swb	19202	SUV	Ascender	GMT360	5	EU-ISUZU-ASCENDER-GMT360-SUV-01	HIGH	4.2版本覆盖五座短轴车身。	READY
+19202_lwb	19202	SUV	Ascender	GMT370	5	EU-ISUZU-ASCENDER-GMT370-SUV-01	HIGH	4.2版本覆盖七座长轴车身。	READY
+19203_3dr	19203	Hatchback	Swift III	MZ	3	EU-SUZUKI-SWIFT-III-HATCHBACK-3D-01	HIGH	Ktype覆盖三门外廓。	READY
+19203_5dr	19203	Hatchback	Swift III	MZ	5	EU-SUZUKI-SWIFT-III-HATCHBACK-5D-01	HIGH	Ktype覆盖五门外廓。	READY
+19204	19204	SUV	Ascender	GMT370	5	EU-ISUZU-ASCENDER-GMT370-SUV-01	HIGH		READY
+19205	19205	Hatchback	Swift III	MZ	5	EU-SUZUKI-SWIFT-III-HATCHBACK-5D-01	HIGH		READY
+19206	19206	Van	Carry DA32	DA32	5	EU-SUZUKI-CARRY-DA32-VAN-01	MEDIUM		READY
+19207	19207	Pickup	MV I		2	EU-SUBARU-MV-I-PICKUP-01	MEDIUM		READY
+19208	19208	Pickup	MV II		2	EU-SUBARU-MV-II-PICKUP-01	MEDIUM		READY
+19211_prefl	19211	Sedan	Magentis II	MG	4	EU-KIA-MAGENTIS-II-MG-PREFL-SEDAN-01	HIGH	生产区间覆盖改款前外廓。	READY
+19211_facelift	19211	Sedan	Magentis II facelift	MG	4	EU-KIA-MAGENTIS-II-MG-FACELIFT-SEDAN-01	HIGH	生产区间覆盖2008年改款外廓。	READY
+19212_prefl	19212	Sedan	Magentis II	MG	4	EU-KIA-MAGENTIS-II-MG-PREFL-SEDAN-01	HIGH	生产区间覆盖改款前外廓。	READY
+19212_facelift	19212	Sedan	Magentis II facelift	MG	4	EU-KIA-MAGENTIS-II-MG-FACELIFT-SEDAN-01	HIGH	生产区间覆盖2008年改款外廓。	READY
+19213_prefl	19213	Sedan	Magentis II	MG	4	EU-KIA-MAGENTIS-II-MG-PREFL-SEDAN-01	HIGH	生产区间覆盖改款前外廓。	READY
+19213_facelift	19213	Sedan	Magentis II facelift	MG	4	EU-KIA-MAGENTIS-II-MG-FACELIFT-SEDAN-01	HIGH	生产区间覆盖2008年改款外廓。	READY
+19214_prefl	19214	Hatchback	Picanto I	SA	5	EU-KIA-PICANTO-I-PREFL-HATCHBACK-01	HIGH	生产区间覆盖改款前外廓。	READY
+19214_facelift	19214	Hatchback	Picanto I facelift	SA	5	EU-KIA-PICANTO-I-FACELIFT-HATCHBACK-01	HIGH	生产区间覆盖2007年改款外廓。	READY
+19215	19215	SUV	Sportage II	KM	5	EU-KIA-SPORTAGE-II-KM-SUV-01	HIGH		READY
+19216	19216	Sedan	Passat B6	3C2	4	EU-VOLKSWAGEN-PASSAT-B6-SEDAN-01	HIGH		READY
+19217_dropside	19217	Pickup	K2700 II	SD	2	EU-KIA-K2700-II-DROPSIDE-PICKUP-01	MEDIUM	输入车身类型覆盖原厂Pritsche。	READY
+19217_chassis	19217	Pickup	K2700 II	SD	2	EU-KIA-K2700-II-CHASSIS-CAB-PICKUP-01	MEDIUM	输入车身类型覆盖Fahrgestell底盘驾驶室。	READY
+19218_van	19218	Van	Kangoo I facelift	FC	4	EU-RENAULT-KANGOO-I-FACELIFT-VAN-01	MEDIUM	输入车身类型同时覆盖Express厢式货车。	READY
+19218_mpv	19218	MPV	Kangoo I facelift	KC	5	EU-RENAULT-KANGOO-I-FACELIFT-MPV-01	MEDIUM	输入车身类型同时覆盖乘用MPV。	READY
+19219_3dr	19219	Hatchback	Ibiza III facelift	6L	3	EU-SEAT-IBIZA-III-6L-FACELIFT-HATCHBACK-3D-01	HIGH	Ktype覆盖三门外廓。	READY
+19219_5dr	19219	Hatchback	Ibiza III facelift	6L	5	EU-SEAT-IBIZA-III-6L-FACELIFT-HATCHBACK-5D-01	HIGH	Ktype覆盖五门外廓。	READY
+19220_3dr	19220	Hatchback	Ibiza III facelift	6L	3	EU-SEAT-IBIZA-III-6L-FACELIFT-HATCHBACK-3D-01	HIGH	Ktype覆盖三门外廓。	READY
+19220_5dr	19220	Hatchback	Ibiza III facelift	6L	5	EU-SEAT-IBIZA-III-6L-FACELIFT-HATCHBACK-5D-01	HIGH	Ktype覆盖五门外廓。	READY
+19221	19221	Sedan	Cordoba II	6L	4	EU-SEAT-CORDOBA-II-6L-SEDAN-01	HIGH		READY
+19222	19222	Sedan	Cordoba II	6L	4	EU-SEAT-CORDOBA-II-6L-SEDAN-01	HIGH		READY
+19223	19223	Wagon	5 Series E61	E61	5	EU-BMW-5-SERIES-E61-WAGON-01	HIGH		READY
+19224	19224	Hatchback	Leon I	1M	5	EU-SEAT-LEON-I-1M-HATCHBACK-01	HIGH		READY
+19225	19225	Hatchback	Fabia I facelift	6Y	5	EU-SKODA-FABIA-I-6Y-FACELIFT-HATCHBACK-01	HIGH		READY
+19226	19226	Hatchback	Fabia I facelift	6Y	5	EU-SKODA-FABIA-I-6Y-FACELIFT-HATCHBACK-01	HIGH		READY
+19227	19227	Sedan	Fabia I facelift	6Y	4	EU-SKODA-FABIA-I-6Y-FACELIFT-SEDAN-01	HIGH		READY
+19228	19228	Sedan	Fabia I facelift	6Y	4	EU-SKODA-FABIA-I-6Y-FACELIFT-SEDAN-01	HIGH		READY
+19229	19229	Wagon	Fabia I facelift	6Y	5	EU-SKODA-FABIA-I-6Y-FACELIFT-WAGON-01	HIGH		READY
+19230	19230	Wagon	Fabia I facelift	6Y	5	EU-SKODA-FABIA-I-6Y-FACELIFT-WAGON-01	HIGH		READY
+19231	19231	Van	Fabia I Praktik	6Y	5	EU-SKODA-FABIA-I-6Y-PRAKTIK-VAN-01	MEDIUM	Praktik为Combi基础商用车身。	READY
+19232_prefl	19232	Sedan	A6 C6	4F	4	EU-AUDI-A6-C6-PREFL-SEDAN-01	HIGH	生产区间覆盖改款前外廓。	READY
+19232_facelift	19232	Sedan	A6 C6 facelift	4F	4	EU-AUDI-A6-C6-FACELIFT-SEDAN-01	HIGH	生产区间覆盖2008年改款外廓。	READY
+19233_prefl	19233	Wagon	A6 C6	4F	5	EU-AUDI-A6-C6-PREFL-WAGON-01	HIGH	生产区间覆盖改款前外廓。	READY
+19233_facelift	19233	Wagon	A6 C6 facelift	4F	5	EU-AUDI-A6-C6-FACELIFT-WAGON-01	HIGH	生产区间覆盖2008年改款外廓。	READY
+```
+
+[下载 Ktype 映射表](sandbox:/mnt/data/all_1-100_ktype_dimension_mapping_final.tsv)
+
+## 最终完整 DIMENSION_GROUP TSV
+
+```tsv
+DIMENSION_GROUP_ID	LengthMM	WidthMM	HeightMM	DimensionSource	SourceURL
+EU-OPEL-SIGNUM-Z03-HATCHBACK-01	4651	1798	1466	Auto-Data.net	https://www.auto-data.net/en/opel-signum-facelift-2005-generation-5165
+EU-OPEL-ASTRA-H-HATCHBACK-3D-01	4290	1753	1415	Auto-Data.net	https://www.auto-data.net/en/opel-astra-h-gtc-2.0i-16v-turbo-opc-240hp-2385
+EU-OPEL-ASTRA-H-HATCHBACK-5D-01	4249	1753	1467	Auto-Data.net	https://www.auto-data.net/en/opel-astra-h-generation-547
+EU-OPEL-ASTRA-H-WAGON-01	4515	1753	1500	Auto-Data.net	https://www.auto-data.net/en/opel-astra-h-caravan-facelift-2007-generation-9251
+EU-AUDI-A4-B8-FACELIFT-SEDAN-01	4701	1826	1427	Auto-Data.net	https://www.auto-data.net/en/audi-a4-b8-8k-facelift-2011-generation-4129
+EU-AUDI-A4-B8-FACELIFT-WAGON-01	4699	1826	1436	Auto-Data.net	https://www.auto-data.net/en/audi-a4-avant-b8-8k-facelift-2011-generation-4134
+EU-OPEL-VECTRA-C-FACELIFT-SEDAN-01	4611	1798	1460	Auto-Data.net	https://www.auto-data.net/en/opel-vectra-c-facelift-2005-generation-5173
+EU-OPEL-VECTRA-C-FACELIFT-HATCHBACK-01	4642	1798	1460	Auto-Data.net	https://www.auto-data.net/en/opel-vectra-c-cc-facelift-2005-generation-5171
+EU-OPEL-VECTRA-C-FACELIFT-WAGON-01	4839	1798	1500	Auto-Data.net	https://www.auto-data.net/en/opel-vectra-c-caravan-facelift-2005-generation-5172
+EU-OPEL-CORSA-C-FACELIFT-VAN-01	3839	1646	1440	Auto-Data.net	https://www.auto-data.net/en/opel-corsa-c-facelift-2003-generation-5149
+EU-OPEL-COMBO-C-FACELIFT-VAN-01	4322	1684	1801	Auto-Data.net	https://www.auto-data.net/en/opel-combo-tour-c-facelift-2003-1.3-cdti-75hp-25825
+EU-OPEL-COMBO-C-FACELIFT-MPV-01	4322	1684	1801	Auto-Data.net	https://www.auto-data.net/en/opel-combo-tour-c-facelift-2003-1.4i-16v-90hp-1765
+EU-PROTON-GEN-2-CM-HATCHBACK-01	4310	1725	1435	CarsGuide	https://www.carsguide.com.au/proton/gen2/car-dimensions/2005
+EU-PROTON-JUMBUCK-PICKUP-01	4455	1690	1420	CarsGuide	https://www.carsguide.com.au/proton/jumbuck/car-dimensions/2010
+EU-SUBARU-IMPREZA-II-FACELIFT-SEDAN-01	4465	1740	1440	Auto-Data.net	https://www.auto-data.net/en/subaru-impreza-ii-facelift-2005-generation-8240
+EU-SUBARU-IMPREZA-II-GG-WAGON-FACELIFT-STANDARD-01	4465	1695	1485	Auto-Data.net	https://www.auto-data.net/en/subaru-impreza-ii-station-wagon-facelift-2005-2.0-160hp-awd-16088
+EU-SUBARU-IMPREZA-II-GG-WAGON-FACELIFT-WRX-01	4465	1695	1465	Auto-Data.net	https://www.auto-data.net/en/subaru-impreza-ii-station-wagon-facelift-2005-wrx-2.5-230hp-awd-16092
+EU-SUBARU-FORESTER-II-FACELIFT-SUV-01	4450	1735	1590	Auto-Data.net	https://www.auto-data.net/en/subaru-forester-ii-generation-3623
+EU-PORSCHE-911-997-CARRERA-4-CONVERTIBLE-01	4427	1852	1310	Auto-Data.net	https://www.auto-data.net/en/porsche-911-cabriolet-997-carrera-4-3.6-325hp-36745
+EU-PORSCHE-911-997-CARRERA-4S-CONVERTIBLE-01	4427	1852	1300	Auto-Data.net	https://www.auto-data.net/en/porsche-911-cabriolet-997-carrera-4s-3.8-355hp-36747
+EU-CADILLAC-STS-GMX295-SEDAN-01	4985	1843	1464	Auto-Data.net	https://www.auto-data.net/en/cadillac-sts-generation-2485
+EU-ALFA-ROMEO-BRERA-939-COUPE-01	4413	1830	1372	Auto-Data.net	https://www.auto-data.net/en/alfa-romeo-brera-generation-406
+EU-JAGUAR-XK-X150-COUPE-01	4791	1892	1322	Auto-Data.net	https://www.auto-data.net/en/jaguar-xk-coupe-x150-generation-75
+EU-FORD-FOCUS-II-ST-HATCHBACK-3D-01	4362	1840	1447	FordFan technical specifications	https://www.fordfan.de/technische-daten/2005/09/30/technische-daten-ford-focus-st
+EU-FORD-FOCUS-II-ST-HATCHBACK-5D-01	4362	1840	1447	FordFan technical specifications	https://www.fordfan.de/technische-daten/2005/09/30/technische-daten-ford-focus-st
+EU-AUDI-A4-B7-CONVERTIBLE-01	4573	1777	1391	Auto-Data.net	https://www.auto-data.net/en/audi-a4-cabriolet-b7-8h-1.8-t-163hp-4289
+EU-JAGUAR-XK-X150-CONVERTIBLE-01	4791	1892	1329	Auto-Data.net	https://www.auto-data.net/en/jaguar-xk-convertible-x150-generation-76
+EU-NISSAN-NOTE-E11-PREFL-MPV-01	4083	1690	1550	Auto-Data.net	https://www.auto-data.net/en/nissan-note-i-e11-generation-251
+EU-NISSAN-NOTE-E11-FACELIFT-MPV-01	4100	1690	1550	Auto-Data.net	https://www.auto-data.net/en/nissan-note-i-e11-facelift-2010-generation-3810
+EU-RENAULT-CLIO-II-PHASE-III-VAN-01	3811	1639	1417	AutoData1	https://www.autodata1.com/en/car/renault/clio/clio-ii-phase-iii-2003-3-door-12-16v-75-hp
+EU-VOLKSWAGEN-JETTA-V-SEDAN-01	4554	1781	1459	Auto-Data.net	https://www.auto-data.net/en/volkswagen-jetta-v-generation-1910
+EU-MAZDA-626-V-GF-SEDAN-01	4575	1710	1430	Auto-Data.net	https://www.auto-data.net/en/mazda-626-v-gf-2.0-turbo-di-101hp-11270
+EU-KIA-CERATO-I-LD-SEDAN-01	4480	1735	1470	Auto-Data.net	https://www.auto-data.net/en/kia-cerato-i-sedan-generation-6083
+EU-NISSAN-PATHFINDER-III-R51-SUV-01	4740	1850	1865	Automobile-Catalog	https://www.automobile-catalog.com/car/2005/2313485/nissan_pathfinder_4_0_v6.html
+EU-SSANGYONG-KYRON-DJ-SUV-01	4660	1880	1755	Auto-Data.net	https://www.auto-data.net/en/ssangyong-kyron-model-1820
+EU-HYUNDAI-GRANDEUR-IV-TG-SEDAN-01	4895	1865	1495	Auto-Data.net	https://www.auto-data.net/en/hyundai-grandeur-azera-iv-tg-generation-2980
+EU-JEEP-COMMANDER-XK-SUV-01	4787	1900	1826	Auto-Data.net; Edmunds	https://www.auto-data.net/en/jeep-commander-xk-generation-334; https://www.edmunds.com/jeep/commander/2006/st-100547711/features-specs/
+EU-MARCOS-TS-500-CONVERTIBLE-01	4005	1680	1150	Auto-Data.net	https://www.auto-data.net/en/marcos-ts-model-994
+EU-MARCOS-LM-400-COUPE-01	4263	1828	1016	Automobile-Catalog	https://www.automobile-catalog.com/car/1996/1442090/marcos_lm_400_4_0_v8_coupe.html
+EU-RENAULT-THALIA-I-FACELIFT-SEDAN-01	4171	1639	1437	Auto-Data.net	https://www.auto-data.net/en/renault-symbol-i-facelift-2002-generation-2168
+EU-SUZUKI-GRAND-VITARA-II-3D-PREFL-SUV-01	4005	1810	1695	Auto-Data.net	https://www.auto-data.net/en/suzuki-grand-vitara-ii-3-door-1.6-i-16v-107hp-16578
+EU-SUZUKI-GRAND-VITARA-II-3D-FACELIFT-2008-SUV-01	4150	1870	1695	Auto-Data.net	https://www.auto-data.net/en/suzuki-grand-vitara-ii-facelift-2008-3-door-1.6-106hp-awd-55740
+EU-SUZUKI-GRAND-VITARA-II-3D-FACELIFT-2012-SUV-01	4035	1810	1695	Auto-Data.net	https://www.auto-data.net/en/suzuki-grand-vitara-ii-facelift-2012-3-door-1.6-106hp-4x4-21702
+EU-SUZUKI-GRAND-VITARA-II-5D-SUV-01	4470	1810	1695	Auto-Data.net	https://www.auto-data.net/en/suzuki-grand-vitara-ii-5-door-2.0-i-16v-140hp-automatic-16582
+EU-KIA-PICANTO-I-PREFL-HATCHBACK-01	3495	1595	1480	Auto-Data.net	https://www.auto-data.net/en/kia-picanto-i-generation-617
+EU-KIA-PICANTO-I-FACELIFT-HATCHBACK-01	3535	1595	1480	Auto-Data.net; Automobile-Catalog	https://www.auto-data.net/en/kia-picanto-i-facelift-2007-generation-8328; https://www.automobile-catalog.com/car/2008/1353860/kia_picanto_2_1_1_automatic.html
+EU-ISUZU-D-MAX-I-SINGLE-CAB-PICKUP-01	4910	1800	1720	Isuzu D-Max 2007 technical sheet; Isuzu Slovenia	https://fr.scribd.com/document/828497875/fiche-technique; https://isuzu.si/sl/timeline
+EU-ISUZU-D-MAX-I-SPACE-CAB-PICKUP-01	5035	1800	1735	Isuzu D-Max 2007 technical sheet; Isuzu Slovenia	https://fr.scribd.com/document/828497875/fiche-technique; https://isuzu.si/sl/timeline
+EU-ISUZU-D-MAX-I-DOUBLE-CAB-PICKUP-01	5035	1800	1735	Isuzu D-Max 2007 technical sheet; Isuzu Slovenia	https://fr.scribd.com/document/828497875/fiche-technique; https://isuzu.si/sl/timeline
+EU-VOLKSWAGEN-PASSAT-B6-WAGON-01	4774	1820	1517	Auto-Data.net	https://www.auto-data.net/en/volkswagen-passat-variant-b6-generation-1896
+EU-BMW-M6-E63-COUPE-01	4871	1855	1372	Auto-Data.net	https://www.auto-data.net/en/bmw-m6-e63-generation-2005
+EU-ISUZU-ASCENDER-GMT360-SUV-01	4867	1933	1892	Edmunds; Automobile-Catalog	https://www.edmunds.com/isuzu/ascender/2006/st-100649940/features-specs/; https://www.automobile-catalog.com/car/2006/1269590/isuzu_ascender_5-passenger_s_4x4_4_2l_v8.html
+EU-ISUZU-ASCENDER-GMT370-SUV-01	5273	1933	1918	Auto-Data.net	https://www.auto-data.net/en/isuzu-ascender-4.2-i-24v-4wd-279hp-15912
+EU-SUZUKI-SWIFT-III-HATCHBACK-3D-01	3695	1690	1500	Auto-Data.net	https://www.auto-data.net/en/suzuki-swift-iv-1.3-ddis-70hp-16522
+EU-SUZUKI-SWIFT-III-HATCHBACK-5D-01	3695	1690	1500	Auto-Data.net	https://www.auto-data.net/en/suzuki-swift-iv-1.3i-92hp-4wd-16524
+EU-SUZUKI-CARRY-DA32-VAN-01	3675	1505	1915	Auto.ae	https://auto.ae/catalog/suzuki/carry/1999-2005-da32/van/
+EU-SUBARU-MV-I-PICKUP-01	4185	1550	1450	Automobile-Catalog	https://www.automobile-catalog.com/car/1978/3204095/subaru_4_wheel_drive_mv.html
+EU-SUBARU-MV-II-PICKUP-01	4355	1635	1415	Automobile-Catalog	https://www.automobile-catalog.com/car/1981/3207815/subaru_1800_mv_4wd_dual_range.html
+EU-KIA-MAGENTIS-II-MG-PREFL-SEDAN-01	4735	1805	1480	Auto-Data.net	https://www.auto-data.net/en/kia-magentis-ii-generation-591
+EU-KIA-MAGENTIS-II-MG-FACELIFT-SEDAN-01	4800	1805	1480	Auto-Data.net	https://www.auto-data.net/en/kia-magentis-ii-facelift-2008-generation-590
+EU-KIA-SPORTAGE-II-KM-SUV-01	4350	1840	1730	Auto-Data.net	https://www.auto-data.net/en/kia-sportage-ii-2.0-crdi-140hp-4wd-2721
+EU-VOLKSWAGEN-PASSAT-B6-SEDAN-01	4765	1820	1472	Auto-Data.net	https://www.auto-data.net/en/volkswagen-passat-b6-generation-1895
+EU-KIA-K2700-II-DROPSIDE-PICKUP-01	4840	1750	1995	Wheel-Size	https://en.wheelsage.org/kia/k-series/kia_k2700/specifications
+EU-KIA-K2700-II-CHASSIS-CAB-PICKUP-01	4840	1750	1995	Wheel-Size	https://en.wheelsage.org/kia/k-series/kia_k2700/specifications
+EU-RENAULT-KANGOO-I-FACELIFT-VAN-01	4035	1672	1835	Auto-Data.net	https://www.auto-data.net/en/renault-kangoo-i-express-fc-facelift-2003-1.5-dci-82hp-33874
+EU-RENAULT-KANGOO-I-FACELIFT-MPV-01	4035	1672	1835	Auto-Data.net	https://www.auto-data.net/en/renault-kangoo-i-kc-facelift-2003-1.5-dci-82hp-33851
+EU-SEAT-IBIZA-III-6L-FACELIFT-HATCHBACK-3D-01	3977	1698	1441	Auto-Data.net	https://www.auto-data.net/en/seat-ibiza-iii-facelift-2006-1.4-tdi-70hp-34938
+EU-SEAT-IBIZA-III-6L-FACELIFT-HATCHBACK-5D-01	3977	1698	1441	Auto-Data.net	https://www.auto-data.net/en/seat-ibiza-iii-facelift-2006-1.4-tdi-80hp-34939
+EU-SEAT-CORDOBA-II-6L-SEDAN-01	4280	1698	1441	Auto-Data.net	https://www.auto-data.net/en/seat-cordoba-ii-1.4-tdi-75hp-13412
+EU-BMW-5-SERIES-E61-WAGON-01	4843	1846	1491	Auto-Data.net	https://www.auto-data.net/en/bmw-5-series-touring-e61-520d-163hp-9613
+EU-SEAT-LEON-I-1M-HATCHBACK-01	4184	1742	1439	Auto-Data.net	https://www.auto-data.net/en/seat-leon-i-1m-1.9-tdi-110hp-13621
+EU-SKODA-FABIA-I-6Y-FACELIFT-HATCHBACK-01	3970	1646	1451	Automobile-Catalog	https://www.automobile-catalog.com/car/2005/3137060/skoda_fabia_1_4_tdi_70.html
+EU-SKODA-FABIA-I-6Y-FACELIFT-SEDAN-01	4232	1646	1449	Auto-Data.net	https://www.auto-data.net/en/skoda-fabia-sedan-i-6y-facelift-2004-1.4-tdi-pd-69hp-46001
+EU-SKODA-FABIA-I-6Y-FACELIFT-WAGON-01	4232	1646	1451	Auto-Data.net	https://www.auto-data.net/en/skoda-fabia-i-combi-6y-facelift-2004-1.4-tdi-pd-69hp-45996
+EU-SKODA-FABIA-I-6Y-PRAKTIK-VAN-01	4232	1646	1451	Auto-Data.net	https://www.auto-data.net/en/skoda-fabia-i-combi-6y-facelift-2004-1.4-tdi-pd-69hp-45996
+EU-AUDI-A6-C6-PREFL-SEDAN-01	4916	1855	1459	Auto-Data.net	https://www.auto-data.net/en/audi-a6-4f-c6-2.0-tdi-140hp-4634
+EU-AUDI-A6-C6-FACELIFT-SEDAN-01	4927	1855	1459	Auto-Data.net	https://www.auto-data.net/en/audi-a6-4f-c6-facelift-2008-2.0-tdie-136hp-dpf-4632
+EU-AUDI-A6-C6-PREFL-WAGON-01	4933	1855	1463	Auto-Data.net	https://www.auto-data.net/en/audi-a6-avant-4f-c6-2.0-tdi-140hp-4665
+EU-AUDI-A6-C6-FACELIFT-WAGON-01	4927	1855	1463	Auto-Data.net	https://www.auto-data.net/en/audi-a6-avant-4f-c6-facelift-2008-2.0-tdi-136hp-dpf-26753
+```
+
+[下载 DIMENSION_GROUP 表](sandbox:/mnt/data/all_1-100_dimension_groups_final.tsv)
+
+推进信号：COMPLETE
+
+[1]: https://www.automobile-catalog.com/car/2005/2313485/nissan_pathfinder_4_0_v6.html "https://www.automobile-catalog.com/car/2005/2313485/nissan_pathfinder_4_0_v6.html"
+
+
+--- 本地最终 TSV 已更新 ---
+- 本批 Ktype 映射：all_1-100_ktype_dimension_mapping_final.tsv
+- 本批尺寸组：all_1-100_dimension_groups_final.tsv
+- 累计 Ktype 映射：all_1-100_ktype_dimension_mapping_final.tsv（130 行）
+- 累计尺寸组：all_1-100_dimension_groups_final.tsv（79 行）

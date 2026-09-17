@@ -149,6 +149,22 @@ class SizeMatcherTests(unittest.TestCase):
         self.assertEqual(result["自动尺码"].tolist(), ["BEL-AIR-5357", "GENERIC", "无可用尺码"])
         self.assertEqual(result.loc[2, "候选"], "BEL-AIR-5357")
 
+    def test_simplified_rules_default_to_enabled_and_sort_by_length(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {"尺码": "LARGE", "模式": "通用", "分类": "两厢车", "版本": "", "长上限": 5000, "插片指数上限": 999, "车型白名单": ""},
+                {"尺码": "SMALL", "模式": "通用", "分类": "两厢车", "版本": "", "长上限": 4600, "插片指数上限": 999, "车型白名单": ""},
+                {"尺码": "CUSTOM", "模式": "定制", "分类": "", "版本": "", "长上限": 4800, "插片指数上限": 999, "车型白名单": "Test Model 2020-2022"},
+            ]
+        )
+        matcher = analysis.SizeMatcher(self.parameters, rules)
+        self.assertEqual(matcher.match("两厢车", "", "", [4500, 0]).auto_size, "SMALL")
+
+        vehicles = pd.DataFrame(
+            [{"MAKE": "Test", "MODEL": "Model", "YEAR": "2021", "结构": "Sedan", "分类": "三厢车", "CAB": "", "版本": "", "L-MM": 4700, "插片指数": 0}]
+        )
+        self.assertEqual(matcher.apply(vehicles).loc[0, "自动尺码"], "CUSTOM")
+
     def test_trim_format_removes_brand_hyphen_and_spaces(self) -> None:
         value = analysis._format_trim_candidates(
             ["Jaguar|XF", "Jaguar|XFR", "Jaguar|XFR-S"]
@@ -224,16 +240,17 @@ class FullPipelineRegressionTests(unittest.TestCase):
             cls.source_dir,
             cls.submodel_path,
             config_dir=cls.config_dir,
+            rules_path=cls.source_dir / "尺码匹配规则.csv",
             trim_source=cls.source_dir / "全量数据.csv",
         )
 
     def test_full_result_contract(self) -> None:
         summary = analysis.validate_result(self.result, 4354)
         self.assertEqual(summary["unique_dimension_ids"], 4354)
-        self.assertEqual(summary["matched_sizes"], 4119)
-        self.assertEqual(summary["unavailable_sizes"], 162)
-        self.assertEqual(summary["incomplete_rows"], 73)
-        self.assertEqual(summary["sales_total"], 749626457)
+        self.assertEqual(summary["matched_sizes"], 4145)
+        self.assertEqual(summary["unavailable_sizes"], 140)
+        self.assertEqual(summary["incomplete_rows"], 69)
+        self.assertEqual(summary["sales_total"], 749522706)
 
         dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]
@@ -241,7 +258,7 @@ class FullPipelineRegressionTests(unittest.TestCase):
         self.assertEqual(row["销量合计"], 74286)
         self.assertEqual(row["前宽-MM"], 2052)
         self.assertEqual(row["插片指数"], 276)
-        self.assertEqual(row["自动尺码"], "3WXXL-0")
+        self.assertEqual(row["自动尺码"], "4XXL")
         self.assertEqual(row["自动长度余量"], 146)
         self.assertEqual(self.result.columns[-1], "DIMENSION-ID")
         self.assertTrue(self.result["DIMENSION-ID"].is_monotonic_increasing)

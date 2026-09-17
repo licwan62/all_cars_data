@@ -14,8 +14,8 @@ import pandas as pd
 
 
 TARGET_SIZES = [
-    "3L-W", "3XL-W", "BEL-AIR-5357", "CHALLENGER", "MODEL-X",
-    "3XXL-W", "3XXXL", "3XXXXL",
+    "4L", "4XL", "BEL-AIR-5357", "CHALLENGER", "MODEL-X",
+    "4XXL", "4XXXL", "4XXXXL",
 ]
 
 # Chevrolet Bel Air 1953-1957 has a notably taller cabin and hood profile
@@ -92,7 +92,14 @@ def main() -> None:
 
     data = pd.read_csv(args.data, encoding="utf-8-sig", dtype=str).fillna("")
     rules = pd.read_csv(args.rules, encoding="utf-8-sig", dtype=str).fillna("")
-    internal_to_logical = dict(zip(rules["内部尺码"], rules["逻辑尺码"]))
+    if {"内部尺码", "逻辑尺码"}.issubset(rules.columns):
+        internal_to_logical = dict(zip(rules["内部尺码"], rules["逻辑尺码"]))
+        rule_schema = "逻辑尺码/内部尺码双列结构"
+    elif "尺码" in rules.columns:
+        internal_to_logical = {size: size for size in rules["尺码"] if size}
+        rule_schema = "尺码单列结构"
+    else:
+        raise ValueError("尺码匹配规则缺少‘尺码’或‘内部尺码/逻辑尺码’字段")
     data["逻辑尺码"] = data["自动尺码"].map(internal_to_logical).fillna(data["自动尺码"])
     data.loc[data.apply(is_bel_air_high_pattern, axis=1), "逻辑尺码"] = DEDICATED_SIZE
     selected = data[data["逻辑尺码"].isin(TARGET_SIZES)].copy()
@@ -191,7 +198,7 @@ def main() -> None:
         f"多 Cluster 原子重叠：{int((ownership['CLUSTER_COUNT'] > 1).sum()):,}。", "",
         f"无法解析年份的源记录：{len(invalid_year_rows):,}。", "",
         "## 聚类口径", "",
-        "- 先依据 `尺码匹配规则.csv` 将内部尺码映射为逻辑尺码。",
+        f"- 规则表采用{rule_schema}；双列结构映射到逻辑尺码，单列结构直接使用尺码。",
         "- 消费者簇主键为 `逻辑尺码 + MAKE + MODEL`，车身结构、版本、TRIM、代际和年份作为簇内适配信息保留。",
         "- 原子事实为 `MAKE + MODEL + TRIM + 版本 + 结构 + YEAR`；年份与逗号分隔 TRIM 均展开后做全局唯一性检查。",
         "- 本轮不生成源数据中不存在的 YEAR / TRIM / 版本 / 结构组合。",

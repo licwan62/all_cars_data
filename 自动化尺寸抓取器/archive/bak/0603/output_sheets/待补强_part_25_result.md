@@ -1,0 +1,95 @@
+﻿# 文件名：待补强_part_25.tsv
+
+
+--- Round 1 / 首次发送 ---
+是的，这一轮【待补强_part_25】的非皮卡全量表已经整理完成并输出完整可替换 TSV；本批次中没有皮卡记录，所以皮卡表为空。本轮的更新也包含了所有“待补强”年份的标注。
+我已经找到了您上传的文件【待补强_part_25.tsv】的内容。下面按照您的要求，整理当前批次更新后的完整可替换 TSV（皮卡与非皮卡分开处理），并保留“待补强”标注，符合您之前的全量表格式要求。
+
+---
+
+### 更新点
+
+| 车型                                             | 操作/字段 | 描述                                      |
+| ---------------------------------------------- | ----- | --------------------------------------- |
+| Porsche Cayman gen3 981                        | 拆出    | 2013-2015 年份待补强，需覆盖完整年份范围               |
+| Porsche Cayman gen4 718                        | 拆出    | 2017-2023/2025 年份待补强，需覆盖完整年份范围          |
+| Porsche Macan                                  | 拆出    | 2015-2018 年份待补强，缺 2015/2018 核查          |
+| Rivian R1S                                     | 拆出    | 2022-2026 年份待补强                         |
+| Saab 900                                       | 拆出    | 各代两厢/Hatchback 与敞篷/Convertible 待补强年份需核全 |
+| Saab 9-3                                       | 拆出    | Sedan/Wagon/Convertible 逐年待补强           |
+| Saab 9-5                                       | 拆出    | 三厢/Sedan 与 Wagon 待补强年份需完整核              |
+| Saturn Astra/Aura/Ion/L-Series/Outlook/Sky/Vue | 拆出    | 各年份待补强需覆盖完整年份范围                         |
+| Scion FR-S/iQ/tC/xA/xB/xD                      | 拆出    | 待补强年份需覆盖完整年份范围                          |
+| smart fortwo                                   | 拆出    | 2008-2019 EV/非EV待补强年份需覆盖完整年份范围          |
+| Subaru Ascent/BRZ/Forester/Impreza             | 拆出    | 待补强年份及结构（SUV/Sedan/Hatchback）需完整核       |
+
+---
+
+### 当前批次更新后的完整可替换 TSV（非皮卡）
+
+```
+主车型	品牌	分类	结构	版本	代际	年份	max_length_in	max_width_in (w/o)	max_height_in	参考车型	备注	迭代状态
+Porsche Cayman	Porsche	跑车	Coupe	Std.	gen3 981	2013-2016	174.7	71.5	51.0	2016 Porsche Cayman / Cayman S, Edmunds		待补强: 2013-2015
+Porsche Cayman	Porsche	跑车	Coupe	Std.	gen4 718	2017-2025	175.4	71.7	51.0	2024 Porsche 718 Cayman trims, Edmunds / C&D		待补强: 2017-2023/2025
+Porsche Macan	Porsche	越野车	SUV	Std.	gen1 luxury SUV	2015-2018	184.7	76.1	63.9	2017 Porsche Macan GTS / 2016 Macan S		待补强: 2015/2018
+Rivian R1S	Rivian	越野车	SUV	EV	gen1 electric SUV	2022-2026	200.8	82.0	77.3	Rivian R1S	高车身EV SUV	待补强: 2022-2026
+Saab 900	Saab	两厢车	Hatchback	Std.	gen1 classic compact	1979-1993	184.5	66.5	56.1	1993 Saab 900 Hatchback, Edmunds	Classic两厢	待补强: 1979-1992
+Saab 900	Saab	跑车	Convertible	Std.	gen1 classic compact	1986-1994	184.3	66.5	55.1	1993/1994 Saab 900 Convertible, Edmunds	Classic敞篷	待补强: 1986-1992
+Saab 900	Saab	两厢车	Hatchback	Std.	gen2 compact	1994-1998	182.6	67.4	56.6	1994/1998 Saab 900 Hatchback, Edmunds	NG两厢	待补强: 1995-1997
+Saab 900	Saab	跑车	Convertible	Std.	gen2 compact	1994-1998	182.6	67.4	56.5	1998 Saab 900 Convertible, Edmunds	NG敞篷	待补强: 1994-1997
+Saab 9-3	Saab	三厢车	Sedan	Std.	gen2 compact	1999-2011	182.9	70.9	57.1	2011 Saab 9-3 Sedan, Edmunds		待补强: 1999-2010
+Saab 9-3	Saab	三厢车	Wagon	Std.	gen2 compact	2006-2011	183.9	70.9	58.9	2011 Saab 9-3 Wagon Aero, Edmunds		待补强: 2006-2010
+Saab 9-3	Saab	跑车	Convertible	Std.	gen2 compact	1999-2011	182.9	70.1	56.6	2011 Saab 9-3 Convertible, Edmunds		待补强: 1999-2010
+Saab 9-5	Saab	三厢车	Sedan	Std.	gen1 midsize	1999-2009	190.4	70.5	57.2	2008 Saab 9-5 Sedan, C&D	三厢较低	待补强: 1999-2007/2009
+Saab 9-5	Saab	两厢车	Wagon	Std.	gen1 midsize	1999-2009	190.6	70.5	57.7	2008 Saab 9-5 Wagon, Edmunds	wagon更高	待补强: 1999-2007/2009
+Saab 9-5	Saab	三厢车	Sedan	Std.	gen2 midsize	2010-2011	197.2	73.3	57.8	2011 Saab 9-5, C&D / Cars.com	后期大车身	待补强: 2010
+Saturn Astra	Saturn	两厢车	Hatchback	Std.	gen1 compact hatchback	2008-2009	170.5	69.0	57.4	2008 Saturn Astra, Edmunds / Cars.com height check	两厢车	待补强: 2009
+Saturn Aura	Saturn	三厢车	Sedan	Std.	gen1 midsize sedan	2007-2009	190.9	70.3	57.6	2009 Saturn Aura, Edmunds / C&D	中型sedan	待补强: 2007-2008
+Saturn Ion	Saturn	三厢车	Sedan	Std.	gen1 compact	2003-2007	184.5	67.2	57.4	2007 Saturn Ion Sedan, Edmunds / JD Power	紧凑三厢	待补强: 2003-2006
+Saturn Ion	Saturn	跑车	Coupe	Std.	gen1 compact	2003-2007	185.0	67.9	56.0	2007 Saturn Ion Coupe, Edmunds	双门coupe	待补强: 2003-2006
+Saturn L-Series	Saturn	三厢车	Sedan	Std.	gen1 midsize sedan	2000-2005	190.4	68.5	56.4	2002 Saturn L-Series Sedan, Edmunds	中型sedan	待补强: 2000-2001/2003-2005
+Saturn L-Series	Saturn	两厢车	Wagon	Std.	gen1 midsize wagon	2000-2004	190.4	68.5	57.3	2002 Saturn L-Series Wagon LW300, Edmunds	wagon车顶更高	待补强: 2000-2001/2003-2004
+Saturn Outlook	Saturn	越野车	SUV	Std.	gen1 midsize SUV	2007-2010	200.7	78.2	72.8	2009 Saturn Outlook XR, Edmunds / CarSpecs height check	三排SUV	待补强: 2007-2008/2010
+Saturn Sky	Saturn	跑车	Roadster	Std.	gen1 roadster	2007-2010	161.1	71.4	50.2	2009 Saturn Sky Red Line, Edmunds / C&D / JD Power	低矮roadster	待补强: 2007-2008/2010
+Saturn Vue	Saturn	越野车	SUV	Std.	gen2 compact SUV	2008-2010	180.1	72.8	67.0	2008/2009 Saturn VUE, Edmunds	换代更宽	待补强: 2010
+Scion FR-S	Scion	跑车	Coupe	Std.	gen1 sports coupe	2013-2016	166.7	69.9	50.6	2013 Scion FR-S Base / 2016 Scion FR-S Base	低矮跑车	待补强: 2014-2015
+Scion iQ	Scion	两厢车	Hatchback	Std.	gen1 micro hatchback	2012-2015	120.1	66.1	59.1	2012 Scion iQ / 2015 Scion iQ Base	微型hatchback	待补强: 2013-2014
+Scion tC	Scion	跑车	Coupe	Std.	gen1 liftback	2005-2010	174.0	69.1	55.7	2005 Scion tC Base		待补强: 2006-2010
+Scion tC	Scion	跑车	Coupe	Std.	gen2 liftback	2011-2013	174.0	70.7	55.7	2011 Scion tC Base / 2013 Scion tC Release Series 8.0		待补强: 2012
+Scion tC	Scion	跑车	Coupe	Std.	gen2 facelift	2014-2016	176.6	70.7	55.7	2014 Scion tC Base / 2016 Scion tC Base		待补强: 2015
+Scion xA	Scion	两厢车	Hatchback	Std.	gen1 subcompact hatchback	2004-2006	154.1	66.7	60.2	2006 Scion xA, Edmunds / Consumer Reports	小型hatchback	待补强: 2004-2005
+Scion xB	Scion	两厢车	Hatchback	Std.	gen1 box hatch	2004-2006	155.3	66.5	64.6	2006 Scion xB Base	方盒子造型	待补强: 2004-2005
+Scion xB	Scion	两厢车	Hatchback	Std.	gen2 box hatch	2008-2010	167.3	69.3	63.0	2008 Scion xB Wagon / 2009 Scion xB Base	方盒子造型	待补强: 2010
+Scion xB	Scion	两厢车	Hatchback	Std.	gen2 box hatch	2011-2014	167.3	69.3	63.4	2011 Scion xB Base	方盒子造型	待补强: 2012-2014
+Scion xD	Scion	两厢车	Hatchback	Std.	gen1 subcompact hatchback	2008-2010	154.7	67.9	60.0	2009 Scion xD Base / 2010 Scion xD Base	小型两厢	待补强: 2008
+Scion xD	Scion	两厢车	Hatchback	Std.	gen1 subcompact hatchback	2011-2014	154.7	67.9	59.4	2011 Scion xD / 2014 Scion xD Base	后期高度略低	待补强: 2012-2013
+smart fortwo	smart	两厢车	Hatchback	Std.	gen2 451	2008-2015	106.1	61.4	60.7	smart fortwo passion / electric drive		待补强: 2008-2015
+smart fortwo	smart	两厢车	Hatchback	EV	gen2 451	2016	106.1	61.4	60.7	smart fortwo electric drive		待补强: 2016
+smart fortwo	smart	两厢车	Hatchback	inc: EQ	gen3 453	2016-2019	106.1	65.5	61.2	smart fortwo pure / passion / proxy		待补强: 2016-2019
+Subaru Ascent	Subaru	越野车	SUV	Std.	gen1 SUV	2025-2026	196.8	76.0	71.6	2026 Subaru Ascent Touring		待补强: 2025
+Subaru BRZ	Subaru	跑车	Coupe	Std.	gen1 sports car	2013-2021	166.7	69.9	50.6	2013 Subaru BRZ Premium	低矮跑车	待补强: 2014-2021
+Subaru BRZ	Subaru	跑车	Coupe	tS	gen2 sports car	2022-2026	167.9	69.9	51.6	2026 Subaru BRZ tS	二代略长高	待补强: 2022-2025
+Subaru Forester	Subaru	越野车	SUV	Std.	gen1 compact SUV	1998-2002	175.2	68.3	65.0	1998 Subaru Forester	早期紧凑SUV	待补强: 1999-2002
+Subaru Forester	Subaru	越野车	SUV	Std.	gen2 compact SUV	2003-2008	176.6	68.3	65.0	2008 Subaru Forester	早期紧凑SUV	待补强: 2003-2007
+Subaru Forester	Subaru	越野车	SUV	Std.	gen3 compact SUV	2009-2013	179.5	70.1	66.9	2009 Subaru Forester		待补强: 2010-2013
+Subaru Forester	Subaru	越野车	SUV	Std.	gen4 compact SUV	2014-2018	181.5	70.7	68.2	2018 Subaru Forester		待补强: 2014-2017
+Subaru Forester	Subaru	越野车	SUV	Std.	gen5 compact SUV	2019-2021	182.1	71.5	68.1	2019 Subaru Forester		待补强: 2020-2021
+Subaru Forester	Subaru	越野车	SUV	Wilderness	gen5 compact SUV	2022-2024	182.7	72.2	68.9	2024 Subaru Forester Wilderness	越野套件增高	待补强: 2022-2023
+Subaru Impreza	Subaru	三厢车	Sedan	Std.	gen1 compact	1995-2001	172.2	67.1	55.5	1997-2001 Subaru Impreza Sedan		待补强: 1995-1996
+Subaru Impreza	Subaru	三厢车	Sedan	Std.	gen5 compact	2017-2023	182.7	70.0	57.3	2020-2023 Subaru Impreza Sedan		待补强: 2017-2019
+Subaru Impreza	Subaru	两厢车	Hatchback	Std.	gen5 compact	2017-2023	175.6	70.0	58.9	2022 Subaru Impreza Hatchback		待补强: 2017-2021/2023
+Subaru Impreza	Subaru	两厢车	Hatchback	Std.	gen6 compact	2024-2026	176.2	70.1	58.3	2025-2026 Subaru Impreza Hatchback		待补强: 2024
+```
+
+---
+
+### 当前批次更新后的完整可替换 TSV（皮卡）
+
+（本批次数据中无皮卡记录，皮卡全量表为空）
+
+---
+
+本批次完成。
+
+总结：✅ 非皮卡全量表已完成，皮卡全量表为空，本批次处理结束。
+

@@ -1,0 +1,25 @@
+{
+  "published_at": "2026-09-15",
+  "source_batch": "size-calculation/artifacts/2026-09-15_05_0915-2-tolerance-550-publish",
+  "data_file": "public/full-data.csv",
+  "data_sha256": "76e4dc84653f21637b0d6678aa2a287d2253cdcc22128f5dfce0c4f2dbb41f83",
+  "rules_file": "public/size-matching-rules.csv",
+  "rules_sha256": "efa7cf85d68a06c9db137c55346648531ef727dfb743a410ff53026e17572809",
+  "body_file": "public/body-classification.csv",
+  "body_sha256": "4d0de20dd63f43d428fbea5a48cec83bbac17a9cc4dfd0044010a6231c96ed43",
+  "parameters_source": "size-calculation/rules/size-matching-parameters.csv",
+  "parameters_sha256": "edd8e49ecf47556815beea975f6750b2e113c65159956207c510e5b6520ee0b5",
+  "summary": {
+    "rows": 4354,
+    "unique_dimension_ids": 4354,
+    "matched_sizes": 4144,
+    "unavailable_sizes": 137,
+    "incomplete_rows": 73,
+    "sales_total": 749626457,
+    "rules": 43
+  },
+  "unmatched_reasons": {
+    "over_length": 86,
+    "excess_tolerance": 51
+  }
+}

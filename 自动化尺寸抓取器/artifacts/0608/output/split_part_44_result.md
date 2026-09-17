@@ -1,0 +1,16 @@
+﻿# 文件名：split_part_44.tsv
+
+
+--- Round 1 / 首次发送 ---
+
+
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen2	2007-2013	Regular Cab	6.6	205.6	79.9	73.5	2007-2013 Sierra Regular Cab standard bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen2	2007-2013	Regular Cab	8.0	224.5	79.9	73.5	2007-2013 Sierra Regular Cab long bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen2	2007-2013	Crew Cab	5.8	229.9	79.9	73.7	2007-2013 Sierra Crew Cab short bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen2	2007-2013	Extended Cab	6.6	230.2	79.9	73.7	2007-2013 Sierra Extended Cab standard bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen2	2007-2013	Extended Cab	8.0	248.8	79.9	73.7	2007 Sierra Extended Cab long bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen3	2014-2018	Regular Cab	6.6	205.6	80	74	2014-2018 Sierra Regular Cab standard bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen3	2014-2018	Regular Cab	8.0	224.4	80	74	2014-2018 Sierra Regular Cab long bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen3	2014-2018	Crew Cab	5.8	230	80	74.2	2014-2018 Sierra Crew Cab short bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen3	2014-2018	Double Cab	6.6	230	80	73.9	2014-2018 Sierra Double Cab standard bed		可入库
+Sierra 1500	皮卡	GMC	Sierra 1500	Pickup	Std.	gen4	2019-2026	Regular Cab	6.6	210.9	81.1	75.6	2019-2026 Sierra Regular Cab standard bed		可入库
