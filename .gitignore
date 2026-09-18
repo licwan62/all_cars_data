@@ -1,39 +1,13 @@
 /.qsyncclient
 /.bak/
+**/*.bak
 **/desktop.ini
 **/.pytest_cache/
 
-# Shared CSV data lives in source. Project-local CSV rules/evidence are explicit exceptions.
-*.[cC][sS][vV]
-!/EU尺码分析/rules/*.[cC][sS][vV]
-!/RU尺码分析/rules/*.[cC][sS][vV]
-!/public/参考尺寸计算.[cC][sS][vV]
-!/public/全量数据.[cC][sS][vV]
-!/public/车身分类.[cC][sS][vV]
-!/public/尺码匹配规则.[cC][sS][vV]
-!/public/尺码匹配报告.[jJ][sS][oO][nN]
-!/public/code/_mapping/*.[cC][sS][vV]
-!/尺码计算/rules/尺码匹配参数.[cC][sS][vV]
-!/尺码计算/rules/尺码匹配规则.[cC][sS][vV]
-!/车形分类核定/artifacts/all_dimension_shape_audit_2026-09-06.[cC][sS][vV]
-!**/source/**/*.[cC][sS][vV]
-!**/config/**/*.[cC][sS][vV]
-!**/data/**/*.[cC][sS][vV]
-!/尺码计算/input/参考尺寸计算.[cC][sS][vV]
-!/尺码计算/input/尺码匹配参数.[cC][sS][vV]
-!/尺码计算/input/尺码匹配规则.[cC][sS][vV]
-!/适配器-Trim生成/output/适配器.[cC][sS][vV]
-!/适配器-Trim生成/output/DimensionTrimMap.[cC][sS][vV]
-!/车型代表分析/output/代表车型.[cC][sS][vV]
+# Generated/public-facing data is not versioned.
+/public/
 
 # Research iteration history is permanent evidence; track every file type.
-!/车形分类核定/changes/**
-!/车型代表分析/changes/**
-!/尺码簇分析/changes/**
-!/尺码计算/changes/**
-!/分类结构审核/changes/**
-!/适配器-Trim生成/changes/**
-!/销量评估/changes/**
 /output/code/__pycache__/
 /车形分类核定/code/__pycache__/
 **/__pycache__/
