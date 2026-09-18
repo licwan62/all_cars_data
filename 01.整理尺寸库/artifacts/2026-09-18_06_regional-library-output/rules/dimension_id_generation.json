@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "regions": ["eu", "ru"],
+  "base_fields": ["MAKE", "MODEL", "版本", "结构", "YEAR"],
+  "conditional_fields": [
+    {
+      "when_field": "分类",
+      "equals": "皮卡",
+      "append_fields": ["CAB", "BED"]
+    }
+  ],
+  "deduplicate_fields": [
+    "MAKE", "MODEL", "版本", "CAB", "BED", "结构", "代际", "YEAR", "分类",
+    "L-IN", "W-IN", "H-IN", "迭代状态"
+  ],
+  "collision_disambiguation": [
+    {
+      "type": "field",
+      "field": "代际",
+      "append_to": "版本"
+    },
+    {
+      "type": "dimensions",
+      "fields": ["L-IN", "W-IN", "H-IN"],
+      "labels": ["L", "W", "H"],
+      "append_to": "版本"
+    }
+  ],
+  "append_region_suffix": true
+}

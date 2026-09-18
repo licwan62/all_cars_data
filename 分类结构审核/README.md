@@ -4,7 +4,7 @@
 
 ## 产物
 
-- `artifacts/corrected.csv`：与源表结构一致的最终修正版。
+- `output/corrected.csv`：与尺寸库结构一致的当前稳定修正版。
 - `artifacts/validation_report.json`：机器验收结果。
 - `artifacts/audit/`：结构审核表、全库审核表和统一修改日志。
 - `artifacts/reviews/`：year_reference、美规尺寸、Sedan/Coupe、VERSION 审核及候选表。
@@ -25,7 +25,7 @@ python 分类结构审核/code/generate_report.py
 
 `build_unified_corrected.py` 会先运行原结构审核生成器，再叠加确定性的 year_reference、美规尺寸、Sedan/Coupe 与 VERSION 规范化结论。带 `approx`、范围值、配置依赖、“需要确认”或 `REVIEW_ONLY` 的结论只保留在审核表，不自动写入 corrected。统一写入结果见 `artifacts/validation/unified_corrected_validation.json`。
 
-项目只生成 `artifacts/corrected.csv` 候选，不自动回写真源。验收后在仓库根目录运行 `python data_workflow.py publish-plan 车型尺寸库` 获取人工覆盖步骤。
+每次运行先保留新的 artifact；验收后更新 `output/corrected.csv`，不会直接改写上游尺寸库。
 
 ## 单次修改包
 

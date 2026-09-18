@@ -1,6 +1,6 @@
 # Vehicle MAKE / MODEL Code Mapper
 
-从 `../public/全量数据.csv` 聚合 `MAKE`、`MODEL` 和 `销量合计`，生成长期稳定的两位品牌/车型代码。首次运行按销量降序分配；后续运行保留所有历史代码，只给新增项追加代码。
+从 `../03.尺码计算/output/全尺码全量.csv` 聚合 `MAKE`、`MODEL` 和 `销量合计`，生成长期稳定的两位品牌/车型代码。首次运行按销量降序分配；后续运行保留所有历史代码，只给新增项追加代码。
 
 ## 使用
 
@@ -10,6 +10,7 @@
 python src/main.py --dry-run
 python src/main.py
 python src/main.py --report
+python src/main.py --publish
 ```
 
 也可临时指定另一份全量表：
@@ -20,11 +21,12 @@ python src/main.py --input "D:\data\full_vehicle_data.csv"
 
 配置见 `config.yaml`。正式运行生成：
 
-- `mapping/make_mapping.csv`：含所有历史品牌代码。
-- `mapping/model_mapping.csv`：含所有历史车型代码。
+- `data/mapping/make_mapping.csv`：含所有历史品牌代码。
+- `data/mapping/model_mapping.csv`：含所有历史车型代码。
 - `artifacts/YYYY-MM-DD_NN_code-mapping-publish/`：不可覆盖的运行批次，包含结果、两份映射快照、运行报告和机器校验。
-- `../public/code/_mapping/vehicle_mapping.csv`：供其他项目使用的当前正式结果。
-- `mapping/backups/`：更新发生变化前的历史映射备份。
+- `output/vehicle_mapping.csv`：供其他项目使用的当前稳定结果，每次正式运行都会被最新结果替换。
+- `data/mapping/backups/`：更新发生变化前的历史映射备份。
+- 加 `--publish` 时，额外把同一份结果写入 `public/car_code/vehicle_mapping.csv`（对外发布地址，见 `config.yaml` 的 `public_publish.path`）。
 
 CSV 使用 UTF-8 BOM，便于 Excel 正确识别中文；代码始终作为带前导零的字符串写入。
 

@@ -1,5 +1,5 @@
 input:
-  path: ../public/全量数据.csv
+  path: ../03.尺码计算/output/全尺码全量.csv
   encoding: utf-8-sig
 
 columns:
@@ -12,19 +12,22 @@ code:
   max_value: 99
 
 mapping:
-  make_path: mapping/make_mapping.csv
-  model_path: mapping/model_mapping.csv
+  make_path: data/mapping/make_mapping.csv
+  model_path: data/mapping/model_mapping.csv
 
 artifacts:
   path: artifacts
   slug: code-mapping-publish
 
 publish:
-  path: ../public/code/_mapping/vehicle_mapping.csv
+  path: output/vehicle_mapping.csv
+
+public_publish:
+  path: ../public/car_code/vehicle_mapping.csv
 
 backup:
   enabled: true
-  path: mapping/backups
+  path: data/mapping/backups
 
 normalization:
   trim_whitespace: true

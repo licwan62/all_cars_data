@@ -18,7 +18,7 @@ from run_iteration import (
 )
 
 
-BASE_CONFIG = PROJECT_DIR / "config" / "2026-09-16_jeep_wrangler_side_views.json"
+BASE_CONFIG = PROJECT_DIR / "data" / "2026-09-16_jeep_wrangler_side_views.json"
 SOURCE = ROOT / "data" / "us" / "source" / "US尺寸库.csv"
 ITERATION_ID = "2026-09-16_02_jeep-wrangler-final-review-release"
 OUTPUT_DIR = PROJECT_DIR / "artifacts" / ITERATION_ID

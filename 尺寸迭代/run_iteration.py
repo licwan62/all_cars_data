@@ -163,7 +163,7 @@ def write_report(path: Path, config: dict[str, object], validation: dict[str, ob
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="生成尺寸库迭代候选与审计产物")
     parser.add_argument("--source", type=Path, default=ROOT / "data" / "us" / "source" / "US尺寸库.csv")
-    parser.add_argument("--config", type=Path, default=PROJECT_DIR / "config" / "2026-09-16_jeep_wrangler_side_views.json")
+    parser.add_argument("--config", type=Path, default=PROJECT_DIR / "data" / "2026-09-16_jeep_wrangler_side_views.json")
     parser.add_argument("--output-dir", type=Path)
     return parser.parse_args()
 

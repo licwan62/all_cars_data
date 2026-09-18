@@ -421,8 +421,8 @@ def run(*args: object, cwd: Path | None = None) -> None:
 def main() -> None:
     repo = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="生成并发布版本化 W 型车聚类与链接分析")
-    parser.add_argument("--data", type=Path, default=repo / "public" / "全量数据.csv")
-    parser.add_argument("--rules", type=Path, default=repo / "public" / "尺码匹配规则.csv")
+    parser.add_argument("--data", type=Path, default=repo / "03.尺码计算" / "output" / "全尺码全量.csv")
+    parser.add_argument("--rules", type=Path, default=repo / "03.尺码计算" / "output" / "尺码匹配规则.csv")
     parser.add_argument("--version", default="0914")
     parser.add_argument("--total-supply", type=int, default=TOTAL_SUPPLY)
     parser.add_argument("--sales-multiplier", action="append", default=[], metavar="SIZE=FACTOR")

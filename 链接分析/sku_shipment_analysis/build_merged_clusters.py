@@ -169,7 +169,7 @@ def build_sibling_detail(summary: pd.DataFrame) -> pd.DataFrame:
 def main() -> None:
     repo = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="合并 W 型车尺码簇并生成新 Cluster ID")
-    parser.add_argument("--cluster-dir", type=Path, default=repo / "public" / "sku_cluster" / "W型车")
+    parser.add_argument("--cluster-dir", type=Path, default=repo / "聚类SKU" / "output" / "W型车")
     parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parent / "output")
     parser.add_argument("--publish", action="store_true")
     args = parser.parse_args()

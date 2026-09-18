@@ -11,7 +11,8 @@ ROOT = PROJECT.parent
 ARTIFACTS = PROJECT / "artifacts"
 AUDIT = ARTIFACTS / "audit"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
-SOURCE = ROOT / "source" / "车型尺寸库.csv"
+SOURCE = ROOT / "01.整理尺寸库" / "output" / "尺寸库.csv"
+OUTPUT = PROJECT / "output"
 SPLITS = PROJECT / "research_queue" / "approved_splits.json"
 
 SOURCE_FIELDS = ["DIMENSION-ID", "MAKE", "MODEL", "版本", "CAB", "BED", "结构", "代际", "YEAR", "分类", "L-IN", "W-IN", "H-IN", "参考车型", "备注", "迭代状态"]
@@ -206,7 +207,7 @@ def main() -> None:
         else:
             process_rows_by_id[row["DIMENSION-ID"]] = projected
     write(AUDIT / "audit_table2_corrected.csv", T2_FIELDS, process_rows_by_id.values())
-    write(ARTIFACTS / "corrected.csv", SOURCE_FIELDS, corrected_rows)
+    write(OUTPUT / "corrected.csv", SOURCE_FIELDS, corrected_rows)
     write(AUDIT / "audit_table3_uncertain.csv", T3_FIELDS, uncertain)
     write(AUDIT / "audit_table4_split.csv", T4_FIELDS, split_rows)
     write(AUDIT / "audit_table5_other.csv", T5_FIELDS, [])

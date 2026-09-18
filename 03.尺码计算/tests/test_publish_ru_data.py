@@ -1,0 +1,22 @@
+from __future__ import annotations
+
+import importlib.util
+from pathlib import Path
+
+
+PROJECT = Path(__file__).resolve().parents[1]
+SPEC = importlib.util.spec_from_file_location("publish_ru_data", PROJECT / "publish_ru_data.py")
+assert SPEC and SPEC.loader
+module = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(module)
+
+
+def test_ru_release_inputs_are_consistent():
+    summary = module.validate_release()
+
+    assert summary["dimension_rows"] == 13849
+    assert summary["full_rows"] == 13849
+    assert summary["unique_dimension_ids"] == 13849
+    assert summary["sales_total"] == 297009
+    assert summary["matched_sizes"] == 13054
+    assert summary["unavailable_sizes"] == 795

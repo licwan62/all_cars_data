@@ -22,6 +22,7 @@ class Settings:
     artifact_root: Path
     artifact_slug: str
     publish_path: Path
+    public_publish_path: Path
     backup_enabled: bool
     backup_path: Path
 
@@ -51,8 +52,11 @@ def load_settings(config_path: str | Path) -> Settings:
             artifact_root=_resolve(base, raw["artifacts"]["path"]),
             artifact_slug=str(raw["artifacts"].get("slug", "code-mapping-publish")),
             publish_path=_resolve(base, raw["publish"]["path"]),
+            public_publish_path=_resolve(
+                base, raw.get("public_publish", {}).get("path", "../public/car_code/vehicle_mapping.csv")
+            ),
             backup_enabled=bool(raw.get("backup", {}).get("enabled", True)),
-            backup_path=_resolve(base, raw.get("backup", {}).get("path", "mapping/backups")),
+            backup_path=_resolve(base, raw.get("backup", {}).get("path", "data/mapping/backups")),
         )
     except (KeyError, TypeError, ValueError) as exc:
         raise ValueError(f"Invalid configuration in {config_file}: {exc}") from exc

@@ -21,7 +21,7 @@ def main() -> None:
     run(
         cluster_project / "main.py",
         "--size-input", repo / "public" / "全量数据.csv",
-        "--sales-input", repo / "销量评估" / "artifacts" / "atom_sales.csv",
+        "--sales-input", repo / "02.销量评估" / "output" / "atom_sales.csv",
         "--output", cluster_output,
         cwd=cluster_project,
     )

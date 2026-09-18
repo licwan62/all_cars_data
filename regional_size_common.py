@@ -15,8 +15,8 @@ from full_table_schema import build_dimension_analysis
 
 
 ROOT = Path(__file__).resolve().parent
-SIZE_PROJECT = ROOT / "尺码计算"
-PUBLIC_DIR = ROOT / "public"
+SIZE_PROJECT = ROOT / "03.尺码计算"
+PUBLIC_DIR = SIZE_PROJECT / "output"
 US_COLUMNS = [
     "MAKE", "MODEL", "TRIM", "版本", "结构", "CAB", "BED", "代际", "YEAR", "分类",
     "L-MM", "W-MM", "H-MM", "销量合计", "车形", "前宽-MM", "后宽-MM", "参考侧高",
@@ -261,7 +261,7 @@ def calculate_us_standard(
 
     base["车形"] = assign_shapes(base, mapping_path)
     core = load_size_module()
-    references = read_csv(PUBLIC_DIR / "参考尺寸计算.csv")
+    references = read_csv(SIZE_PROJECT / "data" / "参考尺寸计算.csv")
     bodies = base[["DIMENSION-ID", "车形"]].copy()
     vehicles = base.drop(columns=["车形"])
     result = core.add_body_dimensions(vehicles, bodies, references)
@@ -273,8 +273,8 @@ def calculate_us_standard(
     analysis = build_dimension_analysis(result)
     analysis = analysis.sort_values("DIMENSION-ID", kind="stable").reset_index(drop=True)
     matcher = core.SizeMatcher(
-        read_csv(SIZE_PROJECT / "rules" / "尺码匹配参数.csv"),
-        read_csv(SIZE_PROJECT / "rules" / "尺码匹配规则.csv"),
+        read_csv(SIZE_PROJECT / "data" / "尺码匹配参数.csv"),
+        read_csv(SIZE_PROJECT / "data" / "尺码匹配规则.csv"),
     )
     result = matcher.apply(result)
     result = result[US_COLUMNS].sort_values("DIMENSION-ID", kind="stable").reset_index(drop=True)
@@ -366,7 +366,7 @@ def write_dimension_library(
     publish_path: Path | None = None,
 ) -> None:
     if list(library.columns) != DIMENSION_COLUMNS:
-        raise RegionalDataError("尺寸库字段与 public/尺寸库.csv 标准不一致")
+        raise RegionalDataError("尺寸库字段与 01.整理尺寸库/output/尺寸库.csv 标准不一致")
     targets = [output_path]
     if publish_path is not None and publish_path.resolve() != output_path.resolve():
         targets.append(publish_path)

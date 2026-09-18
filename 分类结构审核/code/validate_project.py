@@ -13,13 +13,13 @@ ROOT = PROJECT.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 from id_scheme import dimension_id
-OUT = PROJECT / "artifacts"
-AUDIT = OUT / "audit"
-SOURCE_DIR = ROOT / "source"
-SOURCE = SOURCE_DIR / "车型尺寸库.csv"
+OUT = PROJECT / "output"
+AUDIT = PROJECT / "artifacts" / "audit"
+SOURCE_DIR = ROOT / "01.整理尺寸库" / "output"
+SOURCE = SOURCE_DIR / "尺寸库.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 SPLITS = PROJECT / "research_queue" / "approved_splits.json"
-PROTECTED = ["车型尺寸库.csv", "车型尺寸库.xlsx", "车型数据尺码-只有长匹配.xlsx", "车型数据尺码.xlsx", "子车系维护表.csv"]
+PROTECTED = ["尺寸库.csv"]
 EXPECTED = {
     "audit_table1_corrections.csv": ["DIMENSION-ID","修改类型","原结构","建议结构","原分类","建议分类","置信度","修改原因","主要依据","是否需要拆分记录"],
     "audit_table2_corrected.csv": ["DIMENSION-ID","结构","分类","迭代状态"],

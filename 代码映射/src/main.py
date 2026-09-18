@@ -34,7 +34,7 @@ def determine_mode(settings: Settings) -> str:
     return "UPDATE" if make_exists else "INITIAL"
 
 
-def run(settings: Settings, dry_run: bool = False) -> dict[str, int | str]:
+def run(settings: Settings, dry_run: bool = False, publish: bool = False) -> dict[str, int | str]:
     mode = determine_mode(settings)
     records, input_rows = load_vehicle_data(
         settings.input_path, settings.encoding, settings.make_column,
@@ -66,13 +66,6 @@ def run(settings: Settings, dry_run: bool = False) -> dict[str, int | str]:
         if changed or mode == "INITIAL":
             write_csv_atomic(settings.make_mapping_path, MAKE_FIELDS, make_rows(new_makes))
             write_csv_atomic(settings.model_mapping_path, MODEL_FIELDS, model_rows(new_models))
-        publish_fields = ["MAKE", "MODEL", "MAKE_CODE", "MODEL_CODE"]
-        publish_rows = output_rows(new_models)
-        write_csv_atomic(
-            settings.publish_path,
-            publish_fields,
-            publish_rows,
-        )
         artifact_path = create_artifact_batch(
             settings.artifact_root,
             settings.artifact_slug,
@@ -91,8 +84,18 @@ def run(settings: Settings, dry_run: bool = False) -> dict[str, int | str]:
             },
             settings.input_path,
         )
+        publish_fields = ["MAKE", "MODEL", "MAKE_CODE", "MODEL_CODE"]
+        publish_rows = output_rows(new_models)
+        write_csv_atomic(
+            settings.publish_path,
+            publish_fields,
+            publish_rows,
+        )
         print(f"Artifact created: {artifact_path}")
         print(f"Published: {settings.publish_path}")
+        if publish:
+            write_csv_atomic(settings.public_publish_path, publish_fields, publish_rows)
+            print(f"Published (public): {settings.public_publish_path}")
         print("Mapping update completed successfully.")
     else:
         print("Dry run completed successfully. No files were modified.")
@@ -145,6 +148,9 @@ def parse_args(argv: list[str] | None = None):
     parser.add_argument("--config", default=str(project_root / "config.yaml"))
     parser.add_argument("--input", help="Temporarily override the configured full-data CSV")
     parser.add_argument("--dry-run", action="store_true", help="Validate and preview without writing files")
+    parser.add_argument(
+        "--publish", action="store_true", help="Also write the published mapping to the public_publish path"
+    )
     parser.add_argument("--report", action="store_true", help="Show current mapping statistics only")
     return parser.parse_args(argv)
 
@@ -159,7 +165,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.report:
             report(settings)
         else:
-            run(settings, dry_run=args.dry_run)
+            run(settings, dry_run=args.dry_run, publish=args.publish)
         return 0
     except (OSError, ValueError) as exc:
         LOGGER.error("%s", exc)

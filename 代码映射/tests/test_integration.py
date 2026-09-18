@@ -26,6 +26,7 @@ def settings(tmp_path: Path, input_path: Path) -> Settings:
         artifact_root=tmp_path / "artifacts",
         artifact_slug="code-mapping-publish",
         publish_path=tmp_path / "public" / "code" / "_mapping" / "vehicle_mapping.csv",
+        public_publish_path=tmp_path / "public_publish" / "vehicle_mapping.csv",
         backup_enabled=True,
         backup_path=tmp_path / "mapping" / "backups",
     )
@@ -109,6 +110,7 @@ def test_formal_run_creates_immutable_artifact_and_publication(tmp_path):
     assert (batches[0] / "output" / "vehicle_mapping.csv").exists()
     assert (batches[0] / "mapping" / "make_mapping.csv").exists()
     assert (batches[0] / "mapping" / "model_mapping.csv").exists()
+    assert (batches[0] / "input" / source.name).exists()
     assert (batches[0] / "run_report.json").exists()
     assert (batches[0] / "validation.json").exists()
     assert read_csv(cfg.publish_path)[0]["MAKE_CODE"] == "00"

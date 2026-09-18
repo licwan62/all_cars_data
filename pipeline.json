@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "directory_contract": {
+    "data": "agent-maintained rules and reference material",
+    "output": "current validated handoff for downstream agents",
+    "artifacts": "immutable per-run history"
+  },
+  "nodes": [
+    {"id": "dimension-crawler", "path": "00.自动化尺寸抓取器", "upstream": [], "outputs": ["区域尺寸抓取候选"]},
+    {"id": "dimension-library", "path": "01.整理尺寸库", "upstream": ["dimension-crawler"], "outputs": ["尺寸库.csv"]},
+    {"id": "structure-review", "path": "分类结构审核", "upstream": ["dimension-library"], "outputs": ["corrected.csv"]},
+    {"id": "shape-classification", "path": "02.车形分类核定", "upstream": ["dimension-library", "structure-review"], "outputs": ["record_shape.csv"]},
+    {"id": "sales-estimation", "path": "02.销量评估", "upstream": ["dimension-library"], "outputs": ["atom_sales.csv"]},
+    {"id": "size-calculation", "path": "03.尺码计算", "upstream": ["dimension-library", "shape-classification", "sales-estimation"], "outputs": ["全尺码全量.csv", "HNT全量.csv", "TM全量.csv", "TM_拆分全量.csv", "尺码匹配规则.csv", "尺码匹配报告.json"]},
+    {"id": "eu-size-analysis", "path": "EU尺码分析", "upstream": ["dimension-crawler"], "outputs": ["区域尺寸库与全量表"]},
+    {"id": "ru-size-analysis", "path": "RU尺码分析", "upstream": ["dimension-crawler"], "outputs": ["区域尺寸库与全量表"]},
+    {"id": "dimension-iteration", "path": "尺寸迭代", "upstream": ["dimension-library", "shape-classification", "size-calculation"], "outputs": ["尺寸迭代候选"]},
+    {"id": "code-mapping", "path": "代码映射", "upstream": ["size-calculation"], "outputs": ["vehicle_mapping.csv"]},
+    {"id": "size-cluster-analysis", "path": "尺码簇分析", "upstream": ["size-calculation"], "outputs": ["尺码簇分析结果"]},
+    {"id": "sku-clustering", "path": "聚类SKU", "upstream": ["size-calculation", "sales-estimation"], "outputs": ["SKU聚类结果"]},
+    {"id": "representative-model", "path": "车型代表分析", "upstream": ["size-calculation"], "outputs": ["代表车型.csv"]},
+    {"id": "adapter-trim", "path": "适配器-Trim生成", "upstream": ["size-calculation", "code-mapping"], "outputs": ["适配器.csv", "DimensionTrimMap.csv"]},
+    {"id": "link-analysis", "path": "链接分析", "upstream": ["size-calculation", "sku-clustering", "sales-estimation"], "outputs": ["链接与发货分析结果"]}
+  ]
+}
