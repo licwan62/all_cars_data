@@ -54,7 +54,7 @@ python A0.尺码计算\pandas_analysis.py `
 
 `TRIM` 优先从 `data/子车系维护表.csv` 生成；缺失时，命令行默认从已有 `output/全量表_US.csv` 按主键保留。两种来源均不可用或显式使用 `--no-submodel` 时留空。
 
-结果审核通过后，可运行 `python data_workflow.py publish-plan 全量数据` 获取人工覆盖步骤。
+结果审核通过后，可运行 `python scripts/data_workflow.py publish-plan 全量数据` 获取人工覆盖步骤。
 
 ## 店铺分组全量
 

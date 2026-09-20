@@ -23,7 +23,7 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 SLUG = "release"
 MANIFEST_NAME = "manifest.json"
 

@@ -7,7 +7,7 @@
   data/ru/尺寸/0918.1-老尺码加y340.csv -> output/尺码匹配规则_RU.csv
   data/店铺分组/货架.yaml           -> output/店铺货架.csv（店铺,匹配尺码,发货尺码）
 
-任何输入缺失或缺少必需列时失败，不改变 output/。之后由仓库根目录 publish_release.py 生成带后缀的 artifact。
+任何输入缺失或缺少必需列时失败，不改变 output/。之后由scripts/publish_release.py 生成带后缀的 artifact。
 """
 
 from __future__ import annotations

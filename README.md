@@ -45,9 +45,9 @@ flowchart LR
 - 根目录 `release.json` 汇总每个节点当前版本与 artifact。
 
 ```powershell
-python publish_release.py            # 自上游到下游全量发布
-python publish_release.py --dry-run
-python validate_pipeline_structure.py
+python scripts/publish_release.py            # 自上游到下游全量发布
+python scripts/publish_release.py --dry-run
+python scripts/validate_pipeline_structure.py
 ```
 
 `pipeline.json` 的 `outputs` 只列已存在的稳定交付物，尚未产出的放 `pending`（当前：区域抓取候选、原子销量、全量表_EU、全量表_汇总、SKU聚类结果、发货单、尺寸迭代候选）。

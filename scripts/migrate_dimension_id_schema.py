@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOTS = [ROOT / "source", ROOT / "车形分类核定", ROOT / "02.分类结构审核", ROOT / "销量评估"]
 CODE_ROOTS = [ROOT / "车形分类核定", ROOT / "02.分类结构审核", ROOT / "销量评估"]
 PREFIX = "DIMENSION-GROUP|"

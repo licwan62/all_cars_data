@@ -15,7 +15,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATA = ROOT / "public" / "data"
 TARGET = PUBLIC_DATA / "full_tables"
 FILES = {

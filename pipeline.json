@@ -6,7 +6,7 @@
     "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext"
   },
   "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表、B TRIM适配器、C 代表车型、D 发货单、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。",
-  "release_contract": "python publish_release.py 自上游到下游发布：artifact 内交付物带 -YYYYMMDD_NN 后缀，发布到 output/ 时去掉后缀，manifest.json 记录交付物 sha256、artifact 来源与上游版本；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
+  "release_contract": "python scripts/publish_release.py 自上游到下游发布：artifact 内交付物带 -YYYYMMDD_NN 后缀，发布到 output/ 时去掉后缀，manifest.json 记录交付物 sha256、artifact 来源与上游版本；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
   "nodes": [
     {
       "id": "dimension-crawler",

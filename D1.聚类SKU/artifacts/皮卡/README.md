@@ -23,7 +23,7 @@ python main.py --input "../销量统计.CSV" --output "output"
 `--input` 仅用于兼容历史合并 CSV；也可用 `--size-input` 和
 `--sales-input` 分别指定新输入。
 
-项目只写 `output`。审核完成后，用仓库根目录的 `python data_workflow.py publish-plan 皮卡尺码簇明细` 等命令取得人工发布步骤；程序不会直接写 `source/pk-cluster`。
+项目只写 `output`。审核完成后，用仓库的 `python scripts/data_workflow.py publish-plan 皮卡尺码簇明细` 等命令取得人工发布步骤；程序不会直接写 `source/pk-cluster`。
 
 ## 输出文件
 

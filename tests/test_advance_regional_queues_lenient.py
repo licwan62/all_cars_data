@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 
 
-PATH = Path(__file__).resolve().parents[1] / "advance_regional_queues_lenient.py"
+PATH = Path(__file__).resolve().parents[1] / "scripts" / "advance_regional_queues_lenient.py"
 SPEC = importlib.util.spec_from_file_location("advance_regional_queues_lenient", PATH)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader

@@ -20,7 +20,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_DATA = ROOT / "public" / "data"
 OWNED_DIRS = ("us_data", "eu_data", "ru_data")
 US_FILES = {"尺码匹配规则.csv", "店铺货架.csv"}
