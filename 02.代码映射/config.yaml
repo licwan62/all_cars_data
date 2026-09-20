@@ -1,0 +1,46 @@
+# 上游：01.整理尺寸库/output/尺寸库.csv（US/EU/RU 合并库，DIMENSION-ID 以 " US"/" EU"/" RU" 结尾）
+input:
+  path: ../01.整理尺寸库/output/尺寸库.csv
+  encoding: utf-8-sig
+
+columns:
+  make: MAKE
+  model: MODEL
+  # 尺寸库没有销量；新增品牌/车型编码按标准化名称升序分配。
+  sales: ""
+  dimension_id: DIMENSION-ID
+  year: YEAR
+
+code:
+  width: 2
+  max_value: 99
+
+# 三个区域独立编码。DIMENSION-CODE = 区域前缀 + MAKECODE + MODELCODE + YEARCODE
+# US: 2 位；EU/RU: E/R 前缀 + 3 位。
+regions:
+  - {name: US, prefix: "",  width: 2, mapping_dir: data/mapping/us}
+  - {name: EU, prefix: "E", width: 3, mapping_dir: data/mapping/eu}
+  - {name: RU, prefix: "R", width: 3, mapping_dir: data/mapping/ru}
+
+mapping:
+  make_path: data/mapping/us/make_mapping.csv
+  model_path: data/mapping/us/model_mapping.csv
+
+artifacts:
+  path: artifacts
+  slug: code-mapping-publish
+
+publish:
+  path: output/车型编码映射.csv
+  dimension_code_path: output/尺寸编码映射.csv
+
+public_publish:
+  path: ../public/car_code/车型编码映射.csv
+
+backup:
+  enabled: true
+  path: data/mapping/us/backups
+
+normalization:
+  trim_whitespace: true
+  case_insensitive_key: true
