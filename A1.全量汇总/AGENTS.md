@@ -8,4 +8,4 @@
 python build_consolidated_full_table.py
 ```
 
-EU 全量表尚无生成代码，因此本节点目前没有可发布产物（见 `pipeline.json` 的 pending）。遵守仓库根目录 `AGENTS.md`。
+当前已可汇总三地区全量表；EU 覆盖版中的销量零值为占位，RU 销量为区域代理，汇总表必须保留该口径限制。遵守仓库根目录 `AGENTS.md`。

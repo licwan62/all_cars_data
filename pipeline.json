@@ -63,12 +63,12 @@
       "upstream": [
         "dimension-library"
       ],
-      "outputs": [],
-      "pending": [
+      "outputs": [
         "原子销量.csv"
       ],
+      "pending": [],
       "release_notes": [
-        "原子销量.csv 尚未发布；阻塞 A0 US 全量重算"
+        "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布"
       ]
     },
     {
@@ -123,13 +123,16 @@
         "店铺全量_TM.csv",
         "店铺全量_TM_拆分.csv",
         "尺码匹配规则.csv",
+        "尺码匹配规则_EU.csv",
+        "尺码匹配规则_RU.csv",
+        "店铺货架.csv",
         "尺码匹配报告_EU.json",
         "尺码匹配报告_US.json",
         "尺码匹配报告_RU.json"
       ],
       "pending": [],
       "release_notes": [
-        "US 全量表沿用最近已验证批次（销量评估未发布）；RU 按当前区域数据重算；EU 仅发布与当前尺寸库 ID 一致的已审核研究覆盖，非全库覆盖"
+        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核"
       ]
     },
     {
@@ -142,13 +145,10 @@
       "upstream": [
         "size-calculation"
       ],
-      "outputs": [],
-      "pending": [
+      "outputs": [
         "全量表_汇总.csv"
       ],
-      "release_notes": [
-        "依赖 全量表_EU.csv"
-      ]
+      "pending": []
     },
     {
       "id": "adapter-trim",
@@ -264,10 +264,10 @@
     {
       "name": "全量表（汇总）",
       "node": "full-table-summary",
-      "files": [],
-      "pending": [
+      "files": [
         "全量表_汇总.csv"
-      ]
+      ],
+      "pending": []
     },
     {
       "name": "TRIM适配器",

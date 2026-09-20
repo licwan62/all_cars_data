@@ -22,6 +22,12 @@
 
 发布：`python publish_release.py` 自上游到下游生成带后缀的 artifact，再去掉后缀发布到 `output/`。目录命名规则见 `pipeline.json` 的 `naming_contract`（00–03 数字层号；A0 起按最终产物分线 A/B/C/D/X）。
 
+追踪：每个节点的 `output/manifest.json` 是当前输出的输入输出点信息。交付物记录 `artifact_file`（来源 artifact 内带版本后缀的文件，主干名与 output 文件一致，只差 `-YYYYMMDD_NN`）和 sha256；`upstream` 记录所用上游版本、文件、来源 artifact 和 sha256。检查来源是否一致、上游是否已变化（节点过期）：
+
+```powershell
+python trace_pipeline.py
+```
+
 执行结构变更后运行：
 
 ```powershell

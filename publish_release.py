@@ -105,7 +105,15 @@ def upstream_records(root: Path, node: dict, by_id: dict[str, dict]) -> list[dic
                 "node": upstream_id,
                 "version": manifest["version"],
                 "artifact": manifest["artifact"],
-                "files": [{"file": item["file"], "sha256": item["sha256"]} for item in manifest["deliverables"]],
+                "files": [
+                    {
+                        "file": item["file"],
+                        "versioned_file": item.get("versioned_file"),
+                        "artifact_file": f"{manifest['artifact']}/output/{item.get('versioned_file')}",
+                        "sha256": item["sha256"],
+                    }
+                    for item in manifest["deliverables"]
+                ],
             }
         )
     return records
@@ -141,6 +149,7 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
             {
                 "file": name,
                 "versioned_file": target.name,
+                "artifact_file": f"{node['path']}/artifacts/{batch_name}/output/{target.name}",
                 "sha256": sha256(target),
                 "bytes": target.stat().st_size,
                 "rows": row_count(target),

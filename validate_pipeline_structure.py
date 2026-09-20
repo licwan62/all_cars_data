@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -67,6 +69,47 @@ def check_outputs(nodes: list[dict]) -> list[str]:
     ]
 
 
+VERSION_SUFFIX = re.compile(r"-\d{8}_\d{2}(?=\.[^.]+$)")
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def check_release_naming(nodes: list[dict]) -> list[str]:
+    """artifact 内文件带 -YYYYMMDD_NN 后缀；output/ 与 public/ 用去后缀的稳定文件名，内容与 artifact 一致。"""
+    errors: list[str] = []
+    for node in nodes:
+        base = ROOT / node["path"]
+        manifest_path = base / "output" / "manifest.json"
+        if not manifest_path.is_file():
+            continue
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        version = manifest.get("version", "")
+        artifact_dir = ROOT / manifest.get("artifact", "")
+        for item in manifest.get("deliverables", []):
+            name, versioned = item["file"], item.get("versioned_file", "")
+            stem, dot, ext = name.rpartition(".")
+            if versioned != f"{stem}-{version}{dot}{ext}":
+                errors.append(f"{node['id']}: {name} 的 versioned_file 应为 {stem}-{version}{dot}{ext}，实际 {versioned}")
+                continue
+            out_file = base / "output" / name
+            art_file = artifact_dir / "output" / versioned
+            if not art_file.is_file():
+                errors.append(f"{node['id']}: 来源 artifact 缺少 {art_file.relative_to(ROOT)}")
+            elif out_file.is_file() and sha256(out_file) != sha256(art_file):
+                errors.append(f"{node['id']}: output/{name} 与 {versioned} 内容不一致")
+        for path in (base / "output").glob("*"):
+            if VERSION_SUFFIX.search(path.name):
+                errors.append(f"{node['id']}: output/ 不得带 artifact 后缀: {path.name}")
+    public = ROOT / "public"
+    if public.is_dir():
+        for path in public.rglob("*"):
+            if path.is_file() and VERSION_SUFFIX.search(path.name):
+                errors.append(f"public 规范文件名不得带 artifact 后缀: {path.relative_to(ROOT)}")
+    return errors
+
+
 def check_final_products(products: list[dict], nodes: list[dict]) -> list[str]:
     errors: list[str] = []
     paths = {node["id"]: node["path"] for node in nodes}
@@ -114,6 +157,7 @@ def main() -> int:
 
     errors.extend(check_layers(nodes))
     errors.extend(check_outputs(nodes))
+    errors.extend(check_release_naming(nodes))
     errors.extend(check_final_products(payload.get("final_products", []), nodes))
 
     if errors:
