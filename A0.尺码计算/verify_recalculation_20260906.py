@@ -9,10 +9,10 @@ import pandas_analysis as analysis
 def main():
     root = Path(__file__).resolve().parent.parent
     public = root / 'public'
-    output = root / '03.尺码计算' / 'output'
+    output = root / 'A0.尺码计算' / 'output'
     old = analysis._read_csv(public / '全量数据.csv').set_index('DIMENSION-ID')
     new = analysis._read_csv(output / 'pandas_output.csv').set_index('DIMENSION-ID')
-    baseline = analysis.calculate(root / '01.整理尺寸库' / 'output', config_dir=root / '03.尺码计算' / 'data', trim_source=output / '全尺码全量.csv')
+    baseline = analysis.calculate(root / '01.整理尺寸库' / 'output', config_dir=root / 'A0.尺码计算' / 'data', trim_source=output / '全量表_US.csv')
     baseline = baseline.set_index('DIMENSION-ID').astype('string').fillna('')
     assert set(old.index) == set(new.index) == set(baseline.index)
     assert old.index.is_unique and new.index.is_unique
@@ -28,7 +28,7 @@ def main():
         expected = ((Decimal(row['L-MM']) + Decimal(row['H-MM'])) * Decimal(factor) - Decimal(750)).quantize(Decimal('1'), rounding=ROUND_HALF_EVEN)
         assert int(row['参考半周长']) == int(expected), (key, row['参考半周长'], expected)
     assert new['TRIM'].equals(old.loc[new.index, 'TRIM'])
-    shapes = analysis._read_csv(root / '02.车形分类核定' / 'output' / 'record_shape.csv').set_index('DIMENSION-ID')['车形']
+    shapes = analysis._read_csv(root / '03.车形分类核定' / 'output' / '车形分类.csv').set_index('DIMENSION-ID')['车形']
     assert new['车形'].equals(shapes.loc[new.index])
     report = {
         'rows': len(new), 'baseline_reproduced_exactly': True, 'changed_columns': changes,

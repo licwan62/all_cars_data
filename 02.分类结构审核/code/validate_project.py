@@ -23,7 +23,7 @@ PROTECTED = ["尺寸库.csv"]
 EXPECTED = {
     "audit_table1_corrections.csv": ["DIMENSION-ID","修改类型","原结构","建议结构","原分类","建议分类","置信度","修改原因","主要依据","是否需要拆分记录"],
     "audit_table2_corrected.csv": ["DIMENSION-ID","结构","分类","迭代状态"],
-    "corrected.csv": ["DIMENSION-ID","MAKE","MODEL","版本","CAB","BED","结构","代际","YEAR","分类","L-IN","W-IN","H-IN","参考车型","备注","迭代状态"],
+    "车型结构.csv": ["DIMENSION-ID","MAKE","MODEL","版本","CAB","BED","结构","代际","YEAR","分类","L-IN","W-IN","H-IN","参考车型","备注","迭代状态"],
     "audit_table3_uncertain.csv": ["DIMENSION-ID","疑似结构","问题","需要补充的信息","建议处理方式"],
     "audit_table4_split.csv": ["DIMENSION-ID","建议YEAR","建议结构","拆分原因"],
     "audit_table5_other.csv": ["DIMENSION-ID","字段","当前值","疑似问题","建议检查"],
@@ -58,7 +58,7 @@ def main() -> None:
     report["passed"] &= dimension_ids_ok
     tables = {}
     for name, expected in EXPECTED.items():
-        path = (OUT if name == "corrected.csv" else AUDIT) / name
+        path = (OUT if name == "车型结构.csv" else AUDIT) / name
         if not path.exists():
             report["checks"].append({"check": name, "passed": False, "error": "missing"}); report["passed"] = False; continue
         header, rows = read(path); tables[name] = rows
@@ -66,7 +66,7 @@ def main() -> None:
         report["checks"].append({"check": f"{name}:schema", "passed": ok, "rows": len(rows), "actual": header})
         report["passed"] &= ok
     process_t2 = tables.get("audit_table2_corrected.csv", [])
-    t2 = tables.get("corrected.csv", [])
+    t2 = tables.get("车型结构.csv", [])
     expected_process = {}
     for row in t2:
         projected = {

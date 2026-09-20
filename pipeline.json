@@ -1,25 +1,297 @@
 {
-  "schema_version": 1,
+  "schema_version": 3,
   "directory_contract": {
     "data": "agent-maintained rules and reference material",
-    "output": "current validated handoff for downstream agents",
-    "artifacts": "immutable per-run history"
+    "output": "current validated handoff for downstream agents (stable names, no version suffix) plus manifest.json",
+    "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext"
   },
+  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表、B TRIM适配器、C 代表车型、D 发货单、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。",
+  "release_contract": "python publish_release.py 自上游到下游发布：artifact 内交付物带 -YYYYMMDD_NN 后缀，发布到 output/ 时去掉后缀，manifest.json 记录交付物 sha256、artifact 来源与上游版本；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
   "nodes": [
-    {"id": "dimension-crawler", "path": "00.自动化尺寸抓取器", "upstream": [], "outputs": ["区域尺寸抓取候选"]},
-    {"id": "dimension-library", "path": "01.整理尺寸库", "upstream": ["dimension-crawler"], "outputs": ["尺寸库.csv"]},
-    {"id": "structure-review", "path": "分类结构审核", "upstream": ["dimension-library"], "outputs": ["corrected.csv"]},
-    {"id": "shape-classification", "path": "02.车形分类核定", "upstream": ["dimension-library", "structure-review"], "outputs": ["record_shape.csv"]},
-    {"id": "sales-estimation", "path": "02.销量评估", "upstream": ["dimension-library"], "outputs": ["atom_sales.csv"]},
-    {"id": "size-calculation", "path": "03.尺码计算", "upstream": ["dimension-library", "shape-classification", "sales-estimation"], "outputs": ["全尺码全量.csv", "HNT全量.csv", "TM全量.csv", "TM_拆分全量.csv", "尺码匹配规则.csv", "尺码匹配报告.json"]},
-    {"id": "eu-size-analysis", "path": "EU尺码分析", "upstream": ["dimension-crawler"], "outputs": ["区域尺寸库与全量表"]},
-    {"id": "ru-size-analysis", "path": "RU尺码分析", "upstream": ["dimension-crawler"], "outputs": ["区域尺寸库与全量表"]},
-    {"id": "dimension-iteration", "path": "尺寸迭代", "upstream": ["dimension-library", "shape-classification", "size-calculation"], "outputs": ["尺寸迭代候选"]},
-    {"id": "code-mapping", "path": "代码映射", "upstream": ["size-calculation"], "outputs": ["vehicle_mapping.csv"]},
-    {"id": "size-cluster-analysis", "path": "尺码簇分析", "upstream": ["size-calculation"], "outputs": ["尺码簇分析结果"]},
-    {"id": "sku-clustering", "path": "聚类SKU", "upstream": ["size-calculation", "sales-estimation"], "outputs": ["SKU聚类结果"]},
-    {"id": "representative-model", "path": "车型代表分析", "upstream": ["size-calculation"], "outputs": ["代表车型.csv"]},
-    {"id": "adapter-trim", "path": "适配器-Trim生成", "upstream": ["size-calculation", "code-mapping"], "outputs": ["适配器.csv", "DimensionTrimMap.csv"]},
-    {"id": "link-analysis", "path": "链接分析", "upstream": ["size-calculation", "sku-clustering", "sales-estimation"], "outputs": ["链接与发货分析结果"]}
+    {
+      "id": "dimension-crawler",
+      "path": "00.自动化尺寸抓取器",
+      "layer": 0,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [],
+      "outputs": [],
+      "pending": [
+        "区域尺寸抓取候选"
+      ],
+      "release_notes": [
+        "抓取产物目前只保存在 artifacts，尚无稳定 output"
+      ]
+    },
+    {
+      "id": "dimension-library",
+      "path": "01.整理尺寸库",
+      "layer": 1,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-crawler"
+      ],
+      "outputs": [
+        "尺寸库.csv",
+        "尺寸库_US.csv",
+        "尺寸库_EU.csv",
+        "尺寸库_RU.csv"
+      ],
+      "pending": []
+    },
+    {
+      "id": "structure-review",
+      "path": "02.分类结构审核",
+      "layer": 2,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library"
+      ],
+      "outputs": [
+        "车型结构.csv"
+      ],
+      "pending": []
+    },
+    {
+      "id": "sales-estimation",
+      "path": "02.销量评估",
+      "layer": 2,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library"
+      ],
+      "outputs": [],
+      "pending": [
+        "原子销量.csv"
+      ],
+      "release_notes": [
+        "原子销量.csv 尚未发布；阻塞 A0 US 全量重算"
+      ]
+    },
+    {
+      "id": "code-mapping",
+      "path": "02.代码映射",
+      "layer": 2,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library"
+      ],
+      "outputs": [
+        "车型编码映射.csv",
+        "尺寸编码映射.csv"
+      ],
+      "pending": []
+    },
+    {
+      "id": "shape-classification",
+      "path": "03.车形分类核定",
+      "layer": 3,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library",
+        "structure-review"
+      ],
+      "outputs": [
+        "车形分类.csv"
+      ],
+      "pending": []
+    },
+    {
+      "id": "size-calculation",
+      "path": "A0.尺码计算",
+      "layer": 4,
+      "line": "A",
+      "index": 0,
+      "role": "final",
+      "upstream": [
+        "dimension-library",
+        "shape-classification",
+        "sales-estimation",
+        "code-mapping"
+      ],
+      "outputs": [
+        "全量表_US.csv",
+        "全量表_EU.csv",
+        "全量表_RU.csv",
+        "尺寸分析表_US.csv",
+        "店铺全量_HNT.csv",
+        "店铺全量_TM.csv",
+        "店铺全量_TM_拆分.csv",
+        "尺码匹配规则.csv",
+        "尺码匹配报告_EU.json",
+        "尺码匹配报告_US.json",
+        "尺码匹配报告_RU.json"
+      ],
+      "pending": [],
+      "release_notes": [
+        "US 全量表沿用最近已验证批次（销量评估未发布）；RU 按当前区域数据重算；EU 仅发布与当前尺寸库 ID 一致的已审核研究覆盖，非全库覆盖"
+      ]
+    },
+    {
+      "id": "full-table-summary",
+      "path": "A1.全量汇总",
+      "layer": 5,
+      "line": "A",
+      "index": 1,
+      "role": "final",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [],
+      "pending": [
+        "全量表_汇总.csv"
+      ],
+      "release_notes": [
+        "依赖 全量表_EU.csv"
+      ]
+    },
+    {
+      "id": "adapter-trim",
+      "path": "B1.适配器-Trim生成",
+      "layer": 5,
+      "line": "B",
+      "index": 1,
+      "role": "final",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [
+        "TRIM适配器.csv",
+        "尺寸TRIM映射.csv"
+      ],
+      "pending": []
+    },
+    {
+      "id": "representative-model",
+      "path": "C1.车型代表分析",
+      "layer": 5,
+      "line": "C",
+      "index": 1,
+      "role": "final",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [
+        "代表车型.csv",
+        "代表车型.tsv",
+        "代表车型报告.md"
+      ],
+      "pending": []
+    },
+    {
+      "id": "sku-clustering",
+      "path": "D1.聚类SKU",
+      "layer": 5,
+      "line": "D",
+      "index": 1,
+      "role": "upstream",
+      "upstream": [
+        "size-calculation",
+        "sales-estimation"
+      ],
+      "outputs": [],
+      "pending": [
+        "SKU聚类结果"
+      ]
+    },
+    {
+      "id": "link-analysis",
+      "path": "D2.链接分析",
+      "layer": 6,
+      "line": "D",
+      "index": 2,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "sku-clustering",
+        "sales-estimation"
+      ],
+      "outputs": [],
+      "pending": [
+        "发货单.csv"
+      ]
+    },
+    {
+      "id": "dimension-iteration",
+      "path": "X1.尺寸迭代",
+      "layer": 5,
+      "line": "X",
+      "index": 1,
+      "role": "support",
+      "upstream": [
+        "dimension-library",
+        "shape-classification",
+        "size-calculation"
+      ],
+      "outputs": [],
+      "pending": [
+        "尺寸迭代候选"
+      ]
+    },
+    {
+      "id": "size-cluster-analysis",
+      "path": "X2.尺码簇分析",
+      "layer": 5,
+      "line": "X",
+      "index": 2,
+      "role": "support",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [
+        "尺码上限微调分析.xlsx",
+        "边界负面影响及手动调整.xlsx"
+      ],
+      "pending": []
+    }
+  ],
+  "final_products": [
+    {
+      "name": "全量表（US/RU）",
+      "node": "size-calculation",
+      "files": [
+        "全量表_US.csv",
+        "全量表_RU.csv",
+        "全量表_EU.csv"
+      ],
+      "pending": []
+    },
+    {
+      "name": "全量表（汇总）",
+      "node": "full-table-summary",
+      "files": [],
+      "pending": [
+        "全量表_汇总.csv"
+      ]
+    },
+    {
+      "name": "TRIM适配器",
+      "node": "adapter-trim",
+      "files": [
+        "TRIM适配器.csv"
+      ],
+      "pending": []
+    },
+    {
+      "name": "代表车型报告",
+      "node": "representative-model",
+      "files": [
+        "代表车型报告.md"
+      ],
+      "pending": []
+    },
+    {
+      "name": "发货单",
+      "node": "link-analysis",
+      "files": [],
+      "pending": [
+        "发货单.csv"
+      ]
+    }
   ]
 }

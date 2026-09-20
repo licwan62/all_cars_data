@@ -15,8 +15,8 @@
 
 `output` 只保留两个最终交付文件：
 
-- `output/适配器.csv`：为 `TrimList` 的每一行回填 `Size`，包括“无可用尺码/数据不全”等状态值，不丢行。
-- `output/DimensionTrimMap.csv`：每个 `DIMENSION-ID` 一行，从 `source/尺码分析.csv` 的 `TRIM` 列生成 `Trims`，多个名称以 ` | ` 分隔。
+- `output/TRIM适配器.csv`：为 `TrimList` 的每一行回填 `Size`，包括“无可用尺码/数据不全”等状态值，不丢行。
+- `output/尺寸TRIM映射.csv`：每个 `DIMENSION-ID` 一行，从 `source/尺码分析.csv` 的 `TRIM` 列生成 `Trims`，多个名称以 ` | ` 分隔。
 
 ## Data 与研究产物
 

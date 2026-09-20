@@ -684,8 +684,8 @@ def summary_markdown(report: dict[str, object]) -> str:
 | 指标 | 数量 |
 |---|---:|
 | 过滤状态值后可发布行 | {counts['publishable_assignment_rows']:,} |
-| 最终适配器回填行 | {counts['final_adapter_rows']:,} |
-| 最终适配器保留状态行 | {counts['final_adapter_status_rows_retained']:,} |
+| 最终TRIM适配器回填行 | {counts['final_adapter_rows']:,} |
+| 最终TRIM适配器保留状态行 | {counts['final_adapter_status_rows_retained']:,} |
 | 唯一 DIMENSION-ID + Size | {counts['dimension_id_size_rows']:,} |
 | DIMENSION-ID + Trims 映射 | {counts['dimension_id_trim_rows']:,} |
 | Trims 为空 | {counts['dimension_id_trim_blank_rows']:,} |
@@ -704,10 +704,10 @@ def summary_markdown(report: dict[str, object]) -> str:
 
 ## 发布规则
 
-1. `适配器.csv` 对 `TrimList.csv` 全量回填，不丢弃 `无可用尺码` 和 `数据不全` 状态行。
+1. `TRIM适配器.csv` 对 `TrimList.csv` 全量回填，不丢弃 `无可用尺码` 和 `数据不全` 状态行。
 2. 可发布尺码分析继续排除 `无可用尺码` 和 `数据不全`。
 3. `DimensionSizeMap.csv` 以 `DIMENSION-ID + Size` 为唯一键。
-4. `DimensionTrimMap.csv` 每个 `DIMENSION-ID` 一行，`Trims` 仅来自尺码分析的 `TRIM` 列。
+4. `尺寸TRIM映射.csv` 每个 `DIMENSION-ID` 一行，`Trims` 仅来自尺码分析的 `TRIM` 列。
 5. 多结构或多版本导致多个 Size 时，保留并展开全部已核实分支。
 6. 完整发布原子键为 `DIMENSION-ID + Size + Year + Make + Model`。
 7. 无有效 Size 进入 `NoPublishableSizeReport.csv`。
@@ -763,7 +763,7 @@ def build_size_analysis_files(
         DIMENSION_SIZE_HEADER,
         result.dimension_size_rows,
     )
-    dimension_trim_path = output_dir / "DimensionTrimMap.csv"
+    dimension_trim_path = output_dir / "尺寸TRIM映射.csv"
     write_csv(
         dimension_trim_path,
         DIMENSION_TRIM_HEADER,
@@ -774,7 +774,7 @@ def build_size_analysis_files(
         ADAPTER_SIZE_HEADER,
         result.adapter_size_rows,
     )
-    final_adapter_path = output_dir / "适配器.csv"
+    final_adapter_path = output_dir / "TRIM适配器.csv"
     write_csv(
         final_adapter_path,
         FINAL_ADAPTER_HEADER,

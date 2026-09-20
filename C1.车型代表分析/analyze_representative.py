@@ -4,7 +4,7 @@
 口径说明
 --------
 1. 数据范围: source/车型尺寸库.csv(有 L/W/H 的记录) 关联 source/车型形状分类.csv(车形),
-   关联 source/atom_sales.csv(预估销量按 DIMENSION-ID 汇总, 缺销量补 0)。
+   关联 source/原子销量.csv(预估销量按 DIMENSION-ID 汇总, 缺销量补 0)。
 2. 三维代表点: 每个车形内, 以 L/W/H 的"销量加权中位数"作为整体代表点(无销量记录权重为 0,
    全部无销量时退化为普通中位数)。
 3. 分档保覆盖: 每个车形内, L / W 按自身三分位分 3 档, H 按自身中位数分 2 档,
@@ -20,7 +20,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "source"
-OUT = ROOT / "车型代表分析" / "output"
+OUT = ROOT / "C1.车型代表分析" / "output"
 
 SHAPE_ORDER = ["0", "1", "10", "11", "20", "21", "25", "26", "30", "31", "32", "40", "41", "42", "50"]
 SHAPE_NAMES = {
@@ -50,7 +50,7 @@ SEG_H = 2
 def load():
     dims = pd.read_csv(SRC / "车型尺寸库.csv", encoding="utf-8-sig", dtype={"DIMENSION-ID": str})
     shapes = pd.read_csv(SRC / "车型形状分类.csv", encoding="utf-8-sig", dtype={"DIMENSION-ID": str})
-    sales = pd.read_csv(SRC / "atom_sales.csv", encoding="utf-8-sig", dtype={"atom_record_id": str})
+    sales = pd.read_csv(SRC / "原子销量.csv", encoding="utf-8-sig", dtype={"atom_record_id": str})
     for c in ("L-IN", "W-IN", "H-IN"):
         dims[c] = pd.to_numeric(dims[c], errors="coerce")
     sales["DIMENSION-ID"] = sales["atom_record_id"].str.split("|ATOM_YEAR=", regex=False).str[0]
@@ -224,12 +224,12 @@ def build_report(results):
     A = lines.append
     A("# 车形三维代表性与销量报告")
     A("")
-    A("基于 `source/车型尺寸库.csv`、`source/车型形状分类.csv`、`source/atom_sales.csv` 生成。")
+    A("基于 `source/车型尺寸库.csv`、`source/车型形状分类.csv`、`source/原子销量.csv` 生成。")
     A("")
     A("## 方法口径")
     A("")
     A("- **三维数据**: 每条记录的 L-IN / W-IN / H-IN(英寸); 缺失三维的记录不参与分档与选代表, 单独计数。")
-    A("- **销量**: `atom_sales.csv` 中同一 DIMENSION-ID 各年预估销量之和; 无销量记录按 0 计。")
+    A("- **销量**: `原子销量.csv` 中同一 DIMENSION-ID 各年预估销量之和; 无销量记录按 0 计。")
     A("- **整体代表点**: 车形内 L/W/H 的销量加权中位数(无销量记录权重为 0)。")
     A("- **分档保覆盖**: 每个车形内 L、W 按三分位分 3 档, H 按中位数分 2 档, 共 3×3×2=18 档; 有记录即视为覆盖。")
     A("- **档内代表**: 档内按综合得分排序取第一, 得分 = 0.6×销量归一 + 0.4×接近度归一; 接近度 = 1 - 记录到档内销量加权中位点的三维归一距离。")
@@ -321,7 +321,7 @@ def main():
         pool["车形"] = code
         score_rows.append(pool[["车形", "DIMENSION-ID", "MAKE", "MODEL", "YEAR", "L-IN", "W-IN", "H-IN", "参考车型", "销量", "迭代状态"]])
     report = build_report(results)
-    (OUT / "representative_report.md").write_text(report, encoding="utf-8")
+    (OUT / "代表车型报告.md").write_text(report, encoding="utf-8")
 
     matrix = pd.concat([r["cells"] for r in results], ignore_index=True)
     matrix.to_csv(OUT / "representative_matrix.csv", index=False, encoding="utf-8-sig")
@@ -329,7 +329,7 @@ def main():
     scores = pd.concat(score_rows, ignore_index=True)
     scores.to_csv(OUT / "record_scores.csv", index=False, encoding="utf-8-sig")
 
-    print(f"OK: report={OUT / 'representative_report.md'}")
+    print(f"OK: report={OUT / '代表车型报告.md'}")
     print(f"OK: matrix={OUT / 'representative_matrix.csv'} ({len(matrix)} rows)")
     print(f"OK: scores={OUT / 'record_scores.csv'} ({len(scores)} rows)")
 

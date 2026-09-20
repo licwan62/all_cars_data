@@ -12,8 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "public" / "全量数据.csv"
 RULES = ROOT / "public" / "尺码匹配规则.csv"
-OUTPUT = ROOT / "车型代表分析" / "output" / "代表车型.csv"
-OUTPUT_TSV = ROOT / "车型代表分析" / "output" / "代表车型.tsv"
+OUTPUT = ROOT / "C1.车型代表分析" / "output" / "代表车型.csv"
+OUTPUT_TSV = ROOT / "C1.车型代表分析" / "output" / "代表车型.tsv"
 TARGET_SIZES = ["3XL", "3XXL", "3L-W", "3XL-W", "3XXL-W", "3XXXL", "3XXXXL"]
 OUTPUT_FIELDS = ["车型", "dimension-id", "型号", "车长", "车宽", "车高", "车形", "销量", "参考半周长", "in_eagle"]
 TSV_FIELDS = ["车型", "型号", "车长", "车宽", "车高", "车形"]

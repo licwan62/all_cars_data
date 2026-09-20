@@ -13,7 +13,7 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 SOURCE = PROJECT.parent / "source" / "车型尺寸库.csv"
 REFERENCE = PROJECT / "doc" / "reference.csv"
-OLD_RESULT = PROJECT / "output" / "record_shape.csv"
+OLD_RESULT = PROJECT / "output" / "车形分类.csv"
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 AUDIT = PROJECT / "artifacts" / "all_dimension_shape_audit_2026-09-02.csv"
@@ -366,7 +366,7 @@ def main() -> None:
     old_shapes = {row["DIMENSION-ID"]: row["车形"] for row in old_result}
     source_ids = [row["DIMENSION-ID"] for row in source]
     if set(source_ids) != set(old_shapes) or len(source_ids) != len(old_shapes):
-        raise SystemExit("历史 record_shape.csv 与当前源表不具备一一对应覆盖")
+        raise SystemExit("历史 车形分类.csv 与当前源表不具备一一对应覆盖")
 
     decisions = {
         row["DIMENSION-ID"]: classify(row, old_shapes[row["DIMENSION-ID"]])

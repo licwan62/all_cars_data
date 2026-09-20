@@ -56,7 +56,7 @@ def parse_args() -> argparse.Namespace:
         "--output-dir",
         type=Path,
         default=OUTPUT,
-        help="仅存放适配器.csv 和 DimensionTrimMap.csv 的最终输出目录",
+        help="仅存放TRIM适配器.csv 和 尺寸TRIM映射.csv 的最终输出目录",
     )
     parser.add_argument(
         "--size-source",
@@ -126,10 +126,10 @@ def main() -> None:
         )
         print("\nSize analysis:")
         print(json.dumps(size_result.report, ensure_ascii=False, indent=2))
-        print(f"\n最终适配器: {(args.output_dir / '适配器.csv').resolve()}")
+        print(f"\n最终TRIM适配器: {(args.output_dir / 'TRIM适配器.csv').resolve()}")
         print(
             "DIMENSION-ID 与 Trims 映射: "
-            f"{(args.output_dir / 'DimensionTrimMap.csv').resolve()}"
+            f"{(args.output_dir / '尺寸TRIM映射.csv').resolve()}"
         )
 
     failures: list[str] = []

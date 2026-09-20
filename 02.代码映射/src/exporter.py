@@ -153,7 +153,7 @@ def create_artifact_batch(
         write_csv_atomic(temp_path / "mapping" / "make_mapping.csv", MAKE_FIELDS, make_rows(make_items))
         write_csv_atomic(temp_path / "mapping" / "model_mapping.csv", MODEL_FIELDS, model_rows(model_items))
         write_csv_atomic(
-            temp_path / "output" / "vehicle_mapping.csv",
+            temp_path / "output" / "车型编码映射.csv",
             ["MAKE", "MODEL", "MAKE_CODE", "MODEL_CODE"],
             output_rows(model_items),
         )

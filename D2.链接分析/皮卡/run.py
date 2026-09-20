@@ -13,15 +13,15 @@ def run(*args: object, cwd: Path | None = None) -> None:
 
 def main() -> None:
     repo = Path(__file__).resolve().parents[2]
-    cluster_project = repo / "聚类SKU" / "artifacts" / "皮卡"
+    cluster_project = repo / "D1.聚类SKU" / "artifacts" / "皮卡"
     cluster_output = cluster_project / "output"
-    engine = repo / "链接分析" / "sku_shipment_analysis"
+    engine = repo / "D2.链接分析" / "sku_shipment_analysis"
     output = Path(__file__).resolve().parent / "artifacts" / "0914"
 
     run(
         cluster_project / "main.py",
         "--size-input", repo / "public" / "全量数据.csv",
-        "--sales-input", repo / "02.销量评估" / "output" / "atom_sales.csv",
+        "--sales-input", repo / "02.销量评估" / "output" / "原子销量.csv",
         "--output", cluster_output,
         cwd=cluster_project,
     )

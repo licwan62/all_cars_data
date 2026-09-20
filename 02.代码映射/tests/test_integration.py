@@ -25,8 +25,8 @@ def settings(tmp_path: Path, input_path: Path) -> Settings:
         model_mapping_path=tmp_path / "mapping" / "model_mapping.csv",
         artifact_root=tmp_path / "artifacts",
         artifact_slug="code-mapping-publish",
-        publish_path=tmp_path / "public" / "code" / "_mapping" / "vehicle_mapping.csv",
-        public_publish_path=tmp_path / "public_publish" / "vehicle_mapping.csv",
+        publish_path=tmp_path / "public" / "code" / "_mapping" / "车型编码映射.csv",
+        public_publish_path=tmp_path / "public_publish" / "车型编码映射.csv",
         backup_enabled=True,
         backup_path=tmp_path / "mapping" / "backups",
     )
@@ -107,7 +107,7 @@ def test_formal_run_creates_immutable_artifact_and_publication(tmp_path):
         f"{day}_01_code-mapping-publish",
         f"{day}_02_code-mapping-publish",
     ]
-    assert (batches[0] / "output" / "vehicle_mapping.csv").exists()
+    assert (batches[0] / "output" / "车型编码映射.csv").exists()
     assert (batches[0] / "mapping" / "make_mapping.csv").exists()
     assert (batches[0] / "mapping" / "model_mapping.csv").exists()
     assert (batches[0] / "input" / source.name).exists()

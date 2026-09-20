@@ -135,7 +135,7 @@ def upsert_facts(researched_facts: list[dict[str, str]]) -> list[dict[str, str]]
 
 def us_atom_totals() -> dict[str, int]:
     totals: dict[str, int] = defaultdict(int)
-    for row in read_csv(PROJECT / "output" / "atom_sales.csv"):
+    for row in read_csv(PROJECT / "output" / "原子销量.csv"):
         base_id = row["atom_record_id"].rsplit("|ATOM_YEAR=", 1)[0]
         totals[base_id] += as_int(row["预估销量"])
     return totals
@@ -171,7 +171,7 @@ def build_audit() -> tuple[list[dict[str, object]], dict[str, list[dict[str, str
                     **common, "AUDITED_VALUE": raw if matched else "",
                     "SALES_METRIC": "NEW_VEHICLE_SALES_ESTIMATE", "SALES_PERIOD": "MODEL_YEAR_RANGE",
                     "SOURCE_SCOPE": "US", "VALUE_STATUS": "ACCEPTED_COUNTRY_MATCH" if matched else "PENDING_SOURCE_MISMATCH",
-                    "SOURCE_URL": "02.销量评估/output/atom_sales.csv",
+                    "SOURCE_URL": "02.销量评估/output/原子销量.csv",
                     "NOTES": "已与 US 原子销量逐 DIMENSION-ID 守恒核对。" if matched else "US 尺寸行与原子销量不一致，暂不接受。",
                 })
             elif region == "EU":

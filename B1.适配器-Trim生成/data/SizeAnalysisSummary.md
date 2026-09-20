@@ -18,8 +18,8 @@
 | 指标 | 数量 |
 |---|---:|
 | 过滤状态值后可发布行 | 22,493 |
-| 最终适配器回填行 | 23,302 |
-| 最终适配器保留状态行 | 809 |
+| 最终TRIM适配器回填行 | 23,302 |
+| 最终TRIM适配器保留状态行 | 809 |
 | 唯一 DIMENSION-ID + Size | 4,099 |
 | DIMENSION-ID + Trims 映射 | 4,354 |
 | Trims 为空 | 265 |
@@ -38,10 +38,10 @@
 
 ## 发布规则
 
-1. `适配器.csv` 对 `TrimList.csv` 全量回填，不丢弃 `无可用尺码` 和 `数据不全` 状态行。
+1. `TRIM适配器.csv` 对 `TrimList.csv` 全量回填，不丢弃 `无可用尺码` 和 `数据不全` 状态行。
 2. 可发布尺码分析继续排除 `无可用尺码` 和 `数据不全`。
 3. `DimensionSizeMap.csv` 以 `DIMENSION-ID + Size` 为唯一键。
-4. `DimensionTrimMap.csv` 每个 `DIMENSION-ID` 一行，`Trims` 仅来自尺码分析的 `TRIM` 列。
+4. `尺寸TRIM映射.csv` 每个 `DIMENSION-ID` 一行，`Trims` 仅来自尺码分析的 `TRIM` 列。
 5. 多结构或多版本导致多个 Size 时，保留并展开全部已核实分支。
 6. 完整发布原子键为 `DIMENSION-ID + Size + Year + Make + Model`。
 7. 无有效 Size 进入 `NoPublishableSizeReport.csv`。

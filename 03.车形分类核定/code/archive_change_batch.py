@@ -39,7 +39,7 @@ def main() -> None:
 
     project = Path(__file__).resolve().parents[1]
     repo = project.parent
-    current_path = project / "output" / "record_shape.csv"
+    current_path = project / "output" / "车形分类.csv"
     audit_path = project / "artifacts" / "all_dimension_shape_audit_2026-09-02.csv"
     audit_summary_path = project / "artifacts" / "all_dimension_shape_audit_2026-09-02.json"
     validation_path = project / "artifacts" / "validation_report.json"
@@ -53,7 +53,7 @@ def main() -> None:
         baseline = str(before_path)
     else:
         before_rows = read_git_csv(repo, args.before_revision, relative_current)
-        baseline = f"{args.before_revision} 中的 `record_shape.csv`"
+        baseline = f"{args.before_revision} 中的 `车形分类.csv`"
     current = {row["DIMENSION-ID"]: row["车形"] for row in current_rows}
     before = {row["DIMENSION-ID"]: row["车形"] for row in before_rows}
 

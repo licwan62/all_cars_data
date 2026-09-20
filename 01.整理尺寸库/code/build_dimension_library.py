@@ -1,6 +1,6 @@
 """01.整理尺寸库 节点的入口：把某个区域的 source 压缩去重为 00_XX尺寸库.csv。
 
-输入：data/<region>/<批次>/source/ 下该区域的原始抓取结果。
+输入：data/<region>/<批次>/ 下该区域的原始抓取结果。
 输出：data/<region>/<批次>/00_<REGION>尺寸库.csv（DIMENSION_COLUMNS 结构，
 已按物理尺寸去重）。销量、车型（TRIM）等信息由下游节点（EU/RU 尺码分析、
 02.销量评估）各自维护，不在本节点的产物范围内。
@@ -35,7 +35,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="生成区域尺寸库（source -> 压缩去重后的 00_XX尺寸库.csv）")
     parser.add_argument("--region", required=True, choices=sorted(REGION_LABELS))
     parser.add_argument("--batch", default="0916", help="批次目录名，默认 0916")
-    parser.add_argument("--source-dir", type=Path, help="默认 data/<region>/<batch>/source")
+    parser.add_argument("--source-dir", type=Path, help="默认 data/<region>/<batch>")
     parser.add_argument("--output", type=Path, help="默认 data/<region>/<batch>/00_<REGION>尺寸库.csv")
     parser.add_argument("--as-of-year", type=int, default=date.today().year, help="仅 EU 需要，用于补全在售年份区间")
     return parser.parse_args()
@@ -44,7 +44,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     label = REGION_LABELS[args.region]
-    source_dir = args.source_dir or PROJECT_DIR / "data" / args.region / args.batch / "source"
+    source_dir = args.source_dir or PROJECT_DIR / "data" / args.region / args.batch 
     output_path = args.output or PROJECT_DIR / "data" / args.region / args.batch / f"00_{label}尺寸库.csv"
 
     try:

@@ -11,7 +11,7 @@
 - `cache/model_shape_cache.csv`：按品牌、车型及可选年份/代际/匹配规则保存研究结论。
 - `research_queue/queue.csv`：尚未命中缓存的车型研究队列。
 - `research_queue/regional_queue.csv`：新 `data/{region}/{batch}` 结构下，跨 US/EU/RU 合并后的增量研究队列；包含各地区源链接。
-- `output/record_shape.csv`：当前 `DIMENSION-ID,车形` 稳定交付物；只有全部记录均已核定时才更新。
+- `output/车形分类.csv`：当前 `DIMENSION-ID,车形` 稳定交付物；只有全部记录均已核定时才更新。
 - `artifacts/all_dimension_shape_audit_2026-09-02.csv/json`：依据当前 `reference.csv` 重核后的全量逐条审计。
 - `artifacts/YYYY-MM-DD_NN_description/`：不可覆盖的版本批次快照，包含全量结果、增量修改、报告和验收文件。
 - `artifacts/validation_report.json`：机器验收结果。
@@ -43,7 +43,7 @@ python 车形分类核定/code/sync_regional_data.py
 
 `build` 在仍有未核定记录时会拒绝生成不完整的最终表，这是预期保护行为。
 
-完整审核和校验通过后更新 `output/record_shape.csv`；每次运行的报告和快照保存在新的 `artifacts/<批次>/`，下游只读取 `output/`。
+完整审核和校验通过后更新 `output/车形分类.csv`；每次运行的报告和快照保存在新的 `artifacts/<批次>/`，下游只读取 `output/`。
 
 ## 批次交付
 

@@ -28,4 +28,4 @@
 - `VALIDATION_STATUS=ACCEPT` 表示原子归属门禁通过，不等同于尺寸安全检查通过；使用方必须同时读取 `SAFETY_PASS`。
 - `pickup_cluster_exceptions.csv` 保留无可用尺码、关键字段缺失等异常，不能视为正式适配关系。
 
-候选生成代码、配置和研究资料保存在 `聚类SKU/artifacts/皮卡/`。
+候选生成代码、配置和研究资料保存在 `05.聚类SKU/artifacts/皮卡/`。

@@ -9,7 +9,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PROJECT = ROOT / "尺寸迭代"
+PROJECT = ROOT / "X1.尺寸迭代"
 BATCH = PROJECT / "artifacts" / "2026-09-16_02_jeep-wrangler-final-review-release"
 SOURCE = ROOT / "data" / "us" / "source" / "US尺寸库.csv"
 

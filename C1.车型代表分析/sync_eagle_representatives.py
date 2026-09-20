@@ -13,10 +13,10 @@ from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "车型代表分析" / "output" / "代表车型.csv"
+OUTPUT = ROOT / "C1.车型代表分析" / "output" / "代表车型.csv"
 SNAPSHOT = (
     ROOT
-    / "车型代表分析"
+    / "C1.车型代表分析"
     / "artifacts"
     / "2026-09-07_01_all-size-representatives"
     / "代表车型.csv"

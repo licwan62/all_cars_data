@@ -24,7 +24,7 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 ROOT = Path(__file__).resolve().parents[1]
 SIZE_SOURCE = ROOT / "source" / "尺码分析.csv"
 RULE_SOURCE = ROOT / "尺码计算" / "input" / "尺码匹配规则.csv"
-OUTPUT_DIR = ROOT / "尺码簇分析" / "output"
+OUTPUT_DIR = ROOT / "X2.尺码簇分析" / "output"
 ANALYSIS_BOOK = OUTPUT_DIR / "尺码上限微调分析.xlsx"
 MANUAL_BOOK = OUTPUT_DIR / "边界负面影响及手动调整.xlsx"
 REPORT = OUTPUT_DIR / "尺码分组微调分析报告.md"

@@ -207,7 +207,7 @@ def main() -> None:
         else:
             process_rows_by_id[row["DIMENSION-ID"]] = projected
     write(AUDIT / "audit_table2_corrected.csv", T2_FIELDS, process_rows_by_id.values())
-    write(OUTPUT / "corrected.csv", SOURCE_FIELDS, corrected_rows)
+    write(OUTPUT / "车型结构.csv", SOURCE_FIELDS, corrected_rows)
     write(AUDIT / "audit_table3_uncertain.csv", T3_FIELDS, uncertain)
     write(AUDIT / "audit_table4_split.csv", T4_FIELDS, split_rows)
     write(AUDIT / "audit_table5_other.csv", T5_FIELDS, [])

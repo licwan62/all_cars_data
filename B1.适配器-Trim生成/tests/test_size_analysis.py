@@ -175,7 +175,7 @@ class SizeAnalysisTests(unittest.TestCase):
             )
             self.assertEqual(
                 {path.name for path in output_dir.iterdir()},
-                {"适配器.csv", "DimensionTrimMap.csv"},
+                {"TRIM适配器.csv", "尺寸TRIM映射.csv"},
             )
             self.assertTrue((data_dir / "DimensionSizeMap.csv").exists())
             self.assertTrue((data_dir / "SizeAnalysisSummary.json").exists())

@@ -12,12 +12,12 @@ import pandas_analysis as analysis
 
 
 ROOT = Path(__file__).resolve().parent.parent
-INPUT = ROOT / "03.尺码计算" / "output" / "全尺码全量.csv"
-REFERENCES = ROOT / "03.尺码计算" / "data" / "参考尺寸计算.csv"
-RULES = ROOT / "03.尺码计算" / "data" / "尺码匹配规则-0908.csv"
-PARAMETERS = ROOT / "03.尺码计算" / "data" / "尺码匹配参数.csv"
-OUTPUT = ROOT / "03.尺码计算" / "output" / "尺码计算测试-0908.csv"
-REPORT = ROOT / "03.尺码计算" / "output" / "尺码计算测试-0908.json"
+INPUT = ROOT / "A0.尺码计算" / "output" / "全量表_US.csv"
+REFERENCES = ROOT / "A0.尺码计算" / "data" / "参考尺寸计算.csv"
+RULES = ROOT / "A0.尺码计算" / "data" / "尺码匹配规则-0908.csv"
+PARAMETERS = ROOT / "A0.尺码计算" / "data" / "尺码匹配参数.csv"
+OUTPUT = ROOT / "A0.尺码计算" / "output" / "尺码计算测试-0908.csv"
+REPORT = ROOT / "A0.尺码计算" / "output" / "尺码计算测试-0908.json"
 
 
 def main() -> None:

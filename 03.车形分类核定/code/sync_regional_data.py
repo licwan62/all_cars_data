@@ -12,7 +12,7 @@ import shape_project as project
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SHAPE_PROJECT = ROOT / "02.车形分类核定"
+SHAPE_PROJECT = ROOT / "03.车形分类核定"
 CACHE = SHAPE_PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = SHAPE_PROJECT / "research_queue" / "regional_queue.csv"
 BATCH = SHAPE_PROJECT / "artifacts" / "2026-09-16_01_regional-data-cache-inheritance"
@@ -404,7 +404,7 @@ def run(
         "",
         "## 发布边界",
         "",
-        "本批次只生成候选映射和研究队列。由于 EU/RU 仍有未研究模型，不生成或覆盖正式 `record_shape.csv`，也不回写三国 `01/02` 表。",
+        "本批次只生成候选映射和研究队列。由于 EU/RU 仍有未研究模型，不生成或覆盖正式 `车形分类.csv`，也不回写三国 `01/02` 表。",
     ]
     (batch / "report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(json.dumps(validation, ensure_ascii=False, indent=2))

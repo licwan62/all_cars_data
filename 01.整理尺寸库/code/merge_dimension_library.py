@@ -1,6 +1,6 @@
 """把 US/EU/RU 三个区域各自压缩去重后的 00_XX尺寸库.csv 合并为
-output/尺寸库.csv，供下游节点（分类结构审核、02.车形分类核定、02.销量评估、
-03.尺码计算……）统一读取。
+output/尺寸库.csv，供下游节点（分类结构审核、03.车形分类核定、02.销量评估、
+A0.尺码计算……）统一读取。
 
 三条产线各自的建库规则相互独立（各区域自己的 source 解析、去重口径都在各自
 的 code 里，不在这里做任何跨区域改写），这里只做：
@@ -12,7 +12,7 @@ output/尺寸库.csv，供下游节点（分类结构审核、02.车形分类核
 
 注意：下游如果按 `dimension_id(row) == row["DIMENSION-ID"]` 做强校验，需要
 先用 `id_scheme.base_dimension_id` 去掉区域后缀再比较（02.销量评估的
-expand_years.py 会直接跳过带后缀的行；02.车形分类核定/validate_project.py
+expand_years.py 会直接跳过带后缀的行；03.车形分类核定/validate_project.py
 已经改成用 base_dimension_id 比较）。
 """
 
@@ -254,7 +254,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", type=Path, default=PROJECT_DIR / "output" / "尺寸库.csv")
     parser.add_argument(
         "--output-dir", type=Path, default=PROJECT_DIR / "output",
-        help="区域尺寸库输出目录（写入 US尺寸库.csv、EU尺寸库.csv、RU尺寸库.csv）",
+        help="区域尺寸库输出目录（写入 尺寸库_US.csv、尺寸库_EU.csv、尺寸库_RU.csv）",
     )
     parser.add_argument("--artifact-dir", type=Path, help="本次不可变运行归档目录")
     return parser.parse_args()
@@ -289,14 +289,14 @@ def main() -> int:
     shutil.copy2(STRUCTURE_RULES_PATH, rules_snapshot / STRUCTURE_RULES_PATH.name)
     shutil.copy2(DIMENSION_ID_RULES_PATH, rules_snapshot / DIMENSION_ID_RULES_PATH.name)
     for region, rows in region_rows.items():
-        write_csv_atomic(artifact_output / f"{region.upper()}尺寸库.csv", rows)
+        write_csv_atomic(artifact_output / f"尺寸库_{region.upper()}.csv", rows)
     write_csv_atomic(artifact_output / "尺寸库.csv", merged)
     (artifact_dir / "status.json").write_text(
         json.dumps({"status": "validated", "rows": {region.upper(): len(rows) for region, rows in region_rows.items()}}, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     for region, rows in region_rows.items():
-        write_csv_atomic(output_dir / f"{region.upper()}尺寸库.csv", rows)
+        write_csv_atomic(output_dir / f"尺寸库_{region.upper()}.csv", rows)
     write_csv_atomic(output_path, merged)
     counts = ", ".join(f"{region.upper()}={len(rows)}" for region, rows in region_rows.items())
     print(f"合并完成：{counts}；合并={len(merged)} 行 -> {output_path}")

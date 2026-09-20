@@ -25,7 +25,7 @@ AUDIT = ARTIFACTS / "audit"
 REVIEWS = ARTIFACTS / "reviews"
 VALIDATION_DIR = ARTIFACTS / "validation"
 SOURCE = ROOT / "01.整理尺寸库" / "output" / "尺寸库.csv"
-CORRECTED = PROJECT / "output" / "corrected.csv"
+CORRECTED = PROJECT / "output" / "车型结构.csv"
 YEAR_REVIEW = REVIEWS / "year_reference_review.csv"
 US_REVIEW = REVIEWS / "us_market_dimension_review.csv"
 BODY_REVIEW = REVIEWS / "sedan_coupe_same_dimension_review.csv"
@@ -108,7 +108,7 @@ def is_already_unified(rows: list[dict[str, str]]) -> bool:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build unified corrected.csv and optionally export historical stage snapshots.")
+    parser = argparse.ArgumentParser(description="Build unified 车型结构.csv and optionally export historical stage snapshots.")
     parser.add_argument("--export-year-us-dir", type=Path, help="New directory for the year-reference + US-market stage package.")
     parser.add_argument("--export-sedan-coupe-dir", type=Path, help="New directory for the subsequent Sedan/Coupe stage package.")
     args = parser.parse_args()
@@ -191,7 +191,7 @@ def main() -> None:
     def target(source_line: int) -> dict[str, str]:
         row = row_by_source_line.get(source_line)
         if row is None:
-            raise RuntimeError(f"Could not map source line {source_line} to regenerated corrected.csv")
+            raise RuntimeError(f"Could not map source line {source_line} to regenerated 车型结构.csv")
         return row
 
     def log(source_line: int, layer: str, action: str, row: dict[str, str], before_id: str, before: str, after: str, reason: str, evidence: str) -> None:

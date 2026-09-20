@@ -5,8 +5,8 @@
 ## 标准目录
 
 - `data/`：本 agent 人工维护的规则、配置、映射、例外和必要参考资料。规则修改必须发生在这里。
-- `output/`：当前通过校验、供下游稳定读取的流水线交付物。文件名保持稳定，不使用日期批次名。
-- `artifacts/`：每次运行的不可变历史批次，目录名使用 `YYYY-MM-DD_NN_short-description`。保存当次输入快照、规则快照、输出、差异、报告和 `status.json`。
+- `output/`：当前通过校验、供下游稳定读取的流水线交付物。文件名保持稳定，不带版本后缀，并附 `manifest.json`（交付物、sha256、来源 artifact、上游版本、pending）。
+- `artifacts/`：每次运行的不可变历史批次，目录名使用 `YYYY-MM-DD_NN_short-description`。保存当次输入快照、规则快照、输出（文件名带 `-YYYYMMDD_NN` 版本后缀，如 `车型结构-20260921_01.csv`）、差异、报告和 `status.json`/`manifest.json`。
 - `src/`、`code/`、`scripts/`：实现代码；项目可按现状选择其一。
 - `tests/`：本 agent 的自动测试。
 
@@ -19,6 +19,8 @@
 5. 修改规则时，同时更新 `data/`、自动测试和新批次中的规则快照/差异说明；历史 artifact 不得反向修改。
 6. `cache/`、`work/`、日志和临时文件可重建，不属于流水线接口。
 7. `public/` 仅是仓库外发布或人工交换区，不纳入 Git，也不是 agent 间数据总线。
+
+发布：`python publish_release.py` 自上游到下游生成带后缀的 artifact，再去掉后缀发布到 `output/`。目录命名规则见 `pipeline.json` 的 `naming_contract`（00–03 数字层号；A0 起按最终产物分线 A/B/C/D/X）。
 
 执行结构变更后运行：
 

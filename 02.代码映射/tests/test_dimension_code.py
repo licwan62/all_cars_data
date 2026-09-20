@@ -74,3 +74,14 @@ def test_run_all_encodes_each_region_independently(tmp_path):
         "Ford Focus Sedan 2010-2014 EU": "E0010001014",
         "Audi A4 Sedan 1994 EU": "E0000009494",
     }
+
+
+def test_dimension_id_is_kept_verbatim_not_nfkc_normalized(tmp_path):
+    from src.loader import load_vehicle_data
+
+    source = tmp_path / "lib.csv"
+    source.write_text(
+        "DIMENSION-ID,MAKE,MODEL,YEAR\nMG MGB 1974½ Coupe 1974 US,MG,MGB,1974\n", encoding="utf-8-sig"
+    )
+    records, _ = load_vehicle_data(source, "utf-8-sig", "MAKE", "MODEL", "", "DIMENSION-ID", "YEAR", " US")
+    assert records[0].dimension_id == "MG MGB 1974½ Coupe 1974 US"

@@ -7,6 +7,6 @@
 | W 型车 | `W型车/` | `链接发货适配表.csv` | 93 | 93 | 0 |
 | 皮卡 | `皮卡/` | `pickup_cluster_summary.csv` | 132 | 598 | 36 |
 
-各子目录的 `README.md` 说明字段用途、聚类口径和质量指标。研究代码和版本化候选快照保存在 `聚类SKU/artifacts/`，public 目录只提供发布结果。
+各子目录的 `README.md` 说明字段用途、聚类口径和质量指标。研究代码和版本化候选快照保存在 `05.聚类SKU/artifacts/`，public 目录只提供发布结果。
 
 皮卡主表中的 `VALIDATION_STATUS` 与 `SAFETY_PASS` 含义不同。消费者使用发布数据时应同时检查两列；具体风险数量见 `皮卡/README.md`。

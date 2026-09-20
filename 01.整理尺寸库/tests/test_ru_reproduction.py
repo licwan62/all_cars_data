@@ -16,7 +16,7 @@ from regional_sources import build_ru_base
 
 
 def test_ru_00_library_is_reproducible_from_three_source_tables():
-    base, summary = build_ru_base(PROJECT / "data" / "ru" / "0916" / "source")
+    base, summary = build_ru_base(PROJECT / "data" / "ru" / "0916")
     rebuilt, _ = build_dimension_library(base)
     official = read_csv(PROJECT / "data" / "ru" / "0916" / "00_RU尺寸库.csv")
 

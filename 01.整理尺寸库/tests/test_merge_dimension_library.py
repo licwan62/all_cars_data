@@ -104,7 +104,7 @@ def test_normalized_physical_duplicates_are_collapsed():
 def test_published_eu_ru_ids_follow_json_rules():
     rules = merge_dimension_library.load_dimension_id_rules()
     for region in ("EU", "RU"):
-        path = PROJECT / "output" / f"{region}尺寸库.csv"
+        path = PROJECT / "output" / f"尺寸库_{region}.csv"
         with path.open(encoding="utf-8-sig", newline="") as handle:
             rows = list(csv.DictReader(handle))
         ids = [row["DIMENSION-ID"] for row in rows]

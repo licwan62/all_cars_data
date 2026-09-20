@@ -20,12 +20,13 @@ WORKSPACE_ROOT = SCRIPT_DIR.parent
 if str(WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT))
 
+from full_table_schema import attach_dimension_code  # noqa: E402
 import pandas_analysis as analysis
 
 
 SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "output"
-RU_DIMENSIONS_PATH = SOURCE_DIR / "RU尺寸库.csv"
-RU_RAW_SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru" / "0916" / "source"
+RU_DIMENSIONS_PATH = SOURCE_DIR / "尺寸库_RU.csv"
+RU_RAW_SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru" / "0916"
 RU_SALES_PATH = WORKSPACE_ROOT / "02.销量评估" / "data" / "ru" / "auto_ru_model_sales_with_match_key.csv"
 DIMENSION_PROJECT = WORKSPACE_ROOT / "01.整理尺寸库"
 RULES_PATH = SCRIPT_DIR / "data" / "ru" / "尺寸" / "0918.1-老尺码加y340.csv"
@@ -227,7 +228,7 @@ def main() -> int:
         result = base.copy()
         result = pd.concat([result, matched], axis=1)
         ordered = [*analysis.DEFAULT_OUTPUT_COLUMNS[:21], "OZON尺码", "发货尺码", *analysis.DEFAULT_OUTPUT_COLUMNS[21:]]
-        result = result[ordered]
+        result = attach_dimension_code(result[ordered])
         expected_rows = len(dimensions)
         summary = analysis.validate_result(result, expected_rows)
         if result["DIMENSION-ID"].duplicated().any():
@@ -236,11 +237,11 @@ def main() -> int:
         artifact_inputs.mkdir(parents=True)
         shutil.copy2(RULES_PATH, artifact_inputs / RULES_PATH.name)
         shutil.copy2(PARAMETERS_PATH, artifact_inputs / PARAMETERS_PATH.name)
-        shutil.copy2(RU_DIMENSIONS_PATH, artifact_inputs / "RU尺寸库.csv")
+        shutil.copy2(RU_DIMENSIONS_PATH, artifact_inputs / "尺寸库_RU.csv")
         shutil.copy2(RU_SALES_PATH, artifact_inputs / RU_SALES_PATH.name)
         shutil.copy2(RU_RAW_SOURCE_DIR / "auto_ru_dimensions_with_match_key.csv", artifact_inputs / "auto_ru_dimensions_with_match_key.csv")
         shutil.copy2(RU_RAW_SOURCE_DIR / "auto_ru_catalog_rank.csv", artifact_inputs / "auto_ru_catalog_rank.csv")
-        full_path = artifact_output / "RU全尺码全量.csv"
+        full_path = artifact_output / "全量表_RU.csv"
         analysis.write_result(result, full_path)
         report = {
             **summary,
@@ -252,7 +253,7 @@ def main() -> int:
             "size_distribution": result["自动尺码"].value_counts().to_dict(),
             "sales_audit": sales_audit,
         }
-        report_path = artifact_output / "RU尺码匹配报告.json"
+        report_path = artifact_output / "尺码匹配报告_RU.json"
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         (artifact_dir / "status.json").write_text(json.dumps({"status": "passed", "output": str(full_path), "report": str(report_path)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         atomic_copy(full_path, OUTPUT_DIR / full_path.name)

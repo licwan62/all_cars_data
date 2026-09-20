@@ -12,7 +12,7 @@ ROOT = PROJECT.parent
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 SOURCE = ROOT / "public" / "尺寸库.csv"
 BASELINE = ROOT / "public" / "车身分类.csv"
-RESULT = PROJECT / "output" / "record_shape.csv"
+RESULT = PROJECT / "output" / "车形分类.csv"
 BATCH = PROJECT / "artifacts" / "2026-09-11_01_sd-strict-evidence-review"
 
 

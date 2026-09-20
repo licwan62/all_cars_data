@@ -18,6 +18,7 @@ WORKSPACE_ROOT = SCRIPT_DIR.parent
 if str(WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT))
 
+from full_table_schema import attach_dimension_code  # noqa: E402
 from id_scheme import append_country_code  # noqa: E402
 import pandas_analysis as analysis  # noqa: E402
 
@@ -192,8 +193,10 @@ def main() -> int:
         dimension_analysis["DIMENSION-ID"] = dimension_analysis["DIMENSION-ID"].map(
             lambda value: append_country_code(value, "US")
         )
-        full_path = output_dir / "全尺码全量.csv"
-        analysis_path = output_dir / "尺寸分析表.csv"
+        full_result = attach_dimension_code(full_result)
+        dimension_analysis = attach_dimension_code(dimension_analysis)
+        full_path = output_dir / "全量表_US.csv"
+        analysis_path = output_dir / "尺寸分析表_US.csv"
         analysis.write_result(full_result, full_path)
         analysis.write_result(dimension_analysis, analysis_path)
         outputs["全尺码"] = {
@@ -214,7 +217,8 @@ def main() -> int:
             store_result["DIMENSION-ID"] = store_result["DIMENSION-ID"].map(
                 lambda value: append_country_code(value, "US")
             )
-            store_path = output_dir / f"{shop_name}全量.csv"
+            store_result = attach_dimension_code(store_result)
+            store_path = output_dir / f"店铺全量_{shop_name}.csv"
             analysis.write_result(store_result, store_path)
             outputs[shop_name] = {
                 **analysis.validate_result(store_result, expected_rows),

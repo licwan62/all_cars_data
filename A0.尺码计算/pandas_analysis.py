@@ -21,15 +21,15 @@ import pandas as pd
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 PROJECT_DIR = Path(__file__).resolve().parent
 DIMENSION_OUTPUT_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "output"
-SHAPE_OUTPUT = WORKSPACE_ROOT / "02.车形分类核定" / "output" / "record_shape.csv"
-SALES_OUTPUT = WORKSPACE_ROOT / "02.销量评估" / "output" / "atom_sales.csv"
+SHAPE_OUTPUT = WORKSPACE_ROOT / "03.车形分类核定" / "output" / "车形分类.csv"
+SALES_OUTPUT = WORKSPACE_ROOT / "02.销量评估" / "output" / "原子销量.csv"
 REFERENCE_DATA = PROJECT_DIR / "data" / "参考尺寸计算.csv"
-CURRENT_OUTPUT = PROJECT_DIR / "output" / "全尺码全量.csv"
+CURRENT_OUTPUT = PROJECT_DIR / "output" / "全量表_US.csv"
 if str(WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT))
 
 from id_scheme import append_country_code, base_dimension_id
-from full_table_schema import build_dimension_analysis
+from full_table_schema import attach_dimension_code, build_dimension_analysis
 
 
 MM_PER_INCH = 25.4
@@ -87,7 +87,7 @@ DEFAULT_LIMITS = (
 SOURCE_FILE_ALIASES = {
     "dimensions": ("尺寸库.csv", "车型尺寸库.csv", "车型尺寸.csv"),
     "bodies": ("车身分类.csv", "车型形状分类.csv", "车型车身.csv"),
-    "sales": ("销量明细.csv", "atom_sales.csv"),
+    "sales": ("销量明细.csv", "原子销量.csv"),
 }
 
 CONFIG_FILES = {
@@ -1005,7 +1005,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--sales-source", type=Path,
-        help="原子销量表；默认读取 02.销量评估/output/atom_sales.csv",
+        help="原子销量表；默认读取 02.销量评估/output/原子销量.csv",
     )
     parser.add_argument(
         "--reference-source", type=Path,
@@ -1013,7 +1013,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--trim-source", type=Path,
-        help="缺少子车系维护表时，按 DIMENSION-ID 保留该表的 TRIM；默认使用 output/全尺码全量.csv",
+        help="缺少子车系维护表时，按 DIMENSION-ID 保留该表的 TRIM；默认使用 output/全量表_US.csv",
     )
     parser.add_argument(
         "--submodel-source",
@@ -1080,6 +1080,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         analysis["DIMENSION-ID"] = analysis["DIMENSION-ID"].map(
             lambda value: append_country_code(value, "US")
         )
+        result = attach_dimension_code(result)
+        analysis = attach_dimension_code(analysis)
         expected_rows = len(_read_csv(resolve_data_file(input_dir, "dimensions")))
         summary = validate_result(result, expected_rows)
         if args.analysis_output:
@@ -1091,7 +1093,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             prefix = output_path.stem[: -len("全量")]
             analysis_output_path = output_path.with_name(f"{prefix}尺寸分析表{output_path.suffix}")
         else:
-            analysis_output_path = output_path.with_name("尺寸分析表.csv")
+            analysis_output_path = output_path.with_name("尺寸分析表_US.csv")
         write_result(analysis, analysis_output_path)
         write_result(result, output_path)
         if args.workbook_output and not args.no_workbook_output:
@@ -1125,8 +1127,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         summary["status"] = str(status_path)
-        promote_file(output_path, PROJECT_DIR / "output" / "全尺码全量.csv")
-        promote_file(analysis_output_path, PROJECT_DIR / "output" / "尺寸分析表.csv")
+        promote_file(output_path, PROJECT_DIR / "output" / "全量表_US.csv")
+        promote_file(analysis_output_path, PROJECT_DIR / "output" / "尺寸分析表_US.csv")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 

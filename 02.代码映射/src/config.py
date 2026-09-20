@@ -78,7 +78,7 @@ def load_settings(config_path: str | Path, region: str | None = None) -> Setting
             artifact_slug=str(raw["artifacts"].get("slug", "code-mapping-publish")),
             publish_path=_resolve(base, raw["publish"]["path"]),
             public_publish_path=_resolve(
-                base, raw.get("public_publish", {}).get("path", "../public/car_code/vehicle_mapping.csv")
+                base, raw.get("public_publish", {}).get("path", "../public/car_code/车型编码映射.csv")
             ),
             backup_enabled=bool(raw.get("backup", {}).get("enabled", True)),
             backup_path=_resolve(base, backup_path),

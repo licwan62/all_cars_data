@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "released_at": "2026-09-21T01:56:54+08:00",
+  "nodes": {
+    "dimension-crawler": {
+      "path": "00.自动化尺寸抓取器",
+      "version": "20260921_01",
+      "artifact": "00.自动化尺寸抓取器/artifacts/2026-09-21_01_release",
+      "deliverables": [],
+      "pending": [
+        "区域尺寸抓取候选"
+      ]
+    },
+    "dimension-library": {
+      "path": "01.整理尺寸库",
+      "version": "20260921_01",
+      "artifact": "01.整理尺寸库/artifacts/2026-09-21_01_release",
+      "deliverables": [
+        "尺寸库.csv",
+        "尺寸库_US.csv",
+        "尺寸库_EU.csv",
+        "尺寸库_RU.csv"
+      ],
+      "pending": []
+    },
+    "structure-review": {
+      "path": "02.分类结构审核",
+      "version": "20260921_01",
+      "artifact": "02.分类结构审核/artifacts/2026-09-21_01_release",
+      "deliverables": [
+        "车型结构.csv"
+      ],
+      "pending": []
+    },
+    "sales-estimation": {
+      "path": "02.销量评估",
+      "version": "20260921_01",
+      "artifact": "02.销量评估/artifacts/2026-09-21_01_release",
+      "deliverables": [],
+      "pending": [
+        "原子销量.csv"
+      ]
+    },
+    "code-mapping": {
+      "path": "02.代码映射",
+      "version": "20260921_02",
+      "artifact": "02.代码映射/artifacts/2026-09-21_02_release",
+      "deliverables": [
+        "车型编码映射.csv",
+        "尺寸编码映射.csv"
+      ],
+      "pending": []
+    },
+    "shape-classification": {
+      "path": "03.车形分类核定",
+      "version": "20260921_01",
+      "artifact": "03.车形分类核定/artifacts/2026-09-21_01_release",
+      "deliverables": [
+        "车形分类.csv"
+      ],
+      "pending": []
+    },
+    "size-calculation": {
+      "path": "A0.尺码计算",
+      "version": "20260921_04",
+      "artifact": "A0.尺码计算/artifacts/2026-09-21_04_release",
+      "deliverables": [
+        "全量表_US.csv",
+        "全量表_EU.csv",
+        "全量表_RU.csv",
+        "尺寸分析表_US.csv",
+        "店铺全量_HNT.csv",
+        "店铺全量_TM.csv",
+        "店铺全量_TM_拆分.csv",
+        "尺码匹配规则.csv",
+        "尺码匹配报告_EU.json",
+        "尺码匹配报告_US.json",
+        "尺码匹配报告_RU.json"
+      ],
+      "pending": []
+    },
+    "full-table-summary": {
+      "path": "A1.全量汇总",
+      "version": "20260921_01",
+      "artifact": "A1.全量汇总/artifacts/2026-09-21_01_release",
+      "deliverables": [],
+      "pending": [
+        "全量表_汇总.csv"
+      ]
+    },
+    "adapter-trim": {
+      "path": "B1.适配器-Trim生成",
+      "version": "20260921_01",
+      "artifact": "B1.适配器-Trim生成/artifacts/2026-09-21_01_release",
+      "deliverables": [
+        "TRIM适配器.csv",
+        "尺寸TRIM映射.csv"
+      ],
+      "pending": []
+    },
+    "representative-model": {
+      "path": "C1.车型代表分析",
+      "version": "20260921_01",
+      "artifact": "C1.车型代表分析/artifacts/2026-09-21_01_release",
+      "deliverables": [
+        "代表车型.csv",
+        "代表车型.tsv",
+        "代表车型报告.md"
+      ],
+      "pending": []
+    },
+    "sku-clustering": {
+      "path": "D1.聚类SKU",
+      "version": "20260921_01",
+      "artifact": "D1.聚类SKU/artifacts/2026-09-21_01_release",
+      "deliverables": [],
+      "pending": [
+        "SKU聚类结果"
+      ]
+    },
+    "link-analysis": {
+      "path": "D2.链接分析",
+      "version": "20260921_01",
+      "artifact": "D2.链接分析/artifacts/2026-09-21_01_release",
+      "deliverables": [],
+      "pending": [
+        "发货单.csv"
+      ]
+    },
+    "dimension-iteration": {
+      "path": "X1.尺寸迭代",
+      "version": "20260921_01",
+      "artifact": "X1.尺寸迭代/artifacts/2026-09-21_01_release",
+      "deliverables": [],
+      "pending": [
+        "尺寸迭代候选"
+      ]
+    },
+    "size-cluster-analysis": {
+      "path": "X2.尺码簇分析",
+      "version": "20260921_01",
+      "artifact": "X2.尺码簇分析/artifacts/2026-09-21_01_release",
+      "deliverables": [
+        "尺码上限微调分析.xlsx",
+        "边界负面影响及手动调整.xlsx"
+      ],
+      "pending": []
+    }
+  }
+}

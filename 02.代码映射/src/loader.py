@@ -38,7 +38,7 @@ def load_vehicle_data(
             raise ValueError(f"Input CSV is missing required columns: {', '.join(sorted(missing))}")
         for row_number, row in enumerate(reader, start=2):
             input_rows += 1
-            dimension_id = clean_name(row.get(dimension_id_column)) if dimension_id_column else ""
+            dimension_id = (row.get(dimension_id_column) or "").strip() if dimension_id_column else ""
             if region_suffix and not dimension_id.endswith(region_suffix):
                 continue
             make = clean_name(row.get(make_column))

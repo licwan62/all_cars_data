@@ -421,8 +421,8 @@ def run(*args: object, cwd: Path | None = None) -> None:
 def main() -> None:
     repo = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="生成并发布版本化 W 型车聚类与链接分析")
-    parser.add_argument("--data", type=Path, default=repo / "03.尺码计算" / "output" / "全尺码全量.csv")
-    parser.add_argument("--rules", type=Path, default=repo / "03.尺码计算" / "output" / "尺码匹配规则.csv")
+    parser.add_argument("--data", type=Path, default=repo / "A0.尺码计算" / "output" / "全量表_US.csv")
+    parser.add_argument("--rules", type=Path, default=repo / "A0.尺码计算" / "output" / "尺码匹配规则.csv")
     parser.add_argument("--version", default="0914")
     parser.add_argument("--total-supply", type=int, default=TOTAL_SUPPLY)
     parser.add_argument("--sales-multiplier", action="append", default=[], metavar="SIZE=FACTOR")
@@ -434,9 +434,9 @@ def main() -> None:
         if not separator or not size.strip() or float(factor) <= 0:
             parser.error(f"销量倍率格式错误：{value}，应为 SIZE=正数")
         sales_multipliers[size.strip()] = float(factor)
-    cluster_project = repo / "聚类SKU" / "artifacts" / "W型车"
+    cluster_project = repo / "D1.聚类SKU" / "artifacts" / "W型车"
     cluster_output = cluster_project / args.version
-    engine = repo / "链接分析" / "sku_shipment_analysis"
+    engine = repo / "D2.链接分析" / "sku_shipment_analysis"
     output = Path(__file__).resolve().parent / "artifacts" / args.version
 
     run(

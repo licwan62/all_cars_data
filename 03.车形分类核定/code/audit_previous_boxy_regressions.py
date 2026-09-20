@@ -16,7 +16,7 @@ def read(path: Path) -> list[dict[str, str]]:
 
 
 def read_git(revision: str) -> list[dict[str, str]]:
-    relative = (project.PROJECT / "output" / "record_shape.csv").relative_to(project.ROOT).as_posix()
+    relative = (project.PROJECT / "output" / "车形分类.csv").relative_to(project.ROOT).as_posix()
     content = subprocess.check_output(
         ["git", "show", f"{revision}:{relative}"], cwd=project.ROOT
     ).decode("utf-8-sig")

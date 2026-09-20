@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "node": "representative-model",
+  "path": "C1.车型代表分析",
+  "version": "20260921_01",
+  "artifact": "C1.车型代表分析/artifacts/2026-09-21_01_release",
+  "published_at": "2026-09-21T00:23:14+08:00",
+  "deliverables": [
+    {
+      "file": "代表车型.csv",
+      "versioned_file": "代表车型-20260921_01.csv",
+      "sha256": "8eb586f7bcc7054a77e25c390b01ec7c44405ad31426ea8c29d2942f4be5ae2a",
+      "bytes": 2909,
+      "rows": 28
+    },
+    {
+      "file": "代表车型.tsv",
+      "versioned_file": "代表车型-20260921_01.tsv",
+      "sha256": "be96eb823462ee567f937cffe41527c3f9a003b2600e2e566e323e5fb7f6c43d",
+      "bytes": 1547,
+      "rows": 28
+    },
+    {
+      "file": "代表车型报告.md",
+      "versioned_file": "代表车型报告-20260921_01.md",
+      "sha256": "6fc74760405d9e323df6cbcc498ecbccc9d0f624eab99197c51bfbf60f84b529",
+      "bytes": 68366,
+      "rows": null
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20260921_01",
+      "artifact": "A0.尺码计算/artifacts/2026-09-21_01_release",
+      "files": [
+        {
+          "file": "全量表_US.csv",
+          "sha256": "d0d492d6e487328f0519b8ed359b899932d2c7716f9e7807e380a0a329996dcc"
+        },
+        {
+          "file": "全量表_RU.csv",
+          "sha256": "18dec60e7ad0e262702caf3db2cdc4a399bd682943d150b3d94c48cf6b1fe6d4"
+        },
+        {
+          "file": "尺寸分析表_US.csv",
+          "sha256": "963f665e9a41cefc078262cbfba559b88d13d3f69df11718b81fdf208f4fb41a"
+        },
+        {
+          "file": "店铺全量_HNT.csv",
+          "sha256": "40265943d14e8d2d9fcd7fe37caaaadc7f6ff3830e6b9b868021624687b241e8"
+        },
+        {
+          "file": "店铺全量_TM.csv",
+          "sha256": "942016d1dcbfa19cd4498c8340de5456a3be8d33b57aa44e0f6a62fb7ad03b5e"
+        },
+        {
+          "file": "店铺全量_TM_拆分.csv",
+          "sha256": "f211ef61a39cc40fe81cebe5db29a6d386f645576e6fabf0422d17cb66361743"
+        },
+        {
+          "file": "尺码匹配规则.csv",
+          "sha256": "08b2493f2934383e128d2e4fcc0082ff7795892cbb03be8b71654f7d3ddc6a98"
+        },
+        {
+          "file": "尺码匹配报告_US.json",
+          "sha256": "288752520eb586371c9c1ba12bc9c9d857a0ccccb074190a2623332682c11356"
+        },
+        {
+          "file": "尺码匹配报告_RU.json",
+          "sha256": "90971278189b5dec4ed5469b8d1e2a615d358cfc42f0617ae87db3588f320d4a"
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "notes": []
+}

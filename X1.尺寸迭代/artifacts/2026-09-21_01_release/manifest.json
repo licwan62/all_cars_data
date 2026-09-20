@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "node": "dimension-iteration",
+  "path": "X1.尺寸迭代",
+  "version": "20260921_01",
+  "artifact": "X1.尺寸迭代/artifacts/2026-09-21_01_release",
+  "published_at": "2026-09-21T00:23:14+08:00",
+  "deliverables": [],
+  "upstream": [
+    {
+      "node": "dimension-library",
+      "version": "20260921_01",
+      "artifact": "01.整理尺寸库/artifacts/2026-09-21_01_release",
+      "files": [
+        {
+          "file": "尺寸库.csv",
+          "sha256": "5f819135b9b1ab7f5ae3bd3273066ded4ed2aa1b15791a416ce366f3ee4acb37"
+        },
+        {
+          "file": "尺寸库_US.csv",
+          "sha256": "57b2a62bcce5a0655be78cadd0bd5a8b121a7f67ab9ab5edf57bc1afb0f5a7f9"
+        },
+        {
+          "file": "尺寸库_EU.csv",
+          "sha256": "81a474eaa5c2e97bc20b7ce2d85b7348be41cc333baa3277ad3e951fc05cbbf8"
+        },
+        {
+          "file": "尺寸库_RU.csv",
+          "sha256": "7f363c1a81562dcd26285b737d5b5414ef3c964900d8f20f4178dadeacdfeed1"
+        }
+      ]
+    },
+    {
+      "node": "shape-classification",
+      "version": "20260921_01",
+      "artifact": "03.车形分类核定/artifacts/2026-09-21_01_release",
+      "files": [
+        {
+          "file": "车形分类.csv",
+          "sha256": "80e518ade791451b925fb4f6b0b598e682d40f0900c7ba6d521147bfbda4f8f3"
+        }
+      ]
+    },
+    {
+      "node": "size-calculation",
+      "version": "20260921_01",
+      "artifact": "A0.尺码计算/artifacts/2026-09-21_01_release",
+      "files": [
+        {
+          "file": "全量表_US.csv",
+          "sha256": "d0d492d6e487328f0519b8ed359b899932d2c7716f9e7807e380a0a329996dcc"
+        },
+        {
+          "file": "全量表_RU.csv",
+          "sha256": "18dec60e7ad0e262702caf3db2cdc4a399bd682943d150b3d94c48cf6b1fe6d4"
+        },
+        {
+          "file": "尺寸分析表_US.csv",
+          "sha256": "963f665e9a41cefc078262cbfba559b88d13d3f69df11718b81fdf208f4fb41a"
+        },
+        {
+          "file": "店铺全量_HNT.csv",
+          "sha256": "40265943d14e8d2d9fcd7fe37caaaadc7f6ff3830e6b9b868021624687b241e8"
+        },
+        {
+          "file": "店铺全量_TM.csv",
+          "sha256": "942016d1dcbfa19cd4498c8340de5456a3be8d33b57aa44e0f6a62fb7ad03b5e"
+        },
+        {
+          "file": "店铺全量_TM_拆分.csv",
+          "sha256": "f211ef61a39cc40fe81cebe5db29a6d386f645576e6fabf0422d17cb66361743"
+        },
+        {
+          "file": "尺码匹配规则.csv",
+          "sha256": "08b2493f2934383e128d2e4fcc0082ff7795892cbb03be8b71654f7d3ddc6a98"
+        },
+        {
+          "file": "尺码匹配报告_US.json",
+          "sha256": "288752520eb586371c9c1ba12bc9c9d857a0ccccb074190a2623332682c11356"
+        },
+        {
+          "file": "尺码匹配报告_RU.json",
+          "sha256": "90971278189b5dec4ed5469b8d1e2a615d358cfc42f0617ae87db3588f320d4a"
+        }
+      ]
+    }
+  ],
+  "pending": [
+    "尺寸迭代候选"
+  ],
+  "notes": []
+}

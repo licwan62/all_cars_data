@@ -1,6 +1,6 @@
 # W 型车链接分析
 
-本项目只处理 `聚类SKU/artifacts/W型车`，与皮卡项目的输入、合并测试和输出目录完全分开。
+本项目只处理 `D1.聚类SKU/artifacts/W型车`，与皮卡项目的输入、合并测试和输出目录完全分开。
 
 ```powershell
 python run.py
@@ -22,4 +22,4 @@ python run.py
 
 流程依次重建 W 型车聚类候选、执行年份/尺码合并门禁，然后生成本项目的版本化 `artifacts/0914/`。
 
-`artifacts/0914.2-make聚合/` 使用 `聚类SKU/artifacts/W型车/0914.2-make聚合/` 的 `逻辑尺码 + MAKE` 聚类实验重新计算链接与发货；该版本不覆盖 public 正式发布表。
+`artifacts/0914.2-make聚合/` 使用 `D1.聚类SKU/artifacts/W型车/0914.2-make聚合/` 的 `逻辑尺码 + MAKE` 聚类实验重新计算链接与发货；该版本不覆盖 public 正式发布表。

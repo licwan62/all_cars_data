@@ -20,8 +20,8 @@ PUBLIC_DIR = ROOT / "public" / "ru_data"
 ARTIFACTS_DIR = PROJECT / "artifacts"
 
 SOURCES = {
-    "00_RU尺寸库.csv": ROOT / "01.整理尺寸库" / "output" / "RU尺寸库.csv",
-    "02_RU全量.csv": PROJECT / "output" / "RU全尺码全量.csv",
+    "00_RU尺寸库.csv": ROOT / "01.整理尺寸库" / "output" / "尺寸库_RU.csv",
+    "02_RU全量.csv": PROJECT / "output" / "全量表_RU.csv",
     "03_RU尺码匹配规则.csv": PROJECT / "data" / "ru" / "尺寸" / "0918.1-老尺码加y340.csv",
 }
 

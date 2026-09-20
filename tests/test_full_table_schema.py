@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 import pandas as pd
+import pytest
 
 from full_table_schema import SIZE_MATCH_COLUMNS, build_dimension_analysis
 
@@ -27,3 +28,18 @@ class FullTableSchemaTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_attach_dimension_code_inserts_before_dimension_id_and_rejects_unmapped(tmp_path):
+    from full_table_schema import attach_dimension_code
+
+    code_map = tmp_path / "codes.csv"
+    code_map.write_text("DIMENSION-ID,DIMENSION-CODE\nA US,00001014\n", encoding="utf-8-sig")
+    frame = pd.DataFrame({"MAKE": ["A"], "DIMENSION-ID": ["A US"]})
+
+    result = attach_dimension_code(frame, code_map)
+    assert list(result.columns) == ["MAKE", "DIMENSION-CODE", "DIMENSION-ID"]
+    assert result.loc[0, "DIMENSION-CODE"] == "00001014"
+
+    with pytest.raises(ValueError, match="缺少 DIMENSION-CODE"):
+        attach_dimension_code(pd.DataFrame({"DIMENSION-ID": ["B US"]}), code_map)

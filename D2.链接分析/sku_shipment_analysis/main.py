@@ -520,7 +520,7 @@ def listing_detail(allocated: pd.DataFrame, detail: pd.DataFrame, config: dict) 
 def main() -> None:
     repo = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="根据 public 聚类数据分配 SKU 发货量并生成上架明细")
-    parser.add_argument("--cluster-dir", type=Path, default=repo / "聚类SKU" / "output" / "W型车")
+    parser.add_argument("--cluster-dir", type=Path, default=repo / "D1.聚类SKU" / "output" / "W型车")
     parser.add_argument("--shipment", type=Path, default=None, help="含“发货单”工作表的 xlsx，或两列 CSV")
     parser.add_argument("--output-dir", type=Path, default=Path(__file__).resolve().parent / "output")
     parser.add_argument("--example-total", type=int, default=800, help="未提供发货单时生成的示例总量")

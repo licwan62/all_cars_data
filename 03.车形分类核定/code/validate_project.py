@@ -19,7 +19,7 @@ SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 REFERENCE = ROOT / "public" / "参考尺寸计算.csv"
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
-RESULT = PROJECT / "output" / "record_shape.csv"
+RESULT = PROJECT / "output" / "车形分类.csv"
 AUDIT_CANDIDATES = sorted((PROJECT / "artifacts").glob("*/all_dimension_audit.csv"))
 ALL_ID_AUDIT = (
     Path(os.environ["SHAPE_AUDIT"]).resolve()

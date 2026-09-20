@@ -2,7 +2,7 @@
 
 2026-09-08：正式匹配使用 `L-MM` 与 `插片指数`。等效长公式为 `R((L-MM + W-MM) × 周长系数 − 1500)`，仅作参考留痕；非皮卡插片指数沿用原算法，皮卡改为 `R(前宽-MM / 2 − 750)`，避免后轮毂突出虚增插片需求。
 
-缺少子车系维护表时，命令行默认按 `DIMENSION-ID` 保留 `output/全尺码全量.csv` 的 TRIM；可用 `--trim-source` 显式指定来源，或用 `--no-submodel` 明确留空。默认尺寸、车形和销量分别读取三个上游 agent 的 `output/`。
+缺少子车系维护表时，命令行默认按 `DIMENSION-ID` 保留 `output/全量表_US.csv` 的 TRIM；可用 `--trim-source` 显式指定来源，或用 `--no-submodel` 明确留空。默认尺寸、车形和销量分别读取三个上游 agent 的 `output/`。
 
 本次恢复的规则来自现有 `output/车型数据尺码.xlsx` 中的正式表 `容差参数表`（参数!A1:B2）和 `tb_size`（尺码!A1:J44），共 1 项参数和 43 条尺码规则。用旧车形重算已完整复现发布前的全部原有字段。
 
@@ -15,14 +15,16 @@
 在仓库根目录执行：
 
 ```powershell
-python 03.尺码计算\pandas_analysis.py
+python A0.尺码计算\pandas_analysis.py
 ```
 
-默认从 `01.整理尺寸库/output/尺寸库.csv`、`02.车形分类核定/output/record_shape.csv`、`02.销量评估/output/atom_sales.csv` 读取流水线输入；参考尺寸与尺码规则由本 agent 的 `data/` 维护。程序先创建不可覆盖的 artifact，校验后更新 `03.尺码计算/output/`。
+默认从 `01.整理尺寸库/output/尺寸库.csv`、`03.车形分类核定/output/车形分类.csv`、`02.销量评估/output/原子销量.csv` 读取流水线输入；参考尺寸与尺码规则由本 agent 的 `data/` 维护。程序先创建不可覆盖的 artifact，校验后更新 `A0.尺码计算/output/`。
 
-RU 区域全量使用 `generate_ru_full_table.py`：尺寸只读取 `01.整理尺寸库/output/RU尺寸库.csv`；销量读取 `02.销量评估/data/ru/auto_ru_model_sales_with_match_key.csv`，先按 `match_key` 汇总，再通过 RU 原始尺寸分组重建并映射到规范化后的 `DIMENSION-ID`。无 `match_key` 的销量只进入审计报告，不分摊到无法确定的车型。
+RU 区域全量使用 `generate_ru_full_table.py`：尺寸只读取 `01.整理尺寸库/output/尺寸库_RU.csv`；销量读取 `02.销量评估/data/ru/auto_ru_model_sales_with_match_key.csv`，先按 `match_key` 汇总，再通过 RU 原始尺寸分组重建并映射到规范化后的 `DIMENSION-ID`。无 `match_key` 的销量只进入审计报告，不分摊到无法确定的车型。
 
-审核 RU 全量后运行 `python 03.尺码计算/publish_ru_data.py`，会校验尺寸库与全量表的 `DIMENSION-ID` 集合、销量数值和尺码规则覆盖，并原子发布 `public/ru_data/00_RU尺寸库.csv`、`02_RU全量.csv`、`03_RU尺码匹配规则.csv`。每次发布同时保留不可变 artifact 和 SHA-256。
+EU 使用 `publish_eu_current_research.py` 发布 `data/eu/当前已审核全量.csv` 中与当前 `尺寸库_EU.csv` 仍然一致的已审核行。该交付物是当前研究进度的全量快照，不表示 EU 尺寸库已全覆盖；覆盖情况写入 `尺码匹配报告_EU.json`。
+
+审核 RU 全量后运行 `python A0.尺码计算/publish_ru_data.py`，会校验尺寸库与全量表的 `DIMENSION-ID` 集合、销量数值和尺码规则覆盖，并原子发布 `public/ru_data/00_RU尺寸库.csv`、`02_RU全量.csv`、`03_RU尺码匹配规则.csv`。每次发布同时保留不可变 artifact 和 SHA-256。
 
 CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引号的 `74,286`，因此可被 pandas、Excel 和数据库稳定解析。
 
@@ -30,27 +32,27 @@ CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引
 
 ```powershell
 # 指定共享数据、项目规则和输出
-python 03.尺码计算\pandas_analysis.py `
+python A0.尺码计算\pandas_analysis.py `
   --source-dir 01.整理尺寸库\output `
-  --config-dir 03.尺码计算\data `
-  --body-source 02.车形分类核定\output\record_shape.csv `
-  --sales-source 02.销量评估\output\atom_sales.csv
+  --config-dir A0.尺码计算\data `
+  --body-source 03.车形分类核定\output\车形分类.csv `
+  --sales-source 02.销量评估\output\原子销量.csv
 
 # 兼容旧的全量 input 副本，仅用于历史回归
-python 03.尺码计算\pandas_analysis.py --input-dir <历史回归目录> --no-workbook-output
+python A0.尺码计算\pandas_analysis.py --input-dir <历史回归目录> --no-workbook-output
 
 # 保留车型尺寸源顺序，不按 DIMENSION-ID 升序
-python 03.尺码计算\pandas_analysis.py --keep-source-order
+python A0.尺码计算\pandas_analysis.py --keep-source-order
 
 # 显式指定子车系映射；不需要 TRIM 时可用 --no-submodel
-python 03.尺码计算\pandas_analysis.py --submodel-source 03.尺码计算\data\子车系维护表.csv
+python A0.尺码计算\pandas_analysis.py --submodel-source A0.尺码计算\data\子车系维护表.csv
 
 # 如需兼容旧流程，可显式生成历史工作簿候选
-python 03.尺码计算\pandas_analysis.py `
-  --workbook-output 03.尺码计算\output\车型数据尺码.xlsx
+python A0.尺码计算\pandas_analysis.py `
+  --workbook-output A0.尺码计算\output\车型数据尺码.xlsx
 ```
 
-`TRIM` 优先从 `data/子车系维护表.csv` 生成；缺失时，命令行默认从已有 `output/全尺码全量.csv` 按主键保留。两种来源均不可用或显式使用 `--no-submodel` 时留空。
+`TRIM` 优先从 `data/子车系维护表.csv` 生成；缺失时，命令行默认从已有 `output/全量表_US.csv` 按主键保留。两种来源均不可用或显式使用 `--no-submodel` 时留空。
 
 结果审核通过后，可运行 `python data_workflow.py publish-plan 全量数据` 获取人工覆盖步骤。
 
@@ -59,10 +61,10 @@ python 03.尺码计算\pandas_analysis.py `
 `店铺分组/货架.yaml` 定义每个店铺的 `匹配尺码` 与 `发货尺码`。生成程序会先用完整规则输出全尺码全量，再为每个店铺只保留其匹配尺码作为候选池；成功结果及诊断候选统一转换为发货尺码。
 
 ```powershell
-python 03.尺码计算\generate_store_outputs.py
+python A0.尺码计算\generate_store_outputs.py
 ```
 
-默认在 `03.尺码计算/artifacts` 下新建版本批次，输出 `全尺码全量.csv`、`尺寸分析表.csv`、各店铺的 `店铺名全量.csv` 和 `status.json`；校验成功后原子更新本项目 `output/`。
+默认在 `A0.尺码计算/artifacts` 下新建版本批次，输出 `全量表_US.csv`、`尺寸分析表.csv`、各店铺的 `店铺名全量.csv` 和 `status.json`；校验成功后原子更新本项目 `output/`。
 
 最终结果默认按 `DIMENSION-ID` 升序排列，并把 `DIMENSION-ID` 放在最后一列。US 全量发布结果会在基础 ID 末尾追加 `US`。
 
@@ -138,7 +140,7 @@ python 03.尺码计算\generate_store_outputs.py
 ## 验证
 
 ```powershell
-python -m unittest discover -s 03.尺码计算\tests -v
+python -m unittest discover -s A0.尺码计算\tests -v
 ```
 
 测试覆盖完整数据回归、新参考侧高与插片公式、DRW 池、三厢车降级、数据不全和最近候选原因。

@@ -15,7 +15,7 @@ from full_table_schema import build_dimension_analysis
 
 
 ROOT = Path(__file__).resolve().parent
-SIZE_PROJECT = ROOT / "03.尺码计算"
+SIZE_PROJECT = ROOT / "A0.尺码计算"
 PUBLIC_DIR = SIZE_PROJECT / "output"
 US_COLUMNS = [
     "MAKE", "MODEL", "TRIM", "版本", "结构", "CAB", "BED", "代际", "YEAR", "分类",
