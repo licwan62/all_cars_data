@@ -4,7 +4,7 @@
 输入（都在本 agent 的 data/ 下）：
   data/us/0917.1-新命名.csv        -> output/尺码匹配规则.csv（US，沿用既有稳定文件名）
   data/eu/尺码匹配规则.csv          -> output/尺码匹配规则_EU.csv
-  data/ru/尺寸/0921.2-真实上限.csv -> output/尺码匹配规则_RU.csv
+  data/ru/尺寸/0921.3-两厢车候选-2L200.csv -> output/尺码匹配规则_RU.csv
   data/店铺分组/货架.yaml           -> output/店铺货架.csv（店铺,匹配尺码,发货尺码）
 
 任何输入缺失或缺少必需列时失败，不改变 output/。之后由scripts/publish_release.py 生成带后缀的 artifact。
@@ -25,7 +25,7 @@ OUTPUT = PROJECT / "output"
 RULE_SOURCES = {
     "尺码匹配规则.csv": (PROJECT / "data" / "us" / "0917.1-新命名.csv", "尺码"),
     "尺码匹配规则_EU.csv": (PROJECT / "data" / "eu" / "尺码匹配规则.csv", "尺码"),
-    "尺码匹配规则_RU.csv": (PROJECT / "data" / "ru" / "尺寸" / "0921.2-真实上限.csv", "亚马逊尺码"),
+    "尺码匹配规则_RU.csv": (PROJECT / "data" / "ru" / "尺寸" / "0921.3-两厢车候选-2L200.csv", "亚马逊尺码"),
 }
 SHELF_CONFIG = PROJECT / "data" / "店铺分组" / "货架.yaml"
 SHELF_OUTPUT = "店铺货架.csv"

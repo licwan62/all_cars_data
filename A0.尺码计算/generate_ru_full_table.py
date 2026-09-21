@@ -29,12 +29,14 @@ RU_DIMENSIONS_PATH = SOURCE_DIR / "尺寸库_RU.csv"
 RU_RAW_SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru" / "0916"
 RU_SALES_PATH = WORKSPACE_ROOT / "02.销量评估" / "data" / "ru" / "auto_ru_model_sales_with_match_key.csv"
 DIMENSION_PROJECT = WORKSPACE_ROOT / "01.整理尺寸库"
-RULES_PATH = SCRIPT_DIR / "data" / "ru" / "尺寸" / "0921.2-真实上限.csv"
+RULES_PATH = SCRIPT_DIR / "data" / "ru" / "尺寸" / "0921.3-两厢车候选-2L200.csv"
 PARAMETERS_PATH = SCRIPT_DIR / "data" / "ru" / "参数" / "0921.1-仅余量.csv"
 OUTPUT_DIR = SCRIPT_DIR / "output"
 ARTIFACTS_DIR = SCRIPT_DIR / "artifacts"
 
 RULE_COLUMNS = ["亚马逊尺码", "OZON尺码", "发货尺码", "分类", "长_mm", "宽_mm", "高_mm"]
+LENGTH_MARGIN_COLUMN = "余量长上限_mm"
+DEFAULT_LENGTH_MARGIN_MM = 635.0
 PARAMETER_NAMES = {"余量长容差"}
 
 
@@ -59,18 +61,24 @@ def read_parameters(path: Path) -> dict[str, float]:
     return values
 
 
-def read_rules(path: Path) -> pd.DataFrame:
+def read_rules(path: Path, default_length_margin: float = DEFAULT_LENGTH_MARGIN_MM) -> pd.DataFrame:
     rules = analysis._read_csv(path)
     analysis._require_columns(rules, RULE_COLUMNS, "RU 尺码规则")
-    result = rules[RULE_COLUMNS].copy()
+    result = rules[[*RULE_COLUMNS, *([LENGTH_MARGIN_COLUMN] if LENGTH_MARGIN_COLUMN in rules.columns else [])]].copy()
+    # Older snapshots did not carry a per-size allowance.  Keep them usable
+    # with the historical current setting while new rule files make it explicit.
+    if LENGTH_MARGIN_COLUMN not in result.columns:
+        result[LENGTH_MARGIN_COLUMN] = default_length_margin
     for column in ["亚马逊尺码", "分类"]:
         result[column] = result[column].astype("string").str.strip()
     if result["亚马逊尺码"].eq("").any() or result["分类"].eq("").any():
         raise analysis.DataContractError("RU 尺码规则的亚马逊尺码和分类不能为空")
-    for column in ["长_mm", "宽_mm", "高_mm"]:
+    for column in ["长_mm", "宽_mm", "高_mm", LENGTH_MARGIN_COLUMN]:
         result[column] = pd.to_numeric(result[column], errors="coerce")
-    if result[["长_mm", "宽_mm", "高_mm"]].isna().any().any():
-        raise analysis.DataContractError("RU 尺码规则存在非数值的长、宽或高")
+    if result[["长_mm", "宽_mm", "高_mm", LENGTH_MARGIN_COLUMN]].isna().any().any():
+        raise analysis.DataContractError("RU 尺码规则存在非数值的长、宽、高或余量长上限")
+    if result[LENGTH_MARGIN_COLUMN].lt(0).any():
+        raise analysis.DataContractError("RU 尺码规则的余量长上限不能为负数")
     if result.duplicated(["分类", "亚马逊尺码"]).any():
         raise analysis.DataContractError("RU 尺码规则中同分类的亚马逊尺码必须唯一")
     return result.sort_values(["分类", "长_mm", "宽_mm", "高_mm", "亚马逊尺码"], kind="stable")
@@ -81,7 +89,7 @@ def match_ru_sizes(
 ) -> pd.DataFrame:
     """Match each vehicle to the smallest same-category rule that covers all dimensions.
 
-    Rule 长/宽/高 are real fit upper limits; only 余量长容差 (rule length minus vehicle length) is a parameter.
+    Rule 长/宽/高 are real fit upper limits; 余量长上限_mm is a per-size upper bound.
     """
     required = ["分类", "L-MM", "W-MM", "H-MM"]
     analysis._require_columns(vehicles, required, "RU 全量基础表")
@@ -101,10 +109,16 @@ def match_ru_sizes(
             (pool["长_mm"] >= length)
             & (pool["宽_mm"] >= width)
             & (pool["高_mm"] >= height)
-            & (pool["长_mm"] - length <= parameters["余量长容差"])
+            & (pool["长_mm"] - length <= pool[LENGTH_MARGIN_COLUMN])
         ]
         if not fits.empty:
-            rule = fits.iloc[0]
+            # Length is not a sufficient proxy for package size.  For example,
+            # a low 4520×2100×1780 cover is smaller than a tall
+            # 4250×2100×2000 cover and should serve a low car when both fit.
+            fits = fits.assign(_envelope_volume=fits["长_mm"] * fits["宽_mm"] * fits["高_mm"])
+            rule = fits.sort_values(
+                ["_envelope_volume", "长_mm", "宽_mm", "高_mm", "亚马逊尺码"], kind="stable"
+            ).iloc[0]
             matched.append({"自动尺码": rule["亚马逊尺码"], "OZON尺码": rule["OZON尺码"], "发货尺码": rule["发货尺码"], "自动长度余量": round(float(rule["长_mm"] - length), 1), "候选": "", "原因": "", "相差数值": ""})
             continue
         # Diagnostics select the closest dimensional upper-limit violation.
@@ -112,7 +126,7 @@ def match_ru_sizes(
             length - pool["长_mm"],
             width - pool["宽_mm"],
             height - pool["高_mm"],
-            pool["长_mm"] - length - parameters["余量长容差"],
+            pool["长_mm"] - length - pool[LENGTH_MARGIN_COLUMN],
         ], axis=1)
         differences.columns = ["超长", "超宽", "超高", "超余量"]
         max_difference = differences.clip(lower=0).max(axis=1)
@@ -216,8 +230,8 @@ def main() -> int:
     artifact_output = artifact_dir / "output"
     artifact_inputs = artifact_dir / "input"
     try:
-        rules = read_rules(RULES_PATH)
         parameters = read_parameters(PARAMETERS_PATH)
+        rules = read_rules(RULES_PATH, parameters["余量长容差"])
         dimensions = analysis._read_csv(RU_DIMENSIONS_PATH)
         sales, sales_audit = build_ru_sales_by_dimension()
         dimension_ids = set(dimensions["DIMENSION-ID"])

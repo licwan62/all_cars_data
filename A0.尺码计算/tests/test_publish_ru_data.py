@@ -18,5 +18,5 @@ def test_ru_release_inputs_are_consistent():
     assert summary["full_rows"] == 13848
     assert summary["unique_dimension_ids"] == 13848
     assert summary["sales_total"] == 296972
-    assert summary["matched_sizes"] == 13314
-    assert summary["unavailable_sizes"] == 534
+    assert summary["matched_sizes"] == 13350
+    assert summary["unavailable_sizes"] == 498

@@ -10,11 +10,10 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "public" / "全量数据.csv"
-RULES = ROOT / "public" / "尺码匹配规则.csv"
+SOURCE = ROOT / "A0.尺码计算" / "output" / "全量表_RU.csv"
 OUTPUT = ROOT / "C1.车型代表分析" / "output" / "代表车型.csv"
 OUTPUT_TSV = ROOT / "C1.车型代表分析" / "output" / "代表车型.tsv"
-TARGET_SIZES = ["3XL", "3XXL", "3L-W", "3XL-W", "3XXL-W", "3XXXL", "3XXXXL"]
+REPORT = ROOT / "C1.车型代表分析" / "output" / "代表车型报告.md"
 OUTPUT_FIELDS = ["车型", "dimension-id", "型号", "车长", "车宽", "车高", "车形", "销量", "参考半周长", "in_eagle"]
 TSV_FIELDS = ["车型", "型号", "车长", "车宽", "车高", "车形"]
 
@@ -110,18 +109,14 @@ def rank_group(rows: list[dict[str, str]]) -> list[dict[str, str]]:
 def main() -> None:
     with SOURCE.open("r", encoding="utf-8-sig", newline="") as handle:
         source_rows = list(csv.DictReader(handle))
-    with RULES.open("r", encoding="utf-8-sig", newline="") as handle:
-        rules = [row for row in csv.DictReader(handle) if row.get("使用", "").strip().casefold() == "y"]
-    rules.sort(key=lambda row: number(row, "档位序号"))
-
     groups: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in source_rows:
-        size = logical_size(row, rules)
-        if size in TARGET_SIZES and number(row, "L-MM") and number(row, "等效长"):
+        size = row.get("自动尺码", "").strip()
+        if size and size not in {"无可用尺码", "数据不全"} and number(row, "L-MM"):
             groups[size].append(row)
 
     output_rows = []
-    for size in TARGET_SIZES:
+    for size in sorted(groups):
         for row in rank_group(groups[size]):
             output_rows.append(
                 {
@@ -151,7 +146,15 @@ def main() -> None:
         writer.writeheader()
         writer.writerows({field: row[field] for field in TSV_FIELDS} for row in output_rows)
 
-    print(f"sizes={len(groups)} rows={len(output_rows)} output={OUTPUT} tsv={OUTPUT_TSV}")
+    lines = ["# RU 尺码代表车型报告", "", "来源：`A0.尺码计算/output/全量表_RU.csv`。每个自动尺码按销量和尺寸代表性最多选取四款车型。", ""]
+    for size in sorted(groups):
+        rows = [row for row in output_rows if row["型号"] == size]
+        lines.extend([f"## {size}", "", "| 车型 | 长×宽×高 mm | 销量 |", "|---|---:|---:|"])
+        lines.extend(f"| {row['车型']} | {row['车长']}×{row['车宽']}×{row['车高']} | {row['销量']} |" for row in rows)
+        lines.append("")
+    REPORT.write_text("\n".join(lines), encoding="utf-8")
+
+    print(f"sizes={len(groups)} rows={len(output_rows)} output={OUTPUT} tsv={OUTPUT_TSV} report={REPORT}")
 
 
 if __name__ == "__main__":
