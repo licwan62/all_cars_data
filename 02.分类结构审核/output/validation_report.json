@@ -1,0 +1,194 @@
+{
+  "generated_at": "2026-09-21T04:00:32.630480+00:00",
+  "passed": false,
+  "checks": [
+    {
+      "check": "source_dimension_group_ids",
+      "passed": false
+    },
+    {
+      "check": "audit_table1_corrections.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "修改类型",
+        "原结构",
+        "建议结构",
+        "原分类",
+        "建议分类",
+        "置信度",
+        "修改原因",
+        "主要依据",
+        "是否需要拆分记录"
+      ]
+    },
+    {
+      "check": "audit_table2_corrected.csv:schema",
+      "passed": true,
+      "rows": 47926,
+      "actual": [
+        "DIMENSION-ID",
+        "结构",
+        "分类",
+        "迭代状态"
+      ]
+    },
+    {
+      "check": "车型结构.csv:schema",
+      "passed": true,
+      "rows": 47926,
+      "actual": [
+        "DIMENSION-ID",
+        "MAKE",
+        "MODEL",
+        "版本",
+        "CAB",
+        "BED",
+        "结构",
+        "代际",
+        "YEAR",
+        "分类",
+        "L-IN",
+        "W-IN",
+        "H-IN",
+        "参考车型",
+        "备注",
+        "迭代状态"
+      ]
+    },
+    {
+      "check": "audit_table3_uncertain.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "疑似结构",
+        "问题",
+        "需要补充的信息",
+        "建议处理方式"
+      ]
+    },
+    {
+      "check": "audit_table4_split.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "建议YEAR",
+        "建议结构",
+        "拆分原因"
+      ]
+    },
+    {
+      "check": "audit_table5_other.csv:schema",
+      "passed": true,
+      "rows": 0,
+      "actual": [
+        "DIMENSION-ID",
+        "字段",
+        "当前值",
+        "疑似问题",
+        "建议检查"
+      ]
+    },
+    {
+      "check": "audit_full_inventory.csv",
+      "passed": false,
+      "error": "missing"
+    },
+    {
+      "check": "corrected_alias_matches_table2",
+      "passed": true,
+      "table2_rows": 47926,
+      "corrected_rows": 47926
+    },
+    {
+      "check": "table2_uses_only_five_cover_categories",
+      "passed": false,
+      "illegal_values": [
+        ""
+      ]
+    },
+    {
+      "check": "split_dimensions_are_numeric_or_blank",
+      "passed": true,
+      "examples": []
+    },
+    {
+      "check": "table2_preserves_source_and_generated_ids",
+      "passed": false,
+      "source_rows": 47926,
+      "table2_rows": 47926,
+      "generated_rows": 2,
+      "generated_missing": [
+        "Toyota Land Cruiser 20/40 Series Pickup Pickup 1958-1980",
+        "Toyota Land Cruiser 20/40 Series Van/Hardtop SUV 1958-1980"
+      ],
+      "shared_dimension_group_ids": 0
+    },
+    {
+      "check": "table1_applied_to_table2",
+      "passed": true,
+      "mismatch_count": 0,
+      "examples": []
+    },
+    {
+      "check": "blocked_queue_equals_table3",
+      "passed": true,
+      "blocked_rows": 0,
+      "table3_rows": 0,
+      "missing_from_table3": [],
+      "extra_in_table3": []
+    },
+    {
+      "check": "blocked_rows_preserved_and_marked_for_review",
+      "passed": true,
+      "mismatch_count": 0,
+      "examples": []
+    },
+    {
+      "check": "table1_has_traceable_evidence",
+      "passed": true,
+      "missing_count": 0,
+      "examples": []
+    },
+    {
+      "check": "done_changed_findings_equal_table1",
+      "passed": false,
+      "expected_changes": 1,
+      "table1_rows": 0,
+      "missing_from_table1": [
+        "Toyota Land Cruiser 50 Series / early 60 Series Station Wagon Wagon 1967-1980"
+      ],
+      "extra_in_table1": []
+    },
+    {
+      "check": "full_inventory_audit_covers_every_source_row",
+      "passed": false,
+      "source_rows": 47926,
+      "audit_rows": 0,
+      "missing_fingerprints": 47926,
+      "extra_fingerprints": 0
+    },
+    {
+      "check": "table1_change_types_are_precise",
+      "passed": true,
+      "invalid_count": 0,
+      "examples": []
+    },
+    {
+      "check": "every_product_category_change_is_highlighted",
+      "passed": true,
+      "category_change_rows": 0,
+      "unflagged_count": 0,
+      "examples": []
+    }
+  ],
+  "protected_files": {
+    "尺寸库.csv": {
+      "exists": true,
+      "sha256": "aead57825def094f03643f262cf1bd4727f47e3e96dd9c3384bb82ed97969809"
+    }
+  }
+}

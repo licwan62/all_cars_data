@@ -401,7 +401,7 @@ def publish_final_output(repo: Path, output: Path) -> None:
     if missing:
         raise FileNotFoundError(f"缺少待发布文件：{missing}")
 
-    release_dir = repo / "public" / "sku_cluster" / "W型车"
+    release_dir = Path(r"\\NAS8824B4\Public\PQData\pub_all_cars_data") / "sku_cluster" / "W型车"
     obsolete_files = (
         "car_cluster_atom_audit.csv", "car_cluster_detail.csv", "car_cluster_summary.csv",
         "兄弟链接明细.csv", "新聚类ID映射.csv", "聚类合并测试.csv",
@@ -426,7 +426,7 @@ def main() -> None:
     parser.add_argument("--version", default="0914")
     parser.add_argument("--total-supply", type=int, default=TOTAL_SUPPLY)
     parser.add_argument("--sales-multiplier", action="append", default=[], metavar="SIZE=FACTOR")
-    parser.add_argument("--publish", action="store_true", help="发布最终两张表到 public/sku_cluster/W型车")
+    parser.add_argument("--publish", action="store_true", help="发布最终两张表到 NAS public/sku_cluster/W型车")
     args = parser.parse_args()
     sales_multipliers: dict[str, float] = {}
     for value in args.sales_multiplier:

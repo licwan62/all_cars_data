@@ -16,13 +16,13 @@ import pandas as pd
 
 PROJECT = Path(__file__).resolve().parent
 ROOT = PROJECT.parent
-PUBLIC_DIR = ROOT / "public" / "ru_data"
+PUBLIC_DIR = Path(r"\\NAS8824B4\Public\PQData\pub_all_cars_data") / "data" / "ru_data"
 ARTIFACTS_DIR = PROJECT / "artifacts"
 
 SOURCES = {
     "00_RU尺寸库.csv": ROOT / "01.整理尺寸库" / "output" / "尺寸库_RU.csv",
     "02_RU全量.csv": PROJECT / "output" / "全量表_RU.csv",
-    "03_RU尺码匹配规则.csv": PROJECT / "data" / "ru" / "尺寸" / "0918.1-老尺码加y340.csv",
+    "03_RU尺码匹配规则.csv": PROJECT / "data" / "ru" / "尺寸" / "0921.2-真实上限.csv",
 }
 
 

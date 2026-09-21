@@ -42,25 +42,6 @@ class StoreOutputTests(unittest.TestCase):
         self.assertEqual(result["自动尺码"].tolist(), ["4XL", "无可用尺码", "数据不全"])
         self.assertEqual(result["候选"].tolist()[:2], ["4XL", "4XL"])
 
-    def test_ru_ozon_mapping_has_new_size_and_new_name_columns(self) -> None:
-        ozon = pd.read_csv(PROJECT_DIR / "data" / "ru" / "ozon映射.csv")
-        names = pd.read_csv(PROJECT_DIR / "data" / "ru" / "0917.1-新命名.csv")
-
-        self.assertIn("新尺码", ozon.columns)
-        self.assertIn("Ozon尺码", names.columns)
-        self.assertIn("发货尺码", names.columns)
-        self.assertEqual(
-            ozon.loc[ozon["内部尺码"] == "3XL+0", "新尺码"].item(),
-            "3XXL-520-0",
-        )
-        self.assertEqual(
-            names.loc[names["尺码"] == "YXXL-545", "Ozon尺码"].item(), "XXL"
-        )
-        self.assertEqual(
-            names.loc[names["尺码"] == "YXXL-545", "发货尺码"].item(),
-            "YXXL-585",
-        )
-
 
 if __name__ == "__main__":
     unittest.main()

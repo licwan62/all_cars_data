@@ -101,6 +101,33 @@ def test_normalized_physical_duplicates_are_collapsed():
     assert len(unique) == 1
 
 
+def test_ru_uaz_hunter_identity_duplicate_keeps_five_door_row():
+    common = {
+        "MAKE": "УАЗ", "MODEL": "Хантер", "版本": "", "CAB": "", "BED": "", "代际": "",
+        "YEAR": "2003-2026", "分类": "越野车", "参考车型": "", "备注": "", "迭代状态": "可入库",
+    }
+    rows = [
+        {**common, "DIMENSION-ID": "old-open", "结构": "SUV", "L-IN": "161.4", "W-IN": "79.1", "H-IN": "78.7"},
+        {**common, "DIMENSION-ID": "old-5dr", "结构": "SUV 5dr", "L-IN": "161.4", "W-IN": "68.1", "H-IN": "79.7"},
+    ]
+
+    result = merge_dimension_library.transform_region_rows(rows, "ru")
+
+    assert len(result) == 1
+    assert result[0]["结构"] == "SUV 5dr"
+    assert result[0]["DIMENSION-ID"] == "УАЗ Хантер SUV 5dr 2003-2026 RU"
+
+
+def test_identity_merge_rule_does_not_merge_other_suv_door_variants():
+    rules = merge_dimension_library.load_identity_merge_rules()
+    rows = [
+        {"MAKE": "Ford", "MODEL": "Bronco", "结构": "SUV", "YEAR": "2020-2026"},
+        {"MAKE": "Ford", "MODEL": "Bronco", "结构": "SUV 5dr", "YEAR": "2020-2026"},
+    ]
+
+    assert merge_dimension_library.apply_identity_merge_rules(rows, "ru") == rows
+
+
 def test_published_eu_ru_ids_follow_json_rules():
     rules = merge_dimension_library.load_dimension_id_rules()
     for region in ("EU", "RU"):

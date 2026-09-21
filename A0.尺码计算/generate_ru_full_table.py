@@ -29,13 +29,13 @@ RU_DIMENSIONS_PATH = SOURCE_DIR / "尺寸库_RU.csv"
 RU_RAW_SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru" / "0916"
 RU_SALES_PATH = WORKSPACE_ROOT / "02.销量评估" / "data" / "ru" / "auto_ru_model_sales_with_match_key.csv"
 DIMENSION_PROJECT = WORKSPACE_ROOT / "01.整理尺寸库"
-RULES_PATH = SCRIPT_DIR / "data" / "ru" / "尺寸" / "0918.1-老尺码加y340.csv"
-PARAMETERS_PATH = SCRIPT_DIR / "data" / "ru" / "参数" / "0918.0.csv"
+RULES_PATH = SCRIPT_DIR / "data" / "ru" / "尺寸" / "0921.2-真实上限.csv"
+PARAMETERS_PATH = SCRIPT_DIR / "data" / "ru" / "参数" / "0921.1-仅余量.csv"
 OUTPUT_DIR = SCRIPT_DIR / "output"
 ARTIFACTS_DIR = SCRIPT_DIR / "artifacts"
 
 RULE_COLUMNS = ["亚马逊尺码", "OZON尺码", "发货尺码", "分类", "长_mm", "宽_mm", "高_mm"]
-PARAMETER_NAMES = {"长容差", "宽容差", "高容差", "余量长容差"}
+PARAMETER_NAMES = {"余量长容差"}
 
 
 def _numeric(value: object) -> float:
@@ -79,7 +79,10 @@ def read_rules(path: Path) -> pd.DataFrame:
 def match_ru_sizes(
     vehicles: pd.DataFrame, rules: pd.DataFrame, parameters: dict[str, float]
 ) -> pd.DataFrame:
-    """Match each vehicle to the smallest same-category rule that covers all dimensions."""
+    """Match each vehicle to the smallest same-category rule that covers all dimensions.
+
+    Rule 长/宽/高 are real fit upper limits; only 余量长容差 (rule length minus vehicle length) is a parameter.
+    """
     required = ["分类", "L-MM", "W-MM", "H-MM"]
     analysis._require_columns(vehicles, required, "RU 全量基础表")
     by_category = {category: group for category, group in rules.groupby("分类", sort=False)}
@@ -95,9 +98,9 @@ def match_ru_sizes(
             matched.append({"自动尺码": "无可用尺码", "OZON尺码": "", "发货尺码": "", "自动长度余量": "", "候选": "", "原因": "无同分类规则", "相差数值": ""})
             continue
         fits = pool.loc[
-            (pool["长_mm"] + parameters["长容差"] >= length)
-            & (pool["宽_mm"] + parameters["宽容差"] >= width)
-            & (pool["高_mm"] + parameters["高容差"] >= height)
+            (pool["长_mm"] >= length)
+            & (pool["宽_mm"] >= width)
+            & (pool["高_mm"] >= height)
             & (pool["长_mm"] - length <= parameters["余量长容差"])
         ]
         if not fits.empty:
@@ -106,9 +109,9 @@ def match_ru_sizes(
             continue
         # Diagnostics select the closest dimensional upper-limit violation.
         differences = pd.concat([
-            length - (pool["长_mm"] + parameters["长容差"]),
-            width - (pool["宽_mm"] + parameters["宽容差"]),
-            height - (pool["高_mm"] + parameters["高容差"]),
+            length - pool["长_mm"],
+            width - pool["宽_mm"],
+            height - pool["高_mm"],
             pool["长_mm"] - length - parameters["余量长容差"],
         ], axis=1)
         differences.columns = ["超长", "超宽", "超高", "超余量"]

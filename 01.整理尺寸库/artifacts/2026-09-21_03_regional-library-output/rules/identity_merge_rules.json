@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "regions": {
+    "ru": [
+      {
+        "name": "merge_uaz_hunter_open_suv_into_five_door",
+        "drop": {
+          "MAKE": "УАЗ",
+          "MODEL": "Хантер",
+          "结构": "SUV",
+          "YEAR": "2003-2026"
+        },
+        "keep": {
+          "MAKE": "УАЗ",
+          "MODEL": "Хантер",
+          "结构": "SUV 5dr",
+          "YEAR": "2003-2026"
+        },
+        "reason": "开放式与五门记录属于同一 Hunter 车型；统一保留销量更高、结构更具体的五门车身记录。"
+      }
+    ]
+  }
+}

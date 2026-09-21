@@ -77,7 +77,7 @@ def sha256(path: Path) -> str:
 
 
 def check_release_naming(nodes: list[dict]) -> list[str]:
-    """artifact 内文件带 -YYYYMMDD_NN 后缀；output/ 与 public/ 用去后缀的稳定文件名，内容与 artifact 一致。"""
+    """artifact 内文件带 -YYYYMMDD_NN 后缀；output/ 使用去后缀的稳定文件名，内容与 artifact 一致。"""
     errors: list[str] = []
     for node in nodes:
         base = ROOT / node["path"]
@@ -102,11 +102,6 @@ def check_release_naming(nodes: list[dict]) -> list[str]:
         for path in (base / "output").glob("*"):
             if VERSION_SUFFIX.search(path.name):
                 errors.append(f"{node['id']}: output/ 不得带 artifact 后缀: {path.name}")
-    public = ROOT / "public"
-    if public.is_dir():
-        for path in public.rglob("*"):
-            if path.is_file() and VERSION_SUFFIX.search(path.name):
-                errors.append(f"public 规范文件名不得带 artifact 后缀: {path.relative_to(ROOT)}")
     return errors
 
 
@@ -132,6 +127,12 @@ def main() -> int:
 
     if not nodes or None in node_ids or len(node_ids) != len(nodes):
         errors.append("pipeline.json 的节点 id 为空或重复")
+
+    governance = payload.get("governance", {})
+    owner_id = governance.get("manifest_owner")
+    owner_path = governance.get("manifest_owner_path")
+    if owner_id != "link-analysis" or owner_path != "D2.链接分析":
+        errors.append("pipeline.json 必须登记由最后节点 D2.链接分析（link-analysis）维护")
 
     for node in nodes:
         node_id = node["id"]

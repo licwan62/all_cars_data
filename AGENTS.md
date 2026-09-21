@@ -12,13 +12,15 @@
 
 ## 运行与发布规则
 
-1. 只从自身 `data/` 和上游 agent 的 `output/` 读取正式输入；不得把 `public/` 或其他节点的 `artifacts/` 当作默认输入。
+1. 只从自身 `data/` 和上游 agent 的 `output/` 读取正式输入；不得把 NAS public 发布目录或其他节点的 `artifacts/` 当作默认输入。
 2. 每次运行先创建新的 `artifacts/<批次>/`，不得覆盖既有批次。
 3. 校验成功后，才可用原子写入方式更新自身 `output/`；失败运行不得改变 `output/`。
 4. 下游只依赖 `output/` 的稳定文件名，不依赖某个日期批次。
 5. 修改规则时，同时更新 `data/`、自动测试和新批次中的规则快照/差异说明；历史 artifact 不得反向修改。
 6. `cache/`、`work/`、日志和临时文件可重建，不属于流水线接口。
-7. `public/` 仅是仓库外发布或人工交换区，不纳入 Git，也不是 agent 间数据总线。
+7. 对外发布目录固定为 `\\NAS8824B4\Public\PQData\pub_all_cars_data`，不纳入 Git，也不是 agent 间数据总线；仅发布 CSV 数据表，JSON 等辅助小文件留在节点 `output/` 和 `artifacts/`。发布说明写入该目录的 `README.md`。
+
+`pipeline.json` 由流水线最后节点 `D2.链接分析` 维护。
 
 发布：`python scripts/publish_release.py` 自上游到下游生成带后缀的 artifact，再去掉后缀发布到 `output/`。目录命名规则见 `pipeline.json` 的 `naming_contract`（00–03 数字层号；A0 起按最终产物分线 A/B/C/D/X）。
 

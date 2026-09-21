@@ -24,7 +24,7 @@ RU 区域全量使用 `generate_ru_full_table.py`：尺寸只读取 `01.整理�
 
 EU 使用 `publish_eu_current_research.py` 发布 `data/eu/当前已审核全量.csv` 中与当前 `尺寸库_EU.csv` 仍然一致的已审核行。该交付物是当前研究进度的全量快照，不表示 EU 尺寸库已全覆盖；覆盖情况写入 `尺码匹配报告_EU.json`。
 
-审核 RU 全量后运行 `python A0.尺码计算/publish_ru_data.py`，会校验尺寸库与全量表的 `DIMENSION-ID` 集合、销量数值和尺码规则覆盖，并原子发布 `public/ru_data/00_RU尺寸库.csv`、`02_RU全量.csv`、`03_RU尺码匹配规则.csv`。每次发布同时保留不可变 artifact 和 SHA-256。
+审核 RU 全量后运行 `python A0.尺码计算/publish_ru_data.py`，会校验尺寸库与全量表的 `DIMENSION-ID` 集合、销量数值和尺码规则覆盖，并原子发布到 `\\NAS8824B4\Public\PQData\pub_all_cars_data\data\ru_data/`。每次发布同时保留不可变 artifact 和 SHA-256。
 
 CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引号的 `74,286`，因此可被 pandas、Excel 和数据库稳定解析。
 

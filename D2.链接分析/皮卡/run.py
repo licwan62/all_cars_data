@@ -20,7 +20,7 @@ def main() -> None:
 
     run(
         cluster_project / "main.py",
-        "--size-input", repo / "public" / "全量数据.csv",
+        "--size-input", Path(r"\\NAS8824B4\Public\PQData\pub_all_cars_data") / "全量数据.csv",
         "--sales-input", repo / "02.销量评估" / "output" / "原子销量.csv",
         "--output", cluster_output,
         cwd=cluster_project,

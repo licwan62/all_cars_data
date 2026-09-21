@@ -15,7 +15,7 @@
 python main.py
 ```
 
-默认读取 `public/sku_cluster/W型车`，按各物理尺码销量权重生成总量 800 的示例发货单，并输出到 `output/`。
+默认读取 `\\NAS8824B4\Public\PQData\pub_all_cars_data\sku_cluster\W型车`，按各物理尺码销量权重生成总量 800 的示例发货单，并输出到 `output/`。
 
 ## 使用实际发货单
 
@@ -31,7 +31,7 @@ python main.py --shipment "output/shipment_input.csv"
 
 ```powershell
 python main.py `
-  --cluster-dir "../../public/sku_cluster/皮卡" `
+  --cluster-dir "\\NAS8824B4\Public\PQData\pub_all_cars_data\sku_cluster\皮卡" `
   --shipment "../发货单明细.xlsx"
 ```
 

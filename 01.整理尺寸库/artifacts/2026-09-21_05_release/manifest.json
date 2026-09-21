@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "node": "dimension-library",
+  "path": "01.整理尺寸库",
+  "version": "20260921_05",
+  "artifact": "01.整理尺寸库/artifacts/2026-09-21_05_release",
+  "published_at": "2026-09-21T13:06:29+08:00",
+  "deliverables": [
+    {
+      "file": "尺寸库.csv",
+      "versioned_file": "尺寸库-20260921_05.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-09-21_05_release/output/尺寸库-20260921_05.csv",
+      "sha256": "aead57825def094f03643f262cf1bd4727f47e3e96dd9c3384bb82ed97969809",
+      "bytes": 6931623,
+      "rows": 47926
+    },
+    {
+      "file": "尺寸库_US.csv",
+      "versioned_file": "尺寸库_US-20260921_05.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-09-21_05_release/output/尺寸库_US-20260921_05.csv",
+      "sha256": "6e7d2ee8624c32b8fc23af6819a4922e63e5e5b32d43ff1454d553c731a8d814",
+      "bytes": 906344,
+      "rows": 4371
+    },
+    {
+      "file": "尺寸库_EU.csv",
+      "versioned_file": "尺寸库_EU-20260921_05.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-09-21_05_release/output/尺寸库_EU-20260921_05.csv",
+      "sha256": "db8b9bf9970aec6fac5989e1840ce154bf90e09ed9666f85fefdf939a20a780f",
+      "bytes": 4364925,
+      "rows": 29707
+    },
+    {
+      "file": "尺寸库_RU.csv",
+      "versioned_file": "尺寸库_RU-20260921_05.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-09-21_05_release/output/尺寸库_RU-20260921_05.csv",
+      "sha256": "a2ca9460be61722cc90dc6adadadea50326258c17d3ed2b16e96d0bb1c51f112",
+      "bytes": 1660586,
+      "rows": 13848
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-crawler",
+      "version": "20260921_03",
+      "artifact": "00.自动化尺寸抓取器/artifacts/2026-09-21_03_release",
+      "files": []
+    }
+  ],
+  "pending": [],
+  "notes": []
+}

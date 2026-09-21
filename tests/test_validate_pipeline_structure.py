@@ -23,3 +23,9 @@ def test_cycle_is_reported():
 
 def test_repository_pipeline_is_valid():
     assert validator.main() == 0
+
+
+def test_pipeline_manifest_is_owned_by_last_node():
+    payload = __import__("json").loads(validator.MANIFEST.read_text(encoding="utf-8"))
+    assert payload["governance"]["manifest_owner"] == "link-analysis"
+    assert payload["governance"]["manifest_owner_path"] == "D2.链接分析"

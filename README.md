@@ -74,4 +74,4 @@ python scripts/validate_pipeline_structure.py
 | `output/` | 当前已校验的稳定交付物 + manifest.json | 是，唯一正式接口 |
 | `artifacts/` | 每次运行的输入、规则、带版本后缀的输出、报告快照 | 否，仅审计与回溯 |
 
-`public/` 不纳入 Git，也不是 agent 间的数据源。
+对外发布目录为 `\\NAS8824B4\Public\PQData\pub_all_cars_data`，不纳入 Git，也不是 agent 间的数据源。仅发布 CSV 数据表；JSON 等辅助小文件保留在节点 `output/` 和 `artifacts/`，发布内容和来源由该目录的 `README.md` 说明。根目录 `pipeline.json` 由流水线最后节点 `D2.链接分析` 维护。

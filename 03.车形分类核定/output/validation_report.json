@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "source": "D:\\Licheng\\Repo\\all_cars_data\\01.整理尺寸库\\output\\尺寸库.csv",
+  "reference": "D:\\Licheng\\Repo\\all_cars_data\\public\\参考尺寸计算.csv",
+  "checks": [
+    {
+      "check": "reference_schema",
+      "passed": true,
+      "actual": [
+        "车身号",
+        "分类",
+        "结构细分",
+        "描述",
+        "参考车型",
+        "下摆上限",
+        "后宽系数",
+        "前宽系数",
+        "颈宽系数",
+        "弧长系数",
+        "周长系数"
+      ]
+    },
+    {
+      "check": "reference_shape_ids_nonempty_unique",
+      "passed": true,
+      "ids": [
+        "dodge-challenger",
+        "H0",
+        "H1",
+        "H2",
+        "H3",
+        "JP",
+        "P0",
+        "P1",
+        "P2",
+        "DUAL",
+        "SD0",
+        "SD1",
+        "SD2",
+        "SU0",
+        "SU1",
+        "SU2",
+        "V0",
+        "V1"
+      ]
+    },
+    {
+      "check": "reference_has_no_legacy_ids",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check": "source_schema",
+      "passed": true,
+      "rows": 47926,
+      "actual": [
+        "DIMENSION-ID",
+        "MAKE",
+        "MODEL",
+        "版本",
+        "CAB",
+        "BED",
+        "结构",
+        "代际",
+        "YEAR",
+        "分类",
+        "L-IN",
+        "W-IN",
+        "H-IN",
+        "参考车型",
+        "备注",
+        "迭代状态"
+      ]
+    },
+    {
+      "check": "source_dimension_ids",
+      "passed": true
+    },
+    {
+      "check": "source_dimension_ids_unique",
+      "passed": true,
+      "unique_ids": 47926
+    },
+    {
+      "check": "cache_shapes_from_reference",
+      "passed": true,
+      "rows": 2584
+    },
+    {
+      "check": "cache_has_no_legacy_shapes",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check": "cache_sd_structure_selectors_are_reviewed",
+      "passed": true,
+      "selectors": 536,
+      "unsupported": 0
+    },
+    {
+      "check": "cache_keys_unique",
+      "passed": true
+    },
+    {
+      "check": "queue_status_valid",
+      "passed": true,
+      "rows": 7164
+    },
+    {
+      "check": "result_not_generated_until_complete",
+      "passed": true,
+      "unresolved_models": 7164
+    }
+  ]
+}
