@@ -2,10 +2,11 @@
 """按 pipeline.json 对各节点做一次标准发布（自上游到下游）。
 
 每个节点：
-1. 新建不可覆盖的 ``artifacts/YYYY-MM-DD_NN_release/``；
+1. 新建不可覆盖的 ``artifacts/YYYY-MM-DD_NN_<node>-release/``，并写入 ``REPORT.md``；
 2. 把 ``outputs`` 声明的稳定交付物按 ``名称-YYYYMMDD_NN.扩展名`` 保存进该批次的 ``output/``，
    并写 ``manifest.json``（交付物、sha256、上游节点及其版本、待落地项）；
-3. 全部校验通过后，去掉版本后缀，原子发布到节点 ``output/``，同时写入同样的 ``output/manifest.json``。
+3. 全部校验通过后，去掉版本后缀，原子发布到节点 ``output/``，同时写入同样的 ``output/manifest.json``；
+4. ``REPORT.md`` 将当前交付物与上一版本 artifact 比较，记录 CSV 的新增、删除、字段修改及示例。
 
 最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源。
 """
@@ -24,8 +25,8 @@ from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SLUG = "release"
 MANIFEST_NAME = "manifest.json"
+REPORT_NAME = "REPORT.md"
 
 
 class ReleaseError(ValueError):
@@ -71,8 +72,14 @@ def topological_order(nodes: list[dict]) -> list[dict]:
     return ordered
 
 
-def next_batch(artifacts_dir: Path, day: str) -> tuple[str, str]:
-    """返回 (批次目录名, 版本后缀)，如 ('2026-09-21_01_release', '20260921_01')。"""
+def artifact_slug(node: dict) -> str:
+    """Return a stable, human-readable description for an automated release batch."""
+    value = re.sub(r"[^a-z0-9]+", "-", str(node["id"]).lower()).strip("-")
+    return f"{value or 'pipeline'}-release"
+
+
+def next_batch(artifacts_dir: Path, day: str, slug: str) -> tuple[str, str]:
+    """返回 (批次目录名, 版本后缀)，如 ('2026-09-21_01_dimension-library-release', '20260921_01')。"""
     used = [
         int(match.group(1))
         for path in artifacts_dir.glob(f"{day}_*")
@@ -81,7 +88,7 @@ def next_batch(artifacts_dir: Path, day: str) -> tuple[str, str]:
     number = max(used, default=0) + 1
     if number > 99:
         raise ReleaseError(f"{artifacts_dir} 当天批次已用尽")
-    return f"{day}_{number:02d}_{SLUG}", f"{day.replace('-', '')}_{number:02d}"
+    return f"{day}_{number:02d}_{slug}", f"{day.replace('-', '')}_{number:02d}"
 
 
 def write_json_atomic(path: Path, payload: dict) -> None:
@@ -89,6 +96,78 @@ def write_json_atomic(path: Path, payload: dict) -> None:
     temporary = path.with_name(f".{path.name}.tmp")
     temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     os.replace(temporary, path)
+
+
+def _csv_change_summary(previous: Path, current: Path) -> list[str]:
+    """Summarize logical CSV changes without putting a huge row diff in the report."""
+    with previous.open("r", encoding="utf-8-sig", newline="") as handle:
+        old_rows = list(csv.DictReader(handle))
+    with current.open("r", encoding="utf-8-sig", newline="") as handle:
+        new_rows = list(csv.DictReader(handle))
+    key = "DIMENSION-ID" if all(row.get("DIMENSION-ID", "").strip() for row in old_rows + new_rows) else None
+    if not key or len({row[key] for row in old_rows}) != len(old_rows) or len({row[key] for row in new_rows}) != len(new_rows):
+        return ["- CSV 内容已变化；缺少可唯一定位的 `DIMENSION-ID`，未生成行级差异。"]
+    old_by_key = {row[key]: row for row in old_rows}
+    new_by_key = {row[key]: row for row in new_rows}
+    added = sorted(new_by_key.keys() - old_by_key.keys())
+    removed = sorted(old_by_key.keys() - new_by_key.keys())
+    changed: list[tuple[str, list[str]]] = []
+    columns: dict[str, int] = {}
+    for record_id in sorted(old_by_key.keys() & new_by_key.keys()):
+        fields = sorted(
+            field for field in set(old_by_key[record_id]) | set(new_by_key[record_id])
+            if old_by_key[record_id].get(field, "") != new_by_key[record_id].get(field, "")
+        )
+        if fields:
+            changed.append((record_id, fields))
+            for field in fields:
+                columns[field] = columns.get(field, 0) + 1
+    summary = [f"- 行级差异：新增 {len(added)}，删除 {len(removed)}，修改 {len(changed)}。"]
+    if columns:
+        summary.append("- 变更字段计数：" + "，".join(f"`{field}` {count}" for field, count in sorted(columns.items())) + "。")
+    for label, values in (("新增", added), ("删除", removed)):
+        if values:
+            summary.append(f"- {label}示例（最多 10 条）：" + "；".join(f"`{value}`" for value in values[:10]) + "。")
+    if changed:
+        summary.append("- 修改示例（最多 20 条）：")
+        summary.extend(f"  - `{record_id}`：" + "、".join(f"`{field}`" for field in fields) for record_id, fields in changed[:20])
+    return summary
+
+
+def write_report(path: Path, node: dict, version: str, released_at: str, previous_manifest: dict | None, deliverables: list[dict], output_dir: Path, root: Path) -> None:
+    """Write an auditable, compact Markdown description of this artifact's changes."""
+    lines = [
+        "# 发布报告", "",
+        f"- 节点：`{node['id']}`（`{node['path']}`）",
+        f"- 版本：`{version}`",
+        f"- 发布时间：`{released_at}`",
+        f"- 工作描述：{artifact_slug(node).removesuffix('-release')} 输出刷新。", "",
+        "## 交付物与变更", "",
+    ]
+    previous = {item["file"]: item for item in (previous_manifest or {}).get("deliverables", [])}
+    for item in deliverables:
+        name = item["file"]
+        current = output_dir / name
+        old = previous.get(name)
+        lines.append(f"### `{name}`")
+        if not old:
+            lines.extend(["", f"- 本版本新增交付物，共 {item.get('rows', 'N/A')} 行。", ""])
+            continue
+        old_path = root / old.get("artifact_file", "")
+        if not old_path.is_file():
+            lines.extend(["", "- 未找到上一版本 artifact，无法生成内容差异。", ""])
+            continue
+        if old.get("sha256") == item["sha256"]:
+            lines.extend(["", "- 内容未变化；仅产生新的发布版本。", ""])
+            continue
+        lines.append("")
+        lines.append(f"- 内容已变化：{old.get('rows', 'N/A')} 行 → {item.get('rows', 'N/A')} 行。")
+        if current.suffix.lower() == ".csv" and old_path.suffix.lower() == ".csv":
+            lines.extend(_csv_change_summary(old_path, current))
+        else:
+            lines.append("- 非 CSV 交付物，记录 checksum 变化，未生成内容差异。")
+        lines.append("")
+    path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
 def upstream_records(root: Path, node: dict, by_id: dict[str, dict]) -> list[dict]:
@@ -133,7 +212,9 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
     output_dir = project / "output"
     artifacts_dir = project / "artifacts"
     artifacts_dir.mkdir(exist_ok=True)
-    batch_name, version = next_batch(artifacts_dir, today)
+    previous_manifest_path = output_dir / MANIFEST_NAME
+    previous_manifest = json.loads(previous_manifest_path.read_text(encoding="utf-8")) if previous_manifest_path.is_file() else None
+    batch_name, version = next_batch(artifacts_dir, today, artifact_slug(node))
     batch_dir = artifacts_dir / batch_name
     staging = artifacts_dir / f".{batch_name}.tmp"
     if staging.exists():
@@ -167,6 +248,7 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
         "pending": node.get("pending", []),
         "notes": node.get("release_notes", []),
     }
+    write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root)
     write_json_atomic(staging / MANIFEST_NAME, manifest)
     os.replace(staging, batch_dir)
 

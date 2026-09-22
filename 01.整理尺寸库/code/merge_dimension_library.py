@@ -189,6 +189,11 @@ def transform_region_rows(
     rows: list[dict[str, str]], region: str, aggregate_fields: tuple[str, ...] = ()
 ) -> list[dict[str, str]]:
     code = region.upper()
+    # Identity rules deliberately match source body labels (for example, `SUV`
+    # versus `SUV 3-door`).  Apply them before the downstream normalization
+    # omits the default three-door marker, otherwise a rule can no longer tell
+    # its drop and keep records apart.
+    rows = apply_identity_merge_rules(rows, region)
     structure_rules = load_structure_rules()
     normalize_region = region.lower() in structure_rules["regions"]
     for row in rows:
@@ -197,7 +202,6 @@ def transform_region_rows(
         if code in {"EU", "RU"}:
             row["参考车型"] = ""
             row["备注"] = ""
-    rows = apply_identity_merge_rules(rows, region)
     dimension_id_rules = load_dimension_id_rules()
     if region.lower() in dimension_id_rules["regions"]:
         rows = deduplicate_normalized_rows(rows, dimension_id_rules, aggregate_fields)

@@ -128,6 +128,24 @@ def test_identity_merge_rule_does_not_merge_other_suv_door_variants():
     assert merge_dimension_library.apply_identity_merge_rules(rows, "ru") == rows
 
 
+def test_ru_rav4_identity_duplicate_keeps_three_door_row():
+    common = {
+        "MAKE": "Toyota", "MODEL": "RAV4", "版本": "", "CAB": "", "BED": "", "代际": "I (XA10)",
+        "YEAR": "1994-2000", "分类": "越野车", "参考车型": "", "备注": "", "迭代状态": "可入库",
+    }
+    rows = [
+        {**common, "DIMENSION-ID": "old-bare", "结构": "SUV", "L-IN": "145.9", "W-IN": "66.7", "H-IN": "65.4"},
+        {**common, "DIMENSION-ID": "old-3dr", "结构": "SUV 3-door", "L-IN": "145.9", "W-IN": "66.7", "H-IN": "65.0"},
+    ]
+
+    result = merge_dimension_library.transform_region_rows(rows, "ru")
+
+    assert len(result) == 1
+    assert result[0]["结构"] == "SUV"
+    assert result[0]["H-IN"] == "65.0"
+    assert result[0]["DIMENSION-ID"] == "Toyota RAV4 SUV 1994-2000 RU"
+
+
 def test_published_eu_ru_ids_follow_json_rules():
     rules = merge_dimension_library.load_dimension_id_rules()
     for region in ("EU", "RU"):

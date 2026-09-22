@@ -28,7 +28,7 @@ def test_release_versions_artifact_files_and_publishes_stable_names(tmp_path):
 
     day = date.today()
     version = f"{day:%Y%m%d}_01"
-    batch = repo / "00.a" / "artifacts" / f"{day.isoformat()}_01_release"
+    batch = repo / "00.a" / "artifacts" / f"{day.isoformat()}_01_a-release"
     assert (batch / "output" / f"车型结构-{version}.csv").is_file()
     assert (repo / "00.a" / "output" / "车型结构.csv").is_file()
 
@@ -43,11 +43,28 @@ def test_release_versions_artifact_files_and_publishes_stable_names(tmp_path):
     )["deliverables"][0]["sha256"]
 
     summary = json.loads((repo / "release.json").read_text(encoding="utf-8"))
-    assert summary["nodes"]["b"]["artifact"].endswith("_01_release")
+    assert summary["nodes"]["b"]["artifact"].endswith("_01_b-release")
 
     release.release_all(repo)  # 第二次不覆盖，批次号递增
-    assert (repo / "00.a" / "artifacts" / f"{day.isoformat()}_02_release").is_dir()
+    assert (repo / "00.a" / "artifacts" / f"{day.isoformat()}_02_a-release").is_dir()
     assert (batch / "manifest.json").is_file()
+    report = (repo / "00.a" / "artifacts" / f"{day.isoformat()}_02_a-release" / "REPORT.md").read_text(encoding="utf-8")
+    assert "# 发布报告" in report
+    assert "内容未变化" in report
+
+
+def test_release_report_explains_csv_row_and_field_changes(tmp_path):
+    repo = make_repo(tmp_path)
+    release.release_all(repo)
+    output = repo / "00.a" / "output" / "车型结构.csv"
+    output.write_text("ID,X\n1,9\n4,5\n", encoding="utf-8-sig")
+
+    release.release_all(repo, only={"a"})
+
+    day = date.today()
+    report = (repo / "00.a" / "artifacts" / f"{day.isoformat()}_02_a-release" / "REPORT.md").read_text(encoding="utf-8")
+    assert "内容已变化" in report
+    assert "缺少可唯一定位的 `DIMENSION-ID`" in report
 
 
 def test_missing_declared_output_aborts_before_any_write(tmp_path):

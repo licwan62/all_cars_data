@@ -17,6 +17,90 @@
           "YEAR": "2003-2026"
         },
         "reason": "开放式与五门记录属于同一 Hunter 车型；统一保留销量更高、结构更具体的五门车身记录。"
+      },
+      {
+        "name": "merge_chevrolet_tracker_bare_suv_into_three_door_1989_1998",
+        "drop": {"MAKE": "Chevrolet", "MODEL": "Tracker", "结构": "SUV", "YEAR": "1989-1998"},
+        "keep": {"MAKE": "Chevrolet", "MODEL": "Tracker", "结构": "SUV 3-door", "YEAR": "1989-1998"},
+        "reason": "同代两门 Tracker 的裸 SUV 与 3-door 是源站车身标签差异；保留门数明确的记录。"
+      },
+      {
+        "name": "merge_geo_tracker_bare_suv_into_three_door_1989_1998",
+        "drop": {"MAKE": "Geo", "MODEL": "Tracker", "结构": "SUV", "YEAR": "1989-1998"},
+        "keep": {"MAKE": "Geo", "MODEL": "Tracker", "结构": "SUV 3-door", "YEAR": "1989-1998"},
+        "reason": "同代两门 Geo Tracker 的裸 SUV 与 3-door 是源站车身标签差异；保留门数明确的记录。"
+      },
+      {
+        "name": "merge_ssangyong_korando_bare_suv_into_three_door_1996_2006",
+        "drop": {"MAKE": "SsangYong", "MODEL": "Korando", "结构": "SUV", "YEAR": "1996-2006"},
+        "keep": {"MAKE": "SsangYong", "MODEL": "Korando", "结构": "SUV 3-door", "YEAR": "1996-2006"},
+        "reason": "同代三门 Korando 的两条记录尺寸完全一致；保留门数明确的记录。"
+      },
+      {
+        "name": "merge_toyota_blizzard_bare_suv_into_three_door_1980_1984",
+        "drop": {"MAKE": "Toyota", "MODEL": "Blizzard", "结构": "SUV", "YEAR": "1980-1984"},
+        "keep": {"MAKE": "Toyota", "MODEL": "Blizzard", "结构": "SUV 3-door", "YEAR": "1980-1984"},
+        "reason": "LD10 三门 Blizzard 的裸 SUV 与 3-door 为同一车身的近似量测记录；保留门数明确的记录。"
+      },
+      {
+        "name": "merge_toyota_rav4_bare_suv_into_three_door_1994_2000",
+        "drop": {"MAKE": "Toyota", "MODEL": "RAV4", "结构": "SUV", "YEAR": "1994-2000"},
+        "keep": {"MAKE": "Toyota", "MODEL": "RAV4", "结构": "SUV 3-door", "YEAR": "1994-2000"},
+        "reason": "XA10 短轴 RAV4 的裸 SUV 与 3-door 为同一车身的近似量测记录；五门车型另有明确记录。"
+      },
+      {
+        "name": "merge_suzuki_jimny_bare_suv_into_three_door_1998_2005",
+        "drop": {"MAKE": "Suzuki", "MODEL": "Jimny", "结构": "SUV", "YEAR": "1998-2005"},
+        "keep": {"MAKE": "Suzuki", "MODEL": "Jimny", "结构": "SUV 3-door", "YEAR": "1998-2005"},
+        "reason": "第三代 Jimny 的裸 SUV 与三门记录为同一短轴车身的近似量测；保留门数明确的记录。"
+      },
+      {
+        "name": "merge_suzuki_jimny_bare_suv_into_three_door_2005_2012",
+        "drop": {"MAKE": "Suzuki", "MODEL": "Jimny", "结构": "SUV", "YEAR": "2005-2012"},
+        "keep": {"MAKE": "Suzuki", "MODEL": "Jimny", "结构": "SUV 3-door", "YEAR": "2005-2012"},
+        "reason": "第三代改款 Jimny 的裸 SUV 与三门记录为同一短轴车身的近似量测；保留门数明确的记录。"
+      },
+      {
+        "name": "merge_mercedes_g_class_bare_suv_into_three_door_1979_2009",
+        "drop": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV", "YEAR": "1979-2009"},
+        "keep": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV 3-door", "YEAR": "1979-2009"},
+        "reason": "W460/W461 短轴 G-Class 的裸 SUV 与三门记录为同一车身的近似量测；五门车型另有明确记录。"
+      },
+      {
+        "name": "merge_mercedes_g_class_bare_suv_into_three_door_1990_2006",
+        "drop": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV", "YEAR": "1990-2006"},
+        "keep": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV 3-door", "YEAR": "1990-2006"},
+        "reason": "W463 短轴 G-Class 的裸 SUV 与三门记录为同一车身的近似量测；五门车型另有明确记录。"
+      },
+      {
+        "name": "merge_mercedes_g_class_bare_suv_into_three_door_2006_2008",
+        "drop": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV", "YEAR": "2006-2008"},
+        "keep": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV 3-door", "YEAR": "2006-2008"},
+        "reason": "W463 改款短轴 G-Class 的裸 SUV 与三门记录为同一车身的近似量测；五门车型另有明确记录。"
+      },
+      {
+        "name": "merge_mercedes_g_class_bare_suv_into_three_door_2008_2012",
+        "drop": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV", "YEAR": "2008-2012"},
+        "keep": {"MAKE": "Mercedes-Benz", "MODEL": "G-Класс", "结构": "SUV 3-door", "YEAR": "2008-2012"},
+        "reason": "W463 改款短轴 G-Class 的裸 SUV 与三门记录为同一车身的近似量测；五门车型另有明确记录。"
+      },
+      {
+        "name": "merge_puch_g_modell_bare_suv_into_three_door_1979_1992",
+        "drop": {"MAKE": "Puch", "MODEL": "G-modell", "结构": "SUV", "YEAR": "1979-1992"},
+        "keep": {"MAKE": "Puch", "MODEL": "G-modell", "结构": "SUV 3-door", "YEAR": "1979-1992"},
+        "reason": "W460 短轴 Puch G-modell 的裸 SUV 与三门记录为同一车身的近似量测；五门车型另有明确记录。"
+      },
+      {
+        "name": "merge_puch_g_modell_bare_suv_into_three_door_1989_2000",
+        "drop": {"MAKE": "Puch", "MODEL": "G-modell", "结构": "SUV", "YEAR": "1989-2000"},
+        "keep": {"MAKE": "Puch", "MODEL": "G-modell", "结构": "SUV 3-door", "YEAR": "1989-2000"},
+        "reason": "W463 短轴 Puch G-modell 的裸 SUV 与三门记录为同一车身的近似量测；五门车型另有明确记录。"
+      },
+      {
+        "name": "merge_puch_g_modell_bare_suv_into_three_door_1992_2000",
+        "drop": {"MAKE": "Puch", "MODEL": "G-modell", "结构": "SUV", "YEAR": "1992-2000"},
+        "keep": {"MAKE": "Puch", "MODEL": "G-modell", "结构": "SUV 3-door", "YEAR": "1992-2000"},
+        "reason": "W461 短轴 Puch G-modell 的裸 SUV 与三门记录为同一车身的近似量测；五门车型另有明确记录。"
       }
     ]
   }

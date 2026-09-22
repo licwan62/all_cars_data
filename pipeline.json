@@ -162,6 +162,25 @@
       ]
     },
     {
+      "id": "compression-scoring",
+      "path": "A2.压缩定制评分",
+      "layer": 6,
+      "line": "A",
+      "index": 2,
+      "role": "final",
+      "upstream": [
+        "full-generation"
+      ],
+      "outputs": [
+        "压缩尺码表.csv",
+        "定制需求度评分.csv"
+      ],
+      "pending": [],
+      "release_notes": [
+        "2026-09-22 新增节点：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间；并结合 data/ 三张人工维护台账（差评分析表/人工维护进度/车耳状态登记，均为空表，尚无历史数据）打定制需求度评分，首次运行全部为“数据不足”，需人工陆续录入"
+      ]
+    },
+    {
       "id": "representative-model",
       "path": "C1.车型代表分析",
       "layer": 5,
@@ -269,6 +288,15 @@
       "node": "full-generation",
       "files": [
         "TRIM适配器.csv"
+      ],
+      "pending": []
+    },
+    {
+      "name": "压缩尺码表与定制需求度评分",
+      "node": "compression-scoring",
+      "files": [
+        "压缩尺码表.csv",
+        "定制需求度评分.csv"
       ],
       "pending": []
     },

@@ -9,8 +9,8 @@ public/ 只是仓库外发布或人工交换区，不是 agent 间数据总线�
 发布目录只保存可直接使用的 CSV 数据表；JSON、TSV、XLSX 等辅助小文件不发布。
 节点 output/ 中的 JSON 交付物（如尺码匹配报告）在发布时转成同名 .md 说明文档，
 与 CSV 放在同一区域目录，说明该目录文件的生成情况。
-README.md 是发布说明和来源清单，不写入 JSON manifest。旧命名 CSV 移到同一 NAS
-目录的 data_legacy_names_<日期>/，不删除。
+README.md 是发布说明和来源清单，不写入 JSON manifest。旧命名 CSV 移到 NAS 目录下
+集中备份区 backup/data_legacy_names_<日期>/，不删除。
 """
 
 from __future__ import annotations
@@ -140,7 +140,7 @@ def main() -> int:
         print(f"发布失败：{error}", file=sys.stderr)
         return 2
     wanted = {target.as_posix() for target in plan} | {target.as_posix() for target in docs}
-    legacy = PUBLIC_ROOT / f"data_legacy_names_{date.today():%Y%m%d}"
+    legacy = PUBLIC_ROOT / "backup" / f"data_legacy_names_{date.today():%Y%m%d}"
     for folder in OWNED_DIRS:
         base = PUBLIC_DATA / folder
         for path in [p for p in base.rglob("*") if p.is_file()] if base.is_dir() else []:
@@ -160,16 +160,11 @@ def main() -> int:
         temporary = destination.with_name(f".{destination.name}.tmp")
         temporary.write_text(text, encoding="utf-8")
         os.replace(temporary, destination)
-    # 旧版 full_tables/ 下遗留的 JSON 移入 legacy 目录，不删除。
-    for path in (PUBLIC_DATA / "full_tables").glob("*.json") if (PUBLIC_DATA / "full_tables").is_dir() else []:
-        destination = legacy / path.relative_to(PUBLIC_DATA)
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        shutil.move(str(path), destination)
     # Earlier publisher versions used JSON manifests.  They are generated
-    # metadata, so remove only the two known publisher-owned copies.
-    for obsolete in (PUBLIC_DATA / "manifest.json", PUBLIC_DATA / "full_tables" / "manifest.json"):
-        if obsolete.is_file():
-            obsolete.unlink()
+    # metadata, so remove only the one known publisher-owned copy.
+    obsolete = PUBLIC_DATA / "manifest.json"
+    if obsolete.is_file():
+        obsolete.unlink()
     records = sorted(plan.values(), key=lambda r: r["file"])
     lines = [
         "# 车型数据公开发布目录",
@@ -179,6 +174,8 @@ def main() -> int:
         f"本次发布：{datetime.now().astimezone().isoformat(timespec='seconds')}",
         "",
         "仅发布 CSV 数据表；JSON 交付物（如尺码匹配报告）转换为同名 `.md` 说明文档，放在对应区域目录中，说明该目录文件的生成情况；原始 JSON 和其他辅助小文件保留在仓库的 `output/` 与 `artifacts/`，不存入本目录。",
+        "",
+        "`data/` 是唯一的正式发布地址（本文件与来源清单描述的即是 `data/` 的当前内容）。被替换的旧命名文件与历史批次统一归档到本目录的 `backup/`，不散落在其他位置；`car_code/`、`reference/`、`reports/`、`sku_cluster/` 为人工维护的参考资料，不受本脚本管理。",
         "",
         "## 文件与来源",
         "",
