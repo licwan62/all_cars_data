@@ -141,36 +141,25 @@
       ]
     },
     {
-      "id": "full-table-summary",
-      "path": "A1.全量汇总",
-      "layer": 6,
-      "line": "A",
-      "index": 1,
-      "role": "final",
-      "upstream": [
-        "size-calculation",
-        "adapter-trim"
-      ],
-      "outputs": [
-        "全量表_汇总.csv"
-      ],
-      "pending": []
-    },
-    {
-      "id": "adapter-trim",
-      "path": "B1.适配器-Trim生成",
+      "id": "full-generation",
+      "path": "A1.全量生成",
       "layer": 5,
-      "line": "B",
+      "line": "A",
       "index": 1,
       "role": "final",
       "upstream": [
         "size-calculation"
       ],
       "outputs": [
+        "全量表_汇总.csv",
         "TRIM适配器.csv",
         "尺寸TRIM映射.csv"
       ],
-      "pending": []
+      "pending": [],
+      "release_notes": [
+        "2026-09-22 由 full-table-summary（A1.全量汇总）与 adapter-trim（B1.适配器-Trim生成）合并为单一节点 A1.全量生成；历史 artifact 分别归档在 artifacts/legacy-full-table-summary/ 与 artifacts/legacy-adapter-trim/ 下，未做内容改动",
+        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核（继承自 A0 口径限制，汇总表必须保留）"
+      ]
     },
     {
       "id": "representative-model",
@@ -269,7 +258,7 @@
     },
     {
       "name": "全量表（汇总）",
-      "node": "full-table-summary",
+      "node": "full-generation",
       "files": [
         "全量表_汇总.csv"
       ],
@@ -277,7 +266,7 @@
     },
     {
       "name": "TRIM适配器",
-      "node": "adapter-trim",
+      "node": "full-generation",
       "files": [
         "TRIM适配器.csv"
       ],

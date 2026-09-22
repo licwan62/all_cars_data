@@ -23,7 +23,7 @@ FILES = {
     "全量表_US.csv": ROOT / "A0.尺码计算" / "output" / "全量表_US.csv",
     "全量表_EU.csv": ROOT / "A0.尺码计算" / "output" / "全量表_EU.csv",
     "全量表_RU.csv": ROOT / "A0.尺码计算" / "output" / "全量表_RU.csv",
-    "全量表_汇总.csv": ROOT / "A1.全量汇总" / "output" / "全量表_汇总.csv",
+    "全量表_汇总.csv": ROOT / "A1.全量生成" / "output" / "全量表_汇总.csv",
 }
 
 
