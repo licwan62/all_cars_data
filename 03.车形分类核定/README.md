@@ -10,8 +10,8 @@
 
 - `cache/model_shape_cache.csv`：按品牌、车型及可选年份/代际/匹配规则保存研究结论。
 - `research_queue/queue.csv`：尚未命中缓存的车型研究队列。
-- `research_queue/regional_queue.csv`：新 `data/{region}/{batch}` 结构下，跨 US/EU/RU 合并后的增量研究队列；包含各地区源链接。
-- `output/车形分类.csv`：当前 `DIMENSION-ID,车形` 稳定交付物；只有全部记录均已核定时才更新。
+- `research_queue/regional_queue.csv`：EU/RU 结构或分类代理结果的质量复核队列；队列记录已经有可用代理车形，不阻断下游。
+- `output/车形分类.csv`：当前 `DIMENSION-ID,COUNTRY,车形,处理状态` 稳定交付物。`DIMENSION-ID` 保留 `US/EU/RU` 后缀，供下游精确关联。
 - `artifacts/all_dimension_shape_audit_2026-09-02.csv/json`：依据当前 `reference.csv` 重核后的全量逐条审计。
 - `artifacts/YYYY-MM-DD_NN_description/`：不可覆盖的版本批次快照，包含全量结果、增量修改、报告和验收文件。
 - `artifacts/validation_report.json`：机器验收结果。
@@ -33,13 +33,14 @@ python 车形分类核定/code/shape_project.py build
 python 车形分类核定/code/validate_project.py
 ```
 
-新地区批次先运行：
+按当前 `01.整理尺寸库/output/尺寸库.csv` 刷新三国接口：
 
 ```powershell
-python 车形分类核定/code/sync_regional_data.py
+python 03.车形分类核定/code/build_regional_shape_output.py
+python 03.车形分类核定/code/validate_regional_shape_output.py
 ```
 
-该命令只继承可由缓存唯一确定的车形，并生成区域研究队列和版本化审计；存在未研究模型时不会覆盖正式车形表或三国发布表。
+US 使用已核定车形；EU/RU 优先继承同基础 ID 或既有同车型单一结论，其余按 US 结构与分类规则提供代理车形并进入质量复核队列。代理结果用于保证下游全覆盖，`处理状态` 明确保留证据等级。
 
 `build` 在仍有未核定记录时会拒绝生成不完整的最终表，这是预期保护行为。
 

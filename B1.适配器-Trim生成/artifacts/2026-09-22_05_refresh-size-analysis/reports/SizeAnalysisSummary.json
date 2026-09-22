@@ -1,0 +1,149 @@
+{
+  "schema_version": "2.2",
+  "counts": {
+    "trim_assignment_rows": 23231,
+    "joined_assignment_rows": 23231,
+    "unique_year_make_model_keys": 12602,
+    "multi_dimension_keys": 5431,
+    "safe_multi_dimension_same_size_keys": 1745,
+    "status_assignment_rows": 334,
+    "status_only_no_publishable_size_keys": 55,
+    "mixed_status_and_publishable_size_keys": 243,
+    "publishable_assignment_rows": 22897,
+    "dimension_id_size_rows": 4232,
+    "dimension_id_trim_rows": 4371,
+    "dimension_id_trim_blank_rows": 309,
+    "adapter_size_rows": 22897,
+    "final_adapter_rows": 23231,
+    "final_adapter_status_rows_retained": 334,
+    "adapter_duplicate_rows_removed": 0,
+    "unique_keys_with_publishable_size": 12547,
+    "single_size_keys": 9044,
+    "multi_size_expansion_keys": 3503,
+    "multi_structure_expansion_keys": 2214,
+    "multi_size_detail_rows": 11561
+  },
+  "status_values": {
+    "数据不全": 0,
+    "无可用尺码": 334
+  },
+  "multi_size_expansions": {
+    "pct_of_keys_with_publishable_size": 27.92,
+    "size_count_distribution": {
+      "2": 2387,
+      "3": 840,
+      "4": 244,
+      "5": 32
+    },
+    "expansion_type_counts": {
+      "MULTI_DIMENSION_VARIANT": 875,
+      "MULTI_SOURCE_MODEL": 637,
+      "MULTI_STRUCTURE": 2214,
+      "MULTI_VERSION": 510
+    },
+    "top_makes": [
+      {
+        "Make": "Chevrolet",
+        "multi_size_keys": 672
+      },
+      {
+        "Make": "Mercedes-Benz",
+        "multi_size_keys": 521
+      },
+      {
+        "Make": "BMW",
+        "multi_size_keys": 309
+      },
+      {
+        "Make": "Ford",
+        "multi_size_keys": 255
+      },
+      {
+        "Make": "Toyota",
+        "multi_size_keys": 141
+      },
+      {
+        "Make": "GMC",
+        "multi_size_keys": 131
+      },
+      {
+        "Make": "Audi",
+        "multi_size_keys": 107
+      },
+      {
+        "Make": "Dodge",
+        "multi_size_keys": 94
+      },
+      {
+        "Make": "Honda",
+        "multi_size_keys": 93
+      },
+      {
+        "Make": "Saturn",
+        "multi_size_keys": 92
+      },
+      {
+        "Make": "Land Rover",
+        "multi_size_keys": 85
+      },
+      {
+        "Make": "Jaguar",
+        "multi_size_keys": 82
+      },
+      {
+        "Make": "Volkswagen",
+        "multi_size_keys": 82
+      },
+      {
+        "Make": "Oldsmobile",
+        "multi_size_keys": 73
+      },
+      {
+        "Make": "Nissan",
+        "multi_size_keys": 72
+      }
+    ]
+  },
+  "checks": {
+    "size_dimension_ids_unique": true,
+    "all_trim_dimension_ids_joined": true,
+    "all_joined_auto_sizes_nonblank": true,
+    "analysis_partition_complete": true,
+    "dimension_id_size_primary_key_unique": true,
+    "dimension_id_trim_matches_size_source": true,
+    "dimension_id_trim_primary_key_unique": true,
+    "adapter_atom_primary_key_unique": true,
+    "final_adapter_matches_trim_rows": true,
+    "final_adapter_all_sizes_nonblank": true,
+    "all_published_assignments_reviewed": true
+  },
+  "hard_errors": [],
+  "sources": {
+    "trim_list": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\artifacts\\.2026-09-22_05_refresh-size-analysis.tmp\\input\\TrimList.csv",
+      "sha256": "DA9D9135700808C0D217CD6F78ABB18C4880C9E2D23F55FE5138FD9C1D696E11"
+    },
+    "trim_audit": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\artifacts\\.2026-09-22_05_refresh-size-analysis.tmp\\input\\TrimList_audit.csv",
+      "sha256": "3E95D605AD258427C583016020E81C8A858B814EBAF69F84503FEEDE7827396E"
+    },
+    "size_source": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\artifacts\\.2026-09-22_05_refresh-size-analysis.tmp\\input\\全量表_US_基础ID.csv",
+      "format": "csv",
+      "sheet": null,
+      "sha256": "7DC0DB62C573F8A9B86FDD3B33B12B3FAE3284A58934B1E3473DF28C633C9534"
+    }
+  },
+  "outputs": {
+    "final_adapter": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\artifacts\\.2026-09-22_05_refresh-size-analysis.tmp\\output\\TRIM适配器.csv",
+      "sha256": "76F67AF565D9B1EDF386D82E809234ED7B3D4F0AFAF1AEB6B8EC18710979B030",
+      "rows": 23231
+    },
+    "dimension_trim_map": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\artifacts\\.2026-09-22_05_refresh-size-analysis.tmp\\output\\尺寸TRIM映射.csv",
+      "sha256": "C003A07A61FB14C14EFF78B1512A41B9840BBDD07AA4C3C90877D16C079BAFA2",
+      "rows": 4371
+    }
+  }
+}

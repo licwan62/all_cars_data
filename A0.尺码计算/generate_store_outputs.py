@@ -127,6 +127,17 @@ def _calculate(
     )
 
 
+def us_rows(result: pd.DataFrame) -> pd.DataFrame:
+    """The consolidated source may already contain regional DIMENSION-ID suffixes."""
+    ids = result["DIMENSION-ID"].fillna("").astype(str)
+    return result.loc[~ids.str.endswith((" EU", " RU"))].copy()
+
+
+def us_dimension_id(value: object) -> str:
+    text = str(value)
+    return text if text.endswith(" US") else append_country_code(text, "US")
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -183,16 +194,12 @@ def main() -> int:
             trim_source,
             include_analysis=True,
         )
-        expected_rows = len(
-            analysis._read_csv(analysis.resolve_data_file(source_dir, "dimensions"))
-        )
+        expected_rows = len(us_rows(analysis._read_csv(analysis.resolve_data_file(source_dir, "dimensions"))))
         outputs: dict[str, dict[str, object]] = {}
-        full_result["DIMENSION-ID"] = full_result["DIMENSION-ID"].map(
-            lambda value: append_country_code(value, "US")
-        )
-        dimension_analysis["DIMENSION-ID"] = dimension_analysis["DIMENSION-ID"].map(
-            lambda value: append_country_code(value, "US")
-        )
+        full_result = us_rows(full_result)
+        dimension_analysis = us_rows(dimension_analysis)
+        full_result["DIMENSION-ID"] = full_result["DIMENSION-ID"].map(us_dimension_id)
+        dimension_analysis["DIMENSION-ID"] = dimension_analysis["DIMENSION-ID"].map(us_dimension_id)
         full_result = attach_dimension_code(full_result)
         dimension_analysis = attach_dimension_code(dimension_analysis)
         full_path = output_dir / "全量表_US.csv"
@@ -214,9 +221,8 @@ def main() -> int:
                 allowed_sizes=[item[0] for item in mappings],
             )
             store_result = apply_shipping_sizes(store_result, mappings)
-            store_result["DIMENSION-ID"] = store_result["DIMENSION-ID"].map(
-                lambda value: append_country_code(value, "US")
-            )
+            store_result = us_rows(store_result)
+            store_result["DIMENSION-ID"] = store_result["DIMENSION-ID"].map(us_dimension_id)
             store_result = attach_dimension_code(store_result)
             store_path = output_dir / f"店铺全量_{shop_name}.csv"
             analysis.write_result(store_result, store_path)
@@ -237,6 +243,10 @@ def main() -> int:
         }
         status_path = output_dir / "status.json"
         status_path.write_text(
+            json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        (output_dir / "尺码匹配报告_US.json").write_text(
             json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )

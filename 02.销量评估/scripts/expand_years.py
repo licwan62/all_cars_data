@@ -29,6 +29,8 @@ def run(config_path: str = "config.json") -> dict[str, int]:
         if not row["DIMENSION-ID"]:
             raise ValueError(f"line {line_number}: DIMENSION-ID is required")
         expected_id = dimension_id(row)
+        if row["DIMENSION-ID"].endswith(" US"):
+            expected_id += " US"
         if row["DIMENSION-ID"] != expected_id:
             raise ValueError(f"line {line_number}: DIMENSION-ID does not match its component fields")
         if not row["MAKE"] or not row["MODEL"]:

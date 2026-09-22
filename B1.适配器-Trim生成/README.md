@@ -3,7 +3,9 @@
 本项目将车型尺寸库中的 `DIMENSION-ID` 直接映射到 4A 的逐年
 `Make + Model` 原子，用于取代原来依赖
 `Year + 主车型 + 结构 + 版本 + 分号候选字符串`
-的中间维护表。
+的中间维护表。与下游 `A1.全量汇总` 合称 **A1.全量生成**，详见 [AGENTS.md](AGENTS.md)。
+
+> **当前状态（2026-09-22）**：本节README下方描述的 `source/4A全数据.csv`、`source/车型尺寸库.csv`、`source/子车系维护表.csv`（仓库外 `source` 目录）均已不可用，`run.py` 的全量重建路径**不可再运行**（会因缺少子车系维护表丢失所有"现有精确键"行）。找回的 4A 原子快照 `4a_fitment_0722.tsv`（仅 `year/make/model`）现作为联网匹配的唯一基准；`data/TrimList.csv`/`TrimList_audit.csv` 是被长期维护的状态，只做增量追加，不再从零重建。当前实际使用的命令是 `analyze_fitment_coverage.py`（离线匹配分析）→ `research_nhtsa.py --apply-safe-evidence`（联网审核）→ 增量写入 TrimList → `refresh_from_size_output.py`（生成最终交付物）。详见 [AGENTS.md](AGENTS.md) 的完整流程。以下为历史设计文档，作为字段与门禁规则的参考。
 
 共享输入统一来自仓库 `source`；项目在 `data` 中维护 Trim 例外、联网证据以及全部研究/校验中间产物。正式输出遵守两层门禁：
 

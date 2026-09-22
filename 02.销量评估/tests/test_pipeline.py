@@ -18,6 +18,7 @@ import expand_years  # noqa: E402
 import merge_results  # noqa: E402
 from merge_results import allocate_integer  # noqa: E402
 import validate_sales  # noqa: E402
+import allocation_weight_review_project as awr  # noqa: E402
 
 
 class YearExpansionTests(unittest.TestCase):
@@ -31,6 +32,23 @@ class YearExpansionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             expand_year("2025-2023")
 
+    def test_us_regional_suffix_is_accepted_for_us_source(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "input.csv"
+            expanded = root / "expanded.csv"
+            row = {field: "" for field in expand_years.REQUIRED_FIELDS}
+            row.update({"MAKE": "Test", "MODEL": "One", "YEAR": "2025"})
+            row["DIMENSION-ID"] = dimension_id(row) + " US"
+            write_csv(source, expand_years.REQUIRED_FIELDS, [row])
+            config = {"input_csv": str(source), "expanded_csv": str(expanded)}
+            config_path = root / "config.json"
+            config_path.write_text(json.dumps(config), encoding="utf-8")
+
+            result = expand_years.run(str(config_path))
+
+            self.assertEqual(result, {"source_rows": 1, "expanded_rows": 1})
+
 
 class AllocationTests(unittest.TestCase):
     def test_largest_remainder_preserves_total(self) -> None:
@@ -39,6 +57,12 @@ class AllocationTests(unittest.TestCase):
         values = allocate_integer(10, [Decimal("0.333333333333"), Decimal("0.333333333333"), Decimal("0.333333333334")])
         self.assertEqual(sum(values), 10)
         self.assertEqual(sorted(values), [3, 3, 4])
+
+    def test_sales_cache_key_is_case_insensitive(self) -> None:
+        self.assertEqual(
+            merge_results.cache_key({"MAKE": "MINI", "MODEL": "CLUBMAN", "YEAR": "2024"}),
+            merge_results.cache_key({"MAKE": "Mini", "MODEL": "Clubman", "YEAR": "2024"}),
+        )
 
 
 class PipelineIntegrationTests(unittest.TestCase):
@@ -104,6 +128,53 @@ class PipelineIntegrationTests(unittest.TestCase):
             self.assertEqual(sum(int(row["US_SALES_ESTIMATE"]) for row in rows), 101)
             self.assertTrue(all(row["ALLOCATION_METHOD"] == "EQUAL_SPLIT" for row in rows))
             self.assertTrue(all(row["ITERATION_STATUS"] == "REVIEW" for row in rows))
+
+
+class AllocationWeightQueueTests(unittest.TestCase):
+    def test_diff_type_distinguishes_trim_from_body(self) -> None:
+        trim_group = [{"版本": "", "结构": "SUV"}, {"版本": "Quadrifoglio", "结构": "SUV"}]
+        body_group = [{"版本": "", "结构": "Sedan"}, {"版本": "", "结构": "Hatchback"}]
+        both_group = [{"版本": "", "结构": "Sedan"}, {"版本": "Sport", "结构": "Hatchback"}]
+        self.assertEqual(awr.diff_type(trim_group), "TRIM")
+        self.assertEqual(awr.diff_type(body_group), "BODY")
+        self.assertEqual(awr.diff_type(both_group), "BOTH")
+
+    def test_priority_tier_ranks_high_volume_trim_first(self) -> None:
+        self.assertEqual(awr.priority_tier("TRIM", "909330"), "TIER1")
+        self.assertEqual(awr.priority_tier("TRIM", "120"), "TIER2")
+        self.assertEqual(awr.priority_tier("BOTH", "50000"), "TIER1")
+        self.assertEqual(awr.priority_tier("BODY", "999999"), "TIER3")
+        self.assertEqual(awr.priority_tier("TRIM", ""), "TIER2")
+
+    def test_queue_key_is_stable_and_case_insensitive(self) -> None:
+        first = awr.queue_key("Ford", "F-150", "2018")
+        second = awr.queue_key(" ford ", "F-150", "2018")
+        different = awr.queue_key("Ford", "F-150", "2019")
+        self.assertEqual(first, second)
+        self.assertNotEqual(first, different)
+
+    def test_validate_allocations_requires_full_coverage_and_sum_to_one(self) -> None:
+        atom_keys = ["A", "B"]
+        weights = awr._validate_allocations(
+            atom_keys,
+            [{"SALES_ATOM_KEY": "A", "ALLOCATION_WEIGHT": "0.7"}, {"SALES_ATOM_KEY": "B", "ALLOCATION_WEIGHT": "0.3"}],
+        )
+        self.assertEqual(weights["A"] + weights["B"], 1)
+
+        with self.assertRaises(SystemExit):
+            awr._validate_allocations(atom_keys, [{"SALES_ATOM_KEY": "A", "ALLOCATION_WEIGHT": "1"}])
+
+        with self.assertRaises(SystemExit):
+            awr._validate_allocations(
+                atom_keys,
+                [{"SALES_ATOM_KEY": "A", "ALLOCATION_WEIGHT": "0.9"}, {"SALES_ATOM_KEY": "B", "ALLOCATION_WEIGHT": "0.3"}],
+            )
+
+        with self.assertRaises(SystemExit):
+            awr._validate_allocations(
+                atom_keys,
+                [{"SALES_ATOM_KEY": "A", "ALLOCATION_WEIGHT": "-0.1"}, {"SALES_ATOM_KEY": "B", "ALLOCATION_WEIGHT": "1.1"}],
+            )
 
 
 if __name__ == "__main__":

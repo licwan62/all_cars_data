@@ -20,6 +20,11 @@ from common import (
 REQUIRED_FIELDS = ["DIMENSION-ID", "MAKE", "MODEL", "版本", "CAB", "BED", "结构", "YEAR"]
 
 
+def cache_key(row: dict[str, str]) -> tuple[str, str, str]:
+    """Match researched sales to source atoms without treating casing as a model split."""
+    return row["MAKE"].strip().casefold(), row["MODEL"].strip().casefold(), row["YEAR"].strip()
+
+
 def run(config_path: str = "config.json") -> dict[str, int]:
     config = load_config(config_path)
     fields, rows = read_csv(config["expanded_csv"])
@@ -58,7 +63,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
     _, cache_rows = read_csv(config["model_year_cache_csv"])
     allowed_scopes = {scope.upper() for scope in config.get("allowed_us_scopes", ["", "US", "USA"])}
     cached = {
-        model_year_key(row)
+        cache_key(row)
         for row in cache_rows
         if row.get("MODEL_YEAR_US_SALES", "").strip()
         and row.get("SALES_SCOPE", "").strip().upper() in allowed_scopes
@@ -71,7 +76,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
                 "MAKE": make,
                 "MODEL": model,
                 "YEAR": year,
-                "CACHE_STATUS": "READY" if (make, model, year) in cached else "PENDING",
+                "CACHE_STATUS": "READY" if cache_key({"MAKE": make, "MODEL": model, "YEAR": year}) in cached else "PENDING",
                 "SEARCH_QUERY": f'"{year} {make} {model} US sales"',
             }
         )

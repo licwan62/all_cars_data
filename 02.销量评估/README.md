@@ -38,3 +38,25 @@ python scripts/sync_regional_sales.py
 ```
 
 脚本生成区域事实缓存、研究队列和口径审计。US 与现有原子销量逐 `DIMENSION-ID` 核对；EU 表中的 0 按缺失占位处理；RU 的 `sale_detail` 仅标记为 Auto.ru 在售样本代理，不解释为年度销量。研究事实先保持 `RESEARCHED_ALLOCATION_PENDING`，在车型年份与尺寸行分配规则核定前不回写 `data/*/0916/01_*` 或 `02_*`。
+
+## 版本(TRIM)/结构 分配权重研究队列
+
+销量研究缓存的统计粒度是 `MAKE + MODEL + YEAR`，比尺寸原子的粒度（`DIMENSION-ID` = MAKE+MODEL+版本+结构+YEAR）粗一级。当同一 `MAKE+MODEL+YEAR` 下存在多个不同版本(trim)/结构(车身形式)的原子时，`merge_results.py` 默认用 `EQUAL_SPLIT` 把总销量平均拆给每个原子，`SALES_CONFIDENCE=LOW`、`ITERATION_STATUS=REVIEW`，仅保证总量守恒，不代表真实分布。
+
+`scripts/allocation_weight_review_project.py` 维护这批待研究组的队列，按下列粒度推进优先级：
+
+- **TIER1**：版本(trim) 不同 且该年总销量 ≥ 5000——均分误差风险最大，优先研究 trim 级占比。
+- **TIER2**：版本(trim) 不同 但总销量 < 5000——仍需 trim 占比，误差绝对值有限，靠后处理。
+- **TIER3**：仅 结构(车身形式) 不同——通常有独立可查的车身销量口径，风险低于 trim 差异，排在其后。
+
+```powershell
+cd 02.销量评估
+python scripts/allocation_weight_review_project.py init
+python scripts/allocation_weight_review_project.py status
+python scripts/allocation_weight_review_project.py claim --limit 8 --worker <worker>
+python scripts/allocation_weight_review_project.py compact-records --worker <worker>
+python scripts/allocation_weight_review_project.py batch-update --file <json-path> --worker <worker>
+python scripts/allocation_weight_review_project.py release --worker <worker>
+```
+
+`batch-update` 的每个 JSON 条目需要 `queue_key`、`outcome`（`allocated` 或 `retained_equal`）、`review_note`；`allocated` 还需 `SOURCE_URL` 和覆盖该组全部 `SALES_ATOM_KEY`、权重和为 1 的 `allocations`。已分配权重写入 `cache/allocation_weights.csv`（`merge_results.py` 的覆盖表），决策记录写入 `cache/research/allocation_weight_reviews.csv`；应用后需重跑 `python scripts/run_pipeline.py` 才能把新的 trim/结构级占比反映到 `output/原子销量.csv`。

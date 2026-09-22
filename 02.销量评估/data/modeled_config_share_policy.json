@@ -1,0 +1,10 @@
+{
+  "method": "MODELED_CONFIG_SHARE",
+  "confidence": "LOW",
+  "source_url": "https://www.edmunds.com/car-buying/what-is-a-car-trim-level.html",
+  "notes": "Configuration-share proxy, not observed trim sales. Base trims receive a higher prior than named special trims; crew-cab configurations receive a higher prior than extended/regular cabs; bed length only makes a modest adjustment. Every MAKE+MODEL+YEAR group is normalized to one and remains eligible for source-backed override.",
+  "base_trim_prior": 3.5,
+  "named_trim_prior": 0.75,
+  "cab_priors": {"supercrew": 4.0, "crew": 4.0, "double": 3.0, "supercab": 1.0, "extended": 1.0, "regular": 0.5},
+  "bed_priors": {"5.5": 1.3, "6.5": 1.0, "8": 0.5}
+}

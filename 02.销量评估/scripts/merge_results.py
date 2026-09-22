@@ -17,6 +17,11 @@ from common import (
 )
 
 
+def cache_key(row: dict[str, str]) -> tuple[str, str, str]:
+    """Sales cache is case-insensitive; source dimensions retain their original labels."""
+    return row["MAKE"].strip().casefold(), row["MODEL"].strip().casefold(), row["YEAR"].strip()
+
+
 def allocate_integer(total: int, weights: list[Decimal]) -> list[int]:
     exact = [Decimal(total) * weight for weight in weights]
     floors = [int(value) for value in exact]
@@ -48,7 +53,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
     require_fields(cache_fields, CACHE_FIELDS, config["model_year_cache_csv"])
     cache_by_key: dict[tuple[str, str, str], dict[str, str]] = {}
     for cache in cache_rows:
-        key = model_year_key(cache)
+        key = cache_key(cache)
         if key in cache_by_key:
             raise ValueError(f"duplicate model-year cache row: {'|'.join(key)}")
         cache_by_key[key] = cache
@@ -73,7 +78,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
     pending_groups = 0
     for group_key in sorted(groups):
         group = groups[group_key]
-        cache = cache_by_key.get(group_key)
+        cache = cache_by_key.get(cache_key({"MAKE": group_key[0], "MODEL": group_key[1], "YEAR": group_key[2]}))
         if not cache or not cache.get("MODEL_YEAR_US_SALES", ""):
             pending_groups += 1
             for atom in group:

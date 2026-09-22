@@ -23,13 +23,18 @@ def test_consolidates_three_regions_with_union_columns(tmp_path):
     write_region(output, "US")
     write_region(output, "EU")
     write_region(output, "RU", {"OZON尺码": "L"})
+    mapping = tmp_path / "尺寸TRIM映射.csv"
+    pd.DataFrame([{"DIMENSION-ID": "Ford Focus", "Trims": "SE|SEL"}]).to_csv(mapping, index=False, encoding="utf-8-sig")
 
-    result = consolidated.run(output, tmp_path / "final", tmp_path / "artifacts")
+    result = consolidated.run(output, tmp_path / "final", tmp_path / "artifacts", trim_mapping=mapping)
 
     frame = pd.read_csv(tmp_path / "final" / "全量表_汇总.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig")
     assert result["rows"] == 3
     assert list(frame.columns)[-2:] == ["DIMENSION-CODE", "DIMENSION-ID"]
     assert frame.loc[frame["DIMENSION-ID"].str.endswith("US"), "OZON尺码"].item() == ""
+    assert frame.loc[frame["DIMENSION-ID"].eq("Ford Focus US"), "Trims"].item() == "SE|SEL"
+    assert frame.loc[frame["DIMENSION-ID"].eq("Ford Focus EU"), "Trims"].item() == ""
+    assert result["trim_lookup"]["matched_us_rows"] == 1
     assert list((tmp_path / "artifacts").glob("*_01_consolidated-full-table/status.json"))
 
 
@@ -48,3 +53,16 @@ def test_missing_region_or_code_column_fails_without_touching_output(tmp_path):
         consolidated.run(output, tmp_path / "final", tmp_path / "artifacts")
     assert not (tmp_path / "final" / "全量表_汇总.csv").exists()
     assert not (tmp_path / "artifacts").exists()
+
+
+def test_duplicate_trim_mapping_fails_without_publishing(tmp_path):
+    source = tmp_path / "source"
+    source.mkdir()
+    for region in consolidated.REGIONS:
+        write_region(source, region)
+    mapping = tmp_path / "mapping.csv"
+    pd.DataFrame([{"DIMENSION-ID": "Ford Focus", "Trims": "A"},
+                  {"DIMENSION-ID": "Ford Focus", "Trims": "B"}]).to_csv(mapping, index=False)
+    with pytest.raises(consolidated.ConsolidationError, match="重复"):
+        consolidated.run(source, tmp_path / "final", tmp_path / "artifacts", trim_mapping=mapping)
+    assert not (tmp_path / "final").exists()

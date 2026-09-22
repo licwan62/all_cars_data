@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT))
 from full_table_schema import attach_dimension_code
 import pandas_analysis as analysis
 
-SHAPES = ROOT / "03.车形分类核定" / "artifacts" / "2026-09-21_02_regional-coverage-candidates" / "regional_shape_coverage_candidates.csv"
+SHAPES = ROOT / "03.车形分类核定" / "output" / "车形分类.csv"
 DIMENSIONS = ROOT / "01.整理尺寸库" / "output"
 OUTPUT = PROJECT / "output"
 ARTIFACTS = PROJECT / "artifacts"
@@ -45,9 +45,11 @@ def batch_dir() -> Path:
 
 def candidate_shapes(region: str) -> pd.DataFrame:
     shapes = read(SHAPES)
-    result = shapes.loc[shapes["地区"].eq(region), ["DIMENSION-ID", "车形候选", "置信度", "方法", "需质量复核"]].copy()
+    result = shapes.loc[shapes["COUNTRY"].eq(region), ["DIMENSION-ID", "车形", "处理状态"]].copy()
     result["DIMENSION-ID"] = result["DIMENSION-ID"].map(lambda value: base_id(value, region))
-    result = result.rename(columns={"车形候选": "车形"})
+    result["方法"] = result["处理状态"]
+    result["置信度"] = result["处理状态"].map(lambda value: "low" if "代理" in value else "medium")
+    result["需质量复核"] = result["置信度"].map(lambda value: "yes" if value == "low" else "no")
     if result["DIMENSION-ID"].duplicated().any():
         raise ValueError(f"{region} 车形候选 ID 不唯一")
     return result

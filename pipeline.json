@@ -143,12 +143,13 @@
     {
       "id": "full-table-summary",
       "path": "A1.全量汇总",
-      "layer": 5,
+      "layer": 6,
       "line": "A",
       "index": 1,
       "role": "final",
       "upstream": [
-        "size-calculation"
+        "size-calculation",
+        "adapter-trim"
       ],
       "outputs": [
         "全量表_汇总.csv"
