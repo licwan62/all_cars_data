@@ -281,7 +281,7 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False)
         print(f"{node['path']}: {manifest['version']}  {len(manifest['deliverables'])} 个交付物，pending {len(manifest['pending'])}")
     if not dry_run and released:
         summary_path = root / "release.json"
-        previous = json.loads(summary_path.read_text(encoding="utf-8"))["nodes"] if summary_path.is_file() else {}
+        previous = json.loads(summary_path.read_text(encoding="utf-8-sig"))["nodes"] if summary_path.is_file() else {}
         previous = {node_id: entry for node_id, entry in previous.items() if node_id in by_id}
         previous.update(
             {

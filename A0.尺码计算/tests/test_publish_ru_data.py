@@ -14,9 +14,9 @@ SPEC.loader.exec_module(module)
 def test_ru_release_inputs_are_consistent():
     summary = module.validate_release()
 
-    assert summary["dimension_rows"] == 13848
-    assert summary["full_rows"] == 13848
-    assert summary["unique_dimension_ids"] == 13848
-    assert summary["sales_total"] == 296972
-    assert summary["matched_sizes"] == 13350
-    assert summary["unavailable_sizes"] == 498
+    assert summary["dimension_rows"] == 13617
+    assert summary["full_rows"] == 13617
+    assert summary["unique_dimension_ids"] == 13617
+    assert summary["sales_total"] == 297009
+    assert summary["matched_sizes"] == 13121
+    assert summary["unavailable_sizes"] == 496

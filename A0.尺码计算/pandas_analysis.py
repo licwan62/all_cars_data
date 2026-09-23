@@ -20,7 +20,7 @@ import pandas as pd
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 PROJECT_DIR = Path(__file__).resolve().parent
-DIMENSION_OUTPUT_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "output"
+DIMENSION_OUTPUT_DIR = WORKSPACE_ROOT / "02.分类结构审核" / "output"
 SHAPE_OUTPUT = WORKSPACE_ROOT / "03.车形分类核定" / "output" / "车形分类.csv"
 SALES_OUTPUT = WORKSPACE_ROOT / "02.销量评估" / "output" / "原子销量.csv"
 REFERENCE_DATA = PROJECT_DIR / "data" / "参考尺寸计算.csv"
@@ -85,7 +85,7 @@ DEFAULT_LIMITS = (
 )
 
 SOURCE_FILE_ALIASES = {
-    "dimensions": ("尺寸库.csv", "车型尺寸库.csv", "车型尺寸.csv"),
+    "dimensions": ("车型结构.csv", "尺寸库.csv", "车型尺寸库.csv", "车型尺寸.csv"),
     "bodies": ("车身分类.csv", "车型形状分类.csv", "车型车身.csv"),
     "sales": ("销量明细.csv", "原子销量.csv"),
 }
@@ -439,10 +439,6 @@ class SizeMatcher:
             normalized["内部尺码"] = normalized["尺码"]
         if "CAB" not in normalized.columns:
             normalized["CAB"] = pd.NA
-        if "档位序号" not in normalized.columns:
-            if self.length_rule_column is None:
-                raise DataContractError("取消档位序号后，规则必须包含长上限")
-            normalized["档位序号"] = _numeric(normalized[self.length_rule_column])
         if "分类" in normalized.columns:
             normalized["分类"] = normalized["分类"].map(
                 lambda value: (
@@ -453,6 +449,18 @@ class SizeMatcher:
             )
             normalized = normalized.explode("分类", ignore_index=True)
         return normalized
+
+    def _candidate_sort_columns(self) -> list[str]:
+        """Rank a fitting rule by insert allowance first, then length allowance.
+
+        ``档位序号`` was a manual ordering aid.  It is intentionally excluded:
+        a smaller insert-index upper limit is the stronger size signal, while a
+        smaller length upper limit breaks ties.  Remaining ties retain rule-file
+        order via pandas' stable sort.
+        """
+        non_length = [spec.rule_column for spec in self.limits if not spec.is_length]
+        length = [spec.rule_column for spec in self.limits if spec.is_length]
+        return [*non_length, *length]
 
     @staticmethod
     def _read_tolerance(parameters: pd.DataFrame) -> float:
@@ -470,7 +478,6 @@ class SizeMatcher:
     ) -> dict[tuple[str, str | None, str | None], SizePool]:
         required = [
             "内部尺码",
-            "档位序号",
             "分类",
             "CAB",
             "版本",
@@ -488,7 +495,7 @@ class SizeMatcher:
             normalized["车型白名单"] = normalized["车型白名单"].map(_clean_text)
             # Model-whitelist rules must never enter a category-wide pool.
             normalized = normalized.loc[normalized["车型白名单"].isna()].copy()
-        for column in ["档位序号", *[spec.rule_column for spec in self.limits]]:
+        for column in [spec.rule_column for spec in self.limits]:
             normalized[column] = _numeric(normalized[column])
         normalized = normalized.loc[normalized["分类"].notna()].copy()
 
@@ -505,12 +512,12 @@ class SizeMatcher:
                 lengths = group[self.length_rule_column].dropna()
                 if not lengths.empty:
                     max_length = float(lengths.max())
-            complete = group["档位序号"].notna()
+            complete = pd.Series(True, index=group.index)
             for spec in self.limits:
                 complete &= group[spec.rule_column].notna()
             candidates = (
                 group.loc[complete]
-                .sort_values("档位序号", kind="stable")
+                .sort_values(self._candidate_sort_columns(), kind="stable")
                 .to_dict(orient="records")
             )
             pools[pool_key] = SizePool(candidates=candidates, max_length=max_length)
@@ -531,12 +538,16 @@ class SizeMatcher:
         normalized = normalized.loc[normalized["车型白名单"].notna()].copy()
         for column in ["内部尺码", "分类", "CAB", "版本"]:
             normalized[column] = normalized[column].map(_clean_text)
-        for column in ["档位序号", *[spec.rule_column for spec in self.limits]]:
+        for column in [spec.rule_column for spec in self.limits]:
             normalized[column] = _numeric(normalized[column])
-        complete = normalized["档位序号"].notna()
+        complete = pd.Series(True, index=normalized.index)
         for spec in self.limits:
             complete &= normalized[spec.rule_column].notna()
-        return normalized.loc[complete].sort_values("档位序号", kind="stable").to_dict(orient="records")
+        return (
+            normalized.loc[complete]
+            .sort_values(self._candidate_sort_columns(), kind="stable")
+            .to_dict(orient="records")
+        )
 
     @staticmethod
     def _whitelist_matches(rule: Mapping[str, object], vehicle: Mapping[str, object]) -> bool:

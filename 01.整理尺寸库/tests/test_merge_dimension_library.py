@@ -60,10 +60,11 @@ def test_structure_door_rules_are_loaded_from_json():
     rules = merge_dimension_library.load_structure_rules()
 
     assert merge_dimension_library.normalize_structure("Hatchback 3-door", rules) == "Hatchback"
-    assert merge_dimension_library.normalize_structure("SUV 5-door", rules) == "SUV 5dr"
+    assert merge_dimension_library.normalize_structure("SUV 5-door", rules) == "SUV"
     assert merge_dimension_library.normalize_structure("Hatchback 4-door", rules) == "Hatchback 4dr"
+    assert merge_dimension_library.normalize_structure("Sedan 2-door", rules) == "Sedan 2dr"
     assert merge_dimension_library.normalize_structure("3-door", rules) == ""
-    assert merge_dimension_library.normalize_structure("5-door", rules) == "5dr"
+    assert merge_dimension_library.normalize_structure("5-door", rules) == ""
     assert merge_dimension_library.normalize_structure("Sedan", rules) == "Sedan"
 
 
@@ -85,7 +86,8 @@ def test_regenerate_dimension_ids_uses_normalized_fields_and_resolves_collisions
     assert len({row["DIMENSION-ID"] for row in rows}) == 2
     assert all(row["DIMENSION-ID"].endswith(" RU") for row in rows)
     assert all("door" not in row["DIMENSION-ID"].lower() for row in rows)
-    assert all(row["版本"].startswith("I L") for row in rows)
+    assert all(row["版本"].startswith("L") for row in rows)
+    assert all("I" not in row["版本"].split() for row in rows)
 
 
 def test_normalized_physical_duplicates_are_collapsed():
@@ -108,14 +110,14 @@ def test_ru_uaz_hunter_identity_duplicate_keeps_five_door_row():
     }
     rows = [
         {**common, "DIMENSION-ID": "old-open", "结构": "SUV", "L-IN": "161.4", "W-IN": "79.1", "H-IN": "78.7"},
-        {**common, "DIMENSION-ID": "old-5dr", "结构": "SUV 5dr", "L-IN": "161.4", "W-IN": "68.1", "H-IN": "79.7"},
+        {**common, "DIMENSION-ID": "old-5dr", "结构": "SUV 5-door", "L-IN": "161.4", "W-IN": "68.1", "H-IN": "79.7"},
     ]
 
     result = merge_dimension_library.transform_region_rows(rows, "ru")
 
     assert len(result) == 1
-    assert result[0]["结构"] == "SUV 5dr"
-    assert result[0]["DIMENSION-ID"] == "УАЗ Хантер SUV 5dr 2003-2026 RU"
+    assert result[0]["结构"] == "SUV"
+    assert result[0]["DIMENSION-ID"] == "УАЗ Хантер SUV 2003-2026 RU"
 
 
 def test_identity_merge_rule_does_not_merge_other_suv_door_variants():
@@ -126,6 +128,18 @@ def test_identity_merge_rule_does_not_merge_other_suv_door_variants():
     ]
 
     assert merge_dimension_library.apply_identity_merge_rules(rows, "ru") == rows
+
+
+def test_ru_jimny_identity_merge_excludes_keicar_variant():
+    rows = [
+        {"MAKE": "Suzuki", "MODEL": "Jimny", "版本": "", "结构": "SUV", "YEAR": "1998-2005"},
+        {"MAKE": "Suzuki", "MODEL": "Jimny", "版本": "", "结构": "SUV 3-door", "YEAR": "1998-2005"},
+        {"MAKE": "Suzuki", "MODEL": "Jimny", "版本": "Kei car", "结构": "SUV 3-door", "YEAR": "1998-2005"},
+    ]
+
+    result = merge_dimension_library.apply_identity_merge_rules(rows, "ru")
+
+    assert result == rows[1:]
 
 
 def test_ru_rav4_identity_duplicate_keeps_three_door_row():
@@ -161,3 +175,15 @@ def test_published_eu_ru_ids_follow_json_rules():
             )
             for row in rows
         )
+
+
+def test_identity_merge_carries_dropped_sales_to_kept_row():
+    rows = [
+        {"MAKE": "УАЗ", "MODEL": "Хантер", "结构": "SUV", "YEAR": "2003-2026", "_sales_total": 37.0},
+        {"MAKE": "УАЗ", "MODEL": "Хантер", "结构": "SUV 5-door", "YEAR": "2003-2026", "_sales_total": 100.0},
+    ]
+
+    result = merge_dimension_library.apply_identity_merge_rules(rows, "ru", ("_sales_total",))
+
+    assert len(result) == 1
+    assert result[0]["_sales_total"] == 137.0

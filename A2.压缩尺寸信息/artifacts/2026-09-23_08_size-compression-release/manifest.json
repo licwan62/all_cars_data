@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "node": "size-compression",
+  "path": "A2.压缩尺寸信息",
+  "version": "20260923_08",
+  "artifact": "A2.压缩尺寸信息/artifacts/2026-09-23_08_size-compression-release",
+  "published_at": "2026-09-23T18:18:21+08:00",
+  "deliverables": [
+    {
+      "file": "压缩尺码表.csv",
+      "versioned_file": "压缩尺码表-20260923_08.csv",
+      "artifact_file": "A2.压缩尺寸信息/artifacts/2026-09-23_08_size-compression-release/output/压缩尺码表-20260923_08.csv",
+      "sha256": "37ed2586fbdedf640c0ca564d8aac490e7737981a89d917fe44a09ae6e228682",
+      "bytes": 649009,
+      "rows": 14186
+    },
+    {
+      "file": "压缩尺码表_有损.csv",
+      "versioned_file": "压缩尺码表_有损-20260923_08.csv",
+      "artifact_file": "A2.压缩尺寸信息/artifacts/2026-09-23_08_size-compression-release/output/压缩尺码表_有损-20260923_08.csv",
+      "sha256": "ff386bf3d460b58d83e28b9eb2830676f07c0c8e7a4b23bb041eb905dc7ec73f",
+      "bytes": 636909,
+      "rows": 13208
+    }
+  ],
+  "upstream": [
+    {
+      "node": "full-generation",
+      "version": "20260923_04",
+      "artifact": "A1.全量生成/artifacts/2026-09-23_04_full-generation-release",
+      "files": [
+        {
+          "file": "全量表_汇总.csv",
+          "versioned_file": "全量表_汇总-20260923_04.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_04_full-generation-release/output/全量表_汇总-20260923_04.csv",
+          "sha256": "ab025bd4118e1a0d4821d29772246c8fa2d8c5d59e4353d22696e8a013f2573c"
+        },
+        {
+          "file": "TRIM适配器.csv",
+          "versioned_file": "TRIM适配器-20260923_04.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_04_full-generation-release/output/TRIM适配器-20260923_04.csv",
+          "sha256": "76f67af565d9b1edf386d82e809234ed7b3d4f0afaf1aeb6b8ec18710979b030"
+        },
+        {
+          "file": "尺寸TRIM映射.csv",
+          "versioned_file": "尺寸TRIM映射-20260923_04.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_04_full-generation-release/output/尺寸TRIM映射-20260923_04.csv",
+          "sha256": "c003a07a61fb14c14eff78b1512a41b9840bbdd07aa4c3c90877d16c079bafa2"
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间，只做压缩，不做评分",
+    "2026-09-23 压缩尺码表.csv 改为无损表：各结构独立合并同尺码连续年份；新增 压缩尺码表_有损.csv：同尺码短空洞/结构池合理扩张，扩张原子数单列；两表均通过原子唯一尺码检查"
+  ]
+}

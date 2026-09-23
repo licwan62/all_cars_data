@@ -54,7 +54,7 @@ def check_layers(nodes: list[dict]) -> list[str]:
     hubs = [node for node in nodes if node.get("line", "U") != "U" and node.get("index") == 0]
     numeric_depth = max((depth[n["id"]] for n in nodes if n.get("line", "U") == "U"), default=-1)
     for hub in hubs:
-        if depth[hub["id"]] <= numeric_depth:
+        if hub.get("upstream") and depth[hub["id"]] <= numeric_depth:
             errors.append(f"{hub['id']}: 枢纽必须位于所有数字层节点之后")
     return errors
 

@@ -18,7 +18,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 PROJECT = ROOT / "A0.尺码计算"
 RESEARCH = PROJECT / "data" / "eu" / "当前已审核全量.csv"
-DIMENSIONS = ROOT / "01.整理尺寸库" / "output" / "尺寸库_EU.csv"
+DIMENSIONS = ROOT / "02.分类结构审核" / "output" / "车型结构_EU.csv"
 CODE_MAP = ROOT / "02.代码映射" / "output" / "尺寸编码映射.csv"
 OUTPUT = PROJECT / "output"
 ARTIFACTS = PROJECT / "artifacts"

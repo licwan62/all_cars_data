@@ -124,6 +124,40 @@ class SizeMatcherTests(unittest.TestCase):
         self.assertEqual(result.auto_size, "3XXL-W")
         self.assertEqual(result.length_margin, 285)
 
+    def test_insert_limit_has_priority_over_length_and_legacy_gear(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {
+                    "内部尺码": "LONG-LOW-INSERT",
+                    "档位序号": "99",
+                    "分类": "两厢车",
+                    "CAB": "",
+                    "版本": "",
+                    "长上限": "5000",
+                    "插片指数上限": "100",
+                    "使用": "y",
+                },
+                {
+                    "内部尺码": "SHORT-HIGH-INSERT",
+                    "档位序号": "1",
+                    "分类": "两厢车",
+                    "CAB": "",
+                    "版本": "",
+                    "长上限": "4800",
+                    "插片指数上限": "200",
+                    "使用": "y",
+                },
+            ]
+        )
+
+        # Both rules fit.  Insert upper limit 100 outranks the smaller length
+        # upper limit 4800 and must not be overridden by legacy gear sequence.
+        result = analysis.SizeMatcher(self.parameters, rules).match(
+            "两厢车", "", "", [4700, 90]
+        )
+        self.assertEqual(result.auto_size, "LONG-LOW-INSERT")
+        self.assertEqual(result.length_margin, 300)
+
     def test_model_whitelist_rule_does_not_enter_generic_pool(self) -> None:
         rules = pd.DataFrame(
             [
@@ -278,6 +312,14 @@ class FullPipelineRegressionTests(unittest.TestCase):
             analysis.base_dimension_id
         )
         dimensions.to_csv(cls.source_dir / "尺寸库.csv", index=False, encoding="utf-8-sig")
+        # 上游车形与原子销量带 " US" 后缀；本回归以基础 ID 计算，需同步去后缀。
+        bodies = analysis._read_csv(analysis.SHAPE_OUTPUT)
+        bodies = bodies.loc[bodies["COUNTRY"].eq("US"), ["DIMENSION-ID", "车形"]].copy()
+        bodies["DIMENSION-ID"] = bodies["DIMENSION-ID"].map(analysis.base_dimension_id)
+        bodies.to_csv(cls.source_dir / "车身分类.csv", index=False, encoding="utf-8-sig")
+        sales = analysis._read_csv(analysis.SALES_OUTPUT)
+        sales["atom_record_id"] = sales["atom_record_id"].str.replace(" US|", "|", regex=False)
+        sales.to_csv(cls.source_dir / "原子销量.csv", index=False, encoding="utf-8-sig")
         cls.config_dir = PROJECT_DIR / "data"
         cls.submodel_path = analysis.resolve_submodel_path(cls.source_dir, None, False)
         cls.result = analysis.calculate(
@@ -291,15 +333,15 @@ class FullPipelineRegressionTests(unittest.TestCase):
     def test_full_result_contract(self) -> None:
         summary = analysis.validate_result(self.result, 4371)
         self.assertEqual(summary["unique_dimension_ids"], 4371)
-        self.assertEqual(summary["matched_sizes"], 4231)
-        self.assertEqual(summary["unavailable_sizes"], 140)
+        self.assertEqual(summary["matched_sizes"], 4232)
+        self.assertEqual(summary["unavailable_sizes"], 139)
         self.assertEqual(summary["incomplete_rows"], 0)
-        self.assertEqual(summary["sales_total"], 744611489)
+        self.assertEqual(summary["sales_total"], 750288484)
 
         dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]
         self.assertEqual(row["TRIM"], "")
-        self.assertEqual(row["销量合计"], 74286)
+        self.assertEqual(row["销量合计"], 134815)
         self.assertEqual(row["前宽-MM"], 2052)
         self.assertEqual(row["插片指数"], 276)
         self.assertEqual(row["自动尺码"], "4L")

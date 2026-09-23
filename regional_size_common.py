@@ -91,8 +91,9 @@ def build_dimension_library(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFr
 
     Exact duplicate bodies are collapsed before IDs are assigned. When the
     public ID fields alone would collide for genuinely different dimensions,
-    generation, a source body variant, and finally an explicit L/W/H variant
-    are used in that order to keep the ID human-readable and unique.
+    a source body variant, and finally an explicit L/W/H variant are used in
+    that order to keep the ID human-readable and unique. Generation (代际)
+    already has its own column and is never copied into 版本 for this.
     """
     require_columns(base, BASE_COLUMNS, "区域车型基表")
     work = base.copy()
@@ -118,16 +119,6 @@ def build_dimension_library(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFr
         work["DIMENSION-ID"] = [dimension_id(row) for row in work.to_dict("records")]
 
     refresh_ids()
-    collisions = work["DIMENSION-ID"].duplicated(keep=False)
-    if collisions.any():
-        work.loc[collisions, "版本"] = [
-            _append_version(version, generation)
-            for version, generation in zip(
-                work.loc[collisions, "版本"], work.loc[collisions, "代际"], strict=True
-            )
-        ]
-        refresh_ids()
-
     collisions = work["DIMENSION-ID"].duplicated(keep=False)
     if collisions.any():
         work.loc[collisions, "版本"] = [

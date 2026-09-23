@@ -90,7 +90,9 @@ def _matches(row: dict[str, str], criteria: dict[str, str]) -> bool:
     return all(_clean(row.get(field, "")) == _clean(value) for field, value in criteria.items())
 
 
-def apply_identity_merge_rules(rows: list[dict[str, str]], region: str) -> list[dict[str, str]]:
+def apply_identity_merge_rules(
+    rows: list[dict[str, str]], region: str, aggregate_fields: tuple[str, ...] = ()
+) -> list[dict[str, str]]:
     """Apply audited model-identity merges; fail if either side no longer matches upstream."""
     rules = load_identity_merge_rules()["regions"].get(region.lower(), [])
     result = list(rows)
@@ -104,6 +106,8 @@ def apply_identity_merge_rules(rows: list[dict[str, str]], region: str) -> list[
                 f"车型合并规则 {rule['name']} 预期 drop/keep 各匹配 1 行，"
                 f"实际为 {len(dropped)}/{len(kept)}"
             )
+        for field in aggregate_fields:
+            kept[0][field] = float(kept[0].get(field, 0) or 0) + float(dropped[0].get(field, 0) or 0)
         result.remove(dropped[0])
     return result
 
@@ -193,7 +197,7 @@ def transform_region_rows(
     # versus `SUV 3-door`).  Apply them before the downstream normalization
     # omits the default three-door marker, otherwise a rule can no longer tell
     # its drop and keep records apart.
-    rows = apply_identity_merge_rules(rows, region)
+    rows = apply_identity_merge_rules(rows, region, aggregate_fields)
     structure_rules = load_structure_rules()
     normalize_region = region.lower() in structure_rules["regions"]
     for row in rows:

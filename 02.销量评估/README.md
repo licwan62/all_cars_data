@@ -24,6 +24,9 @@ python -m unittest discover -s tests -v
 
 ## 缓存要求
 
+`02.销量评估/cache/` 是本节点唯一的销量缓存位置。区域销量事实统一维护在
+`cache/regional_model_year_sales.csv`；不得再从仓库根目录旧 `销量评估/cache/` 读取。
+
 - 每个规范化 `MAKE + MODEL + YEAR` 只能有一行。
 - `MODEL_YEAR_US_SALES` 必须是非负整数。
 - `SALES_SCOPE` 使用 `US`；`SALES_PERIOD` 使用 `FULL_YEAR` 或 `YTD`。

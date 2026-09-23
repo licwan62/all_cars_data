@@ -1,0 +1,21 @@
+{
+  "batch": "2026-09-23_03_model-semantic-repair",
+  "description": "从英文和翻译语义回填明确车型，并同步尺寸精选记录",
+  "inputs": [
+    {
+      "file": "input/车型语义修复映射.json",
+      "sha256": "9B2C12C5AFA3F80D9750D2278A6BB135D7C3E84EE4CC80792ADB88CD363A9CF9"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "output/差评分析汇总-20260923_03.csv",
+      "sha256": "96BBB93925B3337601F7A41120EA6A8EA00A936667C8187733F682B927AB5A9D"
+    },
+    {
+      "file": "output/差评分析精选-20260923_03.csv",
+      "sha256": "773008B4CFF47C15431994FE2E914AFF3D52C136454AA9A879BB03D8132C746C"
+    }
+  ],
+  "pending": false
+}

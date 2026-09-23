@@ -24,8 +24,8 @@ from full_table_schema import attach_dimension_code  # noqa: E402
 import pandas_analysis as analysis
 
 
-SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "output"
-RU_DIMENSIONS_PATH = SOURCE_DIR / "尺寸库_RU.csv"
+SOURCE_DIR = WORKSPACE_ROOT / "02.分类结构审核" / "output"
+RU_DIMENSIONS_PATH = SOURCE_DIR / "车型结构_RU.csv"
 RU_RAW_SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru" / "0916"
 RU_SALES_PATH = WORKSPACE_ROOT / "02.销量评估" / "data" / "ru" / "auto_ru_model_sales_with_match_key.csv"
 DIMENSION_PROJECT = WORKSPACE_ROOT / "01.整理尺寸库"
@@ -225,6 +225,24 @@ def atomic_copy(source: Path, destination: Path) -> None:
     os.replace(temporary, destination)
 
 
+def published_sales_snapshot(dimensions: pd.DataFrame) -> pd.DataFrame:
+    """Preserve the published proxy-sales allocation for a rules-only RU rerun."""
+    path = OUTPUT_DIR / "全量表_RU.csv"
+    if not path.is_file():
+        raise analysis.DataContractError(f"Missing published RU sales snapshot: {path}")
+    snapshot = analysis._read_csv(path)
+    analysis._require_columns(snapshot, ["DIMENSION-ID", "销量合计"], "published RU full table")
+    if snapshot["DIMENSION-ID"].duplicated().any():
+        raise analysis.DataContractError("Published RU full table has duplicate DIMENSION-ID values")
+    expected = set(dimensions["DIMENSION-ID"])
+    actual = set(snapshot["DIMENSION-ID"])
+    if expected != actual:
+        raise analysis.DataContractError(
+            f"Published RU full table and dimensions disagree: dimensions-only {len(expected - actual)}, snapshot-only {len(actual - expected)}"
+        )
+    return snapshot[["DIMENSION-ID", "销量合计"]].copy()
+
+
 def main() -> int:
     artifact_dir = next_artifact_dir()
     artifact_output = artifact_dir / "output"
@@ -236,10 +254,11 @@ def main() -> int:
         sales, sales_audit = build_ru_sales_by_dimension()
         dimension_ids = set(dimensions["DIMENSION-ID"])
         sales_ids = set(sales["DIMENSION-ID"])
+        sales_snapshot_fallback = False
         if dimension_ids != sales_ids:
-            raise analysis.DataContractError(
-                f"RU 尺寸库与销量映射 ID 集合不一致：尺寸独有 {len(dimension_ids - sales_ids)}，销量独有 {len(sales_ids - dimension_ids)}"
-            )
+            sales = published_sales_snapshot(dimensions)
+            sales_ids = set(sales["DIMENSION-ID"])
+            sales_snapshot_fallback = True
         base = build_ru_full_base(dimensions, sales)
         matched = match_ru_sizes(base, rules, parameters)
         result = base.copy()
@@ -269,6 +288,7 @@ def main() -> int:
             "parameters": str(PARAMETERS_PATH),
             "size_distribution": result["自动尺码"].value_counts().to_dict(),
             "sales_audit": sales_audit,
+            "sales_snapshot_fallback": sales_snapshot_fallback,
         }
         report_path = artifact_output / "尺码匹配报告_RU.json"
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -19,7 +19,7 @@ from full_table_schema import attach_dimension_code
 import pandas_analysis as analysis
 
 SHAPES = ROOT / "03.车形分类核定" / "output" / "车形分类.csv"
-DIMENSIONS = ROOT / "01.整理尺寸库" / "output"
+DIMENSIONS = ROOT / "02.分类结构审核" / "output"
 OUTPUT = PROJECT / "output"
 ARTIFACTS = PROJECT / "artifacts"
 
@@ -36,7 +36,7 @@ def base_id(value: str, region: str) -> str:
 def batch_dir() -> Path:
     prefix = date.today().isoformat()
     nums = []
-    for path in ARTIFACTS.glob(f"{prefix}_*_*regional-coverage-full"):
+    for path in ARTIFACTS.glob(f"{prefix}_*"):
         match = re.match(rf"{re.escape(prefix)}_(\d{{2}})_", path.name)
         if match:
             nums.append(int(match.group(1)))
@@ -56,7 +56,7 @@ def candidate_shapes(region: str) -> pd.DataFrame:
 
 
 def build_eu(artifact: Path, shapes: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, object]]:
-    dims = read(DIMENSIONS / "尺寸库_EU.csv")
+    dims = read(DIMENSIONS / "车型结构_EU.csv")
     dims["DIMENSION-ID"] = dims["DIMENSION-ID"].map(lambda value: base_id(value, "EU"))
     if set(dims["DIMENSION-ID"]) != set(shapes["DIMENSION-ID"]):
         raise ValueError("EU 尺寸库与车形候选 ID 集合不一致")

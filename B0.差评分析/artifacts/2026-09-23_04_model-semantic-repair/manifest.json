@@ -1,0 +1,21 @@
+{
+  "batch": "2026-09-23_04_model-semantic-repair",
+  "description": "补充 3 条 Challenger 车型的品牌回填（全量表 MODEL 唯一匹配 MAKE=Dodge），并同步尺寸精选记录",
+  "inputs": [
+    {
+      "file": "input/车型语义修复映射.json",
+      "sha256": "EFC0254C81252CBC311FFEBBDAB1DD34BE10D044BE97DB21A5B1A273D91C1C7C"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "output/差评分析汇总-20260923_04.csv",
+      "sha256": "40FE6557BE3A7B0875F5FEC80B6F1D801B885B02F513248DF1C1FD668A80246C"
+    },
+    {
+      "file": "output/差评分析精选-20260923_04.csv",
+      "sha256": "57C310B717433784605C1FD9DC1A03EC8A825E757F50B181A71327F9F72131C5"
+    }
+  ],
+  "pending": false
+}

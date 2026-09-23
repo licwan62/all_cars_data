@@ -1,18 +1,34 @@
+"""按 02.分类结构审核/output/车型结构.csv 刷新三国车形接口 output/车形分类.csv。
+
+- US：沿用既有 US核定 车形（按基础 ID）。
+- EU/RU：同基础 ID 有 US 车形时参考 US；否则继承上一版研究/缓存车形（上游 ID 改名时按
+  区域+MAKE+MODEL+结构族+代际+YEAR+长宽高 迁移），但必须与该行分类兼容；其余用
+  data/区域车形代理规则.json 的代理车形，并进入质量复核队列。
+- 全部校验通过后才原子写入 output/ 与 research_queue/。
+"""
+
 from __future__ import annotations
 
 import csv
 import json
 import os
-from collections import Counter
+import re
+from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PROJECT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "01.整理尺寸库" / "output" / "尺寸库.csv"
+SOURCE = ROOT / "02.分类结构审核" / "output" / "车型结构.csv"
 OUTPUT = PROJECT / "output" / "车形分类.csv"
+MANIFEST = PROJECT / "output" / "manifest.json"
 QUEUE = PROJECT / "research_queue" / "regional_queue.csv"
-CANDIDATES = PROJECT / "artifacts" / "2026-09-21_02_regional-coverage-candidates" / "regional_shape_coverage_candidates.csv"
+RULES = PROJECT / "data" / "区域车形代理规则.json"
+US_ID_MIGRATION = PROJECT / "data" / "US车形ID迁移.csv"
 COUNTRIES = {"US", "EU", "RU"}
+PROXY_STATUS = "参考US-结构分类代理"
+ALLOWED = {"DUAL", "H0", "H1", "H2", "H3", "JP", "P0", "P1", "P2", "SD0", "SD1", "SD2", "SU0", "SU1", "SU2", "V0", "V1", "dodge-challenger"}
+OUTPUT_FIELDS = ["DIMENSION-ID", "COUNTRY", "车形", "处理状态"]
+QUEUE_FIELDS = ["DIMENSION-ID", "COUNTRY", "MAKE", "MODEL", "版本", "结构", "代际", "YEAR", "状态", "研究问题"]
 
 
 def read_rows(path: Path) -> list[dict[str, str]]:
@@ -32,71 +48,149 @@ def write_rows(path: Path, fields: list[str], rows: list[dict[str, str]]) -> Non
 
 def split_region(record_id: str) -> tuple[str, str]:
     head, separator, tail = record_id.rpartition(" ")
-    country = tail.upper() if separator and tail.upper() in COUNTRIES else "US"
-    return (head if separator and tail.upper() in COUNTRIES else record_id), country
+    if separator and tail.upper() in COUNTRIES:
+        return head, tail.upper()
+    return record_id, "US"
 
 
-def run() -> dict[str, int]:
-    prior = read_rows(OUTPUT)
+def family(structure: str, rules: dict) -> str:
+    return re.sub(rules["door_suffix_pattern"], "", structure or "").strip()
+
+
+def physical_key(row: dict[str, str], rules: dict) -> tuple:
+    _, country = split_region(row["DIMENSION-ID"])
+    return (country, row["MAKE"], row["MODEL"], family(row["结构"], rules), row["代际"], row["YEAR"],
+            row["L-IN"], row["W-IN"], row["H-IN"])
+
+
+def compatible(shape: str, row: dict[str, str], rules: dict) -> bool:
+    fam = family(row["结构"], rules)
+    if fam in rules["compatible_by_structure"]:
+        return shape in rules["compatible_by_structure"][fam]
+    allowed = rules["compatible_by_category"].get(row["分类"])
+    return allowed is None or shape in allowed
+
+
+def proxy_shape(row: dict[str, str], rules: dict) -> str:
+    fam = family(row["结构"], rules)
+    if fam in rules["proxy_by_structure"]:
+        return rules["proxy_by_structure"][fam]
+    return rules["proxy_by_category"].get(row["分类"], rules["proxy_by_category"][""])
+
+
+def previous_library() -> list[dict[str, str]]:
+    """上一版车形所依据的尺寸库（取自本节点 manifest 记录的上游 artifact），用于 ID 迁移。"""
+    if not MANIFEST.is_file():
+        return []
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    for upstream in manifest.get("upstream", []):
+        for item in upstream.get("files", []):
+            if item.get("file") in ("尺寸库.csv", "车型结构.csv"):
+                path = ROOT / item["artifact_file"]
+                if path.is_file():
+                    return read_rows(path)
+    return []
+
+
+def build(
+    source: list[dict[str, str]], prior: list[dict[str, str]], prior_library: list[dict[str, str]], rules: dict,
+    us_id_migration: dict[str, str] | None = None,
+) -> dict:
     us_shapes: dict[str, str] = {}
+    prior_by_id = {row["DIMENSION-ID"]: row for row in prior}
     for row in prior:
-        base_id, country = split_region(row["DIMENSION-ID"])
-        if country == "US" and row.get("车形"):
-            if base_id in us_shapes and us_shapes[base_id] != row["车形"]:
-                raise ValueError(f"US 基础 ID 存在多个车形: {base_id}")
+        record_id = (us_id_migration or {}).get(row["DIMENSION-ID"], row["DIMENSION-ID"])
+        base_id, country = split_region(record_id)
+        if country == "US" and row["车形"]:
+            if us_shapes.get(base_id, row["车形"]) != row["车形"]:
+                raise ValueError(f"US 基础 ID 存在多个车形：{base_id}")
             us_shapes[base_id] = row["车形"]
 
-    candidates = {row["DIMENSION-ID"]: row for row in read_rows(CANDIDATES)}
+    migrated: dict[tuple, set[tuple[str, str]]] = defaultdict(set)
+    for row in prior_library:
+        shape_row = prior_by_id.get(row["DIMENSION-ID"])
+        if shape_row and shape_row["处理状态"] != PROXY_STATUS:
+            migrated[physical_key(row, rules)].add((shape_row["车形"], shape_row["处理状态"]))
 
-    output: list[dict[str, str]] = []
-    queue: list[dict[str, str]] = []
-    seen: set[str] = set()
-    for row in read_rows(SOURCE):
+    output, queue, counters = [], [], Counter()
+    for row in source:
         record_id = row["DIMENSION-ID"]
-        if record_id in seen:
-            raise ValueError(f"区域 DIMENSION-ID 重复: {record_id}")
-        seen.add(record_id)
         base_id, country = split_region(record_id)
-        candidate = candidates.get(record_id, {}) if country != "US" else {}
-        shape = us_shapes.get(base_id, "") or candidate.get("车形候选", "")
-        if shape:
-            if country == "US":
-                status = "US核定"
-            elif base_id in us_shapes:
-                status = "参考US-同基础ID"
-            elif candidate.get("方法") == "regional-single-shape":
-                status = "区域缓存-同车型单一车形"
-            else:
-                status = "参考US-结构分类代理"
-            output.append({
-                "DIMENSION-ID": record_id,
-                "COUNTRY": country,
-                "车形": shape,
-                "处理状态": status,
-            })
-        if not shape or candidate.get("需质量复核") == "yes":
+        shape = status = ""
+        if country == "US":
+            shape, status = us_shapes.get(base_id, ""), "US核定"
+            if not shape:
+                raise ValueError(f"US 记录缺少已核定车形：{record_id}")
+        elif base_id in us_shapes:
+            shape, status = us_shapes[base_id], "参考US-同基础ID"
+        else:
+            candidates = set()
+            previous = prior_by_id.get(record_id)
+            if previous and previous["处理状态"] != PROXY_STATUS:
+                candidates = {(previous["车形"], previous["处理状态"])}
+                counters["继承-同ID"] += 1
+            elif physical_key(row, rules) in migrated:
+                candidates = migrated[physical_key(row, rules)]
+                counters["继承-ID迁移"] += 1
+            if len({shape for shape, _ in candidates}) == 1:
+                inherited, inherited_status = next(iter(candidates))
+                if compatible(inherited, row, rules):
+                    shape, status = inherited, inherited_status
+                else:
+                    counters["继承车形与分类不兼容-改代理"] += 1
+            if not shape:
+                shape, status = proxy_shape(row, rules), PROXY_STATUS
+        output.append({"DIMENSION-ID": record_id, "COUNTRY": country, "车形": shape, "处理状态": status})
+        if status == PROXY_STATUS:
             queue.append({
-                "DIMENSION-ID": record_id, "COUNTRY": country,
-                "MAKE": row.get("MAKE", ""), "MODEL": row.get("MODEL", ""),
-                "版本": row.get("版本", ""), "结构": row.get("结构", ""),
-                "代际": row.get("代际", ""), "YEAR": row.get("YEAR", ""),
-                "状态": "待质量复核" if shape else "pending",
-                "研究问题": (
-                    f"当前以 {candidate.get('方法', '默认规则')} 参考 US 规则代理；需核对轮廓细分类"
-                    if shape else "未找到 US 参考规则；需核对区域车身差异"
-                ),
+                "DIMENSION-ID": record_id, "COUNTRY": country, "MAKE": row["MAKE"], "MODEL": row["MODEL"],
+                "版本": row["版本"], "结构": row["结构"], "代际": row["代际"], "YEAR": row["YEAR"],
+                "状态": "待质量复核",
+                "研究问题": f"按 结构={family(row['结构'], rules)} / 分类={row['分类'] or '空'} 代理为 {shape}；需核对轮廓细分类",
             })
+    return {"output": output, "queue": queue, "counters": dict(counters)}
 
-    write_rows(OUTPUT, ["DIMENSION-ID", "COUNTRY", "车形", "处理状态"], output)
-    write_rows(QUEUE, ["DIMENSION-ID", "COUNTRY", "MAKE", "MODEL", "版本", "结构", "代际", "YEAR", "状态", "研究问题"], queue)
-    summary = Counter(row["COUNTRY"] for row in output)
-    statuses = Counter(row["处理状态"] for row in output)
-    summary.update({"resolved": len(output), "quality_review": len(queue), "source": len(seen)})
-    summary["status_counts"] = dict(statuses)
+
+def validate(source: list[dict[str, str]], result: dict, rules: dict) -> dict:
+    output = result["output"]
+    by_id = {row["DIMENSION-ID"]: row for row in source}
+    ids = [row["DIMENSION-ID"] for row in output]
+    checks = {
+        "complete_source_coverage": ids == [row["DIMENSION-ID"] for row in source],
+        "output_ids_unique": len(ids) == len(set(ids)),
+        "allowed_shapes_only": all(row["车形"] in ALLOWED for row in output),
+        "no_blank_shape_or_status": all(row["车形"] and row["处理状态"] for row in output),
+        "all_us_rows_nuclear": all(row["处理状态"] == "US核定" for row in output if row["COUNTRY"] == "US"),
+        "regional_shapes_match_category": all(
+            compatible(row["车形"], by_id[row["DIMENSION-ID"]], rules)
+            for row in output if row["COUNTRY"] != "US" and row["处理状态"] != "参考US-同基础ID"
+        ),
+    }
+    return {"status": "passed" if all(checks.values()) else "failed", "checks": checks}
+
+
+def run() -> dict:
+    rules = json.loads(RULES.read_text(encoding="utf-8"))
+    source = read_rows(SOURCE)
+    migration = {row["旧DIMENSION-ID"]: row["新DIMENSION-ID"] for row in read_rows(US_ID_MIGRATION)} if US_ID_MIGRATION.is_file() else {}
+    result = build(source, read_rows(OUTPUT), previous_library(), rules, migration)
+    validation = validate(source, result, rules)
+    if validation["status"] != "passed":
+        raise SystemExit(f"车形接口校验失败：{validation['checks']}")
+    write_rows(OUTPUT, OUTPUT_FIELDS, result["output"])
+    write_rows(QUEUE, QUEUE_FIELDS, result["queue"])
+    summary = {
+        "source": len(source),
+        "by_country": dict(Counter(row["COUNTRY"] for row in result["output"])),
+        "status_counts": dict(Counter(row["处理状态"] for row in result["output"])),
+        "inheritance": result["counters"],
+        "quality_review": len(result["queue"]),
+        "validation": validation,
+    }
     (PROJECT / "output" / "regional_shape_summary.json").write_text(
-        json.dumps(dict(summary), ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    return dict(summary)
+    return summary
 
 
 if __name__ == "__main__":

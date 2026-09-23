@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "node": "negative-review-analysis",
+  "path": "B0.差评分析",
+  "version": "20260923_06",
+  "artifact": "B0.差评分析/artifacts/2026-09-23_06_negative-review-analysis-release",
+  "published_at": "2026-09-23T10:20:39+08:00",
+  "deliverables": [
+    {
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20260923_06.csv",
+      "artifact_file": "B0.差评分析/artifacts/2026-09-23_06_negative-review-analysis-release/output/差评分析表-20260923_06.csv",
+      "sha256": "770c08ceb4c18a8127760886b9d8b95b7790e9cf7305d25b41dd7bddd08e0136",
+      "bytes": 42021,
+      "rows": 214
+    }
+  ],
+  "upstream": [],
+  "pending": [],
+  "notes": [
+    "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：从人工维护的差评原始台账筛选、汇总出品牌+车型+结构粒度的差评分析表；无上游流水线节点，原始数据是人工导出维护的台账"
+  ]
+}

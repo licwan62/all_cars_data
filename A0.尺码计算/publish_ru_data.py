@@ -20,9 +20,11 @@ PUBLIC_DIR = Path(r"\\NAS8824B4\Public\PQData\pub_all_cars_data") / "data" / "ru
 ARTIFACTS_DIR = PROJECT / "artifacts"
 
 SOURCES = {
-    "00_RU尺寸库.csv": ROOT / "01.整理尺寸库" / "output" / "尺寸库_RU.csv",
+    "00_RU尺寸库.csv": ROOT / "02.分类结构审核" / "output" / "车型结构_RU.csv",
     "02_RU全量.csv": PROJECT / "output" / "全量表_RU.csv",
+    "全量表_RU.csv": PROJECT / "output" / "全量表_RU.csv",
     "03_RU尺码匹配规则.csv": PROJECT / "data" / "ru" / "尺寸" / "0921.3-两厢车候选-2L200.csv",
+    "尺码匹配规则_RU.csv": PROJECT / "data" / "ru" / "尺寸" / "0921.3-两厢车候选-2L200.csv",
 }
 
 

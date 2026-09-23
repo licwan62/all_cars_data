@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PROJECT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "01.整理尺寸库" / "output" / "尺寸库.csv"
+SOURCE = ROOT / "02.分类结构审核" / "output" / "车型结构.csv"
 OUTPUT = PROJECT / "output" / "车形分类.csv"
 QUEUE = PROJECT / "research_queue" / "regional_queue.csv"
 REPORT = PROJECT / "output" / "validation_report.json"

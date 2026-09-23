@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PROJECT = ROOT / "销量评估"
+PROJECT = ROOT / "02.销量评估"
 CACHE = PROJECT / "cache" / "regional_model_year_sales.csv"
 QUEUE = PROJECT / "research_queue" / "regional_sales_queue.csv"
 BATCH = PROJECT / "artifacts" / "2026-09-16_01_regional-scope-audit"

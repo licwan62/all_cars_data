@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "_说明": "EU/RU 无研究结论时的代理车形规则，以及继承既有车形时的 分类 兼容性约束。结构先去掉 ' Ndr' 门数后缀。代理优先按结构族，其次按分类；继承的旧车形若不在该行分类（及结构族）允许集合内，则改用代理，避免把同车型其他车身的车形套到不同车身上。",
+  "door_suffix_pattern": "\\s+\\d+dr$",
+  "proxy_by_structure": {
+    "Sedan": "SD1", "Fastback Sedan": "SD1",
+    "Hatchback": "H0", "Wagon": "H0", "Quadricycle": "H0",
+    "Van": "V0", "MPV": "V0", "Minivan": "V0", "Bus": "V0",
+    "SUV": "SU1", "Crossover": "SU1", "SUV Convertible": "SU1",
+    "Pickup": "P0", "Chassis Cab": "P0", "Pritsche/Fahrgestell": "P0",
+    "Coupe": "SD0", "Convertible": "SD0", "Roadster": "SD0", "Targa": "SD0",
+    "Hardtop": "SD0", "Phaeton": "SD0", "Speedster": "SD0"
+  },
+  "proxy_by_category": {
+    "三厢车": "SD1", "两厢车": "H0", "跑车": "SD0", "越野车": "SU1", "皮卡": "P0", "": "V0"
+  },
+  "compatible_by_category": {
+    "三厢车": ["SD0", "SD1", "SD2"],
+    "跑车": ["SD0", "SD1", "SD2", "dodge-challenger"],
+    "两厢车": ["H0", "H1", "H2", "H3", "V0", "V1"],
+    "越野车": ["SU0", "SU1", "SU2", "JP", "V0", "V1"],
+    "皮卡": ["P0", "P1", "P2", "DUAL"]
+  },
+  "compatible_by_structure": {
+    "Van": ["V0", "V1"], "MPV": ["V0", "V1"], "Minivan": ["V0", "V1"], "Bus": ["V0", "V1"]
+  }
+}

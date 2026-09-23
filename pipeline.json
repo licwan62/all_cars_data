@@ -10,7 +10,7 @@
     "output": "current validated handoff for downstream agents (stable names, no version suffix) plus manifest.json",
     "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext"
   },
-  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表、B TRIM适配器、C 代表车型、D 发货单、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。",
+  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表、B 定制评分、C 代表车型、D 发货单、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账），序号规则同样适用（线内后续序号必须大于它）。",
   "release_contract": "python scripts/publish_release.py 自上游到下游发布：artifact 内交付物带 -YYYYMMDD_NN 后缀，发布到 output/ 时去掉后缀，manifest.json 记录交付物 sha256、artifact 来源与上游版本；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
   "nodes": [
     {
@@ -55,9 +55,15 @@
         "dimension-library"
       ],
       "outputs": [
-        "车型结构.csv"
+        "车型结构.csv",
+        "车型结构_US.csv",
+        "车型结构_EU.csv",
+        "车型结构_RU.csv"
       ],
-      "pending": []
+      "pending": [],
+      "release_notes": [
+        "2026-09-23 改为按 data/分类标准.json（三国通用 结构→分类）与 data/分类联网判定.csv（Liftback/Fastback 车型级联网判定）重算分类；只改 分类，DIMENSION-ID 不变；输出全量与分区域文件"
+      ]
     },
     {
       "id": "sales-estimation",
@@ -115,6 +121,7 @@
       "role": "final",
       "upstream": [
         "dimension-library",
+        "structure-review",
         "shape-classification",
         "sales-estimation",
         "code-mapping"
@@ -162,22 +169,64 @@
       ]
     },
     {
-      "id": "compression-scoring",
-      "path": "A2.压缩定制评分",
-      "layer": 6,
+      "id": "size-compression",
+      "path": "A2.压缩尺寸信息",
+      "layer": 5,
       "line": "A",
       "index": 2,
       "role": "final",
       "upstream": [
-        "full-generation"
+        "size-calculation"
       ],
       "outputs": [
-        "压缩尺码表.csv",
+        "压缩尺码表_US.csv",
+        "压缩尺码表_US_有损.csv",
+        "压缩尺码表_EU.csv",
+        "压缩尺码表_EU_有损.csv",
+        "压缩尺码表_RU.csv",
+        "压缩尺码表_RU_有损.csv"
+      ],
+      "pending": [],
+      "release_notes": [
+        "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间，只做压缩，不做评分",
+        "2026-09-23 压缩尺码表.csv 改为无损表：各结构独立合并同尺码连续年份；新增 压缩尺码表_有损.csv：同尺码短空洞/结构池合理扩张，扩张原子数单列；两表均通过原子唯一尺码检查",
+        "2026-09-23 上游改为 A0.尺码计算 的 全量表_US/EU/RU.csv，按区域分别压缩；每区域输出无损表与有损表（扩张原子数单列），均通过原子唯一尺码检查"
+      ]
+    },
+    {
+      "id": "negative-review-analysis",
+      "path": "B0.差评分析",
+      "layer": 0,
+      "line": "B",
+      "index": 0,
+      "role": "final",
+      "upstream": [],
+      "outputs": [
+        "差评分析表.csv"
+      ],
+      "pending": [],
+      "release_notes": [
+        "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：从人工维护的差评原始台账筛选、汇总出品牌+车型+结构粒度的差评分析表；无上游流水线节点，原始数据是人工导出维护的台账"
+      ]
+    },
+    {
+      "id": "compression-scoring",
+      "path": "B1.压缩定制评分",
+      "layer": 6,
+      "line": "B",
+      "index": 1,
+      "role": "final",
+      "upstream": [
+        "full-generation",
+        "negative-review-analysis"
+      ],
+      "outputs": [
         "定制需求度评分.csv"
       ],
       "pending": [],
       "release_notes": [
-        "2026-09-22 新增节点：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间；并结合 data/ 三张人工维护台账（差评分析表/人工维护进度/车耳状态登记，均为空表，尚无历史数据）打定制需求度评分，首次运行全部为“数据不足”，需人工陆续录入"
+        "2026-09-22 新增节点：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间；并结合 data/ 三张人工维护台账（差评分析表/人工维护进度/车耳状态登记，均为空表，尚无历史数据）打定制需求度评分，首次运行全部为“数据不足”，需人工陆续录入",
+        "2026-09-23 拆分为三个节点：压缩机制迁移到 A2.压缩尺寸信息，差评分析迁移到 B0.差评分析；本节点改名 B1.压缩定制评分，只保留定制需求度评分，差评维度改读 B0 的 output/"
       ]
     },
     {
@@ -292,10 +341,30 @@
       "pending": []
     },
     {
-      "name": "压缩尺码表与定制需求度评分",
+      "name": "压缩尺码表",
+      "node": "size-compression",
+      "files": [
+        "压缩尺码表_US.csv",
+        "压缩尺码表_US_有损.csv",
+        "压缩尺码表_EU.csv",
+        "压缩尺码表_EU_有损.csv",
+        "压缩尺码表_RU.csv",
+        "压缩尺码表_RU_有损.csv"
+      ],
+      "pending": []
+    },
+    {
+      "name": "差评分析表",
+      "node": "negative-review-analysis",
+      "files": [
+        "差评分析表.csv"
+      ],
+      "pending": []
+    },
+    {
+      "name": "定制需求度评分",
       "node": "compression-scoring",
       "files": [
-        "压缩尺码表.csv",
         "定制需求度评分.csv"
       ],
       "pending": []

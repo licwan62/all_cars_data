@@ -143,8 +143,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--source-dir",
         type=Path,
-        default=WORKSPACE_ROOT / "01.整理尺寸库" / "output",
-        help="尺寸库节点输出目录",
+        default=WORKSPACE_ROOT / "02.分类结构审核" / "output",
+        help="分类结构审核节点输出目录（车型结构.csv）",
     )
     parser.add_argument(
         "--shelf-config",

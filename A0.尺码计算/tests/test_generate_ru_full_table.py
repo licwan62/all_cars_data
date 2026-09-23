@@ -19,14 +19,14 @@ SPEC.loader.exec_module(module)
 def test_ru_sales_are_aggregated_by_match_key_and_cover_published_dimensions():
     sales, audit = module.build_ru_sales_by_dimension()
 
-    assert len(sales) == 13848
+    assert len(sales) == 13617
     assert sales["DIMENSION-ID"].is_unique
-    assert sales["销量合计"].sum() == 296972
+    assert sales["销量合计"].sum() == 297009
     assert audit["sales_source_total"] == 301065
-    assert audit["unmatched_sales_total"] == 4093
+    assert audit["unmatched_sales_total"] == 4056
     assert audit["sales_rows_without_match_key"] == 304
     assert audit["sales_source_positive_rows"] == 4272
-    assert audit["dimension_rows_with_positive_proxy_sales"] == 4175
+    assert audit["dimension_rows_with_positive_proxy_sales"] == 4050
 
 
 def test_ru_full_base_uses_only_ru_dimensions_and_sales():
@@ -35,9 +35,9 @@ def test_ru_full_base_uses_only_ru_dimensions_and_sales():
 
     result = module.build_ru_full_base(dimensions, sales)
 
-    assert len(result) == 13848
+    assert len(result) == 13617
     assert result["DIMENSION-ID"].str.endswith(" RU").all()
-    assert result["销量合计"].sum() == 296972
+    assert result["销量合计"].sum() == 297009
 
 
 def test_ru_matching_uses_per_size_length_margin():
@@ -66,3 +66,24 @@ def test_ru_matching_prefers_smaller_cover_volume_over_shorter_length():
     matched = module.match_ru_sizes(vehicles, rules, {"余量长容差": 635})
 
     assert matched.loc[0, "自动尺码"] == "2L"
+
+
+def test_ru_rule_ozon_mapping_matches_the_approved_size_labels():
+    rules = module.read_rules(module.RULES_PATH)
+    expected = {
+        "2M": ("2L+", "L"), "2XL": ("2XL+", "XL"),
+        "6L": ("3XL+0", "XL"), "A": ("PK-M", ""),
+        "3XXL": ("3XXL", "XLL"), "S": ("YM+", "YM"),
+        "XL": ("YXXL", "YXL"),
+    }
+    for ozon, (amazon, ship) in expected.items():
+        row = rules.loc[rules["OZON尺码"].eq(ozon)].iloc[0]
+        assert (row["亚马逊尺码"], row["发货尺码"]) == (amazon, ship)
+
+    for ozon, amazon in {"5S": "2L-200", "5M": "2XL-200"}.items():
+        row = rules.loc[rules["OZON尺码"].eq(ozon)].iloc[0]
+        assert (row["亚马逊尺码"], row["发货尺码"]) == (amazon, "")
+
+    blank_ozon = rules.loc[rules["OZON尺码"].eq("")]
+    assert set(blank_ozon["亚马逊尺码"]) == {"2S-280", "2XXL-545", "YS-380", "YS-410"}
+    assert blank_ozon["发货尺码"].eq("").all()

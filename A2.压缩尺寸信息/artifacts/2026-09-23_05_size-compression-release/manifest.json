@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "node": "size-compression",
+  "path": "A2.压缩尺寸信息",
+  "version": "20260923_05",
+  "artifact": "A2.压缩尺寸信息/artifacts/2026-09-23_05_size-compression-release",
+  "published_at": "2026-09-23T16:02:47+08:00",
+  "deliverables": [
+    {
+      "file": "压缩尺码表.csv",
+      "versioned_file": "压缩尺码表-20260923_05.csv",
+      "artifact_file": "A2.压缩尺寸信息/artifacts/2026-09-23_05_size-compression-release/output/压缩尺码表-20260923_05.csv",
+      "sha256": "f262c44fc0943472d11c743fe5a18583d5a2b768831d3f7d30c92da35d8e792b",
+      "bytes": 790343,
+      "rows": 17002
+    }
+  ],
+  "upstream": [
+    {
+      "node": "full-generation",
+      "version": "20260923_03",
+      "artifact": "A1.全量生成/artifacts/2026-09-23_03_full-generation-release",
+      "files": [
+        {
+          "file": "全量表_汇总.csv",
+          "versioned_file": "全量表_汇总-20260923_03.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_03_full-generation-release/output/全量表_汇总-20260923_03.csv",
+          "sha256": "ab025bd4118e1a0d4821d29772246c8fa2d8c5d59e4353d22696e8a013f2573c"
+        },
+        {
+          "file": "TRIM适配器.csv",
+          "versioned_file": "TRIM适配器-20260923_03.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_03_full-generation-release/output/TRIM适配器-20260923_03.csv",
+          "sha256": "76f67af565d9b1edf386d82e809234ed7b3d4f0afaf1aeb6b8ec18710979b030"
+        },
+        {
+          "file": "尺寸TRIM映射.csv",
+          "versioned_file": "尺寸TRIM映射-20260923_03.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_03_full-generation-release/output/尺寸TRIM映射-20260923_03.csv",
+          "sha256": "c003a07a61fb14c14eff78b1512a41b9840bbdd07aa4c3c90877d16c079bafa2"
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间，只做压缩，不做评分"
+  ]
+}

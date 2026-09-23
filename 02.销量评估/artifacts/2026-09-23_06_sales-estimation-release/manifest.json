@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "node": "sales-estimation",
+  "path": "02.销量评估",
+  "version": "20260923_06",
+  "artifact": "02.销量评估/artifacts/2026-09-23_06_sales-estimation-release",
+  "published_at": "2026-09-23T19:08:14+08:00",
+  "deliverables": [
+    {
+      "file": "原子销量.csv",
+      "versioned_file": "原子销量-20260923_06.csv",
+      "artifact_file": "02.销量评估/artifacts/2026-09-23_06_sales-estimation-release/output/原子销量-20260923_06.csv",
+      "sha256": "b9a11ce1b9e4f867f7d3cb373c4efe103ce5f2caed55bd49d04f266251dc3735",
+      "bytes": 880413,
+      "rows": 15199
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-library",
+      "version": "20260923_06",
+      "artifact": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release",
+      "files": [
+        {
+          "file": "尺寸库.csv",
+          "versioned_file": "尺寸库-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库-20260923_06.csv",
+          "sha256": "7439a94904c54532abc1037477c5ccab8ce2975d180c118e4c54c6ed141cb4c2"
+        },
+        {
+          "file": "尺寸库_US.csv",
+          "versioned_file": "尺寸库_US-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库_US-20260923_06.csv",
+          "sha256": "47d37889c7c05f39c40f01b099bf0c204db2446bf3e863e1b9fc7610afaf1b01"
+        },
+        {
+          "file": "尺寸库_EU.csv",
+          "versioned_file": "尺寸库_EU-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库_EU-20260923_06.csv",
+          "sha256": "29753c9320e58331726fd7da109dad2a9ba8b5e1bc1b227417a94cda49a4ec4c"
+        },
+        {
+          "file": "尺寸库_RU.csv",
+          "versioned_file": "尺寸库_RU-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库_RU-20260923_06.csv",
+          "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布"
+  ]
+}

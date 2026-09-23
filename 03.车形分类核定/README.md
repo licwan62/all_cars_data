@@ -33,7 +33,7 @@ python 车形分类核定/code/shape_project.py build
 python 车形分类核定/code/validate_project.py
 ```
 
-按当前 `01.整理尺寸库/output/尺寸库.csv` 刷新三国接口：
+按当前 `02.分类结构审核/output/车型结构.csv` 刷新三国接口（代理与兼容规则见 `data/区域车形代理规则.json`，US ID 改名见 `data/US车形ID迁移.csv`）：
 
 ```powershell
 python 03.车形分类核定/code/build_regional_shape_output.py

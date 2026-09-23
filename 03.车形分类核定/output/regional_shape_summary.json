@@ -1,14 +1,31 @@
 {
-  "US": 4371,
-  "EU": 29707,
-  "RU": 13848,
-  "resolved": 47926,
-  "quality_review": 25102,
-  "source": 47926,
+  "source": 47695,
+  "by_country": {
+    "US": 4371,
+    "EU": 29707,
+    "RU": 13617
+  },
   "status_counts": {
     "US核定": 4371,
-    "区域缓存-同车型单一车形": 18434,
-    "参考US-结构分类代理": 25053,
-    "参考US-同基础ID": 68
+    "区域缓存-同车型单一车形": 15908,
+    "参考US-结构分类代理": 27318,
+    "参考US-同基础ID": 98
+  },
+  "inheritance": {
+    "继承-同ID": 11290,
+    "继承-ID迁移": 7041,
+    "继承车形与分类不兼容-改代理": 2422
+  },
+  "quality_review": 27318,
+  "validation": {
+    "status": "passed",
+    "checks": {
+      "complete_source_coverage": true,
+      "output_ids_unique": true,
+      "allowed_shapes_only": true,
+      "no_blank_shape_or_status": true,
+      "all_us_rows_nuclear": true,
+      "regional_shapes_match_category": true
+    }
   }
 }
