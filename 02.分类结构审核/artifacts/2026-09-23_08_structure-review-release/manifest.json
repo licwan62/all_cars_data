@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "node": "structure-review",
+  "path": "02.分类结构审核",
+  "version": "20260923_08",
+  "artifact": "02.分类结构审核/artifacts/2026-09-23_08_structure-review-release",
+  "published_at": "2026-09-23T19:56:38+08:00",
+  "deliverables": [
+    {
+      "file": "车型结构.csv",
+      "versioned_file": "车型结构-20260923_08.csv",
+      "artifact_file": "02.分类结构审核/artifacts/2026-09-23_08_structure-review-release/output/车型结构-20260923_08.csv",
+      "sha256": "71c84a839a04595849bf9db6c5a05778907a14259f6d522fef877d599142b39c",
+      "bytes": 6592775,
+      "rows": 47695
+    },
+    {
+      "file": "车型结构_US.csv",
+      "versioned_file": "车型结构_US-20260923_08.csv",
+      "artifact_file": "02.分类结构审核/artifacts/2026-09-23_08_structure-review-release/output/车型结构_US-20260923_08.csv",
+      "sha256": "9b24df5e7fffa6e1754bd08bd4bdfa673ac07b572e005228eeddf9e58f76f4b5",
+      "bytes": 906391,
+      "rows": 4371
+    },
+    {
+      "file": "车型结构_EU.csv",
+      "versioned_file": "车型结构_EU-20260923_08.csv",
+      "artifact_file": "02.分类结构审核/artifacts/2026-09-23_08_structure-review-release/output/车型结构_EU-20260923_08.csv",
+      "sha256": "616b254c467eb46fa643b3410070a92f44f1dc50605d5fd8620272199c1f5359",
+      "bytes": 4077697,
+      "rows": 29707
+    },
+    {
+      "file": "车型结构_RU.csv",
+      "versioned_file": "车型结构_RU-20260923_08.csv",
+      "artifact_file": "02.分类结构审核/artifacts/2026-09-23_08_structure-review-release/output/车型结构_RU-20260923_08.csv",
+      "sha256": "5dbf90c5f05f125b8fb93deb95d913947e5813b3cfe0d822de829a87c9d87ef9",
+      "bytes": 1608919,
+      "rows": 13617
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-library",
+      "version": "20260923_06",
+      "artifact": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release",
+      "files": [
+        {
+          "file": "尺寸库.csv",
+          "versioned_file": "尺寸库-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库-20260923_06.csv",
+          "sha256": "7439a94904c54532abc1037477c5ccab8ce2975d180c118e4c54c6ed141cb4c2"
+        },
+        {
+          "file": "尺寸库_US.csv",
+          "versioned_file": "尺寸库_US-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库_US-20260923_06.csv",
+          "sha256": "47d37889c7c05f39c40f01b099bf0c204db2446bf3e863e1b9fc7610afaf1b01"
+        },
+        {
+          "file": "尺寸库_EU.csv",
+          "versioned_file": "尺寸库_EU-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库_EU-20260923_06.csv",
+          "sha256": "29753c9320e58331726fd7da109dad2a9ba8b5e1bc1b227417a94cda49a4ec4c"
+        },
+        {
+          "file": "尺寸库_RU.csv",
+          "versioned_file": "尺寸库_RU-20260923_06.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_06_dimension-library-release/output/尺寸库_RU-20260923_06.csv",
+          "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-23 改为按 data/分类标准.json（三国通用 结构→分类）与 data/分类联网判定.csv（Liftback/Fastback 车型级联网判定）重算分类；只改 分类，DIMENSION-ID 不变；输出全量与分区域文件"
+  ]
+}
