@@ -7,16 +7,15 @@
   },
   "status_counts": {
     "US核定": 4371,
-    "区域缓存-同车型单一车形": 15908,
-    "参考US-结构分类代理": 27318,
+    "区域缓存-同车型单一车形": 15831,
+    "参考US-结构分类代理": 27395,
     "参考US-同基础ID": 98
   },
   "inheritance": {
-    "继承-同ID": 11290,
-    "继承-ID迁移": 7041,
-    "继承车形与分类不兼容-改代理": 2422
+    "继承-同ID": 15909,
+    "继承车形与分类不兼容-改代理": 77
   },
-  "quality_review": 27318,
+  "quality_review": 27395,
   "validation": {
     "status": "passed",
     "checks": {
@@ -25,7 +24,10 @@
       "allowed_shapes_only": true,
       "no_blank_shape_or_status": true,
       "all_us_rows_nuclear": true,
-      "regional_shapes_match_category": true
+      "regional_shapes_match_category": true,
+      "reference_shapes_unique": true,
+      "reference_covers_allowed_shapes": true,
+      "reference_coefficients_numeric": true
     }
   }
 }

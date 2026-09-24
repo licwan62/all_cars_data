@@ -11,7 +11,9 @@ SOURCE = ROOT / "02.分类结构审核" / "output" / "车型结构.csv"
 OUTPUT = PROJECT / "output" / "车形分类.csv"
 QUEUE = PROJECT / "research_queue" / "regional_queue.csv"
 REPORT = PROJECT / "output" / "validation_report.json"
-ALLOWED = {"DUAL", "H0", "H1", "H2", "H3", "JP", "P0", "P1", "P2", "SD0", "SD1", "SD2", "SU0", "SU1", "SU2", "V0", "V1", "dodge-challenger"}
+REFERENCE = PROJECT / "data" / "参考尺寸计算.csv"
+REFERENCE_OUTPUT = PROJECT / "output" / "参考尺寸计算.csv"
+ALLOWED = {"DUAL", "H0", "H1", "H2", "H3", "JP", "P0", "P1", "P2", "SD0", "SD1", "SD2", "SU0", "SU1", "SU2", "V0", "V1"}
 
 
 def read(path: Path) -> list[dict[str, str]]:
@@ -28,6 +30,7 @@ def main() -> None:
     source = read(SOURCE)
     output = read(OUTPUT)
     queue = read(QUEUE)
+    reference_shapes = {row["车身号"].strip() for row in read(REFERENCE_OUTPUT)}
     source_ids = [row["DIMENSION-ID"] for row in source]
     output_ids = [row["DIMENSION-ID"] for row in output]
     checks = {
@@ -39,6 +42,8 @@ def main() -> None:
         "no_blank_shape_or_status": all(row["车形"] and row["处理状态"] for row in output),
         "queue_is_output_subset": {row["DIMENSION-ID"] for row in queue} <= set(output_ids),
         "all_us_rows_nuclear": all(row["处理状态"] == "US核定" for row in output if row["COUNTRY"] == "US"),
+        "reference_output_matches_data": REFERENCE_OUTPUT.read_bytes() == REFERENCE.read_bytes(),
+        "reference_covers_output_shapes": {row["车形"] for row in output} <= reference_shapes,
     }
     report = {
         "status": "passed" if all(checks.values()) else "failed",

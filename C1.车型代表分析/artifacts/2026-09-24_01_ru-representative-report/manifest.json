@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "node": "representative-model",
+  "path": "C1.车型代表分析",
+  "version": "20260924_01",
+  "artifact": "C1.车型代表分析/artifacts/2026-09-24_01_ru-representative-report",
+  "published_at": "2026-09-24T11:43:15+08:00",
+  "deliverables": [
+    {
+      "file": "代表车型_RU.csv",
+      "versioned_file": "代表车型-20260924_01.csv",
+      "artifact_file": "C1.车型代表分析/artifacts/2026-09-24_01_ru-representative-report/output/代表车型-20260924_01.csv",
+      "sha256": "780b682de848b79cbcf3b9e926717888f30c579e6e50969f67cc1e220c18105e",
+      "bytes": 14935,
+      "rows": 148
+    },
+    {
+      "file": "代表车型_RU.tsv",
+      "versioned_file": "代表车型-20260924_01.tsv",
+      "artifact_file": "C1.车型代表分析/artifacts/2026-09-24_01_ru-representative-report/output/代表车型-20260924_01.tsv",
+      "sha256": "025239139bdaf980c71cad93c9dbb352aa99b62c38467dc5692731bb57d646aa",
+      "bytes": 8053,
+      "rows": 148
+    },
+    {
+      "file": "代表车型报告_RU.md",
+      "versioned_file": "代表车型报告-20260924_01.md",
+      "artifact_file": "C1.车型代表分析/artifacts/2026-09-24_01_ru-representative-report/output/代表车型报告-20260924_01.md",
+      "sha256": "44e9ea592103abc3f56fd7ae8903056e6cf8bac05c9b9f87b6b13a8a7f5b621a",
+      "bytes": 11528,
+      "rows": null
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20260923_25",
+      "artifact": "A0.尺码计算/artifacts/2026-09-23_25_size-calculation-release",
+      "files": [
+        {
+          "file": "全量表_RU.csv",
+          "artifact_file": "C1.车型代表分析/artifacts/2026-09-24_01_ru-representative-report/input/全量表_RU.csv",
+          "sha256": "3720da7281d6962af14429fa1fab004f12fb734048866bd51982bd266073e89d"
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "按自动尺码分组，每组最多选择 4 款代表车型。",
+    "本批次为 RU 专项报告，未覆盖 C1/output 的 US 稳定交付物。"
+  ]
+}

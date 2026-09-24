@@ -6,6 +6,8 @@ import re
 import sys
 from pathlib import Path
 
+from pipeline_status import check_status
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "pipeline.json"
@@ -119,6 +121,38 @@ def check_final_products(products: list[dict], nodes: list[dict]) -> list[str]:
     return errors
 
 
+def _as_list(value: str | list[str] | None) -> list[str]:
+    if value is None:
+        return []
+    return [value] if isinstance(value, str) else list(value)
+
+
+def check_code_layout(nodes: list[dict]) -> list[str]:
+    """代码集中在 code_dir；节点根目录不放 .py；登记的 tests 目录和 run 脚本必须存在。"""
+    errors: list[str] = []
+    for node in nodes:
+        base = ROOT / node["path"]
+        if not base.is_dir():
+            continue
+        for key in ("code_dir", "run", "tests"):
+            if key not in node:
+                errors.append(f"{node['id']}: pipeline.json 缺少 {key}（无则写 null 或 []）")
+        loose = sorted(path.name for path in base.glob("*.py"))
+        if loose:
+            errors.append(f"{node['id']}: 节点根目录不得存放脚本，请移入 code_dir：{', '.join(loose)}")
+        for name in _as_list(node.get("code_dir")):
+            if not (base / name).is_dir():
+                errors.append(f"{node['id']}: code_dir {name}/ 不存在")
+        for name in _as_list(node.get("tests")):
+            if not (base / name).is_dir():
+                errors.append(f"{node['id']}: tests {name}/ 不存在")
+        for command in node.get("run") or []:
+            parts = command.split()
+            if len(parts) >= 2 and parts[0] == "python" and not (base / parts[1]).is_file():
+                errors.append(f"{node['id']}: run 命令引用的脚本不存在：{parts[1]}")
+    return errors
+
+
 def main() -> int:
     payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
     nodes = payload.get("nodes", [])
@@ -160,13 +194,15 @@ def main() -> int:
     errors.extend(check_outputs(nodes))
     errors.extend(check_release_naming(nodes))
     errors.extend(check_final_products(payload.get("final_products", []), nodes))
+    errors.extend(check_code_layout(nodes))
+    errors.extend(check_status(ROOT))
 
     if errors:
         print("流水线结构校验失败：", file=sys.stderr)
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
-    print(f"流水线结构校验通过：{len(nodes)} 个 agent，均具备 data/output/artifacts。")
+    print(f"流水线结构校验通过：{len(nodes)} 个 agent，均具备 data/output/artifacts，代码集中在 code_dir，流水线状态.md 与发布一致。")
     return 0
 
 

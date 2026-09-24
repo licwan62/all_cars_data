@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "node": "compression-scoring",
+  "path": "B1.压缩定制评分",
+  "version": "20260924_02",
+  "artifact": "B1.压缩定制评分/artifacts/2026-09-24_02_compression-scoring-release",
+  "published_at": "2026-09-24T09:31:23+08:00",
+  "deliverables": [
+    {
+      "file": "定制需求度评分.csv",
+      "versioned_file": "定制需求度评分-20260924_02.csv",
+      "artifact_file": "B1.压缩定制评分/artifacts/2026-09-24_02_compression-scoring-release/output/定制需求度评分-20260924_02.csv",
+      "sha256": "5083c60d781007661bf99e1d09990cf1ce50fa7978c871457829b7b4273923d1",
+      "bytes": 169048,
+      "rows": 7479
+    }
+  ],
+  "upstream": [
+    {
+      "node": "full-generation",
+      "version": "20260923_09",
+      "artifact": "A1.全量生成/artifacts/2026-09-23_09_full-generation-release",
+      "files": [
+        {
+          "file": "全量表_汇总.csv",
+          "versioned_file": "全量表_汇总-20260923_09.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_09_full-generation-release/output/全量表_汇总-20260923_09.csv",
+          "sha256": "c6b06e6b78e897b3dfd85a1ef0e03f3a565651bc1b6444c269d7a42f9f52a321"
+        },
+        {
+          "file": "TRIM适配器.csv",
+          "versioned_file": "TRIM适配器-20260923_09.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_09_full-generation-release/output/TRIM适配器-20260923_09.csv",
+          "sha256": "9178de2e1f345d7367866aa1beb9c06be077bfb1f169f0f4ffa440434a1bcf1b"
+        },
+        {
+          "file": "尺寸TRIM映射.csv",
+          "versioned_file": "尺寸TRIM映射-20260923_09.csv",
+          "artifact_file": "A1.全量生成/artifacts/2026-09-23_09_full-generation-release/output/尺寸TRIM映射-20260923_09.csv",
+          "sha256": "c72f5f5db8663af0e4e8205420f4be27d8f827706d1da1ec0abd57594420b40b"
+        }
+      ]
+    },
+    {
+      "node": "negative-review-analysis",
+      "version": "20260924_03",
+      "artifact": "B0.差评分析/artifacts/2026-09-24_03_negative-review-analysis-release",
+      "files": [
+        {
+          "file": "差评分析表.csv",
+          "versioned_file": "差评分析表-20260924_03.csv",
+          "artifact_file": "B0.差评分析/artifacts/2026-09-24_03_negative-review-analysis-release/output/差评分析表-20260924_03.csv",
+          "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+        }
+      ]
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-22 新增节点：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间；并结合 data/ 三张人工维护台账（差评分析表/人工维护进度/车耳状态登记，均为空表，尚无历史数据）打定制需求度评分，首次运行全部为“数据不足”，需人工陆续录入",
+    "2026-09-23 拆分为三个节点：压缩机制迁移到 A2.压缩尺寸信息，差评分析迁移到 B0.差评分析；本节点改名 B1.压缩定制评分，只保留定制需求度评分，差评维度改读 B0 的 output/"
+  ]
+}

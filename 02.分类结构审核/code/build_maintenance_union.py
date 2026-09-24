@@ -11,8 +11,8 @@ import sys
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+if str(ROOT / "lib") not in sys.path:
+    sys.path.insert(0, str(ROOT / "lib"))
 
 from id_scheme import dimension_id
 

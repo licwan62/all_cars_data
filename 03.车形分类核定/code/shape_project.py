@@ -19,7 +19,7 @@ SOURCE = Path(os.environ.get("SHAPE_SOURCE", DEFAULT_SOURCE)).resolve()
 CACHE = PROJECT / "cache" / "model_shape_cache.csv"
 QUEUE = PROJECT / "research_queue" / "queue.csv"
 RESULT = PROJECT / "output" / "车形分类.csv"
-REFERENCE = ROOT / "A0.尺码计算" / "data" / "参考尺寸计算.csv"
+REFERENCE = PROJECT / "data" / "参考尺寸计算.csv"
 LOCK_FILE = PROJECT / "research_queue" / ".shape_project.lock"
 CACHE_FIELDS = ["MAKE", "MODEL", "match_pattern", "generation", "year_start", "year_end", "shape", "source_url", "note", "updated_at"]
 QUEUE_FIELDS = ["queue_key", "MAKE", "MODEL", "record_count", "year_ranges", "example_reference", "status", "worker", "updated_at"]
@@ -27,7 +27,7 @@ STATUSES = {"pending", "in_progress", "done", "blocked"}
 
 
 def reference_shape_ids() -> set[str]:
-    """Load legal shape IDs from public/参考尺寸计算.csv."""
+    """Load legal shape IDs from data/参考尺寸计算.csv."""
 
     if not REFERENCE.exists():
         raise RuntimeError(f"找不到车形规则源: {REFERENCE}")

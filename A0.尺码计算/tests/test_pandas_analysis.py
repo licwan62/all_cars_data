@@ -124,7 +124,7 @@ class SizeMatcherTests(unittest.TestCase):
         self.assertEqual(result.auto_size, "3XXL-W")
         self.assertEqual(result.length_margin, 285)
 
-    def test_insert_limit_has_priority_over_length_and_legacy_gear(self) -> None:
+    def test_insert_limit_gates_queue_and_length_decides_priority(self) -> None:
         rules = pd.DataFrame(
             [
                 {
@@ -150,13 +150,13 @@ class SizeMatcherTests(unittest.TestCase):
             ]
         )
 
-        # Both rules fit.  Insert upper limit 100 outranks the smaller length
-        # upper limit 4800 and must not be overridden by legacy gear sequence.
-        result = analysis.SizeMatcher(self.parameters, rules).match(
-            "两厢车", "", "", [4700, 90]
-        )
-        self.assertEqual(result.auto_size, "LONG-LOW-INSERT")
-        self.assertEqual(result.length_margin, 300)
+        matcher = analysis.SizeMatcher(self.parameters, rules)
+        # 两个尺码都进入匹配队列：插片指数不排优先级，长上限 4800 更贴合。
+        result = matcher.match("两厢车", "", "", [4700, 90])
+        self.assertEqual(result.auto_size, "SHORT-HIGH-INSERT")
+        self.assertEqual(result.length_margin, 100)
+        # 插片指数 150 超过 100：LONG-LOW-INSERT 不进入队列。
+        self.assertEqual(matcher.match("两厢车", "", "", [4900, 150]).auto_size, "无可用尺码")
 
     def test_model_whitelist_rule_does_not_enter_generic_pool(self) -> None:
         rules = pd.DataFrame(
@@ -218,6 +218,105 @@ class SizeMatcherTests(unittest.TestCase):
 
         self.assertEqual(matcher.match("跑车", "", "", [5200, 200]).auto_size, "CLASSIC")
         self.assertEqual(matcher.match("三厢车", "", "", [5200, 200]).auto_size, "CLASSIC")
+
+    def test_category_preselection_expands_only_within_declared_size_pool(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {"尺码": "2XL", "分类": "两厢车", "尺码池": "H", "版本": "", "长上限": 4800, "插片指数上限": 999},
+                {"尺码": "5L", "分类": "VAN", "尺码池": "H", "版本": "", "长上限": 5100, "插片指数上限": 999},
+                {"尺码": "YXL", "分类": "越野车", "尺码池": "Y", "版本": "", "长上限": 5200, "插片指数上限": 999},
+            ]
+        )
+        matcher = analysis.SizeMatcher(self.parameters, rules)
+
+        # 分类候选能满足时，即使同池存在更接近的尺码，也应先用分类候选。
+        self.assertEqual(matcher.match("两厢车", "", "", [4700, 100]).auto_size, "2XL")
+        # 分类候选不满足时，才扩大到相同 H 尺码池；不得进入 Y 池。
+        self.assertEqual(matcher.match("两厢车", "", "", [5000, 100]).auto_size, "5L")
+        self.assertEqual(matcher.match("两厢车", "", "", [5150, 100]).auto_size, "无可用尺码")
+
+    def test_insert_index_gates_preselection_before_shared_pool_expansion(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {"尺码": "LOW-INSERT", "分类": "三厢车", "尺码池": "S", "版本": "", "长上限": 5000, "插片指数上限": 120},
+                {"尺码": "HIGH-INSERT", "分类": "三厢车", "尺码池": "S", "版本": "", "长上限": 4800, "插片指数上限": 999},
+                {"尺码": "POOL-LARGE", "分类": "跑车", "尺码池": "S", "版本": "", "长上限": 5500, "插片指数上限": 120},
+            ]
+        )
+        matcher = analysis.SizeMatcher(self.parameters, rules)
+
+        # 两个三厢车尺码都在队列中，按长上限取 HIGH-INSERT。
+        self.assertEqual(matcher.match("三厢车", "", "", [4700, 100]).auto_size, "HIGH-INSERT")
+        # 插片指数 130 只剩 HIGH-INSERT，4900 超长；同池 POOL-LARGE 也被插片指数挡住。
+        self.assertEqual(matcher.match("三厢车", "", "", [4900, 130]).auto_size, "无可用尺码")
+        self.assertEqual(matcher.match("三厢车", "", "", [5200, 100]).auto_size, "POOL-LARGE")
+
+    def test_0924_schema_without_version_column_uses_size_pools(self) -> None:
+        # 0924 结构：尺码,分类,尺码池,长上限,插片指数上限,车型白名单,备注（无 模式/版本）。
+        rules = pd.DataFrame(
+            [
+                {"尺码": "3L", "分类": "三厢车", "尺码池": "S", "长上限": 4740, "插片指数上限": 120, "车型白名单": "", "备注": ""},
+                {"尺码": "3M", "分类": "三厢车", "尺码池": "S", "长上限": 4560, "插片指数上限": 999, "车型白名单": "", "备注": ""},
+                {"尺码": "3XL-0", "分类": "跑车", "尺码池": "S", "长上限": 5050, "插片指数上限": 120, "车型白名单": "", "备注": ""},
+                {"尺码": "4S-0", "分类": "跑车", "尺码池": "S", "长上限": 4850, "插片指数上限": 999, "车型白名单": "", "备注": ""},
+            ]
+        )
+        matcher = analysis.SizeMatcher(self.parameters, rules)
+
+        # 插片指数 100：3L、3M 都在队列，按长上限取 3M。
+        self.assertEqual(matcher.match("三厢车", "", "", [4300, 100]).auto_size, "3M")
+        self.assertEqual(matcher.match("三厢车", "", "", [4700, 100]).auto_size, "3L")
+        # 插片指数 130 挡掉 3L，3M 超长：扩大到 S 池，队列同样受插片指数限制，得 4S-0。
+        self.assertEqual(matcher.match("三厢车", "", "", [4700, 130]).auto_size, "4S-0")
+        # 超出三厢车长度：S 池内按长上限，4S-0(4850) 先于 3XL-0(5050)。
+        self.assertEqual(matcher.match("三厢车", "", "", [4800, 100]).auto_size, "4S-0")
+
+    def test_current_us_rules_file_loads_and_expands_within_pool(self) -> None:
+        rules = analysis._read_csv(PROJECT_DIR / "data" / "us" / "0924.2-老爷车插片下限.csv")
+        parameters = analysis._read_csv(PROJECT_DIR / "data" / "us" / "尺码匹配参数.csv")
+        matcher = analysis.SizeMatcher(parameters, rules)
+
+        cases = [
+            ("两厢车", 4000, 100, "2L"),
+            ("两厢车", 5000, 100, "5L"),  # 超出两厢车 → H 池 VAN 尺码
+            ("VAN", 4200, 100, "2XL"),  # VAN 过短 → H 池两厢车尺码
+            ("三厢车", 4300, 100, "3M"),  # 插片指数只定队列，按长上限取 3M 而非 3L
+            ("三厢车", 4700, 100, "3L"),
+            ("三厢车", 5000, 100, "3XL"),  # 4M-0 插片指数下限 120，不进入队列
+            ("三厢车", 4700, 130, "4S-0"),
+            ("跑车", 4700, 130, "4S-0"),
+            # 现代跑车（如 Camaro 2010，插片指数 -85）：4S-0 被下限挡住，取 3XL-0。
+            ("跑车", 4836, -85, "3XL-0"),
+            ("跑车", 4836, 120, "3XL-0"),  # 等于 120 不算“高于”
+            ("跑车", 4836, 121, "4S-0"),
+        ]
+        for category, length, insert, expected in cases:
+            with self.subTest(category=category, length=length, insert=insert):
+                self.assertEqual(
+                    matcher.match(category, "", "", [length, insert]).auto_size, expected
+                )
+        # 越野车只在 Y 池，不会借用其他池的尺码。
+        self.assertEqual(matcher.match("越野车", "", "", [6000, 100]).auto_size, "无可用尺码")
+        # 非老爷车超出 3XXL-550 时不得借用 4L-0 以上，也不把它们列为候选。
+        too_long = matcher.match("三厢车", "", "", [5600, 100])
+        self.assertEqual(too_long.auto_size, "无可用尺码")
+        self.assertIn(too_long.candidate, {"3XXL-550", "3XXL-550-0"})
+
+    def test_insert_lower_limit_is_exclusive_and_optional(self) -> None:
+        rules = pd.DataFrame(
+            [
+                {"尺码": "MODERN", "分类": "跑车", "长上限": 5050, "插片指数上限": 120, "插片指数下限": ""},
+                {"尺码": "CLASSIC", "分类": "跑车", "长上限": 4850, "插片指数上限": 999, "插片指数下限": 120},
+            ]
+        )
+        matcher = analysis.SizeMatcher(self.parameters, rules)
+
+        self.assertEqual(matcher.match("跑车", "", "", [4800, 100]).auto_size, "MODERN")
+        self.assertEqual(matcher.match("跑车", "", "", [4800, 120]).auto_size, "MODERN")
+        self.assertEqual(matcher.match("跑车", "", "", [4800, 121]).auto_size, "CLASSIC")
+        # 低于下限时 CLASSIC 也不作为诊断候选。
+        blocked = matcher.match("跑车", "", "", [5100, 100])
+        self.assertEqual((blocked.auto_size, blocked.candidate), ("无可用尺码", "MODERN"))
 
     def test_allowed_sizes_limit_the_candidate_pool(self) -> None:
         rules = pd.DataFrame(
@@ -354,16 +453,13 @@ class FullPipelineRegressionTests(unittest.TestCase):
             self.result.loc[self.result["车形"].eq("V1"), "自动尺码"].eq("数据不全").any()
         )
 
-    def test_v1_borrows_v0_calculation_coefficients(self) -> None:
-        references = analysis._read_csv(PROJECT_DIR / "data" / "参考尺寸计算.csv")
-        indexed = references.set_index("车身号")
-        coefficient_columns = [
-            "下摆上限", "后宽系数", "前宽系数", "颈宽系数", "弧长系数", "周长系数"
-        ]
-        self.assertEqual(
-            indexed.loc["V1", coefficient_columns].tolist(),
-            indexed.loc["V0", coefficient_columns].tolist(),
-        )
+    def test_v1_has_complete_upstream_coefficients(self) -> None:
+        # 系数由 03.车形分类核定/output 提供；V1 已有独立系数，不再借用 V0。
+        references = analysis._read_csv(analysis.REFERENCE_DATA)
+        indexed = references.set_index(references["车身号"].str.strip())
+        coefficient_columns = ["前宽系数", "后宽系数", "弧长系数", "周长系数"]
+        values = pd.to_numeric(indexed.loc["V1", coefficient_columns].str.strip())
+        self.assertTrue((values > 0).all())
 
     def test_acura_adx_uses_su1_formula(self) -> None:
         row = self.result.set_index("DIMENSION-ID").loc["Acura ADX SUV 2025-2026"]

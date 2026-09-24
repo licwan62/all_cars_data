@@ -13,8 +13,8 @@ import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = PROJECT_ROOT.parent
-if str(WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(WORKSPACE_ROOT))
+if str(WORKSPACE_ROOT / "lib") not in sys.path:
+    sys.path.insert(0, str(WORKSPACE_ROOT / "lib"))
 
 from id_scheme import atom_record_id as make_atom_record_id, dimension_id
 YEAR_PATTERN = re.compile(r"^(\d{4})(?:\s*[-–—]\s*(\d{4}))?$")

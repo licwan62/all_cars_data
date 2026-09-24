@@ -4,6 +4,7 @@
 - EU/RU：同基础 ID 有 US 车形时参考 US；否则继承上一版研究/缓存车形（上游 ID 改名时按
   区域+MAKE+MODEL+结构族+代际+YEAR+长宽高 迁移），但必须与该行分类兼容；其余用
   data/区域车形代理规则.json 的代理车形，并进入质量复核队列。
+- data/参考尺寸计算.csv（车身号→系数）校验后原样发布为 output/参考尺寸计算.csv，供下游计算。
 - 全部校验通过后才原子写入 output/ 与 research_queue/。
 """
 
@@ -24,9 +25,13 @@ MANIFEST = PROJECT / "output" / "manifest.json"
 QUEUE = PROJECT / "research_queue" / "regional_queue.csv"
 RULES = PROJECT / "data" / "区域车形代理规则.json"
 US_ID_MIGRATION = PROJECT / "data" / "US车形ID迁移.csv"
+GENERIC_SHAPE_OVERRIDES = PROJECT / "data" / "通用车身号覆盖.csv"
+REFERENCE = PROJECT / "data" / "参考尺寸计算.csv"
+REFERENCE_OUTPUT = PROJECT / "output" / "参考尺寸计算.csv"
+REFERENCE_COEFFICIENTS = ("前宽系数", "后宽系数", "弧长系数", "周长系数")
 COUNTRIES = {"US", "EU", "RU"}
 PROXY_STATUS = "参考US-结构分类代理"
-ALLOWED = {"DUAL", "H0", "H1", "H2", "H3", "JP", "P0", "P1", "P2", "SD0", "SD1", "SD2", "SU0", "SU1", "SU2", "V0", "V1", "dodge-challenger"}
+ALLOWED = {"DUAL", "H0", "H1", "H2", "H3", "JP", "P0", "P1", "P2", "SD0", "SD1", "SD2", "SU0", "SU1", "SU2", "V0", "V1"}
 OUTPUT_FIELDS = ["DIMENSION-ID", "COUNTRY", "车形", "处理状态"]
 QUEUE_FIELDS = ["DIMENSION-ID", "COUNTRY", "MAKE", "MODEL", "版本", "结构", "代际", "YEAR", "状态", "研究问题"]
 
@@ -34,6 +39,23 @@ QUEUE_FIELDS = ["DIMENSION-ID", "COUNTRY", "MAKE", "MODEL", "版本", "结构", 
 def read_rows(path: Path) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         return [{k: (v or "").strip() for k, v in row.items()} for row in csv.DictReader(handle)]
+
+
+def read_generic_shape_overrides(path: Path, rules: dict) -> dict[tuple[str, str, str, str], str]:
+    required = {"MAKE", "MODEL", "代际", "结构", "通用车身号", "判定优先级", "判定理由"}
+    rows = read_rows(path)
+    if not rows or not required.issubset(rows[0]):
+        raise ValueError(f"通用车身号覆盖缺少字段: {path}")
+    overrides: dict[tuple[str, str, str, str], str] = {}
+    for row in rows:
+        shape = row["通用车身号"]
+        key = (row["MAKE"].casefold(), row["MODEL"].casefold(), row["代际"].casefold(), family(row["结构"], rules).casefold())
+        if not all(key) or shape not in ALLOWED:
+            raise ValueError(f"通用车身号覆盖无效: {row}")
+        if key in overrides:
+            raise ValueError(f"通用车身号覆盖重复: {key}")
+        overrides[key] = shape
+    return overrides
 
 
 def write_rows(path: Path, fields: list[str], rows: list[dict[str, str]]) -> None:
@@ -61,6 +83,11 @@ def physical_key(row: dict[str, str], rules: dict) -> tuple:
     _, country = split_region(row["DIMENSION-ID"])
     return (country, row["MAKE"], row["MODEL"], family(row["结构"], rules), row["代际"], row["YEAR"],
             row["L-IN"], row["W-IN"], row["H-IN"])
+
+
+def generic_override(row: dict[str, str], rules: dict, overrides: dict[tuple[str, str, str, str], str]) -> str:
+    key = (row["MAKE"].casefold(), row["MODEL"].casefold(), row["代际"].casefold(), family(row["结构"], rules).casefold())
+    return overrides.get(key, "")
 
 
 def compatible(shape: str, row: dict[str, str], rules: dict) -> bool:
@@ -94,7 +121,7 @@ def previous_library() -> list[dict[str, str]]:
 
 def build(
     source: list[dict[str, str]], prior: list[dict[str, str]], prior_library: list[dict[str, str]], rules: dict,
-    us_id_migration: dict[str, str] | None = None,
+    us_id_migration: dict[str, str] | None = None, generic_overrides: dict[tuple[str, str, str, str], str] | None = None,
 ) -> dict:
     us_shapes: dict[str, str] = {}
     prior_by_id = {row["DIMENSION-ID"]: row for row in prior}
@@ -117,7 +144,10 @@ def build(
         record_id = row["DIMENSION-ID"]
         base_id, country = split_region(record_id)
         shape = status = ""
-        if country == "US":
+        override = generic_override(row, rules, generic_overrides or {})
+        if override:
+            shape, status = override, "US核定" if country == "US" else "通用规则核定"
+        elif country == "US":
             shape, status = us_shapes.get(base_id, ""), "US核定"
             if not shape:
                 raise ValueError(f"US 记录缺少已核定车形：{record_id}")
@@ -151,6 +181,32 @@ def build(
     return {"output": output, "queue": queue, "counters": dict(counters)}
 
 
+def validate_reference(rows: list[dict[str, str]]) -> dict[str, bool]:
+    """下游按车身号取系数：车身号唯一、覆盖全部合法车形、所需系数为正数。"""
+    shapes = [row.get("车身号", "") for row in rows]
+
+    def positive(value: str) -> bool:
+        try:
+            return float(value) > 0
+        except ValueError:
+            return False
+
+    return {
+        "reference_shapes_unique": len(shapes) == len(set(shapes)) and "" not in shapes,
+        "reference_covers_allowed_shapes": ALLOWED <= set(shapes),
+        "reference_coefficients_numeric": all(
+            positive(row.get(column, "")) for row in rows if row["车身号"] in ALLOWED
+            for column in REFERENCE_COEFFICIENTS
+        ),
+    }
+
+
+def publish_reference() -> None:
+    temporary = REFERENCE_OUTPUT.with_suffix(REFERENCE_OUTPUT.suffix + ".tmp")
+    temporary.write_bytes(REFERENCE.read_bytes())
+    os.replace(temporary, REFERENCE_OUTPUT)
+
+
 def validate(source: list[dict[str, str]], result: dict, rules: dict) -> dict:
     output = result["output"]
     by_id = {row["DIMENSION-ID"]: row for row in source}
@@ -173,12 +229,18 @@ def run() -> dict:
     rules = json.loads(RULES.read_text(encoding="utf-8"))
     source = read_rows(SOURCE)
     migration = {row["旧DIMENSION-ID"]: row["新DIMENSION-ID"] for row in read_rows(US_ID_MIGRATION)} if US_ID_MIGRATION.is_file() else {}
-    result = build(source, read_rows(OUTPUT), previous_library(), rules, migration)
+    overrides = read_generic_shape_overrides(GENERIC_SHAPE_OVERRIDES, rules)
+    result = build(source, read_rows(OUTPUT), previous_library(), rules, migration, overrides)
     validation = validate(source, result, rules)
+    reference_checks = validate_reference(read_rows(REFERENCE))
+    validation["checks"].update(reference_checks)
+    if not all(reference_checks.values()):
+        validation["status"] = "failed"
     if validation["status"] != "passed":
         raise SystemExit(f"车形接口校验失败：{validation['checks']}")
     write_rows(OUTPUT, OUTPUT_FIELDS, result["output"])
     write_rows(QUEUE, QUEUE_FIELDS, result["queue"])
+    publish_reference()
     summary = {
         "source": len(source),
         "by_country": dict(Counter(row["COUNTRY"] for row in result["output"])),

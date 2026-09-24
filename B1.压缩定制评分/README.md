@@ -27,7 +27,7 @@
 ## 运行
 
 ```powershell
-python run.py
+python src/run.py
 python -m pytest tests
 ```
 

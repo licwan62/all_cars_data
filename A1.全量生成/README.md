@@ -5,7 +5,7 @@
 `Year + 主车型 + 结构 + 版本 + 分号候选字符串`
 的中间维护表。本项目现已与原 `A1.全量汇总` 合并为同一节点 **A1.全量生成**（`build_consolidated_full_table.py` 也在本目录下），详见 [AGENTS.md](AGENTS.md)。
 
-> **当前状态（2026-09-22）**：本节README下方描述的 `source/4A全数据.csv`、`source/车型尺寸库.csv`、`source/子车系维护表.csv`（仓库外 `source` 目录）均已不可用，`run.py` 的全量重建路径**不可再运行**（会因缺少子车系维护表丢失所有"现有精确键"行）。找回的 4A 原子快照 `4a_fitment_0722.tsv`（仅 `year/make/model`）现作为联网匹配的唯一基准；`data/TrimList.csv`/`TrimList_audit.csv` 是被长期维护的状态，只做增量追加，不再从零重建。当前实际使用的命令是 `analyze_fitment_coverage.py`（离线匹配分析）→ `research_nhtsa.py --apply-safe-evidence`（联网审核）→ 增量写入 TrimList → `refresh_from_size_output.py`（生成 Trim 交付物）→ `build_consolidated_full_table.py`（回填全量表）。详见 [AGENTS.md](AGENTS.md) 的完整流程。以下为历史设计文档，作为字段与门禁规则的参考。
+> **当前状态（2026-09-22）**：本节README下方描述的 `source/4A全数据.csv`、`source/车型尺寸库.csv`、`source/子车系维护表.csv`（仓库外 `source` 目录）均已不可用，`src/run.py` 的全量重建路径**不可再运行**（会因缺少子车系维护表丢失所有"现有精确键"行）。找回的 4A 原子快照 `data/4a_fitment_0722.tsv`（仅 `year/make/model`）现作为联网匹配的唯一基准；`data/TrimList.csv`/`TrimList_audit.csv` 是被长期维护的状态，只做增量追加，不再从零重建。当前实际使用的命令是 `analyze_fitment_coverage.py`（离线匹配分析）→ `research_nhtsa.py --apply-safe-evidence`（联网审核）→ 增量写入 TrimList → `refresh_from_size_output.py`（生成 Trim 交付物）→ `build_consolidated_full_table.py`（回填全量表）。详见 [AGENTS.md](AGENTS.md) 的完整流程。以下为历史设计文档，作为字段与门禁规则的参考。
 
 共享输入统一来自仓库 `source`；项目在 `data` 中维护 Trim 例外、联网证据以及全部研究/校验中间产物。正式输出遵守两层门禁：
 
@@ -49,19 +49,19 @@ DIMENSION-ID + Year + Make + Model
 在当前目录执行：
 
 ```powershell
-python run.py
+python src/run.py
 ```
 
 如只需重新分析已生成的 TrimList：
 
 ```powershell
-python analyze_sizes.py
+python src/analyze_sizes.py
 ```
 
 如只生成 TrimList：
 
 ```powershell
-python run.py --skip-size-analysis
+python src/run.py --skip-size-analysis
 ```
 
 默认读取：
@@ -76,7 +76,7 @@ python run.py --skip-size-analysis
 也可指定路径：
 
 ```powershell
-python run.py `
+python src/run.py `
   --dimensions ..\source\车型尺寸库.csv `
   --fitment ..\source\4A全数据.csv `
   --maintenance ..\source\子车系维护表.csv `
@@ -89,7 +89,7 @@ python run.py `
 如果需要将未匹配或待联网审核候选视为构建失败：
 
 ```powershell
-python run.py --fail-on-unmapped --fail-on-unreviewed
+python src/run.py --fail-on-unmapped --fail-on-unreviewed
 ```
 
 ## 例外维护
@@ -123,8 +123,8 @@ DIMENSION-ID,Year,Make,Model,版本,结构,Decision,SourceURL,SourceTitle,Eviden
 可先运行 NHTSA 安全子集审核：
 
 ```powershell
-python research_nhtsa.py --apply-safe-evidence
-python run.py
+python src/research_nhtsa.py --apply-safe-evidence
+python src/run.py
 ```
 
 该命令仅自动批准：1996 年以后、源/候选 Make+Model 同名、版本为空，且
@@ -135,11 +135,11 @@ NHTSA 在同年对应车辆类型中返回该 Model 的记录。详细查询结�
 对全量 4A 新发现的候选可继续运行：
 
 ```powershell
-python research_nhtsa.py `
+python src/research_nhtsa.py `
   --review .\data\FitmentCoverageCandidates.csv `
   --report .\data\NHTSAFitmentCoverageResearch.csv `
   --apply-safe-evidence
-python run.py
+python src/run.py
 ```
 
 ## 匹配顺序

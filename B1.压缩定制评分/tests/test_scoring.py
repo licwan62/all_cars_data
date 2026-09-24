@@ -39,7 +39,18 @@ def test_no_data_leaves_level_and_note_blank_not_insufficient_string():
     assert row["定制需求等级"] == ""
     assert row["差评备注"] == ""
     assert row["年份"] == ""
+    assert row["尺码"] == ""
     assert report["数据不足车型数"] == 1
+
+
+def test_sizes_pass_through_merged_across_structures():
+    negative = [
+        {"品牌": "Acura", "车型": "TLX", "结构": "Sedan", "尺码": "3XL+；3XL"},
+        {"品牌": "Acura", "车型": "TLX", "结构": "Coupe", "尺码": "3XL；2XL"},
+        {"品牌": "Acura", "车型": "TLX", "结构": "Wagon", "尺码": ""},
+    ]
+    scored, _ = scoring_mod.score_keys([key("Acura", "TLX")], negative, [])
+    assert scored[0]["尺码"] == "3XL+；3XL；2XL"
 
 
 def test_multiple_structures_merge_into_one_row_with_structure_prefix():

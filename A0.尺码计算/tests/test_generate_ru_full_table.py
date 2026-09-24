@@ -10,7 +10,7 @@ import pandas as pd
 PROJECT = Path(__file__).resolve().parents[1]
 if str(PROJECT) not in sys.path:
     sys.path.insert(0, str(PROJECT))
-SPEC = importlib.util.spec_from_file_location("generate_ru_full_table", PROJECT / "generate_ru_full_table.py")
+SPEC = importlib.util.spec_from_file_location("generate_ru_full_table", PROJECT / "src" / "generate_ru_full_table.py")
 assert SPEC and SPEC.loader
 module = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(module)

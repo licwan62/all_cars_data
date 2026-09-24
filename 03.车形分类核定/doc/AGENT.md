@@ -65,9 +65,11 @@ V0 V1
 
 ## 4. 各大类决策规则
 
-### 4.1 专用 Dodge Challenger
+### 4.1 Sedan/Coupe：宽方车头优先
 
-`MAKE=Dodge` 且 `MODEL=Challenger` 的量产代际和 Widebody 分支统一为 `dodge-challenger`。不得再落入 `SD0` 或 `SD2`。
+车身号只使用通用编号，不维护专用车型车身号。对于 Sedan/Coupe，先判断车头：**车头宽大、前角 R 角小、向前收窄少**的轮廓归 `SD2`；该规则优先于“低矮、下宽上窄”的 `SD0` 判据。只有排除上述宽方车头特征后，低矮、下宽上窄的运动 Coupe 才归 `SD0`。
+
+已核定的 Dodge Challenger 通用归并见 `data/通用车身号覆盖.csv`：`gen1` 归 `SD2`；`gen2`、`gen3`（含 Widebody）归 `SD0`。
 
 ### 4.2 Pickup
 

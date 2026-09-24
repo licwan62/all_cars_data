@@ -15,6 +15,8 @@
 "Crew Cab/Short Bed(11)"），因为同一皮卡车型不同驾驶室/货斗组合的车身尺寸差异很大，
 定制时需要参考。
 
+尺码：差评分析表.csv 各结构行的"尺码"按 品牌+车型 合并去重后透传，不参与评分。
+
 年份：从差评分析表.csv 各结构行的"年份"列（人工登记的差评涉及年款，逗号分隔的 4 位年份）
 合并去重后，压缩成 "95-97/26" 这种两位数年份+连续区间的格式；没有任何年份记录时留空，
 留空代表"未知或者具有普遍性"（不是"没有这一维度"）。
@@ -162,6 +164,17 @@ def _collect_years(rows: list[dict]) -> str:
     return format_years(years)
 
 
+def _collect_sizes(rows: list[dict]) -> str:
+    """合并各结构行的"尺码"（本身可能是"3XL+；3XL"这种多值），去重并保持首次出现的顺序。"""
+    sizes: list[str] = []
+    for row in rows:
+        for token in (row.get("尺码") or "").split("；"):
+            token = token.strip()
+            if token and token not in sizes:
+                sizes.append(token)
+    return "；".join(sizes)
+
+
 def score_negative_review_group(rows: list[dict], rules: dict) -> tuple[float | None, str]:
     """把同一 品牌+车型 下各结构的差评行合并成一个评分和一段尺寸/耳位相关的备注。
 
@@ -235,6 +248,7 @@ def score_keys(
         scored.append(
             {
                 "品牌": key.brand, "车型": key.model,
+                "尺码": _collect_sizes(rows_for_key),
                 "差评评分": score,
                 "定制需求等级": "" if score is None else level,
                 "差评备注": note,

@@ -7,7 +7,7 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
 CODE = PROJECT / "code"
-for path in (ROOT, CODE):
+for path in (ROOT / "lib", CODE):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 

@@ -11,16 +11,16 @@
 把车型尺寸库中的每个 `DIMENSION-ID` 匹配到可信 Trim，产出 `output/TRIM适配器.csv` 与 `output/尺寸TRIM映射.csv`。
 
 数据源：
-- 逐年 `Year+Make+Model` 原子（"4A fitment"）：历史上来自仓库外 `source/4A全数据.csv`（该路径已不可用）。2026-09-22 找回一份快照 `4a_fitment_0722.tsv`（仅 `year/make/model` 三列，51826 行），现作为唯一可用的联网匹配基准。
+- 逐年 `Year+Make+Model` 原子（"4A fitment"）：历史上来自仓库外 `source/4A全数据.csv`（该路径已不可用）。2026-09-22 找回一份快照 `data/4a_fitment_0722.tsv`（仅 `year/make/model` 三列，51826 行），现作为唯一可用的联网匹配基准。
 - 当前不再单独维护 `车型尺寸库.csv`：dimension 库直接由 A0 `output/全量表_US.csv` 派生（`DIMENSION-ID` 去掉区域后缀 " US"），因为 `data/TrimList.csv` 的键本身就是无后缀的基础 ID。
-- 原 `子车系维护表.csv`（`run.py`/`build_files` 全量重建所需的第三个输入）已不可用，**不得**再调用 `run.py` 对 `data/TrimList.csv` 做从零重建——那会丢失所有靠该表继承的"现有精确键"行。`data/TrimList.csv`/`TrimList_audit.csv` 现在本身就是被长期维护的状态，只做增量追加。
+- 原 `子车系维护表.csv`（`src/run.py`/`build_files` 全量重建所需的第三个输入）已不可用，**不得**再调用 `src/run.py` 对 `data/TrimList.csv` 做从零重建——那会丢失所有靠该表继承的"现有精确键"行。`data/TrimList.csv`/`TrimList_audit.csv` 现在本身就是被长期维护的状态，只做增量追加。
 
 联网分析 dimension-id ↔ fitment 匹配的增量流程：
 
-1. `python analyze_fitment_coverage.py --fitment <4a快照.csv> --dimensions <A0全量表_US派生.csv> --trim data/TrimList.csv --review data/TrimList_online_review.csv --data-dir <批次输出目录>`：离线生成 `FitmentCoverage.csv`/`FitmentCoverageCandidates.csv`/`FitmentCoverageSummary.json`，标出哪些 4A 原子还没有 `DIMENSION-ID` 映射、哪些有语义候选。
-2. `python research_nhtsa.py --review <候选文件> --report <报告路径> --evidence data/online_evidence.csv --apply-safe-evidence`：对候选中满足安全子集条件的记录发起 NHTSA vPIC 联网查询，命中的按 `DIMENSION-ID+Year+Make+Model` 键合并进 `data/online_evidence.csv`（非破坏性，仅新增/更新键，不删除既有证据）。
+1. `python src/analyze_fitment_coverage.py --fitment <4a快照.csv> --dimensions <A0全量表_US派生.csv> --trim data/TrimList.csv --review data/TrimList_online_review.csv --data-dir <批次输出目录>`：离线生成 `FitmentCoverage.csv`/`FitmentCoverageCandidates.csv`/`FitmentCoverageSummary.json`，标出哪些 4A 原子还没有 `DIMENSION-ID` 映射、哪些有语义候选。
+2. `python src/research_nhtsa.py --review <候选文件> --report <报告路径> --evidence data/online_evidence.csv --apply-safe-evidence`：对候选中满足安全子集条件的记录发起 NHTSA vPIC 联网查询，命中的按 `DIMENSION-ID+Year+Make+Model` 键合并进 `data/online_evidence.csv`（非破坏性，仅新增/更新键，不删除既有证据）。
 3. 增量把新批准的证据转成 `TrimList.csv`/`TrimList_audit.csv` 新行（校验：候选版本/结构与证据一致、键不在现有 TrimList 中、DIMENSION-ID+Year 落在当年 4A 原子集合内）；审核状态记为"联网证据批准"。这一步目前没有独立脚本，按各批次 `reports/apply_new_evidence_report.json` 记录的口径手工/临时脚本执行，后续如需固化为常规工具再补充到本目录。
-4. `python refresh_from_size_output.py`：重新用更新后的 `TrimList.csv`/`TrimList_audit.csv` 生成 `output/TRIM适配器.csv` 与 `output/尺寸TRIM映射.csv`；读取 A0 `output/全量表_US.csv`、本节点 `data/TrimList.csv`、`data/TrimList_audit.csv` 及 `data/trim_values.csv`（后者保留已审核的 TRIM 文本，补充 A0 表的空 `TRIM` 列）。已不在 US 尺寸库中的旧 TrimList 行先按 `data/TrimList_ID迁移.csv`（旧ID、Year、新ID、依据；新ID 留空表示按规则不映射）迁移到当前 ID，并同步 `trim_values.csv` 的 Trims；仍无对应的才从本批次输入中排除，迁移/排除数量记录于批次状态，原始 `data/TrimList*.csv` 不改动。上游尺寸库改名或拆分 ID 时必须补这张表。
+4. `python src/refresh_from_size_output.py`：重新用更新后的 `TrimList.csv`/`TrimList_audit.csv` 生成 `output/TRIM适配器.csv` 与 `output/尺寸TRIM映射.csv`；读取 A0 `output/全量表_US.csv`、本节点 `data/TrimList.csv`、`data/TrimList_audit.csv` 及 `data/trim_values.csv`（后者保留已审核的 TRIM 文本，补充 A0 表的空 `TRIM` 列）。已不在 US 尺寸库中的旧 TrimList 行先按 `data/TrimList_ID迁移.csv`（旧ID、Year、新ID、依据；新ID 留空表示按规则不映射）迁移到当前 ID，并同步 `trim_values.csv` 的 Trims；仍无对应的才从本批次输入中排除，迁移/排除数量记录于批次状态，原始 `data/TrimList*.csv` 不改动。上游尺寸库改名或拆分 ID 时必须补这张表。
 
 详见 [README.md](README.md)（TrimList 生成、例外维护、联网证据字段的完整规则）。
 
@@ -31,11 +31,11 @@
 汇总列 = 各区域列的并集，`DIMENSION-CODE`、`DIMENSION-ID` 固定为最后两列。
 
 ```powershell
-python build_consolidated_full_table.py
+python src/build_consolidated_full_table.py
 ```
 
 ## 运行顺序
 
-Trim 匹配（第 1 段第 4 步 `refresh_from_size_output.py`）产出新的 `output/尺寸TRIM映射.csv` 后，必须重跑 `python build_consolidated_full_table.py`（第 2 段）才能把新匹配到的 Trim 回填进 `output/全量表_汇总.csv`；两段共用同一个 `output/manifest.json`，由 `scripts/publish_release.py` 统一发布。
+Trim 匹配（第 1 段第 4 步 `refresh_from_size_output.py`）产出新的 `output/尺寸TRIM映射.csv` 后，必须重跑 `python src/build_consolidated_full_table.py`（第 2 段）才能把新匹配到的 Trim 回填进 `output/全量表_汇总.csv`；两段共用同一个 `output/manifest.json`，由 `scripts/publish_release.py` 统一发布。
 
 当前已可汇总三地区全量表；EU 覆盖版中的销量零值为占位，RU 销量为区域代理，汇总表必须保留该口径限制。遵守仓库根目录 `AGENTS.md`。

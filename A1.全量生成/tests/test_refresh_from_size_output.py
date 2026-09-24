@@ -6,6 +6,7 @@ from pathlib import Path
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
 sys.path.insert(0, str(PROJECT))
+sys.path.insert(0, str(PROJECT / "src"))
 
 import refresh_from_size_output as refresh  # noqa: E402
 

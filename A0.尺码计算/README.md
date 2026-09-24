@@ -15,7 +15,7 @@
 在仓库根目录执行：
 
 ```powershell
-python A0.尺码计算\pandas_analysis.py
+python A0.尺码计算\src\pandas_analysis.py
 ```
 
 默认从 `01.整理尺寸库/output/尺寸库.csv`、`03.车形分类核定/output/车形分类.csv`、`02.销量评估/output/原子销量.csv` 读取流水线输入；参考尺寸与尺码规则由本 agent 的 `data/` 维护。程序先创建不可覆盖的 artifact，校验后更新 `A0.尺码计算/output/`。
@@ -24,7 +24,7 @@ RU 区域全量使用 `generate_ru_full_table.py`：尺寸只读取 `01.整理�
 
 EU 使用 `publish_eu_current_research.py` 发布 `data/eu/当前已审核全量.csv` 中与当前 `尺寸库_EU.csv` 仍然一致的已审核行。该交付物是当前研究进度的全量快照，不表示 EU 尺寸库已全覆盖；覆盖情况写入 `尺码匹配报告_EU.json`。
 
-审核 RU 全量后运行 `python A0.尺码计算/publish_ru_data.py`，会校验尺寸库与全量表的 `DIMENSION-ID` 集合、销量数值和尺码规则覆盖，并原子发布到 `\\NAS8824B4\Public\PQData\pub_all_cars_data\data\ru_data/`。每次发布同时保留不可变 artifact 和 SHA-256。
+审核 RU 全量后运行 `python A0.尺码计算/src/publish_ru_data.py`，会校验尺寸库与全量表的 `DIMENSION-ID` 集合、销量数值和尺码规则覆盖，并原子发布到 `\\NAS8824B4\Public\PQData\pub_all_cars_data\data\ru_data/`。每次发布同时保留不可变 artifact 和 SHA-256。
 
 CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引号的 `74,286`，因此可被 pandas、Excel 和数据库稳定解析。
 
@@ -32,23 +32,23 @@ CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引
 
 ```powershell
 # 指定共享数据、项目规则和输出
-python A0.尺码计算\pandas_analysis.py `
+python A0.尺码计算\src\pandas_analysis.py `
   --source-dir 01.整理尺寸库\output `
   --config-dir A0.尺码计算\data `
   --body-source 03.车形分类核定\output\车形分类.csv `
   --sales-source 02.销量评估\output\原子销量.csv
 
 # 兼容旧的全量 input 副本，仅用于历史回归
-python A0.尺码计算\pandas_analysis.py --input-dir <历史回归目录> --no-workbook-output
+python A0.尺码计算\src\pandas_analysis.py --input-dir <历史回归目录> --no-workbook-output
 
 # 保留车型尺寸源顺序，不按 DIMENSION-ID 升序
-python A0.尺码计算\pandas_analysis.py --keep-source-order
+python A0.尺码计算\src\pandas_analysis.py --keep-source-order
 
 # 显式指定子车系映射；不需要 TRIM 时可用 --no-submodel
-python A0.尺码计算\pandas_analysis.py --submodel-source A0.尺码计算\data\子车系维护表.csv
+python A0.尺码计算\src\pandas_analysis.py --submodel-source A0.尺码计算\data\子车系维护表.csv
 
 # 如需兼容旧流程，可显式生成历史工作簿候选
-python A0.尺码计算\pandas_analysis.py `
+python A0.尺码计算\src\pandas_analysis.py `
   --workbook-output A0.尺码计算\output\车型数据尺码.xlsx
 ```
 
@@ -61,7 +61,7 @@ python A0.尺码计算\pandas_analysis.py `
 `店铺分组/货架.yaml` 定义每个店铺的 `匹配尺码` 与 `发货尺码`。生成程序会先用完整规则输出全尺码全量，再为每个店铺只保留其匹配尺码作为候选池；成功结果及诊断候选统一转换为发货尺码。
 
 ```powershell
-python A0.尺码计算\generate_store_outputs.py
+python A0.尺码计算\src\generate_store_outputs.py
 ```
 
 默认在 `A0.尺码计算/artifacts` 下新建版本批次，输出 `全量表_US.csv`、`尺寸分析表.csv`、各店铺的 `店铺名全量.csv` 和 `status.json`；校验成功后原子更新本项目 `output/`。
@@ -74,7 +74,7 @@ python A0.尺码计算\generate_store_outputs.py
 
 ## 当前全量表计算列
 
-本节对应当前发布的 [`public/全量数据.csv`](../public/全量数据.csv)，以 [`pandas_analysis.py`](pandas_analysis.py) 的正式计算流程为准。下述尺寸均为 **毫米**；`R(x)` 表示按五成双取整，例如 `R(2000.5)=2000`、`R(2001.5)=2002`。
+本节对应当前发布的 [`public/全量数据.csv`](../public/全量数据.csv)，以 [`pandas_analysis.py`](src/pandas_analysis.py) 的正式计算流程为准。下述尺寸均为 **毫米**；`R(x)` 表示按五成双取整，例如 `R(2000.5)=2000`、`R(2001.5)=2002`。
 
 输入基表为 `public/尺寸库.csv`。`MAKE`、`MODEL`、`版本`、`结构`、`CAB`、`BED`、`代际`、`YEAR`、`分类`、基础 `DIMENSION-ID` 在计算链内直接保留，不重新分类或重建主键；写出 US 全量表前统一追加 `US`。其他列按下表生成。
 
@@ -94,7 +94,7 @@ python A0.尺码计算\generate_store_outputs.py
 | `插片指数` | 非皮卡：`R((前宽-MM + 后宽-MM) / 4 − 750)`；皮卡：`R(前宽-MM / 2 − 750)` | 皮卡不再把后轮毂突出计入插片需求；负值照实保留，不截断为 0 |
 | `等效长` | `R((L-MM + W-MM) × 周长系数 − 1500)` | 仅作参考留痕，不参与正式匹配 |
 
-系数来自 `public/参考尺寸计算.csv`，按 `车形=车身号` 关联。`750` 是当前代码统一使用的板片偏移量，单位为毫米。`颈宽系数` 和 `下摆上限` 当前不参与这些计算；尤其不把颈宽并入插片指数。
+系数来自上游 `03.车形分类核定/output/参考尺寸计算.csv`（03 在 `data/` 维护），按 `车形=车身号` 关联。`750` 是当前代码统一使用的板片偏移量，单位为毫米。`颈宽系数` 和 `下摆上限` 当前不参与这些计算；尤其不把颈宽并入插片指数。
 
 计算顺序为：英寸转毫米并取整 → 计算前后宽并取整 → 按分类计算插片指数并取整 → 计算等效长并取整。缺少必要尺寸、车形或相应系数时，该派生值留空，不用 0 或其他车型系数替代。正式匹配只检查 `L-MM` 和插片指数；等效长缺失不会单独触发“数据不全”。
 
@@ -104,9 +104,9 @@ python A0.尺码计算\generate_store_outputs.py
 
 | 输出列 | 生成方法 | 空值或异常情况 |
 | --- | --- | --- |
-| `自动尺码` | 在适用尺码池中按 `插片指数上限`、`长上限` 依次升序，先取同时满足 `L-MM ≤ 长上限`、`插片指数 ≤ 插片指数上限` 的第一个基础候选；再要求其长度余量不超过容差，成功时输出 `内部尺码`。历史 `档位序号` 不参与排序 | 缺少 `L-MM` 或插片指数为 `数据不全`；没有最终可用候选为 `无可用尺码` |
+| `自动尺码` | 插片指数只决定匹配队列：`插片指数 ≤ 插片指数上限`，且规则填写了 `插片指数下限` 时还须 `插片指数 > 插片指数下限`（如宽头老爷车 4*-0 下限 120）。队列内按 `长上限` 升序，取第一个 `L-MM ≤ 长上限` 且长度余量不超过容差的尺码，输出 `内部尺码`；长上限相同时插片指数上限较小者优先。分类内无结果时扩大到同 `尺码池` 的其他分类尺码。历史 `档位序号` 不参与排序 | 缺少 `L-MM` 或插片指数为 `数据不全`；没有最终可用候选为 `无可用尺码` |
 | `自动长度余量` | 成功匹配尺码的 `长上限 − L-MM` | 只在成功匹配时填写；保留最多 1 位小数，整数不写 `.0` |
-| `候选` | 无可用尺码时，在最终采用的尺码池中选“相差数值”最小的 `内部尺码` | 同分按 `插片指数上限`、`长上限` 依次较小者优先；仍同分时保留规则文件顺序。匹配成功、数据不全或池内无有效规则时留空 |
+| `候选` | 无可用尺码时，在最终采用的尺码池中选“相差数值”最小的 `内部尺码`（不满足插片指数下限的尺码不作候选） | 同分按 `长上限`、`插片指数上限` 依次较小者优先；仍同分时保留规则文件顺序。匹配成功、数据不全或池内无有效规则时留空 |
 | `原因` | 候选存在超限项时，取超限差值最大的原因：`超长` 或 `插片指数超上限`；两项同差值时先报超长。无超限项但长度余量大于容差时为 `超余量` | 无候选时可留空；不表示候选已可用 |
 | `相差数值` | 有超限项时，取 `max(L-MM − 长上限, 插片指数 − 插片指数上限)` 中的正值最大者；无超限项但超余量时，取 `长上限 − L-MM` | `超余量` 时填写的是完整长度余量，不是“余量减 500”；保留最多 1 位小数。没有诊断候选时留空 |
 

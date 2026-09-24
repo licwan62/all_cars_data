@@ -86,6 +86,18 @@ def test_lossy_bridges_short_gap_and_pools_structures_with_unique_sizes():
     assert m_rows[0]["年份区间"] == "2010-2016"
     assert m_rows[0]["结构池"] == "Coupe; Sedan"
     assert m_rows[0]["扩张原子数"] == 4
+    assert m_rows[0]["扩张原子"] == "coupe_10-12; sedan_13"
+
+
+def test_lossy_lists_only_years_for_single_variant_expansion():
+    rows = [
+        row(structure="Sedan", year="2022-2023", size="M"),
+        row(structure="Sedan", year="2026-2027", size="M"),
+    ]
+    result = compress_mod.compress_all(rows, max_gap_years=3)
+    assert len(result["lossy"]) == 1
+    assert result["lossy"][0]["扩张原子数"] == 2
+    assert result["lossy"][0]["扩张原子"] == "24-25"
 
 
 def test_lossy_never_covers_real_atom_with_other_size():

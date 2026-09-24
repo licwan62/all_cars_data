@@ -29,3 +29,21 @@ def test_pipeline_manifest_is_owned_by_last_node():
     payload = __import__("json").loads(validator.MANIFEST.read_text(encoding="utf-8"))
     assert payload["governance"]["manifest_owner"] == "link-analysis"
     assert payload["governance"]["manifest_owner_path"] == "D2.链接分析"
+
+
+def test_code_layout_rejects_loose_scripts_and_missing_entries(tmp_path, monkeypatch):
+    monkeypatch.setattr(validator, "ROOT", tmp_path)
+    project = tmp_path / "A1.demo"
+    (project / "src").mkdir(parents=True)
+    (project / "tests").mkdir()
+    (project / "src" / "run.py").write_text("", encoding="utf-8")
+    good = {"id": "demo", "path": "A1.demo", "code_dir": "src", "run": ["python src/run.py"], "tests": "tests"}
+    assert validator.check_code_layout([good]) == []
+
+    (project / "run.py").write_text("", encoding="utf-8")
+    missing = {**good, "run": ["python src/missing.py"], "tests": "tests_py"}
+    errors = validator.check_code_layout([missing])
+    assert any("run.py" in error and "根目录" in error for error in errors)
+    assert any("src/missing.py" in error for error in errors)
+    assert any("tests_py" in error for error in errors)
+    assert any("缺少 code_dir" in error for error in validator.check_code_layout([{"id": "x", "path": "A1.demo"}]))

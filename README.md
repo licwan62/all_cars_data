@@ -44,10 +44,27 @@ flowchart LR
 - 根目录 `release.json` 汇总每个节点当前版本与 artifact。
 
 ```powershell
-python scripts/publish_release.py            # 自上游到下游全量发布
+python scripts/publish_release.py            # 自上游到下游全量发布（同时刷新 流水线状态.md）
 python scripts/publish_release.py --dry-run
+python scripts/publish_release.py --status-only  # 不发布，只按当前 manifest 重建 流水线状态.md
 python scripts/validate_pipeline_structure.py
+python scripts/verify_pipeline.py            # 打通验证：依赖、编译、测试
+python scripts/verify_pipeline.py --rebuild all  # 沙箱重跑节点并比对 output
 ```
+
+当前流水线状态见 [`流水线状态.md`](流水线状态.md)：节点版本、是否过期、待产出项与交付物来源。该文件只由发布脚本生成，请勿手工修改。
+
+## 代码布局
+
+| 位置 | 内容 |
+| --- | --- |
+| `<节点>/<code_dir>/` | 节点代码，`code_dir` 为 `src`、`code` 或 `scripts`，登记在 `pipeline.json`；节点根目录不放 `.py` 脚本 |
+| `<节点>/tests/` | 节点测试（`pipeline.json` 的 `tests`） |
+| `lib/` | 跨节点共享模块：`id_scheme.py`、`full_table_schema.py`、`regional_size_common.py` |
+| `scripts/` | 仓库级工具：发布、追踪、结构校验、打通验证 |
+| `tests/` | 仓库级测试 |
+
+每个节点的正式生成命令登记在 `pipeline.json` 的 `run`，在节点目录下执行，例如 `A2.压缩尺寸信息` 为 `python src/run.py`。
 
 `pipeline.json` 的 `outputs` 只列已存在的稳定交付物，尚未产出的放 `pending`（当前：区域抓取候选、原子销量、全量表_EU、全量表_汇总、SKU聚类结果、发货单、尺寸迭代候选）。
 

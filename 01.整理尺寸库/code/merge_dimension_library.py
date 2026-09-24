@@ -30,8 +30,8 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 ROOT = PROJECT_DIR.parent
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+if str(ROOT / "lib") not in sys.path:
+    sys.path.insert(0, str(ROOT / "lib"))
 
 from id_scheme import append_country_code  # noqa: E402
 from regional_size_common import DIMENSION_COLUMNS, RegionalDataError, read_csv  # noqa: E402

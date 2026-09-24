@@ -18,8 +18,8 @@ import pandas as pd
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 ROOT = PROJECT_DIR.parent
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
+if str(ROOT / "lib") not in sys.path:
+    sys.path.insert(0, str(ROOT / "lib"))
 
 from regional_size_common import (  # noqa: E402
     RegionalDataError,

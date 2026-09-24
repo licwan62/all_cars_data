@@ -20,10 +20,10 @@ class StoreOutputTests(unittest.TestCase):
             PROJECT_DIR / "data" / "店铺分组" / "货架.yaml"
         )
 
-        self.assertEqual(rule_path.name, "0917.1-新命名.csv")
+        self.assertEqual(rule_path.name, "0924.2-老爷车插片下限.csv")
         self.assertEqual(size_column, "尺码")
         self.assertEqual(set(shops), {"HNT", "TM", "TM_拆分"})
-        self.assertEqual(dict(shops["TM_拆分"])["3XXL-550"], "4XL")
+        self.assertEqual(dict(shops["TM_拆分"])["3XXL-550"], "4XL-0")
 
     def test_shipping_size_mapping_updates_result_and_candidate(self) -> None:
         source = pd.DataFrame(

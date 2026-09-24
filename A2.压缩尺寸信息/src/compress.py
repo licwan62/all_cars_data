@@ -180,6 +180,43 @@ def _real_atoms(block: Block, facts: dict[tuple, str]) -> int:
     )
 
 
+def _short_year_ranges(years: list[int]) -> str:
+    """把缺失年份压成 ``24-25`` 形式，多个不连续区间用 ``/`` 分隔。"""
+    if not years:
+        return ""
+    ranges: list[tuple[int, int]] = []
+    start = previous = years[0]
+    for year in years[1:]:
+        if year == previous + 1:
+            previous = year
+            continue
+        ranges.append((start, previous))
+        start = previous = year
+    ranges.append((start, previous))
+
+    def short(year: int) -> str:
+        return f"{year % 100:02d}"
+
+    return "/".join(short(start) if start == end else f"{short(start)}-{short(end)}" for start, end in ranges)
+
+
+def _expansion_atoms(block: Block, facts: dict[tuple, str]) -> str:
+    """列出有损块新增代表的、不存在于上游原子事实中的结构和年份。"""
+    expanded: list[str] = []
+    show_variant = len(block.variants) > 1
+    for variant in sorted(block.variants, key=lambda item: item.label()):
+        missing = [
+            year for year in range(block.start, block.end + 1)
+            if (variant, year) not in facts
+        ]
+        ranges = _short_year_ranges(missing)
+        if not ranges:
+            continue
+        prefix = f"{variant.label().lower()}_" if show_variant else ""
+        expanded.append(f"{prefix}{ranges}")
+    return "; ".join(expanded)
+
+
 def _to_rows(model_key: tuple, blocks: list[Block], facts: dict[tuple, str], with_expansion: bool) -> list[dict]:
     region, make, model = model_key
     rows = []
@@ -193,6 +230,7 @@ def _to_rows(model_key: tuple, blocks: list[Block], facts: dict[tuple, str], wit
         }
         if with_expansion:
             row["扩张原子数"] = block.area() - real
+            row["扩张原子"] = _expansion_atoms(block, facts)
         rows.append(row)
     return rows
 

@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 PROJECT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location("publish_ru_data", PROJECT / "publish_ru_data.py")
+SPEC = importlib.util.spec_from_file_location("publish_ru_data", PROJECT / "src" / "publish_ru_data.py")
 assert SPEC and SPEC.loader
 module = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(module)

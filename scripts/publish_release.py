@@ -4,11 +4,12 @@
 每个节点：
 1. 新建不可覆盖的 ``artifacts/YYYY-MM-DD_NN_<node>-release/``，并写入 ``REPORT.md``；
 2. 把 ``outputs`` 声明的稳定交付物按 ``名称-YYYYMMDD_NN.扩展名`` 保存进该批次的 ``output/``，
-   并写 ``manifest.json``（交付物、sha256、上游节点及其版本、待落地项）；
+   并写 ``manifest.json``（交付物、sha256、上游节点及其版本、本节点 data/ 规则快照 ``rules``、待落地项）；
 3. 全部校验通过后，去掉版本后缀，原子发布到节点 ``output/``，同时写入同样的 ``output/manifest.json``；
 4. ``REPORT.md`` 将当前交付物与上一版本 artifact 比较，记录 CSV 的新增、删除、字段修改及示例。
 
-最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源。
+最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源，并重新生成 ``流水线状态.md``
+（该状态文件只由本脚本写入）。
 """
 
 from __future__ import annotations
@@ -23,6 +24,9 @@ import shutil
 import sys
 from datetime import date, datetime
 from pathlib import Path
+
+from pipeline_status import write_status
+from rules_snapshot import describe_changes, rules_changes, rules_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_NAME = "manifest.json"
@@ -134,7 +138,7 @@ def _csv_change_summary(previous: Path, current: Path) -> list[str]:
     return summary
 
 
-def write_report(path: Path, node: dict, version: str, released_at: str, previous_manifest: dict | None, deliverables: list[dict], output_dir: Path, root: Path) -> None:
+def write_report(path: Path, node: dict, version: str, released_at: str, previous_manifest: dict | None, deliverables: list[dict], output_dir: Path, root: Path, rules: list[dict] | None = None) -> None:
     """Write an auditable, compact Markdown description of this artifact's changes."""
     lines = [
         "# 发布报告", "",
@@ -142,8 +146,16 @@ def write_report(path: Path, node: dict, version: str, released_at: str, previou
         f"- 版本：`{version}`",
         f"- 发布时间：`{released_at}`",
         f"- 工作描述：{artifact_slug(node).removesuffix('-release')} 输出刷新。", "",
-        "## 交付物与变更", "",
     ]
+    if rules is not None:
+        lines.extend(["## 规则（data/）", ""])
+        if previous_manifest is None or "rules" not in previous_manifest:
+            lines.append(f"- 本版本首次记录规则快照，共 {len(rules)} 个文件。")
+        else:
+            changed = describe_changes(rules_changes(previous_manifest["rules"], rules))
+            lines.append(f"- 相对上一版本：{changed}。" if changed else "- 与上一版本相同。")
+        lines.append("")
+    lines.extend(["## 交付物与变更", ""])
     previous = {item["file"]: item for item in (previous_manifest or {}).get("deliverables", [])}
     for item in deliverables:
         name = item["file"]
@@ -245,10 +257,11 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
         "published_at": released_at,
         "deliverables": deliverables,
         "upstream": upstream_records(root, node, by_id),
+        "rules": rules_snapshot(project),
         "pending": node.get("pending", []),
         "notes": node.get("release_notes", []),
     }
-    write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root)
+    write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root, manifest["rules"])
     write_json_atomic(staging / MANIFEST_NAME, manifest)
     os.replace(staging, batch_dir)
 
@@ -299,6 +312,7 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False)
             summary_path,
             {"schema_version": 1, "released_at": now.isoformat(timespec="seconds"), "nodes": previous},
         )
+        write_status(root)
     return released
 
 
@@ -306,7 +320,11 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--nodes", help="只发布这些节点 id（逗号分隔），默认全量")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--status-only", action="store_true", help="不发布，只按当前各节点 manifest 重建 流水线状态.md")
     args = parser.parse_args(argv)
+    if args.status_only:
+        print(f"已更新 {write_status(ROOT).name}")
+        return 0
     try:
         release_all(ROOT, set(args.nodes.split(",")) if args.nodes else None, args.dry_run)
     except ReleaseError as error:

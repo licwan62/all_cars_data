@@ -53,9 +53,38 @@ def test_us_rename_uses_explicit_migration_and_missing_us_fails():
         module.build(source, prior, [], RULES)
 
 
+def test_generic_shape_override_uses_boxy_priority_over_low_sport():
+    source = [lib_row("Dodge Challenger Coupe 1970-1972 US", "Coupe", "跑车", make="Dodge", model="Challenger", generation="gen1")]
+    prior = [shape_row(source[0]["DIMENSION-ID"], "dodge-challenger", "US核定")]
+    overrides = {("dodge", "challenger", "gen1", "coupe"): "SD2"}
+    out = module.build(source, prior, [], RULES, generic_overrides=overrides)["output"][0]
+    assert (out["车形"], out["处理状态"]) == ("SD2", "US核定")
+
+
 @pytest.mark.parametrize("structure,category,expected", [
     ("Liftback", "三厢车", "SD1"), ("Liftback", "两厢车", "H0"), ("Fastback", "跑车", "SD0"),
     ("Sattelschlepper", "", "V0"), ("SUV 5dr", "越野车", "SU1"),
 ])
 def test_proxy_shapes(structure, category, expected):
     assert module.proxy_shape(lib_row("x", structure, category), RULES) == expected
+
+
+def reference_rows(shapes, **overrides):
+    rows = [{"车身号": shape, "前宽系数": "0.7", "后宽系数": "0.7", "弧长系数": "0.8", "周长系数": "0.9"} for shape in shapes]
+    for row in rows:
+        row.update(overrides.get(row["车身号"], {}))
+    return rows
+
+
+def test_reference_table_must_cover_allowed_shapes_with_numeric_coefficients():
+    assert all(module.validate_reference(reference_rows(sorted(module.ALLOWED))).values())
+    missing = module.validate_reference(reference_rows(sorted(module.ALLOWED - {"V1"})))
+    assert not missing["reference_covers_allowed_shapes"]
+    blank = module.validate_reference(reference_rows(sorted(module.ALLOWED), JP={"周长系数": ""}))
+    assert not blank["reference_coefficients_numeric"]
+    duplicate = module.validate_reference(reference_rows([*sorted(module.ALLOWED), "H0"]))
+    assert not duplicate["reference_shapes_unique"]
+
+
+def test_current_reference_data_passes_validation():
+    assert all(module.validate_reference(module.read_rows(module.REFERENCE)).values())

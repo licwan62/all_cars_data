@@ -84,7 +84,7 @@ def main() -> None:
         for path in root.rglob("*.py"):
             migrate_code(path)
             code_count += 1
-    for path in (ROOT / "id_scheme.py", ROOT / "verify_dimension_group_ids.py"):
+    for path in (ROOT / "lib" / "id_scheme.py", ROOT / "verify_dimension_group_ids.py"):
         migrate_code(path)
         code_count += 1
     print(f"migrated schema in {csv_count} CSV, {json_count} JSON, and {code_count} Python files")

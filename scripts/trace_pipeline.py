@@ -6,6 +6,8 @@
    且文件名主干一致（只差版本后缀）。
 2. 每个上游输入：manifest 记录的 sha256 == 上游当前 output/ 文件的 sha256；不一致即本节点已过期，需要重跑。
 3. 上游节点当前版本与 manifest 记录的输入版本对比（仅提示）。
+4. 本节点 data/ 规则：与 manifest 的 ``rules`` 快照比对；规则已改而输出未重新发布即过期。
+   旧 manifest 没有 ``rules`` 时显示“未记录”，下次发布后生效。
 
 打印追踪表；存在不一致或过期节点时返回 1。
 """
@@ -16,6 +18,8 @@ import hashlib
 import json
 import sys
 from pathlib import Path
+
+from rules_snapshot import describe_changes, rules_changes, rules_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -61,19 +65,27 @@ def trace_node(node: dict, by_id: dict[str, dict]) -> tuple[list[str], list[str]
                 f"{node['path']}: 上游 {up_node['path']} 已变化（记录 {upstream.get('version')}，"
                 f"当前 {(up_manifest or {}).get('version')}）：{', '.join(changed)}"
             )
+    if "rules" in manifest:
+        changed = describe_changes(rules_changes(manifest["rules"], rules_snapshot(ROOT / node["path"])))
+        if changed:
+            stale.append(f"{node['path']}: 本节点规则在 {manifest['version']} 发布后已变化：{changed}")
     return errors, stale
+
+
+def rules_state(manifest: dict) -> str:
+    return "已记录" if "rules" in manifest else "未记录"
 
 
 def main() -> int:
     payload = json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))
     by_id = {node["id"]: node for node in payload["nodes"]}
     failed = False
-    print(f"{'节点':<22}{'版本':<14}{'交付物':>4}  {'上游输入':>6}  状态")
+    print(f"{'节点':<22}{'版本':<14}{'交付物':>4}  {'上游输入':>6}  {'规则快照':<6}状态")
     for node in payload["nodes"]:
         errors, stale = trace_node(node, by_id)
         manifest = load_manifest(node) or {}
         state = "OK" if not (errors or stale) else ("ERROR" if errors else "STALE")
-        print(f"{node['path']:<22}{manifest.get('version', '-'):<14}{len(manifest.get('deliverables', [])):>4}  {len(manifest.get('upstream', [])):>6}  {state}")
+        print(f"{node['path']:<22}{manifest.get('version', '-'):<14}{len(manifest.get('deliverables', [])):>4}  {len(manifest.get('upstream', [])):>6}  {rules_state(manifest):<8}{state}")
         for line in [*errors, *stale]:
             print(f"    - {line}")
         failed = failed or bool(errors or stale)

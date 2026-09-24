@@ -12,8 +12,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-if str(Path(__file__).resolve().parents[2]) not in sys.path:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+if str(Path(__file__).resolve().parents[2] / "lib") not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "lib"))
 
 from id_scheme import dimension_id
 

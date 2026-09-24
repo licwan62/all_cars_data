@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 
 
-PATH = Path(__file__).resolve().parents[1] / "publish_eu_current_research.py"
+PATH = Path(__file__).resolve().parents[1] / "src" / "publish_eu_current_research.py"
 SPEC = importlib.util.spec_from_file_location("publish_eu_current_research", PATH)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader

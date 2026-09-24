@@ -379,18 +379,20 @@ def export_source_candidate(
 
 
 def _load_eu_module():
-    path = ROOT / "EU尺码分析" / "pandas_analysis.py"
+    # EU 基表构建已迁入 01.整理尺寸库/code/regional_sources.py 的 build_eu_base。
+    path = ROOT / "01.整理尺寸库" / "code" / "regional_sources.py"
     spec = importlib.util.spec_from_file_location("eu_size_analysis_for_scraper", path)
     if spec is None or spec.loader is None:
         raise ExportError(f"无法加载 EU 尺码分析模块：{path}")
     module = importlib.util.module_from_spec(spec)
     sys.modules[spec.name] = module
     spec.loader.exec_module(module)
+    module.build_base = module.build_eu_base
     return module
 
 
 def run_eu_pipeline(source_dir: Path, output_dir: Path, as_of_year: int) -> dict[str, Any]:
-    sys.path.insert(0, str(ROOT))
+    sys.path.insert(0, str(ROOT / "lib"))
     from regional_size_common import (  # noqa: PLC0415
         build_dimension_library,
         calculate_us_standard,

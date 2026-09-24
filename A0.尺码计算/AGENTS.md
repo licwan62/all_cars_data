@@ -6,7 +6,7 @@
 
 ## 上游与交付物（第 4 层）
 
-上游 `output/`：`01.整理尺寸库/尺寸库.csv`、`03.车形分类核定/车形分类.csv`、`02.销量评估/原子销量.csv`、`02.代码映射/尺寸编码映射.csv`。
+上游 `output/`：`01.整理尺寸库/尺寸库.csv`、`03.车形分类核定/车形分类.csv`、`03.车形分类核定/参考尺寸计算.csv`（车身号→系数）、`02.销量评估/原子销量.csv`、`02.代码映射/尺寸编码映射.csv`。
 
 全量表带 `DIMENSION-CODE` 列（在 `DIMENSION-ID` 之前），由 `full_table_schema.attach_dimension_code` 按 `DIMENSION-ID` 关联；任何 ID 缺少编码都会报错，不写空值。
 

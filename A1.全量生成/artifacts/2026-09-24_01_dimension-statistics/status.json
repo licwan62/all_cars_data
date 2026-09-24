@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "version": "20260924_01",
+  "source_rows": 43669,
+  "sizes": 54,
+  "deliverables": [
+    {
+      "file": "尺码宽高统计.csv",
+      "artifact_file": "output/尺码宽高统计-20260924_01.csv",
+      "rows": 54,
+      "sha256": "0f5cd781290f6684883f51196aa102ddb758d1ebcaa10240177845554e5a1cea"
+    },
+    {
+      "file": "尺码宽高极值车型.csv",
+      "artifact_file": "output/尺码宽高极值车型-20260924_01.csv",
+      "rows": 247,
+      "sha256": "a19db154962d8761c1797ba374ab2d3121133aa5fe8e936214a667214b402040"
+    },
+    {
+      "file": "尺码尺寸异常.csv",
+      "artifact_file": "output/尺码尺寸异常-20260924_01.csv",
+      "rows": 2933,
+      "sha256": "0f234fdf22282cc158a288c9f40e35c547ed4f95d1a9ca08d012119be983ed92"
+    }
+  ],
+  "method": {
+    "variance": "population",
+    "outlier": "1.5×IQR or |z|≥3.0"
+  }
+}

@@ -74,3 +74,41 @@ def test_missing_declared_output_aborts_before_any_write(tmp_path):
         release.release_all(repo)
     assert not (repo / "00.a" / "artifacts").exists()
     assert not (repo / "release.json").exists()
+
+
+def test_release_writes_status_file_and_tampering_is_detected(tmp_path):
+    import pipeline_status
+
+    repo = make_repo(tmp_path)
+    assert pipeline_status.check_status(repo)  # 发布前不存在
+
+    release.release_all(repo)
+    status = repo / pipeline_status.STATUS_NAME
+    text = status.read_text(encoding="utf-8")
+    assert "| 01.b |" in text and "最新" in text
+    assert pipeline_status.check_status(repo) == []
+
+    status.write_text(text + "\n临时笔记\n", encoding="utf-8")
+    assert pipeline_status.check_status(repo)
+
+
+def test_status_marks_node_stale_when_upstream_republished(tmp_path):
+    import pipeline_status
+
+    repo = make_repo(tmp_path)
+    release.release_all(repo)
+    (repo / "00.a" / "output" / "车型结构.csv").write_text("ID,X\n1,3\n", encoding="utf-8-sig")
+    release.release_all(repo, only={"a"})
+
+    text = (repo / pipeline_status.STATUS_NAME).read_text(encoding="utf-8")
+    assert "| 01.b |" in text and "过期" in text
+    assert "上游 00.a 已更新" in text
+    assert pipeline_status.check_status(repo) == []
+
+
+def test_dry_run_does_not_touch_status_file(tmp_path):
+    import pipeline_status
+
+    repo = make_repo(tmp_path)
+    release.release_all(repo, dry_run=True)
+    assert not (repo / pipeline_status.STATUS_NAME).exists()

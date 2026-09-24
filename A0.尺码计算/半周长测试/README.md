@@ -16,7 +16,7 @@
 运行：
 
 ```powershell
-python 尺码计算\半周长测试\half_perimeter_analysis.py
+python A0.尺码计算\src\half_perimeter_analysis.py
 ```
 
 输出：

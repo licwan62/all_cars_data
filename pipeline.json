@@ -8,14 +8,20 @@
   "directory_contract": {
     "data": "agent-maintained rules and reference material",
     "output": "current validated handoff for downstream agents (stable names, no version suffix) plus manifest.json",
-    "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext"
+    "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext",
+    "code": "节点代码集中在 code_dir 声明的目录（src/、code/ 或 scripts/）；节点根目录不放 .py 脚本。run 为在节点目录下执行的正式生成命令，tests 为自动测试目录。仓库级共享模块在根目录 lib/，仓库级工具在 scripts/。"
   },
   "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表、B 定制评分、C 代表车型、D 发货单、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账），序号规则同样适用（线内后续序号必须大于它）。",
-  "release_contract": "python scripts/publish_release.py 自上游到下游发布：artifact 内交付物带 -YYYYMMDD_NN 后缀，发布到 output/ 时去掉后缀，manifest.json 记录交付物 sha256、artifact 来源与上游版本；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
+  "release_contract": "python scripts/publish_release.py 自上游到下游发布：artifact 内交付物带 -YYYYMMDD_NN 后缀，发布到 output/ 时去掉后缀，manifest.json 记录交付物 sha256、artifact 来源、上游版本与本节点 data/ 规则快照（rules，换行归一后的 sha256）；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
   "nodes": [
     {
       "id": "dimension-crawler",
       "path": "00.自动化尺寸抓取器",
+      "code_dir": "src",
+      "run": [
+        "pwsh -File run_from_config.ps1 -ConfigPath configs/<区域>.yaml"
+      ],
+      "tests": "tests_py",
       "layer": 0,
       "line": "U",
       "role": "upstream",
@@ -31,6 +37,13 @@
     {
       "id": "dimension-library",
       "path": "01.整理尺寸库",
+      "code_dir": "code",
+      "run": [
+        "python code/build_dimension_library.py --region eu",
+        "python code/build_dimension_library.py --region ru",
+        "python code/merge_dimension_library.py"
+      ],
+      "tests": "tests",
       "layer": 1,
       "line": "U",
       "role": "upstream",
@@ -48,6 +61,11 @@
     {
       "id": "structure-review",
       "path": "02.分类结构审核",
+      "code_dir": "code",
+      "run": [
+        "python code/build_structure_review.py"
+      ],
+      "tests": "tests",
       "layer": 2,
       "line": "U",
       "role": "upstream",
@@ -68,6 +86,11 @@
     {
       "id": "sales-estimation",
       "path": "02.销量评估",
+      "code_dir": "scripts",
+      "run": [
+        "python scripts/run_pipeline.py"
+      ],
+      "tests": "tests",
       "layer": 2,
       "line": "U",
       "role": "upstream",
@@ -85,6 +108,11 @@
     {
       "id": "code-mapping",
       "path": "02.代码映射",
+      "code_dir": "src",
+      "run": [
+        "python src/main.py"
+      ],
+      "tests": "tests",
       "layer": 2,
       "line": "U",
       "role": "upstream",
@@ -100,6 +128,12 @@
     {
       "id": "shape-classification",
       "path": "03.车形分类核定",
+      "code_dir": "code",
+      "run": [
+        "python code/build_regional_shape_output.py",
+        "python code/validate_regional_shape_output.py"
+      ],
+      "tests": "tests",
       "layer": 3,
       "line": "U",
       "role": "upstream",
@@ -108,13 +142,22 @@
         "structure-review"
       ],
       "outputs": [
-        "车形分类.csv"
+        "车形分类.csv",
+        "参考尺寸计算.csv"
       ],
       "pending": []
     },
     {
       "id": "size-calculation",
       "path": "A0.尺码计算",
+      "code_dir": "src",
+      "run": [
+        "python src/generate_store_outputs.py",
+        "python src/generate_ru_full_table.py",
+        "python src/build_regional_coverage_full.py",
+        "python src/publish_rule_reference.py"
+      ],
+      "tests": "tests",
       "layer": 4,
       "line": "A",
       "index": 0,
@@ -150,6 +193,13 @@
     {
       "id": "full-generation",
       "path": "A1.全量生成",
+      "code_dir": "src",
+      "run": [
+        "python src/refresh_from_size_output.py",
+        "python src/build_consolidated_full_table.py",
+        "python src/build_dimension_statistics.py"
+      ],
+      "tests": "tests",
       "layer": 5,
       "line": "A",
       "index": 1,
@@ -160,7 +210,10 @@
       "outputs": [
         "全量表_汇总.csv",
         "TRIM适配器.csv",
-        "尺寸TRIM映射.csv"
+        "尺寸TRIM映射.csv",
+        "尺码宽高统计.csv",
+        "尺码宽高极值车型.csv",
+        "尺码尺寸异常.csv"
       ],
       "pending": [],
       "release_notes": [
@@ -171,6 +224,11 @@
     {
       "id": "size-compression",
       "path": "A2.压缩尺寸信息",
+      "code_dir": "src",
+      "run": [
+        "python src/run.py"
+      ],
+      "tests": "tests",
       "layer": 5,
       "line": "A",
       "index": 2,
@@ -196,6 +254,11 @@
     {
       "id": "negative-review-analysis",
       "path": "B0.差评分析",
+      "code_dir": "src",
+      "run": [
+        "python src/run.py"
+      ],
+      "tests": "tests",
       "layer": 0,
       "line": "B",
       "index": 0,
@@ -212,6 +275,11 @@
     {
       "id": "compression-scoring",
       "path": "B1.压缩定制评分",
+      "code_dir": "src",
+      "run": [
+        "python src/run.py"
+      ],
+      "tests": "tests",
       "layer": 6,
       "line": "B",
       "index": 1,
@@ -232,6 +300,11 @@
     {
       "id": "representative-model",
       "path": "C1.车型代表分析",
+      "code_dir": "src",
+      "run": [
+        "python src/build_size_representatives.py"
+      ],
+      "tests": null,
       "layer": 5,
       "line": "C",
       "index": 1,
@@ -249,6 +322,9 @@
     {
       "id": "sku-clustering",
       "path": "D1.聚类SKU",
+      "code_dir": null,
+      "run": [],
+      "tests": null,
       "layer": 5,
       "line": "D",
       "index": 1,
@@ -265,6 +341,16 @@
     {
       "id": "link-analysis",
       "path": "D2.链接分析",
+      "code_dir": [
+        "W型车",
+        "皮卡",
+        "sku_shipment_analysis"
+      ],
+      "run": [],
+      "tests": [
+        "W型车/tests",
+        "sku_shipment_analysis/tests"
+      ],
       "layer": 6,
       "line": "D",
       "index": 2,
@@ -282,6 +368,9 @@
     {
       "id": "dimension-iteration",
       "path": "X1.尺寸迭代",
+      "code_dir": "src",
+      "run": [],
+      "tests": "tests",
       "layer": 5,
       "line": "X",
       "index": 1,
@@ -299,6 +388,11 @@
     {
       "id": "size-cluster-analysis",
       "path": "X2.尺码簇分析",
+      "code_dir": "src",
+      "run": [
+        "python src/analyze_size_clusters.py"
+      ],
+      "tests": null,
       "layer": 5,
       "line": "X",
       "index": 2,
@@ -385,5 +479,6 @@
         "发货单.csv"
       ]
     }
-  ]
+  ],
+  "status_contract": "根目录 流水线状态.md 由 scripts/publish_release.py 在每次发布后生成，内容完全由 pipeline.json 与各节点 output/manifest.json 推导；临时工作不得修改，scripts/validate_pipeline_structure.py 会校验其与当前发布状态一致。"
 }
