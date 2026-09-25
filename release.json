@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "released_at": "2026-09-24T20:54:49+08:00",
+  "released_at": "2026-09-25T12:14:06+08:00",
   "nodes": {
     "dimension-crawler": {
       "path": "00.自动化尺寸抓取器",
@@ -37,8 +37,8 @@
     },
     "sales-estimation": {
       "path": "02.销量评估",
-      "version": "20260923_07",
-      "artifact": "02.销量评估/artifacts/2026-09-23_07_sales-estimation-release",
+      "version": "20260925_01",
+      "artifact": "02.销量评估/artifacts/2026-09-25_01_sales-estimation-release",
       "deliverables": [
         "原子销量.csv"
       ],
@@ -66,8 +66,8 @@
     },
     "size-calculation": {
       "path": "A0.尺码计算",
-      "version": "20260924_13",
-      "artifact": "A0.尺码计算/artifacts/2026-09-24_13_size-calculation-release",
+      "version": "20260925_01",
+      "artifact": "A0.尺码计算/artifacts/2026-09-25_01_size-calculation-release",
       "deliverables": [
         "全量表_US.csv",
         "全量表_EU.csv",
@@ -136,10 +136,13 @@
     },
     "full-generation": {
       "path": "A1.全量生成",
-      "version": "20260924_13",
-      "artifact": "A1.全量生成/artifacts/2026-09-24_13_full-generation-release",
+      "version": "20260925_06",
+      "artifact": "A1.全量生成/artifacts/2026-09-25_06_full-generation-release",
       "deliverables": [
         "全量表_汇总.csv",
+        "全量生成_US.csv",
+        "全量生成_EU.csv",
+        "全量生成_RU.csv",
         "TRIM适配器.csv",
         "尺寸TRIM映射.csv",
         "尺码宽高统计.csv",
@@ -159,15 +162,21 @@
     },
     "size-compression": {
       "path": "A2.压缩尺寸信息",
-      "version": "20260924_07",
-      "artifact": "A2.压缩尺寸信息/artifacts/2026-09-24_07_size-compression-release",
+      "version": "20260925_07",
+      "artifact": "A2.压缩尺寸信息/artifacts/2026-09-25_07_size-compression-release",
       "deliverables": [
         "压缩尺码表_US.csv",
         "压缩尺码表_US_有损.csv",
+        "压缩尺码表_US_皮卡.csv",
+        "压缩尺码表_US_皮卡_有损.csv",
         "压缩尺码表_EU.csv",
         "压缩尺码表_EU_有损.csv",
+        "压缩尺码表_EU_皮卡.csv",
+        "压缩尺码表_EU_皮卡_有损.csv",
         "压缩尺码表_RU.csv",
-        "压缩尺码表_RU_有损.csv"
+        "压缩尺码表_RU_有损.csv",
+        "压缩尺码表_RU_皮卡.csv",
+        "压缩尺码表_RU_皮卡_有损.csv"
       ],
       "pending": []
     },

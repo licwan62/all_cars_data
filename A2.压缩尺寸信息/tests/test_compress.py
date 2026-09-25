@@ -1,122 +1,107 @@
 from __future__ import annotations
 
+import csv
+import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import pandas as pd
+import pytest
 
-from src import compress as compress_mod  # noqa: E402
+PROJECT_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_DIR))
+
+from src import run as run_mod  # noqa: E402
+
+FIELDS = ["MAKE", "MODEL", "版本", "结构", "CAB", "BED", "YEAR", "分类", "自动尺码", "DIMENSION-ID"]
 
 
-def row(make="Ford", model="Focus", structure="Sedan", cab="", bed="", year="2018-2019", size="M", region="US"):
+def row(make="Ford", model="Focus", version="", structure="Sedan", cab="", bed="", year="2018-2019", category="三厢车", size="M", region="US"):
     return {
-        "MAKE": make, "MODEL": model, "结构": structure, "CAB": cab, "BED": bed,
-        "YEAR": year, "自动尺码": size, "DIMENSION-ID": f"{make} {model} {structure} {year} {region}",
+        "MAKE": make, "MODEL": model, "版本": version, "结构": structure, "CAB": cab, "BED": bed,
+        "YEAR": year, "分类": category, "自动尺码": size,
+        "DIMENSION-ID": " ".join(part for part in [make, model, version, structure, year, region] if part),
     }
 
 
-def test_merges_adjacent_years_with_same_size():
-    rows = [row(year="2018-2019", size="M"), row(year="2020-2021", size="M")]
-    compressed, meta = compress_mod.compress(rows)
-    assert len(compressed) == 1
-    assert compressed[0]["年份区间"] == "2018-2021"
-    assert compressed[0]["自动尺码"] == "M"
-    assert meta["report"]["冲突数"] == 0
+def profile() -> dict:
+    return run_mod.load_field_profile((PROJECT_DIR / "data" / run_mod.FIELD_PROFILE).resolve())
 
 
-def test_does_not_bridge_gap_years():
-    rows = [row(year="2018-2019", size="M"), row(year="2021-2022", size="M")]
-    compressed, _ = compress_mod.compress(rows)
-    ranges = sorted(item["年份区间"] for item in compressed)
-    assert ranges == ["2018-2019", "2021-2022"]
+def compress(rows: list[dict], region: str = "US") -> dict[str, pd.DataFrame]:
+    frame = pd.DataFrame(rows, columns=FIELDS).astype(str)
+    return run_mod.compress_region(region, frame, profile())["tables"]
 
 
-def test_pools_structures_sharing_same_size_same_year():
-    rows = [row(structure="Sedan", year="2020-2020", size="M"), row(structure="Coupe", year="2020-2020", size="M")]
-    compressed, _ = compress_mod.compress(rows)
-    assert len(compressed) == 1
-    assert compressed[0]["变体数"] == 2
-    assert "Sedan" in compressed[0]["结构池"] and "Coupe" in compressed[0]["结构池"]
+def years_of(table: pd.DataFrame) -> list[str]:
+    return sorted(table["YEAR"].tolist())
 
 
-def test_splits_structures_with_different_sizes():
-    rows = [row(structure="Sedan", year="2020-2020", size="M"), row(structure="Coupe", year="2020-2020", size="L")]
-    compressed, _ = compress_mod.compress(rows)
-    assert len(compressed) == 2
-    assert {item["自动尺码"] for item in compressed} == {"M", "L"}
+def test_single_year_rows_are_kept():
+    # 旧算法只认 YYYY-YYYY，单年份行被整行跳过（US 约 30%）
+    tables = compress([row(year="1987"), row(year="1988"), row(year="1989-1990")])
+    assert years_of(tables["non_pickup_lossless"]) == ["1987-1990"]
 
 
-def test_conflicting_size_for_same_variant_year_is_majority_voted_and_reported():
-    conflicting_rows = [row(year="2020-2020", size="M")] * 2 + [row(year="2020-2020", size="L")]
-    compressed, meta = compress_mod.compress(conflicting_rows)
-    assert len(compressed) == 1
-    assert compressed[0]["自动尺码"] == "M"
-    assert meta["report"]["冲突数"] == 1
+def test_versions_with_different_sizes_are_not_majority_voted():
+    tables = compress([
+        row(model="Blazer", version="2dr", structure="SUV", year="1995-1997", size="YM"),
+        row(model="Blazer", version="4dr", structure="SUV", year="1995-1997", size="YL"),
+    ])
+    high = tables["non_pickup_high"]
+    assert set(zip(high["VERSION"], high["BACKSIZE"])) == {("2dr", "YM"), ("4dr", "YL")}
 
 
-def test_skips_rows_with_missing_size_or_bad_year():
-    rows = [row(size=""), row(year="not-a-range")]
-    compressed, meta = compress_mod.compress(rows)
-    assert compressed == []
-    assert meta["report"]["跳过行数"] == 2
+def test_same_size_rows_merge_in_high_table():
+    tables = compress([row(year="2018-2019", size="M"), row(year="2020-2021", size="M")])
+    assert years_of(tables["non_pickup_high"]) == ["2018-2021"]
 
 
-def test_lossless_merges_variant_years_independently_of_sibling_structures():
-    rows = [
-        row(structure="Sedan", year="2017-2020", size="3L"),
-        row(structure="Sedan", year="2021-2026", size="3L"),
-        row(structure="Hatchback", year="2017-2020", size="2L"),
-    ]
-    compressed, _ = compress_mod.compress(rows)
-    sedan = [item for item in compressed if item["结构池"] == "Sedan"]
-    assert [item["年份区间"] for item in sedan] == ["2017-2026"]
+def test_pickups_are_split_into_pickup_tables():
+    tables = compress([
+        row(),
+        row(make="Ford", model="F-150", structure="", cab="Crew", bed="5.5", category="皮卡", year="2019-2020", size="PK-M"),
+    ])
+    assert len(tables["pickup_lossless"]) == 1
+    assert tables["pickup_lossless"].iloc[0]["CAB"] == "Crew"
+    assert "F-150" not in set(tables["non_pickup_lossless"]["MODEL"])
 
 
-def test_lossy_bridges_short_gap_and_pools_structures_with_unique_sizes():
-    rows = [
-        row(structure="Sedan", year="2010-2012", size="M"),
-        row(structure="Sedan", year="2014-2016", size="M"),
-        row(structure="Coupe", year="2013-2016", size="M"),
-        row(structure="Wagon", year="2010-2016", size="L"),
-    ]
-    result = compress_mod.compress_all(rows, max_gap_years=3)
-    assert result["check"]["无损"]["通过"] and result["check"]["有损"]["通过"]
-    m_rows = [item for item in result["lossy"] if item["自动尺码"] == "M"]
-    assert len(m_rows) == 1
-    assert m_rows[0]["年份区间"] == "2010-2016"
-    assert m_rows[0]["结构池"] == "Coupe; Sedan"
-    assert m_rows[0]["扩张原子数"] == 4
-    assert m_rows[0]["扩张原子"] == "coupe_10-12; sedan_13"
+def test_wrong_region_rows_fail():
+    with pytest.raises(run_mod.CompressionError):
+        compress([row(region="EU")], region="US")
 
 
-def test_lossy_lists_only_years_for_single_variant_expansion():
-    rows = [
-        row(structure="Sedan", year="2022-2023", size="M"),
-        row(structure="Sedan", year="2026-2027", size="M"),
-    ]
-    result = compress_mod.compress_all(rows, max_gap_years=3)
-    assert len(result["lossy"]) == 1
-    assert result["lossy"][0]["扩张原子数"] == 2
-    assert result["lossy"][0]["扩张原子"] == "24-25"
+def test_model_combo_comes_from_node_data():
+    assert run_mod.engine.DEFAULT_MODEL_COMBO_PATH == PROJECT_DIR / "data" / run_mod.MODEL_COMBO
 
 
-def test_lossy_never_covers_real_atom_with_other_size():
-    rows = [
-        row(structure="Sedan", year="2010-2011", size="M"),
-        row(structure="Sedan", year="2012-2012", size="L"),
-        row(structure="Sedan", year="2013-2014", size="M"),
-    ]
-    result = compress_mod.compress_all(rows, max_gap_years=3)
-    assert result["check"]["有损"]["通过"]
-    assert len(result["lossy"]) == 3
+def write_sources(source_dir: Path, rows_by_region: dict[str, list[dict]]) -> None:
+    source_dir.mkdir(parents=True, exist_ok=True)
+    for region, rows in rows_by_region.items():
+        with (source_dir / run_mod.upstream_file(region)).open("w", encoding="utf-8-sig", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=FIELDS)
+            writer.writeheader()
+            writer.writerows(rows)
 
 
-def test_lossy_respects_max_gap():
-    rows = [row(year="2000-2001", size="M"), row(year="2010-2011", size="M")]
-    result = compress_mod.compress_all(rows, max_gap_years=3)
-    assert len(result["lossy"]) == 2
+def test_run_writes_artifact_and_outputs(tmp_path: Path):
+    write_sources(tmp_path / "src", {region: [row(region=region)] for region in run_mod.REGIONS})
+    result = run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "output", tmp_path / "artifacts")
+    expected = sorted(name for region in run_mod.REGIONS for name in run_mod.output_names(region).values())
+    assert sorted(path.name for path in (tmp_path / "output").iterdir()) == expected
+    artifact = Path(result["artifact"])
+    status = json.loads((artifact / "status.json").read_text(encoding="utf-8"))
+    assert status["status"] == "passed"
+    assert (artifact / "input" / run_mod.FIELD_PROFILE).is_file()
+    assert (artifact / "input" / run_mod.MODEL_COMBO).is_file()
 
 
-def test_region_of_extracts_known_suffix():
-    assert compress_mod.region_of("Ford Focus Sedan 2018-2019 US") == "US"
-    assert compress_mod.region_of("Ford Focus Sedan 2018-2019") == ""
+def test_failed_run_leaves_output_untouched(tmp_path: Path):
+    output = tmp_path / "output"
+    output.mkdir()
+    (output / "keep.csv").write_text("x", encoding="utf-8")
+    write_sources(tmp_path / "src", {"US": [row()], "EU": [row(region="US")], "RU": [row(region="RU")]})
+    with pytest.raises(run_mod.CompressionError):
+        run_mod.run(tmp_path / "src", PROJECT_DIR / "data", output, tmp_path / "artifacts")
+    assert [path.name for path in output.iterdir()] == ["keep.csv"]
