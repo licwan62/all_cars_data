@@ -27,7 +27,8 @@ class EquivalentLengthFormulaTests(unittest.TestCase):
 
         self.assertEqual(row["等效长"], 4794)
 
-    def test_priority_is_preserved_when_more_than_one_size_fits(self) -> None:
+    def test_rule_file_order_breaks_ties_and_ignores_legacy_order_number(self) -> None:
+        # README：长上限与插片指数上限都相同时按规则文件顺序取第一个，历史 档位序号 不参与排序。
         parameters = pd.DataFrame([{"参数": "余量长容差", "值": "500"}])
         rules = pd.DataFrame(
             [
@@ -57,7 +58,7 @@ class EquivalentLengthFormulaTests(unittest.TestCase):
 
         result = matcher.match("三厢车", "", "", [4800, 100])
 
-        self.assertEqual(result.auto_size, "FIRST")
+        self.assertEqual(result.auto_size, "LATE")
 
 
 if __name__ == "__main__":
