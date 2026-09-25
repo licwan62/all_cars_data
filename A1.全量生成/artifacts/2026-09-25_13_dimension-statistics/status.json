@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "version": "20260925_13",
+  "source_rows": 43663,
+  "sizes": 60,
+  "region_size_groups": 106,
+  "regions": {
+    "EU": 26316,
+    "RU": 13121,
+    "US": 4226
+  },
+  "deliverables": [
+    {
+      "file": "尺码宽高统计.csv",
+      "artifact_file": "output/尺码宽高统计-20260925_13.csv",
+      "rows": 106,
+      "sha256": "2e417de1d4d4545b286609c6b386f1cc4891d82c543cb1513ac6c7b692fb033d"
+    },
+    {
+      "file": "尺码宽高极值车型.csv",
+      "artifact_file": "output/尺码宽高极值车型-20260925_13.csv",
+      "rows": 481,
+      "sha256": "92a9c27acf7a8aa47f2670934475c36816510aa6366067b0f9471fb1cd00cec9"
+    },
+    {
+      "file": "尺码尺寸异常.csv",
+      "artifact_file": "output/尺码尺寸异常-20260925_13.csv",
+      "rows": 3115,
+      "sha256": "5db9dd144165c4dc4b99ad37581f1c12b3df02b3f76b31cb7cc566d50af31adc"
+    }
+  ],
+  "method": {
+    "variance": "population",
+    "outlier": "1.5×IQR or |z|≥3.0"
+  }
+}
