@@ -1,0 +1,4 @@
+# 流水线交付物和历史批次按字节保存：manifest 记录的是发布时的原始 sha256，
+# 检出时若被 core.autocrlf 转换换行，下游（如网站流水线）的 sha256 校验会失败。
+*/output/** -text
+*/artifacts/** -text

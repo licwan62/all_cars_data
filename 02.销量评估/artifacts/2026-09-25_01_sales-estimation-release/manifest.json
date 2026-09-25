@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "node": "sales-estimation",
+  "path": "02.销量评估",
+  "version": "20260925_01",
+  "artifact": "02.销量评估/artifacts/2026-09-25_01_sales-estimation-release",
+  "published_at": "2026-09-25T11:15:50+08:00",
+  "deliverables": [
+    {
+      "file": "原子销量.csv",
+      "versioned_file": "原子销量-20260925_01.csv",
+      "artifact_file": "02.销量评估/artifacts/2026-09-25_01_sales-estimation-release/output/原子销量-20260925_01.csv",
+      "sha256": "b9a11ce1b9e4f867f7d3cb373c4efe103ce5f2caed55bd49d04f266251dc3735",
+      "bytes": 880413,
+      "rows": 15199
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-library",
+      "version": "20260923_07",
+      "artifact": "01.整理尺寸库/artifacts/2026-09-23_07_dimension-library-release",
+      "files": [
+        {
+          "file": "尺寸库.csv",
+          "versioned_file": "尺寸库-20260923_07.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_07_dimension-library-release/output/尺寸库-20260923_07.csv",
+          "sha256": "7439a94904c54532abc1037477c5ccab8ce2975d180c118e4c54c6ed141cb4c2"
+        },
+        {
+          "file": "尺寸库_US.csv",
+          "versioned_file": "尺寸库_US-20260923_07.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_07_dimension-library-release/output/尺寸库_US-20260923_07.csv",
+          "sha256": "47d37889c7c05f39c40f01b099bf0c204db2446bf3e863e1b9fc7610afaf1b01"
+        },
+        {
+          "file": "尺寸库_EU.csv",
+          "versioned_file": "尺寸库_EU-20260923_07.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_07_dimension-library-release/output/尺寸库_EU-20260923_07.csv",
+          "sha256": "29753c9320e58331726fd7da109dad2a9ba8b5e1bc1b227417a94cda49a4ec4c"
+        },
+        {
+          "file": "尺寸库_RU.csv",
+          "versioned_file": "尺寸库_RU-20260923_07.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-09-23_07_dimension-library-release/output/尺寸库_RU-20260923_07.csv",
+          "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/modeled_config_share_policy.json",
+      "sha256": "9f08cb720c87d13bd1511b01465a004639f75922f86d9885ab53a1bc7af7c69d"
+    },
+    {
+      "file": "data/modeled_historic_us_sales.csv",
+      "sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f"
+    },
+    {
+      "file": "data/README.md",
+      "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef"
+    },
+    {
+      "file": "data/ru/auto_ru_model_sales_with_match_key.csv",
+      "sha256": "bb1b354b039b1eb1a12693b181bf1cef407ab34366c74164ef9fbfd21eda4208"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布"
+  ]
+}
