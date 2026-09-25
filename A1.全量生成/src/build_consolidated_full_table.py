@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""把 US/EU/RU 三个区域全量表汇总为 output/全量表_汇总.csv。
+"""把 US/EU/RU 三个区域全量表汇总为 output/全量表_汇总.csv，并按区域输出 output/全量生成_<区域>.csv。
 
 输入是上游 A0.尺码计算/output/ 下已发布的 全量表_US.csv、全量表_EU.csv、全量表_RU.csv；
 每张表都必须带 DIMENSION-CODE（由 02.代码映射 提供）且 DIMENSION-ID 不跨区域重复。
 汇总表列 = 各区域列的并集（区域独有列，如 RU 的 OZON尺码/发货尺码，在其他区域留空），
 DIMENSION-CODE、DIMENSION-ID 固定为最后两列。
+分区域表 = 汇总表按 DIMENSION-ID 区域后缀拆回，列为该区域原表列 + Trims（EU/RU 的 Trims 为空），
+供 A2.压缩尺寸信息 与网站流水线按区域读取。
 
 运行先创建不可覆盖的 artifacts/<批次>/，校验通过后才原子更新 output/。
 """
@@ -29,6 +31,10 @@ REGIONS = ("US", "EU", "RU")
 TRIM_COLUMN = "Trims"
 TAIL_COLUMNS = ["DIMENSION-CODE", "DIMENSION-ID"]
 OUTPUT_NAME = "全量表_汇总.csv"
+
+
+def region_output_name(region: str) -> str:
+    return f"全量生成_{region}.csv"
 
 
 class ConsolidationError(ValueError):
@@ -90,6 +96,18 @@ def attach_trims(combined: pd.DataFrame, mapping_path: Path) -> tuple[pd.DataFra
                       "mapping_ids_outside_us": int((~mapping["DIMENSION-ID"].isin(us_ids)).sum())}
 
 
+def split_regions(combined: pd.DataFrame, tables: dict[str, pd.DataFrame]) -> dict[str, pd.DataFrame]:
+    """拆回各区域：保留该区域原表的行序与列序（下游压缩的多数票平票依赖行序），Trims 放在末尾两列之前。"""
+    trims = combined.set_index("DIMENSION-ID")[TRIM_COLUMN]
+    frames = {}
+    for region, table in tables.items():
+        body = [column for column in table.columns if column not in TAIL_COLUMNS]
+        frame = table.reindex(columns=[*body, TRIM_COLUMN, *TAIL_COLUMNS])
+        frame[TRIM_COLUMN] = table["DIMENSION-ID"].map(trims).to_numpy()
+        frames[region] = frame
+    return frames
+
+
 def next_artifact_dir(artifacts_dir: Path, description: str) -> Path:
     prefix = f"{date.today().isoformat()}_"
     used = [
@@ -119,20 +137,22 @@ def run(
     for region in regions:
         shutil.copy2(region_table_path(source_dir, region), artifact / "input")
     shutil.copy2(trim_mapping, artifact / "input")
-    write_csv_atomic(combined, artifact / "output" / OUTPUT_NAME)
+    outputs = {OUTPUT_NAME: combined}
+    outputs.update({region_output_name(region): frame for region, frame in split_regions(combined, tables).items()})
+    for name, frame in outputs.items():
+        write_csv_atomic(frame, artifact / "output" / name)
     status = {
         "status": "passed",
         "regions": {region: len(table) for region, table in tables.items()},
         "rows": len(combined),
         "trim_lookup": trim_status,
-        "output": OUTPUT_NAME,
+        "outputs": list(outputs),
     }
     (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     output_dir.mkdir(parents=True, exist_ok=True)
-    os.replace(
-        _stage(artifact / "output" / OUTPUT_NAME, output_dir / OUTPUT_NAME),
-        output_dir / OUTPUT_NAME,
-    )
+    staged = {name: _stage(artifact / "output" / name, output_dir / name) for name in outputs}
+    for name, path in staged.items():
+        os.replace(path, output_dir / name)
     return {**status, "artifact": str(artifact)}
 
 
@@ -143,7 +163,7 @@ def _stage(source: Path, destination: Path) -> Path:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="汇总 US/EU/RU 全量表")
+    parser = argparse.ArgumentParser(description="汇总 US/EU/RU 全量表并按区域输出")
     parser.add_argument("--source-dir", type=Path, default=UPSTREAM_OUTPUT)
     parser.add_argument("--output-dir", type=Path, default=PROJECT_DIR / "output")
     parser.add_argument("--artifacts-dir", type=Path, default=PROJECT_DIR / "artifacts")

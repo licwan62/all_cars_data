@@ -37,6 +37,14 @@ def test_consolidates_three_regions_with_union_columns(tmp_path):
     assert result["trim_lookup"]["matched_us_rows"] == 1
     assert list((tmp_path / "artifacts").glob("*_01_consolidated-full-table/status.json"))
 
+    for region in consolidated.REGIONS:
+        part = pd.read_csv(tmp_path / "final" / f"全量生成_{region}.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig")
+        assert part["DIMENSION-ID"].tolist() == [f"Ford Focus {region}"]
+        assert list(part.columns)[-3:] == ["Trims", "DIMENSION-CODE", "DIMENSION-ID"]
+        assert ("OZON尺码" in part.columns) == (region == "RU")
+    us = pd.read_csv(tmp_path / "final" / "全量生成_US.csv", dtype=str, keep_default_na=False, encoding="utf-8-sig")
+    assert us["Trims"].item() == "SE|SEL"
+
 
 def test_missing_region_or_code_column_fails_without_touching_output(tmp_path):
     output = tmp_path / "output"
