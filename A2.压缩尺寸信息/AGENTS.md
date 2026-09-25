@@ -1,21 +1,22 @@
 # 压缩尺寸信息 Agent（A 线：压缩尺码表）
 
-`id: size-compression`。承接 `A1.全量生成` 的分区域全量表（A0 全量表 + Trims），按原子事实把逐年、逐结构、逐版本的行
-压缩为尺码表，US/EU/RU 各自独立压缩。压缩引擎内置于 `src/sizechart/`（网站流水线原压缩步骤
+`id: size-compression`。承接 `A1.全量生成` 的分产线全量表（A0 全量表或店铺全量表 + Trims），按原子事实把逐年、逐结构、逐版本的行
+压缩为尺码表，按产线（`data/产线.yaml`：US、HNT、TM、TM_拆分、EU、RU）各自独立压缩。压缩引擎内置于 `src/sizechart/`（网站流水线原压缩步骤
 `compress_to_size_chart` 的副本，来源与改动见 `src/sizechart/VENDORED.md`），不依赖外部仓库路径。
 
-上游：`A1.全量生成/output/全量生成_US.csv`、`全量生成_EU.csv`、`全量生成_RU.csv`。
+上游：`A1.全量生成/output/全量生成_<产线>.csv`（区域表 US/EU/RU，店铺表 HNT/TM/TM_拆分 为 US 行 + 店铺发货尺码）。
 
-输出（每个区域 4 张）：`压缩尺码表_<区域>.csv`（非皮卡无损）、`压缩尺码表_<区域>_有损.csv`（非皮卡高度压缩）、
-`压缩尺码表_<区域>_皮卡.csv`（皮卡无损）、`压缩尺码表_<区域>_皮卡_有损.csv`（皮卡高度压缩）。
+输出（每条产线 4 张，共 24 张）：`压缩尺码表_<产线>.csv`（非皮卡无损）、`压缩尺码表_<产线>_有损.csv`（非皮卡高度压缩）、
+`压缩尺码表_<产线>_皮卡.csv`（皮卡无损）、`压缩尺码表_<产线>_皮卡_有损.csv`（皮卡高度压缩）。
 
 ## 目录
 
+- `data/产线.yaml`：产线 → 区域（校验 DIMENSION-ID 后缀）。新增店铺时，A0 `店铺货架.csv` 加店铺后 A1 自动产出 `全量生成_<店铺>.csv`，再在此登记。
 - `data/字段映射.yaml`：标准字段 ← 上游列名候选。`最终尺码 = 确认尺码 > 自动尺码 > 最终尺码 > 对应尺码`，
   与网站流水线 `configs/pipeline.yaml` 的 columns/defaults 保持一致。
 - `data/车型组合.tsv`：允许在高度压缩中合并的同品牌车型组（如 Audi `A3|S3|RS3`），决定合并后的车型排序。
 - `src/sizechart/`：压缩引擎（`process_tsv.transform_all_outputs`）与原子检查（`check_atom.build_atom_check`）。
-- `src/run.py`：编排入口，逐区域压缩，创建 `artifacts/<批次>/` 快照，三个区域全部成功后才原子更新 `output/`。
+- `src/run.py`：编排入口，逐产线压缩，创建 `artifacts/<批次>/` 快照，全部产线成功后才原子更新 `output/`。
 
 ```powershell
 python src/run.py
@@ -32,18 +33,17 @@ python src/run.py
    尺码一致，否则 fallback 保留原行。合并可跨越源数据不存在的年份/组合（有损），但不会让任何真实原子命中错误尺码。
    同一原子不同版本尺码不同时按版本分行保留，不做多数票。
 4. **原子检查**：独立用 `check_atom` 把原子事实表对高度压缩表逐条核对（OK/MISS/MULTI/SIZE_MISMATCH），
-   结果计数写入 `status.json`，非 OK 明细写入批次 `原子检查问题_<区域>_<类型>.csv`；作为核对报告，不阻断发布。
+   结果计数写入 `status.json`，非 OK 明细写入批次 `原子检查问题_<产线>_<类型>.csv`；作为核对报告，不阻断发布。
 
 ## 批次内容
 
-`artifacts/<日期>_NN_compress-by-region/`：`input/`（上游全量表与 `data/` 规则快照）、`output/`、
-`压缩log_<区域>.csv`（成功合并记录；fallback 按原因计数在 `status.json`）、`原子事实表_<区域>.csv`、
-`原子检查问题_<区域>_<类型>.csv`、`status.json`。
+`artifacts/<日期>_NN_compress-by-line/`：`input/`（上游全量表与 `data/` 规则快照）、`output/`、
+`压缩log_<产线>.csv`（成功合并记录；fallback 按原因计数在 `status.json`）、`原子事实表_<产线>.csv`、
+`原子检查问题_<产线>_<类型>.csv`、`status.json`。
 
 ## 已知限制 / 待办
 
 - 高度压缩为贪心两两合并（按排序顺序，成功后从头重试），不保证全局最少行数；扩张的原子不单列记录。
-- 目前按区域 3 条线压缩；按店铺（US 的 HNT/TM/TM_拆分 发货尺码）分线待接入。
 
 ## 迁移记录
 
@@ -56,5 +56,7 @@ python src/run.py
 实现（`src/compress.py`、`data/压缩配置.json` 已删除）。原因：旧实现不含版本维度（同原子多版本多数票，EU 6,749 个原子受影响），
 且年份只认 `YYYY-YYYY`，US 约 30% 的单年份行被静默跳过。输出改为非皮卡/皮卡分表；与网站流水线 2026-09-25_02
 批次的压缩结果逐行一致。
+
+2026-09-25：按产线压缩，新增店铺线 HNT、TM、TM_拆分（读取 A1 `全量生成_<店铺>.csv`），共 6 条产线。
 
 遵守仓库根目录 `AGENTS.md`。

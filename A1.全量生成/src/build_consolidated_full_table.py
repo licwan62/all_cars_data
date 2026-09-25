@@ -7,6 +7,8 @@
 DIMENSION-CODE、DIMENSION-ID 固定为最后两列。
 分区域表 = 汇总表按 DIMENSION-ID 区域后缀拆回，列为该区域原表列 + Trims（EU/RU 的 Trims 为空），
 供 A2.压缩尺寸信息 与网站流水线按区域读取。
+店铺表 全量生成_<店铺>.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、自动尺码为该店铺发货尺码），
+同样按 DIMENSION-ID 附 Trims；与区域表一起构成 A 线的产线（US、各店铺、EU、RU）。
 
 运行先创建不可覆盖的 artifacts/<批次>/，校验通过后才原子更新 output/。
 """
@@ -31,6 +33,8 @@ REGIONS = ("US", "EU", "RU")
 TRIM_COLUMN = "Trims"
 TAIL_COLUMNS = ["DIMENSION-CODE", "DIMENSION-ID"]
 OUTPUT_NAME = "全量表_汇总.csv"
+SHELF_NAME = "店铺货架.csv"
+STORE_REGION = "US"
 
 
 def region_output_name(region: str) -> str:
@@ -43,6 +47,21 @@ class ConsolidationError(ValueError):
 
 def region_table_path(output_dir: Path, region: str) -> Path:
     return output_dir / f"全量表_{region}.csv"
+
+
+def store_table_path(output_dir: Path, store: str) -> Path:
+    return output_dir / f"店铺全量_{store}.csv"
+
+
+def read_stores(source_dir: Path) -> list[str]:
+    """店铺列表取自 A0 发布的 店铺货架.csv（保持首次出现顺序）。"""
+    path = source_dir / SHELF_NAME
+    if not path.is_file():
+        raise ConsolidationError(f"缺少店铺货架：{path}")
+    shelf = pd.read_csv(path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
+    if "店铺" not in shelf.columns:
+        raise ConsolidationError(f"{SHELF_NAME} 缺少 店铺 列")
+    return list(dict.fromkeys(store for store in shelf["店铺"].str.strip() if store))
 
 
 def read_region_table(path: Path, region: str) -> pd.DataFrame:
@@ -108,6 +127,21 @@ def split_regions(combined: pd.DataFrame, tables: dict[str, pd.DataFrame]) -> di
     return frames
 
 
+def store_frames(source_dir: Path, stores: list[str], region_frame: pd.DataFrame) -> dict[str, pd.DataFrame]:
+    """店铺表必须与 US 区域表同行同序；Trims 按 DIMENSION-ID 取自 US 分区域表。"""
+    trims = region_frame.set_index("DIMENSION-ID")[TRIM_COLUMN]
+    frames = {}
+    for store in stores:
+        table = read_region_table(store_table_path(source_dir, store), STORE_REGION)
+        if table["DIMENSION-ID"].tolist() != region_frame["DIMENSION-ID"].tolist():
+            raise ConsolidationError(f"店铺全量_{store}.csv 与 全量表_{STORE_REGION}.csv 的 DIMENSION-ID 行不一致")
+        body = [column for column in table.columns if column not in TAIL_COLUMNS]
+        frame = table.reindex(columns=[*body, TRIM_COLUMN, *TAIL_COLUMNS])
+        frame[TRIM_COLUMN] = table["DIMENSION-ID"].map(trims).to_numpy()
+        frames[store] = frame
+    return frames
+
+
 def next_artifact_dir(artifacts_dir: Path, description: str) -> Path:
     prefix = f"{date.today().isoformat()}_"
     used = [
@@ -130,20 +164,30 @@ def run(
     trim_mapping: Path = TRIM_MAPPING,
 ) -> dict[str, object]:
     tables = {region: read_region_table(region_table_path(source_dir, region), region) for region in regions}
+    stores = read_stores(source_dir) if STORE_REGION in regions else []
     combined = consolidate(tables)
     combined, trim_status = attach_trims(combined, trim_mapping)
     artifact = next_artifact_dir(artifacts_dir, "consolidated-full-table")
     (artifact / "input").mkdir(parents=True)
     for region in regions:
         shutil.copy2(region_table_path(source_dir, region), artifact / "input")
+    for store in stores:
+        shutil.copy2(store_table_path(source_dir, store), artifact / "input")
+    if stores:
+        shutil.copy2(source_dir / SHELF_NAME, artifact / "input")
     shutil.copy2(trim_mapping, artifact / "input")
     outputs = {OUTPUT_NAME: combined}
-    outputs.update({region_output_name(region): frame for region, frame in split_regions(combined, tables).items()})
+    region_frames = split_regions(combined, tables)
+    outputs.update({region_output_name(region): frame for region, frame in region_frames.items()})
+    if stores:
+        store_output = store_frames(source_dir, stores, region_frames[STORE_REGION])
+        outputs.update({region_output_name(store): frame for store, frame in store_output.items()})
     for name, frame in outputs.items():
         write_csv_atomic(frame, artifact / "output" / name)
     status = {
         "status": "passed",
         "regions": {region: len(table) for region, table in tables.items()},
+        "stores": stores,
         "rows": len(combined),
         "trim_lookup": trim_status,
         "outputs": list(outputs),

@@ -30,7 +30,7 @@
 
 汇总列 = 各区域列的并集，`DIMENSION-CODE`、`DIMENSION-ID` 固定为最后两列。
 
-同一脚本还按区域输出 `output/全量生成_US.csv`、`全量生成_EU.csv`、`全量生成_RU.csv`：与 A0 `全量表_<区域>.csv` 行序、列序完全一致，只在 `DIMENSION-CODE` 之前插入 `Trims`（EU/RU 为空）。保持 A0 行序是因为 A2 压缩在同一原子多数票平票时依赖行序。文件名不用 `全量表_<区域>.csv`，以免与 A0 交付物在 NAS 发布目录 `data/<区域>_data/` 下重名。
+同一脚本还按区域输出 `output/全量生成_US.csv`、`全量生成_EU.csv`、`全量生成_RU.csv`：与 A0 `全量表_<区域>.csv` 行序、列序完全一致，只在 `DIMENSION-CODE` 之前插入 `Trims`（EU/RU 为空）。保持 A0 行序，便于与 A0 逐行对照。另按 A0 `店铺货架.csv` 的店铺输出 `全量生成_<店铺>.csv`（HNT、TM、TM_拆分）：行取自 A0 `店铺全量_<店铺>.csv`（与 US 表同行同序，`自动尺码` 为该店铺发货尺码），同样附 `Trims`；与三个区域表合起来是 A 线的 6 条产线。文件名不用 `全量表_<区域>.csv`，以免与 A0 交付物在 NAS 发布目录 `data/<区域>_data/` 下重名。
 
 ```powershell
 python src/build_consolidated_full_table.py
@@ -43,7 +43,7 @@ python src/build_consolidated_full_table.py
 | 分组 | 文件 | 下游 |
 | --- | --- | --- |
 | 全量表 | `全量表_汇总.csv` | B1.压缩定制评分、B0 语义修复参考 |
-| 全量表（分区域） | `全量生成_US.csv`、`全量生成_EU.csv`、`全量生成_RU.csv` | A2.压缩尺寸信息；网站流水线 `pipeline_carstable_to_webapp/input/<MMDD>/` |
+| 全量表（分产线） | `全量生成_US.csv`、`全量生成_EU.csv`、`全量生成_RU.csv`、`全量生成_HNT.csv`、`全量生成_TM.csv`、`全量生成_TM_拆分.csv` | A2.压缩尺寸信息；网站流水线 `pipeline_carstable_to_webapp/input/<MMDD>/` |
 | TRIM | `TRIM适配器.csv`、`尺寸TRIM映射.csv` | 对外发布；`尺寸TRIM映射.csv` 同时是本节点第 2 段的输入 |
 | 尺码统计 | `尺码宽高统计.csv`、`尺码宽高极值车型.csv`、`尺码尺寸异常.csv` | 对外发布（`build_dimension_statistics.py`） |
 | 追踪 | `manifest.json` | `scripts/publish_release.py` 生成 |

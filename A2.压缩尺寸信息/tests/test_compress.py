@@ -30,7 +30,7 @@ def profile() -> dict:
 
 def compress(rows: list[dict], region: str = "US") -> dict[str, pd.DataFrame]:
     frame = pd.DataFrame(rows, columns=FIELDS).astype(str)
-    return run_mod.compress_region(region, frame, profile())["tables"]
+    return run_mod.compress_line(region, frame, profile(), region)["tables"]
 
 
 def years_of(table: pd.DataFrame) -> list[str]:
@@ -85,23 +85,42 @@ def write_sources(source_dir: Path, rows_by_region: dict[str, list[dict]]) -> No
             writer.writerows(rows)
 
 
+def lines() -> dict[str, str]:
+    return run_mod.load_lines(PROJECT_DIR / "data")
+
+
+def test_lines_cover_regions_and_us_stores():
+    assert lines() == {"US": "US", "HNT": "US", "TM": "US", "TM_拆分": "US", "EU": "EU", "RU": "RU"}
+
+
 def test_run_writes_artifact_and_outputs(tmp_path: Path):
-    write_sources(tmp_path / "src", {region: [row(region=region)] for region in run_mod.REGIONS})
-    result = run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "output", tmp_path / "artifacts")
-    expected = sorted(name for region in run_mod.REGIONS for name in run_mod.output_names(region).values())
+    write_sources(tmp_path / "src", {line: [row(region=region)] for line, region in lines().items()})
+    result = run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "output", tmp_path / "artifacts", workers=1)
+    expected = sorted(name for line in lines() for name in run_mod.output_names(line).values())
     assert sorted(path.name for path in (tmp_path / "output").iterdir()) == expected
     artifact = Path(result["artifact"])
     status = json.loads((artifact / "status.json").read_text(encoding="utf-8"))
     assert status["status"] == "passed"
     assert (artifact / "input" / run_mod.FIELD_PROFILE).is_file()
     assert (artifact / "input" / run_mod.MODEL_COMBO).is_file()
+    assert set(status["lines"]) == set(lines())
 
 
 def test_failed_run_leaves_output_untouched(tmp_path: Path):
     output = tmp_path / "output"
     output.mkdir()
     (output / "keep.csv").write_text("x", encoding="utf-8")
-    write_sources(tmp_path / "src", {"US": [row()], "EU": [row(region="US")], "RU": [row(region="RU")]})
+    sources = {line: [row(region=region)] for line, region in lines().items()}
+    sources["EU"] = [row(region="US")]  # EU 产线混入 US 行
+    write_sources(tmp_path / "src", sources)
     with pytest.raises(run_mod.CompressionError):
-        run_mod.run(tmp_path / "src", PROJECT_DIR / "data", output, tmp_path / "artifacts")
+        run_mod.run(tmp_path / "src", PROJECT_DIR / "data", output, tmp_path / "artifacts", workers=1)
     assert [path.name for path in output.iterdir()] == ["keep.csv"]
+
+
+def test_parallel_run_matches_serial(tmp_path: Path):
+    write_sources(tmp_path / "src", {line: [row(region=region), row(year="2020", size="L", region=region)] for line, region in lines().items()})
+    run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "serial", tmp_path / "a1", workers=1)
+    run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "parallel", tmp_path / "a2", workers=2)
+    for path in (tmp_path / "serial").iterdir():
+        assert path.read_bytes() == (tmp_path / "parallel" / path.name).read_bytes()
