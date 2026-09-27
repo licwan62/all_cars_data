@@ -429,10 +429,10 @@ class FullPipelineRegressionTests(unittest.TestCase):
         )  # TRIM 由 generate_store_outputs 的 TRIM 匹配回填，calculate 本身不产出 TRIM
 
     def test_full_result_contract(self) -> None:
-        summary = analysis.validate_result(self.result, 4371)
-        self.assertEqual(summary["unique_dimension_ids"], 4371)
-        self.assertEqual(summary["matched_sizes"], 4232)
-        self.assertEqual(summary["unavailable_sizes"], 139)
+        summary = analysis.validate_result(self.result, 4377)
+        self.assertEqual(summary["unique_dimension_ids"], 4377)
+        self.assertEqual(summary["matched_sizes"], 4237)
+        self.assertEqual(summary["unavailable_sizes"], 140)
         self.assertEqual(summary["incomplete_rows"], 0)
         self.assertEqual(summary["sales_total"], 750288484)
 

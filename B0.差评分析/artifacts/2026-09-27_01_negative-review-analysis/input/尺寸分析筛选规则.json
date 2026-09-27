@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "purpose": "从差评的英文、翻译、差评点综合识别车辆主体车罩尺寸不合适记录；仅作为人工复核汇总，不直接改变评分。",
+  "main_size_signals": [
+    "尺寸不合适", "尺寸小", "太小", "偏小", "太大", "偏大", "偏短", "偏长", "太短", "太紧", "太窄", "太宽", "不贴合", "does not fit", "doesn't fit", "did not fit", "not fit", "won't fit", "too small", "too big", "too tight", "too short", "too narrow", "too wide", "fitment"
+  ],
+  "main_cover_signals": [
+    "车罩", "车衣", "car cover", "truck cover", "vehicle cover", "cover", "covers", "覆盖", "包裹", "保险杠", "车尾", "车头", "车门", "轮子", "后视镜", "mirror", "bumper"
+  ],
+  "accessory_only_signals": [
+    "收纳袋", "storage bag", "遮阳挡", "sun shade", "sunshade", "车窗", "window", "拉链", "zipper", "绑带", "strap", "卡扣", "buckle", "充电口", "charge port", "泡沫板", "保护泡沫"
+  ],
+  "size_direction": {
+    "偏小": ["太小", "偏小", "尺寸小", "too small", "too tight", "太紧", "too short", "太短", "too narrow", "太窄", "不够宽", "不够长"],
+    "偏大": ["太大", "偏大", "尺寸大", "too big", "too large", "baggy", "松垮", "宽松", "拖到地"],
+    "尺寸或版型不符": ["尺寸不合适", "does not fit", "doesn't fit", "did not fit", "not fit", "won't fit", "fitment", "不贴合", "对不上", "位置不对"]
+  }
+}
