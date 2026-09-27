@@ -13,7 +13,8 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
-SOURCE_DIR = (ROOT / "source").resolve()
+# 维护工具不得改写上游正式输出（原共享 source/ 目录已由各节点 output/ 取代）
+PROTECTED_DIR = (ROOT / "01.整理尺寸库" / "output").resolve()
 if str(ROOT / "lib") not in sys.path:
     sys.path.insert(0, str(ROOT / "lib"))
 from id_scheme import dimension_id
@@ -85,10 +86,10 @@ def parse_args() -> argparse.Namespace:
 
 def ensure_not_source(path: Path) -> None:
     try:
-        path.resolve().relative_to(SOURCE_DIR)
+        path.resolve().relative_to(PROTECTED_DIR)
     except ValueError:
         return
-    raise ValueError(f"拒绝写入 source 目录：{path.resolve()}")
+    raise ValueError(f"拒绝写入上游输出目录：{path.resolve()}")
 
 
 def years(value: str) -> tuple[int, int]:

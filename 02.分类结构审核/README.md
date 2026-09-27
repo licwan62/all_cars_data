@@ -18,12 +18,10 @@
 在工作区根目录运行：
 
 ```powershell
-python 02.分类结构审核/code/research_queue.py init
-python 02.分类结构审核/code/build_unified_corrected.py
-python 02.分类结构审核/code/generate_report.py
+python 02.分类结构审核/code/build_structure_review.py
 ```
 
-`build_unified_corrected.py` 会先运行原结构审核生成器，再叠加确定性的 year_reference、美规尺寸、Sedan/Coupe 与 VERSION 规范化结论。带 `approx`、范围值、配置依赖、“需要确认”或 `REVIEW_ONLY` 的结论只保留在审核表，不自动写入 corrected。统一写入结果见 `artifacts/validation/unified_corrected_validation.json`。
+正式流程只有 `build_structure_review.py`（读取 `01.整理尺寸库/output/`）。基于旧共享 `source/` 的研究队列、报告与并行审核脚本（`research_queue.py`、`generate_report.py`、`apply_business_rules.py` 等）已归档到 `archive/code/`。以下为历史说明：`build_unified_corrected.py` 会先运行原结构审核生成器，再叠加确定性的 year_reference、美规尺寸、Sedan/Coupe 与 VERSION 规范化结论。带 `approx`、范围值、配置依赖、“需要确认”或 `REVIEW_ONLY` 的结论只保留在审核表，不自动写入 corrected。统一写入结果见 `artifacts/validation/unified_corrected_validation.json`。
 
 每次运行先保留新的 artifact；验收后更新 `output/车型结构.csv`，不会直接改写上游尺寸库。
 

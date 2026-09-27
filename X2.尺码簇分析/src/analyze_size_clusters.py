@@ -22,8 +22,10 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SIZE_SOURCE = ROOT / "source" / "尺码分析.csv"
-RULE_SOURCE = ROOT / "尺码计算" / "input" / "尺码匹配规则.csv"
+# 车型数据取 A0 发布的 US 全量表；规则表须为旧“逻辑尺码/内部尺码/档位序号/参考插片上限/使用”结构，
+# 现行 A0 规则（尺码/尺码池/插片指数上下限）尚未移植，必须用 --rules 显式指定。
+SIZE_SOURCE = ROOT / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
+RULE_SOURCE: Path | None = None
 OUTPUT_DIR = ROOT / "X2.尺码簇分析" / "output"
 ANALYSIS_BOOK = OUTPUT_DIR / "尺码上限微调分析.xlsx"
 MANUAL_BOOK = OUTPUT_DIR / "边界负面影响及手动调整.xlsx"
@@ -1363,10 +1365,10 @@ def generate_deliverables(
     stat = SIZE_SOURCE.stat()
     rule_stat = RULE_SOURCE.stat()
     source_meta = {
-        "path": str(SIZE_SOURCE.relative_to(ROOT)),
+        "path": str(SIZE_SOURCE),
         "mtime": datetime.fromtimestamp(stat.st_mtime).strftime("%Y-%m-%d %H:%M:%S"),
         "sha256": sha256_file(SIZE_SOURCE),
-        "rule_path": str(RULE_SOURCE.relative_to(ROOT)),
+        "rule_path": str(RULE_SOURCE),
         "rule_mtime": datetime.fromtimestamp(rule_stat.st_mtime).strftime("%Y-%m-%d %H:%M:%S"),
         "rule_sha256": sha256_file(RULE_SOURCE),
     }
@@ -1476,11 +1478,15 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Export all manual-adjustment candidates to the four-column CSV.",
     )
+    parser.add_argument("--data", type=Path, default=SIZE_SOURCE, help="车型数据（默认 A0 US 全量表）")
+    parser.add_argument("--rules", type=Path, required=True, help="旧结构尺码规则表（逻辑尺码/内部尺码/档位序号/参考插片上限/使用）")
     return parser.parse_args()
 
 
 def main() -> None:
+    global SIZE_SOURCE, RULE_SOURCE
     args = parse_args()
+    SIZE_SOURCE, RULE_SOURCE = args.data.resolve(), args.rules.resolve()
     rules, records, rule_snapshot = read_source(RULE_SOURCE, SIZE_SOURCE)
     best, _ = analyze_candidates(rules, records)
     if args.explore:

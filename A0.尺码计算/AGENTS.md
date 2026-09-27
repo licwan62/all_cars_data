@@ -4,7 +4,7 @@
 
 ## 上游（第 4 层）
 
-上游 `output/`：`01.整理尺寸库/尺寸库*.csv`、`02.分类结构审核/车型结构*.csv`、`03.车形分类核定/车形分类.csv` 与 `参考尺寸计算.csv`（车身号→系数）、`02.销量评估/原子销量.csv`。全量表不再带 `DIMENSION-CODE`，本节点不依赖 `02.代码映射`。
+上游 `output/`：`01.整理尺寸库/尺寸库*.csv`、`02.分类结构审核/车型结构*.csv`、`03.车形分类核定/车形分类.csv` 与 `参考尺寸计算.csv`（车身号→系数）、`02.销量评估/原子销量.csv` 与 `RU代理销量.csv`（RU 全量表销量）。只读上游 `output/`，不读上游 `data/`。全量表不再带 `DIMENSION-CODE`，本节点不依赖 `02.代码映射`。
 
 ## data/ 结构（`src/data_layout.py`）
 
@@ -18,7 +18,7 @@ data/
 │  └─ TRIM/  TrimList、TrimList_audit、trim_values、TrimList_ID迁移、联网证据与研究产物
 ├─ EU/  规则/尺码匹配规则.csv、参数/尺码匹配参数.csv、研究/当前已审核全量.csv
 ├─ RU/  规则/、参数/（各版本）、参考/ozon映射.csv
-└─ 参考/ powerquery.md、新旧尺码对应/
+└─ 参考/ powerquery.md、插片必要性.md、新旧尺码对应/、车衣数据/（us/ru 车衣尺寸，供半周长分析）
 ```
 
 ## output/ 结构（`src/output_layout.py`，与 `pipeline.json` 的 `outputs` 一致）

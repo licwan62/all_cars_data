@@ -1092,7 +1092,6 @@ def next_artifact_output_dir(artifacts_dir: Path, description: str = "size-calcu
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     script_dir = PROJECT_DIR
-    workspace_dir = WORKSPACE_ROOT
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--input-dir",
@@ -1139,8 +1138,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--workbook-template",
         type=Path,
-        default=workspace_dir / "source" / "车型数据尺码.xlsx",
-        help="保留其他工作表的 Excel 模板（默认：source/车型数据尺码.xlsx）",
+        help="保留其他工作表的 Excel 模板；指定 --workbook-output 时必填",
     )
     parser.add_argument(
         "--workbook-output",
@@ -1249,6 +1247,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         write_result(analysis, analysis_output_path)
         write_result(result, output_path)
         if args.workbook_output and not args.no_workbook_output:
+            if args.workbook_template is None:
+                raise DataContractError("--workbook-output 需要同时指定 --workbook-template")
             write_workbook_candidate(
                 result,
                 args.workbook_template.resolve(),

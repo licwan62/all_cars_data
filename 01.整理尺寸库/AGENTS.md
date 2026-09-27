@@ -7,6 +7,7 @@
 - 版本建档口径：对 `Everglades`、`Stroppe Edition` 一类认知度较低的特别版，如与同年常规版本外廓尺寸接近，且差异主要是越野/动力/性能配置，不单独建立尺寸记录，应合并到对应常规车型。只有在外廓长、宽、高出现显著差异，或该版本具有较高独立车型认知度时，才单列。
 - EU 版本列口径（`data/eu_key_versions.json`）：只保留关键版本——影响外廓或车身形态的轴距/车长（swb/lwb/l1–l5/wb3450…）、车顶高度（h1–h4、l2h2、highroof…）、门数（2dr–5dr）、后轮（drw/srw）、驾驶室/货斗、车身形式（chassis/platform/dropside…），非必要版本留空。改款（prefl/facelift）、底盘代号（BodyCode）、年份、装备名等只在同 MAKE/MODEL/版本/结构/YEAR 的记录尺寸不同、DIMENSION-ID 冲突时，按“其余源变体词 → 底盘代号 → L/W/H 尺寸”的顺序追加用于区分。
 - 2026-09-27 EU 版本整改改变了 EU DIMENSION-ID：`data/EU_ID迁移.csv`（旧ID、新ID、关系、旧版本、新版本）由 `code/build_eu_id_migration.py` 在同一 source 上按旧/新口径逐行追溯生成（旧口径须精确复现整改前的 EU 尺寸库），`merge_dimension_library.py` 校验其新 ID 集合与 EU 尺寸库一致后发布到 `output/EU_ID迁移.csv`，供下游迁移按 EU ID 维护的数据。
+- `output/来源映射_EU.csv`、`来源映射_RU.csv`：源数据行 ID（EU 为 `EU-KTYPE-MAP-…`，RU 为 `RU|<match_key>`）→ 最终 DIMENSION-ID。`build_dimension_library.py` 在批次目录写 `来源映射_<区域>.csv`（→ 00 库 ID），`merge_dimension_library.py` 换算为最终 ID 并校验覆盖全部区域记录。下游（如 02.销量评估 的 RU 代理销量）据此按源键挂接数据，不得重跑本节点代码或读取本节点 `data/`。
 - 销量、车型（TRIM）、尺码匹配等信息由下游节点（`02.销量评估`、`A0.尺码计算`）各自维护，不属于本节点产物；`01_XX尺寸分析表.csv` 不是本节点的交付物。
 - `output/尺寸库.csv` 是 US/EU/RU 三个区域 `00_<REGION>尺寸库.csv` 的合并产物，供分类结构审核、`03.车形分类核定`、`02.销量评估`、`A0.尺码计算` 等下游节点统一读取。三条产线的建库规则相互独立（各自的 source 解析、去重口径都在各自的 `00_XX尺寸库.csv` 里定型），合并阶段只做拼接，不跨区域改写任何字段。
 

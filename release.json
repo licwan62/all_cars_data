@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "released_at": "2026-09-27T04:55:56+08:00",
+  "released_at": "2026-09-27T06:25:56+08:00",
   "nodes": {
     "dimension-crawler": {
       "path": "00.自动化尺寸抓取器",
@@ -13,14 +13,16 @@
     },
     "dimension-library": {
       "path": "01.整理尺寸库",
-      "version": "20260927_02",
-      "artifact": "01.整理尺寸库/artifacts/2026-09-27_02_dimension-library-release",
+      "version": "20260927_05",
+      "artifact": "01.整理尺寸库/artifacts/2026-09-27_05_dimension-library-release",
       "deliverables": [
         "尺寸库.csv",
         "尺寸库_US.csv",
         "尺寸库_EU.csv",
         "尺寸库_RU.csv",
-        "EU_ID迁移.csv"
+        "EU_ID迁移.csv",
+        "来源映射_EU.csv",
+        "来源映射_RU.csv"
       ],
       "pending": []
     },
@@ -38,10 +40,11 @@
     },
     "sales-estimation": {
       "path": "02.销量评估",
-      "version": "20260927_01",
-      "artifact": "02.销量评估/artifacts/2026-09-27_01_sales-estimation-release",
+      "version": "20260927_04",
+      "artifact": "02.销量评估/artifacts/2026-09-27_04_sales-estimation-release",
       "deliverables": [
-        "原子销量.csv"
+        "原子销量.csv",
+        "RU代理销量.csv"
       ],
       "pending": []
     },
@@ -67,8 +70,8 @@
     },
     "size-calculation": {
       "path": "A0.尺码计算",
-      "version": "20260927_15",
-      "artifact": "A0.尺码计算/artifacts/2026-09-27_15_size-calculation-release",
+      "version": "20260927_20",
+      "artifact": "A0.尺码计算/artifacts/2026-09-27_20_size-calculation-release",
       "deliverables": [
         "US/尺码匹配报告.md",
         "US/全量/全量表.csv",
@@ -85,8 +88,8 @@
     },
     "representative-model": {
       "path": "C1.车型代表分析",
-      "version": "20260924_03",
-      "artifact": "C1.车型代表分析/artifacts/2026-09-24_03_representative-model-release",
+      "version": "20260927_01",
+      "artifact": "C1.车型代表分析/artifacts/2026-09-27_01_representative-model-release",
       "deliverables": [
         "代表车型.csv",
         "代表车型.tsv",

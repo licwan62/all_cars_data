@@ -6,26 +6,7 @@
 
 ## 接入尺寸数据流水线
 
-抓取器的最终 TSV 可通过 `src/export_eu_pipeline.py` 单向转换为主仓库的候选输入。该入口严格检查固定表头、主键唯一性、`READY` 状态、尺寸组三维、来源链接和引用闭合；默认只导出已有可靠映射的 Ktype，不覆盖 `data/` 或 `public/` 中的现有文件。
-
-下面的命令使用一个已审计批次，并继续生成 `尺寸库 → 尺寸分析表 → 全量表` 三层候选：
-
-```powershell
-python src/export_eu_pipeline.py `
-  --input-tsv all-eu.tsv `
-  --mapping-tsv artifacts/0805-eu继续迭代/tables/ktype_mapping_final.tsv `
-  --dimension-tsv artifacts/0805-eu继续迭代/tables/dimension_groups_final.tsv `
-  --output-dir artifacts/2026-09-17_02_pipeline-input `
-  --run-pipeline
-```
-
-候选目录包含：
-
-- `source/Ktype.csv`、`source/KtypeMatched.csv`、`source/DimensionGroup尺寸.csv`：区域流水线输入；
-- `pipeline/00_EU尺寸库.csv`、`01_EU尺寸分析表.csv`、`02_EU全量.csv`：三层候选输出；
-- `ingest_status.json`、`pipeline/status.json`：行数、覆盖率、校验摘要和输入哈希。
-
-若要保留尚无 READY 映射的原始 Ktype，可显式增加 `--include-unmatched`。顶层累计表只有在主键无冲突时才能接入；迁移历史中若存在同一 `id` 的不同映射，入口会拒绝并要求先在抓取器侧完成冲突归并。
+抓取器的最终 TSV 放入 `01.整理尺寸库/data/eu/<批次>/` 后，由 01 节点建库（`python code/build_dimension_library.py --region eu`），下游只读取 01 的 `output/`。原单向导出脚本 `src/export_eu_pipeline.py` 依赖已退役的 `EU尺码分析` 目录并反向调用下游，已归档到 `archive/src/`。
 
 ## 项目结构
 

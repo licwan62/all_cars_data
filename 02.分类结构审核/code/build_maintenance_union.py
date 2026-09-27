@@ -16,7 +16,8 @@ if str(ROOT / "lib") not in sys.path:
 
 from id_scheme import dimension_id
 
-SOURCE_DIR = (ROOT / "source").resolve()
+# 维护工具不得改写上游正式输出（原共享 source/ 目录已由各节点 output/ 取代）
+PROTECTED_DIR = (ROOT / "01.整理尺寸库" / "output").resolve()
 DEFAULT_OUTPUT = PROJECT / "artifacts" / "maintenance_union" / "车型尺寸库_规范合并.csv"
 
 FIELDS = [
@@ -60,8 +61,8 @@ def is_within(path: Path, directory: Path) -> bool:
 
 
 def assert_safe_output(path: Path) -> None:
-    if is_within(path, SOURCE_DIR):
-        raise ValueError(f"拒绝写入 source 目录：{path.resolve()}")
+    if is_within(path, PROTECTED_DIR):
+        raise ValueError(f"拒绝写入上游输出目录：{path.resolve()}")
 
 
 def read_rows(path: Path, segment: str) -> tuple[list[str], list[dict[str, str]]]:

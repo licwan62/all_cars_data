@@ -1,8 +1,10 @@
 # 车形分类核定
 
+> 2026-09-27：正式流程为 `code/build_regional_shape_output.py` + `code/validate_regional_shape_output.py`，只读上游 `output/`；依赖旧 `public/` 目录的审核与校验脚本已归档到 `archive/code/`。下文保留历史说明。
+
 本项目以 `../public/参考尺寸计算.csv` 为车形定义唯一真源，并根据 `doc/AGENT.md` 的判定流程，为 `../public/尺寸库.csv` 中的每个 `DIMENSION-ID` 核定车身号。可用环境变量 `SHAPE_SOURCE` 临时指定待验证输入；分类结果统一生成到版本化 `artifacts`，不会自动覆盖 `public/车身分类.csv`。
 
-2026-09-06 起，SU0 表示前部及座舱明显收窄的流线 SUV，SU1 表示更饱满的常规 SUV，溜背不再单独决定类别。本轮 939 条专项审计、78 条改类及证据限制见 [核定报告](artifacts/2026-09-06_01_suv-taper-review/report.md)。`code/review_suv_taper_20260906.py` 是本轮一次性迁移记录；已有批次不允许覆盖，日常重建使用 `shape_project.py build`。
+2026-09-06 起，SU0 表示前部及座舱明显收窄的流线 SUV，SU1 表示更饱满的常规 SUV，溜背不再单独决定类别。本轮 939 条专项审计、78 条改类及证据限制见 [核定报告](artifacts/2026-09-06_01_suv-taper-review/report.md)。`archive/code/review_suv_taper_20260906.py` 是本轮一次性迁移记录；已有批次不允许覆盖，日常重建使用 `shape_project.py build`。
 
 当前合法车身号为 `H0-H3`、`JP`、`P0-P2`、`DUAL`、`SD0-SD2`、`SU0-SU2`、`V0-V1`。不维护专用车型车身号；Sedan/Coupe 的宽方车头 `SD2` 判据优先于低矮跑车 `SD0` 判据。旧数字车形编号已经废止。
 
@@ -30,7 +32,7 @@ python 车形分类核定/code/shape_project.py init
 python 车形分类核定/code/shape_project.py claim --limit 10 --worker your-name
 python 车形分类核定/code/shape_project.py update --key <queue_key> --shape SU0 --source-url "https://..." --note "判断依据" --worker your-name
 python 车形分类核定/code/shape_project.py build
-python 车形分类核定/code/validate_project.py
+python 03.车形分类核定/code/validate_regional_shape_output.py
 ```
 
 按当前 `02.分类结构审核/output/车型结构.csv` 刷新三国接口（代理与兼容规则见 `data/区域车形代理规则.json`，US ID 改名见 `data/US车形ID迁移.csv`）：

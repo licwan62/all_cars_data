@@ -55,11 +55,14 @@
         "尺寸库_US.csv",
         "尺寸库_EU.csv",
         "尺寸库_RU.csv",
-        "EU_ID迁移.csv"
+        "EU_ID迁移.csv",
+        "来源映射_EU.csv",
+        "来源映射_RU.csv"
       ],
       "pending": [],
       "release_notes": [
-        "2026-09-27 EU 版本列只保留关键版本（data/eu_key_versions.json），非必要版本留空，冲突时依次追加其余变体词、底盘代号、尺寸；EU 记录 29707 → 29361，版本非空 84% → 55%；EU DIMENSION-ID 随之变化，发布 EU_ID迁移.csv（旧→新）"
+        "2026-09-27 EU 版本列只保留关键版本（data/eu_key_versions.json），非必要版本留空，冲突时依次追加其余变体词、底盘代号、尺寸；EU 记录 29707 → 29361，版本非空 84% → 55%；EU DIMENSION-ID 随之变化，发布 EU_ID迁移.csv（旧→新）",
+        "2026-09-27 新增 来源映射_EU/RU.csv（源数据行 ID → 最终 DIMENSION-ID），建库时记录、合并时换算并校验覆盖全部区域记录，供下游按源键挂接数据而无需重跑本节点代码"
       ]
     },
     {
@@ -92,7 +95,8 @@
       "path": "02.销量评估",
       "code_dir": "scripts",
       "run": [
-        "python scripts/run_pipeline.py"
+        "python scripts/run_pipeline.py",
+        "python scripts/build_ru_proxy_sales.py"
       ],
       "tests": "tests",
       "layer": 2,
@@ -102,11 +106,13 @@
         "dimension-library"
       ],
       "outputs": [
-        "原子销量.csv"
+        "原子销量.csv",
+        "RU代理销量.csv"
       ],
       "pending": [],
       "release_notes": [
-        "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布"
+        "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布",
+        "2026-09-27 新增 RU代理销量.csv：本节点 data/ru 的 Auto.ru 在售样本按 match_key 汇总，经 01 来源映射_RU.csv 落到 RU DIMENSION-ID（原由 A0 现场重跑 01 建库代码计算，结果逐 ID 一致）"
       ]
     },
     {
@@ -188,7 +194,8 @@
       "release_notes": [
         "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核",
         "2026-09-27 output 改为 <国别>/ 目录：<国别>/尺码匹配报告.md（所用规则全文、参数、大致匹配状况；US 另含店铺货架、店铺分布与 TRIM 概况，替代原 尺码匹配规则/店铺货架 CSV 与 尺码匹配报告 JSON）、<国别>/全量/全量表.csv、US/店铺/店铺全量_<店铺>.csv、US/TRIM/TRIM适配器.csv；文件名去掉区域后缀",
-        "2026-09-27 A0 同时承担尺码匹配与 TRIM 匹配（TRIM 资料与代码自 A1.全量生成 迁入 data/US/TRIM、src/trim）：US 全量表与店铺全量表的 TRIM 列直接由 TRIM 匹配回填，EU/RU 无 TRIM 环节、全量表不带 TRIM 列；取消 尺寸分析表 与 DIMENSION-CODE 字段（不再依赖 02.代码映射）；data/ 按 US/EU/RU × 规则/参数 整理"
+        "2026-09-27 A0 同时承担尺码匹配与 TRIM 匹配（TRIM 资料与代码自 A1.全量生成 迁入 data/US/TRIM、src/trim）：US 全量表与店铺全量表的 TRIM 列直接由 TRIM 匹配回填，EU/RU 无 TRIM 环节、全量表不带 TRIM 列；取消 尺寸分析表 与 DIMENSION-CODE 字段（不再依赖 02.代码映射）；data/ 按 US/EU/RU × 规则/参数 整理",
+        "2026-09-27 RU 代理销量改读 02.销量评估/output/RU代理销量.csv，不再读取 01/02 的 data/ 或重跑 01 代码；当前规则版本由 data/当前规则.yaml 指定；车衣数据归入 data/参考/"
       ]
     },
     {
@@ -328,7 +335,7 @@
     {
       "id": "sku-clustering",
       "path": "D1.聚类SKU",
-      "code_dir": null,
+      "code_dir": "src",
       "run": [],
       "tests": null,
       "layer": 5,
@@ -341,7 +348,11 @@
       ],
       "outputs": [],
       "pending": [
-        "SKU聚类结果"
+        "W型车/car_cluster_summary.csv",
+        "皮卡 SKU聚类结果"
+      ],
+      "release_notes": [
+        "2026-09-27 W型车 聚类代码由 artifacts/W型车/run_cluster.py 移至 src/w_cluster.py，读 A0 US 全量表、写本节点 artifacts；目标尺码移至 data/W型车目标尺码.json。现值为旧尺码命名，按现行 A0 新命名命中 0 行（仅 Bel Air 专用规则命中），待确认新旧尺码对应后登记 run 与 output/W型车"
       ]
     },
     {
@@ -349,7 +360,6 @@
       "path": "D2.链接分析",
       "code_dir": [
         "W型车",
-        "皮卡",
         "sku_shipment_analysis"
       ],
       "run": [],
@@ -369,6 +379,9 @@
       "outputs": [],
       "pending": [
         "发货单.csv"
+      ],
+      "release_notes": [
+        "2026-09-27 W型车/run.py 改为只读 D1.聚类SKU/output/W型车，不再调用 D1 代码或写入 D1 artifacts；皮卡/run.py（依赖从未入库的 D1 皮卡代码并读 NAS）归档至 archive/皮卡/"
       ]
     },
     {
@@ -395,9 +408,7 @@
       "id": "size-cluster-analysis",
       "path": "X2.尺码簇分析",
       "code_dir": "src",
-      "run": [
-        "python src/analyze_size_clusters.py"
-      ],
+      "run": [],
       "tests": null,
       "layer": 5,
       "line": "X",
@@ -410,7 +421,10 @@
         "尺码上限微调分析.xlsx",
         "边界负面影响及手动调整.xlsx"
       ],
-      "pending": []
+      "pending": [],
+      "release_notes": [
+        "2026-09-27 撤下正式 run：analyze_size_clusters.py 基于旧规则表结构（逻辑尺码/内部尺码/档位序号/参考插片上限），原默认输入 source/尺码分析.csv 与 尺码计算/input/尺码匹配规则.csv 早已不存在；数据默认改读 A0 US 全量表，规则须 --rules 显式指定旧结构表。待移植到现行 A0 规则结构后恢复 run"
+      ]
     }
   ],
   "final_products": [

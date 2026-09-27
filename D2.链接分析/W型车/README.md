@@ -1,6 +1,6 @@
 # W 型车链接分析
 
-本项目只处理 `D1.聚类SKU/artifacts/W型车`，与皮卡项目的输入、合并测试和输出目录完全分开。
+本项目只读取上游 `D1.聚类SKU/output/W型车`（D1 的 W型车 聚类发布物，`--cluster-dir` 可覆盖），与皮卡项目的输入、合并测试和输出目录完全分开。下文 `D1.聚类SKU/artifacts/W型车/<版本>/` 为历史批次，仅作追溯。
 
 ```powershell
 python run.py

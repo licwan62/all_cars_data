@@ -1,29 +1,32 @@
-"""Cluster selected large-car logical sizes from public/全量数据.csv.
+"""按 data/W型车目标尺码.json 的逻辑尺码，从 A0 US 全量表聚类大尺码消费者车型簇。
 
-Outputs are analysis artifacts only.  The script never rewrites public inputs.
+结果只写入本节点 artifacts 批次，不改写任何上游数据。
 """
 
 from __future__ import annotations
 
 import argparse
 import hashlib
+import json
+from datetime import date
 import re
 from pathlib import Path
 
 import pandas as pd
 
 
-TARGET_SIZES = [
-    "4L", "4XL", "BEL-AIR-5357", "CHALLENGER", "MODEL-X",
-    "4XXL", "4XXXL", "4XXXXL",
-]
+PROJECT = Path(__file__).resolve().parents[1]
+REPO = PROJECT.parent
+# 目标尺码与专用尺码是业务配置，维护在 data/W型车目标尺码.json
+CONFIG = json.loads((PROJECT / "data" / "W型车目标尺码.json").read_text(encoding="utf-8"))
+TARGET_SIZES = list(CONFIG["target_sizes"])
 
 # Chevrolet Bel Air 1953-1957 has a notably taller cabin and hood profile
 # than the later, wider/lower full-size cars.  It is a protected dedicated
 # pattern, rather than a new global size rule: only the explicitly matched
 # non-wagon records below may use it.
-DEDICATED_SIZE = "BEL-AIR-5357"
-DEDICATED_MAX_YEAR = 1957
+DEDICATED_SIZE = CONFIG["dedicated_size"]
+DEDICATED_MAX_YEAR = int(CONFIG["dedicated_max_year"])
 ATOM_FIELDS = ["MAKE", "MODEL", "TRIM_ATOM", "版本", "结构", "ATOM_YEAR"]
 
 
@@ -81,23 +84,29 @@ def is_bel_air_high_pattern(row: pd.Series) -> bool:
     )
 
 
+def next_artifact_dir() -> Path:
+    prefix = f"{date.today().isoformat()}_"
+    used = [int(p.name[len(prefix):len(prefix) + 2]) for p in (PROJECT / "artifacts").glob(f"{prefix}[0-9][0-9]_*")]
+    return PROJECT / "artifacts" / f"{prefix}{max(used, default=0) + 1:02d}_w-cluster"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
-    repo = Path(__file__).resolve().parents[3]
-    parser.add_argument("--data", type=Path, default=repo / "public" / "全量数据.csv")
-    parser.add_argument("--rules", type=Path, default=repo / "public" / "尺码匹配规则.csv")
-    parser.add_argument("--output", type=Path, default=Path(__file__).resolve().parent / "output")
+    parser.add_argument("--data", type=Path, default=REPO / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv")
+    parser.add_argument("--rules", type=Path, help="可选：含 内部尺码/逻辑尺码 双列的映射表；缺省时逻辑尺码 = 自动尺码")
+    parser.add_argument("--output", type=Path, help="默认在 artifacts/ 下新建 <日期>_<序号>_w-cluster/ 批次")
     args = parser.parse_args()
+    args.output = args.output or next_artifact_dir()
     args.output.mkdir(parents=True, exist_ok=True)
 
     data = pd.read_csv(args.data, encoding="utf-8-sig", dtype=str).fillna("")
-    rules = pd.read_csv(args.rules, encoding="utf-8-sig", dtype=str).fillna("")
+    rules = pd.read_csv(args.rules, encoding="utf-8-sig", dtype=str).fillna("") if args.rules else pd.DataFrame(columns=["尺码"])
     if {"内部尺码", "逻辑尺码"}.issubset(rules.columns):
         internal_to_logical = dict(zip(rules["内部尺码"], rules["逻辑尺码"]))
         rule_schema = "逻辑尺码/内部尺码双列结构"
     elif "尺码" in rules.columns:
         internal_to_logical = {size: size for size in rules["尺码"] if size}
-        rule_schema = "尺码单列结构"
+        rule_schema = "尺码单列结构" if args.rules else "无映射表（逻辑尺码 = 自动尺码）"
     else:
         raise ValueError("尺码匹配规则缺少‘尺码’或‘内部尺码/逻辑尺码’字段")
     data["逻辑尺码"] = data["自动尺码"].map(internal_to_logical).fillna(data["自动尺码"])
@@ -189,8 +198,8 @@ def main() -> None:
             f"| {size} | {int(row['聚类数'])} | {int(row['记录数'])} | {int(row['原子数'])} | {int(row['销量合计'])} |"
         )
     report = [
-        "# public 全量数据大尺码 SKU 聚类报告", "",
-        f"输入：`public/全量数据.csv`（{len(data):,} 条）", "",
+        "# 大尺码 SKU 聚类报告", "",
+        f"输入：`{args.data}`（{len(data):,} 条）", "",
         f"范围：{', '.join(TARGET_SIZES)}；命中 {len(selected):,} 条记录。", "",
         "## 结果概览", "", *table_lines, "",
         f"共形成 {len(summary):,} 个消费者车型簇，覆盖 {atom_df[ATOM_FIELDS].drop_duplicates().shape[0]:,} 个唯一原子事实。", "",
@@ -202,7 +211,7 @@ def main() -> None:
         "- 消费者簇主键为 `逻辑尺码 + MAKE + MODEL`，车身结构、版本、TRIM、代际和年份作为簇内适配信息保留。",
         "- 原子事实为 `MAKE + MODEL + TRIM + 版本 + 结构 + YEAR`；年份与逗号分隔 TRIM 均展开后做全局唯一性检查。",
         "- 本轮不生成源数据中不存在的 YEAR / TRIM / 版本 / 结构组合。",
-        "- 聚类结果仅写入本项目 output，不修改 public 数据。", "",
+        "- 聚类结果写入本节点 artifacts 批次，不修改上游数据。", "",
         "## 输出", "",
         f"- `car_cluster_summary.csv`：{len(summary)} 个消费者簇及尺寸、销量和适配概览。",
         f"- `car_cluster_detail.csv`：{len(selected)} 条源记录及所属 Cluster。",

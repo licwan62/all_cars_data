@@ -421,8 +421,10 @@ def run(*args: object, cwd: Path | None = None) -> None:
 def main() -> None:
     repo = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description="生成并发布版本化 W 型车聚类与链接分析")
-    parser.add_argument("--data", type=Path, default=repo / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv")
-    parser.add_argument("--rules", type=Path, default=repo / "A0.尺码计算" / "output" / "US" / "规则" / "尺码匹配规则.csv")
+    parser.add_argument(
+        "--cluster-dir", type=Path, default=repo / "D1.聚类SKU" / "output" / "W型车",
+        help="上游 D1.聚类SKU 发布的 W型车 聚类结果（car_cluster_*.csv）",
+    )
     parser.add_argument("--version", default="0914")
     parser.add_argument("--total-supply", type=int, default=TOTAL_SUPPLY)
     parser.add_argument("--sales-multiplier", action="append", default=[], metavar="SIZE=FACTOR")
@@ -434,17 +436,12 @@ def main() -> None:
         if not separator or not size.strip() or float(factor) <= 0:
             parser.error(f"销量倍率格式错误：{value}，应为 SIZE=正数")
         sales_multipliers[size.strip()] = float(factor)
-    cluster_project = repo / "D1.聚类SKU" / "artifacts" / "W型车"
-    cluster_output = cluster_project / args.version
+    cluster_output = args.cluster_dir
+    if not (cluster_output / "car_cluster_summary.csv").is_file():
+        parser.error(f"缺少 D1 聚类结果：{cluster_output}（D1.聚类SKU 的 W型车 聚类尚未发布到 output/）")
     engine = repo / "D2.链接分析" / "sku_shipment_analysis"
     output = Path(__file__).resolve().parent / "artifacts" / args.version
 
-    run(
-        cluster_project / "run_cluster.py",
-        "--data", args.data,
-        "--rules", args.rules,
-        "--output", cluster_output,
-    )
     run(
         engine / "build_merged_clusters.py",
         "--cluster-dir", cluster_output,

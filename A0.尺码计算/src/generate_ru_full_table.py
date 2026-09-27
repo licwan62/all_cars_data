@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import csv
-import importlib.util
 import json
 import os
 import re
@@ -28,10 +27,8 @@ import pandas_analysis as analysis
 
 SOURCE_DIR = WORKSPACE_ROOT / "02.分类结构审核" / "output"
 RU_DIMENSIONS_PATH = SOURCE_DIR / "车型结构_RU.csv"
-# RU 原始抓取批次：取 01.整理尺寸库/data/ru/ 下最新的批次目录
-RU_RAW_SOURCE_DIR = max(path for path in (WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru").iterdir() if path.is_dir())
-RU_SALES_PATH = WORKSPACE_ROOT / "02.销量评估" / "data" / "ru" / "auto_ru_model_sales_with_match_key.csv"
-DIMENSION_PROJECT = WORKSPACE_ROOT / "01.整理尺寸库"
+# RU 代理销量由上游 02.销量评估 按 DIMENSION-ID 汇总发布
+RU_SALES_PATH = WORKSPACE_ROOT / "02.销量评估" / "output" / "RU代理销量.csv"
 RULES_PATH = data_layout.current("RU").rules
 PARAMETERS_PATH = data_layout.current("RU").parameters
 OUTPUT_DIR = PROJECT_DIR / "output"
@@ -140,58 +137,21 @@ def match_ru_sizes(
     return pd.DataFrame(matched, index=vehicles.index)
 
 
-def _load_file_module(path: Path, name: str):
-    spec = importlib.util.spec_from_file_location(name, path)
-    if spec is None or spec.loader is None:
-        raise analysis.DataContractError(f"无法加载模块：{path}")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-def build_ru_sales_by_dimension() -> tuple[pd.DataFrame, dict[str, object]]:
-    """Rebuild the source match_key groups and map their aggregated proxy sales to published RU IDs."""
-    code_dir = DIMENSION_PROJECT / "code"
-    if str(code_dir) not in sys.path:
-        sys.path.insert(0, str(code_dir))
-    from regional_size_common import build_dimension_library
-    from regional_sources import build_ru_base as build_ru_source_base
-
-    merge_module = _load_file_module(code_dir / "merge_dimension_library.py", "ru_dimension_merge")
-    source_base, source_summary = build_ru_source_base(RU_RAW_SOURCE_DIR, sales_path=RU_SALES_PATH)
-    library, metadata = build_dimension_library(source_base)
-    sales_by_old_id = dict(
-        zip(metadata["DIMENSION-ID"], pd.to_numeric(metadata["销量合计"], errors="coerce").fillna(0), strict=True)
-    )
-    rows = library.to_dict("records")
-    for row in rows:
-        row["_sales_total"] = float(sales_by_old_id.get(row["DIMENSION-ID"], 0))
-    rows = merge_module.transform_region_rows(rows, "ru", aggregate_fields=("_sales_total",))
-    sales = pd.DataFrame(
-        {
-            "DIMENSION-ID": [row["DIMENSION-ID"] for row in rows],
-            "销量合计": [row["_sales_total"] for row in rows],
-        }
-    )
+def read_ru_proxy_sales(path: Path | None = None) -> tuple[pd.DataFrame, dict[str, object]]:
+    """读取上游 02.销量评估 发布的 RU 代理销量（按 DIMENSION-ID 汇总的 Auto.ru 在售样本）。"""
+    path = path or RU_SALES_PATH
+    sales = analysis._read_csv(path)
+    analysis._require_columns(sales, ["DIMENSION-ID", "销量合计"], "RU代理销量")
     if sales["DIMENSION-ID"].duplicated().any():
-        raise analysis.DataContractError("RU 销量映射后的 DIMENSION-ID 不唯一")
-    sales_source = analysis._read_csv(RU_SALES_PATH)
-    sales_source["sale_detail"] = pd.to_numeric(sales_source["sale_detail"], errors="coerce").fillna(0)
-    source_total = int(sales_source["sale_detail"].sum())
-    matched_total = int(sales["销量合计"].sum())
+        raise analysis.DataContractError("RU代理销量 的 DIMENSION-ID 不唯一")
+    sales["销量合计"] = pd.to_numeric(sales["销量合计"], errors="coerce").fillna(0)
     audit = {
-        "sales_source_rows": int(len(sales_source)),
-        "sales_source_positive_rows": int(sales_source["sale_detail"].gt(0).sum()),
-        "sales_source_zero_rows": int(sales_source["sale_detail"].eq(0).sum()),
-        "sales_source_total": source_total,
-        "matched_sales_total": matched_total,
-        "unmatched_sales_total": source_total - matched_total,
-        "sales_rows_without_match_key": int(sales_source["match_key"].astype("string").fillna("").str.strip().eq("").sum()),
+        "source": str(path),
+        "dimension_rows": int(len(sales)),
+        "sales_total": int(sales["销量合计"].sum()),
         "dimension_rows_with_positive_proxy_sales": int(sales["销量合计"].gt(0).sum()),
-        "dimension_rows_with_zero_proxy_sales": int(sales["销量合计"].eq(0).sum()),
-        "source_join_summary": source_summary,
     }
-    return sales, audit
+    return sales[["DIMENSION-ID", "销量合计"]], audit
 
 
 def build_ru_full_base(dimensions: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
@@ -254,7 +214,7 @@ def main() -> int:
         parameters = read_parameters(PARAMETERS_PATH)
         rules = read_rules(RULES_PATH, parameters["余量长容差"])
         dimensions = analysis._read_csv(RU_DIMENSIONS_PATH)
-        sales, sales_audit = build_ru_sales_by_dimension()
+        sales, sales_audit = read_ru_proxy_sales()
         dimension_ids = set(dimensions["DIMENSION-ID"])
         sales_ids = set(sales["DIMENSION-ID"])
         sales_snapshot_fallback = False
@@ -279,8 +239,6 @@ def main() -> int:
         shutil.copy2(PARAMETERS_PATH, artifact_inputs / PARAMETERS_PATH.name)
         shutil.copy2(RU_DIMENSIONS_PATH, artifact_inputs / "尺寸库_RU.csv")
         shutil.copy2(RU_SALES_PATH, artifact_inputs / RU_SALES_PATH.name)
-        shutil.copy2(RU_RAW_SOURCE_DIR / "auto_ru_dimensions_with_match_key.csv", artifact_inputs / "auto_ru_dimensions_with_match_key.csv")
-        shutil.copy2(RU_RAW_SOURCE_DIR / "auto_ru_catalog_rank.csv", artifact_inputs / "auto_ru_catalog_rank.csv")
         full_path = artifact_output / layout.full_table("RU")
         analysis.write_result(result, full_path)
         report = {

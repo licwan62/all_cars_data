@@ -23,7 +23,7 @@ if str(ROOT / "lib") not in sys.path:
 
 from regional_size_common import (  # noqa: E402
     RegionalDataError,
-    build_dimension_library,
+    build_dimension_library_rows,
     write_dimension_library,
 )
 from merge_dimension_library import latest_batch  # noqa: E402
@@ -56,8 +56,11 @@ def main() -> int:
             base, extra = build_ru_base(source_dir.resolve())
         else:  # pragma: no cover - 由 argparse choices 保证
             raise RegionalDataError(f"暂不支持的区域：{args.region}")
-        library, _metadata = build_dimension_library(base)
+        library, _metadata, row_ids = build_dimension_library_rows(base)
         write_dimension_library(library, output_path.resolve())
+        # 来源键（source 行的原始 ID，RU 为 "RU|<match_key>"）-> 00 库 ID，供合并阶段换算为最终 DIMENSION-ID
+        source_map = pd.DataFrame({"来源ID": base["DIMENSION-ID"].astype("string"), "00库ID": row_ids}).drop_duplicates()
+        source_map.to_csv(output_path.with_name(f"来源映射_{label}.csv"), index=False, encoding="utf-8-sig", lineterminator="\n")
     except (RegionalDataError, FileNotFoundError, pd.errors.ParserError) as error:
         print(f"{label} 尺寸库整理失败：{error}", file=sys.stderr)
         return 2

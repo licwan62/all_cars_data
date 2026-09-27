@@ -16,22 +16,19 @@ module = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(module)
 
 
-def test_ru_sales_are_aggregated_by_match_key_and_cover_published_dimensions():
-    sales, audit = module.build_ru_sales_by_dimension()
+def test_ru_proxy_sales_come_from_sales_estimation_output():
+    sales, audit = module.read_ru_proxy_sales()
 
+    assert module.RU_SALES_PATH.parent.name == "output"
     assert len(sales) == 13617
     assert sales["DIMENSION-ID"].is_unique
-    assert sales["销量合计"].sum() == 297009
-    assert audit["sales_source_total"] == 301065
-    assert audit["unmatched_sales_total"] == 4056
-    assert audit["sales_rows_without_match_key"] == 304
-    assert audit["sales_source_positive_rows"] == 4272
+    assert audit["sales_total"] == 297009
     assert audit["dimension_rows_with_positive_proxy_sales"] == 4050
 
 
 def test_ru_full_base_uses_only_ru_dimensions_and_sales():
     dimensions = module.analysis._read_csv(module.RU_DIMENSIONS_PATH)
-    sales, _ = module.build_ru_sales_by_dimension()
+    sales, _ = module.read_ru_proxy_sales()
 
     result = module.build_ru_full_base(dimensions, sales)
 

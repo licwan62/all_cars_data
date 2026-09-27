@@ -58,7 +58,7 @@ class MaintenanceUnionTests(unittest.TestCase):
 
     def test_source_output_is_rejected(self) -> None:
         with self.assertRaises(ValueError):
-            MODULE.assert_safe_output(MODULE.SOURCE_DIR / "do-not-write.csv")
+            MODULE.assert_safe_output(MODULE.PROTECTED_DIR / "do-not-write.csv")
 
 
 if __name__ == "__main__":
