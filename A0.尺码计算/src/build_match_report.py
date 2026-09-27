@@ -6,7 +6,8 @@
   - 匹配概况：车型数、已匹配/无可用尺码/数据不全的数量与占比，已匹配销量占比；
   - 尺码分布：按规则顺序列出各尺码车型数与销量占比；未匹配原因；
   - US：各店铺按发货尺码的分布、店铺货架映射，TRIM 回填与 TRIM适配器概况；
-  - 尺码规则全文（md 表格）。
+  - 尺码匹配规则：匹配步骤说明（计算量、候选池、上下限、余量容差、白名单、尺码池、店铺货架），数值取自当前参数与代码常量；
+    随后附规则表全文（md 表格）。
 报告内容只由输入决定（不写生成时间），同样输入重跑逐字节一致。
 先在新的 artifacts/<批次>/output/ 生成，全部成功后原子更新 output/。
 """
@@ -26,6 +27,7 @@ import yaml
 
 import data_layout
 import output_layout as layout
+import pandas_analysis as analysis
 
 PROJECT = Path(__file__).resolve().parents[1]
 OUTPUT = PROJECT / "output"
@@ -129,6 +131,80 @@ def unmatched_reasons(frame: pd.DataFrame) -> list[str]:
     return md_table(["状态", "原因", "车型数"], [[row.自动尺码, row.原因 or "（空）", f"{int(row.车型数):,}"] for row in counts.itertuples()])
 
 
+def parameter_value(parameters: pd.DataFrame, name: str) -> str:
+    found = parameters.loc[parameters["参数"].str.strip().eq(name), "值"]
+    if found.empty:
+        raise ValueError(f"参数表缺少 {name}")
+    value = float(found.iloc[0])
+    return f"{value:g}"
+
+
+def number(value: float) -> str:
+    return f"{value:g}"
+
+
+def size_matcher_rules_text(region: str, rules: pd.DataFrame, parameters: pd.DataFrame) -> list[str]:
+    """US/EU（SizeMatcher）的匹配步骤说明。"""
+    tolerance = parameter_value(parameters, "余量长容差")
+    offset = number(analysis.PANEL_OFFSET_MM)
+    has = set(rules.columns)
+    limits = [spec for spec in analysis.DEFAULT_LIMITS if spec.rule_column in has]
+    lines = [
+        "### 计算量",
+        "",
+        "- **长**：车型 `L-MM`，与规则的 `长上限` 比较。",
+        f"- **插片指数**：`(前宽 + 后宽) / 4 − {offset}`；皮卡只看车头：`前宽 / 2 − {offset}`。"
+        "其中 `前宽 = W-MM × 前宽系数`、`后宽 = W-MM × 后宽系数`，系数按车形取自 `03.车形分类核定/output/参考尺寸计算.csv`。",
+        "- `等效长` 只作留痕参考，不参与匹配。",
+        "- 长或插片指数缺失时结果为 **数据不全**。",
+        "",
+        "### 候选池",
+        "",
+        "- 按车型 `分类` 取规则中同分类的尺码作为候选池；规则 `分类` 写成 `跑车|三厢车` 表示该尺码同时属于两个分类。",
+    ]
+    if "CAB" in has or "版本" in has:
+        lines.append("- 规则填写了 `CAB`/`版本` 时先在「分类+CAB+版本」池匹配，再退到「分类+版本」池，最后「分类」池；版本含 DRW 的统一按 DRW。")
+    lines.append("- 三厢车若长超过三厢车所有尺码的最大长上限，改用跑车池匹配。")
+    if "尺码池" in has:
+        pools = "、".join(dict.fromkeys(value.strip() for value in rules["尺码池"] if value.strip()))
+        lines.append(f"- `尺码池` 相同的尺码组成跨分类共享池（本规则表：{pools}）；本分类池无合格尺码时，才退到共享池再匹配一次。")
+    if "车型白名单" in has:
+        lines.append("- 填了 `车型白名单` 的规则不进入通用池，只对白名单车型生效：格式 `[仅] MAKE MODEL YYYY[-YYYY] [结构/结构]`，"
+                     "车型年份需完全落在区间内、结构（如写）需命中；命中白名单的车型只在白名单尺码中匹配。")
+    lines += ["", "### 选码", ""]
+    upper = "、".join(f"`{spec.rule_column}`" for spec in limits)
+    lines.append(f"1. 候选按 `长上限` 从小到大排序（相同时再比其他上限，最后按规则表顺序）。")
+    if "插片指数下限" in has:
+        lines.append("2. 规则填写了 `插片指数下限` 的尺码，只有车型插片指数 **大于** 下限时才进入候选（如宽头老爷车 4*-0 要求插片指数 > 120）。")
+    else:
+        lines.append("2. （本规则表未使用插片指数下限。）")
+    lines.append(f"3. 依次检查：车型值不超过 {upper}（均为 ≤），且 `长上限 − 长` ≤ 余量长容差 **{tolerance} mm**；第一个满足的尺码即 `自动尺码`，"
+                 "`自动长度余量 = 长上限 − 长`。")
+    lines.append("4. 都不满足时记为 **无可用尺码**，并给出最接近的 `候选`、`原因` 与 `相差数值`：")
+    lines.append("   - `超长`：长超过长上限；`插片指数超上限`：插片指数超过插片指数上限（取超出最多的一项）；")
+    lines.append(f"   - `超余量`：尺码都装得下，但最小的也比车长出超过 {tolerance} mm，车衣过大。")
+    if region == "US":
+        lines += [
+            "",
+            "### 店铺发货尺码",
+            "",
+            "- 店铺全量表按 `data/US/店铺/货架.yaml`：先把候选池限定为该店铺的 `匹配尺码`，按上面同样的步骤选码，"
+            "再把选中的匹配尺码换成对应的 `发货尺码`（多个匹配尺码可以发同一个发货尺码）。",
+            "- 店铺货架中没有合适尺码的车型记为 **无可用尺码**，所以店铺的已匹配比例低于 US 全量表。",
+        ]
+    return lines
+
+
+def ru_rules_text(parameters: pd.DataFrame) -> list[str]:
+    tolerance = parameter_value(parameters, "余量长容差")
+    return [
+        "- 按车型 `分类` 取同分类规则；车型的长、宽、高都不超过规则的 `长_mm`、`宽_mm`、`高_mm` 时尺码合格。",
+        f"- `长_mm − 长` 不得超过该尺码的 `余量长上限_mm`（规则表没有该列时统一用参数 余量长容差 {tolerance} mm）。",
+        "- 合格尺码中取包络体积最小者（再按长、宽、高、亚马逊尺码排序），同时给出该行的 `OZON尺码` 与 `发货尺码`。",
+        "- 无合格尺码时记为 **无可用尺码**，并给出最接近的候选与原因（超长/超宽/超高/超余量）；无同分类规则或尺寸缺失同样标注。",
+    ]
+
+
 def build_report(region: str, output_dir: Path) -> str:
     table_path = output_dir / layout.full_table(region)
     frame = read_csv(table_path)
@@ -190,8 +266,15 @@ def build_report(region: str, output_dir: Path) -> str:
         ])
         lines += ["", f"TRIM 资料：`{relative(data_layout.TRIM_DIR)}/`；适配器：`output/{layout.TRIM_ADAPTER}`。"]
 
-    lines += ["", "## 尺码规则", "", f"来源：`{relative(rule_path)}`（{len(rules)} 条）。", ""]
+    parameters_path, _ = sources["参数"]
+    parameters = read_csv(parameters_path)
+    lines += ["", "## 尺码规则", "",
+              f"规则：`{relative(rule_path)}`；参数：`{relative(parameters_path)}`（当前版本由 `data/当前规则.yaml` 指定）。", ""]
+    lines += ru_rules_text(parameters) if region == "RU" else size_matcher_rules_text(region, rules, parameters)
+    lines += ["", f"### 规则表（{len(rules)} 条）", ""]
     lines += md_table(list(rules.columns), rules.values.tolist())
+    lines += ["", "### 参数", ""]
+    lines += md_table(list(parameters.columns), parameters.values.tolist())
     return "\n".join(lines) + "\n"
 
 

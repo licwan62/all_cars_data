@@ -52,3 +52,14 @@ def test_current_config_resolves_each_region_and_rejects_missing_files(tmp_path)
         data_layout.current("US", broken)
     with pytest.raises(ValueError, match="EU"):
         data_layout.current("EU", broken)
+
+
+def test_report_explains_matching_rules_with_current_parameters():
+    text = report.build_report("US", report.OUTPUT)
+    section = text.split("## 尺码规则", 1)[1]
+    for heading in ("### 计算量", "### 候选池", "### 选码", "### 店铺发货尺码", "### 规则表", "### 参数"):
+        assert heading in section
+    tolerance = report.parameter_value(report.read_csv(report.region_sources("US")["参数"][0]), "余量长容差")
+    assert f"余量长容差 **{tolerance} mm**" in section
+    ru = report.build_report("RU", report.OUTPUT).split("## 尺码规则", 1)[1]
+    assert "包络体积最小" in ru and "### 选码" not in ru
