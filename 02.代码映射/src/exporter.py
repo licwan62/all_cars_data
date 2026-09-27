@@ -139,11 +139,11 @@ def create_artifact_batch(
     artifact_root.mkdir(parents=True, exist_ok=True)
     day = datetime.now().strftime("%Y-%m-%d")
     safe_slug = re.sub(r"[^a-z0-9-]+", "-", slug.casefold()).strip("-") or "code-mapping"
-    pattern = re.compile(rf"^{re.escape(day)}_(\d{{2}})_{re.escape(safe_slug)}$")
+    pattern = re.compile(rf"^{re.escape(day)}_(\d{{2}})_")  # 当天所有批次统一编号，不与其他 slug 撞号
     used = [int(match.group(1)) for path in artifact_root.iterdir() if path.is_dir() and (match := pattern.match(path.name))]
     sequence = max(used, default=0) + 1
     if sequence > 99:
-        raise ValueError(f"Artifact sequence exhausted for {day} and slug {safe_slug}.")
+        raise ValueError(f"Artifact sequence exhausted for {day}.")
     final_path = artifact_root / f"{day}_{sequence:02d}_{safe_slug}"
     temp_path = Path(tempfile.mkdtemp(prefix=f".{final_path.name}.", dir=artifact_root))
     try:
@@ -195,11 +195,11 @@ def create_multi_artifact_batch(
     artifact_root.mkdir(parents=True, exist_ok=True)
     day = datetime.now().strftime("%Y-%m-%d")
     safe_slug = re.sub(r"[^a-z0-9-]+", "-", slug.casefold()).strip("-") or "code-mapping"
-    pattern = re.compile(rf"^{re.escape(day)}_(\d{{2}})_{re.escape(safe_slug)}$")
+    pattern = re.compile(rf"^{re.escape(day)}_(\d{{2}})_")  # 当天所有批次统一编号，不与其他 slug 撞号
     used = [int(m.group(1)) for path in artifact_root.iterdir() if path.is_dir() and (m := pattern.match(path.name))]
     sequence = max(used, default=0) + 1
     if sequence > 99:
-        raise ValueError(f"Artifact sequence exhausted for {day} and slug {safe_slug}.")
+        raise ValueError(f"Artifact sequence exhausted for {day}.")
     final_path = artifact_root / f"{day}_{sequence:02d}_{safe_slug}"
     temp_path = Path(tempfile.mkdtemp(prefix=f".{final_path.name}.", dir=artifact_root))
     try:

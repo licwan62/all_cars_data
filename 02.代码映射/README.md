@@ -27,7 +27,7 @@ python src/main.py --publish
 python src/main.py --input "D:\data\full_vehicle_data.csv"
 ```
 
-配置见 `config.yaml`。正式运行生成：
+配置见 `data/config.yaml`。正式运行生成：
 
 - `data/mapping/<us|eu|ru>/make_mapping.csv`、`model_mapping.csv`：各区域所有历史品牌/车型代码。
 - `artifacts/YYYY-MM-DD_NN_code-mapping-publish/`：不可覆盖的运行批次，包含输入快照、各区域映射快照、合并交付物、运行报告和 `status.json`。

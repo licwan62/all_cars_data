@@ -12,7 +12,7 @@ import normalize_cache
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the complete vehicle sales preparation pipeline.")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
 
     normalized = normalize_cache.run(args.config)

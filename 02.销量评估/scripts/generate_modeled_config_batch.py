@@ -27,7 +27,7 @@ def atom_prior(atom_key: str, policy: dict) -> Decimal:
     return value
 
 
-def build(worker: str, destination: Path, config_path: str = "config.json") -> int:
+def build(worker: str, destination: Path, config_path: str = "data/config.json") -> int:
     load_config(config_path)  # Validate the project configuration before touching a review batch.
     policy = json.loads((ROOT / "data" / "modeled_config_share_policy.json").read_text(encoding="utf-8"))
     _, queue = read_csv(QUEUE)
@@ -55,6 +55,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--worker", required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     print({"groups": build(args.worker, args.output, args.config)})

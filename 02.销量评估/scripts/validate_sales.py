@@ -21,7 +21,7 @@ REPORT_FIELDS = [
 ]
 
 
-def run(config_path: str = "config.json", fail_on_error: bool = True) -> dict[str, int]:
+def run(config_path: str = "data/config.json", fail_on_error: bool = True) -> dict[str, int]:
     config = load_config(config_path)
     fields, rows = read_csv(config["atomic_output_csv"])
     require_fields(
@@ -103,7 +103,7 @@ def run(config_path: str = "config.json", fail_on_error: bool = True) -> dict[st
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Validate model-year allocation conservation.")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     summary = run(args.config)
     print(

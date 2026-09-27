@@ -22,6 +22,7 @@ import os
 import re
 import shutil
 import sys
+import time
 from datetime import date, datetime
 from pathlib import Path
 
@@ -55,7 +56,7 @@ def row_count(path: Path) -> int | None:
 
 def versioned_name(file_name: str, version: str) -> str:
     path = Path(file_name)
-    return f"{path.stem}-{version}{path.suffix}"
+    return path.with_name(f"{path.stem}-{version}{path.suffix}").as_posix()
 
 
 def topological_order(nodes: list[dict]) -> list[dict]:
@@ -219,6 +220,18 @@ def check_outputs(root: Path, nodes: list[dict]) -> list[str]:
     return errors
 
 
+def replace_with_retry(source: Path, target: Path, attempts: int = 5, delay: float = 1.0) -> None:
+    """Windows 上新写入的目录可能被杀毒/索引短暂占用，重命名失败时有限次重试。"""
+    for attempt in range(attempts):
+        try:
+            os.replace(source, target)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                raise
+            time.sleep(delay)
+
+
 def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, released_at: str) -> dict:
     project = root / node["path"]
     output_dir = project / "output"
@@ -237,12 +250,13 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
     for name in node.get("outputs", []):
         source = output_dir / name
         target = staging / "output" / versioned_name(name, version)
+        target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, target)
         deliverables.append(
             {
                 "file": name,
-                "versioned_file": target.name,
-                "artifact_file": f"{node['path']}/artifacts/{batch_name}/output/{target.name}",
+                "versioned_file": target.relative_to(staging / "output").as_posix(),
+                "artifact_file": f"{node['path']}/artifacts/{batch_name}/output/{target.relative_to(staging / 'output').as_posix()}",
                 "sha256": sha256(target),
                 "bytes": target.stat().st_size,
                 "rows": row_count(target),
@@ -263,14 +277,24 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
     }
     write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root, manifest["rules"])
     write_json_atomic(staging / MANIFEST_NAME, manifest)
-    os.replace(staging, batch_dir)
+    replace_with_retry(staging, batch_dir)
 
     # 校验通过后才发布：去掉版本后缀，逐文件原子替换
     for item in deliverables:
         published = output_dir / item["file"]
+        published.parent.mkdir(parents=True, exist_ok=True)
         temporary = published.with_name(f".{published.name}.tmp")
         shutil.copy2(batch_dir / "output" / item["versioned_file"], temporary)
         os.replace(temporary, published)
+    # A changed output contract may intentionally retire old stable files.  Only
+    # remove files that the immediately previous manifest owned, and only after
+    # all current deliverables have been atomically published.
+    current_files = {item["file"] for item in deliverables}
+    for item in (previous_manifest or {}).get("deliverables", []):
+        name = item.get("file")
+        retired = output_dir / name if name else None
+        if name and name not in current_files and retired and retired.is_file():
+            retired.unlink()
     write_json_atomic(output_dir / MANIFEST_NAME, manifest)
     return manifest
 

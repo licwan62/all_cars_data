@@ -12,6 +12,7 @@ PROJECT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(PROJECT_DIR))
 
 from src import run as run_mod  # noqa: E402
+from src import publish_ssh  # noqa: E402
 
 FIELDS = ["MAKE", "MODEL", "版本", "结构", "CAB", "BED", "YEAR", "分类", "自动尺码", "DIMENSION-ID"]
 
@@ -79,7 +80,9 @@ def test_model_combo_comes_from_node_data():
 def write_sources(source_dir: Path, rows_by_region: dict[str, list[dict]]) -> None:
     source_dir.mkdir(parents=True, exist_ok=True)
     for region, rows in rows_by_region.items():
-        with (source_dir / run_mod.upstream_file(region)).open("w", encoding="utf-8-sig", newline="") as handle:
+        path = source_dir / run_mod.upstream_file(region)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("w", encoding="utf-8-sig", newline="") as handle:
             writer = csv.DictWriter(handle, fieldnames=FIELDS)
             writer.writeheader()
             writer.writerows(rows)
@@ -93,24 +96,36 @@ def test_lines_cover_regions_and_us_stores():
     assert lines() == {"US": "US", "HNT": "US", "TM": "US", "TM_拆分": "US", "EU": "EU", "RU": "RU"}
 
 
+def test_default_lines_only_include_country_outputs():
+    assert run_mod.default_lines(lines()) == {"US": "US", "EU": "EU", "RU": "RU"}
+
+
+def test_output_names_are_grouped_by_country_without_lossy_suffix():
+    assert run_mod.output_names("US") == {
+        "non_pickup_high": "US/压缩尺码表.csv",
+        "pickup_high": "US/压缩尺码表_皮卡.csv",
+    }
+
+
 def test_run_writes_artifact_and_outputs(tmp_path: Path):
-    write_sources(tmp_path / "src", {line: [row(region=region)] for line, region in lines().items()})
+    countries = run_mod.default_lines(lines())
+    write_sources(tmp_path / "src", {line: [row(region=region)] for line, region in countries.items()})
     result = run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "output", tmp_path / "artifacts", workers=1)
-    expected = sorted(name for line in lines() for name in run_mod.output_names(line).values())
-    assert sorted(path.name for path in (tmp_path / "output").iterdir()) == expected
+    expected = sorted(name for region in countries.values() for name in run_mod.output_names(region).values())
+    assert sorted(path.relative_to(tmp_path / "output").as_posix() for path in (tmp_path / "output").rglob("*.csv")) == expected
     artifact = Path(result["artifact"])
     status = json.loads((artifact / "status.json").read_text(encoding="utf-8"))
     assert status["status"] == "passed"
     assert (artifact / "input" / run_mod.FIELD_PROFILE).is_file()
     assert (artifact / "input" / run_mod.MODEL_COMBO).is_file()
-    assert set(status["lines"]) == set(lines())
+    assert set(status["lines"]) == set(countries)
 
 
 def test_failed_run_leaves_output_untouched(tmp_path: Path):
     output = tmp_path / "output"
     output.mkdir()
     (output / "keep.csv").write_text("x", encoding="utf-8")
-    sources = {line: [row(region=region)] for line, region in lines().items()}
+    sources = {line: [row(region=region)] for line, region in run_mod.default_lines(lines()).items()}
     sources["EU"] = [row(region="US")]  # EU 产线混入 US 行
     write_sources(tmp_path / "src", sources)
     with pytest.raises(run_mod.CompressionError):
@@ -119,8 +134,21 @@ def test_failed_run_leaves_output_untouched(tmp_path: Path):
 
 
 def test_parallel_run_matches_serial(tmp_path: Path):
-    write_sources(tmp_path / "src", {line: [row(region=region), row(year="2020", size="L", region=region)] for line, region in lines().items()})
+    write_sources(tmp_path / "src", {line: [row(region=region), row(year="2020", size="L", region=region)] for line, region in run_mod.default_lines(lines()).items()})
     run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "serial", tmp_path / "a1", workers=1)
     run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "parallel", tmp_path / "a2", workers=2)
-    for path in (tmp_path / "serial").iterdir():
-        assert path.read_bytes() == (tmp_path / "parallel" / path.name).read_bytes()
+    for path in (tmp_path / "serial").rglob("*.csv"):
+        assert path.read_bytes() == (tmp_path / "parallel" / path.relative_to(tmp_path / "serial")).read_bytes()
+
+
+def test_ssh_publish_plan_uses_us_manifest_outputs():
+    plan = publish_ssh.load_plan(PROJECT_DIR / "data" / "ssh发布.yaml")
+    assert plan.host == "qnap-nas"
+    assert plan.destination.as_posix() == "/share/Public/PQData/pub_all_cars_data/size_compressed"
+    assert [name for _, name, _ in plan.files] == ["压缩尺码表.csv", "压缩尺码表_皮卡.csv"]
+    assert all(path.parent == PROJECT_DIR / "output" / "US" for path, _, _ in plan.files)
+
+
+def test_upstream_files_follow_a0_layout():
+    assert run_mod.upstream_file("EU") == "EU/全量/全量表.csv"
+    assert run_mod.upstream_file("TM_拆分", "US") == "US/店铺/店铺全量_TM_拆分.csv"

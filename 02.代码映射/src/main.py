@@ -235,7 +235,7 @@ def _print_report(mode, input_rows, make_totals, model_totals, old_makes, old_mo
 def parse_args(argv: list[str] | None = None):
     project_root = Path(__file__).resolve().parent.parent
     parser = argparse.ArgumentParser(description="Persistent MAKE/MODEL code mapper")
-    parser.add_argument("--config", default=str(project_root / "config.yaml"))
+    parser.add_argument("--config", default=str(project_root / "data" / "config.yaml"))
     parser.add_argument("--input", help="Temporarily override the configured full-data CSV")
     parser.add_argument("--dry-run", action="store_true", help="Validate and preview without writing files")
     parser.add_argument(

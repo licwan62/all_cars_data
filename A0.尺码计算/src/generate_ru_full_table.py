@@ -21,17 +21,19 @@ WORKSPACE_ROOT = PROJECT_DIR.parent
 if str(WORKSPACE_ROOT / "lib") not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT / "lib"))
 
-from full_table_schema import attach_dimension_code  # noqa: E402
+import data_layout
+import output_layout as layout
 import pandas_analysis as analysis
 
 
 SOURCE_DIR = WORKSPACE_ROOT / "02.分类结构审核" / "output"
 RU_DIMENSIONS_PATH = SOURCE_DIR / "车型结构_RU.csv"
-RU_RAW_SOURCE_DIR = WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru" / "0916"
+# RU 原始抓取批次：取 01.整理尺寸库/data/ru/ 下最新的批次目录
+RU_RAW_SOURCE_DIR = max(path for path in (WORKSPACE_ROOT / "01.整理尺寸库" / "data" / "ru").iterdir() if path.is_dir())
 RU_SALES_PATH = WORKSPACE_ROOT / "02.销量评估" / "data" / "ru" / "auto_ru_model_sales_with_match_key.csv"
 DIMENSION_PROJECT = WORKSPACE_ROOT / "01.整理尺寸库"
-RULES_PATH = PROJECT_DIR / "data" / "ru" / "尺寸" / "0921.3-两厢车候选-2L200.csv"
-PARAMETERS_PATH = PROJECT_DIR / "data" / "ru" / "参数" / "0921.1-仅余量.csv"
+RULES_PATH = data_layout.current("RU").rules
+PARAMETERS_PATH = data_layout.current("RU").parameters
 OUTPUT_DIR = PROJECT_DIR / "output"
 ARTIFACTS_DIR = PROJECT_DIR / "artifacts"
 
@@ -228,7 +230,7 @@ def atomic_copy(source: Path, destination: Path) -> None:
 
 def published_sales_snapshot(dimensions: pd.DataFrame) -> pd.DataFrame:
     """Preserve the published proxy-sales allocation for a rules-only RU rerun."""
-    path = OUTPUT_DIR / "全量表_RU.csv"
+    path = OUTPUT_DIR / layout.full_table("RU")
     if not path.is_file():
         raise analysis.DataContractError(f"Missing published RU sales snapshot: {path}")
     snapshot = analysis._read_csv(path)
@@ -265,7 +267,8 @@ def main() -> int:
         result = base.copy()
         result = pd.concat([result, matched], axis=1)
         ordered = [*analysis.DEFAULT_OUTPUT_COLUMNS[:21], "OZON尺码", "发货尺码", *analysis.DEFAULT_OUTPUT_COLUMNS[21:]]
-        result = attach_dimension_code(result[ordered])
+        # 只有 US 有 TRIM 匹配环节，RU 全量表不带 TRIM 列
+        result = result[[column for column in ordered if column != "TRIM"]]
         expected_rows = len(dimensions)
         summary = analysis.validate_result(result, expected_rows)
         if result["DIMENSION-ID"].duplicated().any():
@@ -278,7 +281,7 @@ def main() -> int:
         shutil.copy2(RU_SALES_PATH, artifact_inputs / RU_SALES_PATH.name)
         shutil.copy2(RU_RAW_SOURCE_DIR / "auto_ru_dimensions_with_match_key.csv", artifact_inputs / "auto_ru_dimensions_with_match_key.csv")
         shutil.copy2(RU_RAW_SOURCE_DIR / "auto_ru_catalog_rank.csv", artifact_inputs / "auto_ru_catalog_rank.csv")
-        full_path = artifact_output / "全量表_RU.csv"
+        full_path = artifact_output / layout.full_table("RU")
         analysis.write_result(result, full_path)
         report = {
             **summary,
@@ -291,11 +294,10 @@ def main() -> int:
             "sales_audit": sales_audit,
             "sales_snapshot_fallback": sales_snapshot_fallback,
         }
-        report_path = artifact_output / "尺码匹配报告_RU.json"
+        report_path = artifact_dir / "尺码匹配报告_RU.json"
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         (artifact_dir / "status.json").write_text(json.dumps({"status": "passed", "output": str(full_path), "report": str(report_path)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        atomic_copy(full_path, OUTPUT_DIR / full_path.name)
-        atomic_copy(report_path, OUTPUT_DIR / report_path.name)
+        atomic_copy(full_path, OUTPUT_DIR / layout.full_table("RU"))
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0
     except Exception as error:

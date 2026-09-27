@@ -15,7 +15,7 @@ import pandas as pd
 
 SRC_DIR = Path(__file__).resolve().parent
 SIZE_PROJECT_DIR = SRC_DIR.parent
-TEST_DIR = SIZE_PROJECT_DIR / "半周长测试"
+TEST_DIR = SIZE_PROJECT_DIR / "work" / "半周长测试"
 WORKSPACE_DIR = SIZE_PROJECT_DIR.parent
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
@@ -23,10 +23,10 @@ if str(SRC_DIR) not in sys.path:
 import pandas_analysis as base  # noqa: E402
 
 
-DEFAULT_COVER_SOURCE = WORKSPACE_DIR / "01.整理尺寸库" / "data" / "车衣数据" / "0915.csv"
+DEFAULT_COVER_SOURCE = WORKSPACE_DIR / "01.整理尺寸库" / "data" / "车衣数据" / "us" / "0915.csv"
 DEFAULT_SOURCE_DIR = WORKSPACE_DIR / "01.整理尺寸库" / "output"
-DEFAULT_BASE_RULES = SIZE_PROJECT_DIR / "data" / "尺码匹配规则.csv"
-DEFAULT_PARAMETERS = SIZE_PROJECT_DIR / "data" / "尺码匹配参数.csv"
+DEFAULT_BASE_RULES = SIZE_PROJECT_DIR / "data" / "US" / "规则" / "0917.1-新命名.csv"
+DEFAULT_PARAMETERS = SIZE_PROJECT_DIR / "data" / "US" / "参数" / "尺码匹配参数.csv"
 DEFAULT_OUTPUT = TEST_DIR / "output" / "半周长测试结果.csv"
 DEFAULT_RULE_OUTPUT = TEST_DIR / "rules" / "半周长匹配规则.csv"
 

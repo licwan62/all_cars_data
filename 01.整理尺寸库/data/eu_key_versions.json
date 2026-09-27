@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "说明": "EU 尺寸库 版本 列只保留关键版本：影响外廓尺寸或车身形态的轴距/车长、车顶高度、门数、后轮、驾驶室/货斗、车身形式标记。取自 BodyCode 与源变体（Ktype 映射 id 后缀）中按空白切分、整词（不区分大小写）完全匹配下列正则的词，按出现顺序去重。改款（prefl/facelift/phase/mk/series）、年份、底盘代号、装备名、动力、电池等非关键信息一律不写入 版本；仅当同 MAKE/MODEL/版本/结构/YEAR 的记录尺寸不同、DIMENSION-ID 冲突时，才依次追加其余源变体词（如 prefl/facelift）、底盘代号（BodyCode），最后才用 L/W/H 尺寸区分；追加时跳过已在 版本 中的关键词。",
+  "key_token_patterns": {
+    "轴距/车长": [
+      "swb", "mwb", "lwb", "elwb", "xlwb", "lwbmaxi", "maxi", "long", "extralong", "short",
+      "l[1-5]", "l[1-5]s", "wb\\d{4}", "jumbo"
+    ],
+    "车顶高度": [
+      "h[1-4]", "l[1-5]h[1-4]", "[a-z]{1,2}h[1-4]",
+      "highroof", "lowroof", "midroof", "mediumroof", "medroof", "superhighroof", "stdroof", "standardroof"
+    ],
+    "门数": ["[2-5]dr"],
+    "后轮": ["drw", "srw"],
+    "驾驶室/货斗": [
+      "single", "singlecab", "scab", "regcab", "double", "doublecab", "dcab", "crew", "crewcab",
+      "extcab", "supercab", "clubcab", "quadcab", "spacecab", "kingcab", "longbed", "shortbed"
+    ],
+    "车身形式": ["chassis", "platform", "dropside", "widebody", "wide", "narrow"]
+  }
+}

@@ -47,7 +47,12 @@ def trace_node(node: dict, by_id: dict[str, dict]) -> tuple[list[str], list[str]
             errors.append(f"{node['path']}: {name} 缺少 artifact_file 来源")
             continue
         stem, _, ext = name.rpartition(".")
-        if artifact_file.name != f"{stem}-{manifest['version']}.{ext}":
+        expected_artifact_name = f"{stem}-{manifest['version']}.{ext}"
+        try:
+            actual_artifact_name = artifact_file.relative_to(ROOT / manifest.get("artifact", "") / "output").as_posix()
+        except ValueError:
+            actual_artifact_name = artifact_file.name
+        if actual_artifact_name != expected_artifact_name:
             errors.append(f"{node['path']}: {name} 的来源文件名 {artifact_file.name} 与版本 {manifest['version']} 不一致")
         elif not artifact_file.is_file():
             errors.append(f"{node['path']}: 来源 {item['artifact_file']} 不存在")

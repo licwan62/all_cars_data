@@ -1,0 +1,7 @@
+# A2 US 压缩尺码表的 SSH 发布配置。
+host: qnap-nas
+destination: /share/Public/PQData/pub_all_cars_data/size_compressed
+source: output/US
+files:
+  - 压缩尺码表.csv
+  - 压缩尺码表_皮卡.csv

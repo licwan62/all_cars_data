@@ -15,11 +15,13 @@ from pathlib import Path
 
 import pandas as pd
 
+import data_layout
+import output_layout as layout
+
 ROOT = Path(__file__).resolve().parents[2]
 PROJECT = ROOT / "A0.尺码计算"
-RESEARCH = PROJECT / "data" / "eu" / "当前已审核全量.csv"
+RESEARCH = data_layout.EU_RESEARCH
 DIMENSIONS = ROOT / "02.分类结构审核" / "output" / "车型结构_EU.csv"
-CODE_MAP = ROOT / "02.代码映射" / "output" / "尺寸编码映射.csv"
 OUTPUT = PROJECT / "output"
 ARTIFACTS = PROJECT / "artifacts"
 
@@ -41,23 +43,15 @@ def next_artifact_dir() -> Path:
 def build() -> tuple[pd.DataFrame, dict[str, object]]:
     research = read_csv(RESEARCH)
     dimensions = read_csv(DIMENSIONS)
-    codes = read_csv(CODE_MAP)[["DIMENSION-ID", "DIMENSION-CODE"]]
     if research["DIMENSION-ID"].duplicated().any():
         raise ValueError("EU 审核结果 DIMENSION-ID 不唯一")
-    if codes["DIMENSION-ID"].duplicated().any():
-        raise ValueError("尺寸编码映射 DIMENSION-ID 不唯一")
     dimension_ids = set(dimensions["DIMENSION-ID"])
     missing_dimensions = set(research["DIMENSION-ID"]) - dimension_ids
     research = research.loc[research["DIMENSION-ID"].isin(dimension_ids)].copy()
     if research.empty:
         raise ValueError("EU 审核结果与当前尺寸库没有交集")
-    result = research.merge(codes, on="DIMENSION-ID", how="left", validate="one_to_one")
-    if result["DIMENSION-CODE"].eq("").any() or result["DIMENSION-CODE"].isna().any():
-        raise ValueError("EU 审核结果存在缺失的 DIMENSION-CODE")
-    columns = list(result.columns)
-    columns.remove("DIMENSION-CODE")
-    columns.insert(columns.index("DIMENSION-ID"), "DIMENSION-CODE")
-    result = result[columns]
+    # 只有 US 有 TRIM 匹配环节；全量表不带 DIMENSION-CODE
+    result = research.drop(columns=["TRIM", "DIMENSION-CODE"], errors="ignore")
     report = {
         "status": "passed",
         "scope": "current-reviewed-research",
@@ -84,19 +78,19 @@ def main() -> int:
         (staging / "output").mkdir(parents=True)
         shutil.copy2(RESEARCH, staging / "input" / RESEARCH.name)
         shutil.copy2(DIMENSIONS, staging / "input" / DIMENSIONS.name)
-        target = staging / "output" / "全量表_EU.csv"
+        target = staging / "output" / layout.full_table("EU")
+        target.parent.mkdir(parents=True)
         result.to_csv(target, index=False, encoding="utf-8-sig", lineterminator="\n")
-        (staging / "output" / "尺码匹配报告_EU.json").write_text(
-            json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-        )
         (staging / "status.json").write_text(
             json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         os.replace(staging, artifact)
-        for name in ["全量表_EU.csv", "尺码匹配报告_EU.json"]:
-            temporary = OUTPUT / f".{name}.tmp"
+        for name in [layout.full_table("EU")]:
+            destination = OUTPUT / name
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            temporary = destination.with_name(f".{destination.name}.tmp")
             shutil.copy2(artifact / "output" / name, temporary)
-            os.replace(temporary, OUTPUT / name)
+            os.replace(temporary, destination)
         print(json.dumps({**report, "artifact": str(artifact)}, ensure_ascii=False, indent=2))
         return 0
     except Exception as error:

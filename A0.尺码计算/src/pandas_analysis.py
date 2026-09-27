@@ -24,12 +24,15 @@ DIMENSION_OUTPUT_DIR = WORKSPACE_ROOT / "02.分类结构审核" / "output"
 SHAPE_OUTPUT = WORKSPACE_ROOT / "03.车形分类核定" / "output" / "车形分类.csv"
 SALES_OUTPUT = WORKSPACE_ROOT / "02.销量评估" / "output" / "原子销量.csv"
 REFERENCE_DATA = WORKSPACE_ROOT / "03.车形分类核定" / "output" / "参考尺寸计算.csv"
-CURRENT_OUTPUT = PROJECT_DIR / "output" / "全量表_US.csv"
+CURRENT_OUTPUT = PROJECT_DIR / "output" / "US" / "全量" / "全量表.csv"
 if str(WORKSPACE_ROOT / "lib") not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT / "lib"))
+if str(Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from id_scheme import append_country_code, base_dimension_id
-from full_table_schema import attach_dimension_code, build_dimension_analysis
+from full_table_schema import build_dimension_analysis
+import data_layout  # noqa: E402
 
 
 MM_PER_INCH = 25.4
@@ -913,6 +916,7 @@ def calculate(
     sort_output: bool = True,
     config_dir: Path | None = None,
     rules_path: Path | None = None,
+    parameters_path: Path | None = None,
     body_path: Path | None = None,
     sales_path: Path | None = None,
     reference_path: Path | None = None,
@@ -920,7 +924,11 @@ def calculate(
     include_analysis: bool = False,
     allowed_sizes: Iterable[str] | None = None,
 ) -> pd.DataFrame | tuple[pd.DataFrame, pd.DataFrame]:
-    config_dir = config_dir or PROJECT_DIR / "data"
+    if config_dir is None:
+        # 默认 US：规则与参数取 data/当前规则.yaml 登记的当前版本
+        us_config = data_layout.current("US")
+        rules_path = rules_path or us_config.rules
+        parameters_path = parameters_path or us_config.parameters
     dimensions = _read_csv(resolve_data_file(input_dir, "dimensions"))
     if body_path is None:
         body_path = next(
@@ -938,7 +946,7 @@ def calculate(
     references = _read_csv(
         reference_path or (local_reference if local_reference.is_file() else REFERENCE_DATA)
     )
-    parameters = _read_csv(config_dir / CONFIG_FILES["parameters"])
+    parameters = _read_csv(parameters_path or config_dir / CONFIG_FILES["parameters"])
     rules = _read_csv(rules_path or config_dir / CONFIG_FILES["rules"])
     submodels = _read_csv(submodel_path) if submodel_path is not None else None
 
@@ -1100,13 +1108,12 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--config-dir",
         type=Path,
-        default=script_dir / "data",
-        help="本 agent 维护的规则目录（默认：data）",
+        help="含 尺码匹配参数.csv/尺码匹配规则.csv 的目录；默认按 data/当前规则.yaml 取当前 US 规则与参数",
     )
     parser.add_argument(
         "--rules-file",
         type=Path,
-        help="尺码匹配规则 CSV；默认使用 config-dir/尺码匹配规则.csv",
+        help="尺码匹配规则 CSV；指定 --config-dir 时默认使用 config-dir/尺码匹配规则.csv",
     )
     parser.add_argument(
         "--output",
@@ -1159,7 +1166,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--trim-source", type=Path,
-        help="缺少子车系维护表时，按 DIMENSION-ID 保留该表的 TRIM；默认使用 output/全量表_US.csv",
+        help="缺少子车系维护表时，按 DIMENSION-ID 保留该表的 TRIM；默认使用 output/US/全量/全量表.csv",
     )
     parser.add_argument(
         "--submodel-source",
@@ -1187,7 +1194,8 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
 def main(argv: Sequence[str] | None = None) -> int:
     args = parse_args(argv)
     input_dir = (args.input_dir or args.source_dir).resolve()
-    config_dir = (args.input_dir or args.config_dir).resolve()
+    config_dir = args.input_dir or args.config_dir
+    config_dir = config_dir.resolve() if config_dir else None
     batch_output_dir = None
     if args.output:
         output_path = args.output.resolve()
@@ -1226,8 +1234,6 @@ def main(argv: Sequence[str] | None = None) -> int:
         analysis["DIMENSION-ID"] = analysis["DIMENSION-ID"].map(
             lambda value: append_country_code(value, "US")
         )
-        result = attach_dimension_code(result)
-        analysis = attach_dimension_code(analysis)
         expected_rows = len(_read_csv(resolve_data_file(input_dir, "dimensions")))
         summary = validate_result(result, expected_rows)
         if args.analysis_output:
@@ -1260,8 +1266,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         else None
     )
     summary["source_dir"] = str(input_dir)
-    summary["config_dir"] = str(config_dir)
-    summary["rules_file"] = str(args.rules_file.resolve()) if args.rules_file else str(config_dir / CONFIG_FILES["rules"])
+    summary["config_dir"] = str(config_dir or data_layout.CURRENT_CONFIG)
+    summary["rules_file"] = str(
+        args.rules_file.resolve() if args.rules_file
+        else config_dir / CONFIG_FILES["rules"] if config_dir else data_layout.us_rules()
+    )
     summary["submodel_source"] = str(submodel_path) if submodel_path else None
     summary["trim_source"] = str(trim_source) if trim_source else None
     summary["body_source"] = str(args.body_source.resolve()) if args.body_source else str(SHAPE_OUTPUT)
@@ -1273,8 +1282,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         summary["status"] = str(status_path)
-        promote_file(output_path, PROJECT_DIR / "output" / "全量表_US.csv")
-        promote_file(analysis_output_path, PROJECT_DIR / "output" / "尺寸分析表_US.csv")
+        # 只写 artifact 批次：output/ 的 US 全量表由 generate_store_outputs.py（含 TRIM 匹配）发布
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 

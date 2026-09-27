@@ -1,25 +1,27 @@
 # 压缩尺寸信息 Agent（A 线：压缩尺码表）
 
-`id: size-compression`。承接 `A1.全量生成` 的分产线全量表（A0 全量表或店铺全量表 + Trims），按原子事实把逐年、逐结构、逐版本的行
+`id: size-compression`。承接 `A0.尺码计算` 的分产线全量表（国别全量表或 US 店铺全量表；US 表已含 TRIM），按原子事实把逐年、逐结构、逐版本的行
 压缩为尺码表，按产线（`data/产线.yaml`：US、HNT、TM、TM_拆分、EU、RU）各自独立压缩。压缩引擎内置于 `src/sizechart/`（网站流水线原压缩步骤
 `compress_to_size_chart` 的副本，来源与改动见 `src/sizechart/VENDORED.md`），不依赖外部仓库路径。
 
-上游：`A1.全量生成/output/全量生成_<产线>.csv`（区域表 US/EU/RU，店铺表 HNT/TM/TM_拆分 为 US 行 + 店铺发货尺码）。
+上游：`A0.尺码计算/output/<国别>/全量/全量表.csv`（国别线 US/EU/RU）与 `A0.尺码计算/output/US/店铺/店铺全量_<店铺>.csv`（店铺线 HNT/TM/TM_拆分，US 行 + 店铺发货尺码）。
 
-输出（每条产线 4 张，共 24 张）：`压缩尺码表_<产线>.csv`（非皮卡无损）、`压缩尺码表_<产线>_有损.csv`（非皮卡高度压缩）、
-`压缩尺码表_<产线>_皮卡.csv`（皮卡无损）、`压缩尺码表_<产线>_皮卡_有损.csv`（皮卡高度压缩）。
+默认输出（US、EU、RU 各 2 张，共 6 张）：`<国别>/压缩尺码表.csv`（非皮卡高度压缩）与
+`<国别>/压缩尺码表_皮卡.csv`（皮卡高度压缩）。国别由目录表达，文件名不加“有损”后缀；无损表和 HNT/TM/TM_拆分店铺线不属于默认 output 交付物。
 
 ## 目录
 
-- `data/产线.yaml`：产线 → 区域（校验 DIMENSION-ID 后缀）。新增店铺时，A0 `店铺货架.csv` 加店铺后 A1 自动产出 `全量生成_<店铺>.csv`，再在此登记。
+- `data/产线.yaml`：产线 → 区域（校验 DIMENSION-ID 后缀）。新增店铺时，A0 `data/US/店铺/货架.yaml` 加店铺后 A0 自动产出 `US/店铺/店铺全量_<店铺>.csv`，再在此登记。
 - `data/字段映射.yaml`：标准字段 ← 上游列名候选。`最终尺码 = 确认尺码 > 自动尺码 > 最终尺码 > 对应尺码`，
   与网站流水线 `configs/pipeline.yaml` 的 columns/defaults 保持一致。
 - `data/车型组合.tsv`：允许在高度压缩中合并的同品牌车型组（如 Audi `A3|S3|RS3`），决定合并后的车型排序。
 - `src/sizechart/`：压缩引擎（`process_tsv.transform_all_outputs`）与原子检查（`check_atom.build_atom_check`）。
 - `src/run.py`：编排入口，逐产线压缩，创建 `artifacts/<批次>/` 快照，全部产线成功后才原子更新 `output/`。
+- `data/ssh发布.yaml`、`src/publish_ssh.py`：把 `output/US` 的两张正式交付表发布到 `qnap-nas:/share/Public/PQData/pub_all_cars_data/size_compressed`；发布前后均校验 SHA-256。
 
 ```powershell
 python src/run.py
+python src/publish_ssh.py
 ```
 
 ## 压缩算法概要
@@ -48,7 +50,7 @@ python src/run.py
 ## 迁移记录
 
 2026-09-23：原 `A2.压缩定制评分`（后改名 `B1.压缩定制评分`）里的压缩机制拆分为独立节点 `A2.压缩尺寸信息`；
-`B1.压缩定制评分` 之后只保留定制需求度评分，评分键直接从 `A1.全量生成` 的全量表推导，不依赖本节点输出。
+`B1.压缩定制评分` 之后只保留定制需求度评分，评分键直接从 `A0.尺码计算` 的国别全量表推导，不依赖本节点输出。
 
 2026-09-25：上游由 `A0.尺码计算/output/全量表_<区域>.csv` 改为 `A1.全量生成/output/全量生成_<区域>.csv`。
 
@@ -58,5 +60,7 @@ python src/run.py
 批次的压缩结果逐行一致。
 
 2026-09-25：按产线压缩，新增店铺线 HNT、TM、TM_拆分（读取 A1 `全量生成_<店铺>.csv`），共 6 条产线。
+
+2026-09-27：上游由 `A1.全量生成/output/全量生成_<产线>.csv` 改为 `A0.尺码计算/output` 的 `<国别>/全量/全量表.csv` 与 `US/店铺/店铺全量_<店铺>.csv`（A1 不再输出全量表；A0 US 表的 TRIM 已由 TRIM 匹配回填，压缩不使用 TRIM）。压缩结果不变。
 
 遵守仓库根目录 `AGENTS.md`。

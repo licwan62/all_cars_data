@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""把 A1.全量生成/output/全量生成_<产线>.csv 按产线（data/产线.yaml：US、HNT、TM、TM_拆分、EU、RU）分别压缩为尺码表。
+"""把 A0.尺码计算/output 的产线全量表（国别线 <国别>/全量/全量表.csv，店铺线 US/店铺/店铺全量_<店铺>.csv）按产线（data/产线.yaml：US、HNT、TM、TM_拆分、EU、RU）分别压缩为尺码表。
 
 压缩引擎为内置的 src/sizechart（与网站流水线原压缩步骤同一算法，见 src/sizechart/VENDORED.md）：
 按原子事实（品牌、车型、结构/CAB/BED、版本、年份）校验，非皮卡与皮卡分表输出。
-每条产线输出 4 张表：
-  压缩尺码表_<产线>.csv            非皮卡无损（同事实连续年份合并）
-  压缩尺码表_<产线>_有损.csv       非皮卡高度压缩（车型组合/版本/结构两两合并，逐次原子校验）
-  压缩尺码表_<产线>_皮卡.csv       皮卡无损
-  压缩尺码表_<产线>_皮卡_有损.csv  皮卡高度压缩
+默认交付仅保留 US、EU、RU 三个国别的高度压缩（有损）结果：
+  <国别>/压缩尺码表.csv       非皮卡高度压缩（车型组合/版本/结构两两合并，逐次原子校验）
+  <国别>/压缩尺码表_皮卡.csv  皮卡高度压缩
+无损表和店铺产线仍可由压缩引擎在内存中生成、供校验和按需扩展，但不是 output 流水线接口。
 运行先创建不可覆盖的 artifacts/<批次>/（输入与规则快照、压缩 log、原子事实表、原子检查问题），
 全部产线成功后才原子更新 output/。
 """
@@ -35,7 +34,7 @@ import process_tsv as engine  # noqa: E402
 from check_atom import build_atom_check  # noqa: E402
 from field_profile import load_field_profile  # noqa: E402
 
-UPSTREAM_OUTPUT = PROJECT_DIR.parent / "A1.全量生成" / "output"
+UPSTREAM_OUTPUT = PROJECT_DIR.parent / "A0.尺码计算" / "output"
 REGIONS = ("US", "EU", "RU")
 DATA_DIR = PROJECT_DIR / "data"
 FIELD_PROFILE = "字段映射.yaml"
@@ -47,16 +46,19 @@ class CompressionError(ValueError):
     pass
 
 
-def upstream_file(line: str) -> str:
-    return f"全量生成_{line}.csv"
+def upstream_file(line: str, region: str | None = None) -> str:
+    """A0 output 中产线全量表的相对路径：国别线读区域全量表，店铺线读该区域的店铺全量表。"""
+    region = region or line
+    if line == region:
+        return f"{region}/全量/全量表.csv"
+    return f"{region}/店铺/店铺全量_{line}.csv"
 
 
-def output_names(line: str) -> dict[str, str]:
+def output_names(region: str) -> dict[str, str]:
+    """默认交付物：按国别目录存放，文件名不再标注“有损”。"""
     return {
-        "non_pickup_lossless": f"压缩尺码表_{line}.csv",
-        "non_pickup_high": f"压缩尺码表_{line}_有损.csv",
-        "pickup_lossless": f"压缩尺码表_{line}_皮卡.csv",
-        "pickup_high": f"压缩尺码表_{line}_皮卡_有损.csv",
+        "non_pickup_high": f"{region}/压缩尺码表.csv",
+        "pickup_high": f"{region}/压缩尺码表_皮卡.csv",
     }
 
 
@@ -68,6 +70,11 @@ def load_lines(data_dir: Path = DATA_DIR) -> dict[str, str]:
     if not lines or bad:
         raise CompressionError(f"{LINES_CONFIG} 产线为空或区域无效：{bad}")
     return lines
+
+
+def default_lines(lines: dict[str, str]) -> dict[str, str]:
+    """默认仅交付国别产线；HNT/TM 等店铺产线不占用国别输出目录。"""
+    return {line: region for line, region in lines.items() if line == region}
 
 
 def region_of(dimension_id: str) -> str:
@@ -108,12 +115,12 @@ def compress_line(line: str, frame: pd.DataFrame, field_profile: dict, region: s
     if "DIMENSION-ID" in frame.columns:
         wrong_region = set(frame["DIMENSION-ID"].map(region_of)) - {region}
         if wrong_region:
-            raise CompressionError(f"{upstream_file(line)} 含非 {region} 的 DIMENSION-ID：{sorted(wrong_region)}")
+            raise CompressionError(f"{upstream_file(line, region)} 含非 {region} 的 DIMENSION-ID：{sorted(wrong_region)}")
     reporter = engine.ProgressReporter(interval_seconds=10.0, enabled=progress)
     non_lossless, _, non_high, pick_lossless, pick_high, log_df, atom_df = engine.transform_all_outputs(
         frame, progress=reporter, field_profile=field_profile
     )
-    names = output_names(line)
+    names = output_names(region)
     tables = {
         "non_pickup_lossless": export_or_empty(non_lossless, engine.export_non_pickup_table, engine.NON_PICKUP_EXPORT_COLUMNS),
         "non_pickup_high": export_or_empty(non_high, engine.export_non_pickup_table, engine.NON_PICKUP_EXPORT_COLUMNS),
@@ -144,7 +151,7 @@ def summarize(result: dict) -> dict:
     log = result["log"]
     fallback = log[log["结果"] == "fallback"] if "结果" in log.columns else log.iloc[0:0]
     return {
-        "行数": {result["names"][key]: int(len(table)) for key, table in result["tables"].items()},
+        "行数": {name: int(len(result["tables"][key])) for key, name in result["names"].items()},
         "原子事实数": int(len(result["atoms"])),
         "两两合并": dict(Counter(log["结果"])) if "结果" in log.columns else {},
         "fallback原因": dict(Counter(fallback["原因"].map(fallback_category))) if "原因" in fallback.columns else {},
@@ -167,8 +174,8 @@ def run(
     workers: int = 0,
 ) -> dict:
     """workers：并行进程数，0 = 每条产线一个进程（上限 CPU 数），1 = 当前进程串行。"""
-    lines = load_lines(data_dir)
-    inputs = {line: source_dir / upstream_file(line) for line in lines}
+    lines = default_lines(load_lines(data_dir))
+    inputs = {line: source_dir / upstream_file(line, lines[line]) for line in lines}
     for path in inputs.values():
         if not path.is_file():
             raise CompressionError(f"找不到输入文件：{path}")
@@ -186,7 +193,9 @@ def run(
     artifact = next_artifact_dir(artifacts_dir, "compress-by-line")
     (artifact / "input").mkdir(parents=True)
     for path in inputs.values():
-        shutil.copy2(path, artifact / "input")
+        snapshot = artifact / "input" / path.relative_to(source_dir)
+        snapshot.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, snapshot)
     shutil.copy2(data_dir / FIELD_PROFILE, artifact / "input")
     shutil.copy2(data_dir / LINES_CONFIG, artifact / "input")
     shutil.copy2(engine.DEFAULT_MODEL_COMBO_PATH, artifact / "input" / MODEL_COMBO)  # 车型组合固定取自本节点 data/
@@ -194,9 +203,8 @@ def run(
     outputs: list[str] = []
     status_lines = {}
     for line, result in results.items():
-        for key, table in result["tables"].items():
-            name = result["names"][key]
-            write_csv_atomic(artifact / "output" / name, table)
+        for key, name in result["names"].items():
+            write_csv_atomic(artifact / "output" / name, result["tables"][key])
             outputs.append(name)
         log = result["log"]
         # 只留成功合并记录；fallback（数量大）按原因计数写入 status.json，完整 log 可重跑得到
@@ -206,22 +214,24 @@ def run(
             issues = check[check["检查结果"] != "OK"]
             if not issues.empty:
                 write_csv_atomic(artifact / f"原子检查问题_{line}_{kind}.csv", issues)
-        status_lines[line] = {"区域": lines[line], "上游输入": upstream_file(line), **summarize(result)}
+        status_lines[line] = {"区域": lines[line], "上游输入": upstream_file(line, lines[line]), **summarize(result)}
 
     status = {"status": "passed", "lines": status_lines, "outputs": outputs}
     (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     output_dir.mkdir(parents=True, exist_ok=True)
     for name in outputs:
-        staged = output_dir / f".{name}.tmp"
+        published = output_dir / name
+        published.parent.mkdir(parents=True, exist_ok=True)
+        staged = published.with_name(f".{published.name}.tmp")
         shutil.copy2(artifact / "output" / name, staged)
-        os.replace(staged, output_dir / name)
+        os.replace(staged, published)
 
     return {**status, "artifact": str(artifact)}
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="按产线把 A1 全量表压缩为尺码表（非皮卡/皮卡 × 无损/有损）")
+    parser = argparse.ArgumentParser(description="按产线把 A0 全量表压缩为尺码表（非皮卡/皮卡 × 无损/有损）")
     parser.add_argument("--source-dir", type=Path, default=UPSTREAM_OUTPUT)
     parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
     parser.add_argument("--output-dir", type=Path, default=PROJECT_DIR / "output")

@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import re
 import sys
 from pathlib import Path
@@ -20,6 +21,34 @@ if str(ROOT / "lib") not in sys.path:
     sys.path.insert(0, str(ROOT / "lib"))
 
 from regional_size_common import RegionalDataError, read_csv  # noqa: E402
+
+EU_KEY_VERSION_RULES = Path(__file__).resolve().parents[1] / "data" / "eu_key_versions.json"
+
+
+def load_key_version_pattern(path: Path = EU_KEY_VERSION_RULES) -> re.Pattern[str]:
+    """关键版本词：规则文件中各类正则的并集，整词、不区分大小写匹配。"""
+    groups = json.loads(path.read_text(encoding="utf-8"))["key_token_patterns"]
+    patterns = [pattern for values in groups.values() for pattern in values]
+    if not patterns:
+        raise RegionalDataError(f"{path} 没有关键版本规则")
+    return re.compile(r"(?:" + "|".join(patterns) + r")", re.IGNORECASE)
+
+
+def non_key_tokens(pattern: re.Pattern[str], value: object) -> str:
+    """去掉关键版本词后的剩余词（关键词已在 版本 中，冲突消解时不重复追加）。"""
+    text = "" if value is None or pd.isna(value) else str(value)
+    return " ".join(token for token in text.split() if not pattern.fullmatch(token))
+
+
+def key_version(pattern: re.Pattern[str], *sources: object) -> str:
+    """从 BodyCode、源变体中按出现顺序取出关键版本词（去重）；没有关键词时为空。"""
+    tokens: list[str] = []
+    for source in sources:
+        text = "" if source is None or pd.isna(source) else str(source)
+        for token in text.split():
+            if pattern.fullmatch(token) and token.casefold() not in {item.casefold() for item in tokens}:
+                tokens.append(token)
+    return " ".join(tokens)
 
 
 def read_repaired_csv(path: Path) -> tuple[pd.DataFrame, int]:
@@ -102,12 +131,18 @@ def build_eu_base(source_dir: Path, as_of_year: int) -> tuple[pd.DataFrame, dict
         )
     ]
 
+    source_variant = merged.apply(_eu_source_variant, axis=1)
+    key_pattern = load_key_version_pattern()
     base = pd.DataFrame(
         {
             "MAKE": merged["Make"],
             "MODEL": merged["Model"],
             "TRIM": merged["VariantName"],
-            "版本": merged["BodyCode"].fillna(""),
+            # 只保留关键版本；底盘代号等仅在 DIMENSION-ID 冲突时由 build_dimension_library 追加
+            "版本": [
+                key_version(key_pattern, body_code, variant)
+                for body_code, variant in zip(merged["BodyCode"], source_variant, strict=True)
+            ],
             "结构": merged["Type"].fillna(merged["NormalizedBodyStyle"]).fillna(merged["BodyStyle"]),
             "CAB": "",
             "BED": "",
@@ -119,7 +154,11 @@ def build_eu_base(source_dir: Path, as_of_year: int) -> tuple[pd.DataFrame, dict
             "H-MM": pd.to_numeric(merged["HeightMM"], errors="coerce"),
             "销量合计": 0,
             "DIMENSION-ID": merged["DIMENSION-ID"],
-            "_source_variant": merged.apply(_eu_source_variant, axis=1),
+            "_body_code": merged["BodyCode"].map(lambda value: non_key_tokens(key_pattern, value)),
+            "_source_variant": source_variant.map(lambda value: non_key_tokens(key_pattern, value)),
+            # 原始值仅供 build_eu_id_migration.py 还原整改前口径
+            "_raw_body_code": merged["BodyCode"].fillna(""),
+            "_raw_source_variant": source_variant,
             "_reference": merged.apply(
                 lambda row: " ".join(
                     value for value in [

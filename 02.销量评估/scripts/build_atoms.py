@@ -25,7 +25,7 @@ def cache_key(row: dict[str, str]) -> tuple[str, str, str]:
     return row["MAKE"].strip().casefold(), row["MODEL"].strip().casefold(), row["YEAR"].strip()
 
 
-def run(config_path: str = "config.json") -> dict[str, int]:
+def run(config_path: str = "data/config.json") -> dict[str, int]:
     config = load_config(config_path)
     fields, rows = read_csv(config["expanded_csv"])
     require_fields(fields, REQUIRED_FIELDS, config["expanded_csv"])
@@ -94,7 +94,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build sales atom keys and a deduplicated research queue.")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     stats = run(args.config)
     print(

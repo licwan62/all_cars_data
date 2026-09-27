@@ -5,7 +5,7 @@ import argparse
 from common import CACHE_FIELDS, load_config, read_csv, write_csv
 
 
-def run(config_path: str = "config.json") -> dict[str, int]:
+def run(config_path: str = "data/config.json") -> dict[str, int]:
     config = load_config(config_path)
     _, source_rows = read_csv(config["input_csv"])
     _, cache_rows = read_csv(config["model_year_cache_csv"])
@@ -53,7 +53,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Repair and canonicalize the model-year sales cache.")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     print(run(args.config))
 

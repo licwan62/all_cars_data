@@ -8,7 +8,7 @@ public/ 只是仓库外发布或人工交换区，不是 agent 间数据总线�
   customizing/                      定制需求度评分等"定制"类落盘文件
 
 发布目录只保存可直接使用的 CSV 数据表；JSON、TSV、XLSX 等辅助小文件不发布。
-节点 output/ 中的 JSON 交付物（如尺码匹配报告）在发布时转成同名 .md 说明文档，
+节点 output/ 中的 md 交付物（如 A0 尺码匹配报告）原样发布，JSON 交付物转成同名 .md 说明文档，
 与 CSV 放在同一目录，说明该目录文件的生成情况。
 README.md 是发布说明和来源清单，不写入 JSON manifest。旧命名 CSV 移到 NAS 目录下
 集中备份区 backup/data_legacy_names_<日期>/，不删除。
@@ -29,7 +29,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_ROOT = Path(r"\\NAS8824B4\Public\PQData\pub_all_cars_data")
 # 相对 PUBLIC_ROOT、由本脚本完全接管的目录：不在 wanted 清单里的文件会被归档到 backup/。
 OWNED_DIRS = ("data/us_data", "data/eu_data", "data/ru_data", "customizing")
-US_FILES = {"尺码匹配规则.csv", "店铺货架.csv"}
+# 节点 output/ 中按 <国别>/... 分目录的交付物（如 A0 的 US/全量/全量表.csv）保留子路径，
+# 发布到 data/<国别>_data/ 下。
+REGION_DIR = re.compile(r"^(US|EU|RU)/(.+)$")
 # 落盘规则：这些文件发布到 PUBLIC_ROOT/customizing/，不进 data/（B1.压缩定制评分 的
 # 定制需求度评分.csv 是"定制"类产物，和区域尺寸数据分开存放）。
 CUSTOMIZING_FILES = {"定制需求度评分.csv"}
@@ -44,13 +46,12 @@ def target_for(name: str) -> Path:
     """返回发布目标相对 PUBLIC_ROOT 的路径。"""
     if name in CUSTOMIZING_FILES:
         return Path("customizing") / name
-    if name.startswith("店铺全量_"):
-        return Path("data/us_data") / "stores" / name
+    nested = REGION_DIR.match(name)
+    if nested:
+        return Path(f"data/{nested.group(1).lower()}_data") / nested.group(2)
     region = re.search(r"_(US|EU|RU)\.[^.]+$", name)
     if region:
         return Path(f"data/{region.group(1).lower()}_data") / name
-    if name in US_FILES:
-        return Path("data/us_data") / name
     return Path("data") / name
 
 
@@ -102,7 +103,8 @@ def collect_docs() -> dict[Path, str]:
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for item in manifest["deliverables"]:
             name = item["file"]
-            if Path(name).suffix.lower() != ".json" or name == "manifest.json":
+            suffix = Path(name).suffix.lower()
+            if suffix not in {".json", ".md"} or name == "manifest.json":
                 continue
             source = ROOT / node["path"] / "output" / name
             if not source.is_file() or sha256(source) != item["sha256"]:
@@ -110,7 +112,8 @@ def collect_docs() -> dict[Path, str]:
             target = target_for(name).with_suffix(".md")
             if target in docs:
                 raise ValueError(f"{name} 说明文档重名")
-            docs[target] = json_to_markdown(source, item, node, manifest["version"])
+            # md 交付物（如 A0 尺码匹配报告）原样发布；JSON 转成 md 说明
+            docs[target] = source.read_text(encoding="utf-8") if suffix == ".md" else json_to_markdown(source, item, node, manifest["version"])
     return docs
 
 
@@ -133,7 +136,7 @@ def collect() -> dict[Path, dict]:
             if target in plan:
                 raise ValueError(f"{name} 在 NAS public/data 中重名（{plan[target]['node']} 与 {node['id']}）")
             plan[target] = {
-                "file": target.as_posix(), "node": node["id"], "version": manifest["version"],
+                "file": target.as_posix(), "source": source, "node": node["id"], "version": manifest["version"],
                 "artifact_file": item["artifact_file"], "sha256": item["sha256"],
             }
     return plan
@@ -156,14 +159,14 @@ def main() -> int:
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 shutil.move(str(path), destination)
     for target, record in plan.items():
-        source = ROOT / next(n["path"] for n in json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))["nodes"] if n["id"] == record["node"]) / "output" / target.name
         destination = PUBLIC_ROOT / target
         destination.parent.mkdir(parents=True, exist_ok=True)
         temporary = destination.with_name(f".{destination.name}.tmp")
-        shutil.copy2(source, temporary)
+        shutil.copy2(record["source"], temporary)
         os.replace(temporary, destination)
     for target, text in docs.items():
         destination = PUBLIC_ROOT / target
+        destination.parent.mkdir(parents=True, exist_ok=True)
         temporary = destination.with_name(f".{destination.name}.tmp")
         temporary.write_text(text, encoding="utf-8")
         os.replace(temporary, destination)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""按自动尺码生成宽高统计、极值车型和尺寸异常清单。"""
+"""读取 A0.尺码计算 发布的 US/EU/RU 全量表，按区域+自动尺码生成宽高统计、极值车型和尺寸异常清单。"""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ import pandas as pd
 
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = PROJECT_DIR / "output" / "全量表_汇总.csv"
+DEFAULT_SOURCE = PROJECT_DIR.parent / "A0.尺码计算" / "output"
 DEFAULT_CONFIG = PROJECT_DIR / "data" / "dimension_stats_config.json"
 DEFAULT_OUTPUT = PROJECT_DIR / "output"
 DEFAULT_ARTIFACTS = PROJECT_DIR / "artifacts"
@@ -27,6 +27,11 @@ OUTLIERS_NAME = "尺码尺寸异常.csv"
 OUTPUT_NAMES = (STATS_NAME, EXTREMES_NAME, OUTLIERS_NAME)
 REQUIRED_COLUMNS = {"自动尺码", "W-MM", "H-MM", "DIMENSION-ID"}
 REGIONS = ("US", "EU", "RU")
+
+
+def region_table(region: str) -> str:
+    """A0 output 中区域全量表的相对路径。"""
+    return f"{region}/全量/全量表.csv"
 
 
 class DimensionStatisticsError(ValueError):
@@ -44,8 +49,18 @@ def read_config(path: Path) -> dict[str, object]:
     return config
 
 
-def prepare_source(path: Path, excluded_sizes: list[str]) -> pd.DataFrame:
-    source = pd.read_csv(path, dtype=str, keep_default_na=False, encoding="utf-8-sig")
+def read_source(source_dir: Path) -> pd.DataFrame:
+    """合并三个区域全量表；区域独有列（US 的 TRIM、RU 的 OZON尺码 等）在其他区域留空。"""
+    frames = []
+    for region in REGIONS:
+        path = source_dir / region_table(region)
+        if not path.is_file():
+            raise DimensionStatisticsError(f"缺少 {region} 全量表：{path}")
+        frames.append(pd.read_csv(path, dtype=str, keep_default_na=False, encoding="utf-8-sig"))
+    return pd.concat(frames, ignore_index=True).fillna("")
+
+
+def prepare_source(source: pd.DataFrame, excluded_sizes: list[str]) -> pd.DataFrame:
     missing = REQUIRED_COLUMNS - set(source.columns)
     if missing:
         raise DimensionStatisticsError(f"输入缺少字段: {sorted(missing)}")
@@ -84,7 +99,7 @@ def build_statistics(source: pd.DataFrame, ddof: int) -> pd.DataFrame:
 
 
 def build_extremes(source: pd.DataFrame) -> pd.DataFrame:
-    identity = [column for column in ("MAKE", "MODEL", "TRIM", "版本", "结构", "CAB", "BED", "代际", "YEAR", "分类", "L-MM", "W-MM", "H-MM", "DIMENSION-CODE", "DIMENSION-ID") if column in source.columns]
+    identity = [column for column in ("MAKE", "MODEL", "TRIM", "版本", "结构", "CAB", "BED", "代际", "YEAR", "分类", "L-MM", "W-MM", "H-MM", "DIMENSION-ID") if column in source.columns]
     rows: list[dict[str, object]] = []
     for (region, size), group in source.groupby(["区域", "自动尺码"], sort=True):
         for column, metric in (("W-MM", "最宽"), ("H-MM", "最高")):
@@ -97,7 +112,7 @@ def build_extremes(source: pd.DataFrame) -> pd.DataFrame:
 
 def build_outliers(source: pd.DataFrame, iqr_multiplier: float, zscore_threshold: float) -> pd.DataFrame:
     output_rows: list[dict[str, object]] = []
-    source_columns = [column for column in ("MAKE", "MODEL", "TRIM", "版本", "结构", "CAB", "BED", "代际", "YEAR", "分类", "L-MM", "W-MM", "H-MM", "自动尺码", "DIMENSION-CODE", "DIMENSION-ID") if column in source.columns]
+    source_columns = [column for column in ("MAKE", "MODEL", "TRIM", "版本", "结构", "CAB", "BED", "代际", "YEAR", "分类", "L-MM", "W-MM", "H-MM", "自动尺码", "DIMENSION-ID") if column in source.columns]
     for (region, size), group in source.groupby(["区域", "自动尺码"], sort=True):
         calculated: dict[str, pd.Series | float] = {}
         for column, label in (("W-MM", "宽"), ("H-MM", "高")):
@@ -156,9 +171,9 @@ def write_csv(frame: pd.DataFrame, path: Path) -> None:
     frame.to_csv(path, index=False, encoding="utf-8-sig", lineterminator="\n", float_format="%.4f")
 
 
-def run(input_path: Path, config_path: Path, output_dir: Path, artifacts_dir: Path) -> dict[str, object]:
+def run(source_dir: Path, config_path: Path, output_dir: Path, artifacts_dir: Path) -> dict[str, object]:
     config = read_config(config_path)
-    source = prepare_source(input_path, list(config["excluded_sizes"]))
+    source = prepare_source(read_source(source_dir), list(config["excluded_sizes"]))
     frames = {
         STATS_NAME: build_statistics(source, int(config["variance_ddof"])),
         EXTREMES_NAME: build_extremes(source),
@@ -174,7 +189,10 @@ def run(input_path: Path, config_path: Path, output_dir: Path, artifacts_dir: Pa
     (staging / "input").mkdir(parents=True)
     (staging / "rules").mkdir()
     (staging / "output").mkdir()
-    shutil.copy2(input_path, staging / "input" / input_path.name)
+    for region in REGIONS:
+        snapshot = staging / "input" / region_table(region)
+        snapshot.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source_dir / region_table(region), snapshot)
     shutil.copy2(config_path, staging / "rules" / config_path.name)
     deliverables = []
     for name, frame in frames.items():
@@ -204,12 +222,12 @@ def run(input_path: Path, config_path: Path, output_dir: Path, artifacts_dir: Pa
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
+    parser.add_argument("--source-dir", type=Path, default=DEFAULT_SOURCE, help="A0.尺码计算/output")
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--artifacts-dir", type=Path, default=DEFAULT_ARTIFACTS)
     args = parser.parse_args(argv)
-    result = run(args.input.resolve(), args.config.resolve(), args.output_dir.resolve(), args.artifacts_dir.resolve())
+    result = run(args.source_dir.resolve(), args.config.resolve(), args.output_dir.resolve(), args.artifacts_dir.resolve())
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
 

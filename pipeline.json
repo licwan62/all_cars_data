@@ -54,9 +54,13 @@
         "尺寸库.csv",
         "尺寸库_US.csv",
         "尺寸库_EU.csv",
-        "尺寸库_RU.csv"
+        "尺寸库_RU.csv",
+        "EU_ID迁移.csv"
       ],
-      "pending": []
+      "pending": [],
+      "release_notes": [
+        "2026-09-27 EU 版本列只保留关键版本（data/eu_key_versions.json），非必要版本留空，冲突时依次追加其余变体词、底盘代号、尺寸；EU 记录 29707 → 29361，版本非空 84% → 55%；EU DIMENSION-ID 随之变化，发布 EU_ID迁移.csv（旧→新）"
+      ]
     },
     {
       "id": "structure-review",
@@ -155,7 +159,7 @@
         "python src/generate_store_outputs.py",
         "python src/generate_ru_full_table.py",
         "python src/build_regional_coverage_full.py",
-        "python src/publish_rule_reference.py"
+        "python src/build_match_report.py"
       ],
       "tests": "tests",
       "layer": 4,
@@ -166,28 +170,25 @@
         "dimension-library",
         "structure-review",
         "shape-classification",
-        "sales-estimation",
-        "code-mapping"
+        "sales-estimation"
       ],
       "outputs": [
-        "全量表_US.csv",
-        "全量表_EU.csv",
-        "全量表_RU.csv",
-        "尺寸分析表_US.csv",
-        "店铺全量_HNT.csv",
-        "店铺全量_TM.csv",
-        "店铺全量_TM_拆分.csv",
-        "尺码匹配规则.csv",
-        "尺码匹配规则_EU.csv",
-        "尺码匹配规则_RU.csv",
-        "店铺货架.csv",
-        "尺码匹配报告_EU.json",
-        "尺码匹配报告_US.json",
-        "尺码匹配报告_RU.json"
+        "US/尺码匹配报告.md",
+        "US/全量/全量表.csv",
+        "US/店铺/店铺全量_HNT.csv",
+        "US/店铺/店铺全量_TM.csv",
+        "US/店铺/店铺全量_TM_拆分.csv",
+        "US/TRIM/TRIM适配器.csv",
+        "EU/尺码匹配报告.md",
+        "EU/全量/全量表.csv",
+        "RU/尺码匹配报告.md",
+        "RU/全量/全量表.csv"
       ],
       "pending": [],
       "release_notes": [
-        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核"
+        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核",
+        "2026-09-27 output 改为 <国别>/ 目录：<国别>/尺码匹配报告.md（所用规则全文、参数、大致匹配状况；US 另含店铺货架、店铺分布与 TRIM 概况，替代原 尺码匹配规则/店铺货架 CSV 与 尺码匹配报告 JSON）、<国别>/全量/全量表.csv、US/店铺/店铺全量_<店铺>.csv、US/TRIM/TRIM适配器.csv；文件名去掉区域后缀",
+        "2026-09-27 A0 同时承担尺码匹配与 TRIM 匹配（TRIM 资料与代码自 A1.全量生成 迁入 data/US/TRIM、src/trim）：US 全量表与店铺全量表的 TRIM 列直接由 TRIM 匹配回填，EU/RU 无 TRIM 环节、全量表不带 TRIM 列；取消 尺寸分析表 与 DIMENSION-CODE 字段（不再依赖 02.代码映射）；data/ 按 US/EU/RU × 规则/参数 整理"
       ]
     },
     {
@@ -195,8 +196,6 @@
       "path": "A1.全量生成",
       "code_dir": "src",
       "run": [
-        "python src/refresh_from_size_output.py",
-        "python src/build_consolidated_full_table.py",
         "python src/build_dimension_statistics.py"
       ],
       "tests": "tests",
@@ -208,15 +207,6 @@
         "size-calculation"
       ],
       "outputs": [
-        "全量表_汇总.csv",
-        "全量生成_US.csv",
-        "全量生成_EU.csv",
-        "全量生成_RU.csv",
-        "全量生成_HNT.csv",
-        "全量生成_TM.csv",
-        "全量生成_TM_拆分.csv",
-        "TRIM适配器.csv",
-        "尺寸TRIM映射.csv",
         "尺码宽高统计.csv",
         "尺码宽高极值车型.csv",
         "尺码尺寸异常.csv"
@@ -226,7 +216,8 @@
         "2026-09-22 由 full-table-summary（A1.全量汇总）与 adapter-trim（B1.适配器-Trim生成）合并为单一节点 A1.全量生成；历史 artifact 分别归档在 artifacts/legacy-full-table-summary/ 与 artifacts/legacy-adapter-trim/ 下，未做内容改动",
         "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核（继承自 A0 口径限制，汇总表必须保留）",
         "2026-09-25 整理 output：新增分区域全量表 全量生成_US/EU/RU.csv（= A0 全量表_<区域> 原行序原列 + Trims，EU/RU 的 Trims 为空），作为 A2.压缩尺寸信息 与网站流水线（pipeline_carstable_to_webapp/input）的区域输入；全量表_汇总.csv 不变",
-        "2026-09-25 新增店铺产线 全量生成_HNT/TM/TM_拆分.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、店铺发货尺码）+ Trims；A 线共 6 条产线（US、HNT、TM、TM_拆分、EU、RU）"
+        "2026-09-25 新增店铺产线 全量生成_HNT/TM/TM_拆分.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、店铺发货尺码）+ Trims；A 线共 6 条产线（US、HNT、TM、TM_拆分、EU、RU）",
+        "2026-09-27 改为全量表分析节点：只读 A0 US/EU/RU 全量表做宽高统计（尺码宽高统计、尺码宽高极值车型、尺码尺寸异常）；TRIM 匹配、TRIM适配器 与 data/ TRIM 资料迁至 A0.尺码计算，不再输出 全量表_汇总、全量生成_<产线>、尺寸TRIM映射"
       ]
     },
     {
@@ -237,38 +228,20 @@
         "python src/run.py"
       ],
       "tests": "tests",
-      "layer": 6,
+      "layer": 5,
       "line": "A",
       "index": 2,
       "role": "final",
       "upstream": [
-        "full-generation"
+        "size-calculation"
       ],
       "outputs": [
-        "压缩尺码表_US.csv",
-        "压缩尺码表_US_有损.csv",
-        "压缩尺码表_US_皮卡.csv",
-        "压缩尺码表_US_皮卡_有损.csv",
-        "压缩尺码表_HNT.csv",
-        "压缩尺码表_HNT_有损.csv",
-        "压缩尺码表_HNT_皮卡.csv",
-        "压缩尺码表_HNT_皮卡_有损.csv",
-        "压缩尺码表_TM.csv",
-        "压缩尺码表_TM_有损.csv",
-        "压缩尺码表_TM_皮卡.csv",
-        "压缩尺码表_TM_皮卡_有损.csv",
-        "压缩尺码表_TM_拆分.csv",
-        "压缩尺码表_TM_拆分_有损.csv",
-        "压缩尺码表_TM_拆分_皮卡.csv",
-        "压缩尺码表_TM_拆分_皮卡_有损.csv",
-        "压缩尺码表_EU.csv",
-        "压缩尺码表_EU_有损.csv",
-        "压缩尺码表_EU_皮卡.csv",
-        "压缩尺码表_EU_皮卡_有损.csv",
-        "压缩尺码表_RU.csv",
-        "压缩尺码表_RU_有损.csv",
-        "压缩尺码表_RU_皮卡.csv",
-        "压缩尺码表_RU_皮卡_有损.csv"
+        "US/压缩尺码表.csv",
+        "US/压缩尺码表_皮卡.csv",
+        "EU/压缩尺码表.csv",
+        "EU/压缩尺码表_皮卡.csv",
+        "RU/压缩尺码表.csv",
+        "RU/压缩尺码表_皮卡.csv"
       ],
       "pending": [],
       "release_notes": [
@@ -277,7 +250,10 @@
         "2026-09-23 上游改为 A0.尺码计算 的 全量表_US/EU/RU.csv，按区域分别压缩；每区域输出无损表与有损表（扩张原子数单列），均通过原子唯一尺码检查",
         "2026-09-25 上游由 A0.尺码计算 全量表_<区域>.csv 改为 A1.全量生成 全量生成_<区域>.csv（行序与 A0 一致，多 Trims 列；压缩结果不变）",
         "2026-09-25 压缩算法改为网站流水线 compress_to_size_chart（内置 src/sizechart/）：按原子事实（含版本）校验，非皮卡/皮卡分表，各输出无损与高度压缩（有损）表；修复单年份行被跳过（US 约 30%）与多版本多数票丢失尺码的问题。结果与网站流水线 2026-09-25_02 批次一致",
-        "2026-09-25 按产线压缩（data/产线.yaml）：US、HNT、TM、TM_拆分、EU、RU 共 6 条，店铺线读取 A1 全量生成_<店铺>.csv（店铺发货尺码）"
+        "2026-09-25 按产线压缩（data/产线.yaml）：US、HNT、TM、TM_拆分、EU、RU 共 6 条，店铺线读取 A1 全量生成_<店铺>.csv（店铺发货尺码）",
+        "2026-09-27 默认交付改为按 US/EU/RU 国别目录输出的有损压缩表；每国仅保留非皮卡与皮卡两张，文件名不再添加“有损”后缀，店铺线和无损表不再默认发布",
+        "2026-09-27 A2 output/US 接入 SSH 发布：校验 manifest 后发布两张 US 表至 qnap-nas:/share/Public/PQData/pub_all_cars_data/size_compressed，并复核远端 SHA-256",
+        "2026-09-27 上游由 A1.全量生成 全量生成_<产线>.csv 改为 A0.尺码计算 的 <国别>/全量/全量表.csv（店铺线 US/店铺/店铺全量_<店铺>.csv）；A0 US 表已含 TRIM，不再有 Trims 列"
       ]
     },
     {
@@ -309,12 +285,12 @@
         "python src/run.py"
       ],
       "tests": "tests",
-      "layer": 6,
+      "layer": 5,
       "line": "B",
       "index": 1,
       "role": "final",
       "upstream": [
-        "full-generation",
+        "size-calculation",
         "negative-review-analysis"
       ],
       "outputs": [
@@ -323,7 +299,8 @@
       "pending": [],
       "release_notes": [
         "2026-09-22 新增节点：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间；并结合 data/ 三张人工维护台账（差评分析表/人工维护进度/车耳状态登记，均为空表，尚无历史数据）打定制需求度评分，首次运行全部为“数据不足”，需人工陆续录入",
-        "2026-09-23 拆分为三个节点：压缩机制迁移到 A2.压缩尺寸信息，差评分析迁移到 B0.差评分析；本节点改名 B1.压缩定制评分，只保留定制需求度评分，差评维度改读 B0 的 output/"
+        "2026-09-23 拆分为三个节点：压缩机制迁移到 A2.压缩尺寸信息，差评分析迁移到 B0.差评分析；本节点改名 B1.压缩定制评分，只保留定制需求度评分，差评维度改读 B0 的 output/",
+        "2026-09-27 评分键来源由 A1.全量生成 全量表_汇总.csv 改为 A0.尺码计算 US/EU/RU 全量表"
       ]
     },
     {
@@ -441,28 +418,27 @@
       "name": "全量表（US/RU）",
       "node": "size-calculation",
       "files": [
-        "全量表_US.csv",
-        "全量表_RU.csv",
-        "全量表_EU.csv"
+        "US/全量/全量表.csv",
+        "RU/全量/全量表.csv",
+        "EU/全量/全量表.csv"
       ],
       "pending": []
     },
     {
-      "name": "全量表（汇总 + 分区域含 Trims）",
+      "name": "尺码宽高统计",
       "node": "full-generation",
       "files": [
-        "全量表_汇总.csv",
-        "全量生成_US.csv",
-        "全量生成_EU.csv",
-        "全量生成_RU.csv"
+        "尺码宽高统计.csv",
+        "尺码宽高极值车型.csv",
+        "尺码尺寸异常.csv"
       ],
       "pending": []
     },
     {
       "name": "TRIM适配器",
-      "node": "full-generation",
+      "node": "size-calculation",
       "files": [
-        "TRIM适配器.csv"
+        "US/TRIM/TRIM适配器.csv"
       ],
       "pending": []
     },
@@ -470,12 +446,12 @@
       "name": "压缩尺码表",
       "node": "size-compression",
       "files": [
-        "压缩尺码表_US.csv",
-        "压缩尺码表_US_有损.csv",
-        "压缩尺码表_EU.csv",
-        "压缩尺码表_EU_有损.csv",
-        "压缩尺码表_RU.csv",
-        "压缩尺码表_RU_有损.csv"
+        "US/压缩尺码表.csv",
+        "US/压缩尺码表_皮卡.csv",
+        "EU/压缩尺码表.csv",
+        "EU/压缩尺码表_皮卡.csv",
+        "RU/压缩尺码表.csv",
+        "RU/压缩尺码表_皮卡.csv"
       ],
       "pending": []
     },

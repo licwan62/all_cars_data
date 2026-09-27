@@ -1135,7 +1135,7 @@ project/
 │
 ├─ CODEX_STARTUP.md
 │
-├─ config.json
+├─ data/config.json
 │
 ├─ input/
 │  └─ vehicles.csv

@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from src.size_analysis import (
+from trim.size_analysis import (
     build_size_analysis,
     build_size_analysis_files,
     load_size_source,

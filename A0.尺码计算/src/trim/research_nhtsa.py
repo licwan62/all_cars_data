@@ -14,8 +14,8 @@ import sys
 if str(Path(__file__).resolve().parents[1]) not in sys.path:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.fitment_coverage import model_parts
-from src.trimlist import (
+from trim.fitment_coverage import model_parts
+from trim.trimlist import (
     ONLINE_EVIDENCE_HEADER,
     clean,
     normalized,
@@ -24,8 +24,8 @@ from src.trimlist import (
 )
 
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data"
+ROOT = Path(__file__).resolve().parents[2]
+DATA = ROOT / "data" / "US" / "TRIM"
 SAFE_VEHICLE_TYPES = {
     "SUV": "Multipurpose Passenger Vehicle (MPV)",
     "Crossover": "Multipurpose Passenger Vehicle (MPV)",

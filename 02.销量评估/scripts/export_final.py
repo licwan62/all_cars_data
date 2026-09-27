@@ -9,7 +9,7 @@ from common import load_config, read_csv, require_fields, write_csv
 FINAL_FIELDS = ["atom_record_id", "预估销量"]
 
 
-def run(config_path: str = "config.json") -> dict[str, int]:
+def run(config_path: str = "data/config.json") -> dict[str, int]:
     config = load_config(config_path)
     fields, rows = read_csv(config["atomic_output_csv"])
     require_fields(fields, ["ATOM_ROW_ID", "US_SALES_ESTIMATE"], config["atomic_output_csv"])
@@ -40,7 +40,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export atom_record_id to estimated US sales.")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     stats = run(args.config)
     print(

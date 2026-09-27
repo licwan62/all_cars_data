@@ -9,12 +9,12 @@ import sys
 if str(Path(__file__).resolve().parents[1]) not in sys.path:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.fitment_coverage import build_fitment_coverage_files
+from trim.fitment_coverage import build_fitment_coverage_files
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT.parent / "source"
-DATA = ROOT / "data"
+DATA = ROOT / "data" / "US" / "TRIM"
 
 
 def parse_args() -> argparse.Namespace:

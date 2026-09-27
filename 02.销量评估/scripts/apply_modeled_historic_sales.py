@@ -9,7 +9,7 @@ def key(row: dict[str, str]) -> tuple[str, str, str]:
     return row["MAKE"].casefold(), row["MODEL"].casefold(), row["YEAR"]
 
 
-def run(config_path: str = "config.json") -> int:
+def run(config_path: str = "data/config.json") -> int:
     config = load_config(config_path)
     _, atomic = read_csv(config["atomic_output_csv"])
     _, cache = read_csv(config["model_year_cache_csv"])
@@ -44,6 +44,6 @@ def run(config_path: str = "config.json") -> int:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     print({"added": run(args.config)})

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from src.fitment_coverage import build_fitment_coverage
+from trim.fitment_coverage import build_fitment_coverage
 
 
 def dimension(

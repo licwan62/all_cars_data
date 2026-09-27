@@ -6,7 +6,7 @@
 迁移记录）。耳位(普通/靠前/靠后) 现在完全来自上游 B0.差评分析/output/耳位分析表.csv，
 按 品牌+车型 透传展示，不参与评分。
 
-评分键（品牌+车型）直接从 A1.全量生成/output/全量表_汇总.csv 的 MAKE/MODEL 推导，与
+评分键（品牌+车型）直接从 A0.尺码计算/output/<国别>/全量/全量表.csv（US、EU、RU）的 MAKE/MODEL 推导，与
 A2.压缩尺寸信息 的"结构池"压缩结果无关。
 
 运行先创建不可覆盖的 artifacts/<批次>/，校验通过后才原子更新 output/。
@@ -29,8 +29,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src import scoring as scoring_mod
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
-UPSTREAM_FULL_TABLE_OUTPUT = PROJECT_DIR.parent / "A1.全量生成" / "output"
-UPSTREAM_FULL_TABLE_FILE = "全量表_汇总.csv"
+UPSTREAM_FULL_TABLE_OUTPUT = PROJECT_DIR.parent / "A0.尺码计算" / "output"
+UPSTREAM_FULL_TABLE_FILES = tuple(f"{region}/全量/全量表.csv" for region in ("US", "EU", "RU"))
 UPSTREAM_NEGATIVE_REVIEW_OUTPUT = PROJECT_DIR.parent / "B0.差评分析" / "output"
 UPSTREAM_NEGATIVE_REVIEW_FILE = "差评分析表.csv"
 UPSTREAM_EAR_POSITION_OUTPUT = PROJECT_DIR.parent / "B0.差评分析" / "output"
@@ -90,8 +90,8 @@ def run(
     output_dir: Path = PROJECT_DIR / "output",
     artifacts_dir: Path = PROJECT_DIR / "artifacts",
 ) -> dict:
-    full_table_path = full_table_dir / UPSTREAM_FULL_TABLE_FILE
-    rows = read_csv_rows(full_table_path)
+    full_table_paths = [full_table_dir / name for name in UPSTREAM_FULL_TABLE_FILES]
+    rows = [row for path in full_table_paths for row in read_csv_rows(path)]
     negative_review_path = negative_review_dir / UPSTREAM_NEGATIVE_REVIEW_FILE
     negative_review_rows = read_csv_rows(negative_review_path)
     ear_position_path = ear_position_dir / UPSTREAM_EAR_POSITION_FILE
@@ -110,7 +110,10 @@ def run(
 
     artifact = next_artifact_dir(artifacts_dir, "score")
     (artifact / "input").mkdir(parents=True)
-    shutil.copy2(full_table_path, artifact / "input")
+    for path in full_table_paths:
+        snapshot = artifact / "input" / path.relative_to(full_table_dir)
+        snapshot.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, snapshot)
     shutil.copy2(negative_review_path, artifact / "input")
     shutil.copy2(ear_position_path, artifact / "input")
     shutil.copy2(cab_bed_path, artifact / "input")

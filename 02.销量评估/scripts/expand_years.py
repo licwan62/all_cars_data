@@ -11,7 +11,7 @@ REQUIRED_FIELDS = ["DIMENSION-ID", "MAKE", "MODEL", "版本", "CAB", "BED", "结
 REGIONAL_SUFFIXES = (" EU", " RU")
 
 
-def run(config_path: str = "config.json") -> dict[str, int]:
+def run(config_path: str = "data/config.json") -> dict[str, int]:
     config = load_config(config_path)
     fields, all_rows = read_csv(config["input_csv"])
     require_fields(fields, REQUIRED_FIELDS, config["input_csv"])
@@ -51,7 +51,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Expand YEAR ranges into one row per calendar year.")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     stats = run(args.config)
     print(f"expanded {stats['source_rows']} source rows to {stats['expanded_rows']} rows")

@@ -42,6 +42,8 @@ DIMENSION_ID_RULES_PATH = PROJECT_DIR / "data" / "dimension_id_generation.json"
 IDENTITY_MERGE_RULES_PATH = PROJECT_DIR / "data" / "identity_merge_rules.json"
 
 
+ORIGIN = "_origin"
+
 def load_structure_rules() -> dict[str, object]:
     payload = json.loads(STRUCTURE_RULES_PATH.read_text(encoding="utf-8"))
     required = {"schema_version", "field", "regions", "transformations"}
@@ -108,6 +110,7 @@ def apply_identity_merge_rules(
             )
         for field in aggregate_fields:
             kept[0][field] = float(kept[0].get(field, 0) or 0) + float(dropped[0].get(field, 0) or 0)
+        _absorb_origin(kept[0], dropped[0])
         result.remove(dropped[0])
     return result
 
@@ -186,7 +189,25 @@ def deduplicate_normalized_rows(
             kept = by_key[key]
             for field in aggregate_fields:
                 kept[field] = float(kept.get(field, 0) or 0) + float(row.get(field, 0) or 0)
+            _absorb_origin(kept, row)
     return unique
+
+
+def _absorb_origin(kept: dict[str, object], dropped: dict[str, object]) -> None:
+    """合并行时记录被并入的原 ID（仅在 transform_region_rows_traced 追溯时存在）。"""
+    if ORIGIN in kept and ORIGIN in dropped:
+        kept[ORIGIN] = [*kept[ORIGIN], *dropped[ORIGIN]]
+
+
+def transform_region_rows_traced(
+    rows: list[dict[str, str]], region: str, aggregate_fields: tuple[str, ...] = ()
+) -> tuple[list[dict[str, str]], dict[str, str]]:
+    """同 transform_region_rows，另返回 {区域 00 库中的原 DIMENSION-ID: 最终 DIMENSION-ID}。"""
+    for row in rows:
+        row[ORIGIN] = [row["DIMENSION-ID"]]
+    rows = transform_region_rows(rows, region, aggregate_fields)
+    mapping = {origin: row["DIMENSION-ID"] for row in rows for origin in row.pop(ORIGIN)}
+    return rows, mapping
 
 
 def transform_region_rows(
@@ -261,6 +282,24 @@ def merge(regions: tuple[str, ...] = REGIONS) -> list[dict[str, str]]:
     return merged
 
 
+EU_MIGRATION_PATH = PROJECT_DIR / "data" / "EU_ID迁移.csv"
+EU_MIGRATION_NAME = "EU_ID迁移.csv"
+
+
+def validate_eu_migration(eu_rows: list[dict[str, str]], path: Path = EU_MIGRATION_PATH) -> None:
+    """EU 版本整改的 ID 迁移表：每个新 ID 都必须在当前 EU 尺寸库中，且当前每个 EU ID 都有来源。"""
+    migration = read_csv(path)
+    required = {"旧DIMENSION-ID", "新DIMENSION-ID", "关系", "旧版本", "新版本"}
+    if not required.issubset(migration.columns):
+        raise RegionalDataError(f"{path.name} 缺少字段：{sorted(required - set(migration.columns))}")
+    current = {row["DIMENSION-ID"] for row in eu_rows}
+    targets = set(migration["新DIMENSION-ID"])
+    if targets != current:
+        raise RegionalDataError(
+            f"{path.name} 与当前 EU 尺寸库不一致：迁移表独有 {len(targets - current)}，尺寸库独有 {len(current - targets)}"
+        )
+
+
 def next_artifact_dir() -> Path:
     prefix = f"{date.today():%Y-%m-%d}_"
     existing = [path.name for path in (PROJECT_DIR / "artifacts").glob(f"{prefix}*") if path.is_dir()]
@@ -313,6 +352,11 @@ def main() -> int:
         print(f"归档目录已存在，不允许覆盖：{artifact_dir}", file=sys.stderr)
         return 2
     region_rows = {region: load_region(region) for region in REGIONS}
+    try:
+        validate_eu_migration(region_rows["eu"])
+    except RegionalDataError as error:
+        print(f"尺寸库合并失败：{error}", file=sys.stderr)
+        return 2
     # All validation happens before touching stable output files.
     artifact_output = artifact_dir / "output"
     artifact_inputs = artifact_dir / "inputs"
@@ -328,6 +372,8 @@ def main() -> int:
     shutil.copy2(STRUCTURE_RULES_PATH, rules_snapshot / STRUCTURE_RULES_PATH.name)
     shutil.copy2(DIMENSION_ID_RULES_PATH, rules_snapshot / DIMENSION_ID_RULES_PATH.name)
     shutil.copy2(IDENTITY_MERGE_RULES_PATH, rules_snapshot / IDENTITY_MERGE_RULES_PATH.name)
+    artifact_output.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(EU_MIGRATION_PATH, artifact_output / EU_MIGRATION_NAME)
     for region, rows in region_rows.items():
         write_csv_atomic(artifact_output / f"尺寸库_{region.upper()}.csv", rows)
     write_csv_atomic(artifact_output / "尺寸库.csv", merged)
@@ -338,6 +384,9 @@ def main() -> int:
     for region, rows in region_rows.items():
         write_csv_atomic(output_dir / f"尺寸库_{region.upper()}.csv", rows)
     write_csv_atomic(output_path, merged)
+    temporary = output_dir / f".{EU_MIGRATION_NAME}.tmp"
+    shutil.copy2(EU_MIGRATION_PATH, temporary)
+    temporary.replace(output_dir / EU_MIGRATION_NAME)
     counts = ", ".join(f"{region.upper()}={len(rows)}" for region, rows in region_rows.items())
     print(f"合并完成：{counts}；合并={len(merged)} 行 -> {output_path}")
     return 0

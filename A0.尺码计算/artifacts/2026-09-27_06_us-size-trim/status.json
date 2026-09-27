@@ -1,0 +1,93 @@
+{
+  "rules_file": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\data\\US\\规则\\0924.2-老爷车插片下限.csv",
+  "rules_size_column": "尺码",
+  "parameters_file": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\data\\US\\参数\\尺码匹配参数.csv",
+  "shelf_config": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\data\\US\\店铺\\货架.yaml",
+  "source_dir": "D:\\Home\\Repo\\all_cars_data\\02.分类结构审核\\output",
+  "trim": {
+    "rows": 4371,
+    "maintained_trim_values_used": 4081,
+    "nonempty_trims": 4081,
+    "trim_rows": {
+      "TrimList.csv": {
+        "migrated": 104,
+        "dropped_by_rule": 2,
+        "excluded": 2
+      },
+      "TrimList_audit.csv": {
+        "migrated": 104,
+        "dropped_by_rule": 2,
+        "excluded": 2
+      }
+    },
+    "counts": {
+      "trim_assignment_rows": 23324,
+      "joined_assignment_rows": 23324,
+      "unique_year_make_model_keys": 12648,
+      "multi_dimension_keys": 5461,
+      "safe_multi_dimension_same_size_keys": 1715,
+      "status_assignment_rows": 364,
+      "status_only_no_publishable_size_keys": 76,
+      "mixed_status_and_publishable_size_keys": 249,
+      "publishable_assignment_rows": 22960,
+      "dimension_id_size_rows": 4226,
+      "dimension_id_trim_rows": 4371,
+      "dimension_id_trim_blank_rows": 290,
+      "adapter_size_rows": 22960,
+      "final_adapter_rows": 23324,
+      "final_adapter_status_rows_retained": 364,
+      "adapter_duplicate_rows_removed": 0,
+      "unique_keys_with_publishable_size": 12572,
+      "single_size_keys": 9015,
+      "multi_size_expansion_keys": 3557,
+      "multi_structure_expansion_keys": 2249,
+      "multi_size_detail_rows": 11681
+    },
+    "data_dir": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\data\\US\\TRIM",
+    "adapter": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\artifacts\\2026-09-27_06_us-size-trim\\output\\US\\TRIM\\TRIM适配器.csv"
+  },
+  "outputs": {
+    "全尺码": {
+      "rows": 4371,
+      "unique_dimension_ids": 4371,
+      "matched_sizes": 4226,
+      "unavailable_sizes": 145,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "output": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\artifacts\\2026-09-27_06_us-size-trim\\output\\US\\全量\\全量表.csv"
+    },
+    "HNT": {
+      "rows": 4371,
+      "unique_dimension_ids": 4371,
+      "matched_sizes": 3392,
+      "unavailable_sizes": 979,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "matching_sizes": 19,
+      "shipping_sizes": 18,
+      "output": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\artifacts\\2026-09-27_06_us-size-trim\\output\\US\\店铺\\店铺全量_HNT.csv"
+    },
+    "TM": {
+      "rows": 4371,
+      "unique_dimension_ids": 4371,
+      "matched_sizes": 3700,
+      "unavailable_sizes": 671,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "matching_sizes": 23,
+      "shipping_sizes": 23,
+      "output": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\artifacts\\2026-09-27_06_us-size-trim\\output\\US\\店铺\\店铺全量_TM.csv"
+    },
+    "TM_拆分": {
+      "rows": 4371,
+      "unique_dimension_ids": 4371,
+      "matched_sizes": 795,
+      "unavailable_sizes": 3576,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "matching_sizes": 2,
+      "shipping_sizes": 1,
+      "output": "D:\\Home\\Repo\\all_cars_data\\A0.尺码计算\\artifacts\\2026-09-27_06_us-size-trim\\output\\US\\店铺\\店铺全量_TM_拆分.csv"
+    }
+  }
+}

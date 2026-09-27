@@ -12,7 +12,7 @@ import pandas_analysis as analysis
 
 
 ROOT = Path(__file__).resolve().parents[2]
-INPUT = ROOT / "A0.尺码计算" / "output" / "全量表_US.csv"
+INPUT = ROOT / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
 REFERENCES = analysis.REFERENCE_DATA
 RULES = ROOT / "A0.尺码计算" / "data" / "尺码匹配规则-0908.csv"
 PARAMETERS = ROOT / "A0.尺码计算" / "data" / "尺码匹配参数.csv"

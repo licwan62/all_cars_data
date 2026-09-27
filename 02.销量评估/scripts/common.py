@@ -83,7 +83,7 @@ def resolve_path(value: str | Path) -> Path:
     return path if path.is_absolute() else PROJECT_ROOT / path
 
 
-def load_config(config_path: str | Path = "config.json") -> dict:
+def load_config(config_path: str | Path = "data/config.json") -> dict:
     path = resolve_path(config_path)
     with path.open(encoding="utf-8") as handle:
         config = json.load(handle)

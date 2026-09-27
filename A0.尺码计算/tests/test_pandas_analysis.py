@@ -272,8 +272,8 @@ class SizeMatcherTests(unittest.TestCase):
         self.assertEqual(matcher.match("三厢车", "", "", [4800, 100]).auto_size, "4S-0")
 
     def test_current_us_rules_file_loads_and_expands_within_pool(self) -> None:
-        rules = analysis._read_csv(PROJECT_DIR / "data" / "us" / "0924.2-老爷车插片下限.csv")
-        parameters = analysis._read_csv(PROJECT_DIR / "data" / "us" / "尺码匹配参数.csv")
+        rules = analysis._read_csv(PROJECT_DIR / "data" / "US" / "规则" / "0924.2-老爷车插片下限.csv")
+        parameters = analysis._read_csv(PROJECT_DIR / "data" / "US" / "参数" / "尺码匹配参数.csv")
         matcher = analysis.SizeMatcher(parameters, rules)
 
         cases = [
@@ -419,15 +419,14 @@ class FullPipelineRegressionTests(unittest.TestCase):
         sales = analysis._read_csv(analysis.SALES_OUTPUT)
         sales["atom_record_id"] = sales["atom_record_id"].str.replace(" US|", "|", regex=False)
         sales.to_csv(cls.source_dir / "原子销量.csv", index=False, encoding="utf-8-sig")
-        cls.config_dir = PROJECT_DIR / "data"
+        cls.config_dir = PROJECT_DIR / "data" / "US" / "参数"
         cls.submodel_path = analysis.resolve_submodel_path(cls.source_dir, None, False)
         cls.result = analysis.calculate(
             cls.source_dir,
             cls.submodel_path,
             config_dir=cls.config_dir,
-            rules_path=cls.config_dir / "尺码匹配规则.csv",
-            trim_source=PROJECT_DIR / "output" / "全量表_US.csv",
-        )
+            rules_path=PROJECT_DIR / "data" / "US" / "规则" / "0917.1-新命名.csv",
+        )  # TRIM 由 generate_store_outputs 的 TRIM 匹配回填，calculate 本身不产出 TRIM
 
     def test_full_result_contract(self) -> None:
         summary = analysis.validate_result(self.result, 4371)

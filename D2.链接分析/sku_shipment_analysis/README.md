@@ -7,7 +7,7 @@
 
 引擎将聚类结果与发货量输入结合，按 Cluster 的预估销量占比分配发货量，并生成电商上架明细。
 
-分配算法已使用 `D2.链接分析/发货单明细.xlsx` 的皮卡案例回归：案例中的 102 个正向分配 Cluster 与 Python 结果逐行一致。
+分配算法已使用 `D2.链接分析/data/发货单明细.xlsx` 的皮卡案例回归：案例中的 102 个正向分配 Cluster 与 Python 结果逐行一致。
 
 ## 默认运行
 
@@ -32,7 +32,7 @@ python main.py --shipment "output/shipment_input.csv"
 ```powershell
 python main.py `
   --cluster-dir "\\NAS8824B4\Public\PQData\pub_all_cars_data\sku_cluster\皮卡" `
-  --shipment "../发货单明细.xlsx"
+  --shipment "../data/发货单明细.xlsx"
 ```
 
 ## 分配规则

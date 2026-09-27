@@ -26,6 +26,7 @@ from regional_size_common import (  # noqa: E402
     build_dimension_library,
     write_dimension_library,
 )
+from merge_dimension_library import latest_batch  # noqa: E402
 from regional_sources import build_eu_base, build_ru_base  # noqa: E402
 
 REGION_LABELS = {"eu": "EU", "ru": "RU"}
@@ -34,7 +35,7 @@ REGION_LABELS = {"eu": "EU", "ru": "RU"}
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="生成区域尺寸库（source -> 压缩去重后的 00_XX尺寸库.csv）")
     parser.add_argument("--region", required=True, choices=sorted(REGION_LABELS))
-    parser.add_argument("--batch", default="0916", help="批次目录名，默认 0916")
+    parser.add_argument("--batch", help="批次目录名，默认 data/<region>/ 下最新的批次")
     parser.add_argument("--source-dir", type=Path, help="默认 data/<region>/<batch>")
     parser.add_argument("--output", type=Path, help="默认 data/<region>/<batch>/00_<REGION>尺寸库.csv")
     parser.add_argument("--as-of-year", type=int, default=date.today().year, help="仅 EU 需要，用于补全在售年份区间")
@@ -44,8 +45,9 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     label = REGION_LABELS[args.region]
-    source_dir = args.source_dir or PROJECT_DIR / "data" / args.region / args.batch 
-    output_path = args.output or PROJECT_DIR / "data" / args.region / args.batch / f"00_{label}尺寸库.csv"
+    batch_dir = PROJECT_DIR / "data" / args.region / args.batch if args.batch else latest_batch(args.region)
+    source_dir = args.source_dir or batch_dir
+    output_path = args.output or batch_dir / f"00_{label}尺寸库.csv"
 
     try:
         if args.region == "eu":

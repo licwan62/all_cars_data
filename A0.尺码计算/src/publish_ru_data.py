@@ -13,6 +13,8 @@ from pathlib import Path
 
 import pandas as pd
 
+import data_layout
+
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parent
@@ -21,10 +23,10 @@ ARTIFACTS_DIR = PROJECT / "artifacts"
 
 SOURCES = {
     "00_RU尺寸库.csv": ROOT / "02.分类结构审核" / "output" / "车型结构_RU.csv",
-    "02_RU全量.csv": PROJECT / "output" / "全量表_RU.csv",
-    "全量表_RU.csv": PROJECT / "output" / "全量表_RU.csv",
-    "03_RU尺码匹配规则.csv": PROJECT / "data" / "ru" / "尺寸" / "0921.3-两厢车候选-2L200.csv",
-    "尺码匹配规则_RU.csv": PROJECT / "data" / "ru" / "尺寸" / "0921.3-两厢车候选-2L200.csv",
+    "02_RU全量.csv": PROJECT / "output" / "RU" / "全量" / "全量表.csv",
+    "全量表_RU.csv": PROJECT / "output" / "RU" / "全量" / "全量表.csv",
+    "03_RU尺码匹配规则.csv": data_layout.current("RU").rules,
+    "尺码匹配规则_RU.csv": data_layout.current("RU").rules,
 }
 
 

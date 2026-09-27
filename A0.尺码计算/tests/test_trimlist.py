@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from src.trimlist import (
+from trim.trimlist import (
     LogicalKey,
     Resolver,
     apply_overrides,

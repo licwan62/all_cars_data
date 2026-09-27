@@ -1,6 +1,7 @@
+# 本文件位于 data/，下列相对路径均以 data/ 为基准。
 # 上游：01.整理尺寸库/output/尺寸库.csv（US/EU/RU 合并库，DIMENSION-ID 以 " US"/" EU"/" RU" 结尾）
 input:
-  path: ../01.整理尺寸库/output/尺寸库.csv
+  path: ../../01.整理尺寸库/output/尺寸库.csv
   encoding: utf-8-sig
 
 columns:
@@ -18,28 +19,28 @@ code:
 # 三个区域独立编码。DIMENSION-CODE = 区域前缀 + MAKECODE + MODELCODE + YEARCODE
 # US: 2 位；EU/RU: E/R 前缀 + 3 位。
 regions:
-  - {name: US, prefix: "",  width: 2, mapping_dir: data/mapping/us}
-  - {name: EU, prefix: "E", width: 3, mapping_dir: data/mapping/eu}
-  - {name: RU, prefix: "R", width: 3, mapping_dir: data/mapping/ru}
+  - {name: US, prefix: "",  width: 2, mapping_dir: ../data/mapping/us}
+  - {name: EU, prefix: "E", width: 3, mapping_dir: ../data/mapping/eu}
+  - {name: RU, prefix: "R", width: 3, mapping_dir: ../data/mapping/ru}
 
 mapping:
-  make_path: data/mapping/us/make_mapping.csv
-  model_path: data/mapping/us/model_mapping.csv
+  make_path: ../data/mapping/us/make_mapping.csv
+  model_path: ../data/mapping/us/model_mapping.csv
 
 artifacts:
-  path: artifacts
+  path: ../artifacts
   slug: code-mapping-publish
 
 publish:
-  path: output/车型编码映射.csv
-  dimension_code_path: output/尺寸编码映射.csv
+  path: ../output/车型编码映射.csv
+  dimension_code_path: ../output/尺寸编码映射.csv
 
 public_publish:
-  path: ../public/car_code/车型编码映射.csv
+  path: ../../public/car_code/车型编码映射.csv
 
 backup:
   enabled: true
-  path: data/mapping/us/backups
+  path: ../data/mapping/us/backups
 
 normalization:
   trim_whitespace: true

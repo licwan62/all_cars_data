@@ -11,12 +11,13 @@ SPEC.loader.exec_module(MODULE)
 
 
 class PublishEuCurrentResearchTests(unittest.TestCase):
-    def test_current_research_is_subset_and_has_codes(self):
+    def test_current_research_is_subset_without_trim_or_code(self):
         result, report = MODULE.build()
         self.assertEqual(len(result), report["published_rows"])
         self.assertLessEqual(len(result), report["eu_dimension_library_rows"])
         self.assertTrue(result["DIMENSION-ID"].is_unique)
-        self.assertFalse(result["DIMENSION-CODE"].eq("").any())
+        self.assertNotIn("DIMENSION-CODE", result.columns)
+        self.assertNotIn("TRIM", result.columns)
 
 
 if __name__ == "__main__":

@@ -87,13 +87,23 @@ def _dimension_detail(row: pd.Series) -> str:
 
 
 def build_dimension_library(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Normalize a regional base into the public size-library contract (see build_dimension_library_rows)."""
+    library, metadata, _ = build_dimension_library_rows(base)
+    return library, metadata
+
+
+def build_dimension_library_rows(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series]:
     """Normalize a regional base into the public size-library contract.
 
     Exact duplicate bodies are collapsed before IDs are assigned. When the
     public ID fields alone would collide for genuinely different dimensions,
-    a source body variant, and finally an explicit L/W/H variant are used in
-    that order to keep the ID human-readable and unique. Generation (代际)
-    already has its own column and is never copied into 版本 for this.
+    the source body variant, the optional body code (``_body_code``, e.g. an
+    EU chassis code), and finally an explicit L/W/H variant are appended to
+    版本 in that order to keep the ID human-readable and unique. Generation
+    (代际) already has its own column and is never copied into 版本 for this.
+
+    The third return value maps every input row (base index) to its
+    DIMENSION-ID, including rows collapsed into an identical body.
     """
     require_columns(base, BASE_COLUMNS, "区域车型基表")
     work = base.copy()
@@ -102,7 +112,7 @@ def build_dimension_library(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFr
     for column in ["L-MM", "W-MM", "H-MM", "销量合计"]:
         work[column] = pd.to_numeric(work[column], errors="coerce")
     work["销量合计"] = work["销量合计"].fillna(0)
-    for column in ["_source_variant", "_reference", "_notes", "_iteration"]:
+    for column in ["_body_code", "_source_variant", "_reference", "_notes", "_iteration"]:
         if column not in work.columns:
             work[column] = ""
         work[column] = work[column].map(_clean_text)
@@ -112,6 +122,11 @@ def build_dimension_library(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFr
         "L-MM", "W-MM", "H-MM",
     ]
     sales = work.groupby(physical_key, dropna=False, sort=False)["销量合计"].transform("sum")
+    # 每个输入行归并到的保留行（同一物理车身取首行）
+    first_of_key = work.groupby(physical_key, dropna=False, sort=False).cumcount().eq(0)
+    key_owner = pd.Series(work.index.where(first_of_key), index=work.index).groupby(
+        [work[column] for column in physical_key], dropna=False, sort=False
+    ).transform("first")
     work = work.loc[~work.duplicated(physical_key, keep="first")].copy()
     work["销量合计"] = sales.loc[work.index].values
 
@@ -119,15 +134,16 @@ def build_dimension_library(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFr
         work["DIMENSION-ID"] = [dimension_id(row) for row in work.to_dict("records")]
 
     refresh_ids()
-    collisions = work["DIMENSION-ID"].duplicated(keep=False)
-    if collisions.any():
-        work.loc[collisions, "版本"] = [
-            _append_version(version, variant)
-            for version, variant in zip(
-                work.loc[collisions, "版本"], work.loc[collisions, "_source_variant"], strict=True
-            )
-        ]
-        refresh_ids()
+    for detail_column in ["_source_variant", "_body_code"]:
+        collisions = work["DIMENSION-ID"].duplicated(keep=False)
+        if collisions.any():
+            work.loc[collisions, "版本"] = [
+                _append_version(version, detail)
+                for version, detail in zip(
+                    work.loc[collisions, "版本"], work.loc[collisions, detail_column], strict=True
+                )
+            ]
+            refresh_ids()
 
     collisions = work["DIMENSION-ID"].duplicated(keep=False)
     if collisions.any():
@@ -174,7 +190,8 @@ def build_dimension_library(base: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFr
     )
     library = library[DIMENSION_COLUMNS].sort_values("DIMENSION-ID", kind="stable").reset_index(drop=True)
     metadata = work[["DIMENSION-ID", "TRIM", "销量合计"]].copy()
-    return library, metadata
+    row_ids = key_owner.map(work["DIMENSION-ID"])
+    return library, metadata, row_ids
 
 
 def dimension_library_to_base(library: pd.DataFrame, metadata: pd.DataFrame) -> pd.DataFrame:
@@ -252,7 +269,7 @@ def calculate_us_standard(
 
     base["车形"] = assign_shapes(base, mapping_path)
     core = load_size_module()
-    references = read_csv(SIZE_PROJECT / "data" / "参考尺寸计算.csv")
+    references = read_csv(core.REFERENCE_DATA)
     bodies = base[["DIMENSION-ID", "车形"]].copy()
     vehicles = base.drop(columns=["车形"])
     result = core.add_body_dimensions(vehicles, bodies, references)
@@ -263,10 +280,8 @@ def calculate_us_standard(
         )
     analysis = build_dimension_analysis(result)
     analysis = analysis.sort_values("DIMENSION-ID", kind="stable").reset_index(drop=True)
-    matcher = core.SizeMatcher(
-        read_csv(SIZE_PROJECT / "data" / "尺码匹配参数.csv"),
-        read_csv(SIZE_PROJECT / "data" / "尺码匹配规则.csv"),
-    )
+    us_config = core.data_layout.current("US")  # A0 data/当前规则.yaml
+    matcher = core.SizeMatcher(read_csv(us_config.parameters), read_csv(us_config.rules))
     result = matcher.apply(result)
     result = result[US_COLUMNS].sort_values("DIMENSION-ID", kind="stable").reset_index(drop=True)
     result["自动长度余量"] = core._compact_number_column(result["自动长度余量"])

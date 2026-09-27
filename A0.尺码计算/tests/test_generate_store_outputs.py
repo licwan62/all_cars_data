@@ -16,9 +16,7 @@ import generate_store_outputs as store_outputs  # noqa: E402
 
 class StoreOutputTests(unittest.TestCase):
     def test_project_shelf_config_matches_new_rule(self) -> None:
-        rule_path, size_column, shops = store_outputs.load_shelf_config(
-            PROJECT_DIR / "data" / "店铺分组" / "货架.yaml"
-        )
+        rule_path, size_column, shops = store_outputs.load_shelf_config(store_outputs.data_layout.SHELF_CONFIG)
 
         self.assertEqual(rule_path.name, "0924.2-老爷车插片下限.csv")
         self.assertEqual(size_column, "尺码")

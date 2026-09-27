@@ -8,7 +8,7 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from src.trimlist import clean, read_csv, sha256_file, write_csv
+from trim.trimlist import clean, read_csv, sha256_file, write_csv
 
 
 warnings.filterwarnings(

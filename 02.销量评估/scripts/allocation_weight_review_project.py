@@ -119,7 +119,7 @@ def build_groups(atomic_rows: list[dict[str, str]]) -> dict[tuple[str, str, str]
     return groups
 
 
-def sync_queue(config_path: str = "config.json") -> tuple[int, dict[str, int]]:
+def sync_queue(config_path: str = "data/config.json") -> tuple[int, dict[str, int]]:
     config = load_config(config_path)
     _, atomic_rows = read_csv(config["atomic_output_csv"])
     reviewed = {
@@ -175,7 +175,7 @@ def sync_queue(config_path: str = "config.json") -> tuple[int, dict[str, int]]:
     return len(fresh), dict(tiers)
 
 
-def init(config_path: str = "config.json") -> None:
+def init(config_path: str = "data/config.json") -> None:
     with project_lock():
         if not REVIEWS.exists():
             write_csv(REVIEWS, REVIEW_FIELDS, [])
@@ -204,7 +204,7 @@ def claim(limit: int, worker: str) -> None:
     writer.writerows(claimed)
 
 
-def compact_records(worker: str, config_path: str = "config.json") -> None:
+def compact_records(worker: str, config_path: str = "data/config.json") -> None:
     config = load_config(config_path)
     _, atomic_rows = read_csv(config["atomic_output_csv"])
     groups = build_groups(atomic_rows)
@@ -348,7 +348,7 @@ def status() -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Trim/结构 allocation-weight research queue for multi-atom MAKE+MODEL+YEAR sales groups")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("init")
     sub.add_parser("status")

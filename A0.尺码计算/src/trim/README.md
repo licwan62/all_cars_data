@@ -1,28 +1,31 @@
 # TrimList v2 生成器
 
+> **2026-09-27 迁移**：TRIM 匹配已从 `A1.全量生成` 迁入 `A0.尺码计算`：代码在 `src/trim/`，维护资料在 `data/US/TRIM/`。正式流程由 `src/generate_store_outputs.py` 在计算 US 尺码后调用 `trim.matching.match_trims`，回填 US/店铺全量表的 `TRIM` 列并输出 `output/US/TRIM/TRIM适配器.csv`；下文中的 `rebuild_trimlist.py`（原 `src/run.py`）、`analyze_sizes.py` 等为离线维护工具，默认写入 `work/trim/`，不直接改 `output/`。只有 US 有 TRIM 环节。
+
+
 本项目将车型尺寸库中的 `DIMENSION-ID` 直接映射到 4A 的逐年
 `Make + Model` 原子，用于取代原来依赖
 `Year + 主车型 + 结构 + 版本 + 分号候选字符串`
-的中间维护表。本项目现已与原 `A1.全量汇总` 合并为同一节点 **A1.全量生成**（`build_consolidated_full_table.py` 也在本目录下），详见 [AGENTS.md](AGENTS.md)。
+的中间维护表。所属节点见 [A0 AGENTS.md](../../AGENTS.md)。
 
-> **当前状态（2026-09-22）**：本节README下方描述的 `source/4A全数据.csv`、`source/车型尺寸库.csv`、`source/子车系维护表.csv`（仓库外 `source` 目录）均已不可用，`src/run.py` 的全量重建路径**不可再运行**（会因缺少子车系维护表丢失所有"现有精确键"行）。找回的 4A 原子快照 `data/4a_fitment_0722.tsv`（仅 `year/make/model`）现作为联网匹配的唯一基准；`data/TrimList.csv`/`TrimList_audit.csv` 是被长期维护的状态，只做增量追加，不再从零重建。当前实际使用的命令是 `analyze_fitment_coverage.py`（离线匹配分析）→ `research_nhtsa.py --apply-safe-evidence`（联网审核）→ 增量写入 TrimList → `refresh_from_size_output.py`（生成 Trim 交付物）→ `build_consolidated_full_table.py`（回填全量表）。详见 [AGENTS.md](AGENTS.md) 的完整流程。以下为历史设计文档，作为字段与门禁规则的参考。
+> **当前状态（2026-09-22）**：本节README下方描述的 `source/4A全数据.csv`、`source/车型尺寸库.csv`、`source/子车系维护表.csv`（仓库外 `source` 目录）均已不可用，`src/run.py` 的全量重建路径**不可再运行**（会因缺少子车系维护表丢失所有"现有精确键"行）。找回的 4A 原子快照 `data/US/TRIM/4a_fitment_0722.tsv`（仅 `year/make/model`）现作为联网匹配的唯一基准；`data/US/TRIM/TrimList.csv`/`TrimList_audit.csv` 是被长期维护的状态，只做增量追加，不再从零重建。当前实际使用的命令是 `analyze_fitment_coverage.py`（离线匹配分析）→ `research_nhtsa.py --apply-safe-evidence`（联网审核）→ 增量写入 TrimList → `refresh_from_size_output.py`（生成 Trim 交付物）→ `build_consolidated_full_table.py`（回填全量表）。详见 [AGENTS.md](AGENTS.md) 的完整流程。以下为历史设计文档，作为字段与门禁规则的参考。
 
 共享输入统一来自仓库 `source`；项目在 `data` 中维护 Trim 例外、联网证据以及全部研究/校验中间产物。正式输出遵守两层门禁：
 
 1. 候选必须存在于当年 `source/4A全数据.csv` 的 `Year + Make + Model`。
-2. 除“继承现有精确键”外，必须在 `data/online_evidence.csv` 提供联网证据，
+2. 除“继承现有精确键”外，必须在 `data/US/TRIM/online_evidence.csv` 提供联网证据，
    且证据的年份、版本、结构必须与 `DIMENSION-ID` 源记录一致。
 
 ## 输出
 
 `output` 只保留两个最终交付文件：
 
-- `output/TRIM适配器.csv`：为 `TrimList` 的每一行回填 `Size`，包括“无可用尺码/数据不全”等状态值，不丢行。
-- `output/尺寸TRIM映射.csv`：每个 `DIMENSION-ID` 一行，从 `source/尺码分析.csv` 的 `TRIM` 列生成 `Trims`，多个名称以 ` | ` 分隔。
+- `output/US/TRIM/TRIM适配器.csv`：为 `TrimList` 的每一行回填 `Size`，包括“无可用尺码/数据不全”等状态值，不丢行。
+- US 全量表与店铺全量表的 `TRIM` 列：每个 `DIMENSION-ID` 由已审核 TRIM 值规范化得到，多个名称以 ` | ` 分隔（原 `尺寸TRIM映射.csv` 已不再单独输出）。
 
 ## Data 与研究产物
 
-`data/TrimList.csv` 是适配器生成所用的 DIMENSION-ID 到逐年车型映射：
+`data/US/TRIM/TrimList.csv` 是适配器生成所用的 DIMENSION-ID 到逐年车型映射：
 
 ```csv
 DIMENSION-ID,Year,Make,Model
@@ -49,19 +52,19 @@ DIMENSION-ID + Year + Make + Model
 在当前目录执行：
 
 ```powershell
-python src/run.py
+python src/trim/rebuild_trimlist.py
 ```
 
 如只需重新分析已生成的 TrimList：
 
 ```powershell
-python src/analyze_sizes.py
+python src/trim/analyze_sizes.py
 ```
 
 如只生成 TrimList：
 
 ```powershell
-python src/run.py --skip-size-analysis
+python src/trim/rebuild_trimlist.py --skip-size-analysis
 ```
 
 默认读取：
@@ -70,13 +73,13 @@ python src/run.py --skip-size-analysis
 - `../source/4A全数据.csv`
 - `../source/子车系维护表.csv`
 - `../source/尺码分析.csv`
-- `data/trim_overrides.csv`（项目专属）
-- `data/online_evidence.csv`（项目专属）
+- `data/US/TRIM/trim_overrides.csv`（项目专属）
+- `data/US/TRIM/online_evidence.csv`（项目专属）
 
 也可指定路径：
 
 ```powershell
-python src/run.py `
+python src/trim/rebuild_trimlist.py `
   --dimensions ..\source\车型尺寸库.csv `
   --fitment ..\source\4A全数据.csv `
   --maintenance ..\source\子车系维护表.csv `
@@ -89,12 +92,12 @@ python src/run.py `
 如果需要将未匹配或待联网审核候选视为构建失败：
 
 ```powershell
-python src/run.py --fail-on-unmapped --fail-on-unreviewed
+python src/trim/rebuild_trimlist.py --fail-on-unmapped --fail-on-unreviewed
 ```
 
 ## 例外维护
 
-`data/trim_overrides.csv` 只维护例外，不复制全量映射。
+`data/US/TRIM/trim_overrides.csv` 只维护例外，不复制全量映射。
 
 ```csv
 DIMENSION-ID,Year,Action,Make,Model,Note
@@ -108,7 +111,7 @@ DIMENSION-ID,Year,Action,Make,Model,Note
 
 ## 联网证据
 
-`data/online_evidence.csv` 每行审核一个原子候选：
+`data/US/TRIM/online_evidence.csv` 每行审核一个原子候选：
 
 ```csv
 DIMENSION-ID,Year,Make,Model,版本,结构,Decision,SourceURL,SourceTitle,EvidenceNote,ReviewedAt
@@ -123,23 +126,23 @@ DIMENSION-ID,Year,Make,Model,版本,结构,Decision,SourceURL,SourceTitle,Eviden
 可先运行 NHTSA 安全子集审核：
 
 ```powershell
-python src/research_nhtsa.py --apply-safe-evidence
-python src/run.py
+python src/trim/research_nhtsa.py --apply-safe-evidence
+python src/trim/rebuild_trimlist.py
 ```
 
 该命令仅自动批准：1996 年以后、源/候选 Make+Model 同名、版本为空，且
 NHTSA 在同年对应车辆类型中返回该 Model 的记录。详细查询结果写入
-`data/NHTSAResearchReport.csv`。无法证明具体版本或 Sedan/Coupe/Convertible
+`data/US/TRIM/NHTSAResearchReport.csv`。无法证明具体版本或 Sedan/Coupe/Convertible
 等细分结构的记录仍保留在联网审核队列。
 
 对全量 4A 新发现的候选可继续运行：
 
 ```powershell
-python src/research_nhtsa.py `
+python src/trim/research_nhtsa.py `
   --review .\data\FitmentCoverageCandidates.csv `
   --report .\data\NHTSAFitmentCoverageResearch.csv `
   --apply-safe-evidence
-python src/run.py
+python src/trim/rebuild_trimlist.py
 ```
 
 ## 匹配顺序
@@ -154,5 +157,5 @@ python src/run.py
 ## 测试
 
 ```powershell
-python -m unittest discover -s tests -v
+python -m pytest A0.尺码计算/tests/test_trimlist.py A0.尺码计算/tests/test_size_analysis.py A0.尺码计算/tests/test_fitment_coverage.py A0.尺码计算/tests/test_trim_matching.py
 ```

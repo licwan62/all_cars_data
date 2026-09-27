@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""按新尺码规则和店铺货架配置生成全尺码及各店铺全量表。"""
+"""生成 US 全量表、各店铺全量表与 TRIM适配器（US 的尺码匹配与 TRIM 匹配在同一次运行内完成）。
+
+1. 按 data/US/店铺/货架.yaml 指定的当前 US 规则计算全尺码结果；各店铺先按货架限定候选池再换成发货尺码。
+2. 用 data/US/TRIM 的已审核 TrimList/TRIM 值做 TRIM 匹配：回填 US 全量表与店铺全量表的 TRIM 列，并生成 TRIM适配器。
+3. 全部写入新的 artifacts/<批次>/output/（按 output_layout 的 <国别>/<类别>/ 布局），校验通过后原子更新 output/。
+"""
 
 from __future__ import annotations
 
 import argparse
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 from typing import Iterable, Mapping
@@ -19,9 +25,11 @@ WORKSPACE_ROOT = PROJECT_DIR.parent
 if str(WORKSPACE_ROOT / "lib") not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT / "lib"))
 
-from full_table_schema import attach_dimension_code  # noqa: E402
 from id_scheme import append_country_code  # noqa: E402
+import data_layout  # noqa: E402
+import output_layout as layout  # noqa: E402
 import pandas_analysis as analysis  # noqa: E402
+from trim.matching import match_trims  # noqa: E402
 
 
 def _required_mapping(value: object, name: str) -> Mapping[str, object]:
@@ -32,19 +40,19 @@ def _required_mapping(value: object, name: str) -> Mapping[str, object]:
 
 def load_shelf_config(
     config_path: Path,
+    region_config: data_layout.RegionConfig | None = None,
 ) -> tuple[Path, str, dict[str, list[tuple[str, str]]]]:
-    """读取并校验货架配置，返回规则路径、规则尺码字段和店铺映射。"""
+    """读取并校验货架配置，返回当前 US 规则路径、规则尺码字段和店铺映射。
+
+    规则与尺码字段取自 data/当前规则.yaml（US）；货架只维护店铺的匹配尺码与发货尺码。
+    """
     if not config_path.is_file():
         raise FileNotFoundError(f"店铺货架配置不存在：{config_path}")
     with config_path.open(encoding="utf-8") as stream:
         config = yaml.safe_load(stream)
     root = _required_mapping(config, "店铺货架配置")
-    rule_config = _required_mapping(root.get("规则"), "规则")
-    rule_file = str(rule_config.get("文件", "")).strip()
-    size_column = str(rule_config.get("尺码字段", "")).strip()
-    if not rule_file or not size_column:
-        raise analysis.DataContractError("规则必须包含“文件”和“尺码字段”")
-    rule_path = (config_path.parent / rule_file).resolve()
+    region_config = region_config or data_layout.current("US")
+    rule_path, size_column = region_config.rules, region_config.size_column
     rules = analysis._read_csv(rule_path)
     analysis._require_columns(rules, [size_column], "店铺配置引用的尺码规则")
     valid_sizes = {
@@ -110,22 +118,20 @@ def apply_shipping_sizes(
 
 def _calculate(
     source_dir: Path,
-    config_dir: Path,
+    parameters_path: Path,
     rule_path: Path,
-    submodel_path: Path | None,
-    trim_source: Path | None,
     allowed_sizes: Iterable[str] | None = None,
-    include_analysis: bool = False,
-) -> pd.DataFrame | tuple[pd.DataFrame, pd.DataFrame]:
-    return analysis.calculate(
+) -> pd.DataFrame:
+    result = analysis.calculate(
         source_dir,
-        submodel_path=submodel_path,
-        config_dir=config_dir,
+        config_dir=parameters_path.parent,
         rules_path=rule_path,
-        trim_source=trim_source,
-        include_analysis=include_analysis,
+        parameters_path=parameters_path,
         allowed_sizes=allowed_sizes,
     )
+    result = us_rows(result)
+    result["DIMENSION-ID"] = result["DIMENSION-ID"].map(us_dimension_id)
+    return result
 
 
 def us_rows(result: pd.DataFrame) -> pd.DataFrame:
@@ -139,6 +145,13 @@ def us_dimension_id(value: object) -> str:
     return text if text.endswith(" US") else append_country_code(text, "US")
 
 
+def fill_trims(result: pd.DataFrame, trims: Mapping[str, str]) -> pd.DataFrame:
+    """TRIM 列取 TRIM 匹配结果；未匹配的 DIMENSION-ID 留空。"""
+    filled = result.copy()
+    filled["TRIM"] = filled["DIMENSION-ID"].map(trims).fillna("")
+    return filled
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -150,18 +163,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--shelf-config",
         type=Path,
-        default=PROJECT_DIR / "data" / "店铺分组" / "货架.yaml",
+        default=data_layout.SHELF_CONFIG,
         help="店铺货架 YAML",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
         help="输出目录；默认在尺码计算/artifacts 下创建新批次",
-    )
-    parser.add_argument(
-        "--no-submodel",
-        action="store_true",
-        help="不读取子车系维护表，TRIM 留空",
     )
     return parser.parse_args()
 
@@ -172,60 +180,31 @@ def main() -> int:
     shelf_config = args.shelf_config.resolve()
     try:
         rule_path, size_column, shops = load_shelf_config(shelf_config)
-        config_dir = rule_path.parent
-        submodel_path = analysis.resolve_submodel_path(
-            source_dir, None, args.no_submodel
-        )
-        trim_source = analysis.CURRENT_OUTPUT
-        if args.no_submodel or submodel_path is not None or not trim_source.is_file():
-            trim_source = None
+        config_dir = data_layout.current("US").parameters
         output_dir = (
             args.output_dir.resolve()
             if args.output_dir
-            else analysis.next_artifact_output_dir(
-                PROJECT_DIR / "artifacts", "0917-1-new-naming-store-groups"
-            )
-        )
-
-        full_result, dimension_analysis = _calculate(
-            source_dir,
-            config_dir,
-            rule_path,
-            submodel_path,
-            trim_source,
-            include_analysis=True,
+            else analysis.next_artifact_output_dir(PROJECT_DIR / "artifacts", "us-size-trim")
         )
         expected_rows = len(us_rows(analysis._read_csv(analysis.resolve_data_file(source_dir, "dimensions"))))
-        outputs: dict[str, dict[str, object]] = {}
-        full_result = us_rows(full_result)
-        dimension_analysis = us_rows(dimension_analysis)
-        full_result["DIMENSION-ID"] = full_result["DIMENSION-ID"].map(us_dimension_id)
-        dimension_analysis["DIMENSION-ID"] = dimension_analysis["DIMENSION-ID"].map(us_dimension_id)
-        full_result = attach_dimension_code(full_result)
-        dimension_analysis = attach_dimension_code(dimension_analysis)
-        full_path = output_dir / "全量表_US.csv"
-        analysis_path = output_dir / "尺寸分析表_US.csv"
+
+        full_result = _calculate(source_dir, config_dir, rule_path)
+        trim = match_trims(full_result, output_dir.parent / "trim")
+        full_result = fill_trims(full_result, trim.trims)
+        full_path = output_dir / layout.full_table("US")
         analysis.write_result(full_result, full_path)
-        analysis.write_result(dimension_analysis, analysis_path)
-        outputs["全尺码"] = {
-            **analysis.validate_result(full_result, expected_rows),
-            "output": str(full_path),
+        outputs: dict[str, dict[str, object]] = {
+            "全尺码": {**analysis.validate_result(full_result, expected_rows), "output": str(full_path)}
         }
 
         for shop_name, mappings in shops.items():
             store_result = _calculate(
-                source_dir,
-                config_dir,
-                rule_path,
-                submodel_path,
-                trim_source,
-                allowed_sizes=[item[0] for item in mappings],
+                source_dir, config_dir, rule_path, allowed_sizes=[item[0] for item in mappings]
             )
-            store_result = apply_shipping_sizes(store_result, mappings)
-            store_result = us_rows(store_result)
-            store_result["DIMENSION-ID"] = store_result["DIMENSION-ID"].map(us_dimension_id)
-            store_result = attach_dimension_code(store_result)
-            store_path = output_dir / f"店铺全量_{shop_name}.csv"
+            store_result = fill_trims(apply_shipping_sizes(store_result, mappings), trim.trims)
+            if store_result["DIMENSION-ID"].tolist() != full_result["DIMENSION-ID"].tolist():
+                raise analysis.DataContractError(f"店铺 {shop_name} 全量表与 US 全量表行不一致")
+            store_path = output_dir / layout.store_table(shop_name)
             analysis.write_result(store_result, store_path)
             outputs[shop_name] = {
                 **analysis.validate_result(store_result, expected_rows),
@@ -234,32 +213,30 @@ def main() -> int:
                 "output": str(store_path),
             }
 
+        adapter_path = output_dir / layout.TRIM_ADAPTER
+        adapter_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(trim.adapter, adapter_path)
+
         summary = {
             "rules_file": str(rule_path),
             "rules_size_column": size_column,
+            "parameters_file": str(config_dir),
             "shelf_config": str(shelf_config),
             "source_dir": str(source_dir),
-            "dimension_analysis": str(analysis_path),
+            "trim": {**trim.status, "data_dir": str(data_layout.TRIM_DIR), "adapter": str(adapter_path)},
             "outputs": outputs,
         }
-        status_path = output_dir / "status.json"
-        status_path.write_text(
-            json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
+        (output_dir.parent / "status.json").write_text(
+            json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
-        (output_dir / "尺码匹配报告_US.json").write_text(
-            json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
-            encoding="utf-8",
-        )
-        summary["status"] = str(status_path)
         if args.output_dir is None:
             current_output = PROJECT_DIR / "output"
-            for generated in output_dir.iterdir():
+            for generated in output_dir.rglob("*"):
                 if generated.is_file():
-                    analysis.promote_file(generated, current_output / generated.name)
+                    analysis.promote_file(generated, current_output / generated.relative_to(output_dir))
         print(json.dumps(summary, ensure_ascii=False, indent=2))
         return 0
-    except (analysis.DataContractError, FileNotFoundError, pd.errors.ParserError, yaml.YAMLError) as error:
+    except (analysis.DataContractError, FileNotFoundError, ValueError, pd.errors.ParserError, yaml.YAMLError) as error:
         print(f"生成失败：{error}", file=sys.stderr)
         return 2
 

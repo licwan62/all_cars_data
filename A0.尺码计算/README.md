@@ -2,11 +2,11 @@
 
 2026-09-08：正式匹配使用 `L-MM` 与 `插片指数`。等效长公式为 `R((L-MM + W-MM) × 周长系数 − 1500)`，仅作参考留痕；非皮卡插片指数沿用原算法，皮卡改为 `R(前宽-MM / 2 − 750)`，避免后轮毂突出虚增插片需求。
 
-缺少子车系维护表时，命令行默认按 `DIMENSION-ID` 保留 `output/全量表_US.csv` 的 TRIM；可用 `--trim-source` 显式指定来源，或用 `--no-submodel` 明确留空。默认尺寸、车形和销量分别读取三个上游 agent 的 `output/`。
+`pandas_analysis.py` 是开发/回归用命令行：只写 artifact 批次，不更新 `output/`。正式 US 结果（含 TRIM 匹配）由 `generate_store_outputs.py` 生成；TRIM 取自 `data/US/TRIM`，见 [src/trim/README.md](src/trim/README.md)。
 
 本次恢复的规则来自现有 `output/车型数据尺码.xlsx` 中的正式表 `容差参数表`（参数!A1:B2）和 `tb_size`（尺码!A1:J44），共 1 项参数和 43 条尺码规则。用旧车形重算已完整复现发布前的全部原有字段。
 
-当前稳定交付物位于本项目 `output/`。每次运行先生成新的 `artifacts/<批次>/output/`，验证通过后再原子更新 `output/`；历史批次不得覆盖。
+当前稳定交付物位于本项目 `output/`，按 `<国别>/` 分目录：`尺码匹配报告.md`（规则全文与匹配概况）、`全量/全量表.csv`，US 另有 `店铺/` 与 `TRIM/`。布局见 `src/output_layout.py`，维护资料布局见 `src/data_layout.py`，节点说明见 [AGENTS.md](AGENTS.md)。每次运行先生成新的 `artifacts/<批次>/output/`，验证通过后再原子更新 `output/`；历史批次不得覆盖。
 
 `pandas_analysis.py` 用 pandas 复现 `data/powerquery.md` 的车型尺寸、销量汇总和尺码匹配流程，并补齐示例结果中存在、但规则文档没有完整列出的前置尺寸计算。
 
@@ -22,7 +22,7 @@ python A0.尺码计算\src\pandas_analysis.py
 
 RU 区域全量使用 `generate_ru_full_table.py`：尺寸只读取 `01.整理尺寸库/output/尺寸库_RU.csv`；销量读取 `02.销量评估/data/ru/auto_ru_model_sales_with_match_key.csv`，先按 `match_key` 汇总，再通过 RU 原始尺寸分组重建并映射到规范化后的 `DIMENSION-ID`。无 `match_key` 的销量只进入审计报告，不分摊到无法确定的车型。
 
-EU 使用 `publish_eu_current_research.py` 发布 `data/eu/当前已审核全量.csv` 中与当前 `尺寸库_EU.csv` 仍然一致的已审核行。该交付物是当前研究进度的全量快照，不表示 EU 尺寸库已全覆盖；覆盖情况写入 `尺码匹配报告_EU.json`。
+EU 使用 `publish_eu_current_research.py` 发布 `data/EU/研究/当前已审核全量.csv` 中与当前 `尺寸库_EU.csv` 仍然一致的已审核行。该交付物是当前研究进度的全量快照，不表示 EU 尺寸库已全覆盖；覆盖情况写入 `尺码匹配报告_EU.json`。
 
 审核 RU 全量后运行 `python A0.尺码计算/src/publish_ru_data.py`，会校验尺寸库与全量表的 `DIMENSION-ID` 集合、销量数值和尺码规则覆盖，并原子发布到 `\\NAS8824B4\Public\PQData\pub_all_cars_data\data\ru_data/`。每次发布同时保留不可变 artifact 和 SHA-256。
 
@@ -34,7 +34,7 @@ CSV 输出为标准 UTF-8 BOM；销量 `74286` 不再写成旧示例中未加引
 # 指定共享数据、项目规则和输出
 python A0.尺码计算\src\pandas_analysis.py `
   --source-dir 01.整理尺寸库\output `
-  --config-dir A0.尺码计算\data `
+  --config-dir A0.尺码计算\data\US\参数 `
   --body-source 03.车形分类核定\output\车形分类.csv `
   --sales-source 02.销量评估\output\原子销量.csv
 
@@ -52,19 +52,19 @@ python A0.尺码计算\src\pandas_analysis.py `
   --workbook-output A0.尺码计算\output\车型数据尺码.xlsx
 ```
 
-`TRIM` 优先从 `data/子车系维护表.csv` 生成；缺失时，命令行默认从已有 `output/全量表_US.csv` 按主键保留。两种来源均不可用或显式使用 `--no-submodel` 时留空。
+正式流程中 `TRIM` 由 TRIM 匹配回填（仅 US）；`pandas_analysis.py` 命令行仍可用 `--submodel-source`/`--trim-source` 做回归比对。
 
 结果审核通过后，可运行 `python scripts/data_workflow.py publish-plan 全量数据` 获取人工覆盖步骤。
 
-## 店铺分组全量
+## US 全量、店铺全量与 TRIM
 
-`店铺分组/货架.yaml` 定义每个店铺的 `匹配尺码` 与 `发货尺码`。生成程序会先用完整规则输出全尺码全量，再为每个店铺只保留其匹配尺码作为候选池；成功结果及诊断候选统一转换为发货尺码。
+`data/US/店铺/货架.yaml` 定义每个店铺的 `匹配尺码` 与 `发货尺码`。生成程序会先用完整规则输出全尺码全量，再为每个店铺只保留其匹配尺码作为候选池；成功结果及诊断候选统一转换为发货尺码。
 
 ```powershell
 python A0.尺码计算\src\generate_store_outputs.py
 ```
 
-默认在 `A0.尺码计算/artifacts` 下新建版本批次，输出 `全量表_US.csv`、`尺寸分析表.csv`、各店铺的 `店铺名全量.csv` 和 `status.json`；校验成功后原子更新本项目 `output/`。
+默认在 `A0.尺码计算/artifacts` 下新建版本批次，输出 `US/全量/全量表.csv`（含 TRIM）、各店铺的 `US/店铺/店铺全量_<店铺>.csv`、`US/TRIM/TRIM适配器.csv`，批次根目录另有 `status.json` 与 `trim/`（TRIM 匹配输入快照与报告）；校验成功后原子更新本项目 `output/`。随后运行 `build_match_report.py` 生成各国 `尺码匹配报告.md`。
 
 最终结果默认按 `DIMENSION-ID` 升序排列，并把 `DIMENSION-ID` 放在最后一列。US 全量发布结果会在基础 ID 末尾追加 `US`。
 
@@ -100,7 +100,7 @@ python A0.尺码计算\src\generate_store_outputs.py
 
 ### 尺码结果列
 
-规则来源为 `rules/尺码匹配规则.csv`，容差来源为 `rules/尺码匹配参数.csv`；当前 `余量长容差=550` mm。
+规则来源为 `data/US/规则/<当前版本>.csv`，容差来源为 `data/US/参数/尺码匹配参数.csv`；当前 `余量长容差=550` mm。
 
 | 输出列 | 生成方法 | 空值或异常情况 |
 | --- | --- | --- |

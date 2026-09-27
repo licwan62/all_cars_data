@@ -101,7 +101,7 @@ def check_release_naming(nodes: list[dict]) -> list[str]:
                 errors.append(f"{node['id']}: 来源 artifact 缺少 {art_file.relative_to(ROOT)}")
             elif out_file.is_file() and sha256(out_file) != sha256(art_file):
                 errors.append(f"{node['id']}: output/{name} 与 {versioned} 内容不一致")
-        for path in (base / "output").glob("*"):
+        for path in (base / "output").rglob("*"):
             if VERSION_SUFFIX.search(path.name):
                 errors.append(f"{node['id']}: output/ 不得带 artifact 后缀: {path.name}")
     return errors

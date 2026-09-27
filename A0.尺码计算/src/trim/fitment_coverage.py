@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from difflib import SequenceMatcher
 from pathlib import Path
 
-from src.trimlist import clean, expanded_years, normalized, read_csv, sha256_file, write_csv
+from trim.trimlist import clean, expanded_years, normalized, read_csv, sha256_file, write_csv
 
 
 COVERAGE_HEADER = [

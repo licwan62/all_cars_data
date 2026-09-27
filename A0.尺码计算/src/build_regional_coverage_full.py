@@ -15,14 +15,15 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 PROJECT = ROOT / "A0.尺码计算"
 sys.path.insert(0, str(ROOT / "lib"))
-from full_table_schema import attach_dimension_code
+import data_layout
+import output_layout as layout
 import pandas_analysis as analysis
 
 SHAPES = ROOT / "03.车形分类核定" / "output" / "车形分类.csv"
 DIMENSIONS = ROOT / "02.分类结构审核" / "output"
 OUTPUT = PROJECT / "output"
-# 各区域从自己的 data/<区域>/ 读取规则和参数；EU 不使用 US 或根目录规则。
-EU_CONFIG_DIR = PROJECT / "data" / "eu"
+# 各区域从自己的 data/<区域>/ 读取规则和参数；EU 不使用 US 规则。
+EU_CONFIG = data_layout.current("EU")
 ARTIFACTS = PROJECT / "artifacts"
 
 
@@ -67,15 +68,15 @@ def build_eu(artifact: Path, shapes: pd.DataFrame) -> tuple[pd.DataFrame, dict[s
     dims.to_csv(work / "尺寸库.csv", index=False, encoding="utf-8-sig", lineterminator="\n")
     shapes[["DIMENSION-ID", "车形"]].to_csv(work / "车形分类.csv", index=False, encoding="utf-8-sig", lineterminator="\n")
     pd.DataFrame({"atom_record_id": [f"{item}|ATOM_YEAR=0" for item in dims["DIMENSION-ID"]], "预估销量": [0] * len(dims)}).to_csv(work / "原子销量.csv", index=False, encoding="utf-8-sig", lineterminator="\n")
-    result, _ = analysis.calculate(work, config_dir=EU_CONFIG_DIR, body_path=work / "车形分类.csv", sales_path=work / "原子销量.csv", include_analysis=True, trim_source=None)
+    result, _ = analysis.calculate(work, config_dir=EU_CONFIG.parameters.parent, rules_path=EU_CONFIG.rules, parameters_path=EU_CONFIG.parameters, body_path=work / "车形分类.csv", sales_path=work / "原子销量.csv", include_analysis=True, trim_source=None)
     result["DIMENSION-ID"] = result["DIMENSION-ID"].map(lambda value: f"{value} EU")
-    result = attach_dimension_code(result)
+    result = result.drop(columns=["TRIM"])  # 只有 US 有 TRIM 匹配环节
     report = {"rows": len(result), "sales_total": 0, "sales_policy": "zero placeholder; no EU sales fact", "shape_policy": "coverage candidate", "low_confidence_shapes": int(shapes["置信度"].eq("low").sum())}
     return result, report
 
 
 def build_ru(shapes: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, object]]:
-    result = read(OUTPUT / "全量表_RU.csv")
+    result = read(OUTPUT / layout.full_table("RU"))
     result["_base"] = result["DIMENSION-ID"].map(lambda value: base_id(value, "RU"))
     joined = result.merge(shapes[["DIMENSION-ID", "车形", "置信度", "方法"]], left_on="_base", right_on="DIMENSION-ID", how="left", validate="one_to_one", suffixes=("", "_candidate"))
     if joined["车形_candidate"].eq("").any() or joined["车形_candidate"].isna().any():
@@ -93,16 +94,19 @@ def main() -> int:
         shapes_eu, shapes_ru = candidate_shapes("EU"), candidate_shapes("RU")
         eu, eu_report = build_eu(staging, shapes_eu)
         ru, ru_report = build_ru(shapes_ru)
-        (staging / "output").mkdir(parents=True, exist_ok=True)
         for region, frame, report in [("EU", eu, eu_report), ("RU", ru, ru_report)]:
-            frame.to_csv(staging / "output" / f"全量表_{region}.csv", index=False, encoding="utf-8-sig", lineterminator="\n")
-            (staging / "output" / f"尺码匹配报告_{region}.json").write_text(json.dumps({"status": "passed", "coverage_first": True, **report}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+            (staging / "output" / layout.full_table(region)).parent.mkdir(parents=True, exist_ok=True)
+            frame.to_csv(staging / "output" / layout.full_table(region), index=False, encoding="utf-8-sig", lineterminator="\n")
+            (staging / "reports").mkdir(exist_ok=True)
+            (staging / "reports" / f"尺码匹配报告_{region}.json").write_text(json.dumps({"status": "passed", "coverage_first": True, **report}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
         os.replace(staging, artifact)
         for region in ("EU", "RU"):
-            for name in (f"全量表_{region}.csv", f"尺码匹配报告_{region}.json"):
-                temporary = OUTPUT / f".{name}.tmp"
+            for name in (layout.full_table(region),):
+                target = OUTPUT / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                temporary = target.with_name(f".{target.name}.tmp")
                 shutil.copy2(artifact / "output" / name, temporary)
-                os.replace(temporary, OUTPUT / name)
+                os.replace(temporary, target)
         print(json.dumps({"artifact": str(artifact), "EU": eu_report, "RU": ru_report}, ensure_ascii=False, indent=2))
         return 0
     except Exception as error:

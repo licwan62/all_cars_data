@@ -9,16 +9,16 @@ import sys
 if str(Path(__file__).resolve().parents[1]) not in sys.path:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.fitment_coverage import build_fitment_coverage_files
-from src.size_analysis import build_size_analysis_files
-from src.trimlist import build_files
+from trim.fitment_coverage import build_fitment_coverage_files
+from trim.size_analysis import build_size_analysis_files
+from trim.trimlist import build_files
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 WORKSPACE = ROOT.parent
 SOURCE = WORKSPACE / "source"
-DATA = ROOT / "data"
-OUTPUT = ROOT / "output"
+DATA = ROOT / "data" / "US" / "TRIM"
+OUTPUT = ROOT / "work" / "trim"
 
 
 def parse_args() -> argparse.Namespace:

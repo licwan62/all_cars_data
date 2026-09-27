@@ -44,7 +44,7 @@ def _join_notes(*values: str) -> str:
     return " | ".join(value.strip() for value in values if value and value.strip())
 
 
-def run(config_path: str = "config.json") -> dict[str, int]:
+def run(config_path: str = "data/config.json") -> dict[str, int]:
     config = load_config(config_path)
     atom_fields, atoms = read_csv(config["atoms_csv"])
     require_fields(atom_fields, ["DIMENSION-ID", "MAKE", "MODEL", "YEAR", "SALES_ATOM_KEY", "ATOM_ROW_ID"], config["atoms_csv"])
@@ -180,7 +180,7 @@ def run(config_path: str = "config.json") -> dict[str, int]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Merge sourced model-year sales and allocate them to atomic vehicle rows.")
-    parser.add_argument("--config", default="config.json")
+    parser.add_argument("--config", default="data/config.json")
     args = parser.parse_args()
     stats = run(args.config)
     print(
