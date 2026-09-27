@@ -33,10 +33,10 @@ size_mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(size_mod)
 
 PROJECT = _HERE.parent
-SOURCE = PROJECT / "data" / "00.差评分析汇总.csv"
+SOURCE = PROJECT / "data" / "差评分析汇总.csv"
 RULES = PROJECT / "data" / "耳位筛选规则.json"
 ANALYSIS = PROJECT / "output" / "差评分析表.csv"
-DETAIL_OUTPUT = PROJECT / "data" / "03.耳位问题清单.csv"
+DETAIL_OUTPUT = PROJECT / "work" / "03.耳位问题清单.csv"
 
 DETAIL_FIELDS = (
     "耳位问题主键", "差评汇总外键", "车型", "耳位(普通/靠前/靠后)",

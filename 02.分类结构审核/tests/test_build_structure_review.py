@@ -76,3 +76,32 @@ def test_decision_file_is_valid():
     for decision in decisions:
         family = decision["结构"]
         assert decision["分类"] in STANDARD["research_required"][family]
+
+
+def test_verified_structure_repairs_preserve_ids_and_dimensions():
+    repairs = module.load_repairs()
+    source = row("Hatchback", "两厢车", "Tesla", "Model S", "2012-2020", "stable-key US")
+    source["L-IN"] = "196"
+    rows = {"US": [source], "EU": [], "RU": []}
+    result = module.review(rows, STANDARD, [], repairs)
+    after = result["outputs"]["US"][0]
+    assert after["结构"] == "Liftback" and after["分类"] == "三厢车"
+    assert after["DIMENSION-ID"] == "stable-key US" and after["L-IN"] == "196"
+    assert module.validate(result, rows, STANDARD, repairs)["passed"]
+    after["结构"] = "Fastback"
+    assert not module.validate(result, rows, STANDARD, repairs)["passed"]
+
+
+def test_repairs_do_not_match_other_body_styles_or_partial_years():
+    repairs = module.load_repairs()
+    for source in [row("Wagon", "两厢车", "Porsche", "Panamera"),
+                   row("Hatchback", "两厢车", "Tesla", "Model S", "2011-2014"),
+                   row("Hatchback", "两厢车", "Audi", "A3", "2012-2020")]:
+        after, repair = module.repair_structure("US", source, repairs, STANDARD)
+        assert repair is None and after == source
+
+
+def test_duplicate_structure_repairs_fail():
+    repair = next(r for r in module.load_repairs() if r["区域"] == "US" and r["MODEL"] == "Model S")
+    with pytest.raises(module.ReviewError):
+        module.repair_structure("US", row("Hatchback", "两厢车", "Tesla", "Model S", "2012-2020"), [repair, repair], STANDARD)

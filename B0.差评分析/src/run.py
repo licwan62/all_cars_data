@@ -1,21 +1,17 @@
 #!/usr/bin/env python3
 """差评分析节点的编排入口。
 
-两步：
-1. 用筛选规则从原始差评汇总（`data/00.差评分析汇总.csv`）里挑出"车辆主体尺寸不合适"的
-   差评，写到 `data/01.差评分析精选.csv`（供人工核对）和 `data/02.尺寸问题复核表.csv`
-   （疑似但无法自动判定的待人工复核记录）；同时给 `data/00.差评分析汇总.csv` 补上/刷新
-   用于互相关联的主键列（差评汇总主键）。`data/差评分析表.csv` 是人工维护的文件，只读，
-   本节点不写回；01 表用 品牌/车型/结构 三列直接记录匹配到的 差评分析表.csv 行，而不是另造
-   一个哈希外键。
-2. 校验人工维护的 `data/差评分析表.csv`（品牌+车型+结构 粒度的差评占比/严重度评级汇总），
-   通过后原子发布为 `output/差评分析表.csv`，供下游节点（如 B1.压缩定制评分）读取。
+正式输入只有 data/ 下人工维护的文件：
+  - `差评分析汇总.csv`：逐条差评原始台账（唯一的原始数据）；
+  - `差评分析表.csv`：人工按 品牌+车型+结构 汇总、评级的差评分析表；
+  - `尺寸分析筛选规则.json`、`耳位筛选规则.json`：关键词信号规则。
+运行不回写 data/：
+1. 从原始台账筛出"车辆主体尺寸不合适"的差评（01 精选、02 待复核）和耳位相关差评（03 清单），
+   这些核对清单只写进 artifacts/<批次>/，供人工据此维护 差评分析表.csv；
+2. 按原始台账聚合 耳位分析表、皮卡驾驶室货斗分析表，并给差评分析表补上"尺码"（原始台账 实际尺寸）；
+3. 校验差评分析表（键唯一、差评占比 0~1），通过后原子发布三张表到 output/。
 
-本节点没有上游流水线节点：原始差评数据是人工导出维护的台账，不是别的节点产物。
-车型语义修复（`data/车型语义修复映射.json`）是一次性的人工数据修正，用
-`src/apply_model_semantic_repairs.py` 单独运行、直接改写 `data/00.差评分析汇总.csv`，
-不属于本节点常规 run 流程。
-运行先创建不可覆盖的 artifacts/<批次>/，校验通过后才原子更新 output/。
+本节点没有上游流水线节点。运行先创建不可覆盖的 artifacts/<批次>/，全部成功后才原子更新 output/。
 """
 
 from __future__ import annotations
@@ -38,13 +34,14 @@ from src import build_pickup_cab_bed_summary as cab_bed_mod
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = PROJECT_DIR / "data"
-RAW_REVIEW_TABLE = DATA_DIR / "00.差评分析汇总.csv"
-FILTER_RULES = DATA_DIR / "尺寸分析筛选规则.json"
-SIZE_ANALYSIS_SUMMARY = DATA_DIR / "01.差评分析精选.csv"
-SIZE_ANALYSIS_REVIEW = DATA_DIR / "02.尺寸问题复核表.csv"
-EAR_POSITION_DETAIL = DATA_DIR / "03.耳位问题清单.csv"
-EAR_POSITION_RULES = DATA_DIR / "耳位筛选规则.json"
-NEGATIVE_REVIEW_TABLE = DATA_DIR / "差评分析表.csv"
+RAW_REVIEW_NAME = "差评分析汇总.csv"
+NEGATIVE_REVIEW_NAME = "差评分析表.csv"
+FILTER_RULES_NAME = "尺寸分析筛选规则.json"
+EAR_RULES_NAME = "耳位筛选规则.json"
+REQUIRED_INPUTS = (RAW_REVIEW_NAME, NEGATIVE_REVIEW_NAME, FILTER_RULES_NAME, EAR_RULES_NAME)
+SIZE_SUMMARY_NAME = "01.差评分析精选.csv"
+SIZE_REVIEW_NAME = "02.尺寸问题复核表.csv"
+EAR_DETAIL_NAME = "03.耳位问题清单.csv"
 OUTPUT_NAME = "差评分析表.csv"
 EAR_OUTPUT_NAME = "耳位分析表.csv"
 CAB_BED_OUTPUT_NAME = "皮卡驾驶室货斗分析表.csv"
@@ -145,46 +142,31 @@ def run(
     output_dir: Path = PROJECT_DIR / "output",
     artifacts_dir: Path = PROJECT_DIR / "artifacts",
 ) -> dict:
-    raw_table = data_dir / "00.差评分析汇总.csv"
-    rules_path = data_dir / "尺寸分析筛选规则.json"
-    size_summary_path = data_dir / "01.差评分析精选.csv"
-    size_review_path = data_dir / "02.尺寸问题复核表.csv"
-    ear_rules_path = data_dir / "耳位筛选规则.json"
-    ear_detail_path = data_dir / "03.耳位问题清单.csv"
-    negative_review_path = data_dir / "差评分析表.csv"
+    missing = [name for name in REQUIRED_INPUTS if not (data_dir / name).is_file()]
+    if missing:
+        raise NegativeReviewError(f"data/ 缺少输入：{missing}")
+    raw_table = data_dir / RAW_REVIEW_NAME
+    negative_review_path = data_dir / NEGATIVE_REVIEW_NAME
+    rules_path = data_dir / FILTER_RULES_NAME
+    ear_rules_path = data_dir / EAR_RULES_NAME
 
-    # 先备份本次运行实际读取的人工维护输入（data/ 是唯一正式输入），再让 build() 就地刷新
-    # data/00.差评分析汇总.csv 的主键列；这样 artifacts/<批次>/input 里留的是这次运行开始时
-    # data/ 的真实状态，不是被本次运行自己改过之后的状态。
+    # 先快照本次运行读取的 data/，再计算；核对清单只写进本批次，不回写 data/。
     artifact = next_artifact_dir(artifacts_dir, "negative-review-analysis")
     (artifact / "input").mkdir(parents=True)
-    for source in (raw_table, rules_path, ear_rules_path, negative_review_path):
-        if source.is_file():
-            shutil.copy2(source, artifact / "input")
+    for name in REQUIRED_INPUTS:
+        shutil.copy2(data_dir / name, artifact / "input")
 
-    filtered_count = review_count = None
-    if raw_table.is_file() and rules_path.is_file() and negative_review_path.is_file():
-        filtered_count, review_count = summary_mod.build(
-            raw_table, rules_path, size_summary_path, negative_review_path, size_review_path,
-        )
-
-    ear_summary_rows: list[dict] = []
-    ear_report: dict = {}
-    if raw_table.is_file() and ear_rules_path.is_file() and negative_review_path.is_file():
-        ear_summary_rows, ear_report = ear_mod.build(
-            raw_table, ear_rules_path, negative_review_path, ear_detail_path,
-        )
-
-    cab_bed_rows: list[dict] = []
-    cab_bed_report: dict = {}
-    if raw_table.is_file() and negative_review_path.is_file():
-        cab_bed_rows, cab_bed_report = cab_bed_mod.build(raw_table, negative_review_path)
+    filtered_count, review_count = summary_mod.build(
+        raw_table, rules_path, artifact / SIZE_SUMMARY_NAME, negative_review_path, artifact / SIZE_REVIEW_NAME,
+    )
+    ear_summary_rows, ear_report = ear_mod.build(
+        raw_table, ear_rules_path, negative_review_path, artifact / EAR_DETAIL_NAME,
+    )
+    cab_bed_rows, cab_bed_report = cab_bed_mod.build(raw_table, negative_review_path)
 
     rows = read_csv_rows(negative_review_path)
     fieldnames = list(rows[0].keys()) if rows else []
-    size_report = {"有尺码行数": 0, "无尺码行数": len(rows)}
-    if raw_table.is_file():
-        size_report = add_sizes_from_raw_reviews(rows, read_csv_rows(raw_table))
+    size_report = add_sizes_from_raw_reviews(rows, read_csv_rows(raw_table))
     if SIZE_COLUMN not in fieldnames:
         insert_at = fieldnames.index("结构") + 1 if "结构" in fieldnames else len(fieldnames)
         fieldnames.insert(insert_at, SIZE_COLUMN)
@@ -193,9 +175,6 @@ def run(
     write_csv_atomic(artifact / "output" / OUTPUT_NAME, fieldnames, rows)
     write_csv_atomic(artifact / "output" / EAR_OUTPUT_NAME, list(ear_mod.SUMMARY_FIELDS), ear_summary_rows)
     write_csv_atomic(artifact / "output" / CAB_BED_OUTPUT_NAME, list(cab_bed_mod.SUMMARY_FIELDS), cab_bed_rows)
-    for extra_output in (size_summary_path, size_review_path, ear_detail_path):
-        if extra_output.is_file():
-            shutil.copy2(extra_output, artifact / extra_output.name)
 
     status = {
         "status": "passed",

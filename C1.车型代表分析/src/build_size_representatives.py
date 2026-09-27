@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""按自动尺码选取代表车型，并生成可直接交付的 CSV。"""
+"""以压缩尺码表的车型簇为候选，选取各尺码的代表车型。"""
 
 from __future__ import annotations
 
@@ -11,7 +11,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_SOURCE = ROOT / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
+DEFAULT_SOURCE = ROOT / "A2.压缩尺寸信息" / "output" / "US" / "压缩尺码表.csv"
+DEFAULT_DETAILS = ROOT / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
 DEFAULT_OUTPUT_DIR = ROOT / "C1.车型代表分析" / "output"
 OUTPUT_FIELDS = ["车型", "dimension-id", "型号", "车长", "车宽", "车高", "车形", "销量", "参考半周长", "in_eagle"]
 TSV_FIELDS = ["车型", "型号", "车长", "车宽", "车高", "车形"]
@@ -29,6 +30,71 @@ def end_year(value: str) -> int:
         return int(value[-4:])
     except (TypeError, ValueError):
         return 0
+
+
+def year_bounds(value: str) -> tuple[int, int]:
+    parts = value.strip().split("-", 1)
+    try:
+        start = int(parts[0])
+        finish = int(parts[-1])
+        return start, finish
+    except (TypeError, ValueError):
+        return 0, 0
+
+
+def overlaps(left: str, right: str) -> bool:
+    left_start, left_end = year_bounds(left)
+    right_start, right_end = year_bounds(right)
+    return bool(left_start and right_start and left_start <= right_end and right_start <= left_end)
+
+
+def structure_matches(compressed: str, detail: str) -> bool:
+    structures = {value.strip().casefold() for value in compressed.split("/") if value.strip()}
+    return not structures or detail.strip().casefold() in structures
+
+
+def version_matches(compressed: str, detail: str) -> bool:
+    compressed = compressed.removeprefix("Incl:").strip().casefold()
+    if not compressed:
+        return True
+    detail = detail.strip().casefold()
+    values = {value.strip() for value in compressed.split("/") if value.strip()}
+    return detail in values or (not detail and "base" in values)
+
+
+def compressed_candidates(
+    compressed_rows: list[dict[str, str]], detail_rows: list[dict[str, str]]
+) -> dict[str, list[dict[str, str]]]:
+    """Resolve every compressed cluster to one atomic row for output enrichment."""
+    by_model: dict[tuple[str, str, str], list[dict[str, str]]] = defaultdict(list)
+    for row in detail_rows:
+        key = (row.get("MAKE", "").casefold(), row.get("MODEL", "").casefold(), row.get("自动尺码", ""))
+        by_model[key].append(row)
+
+    groups: dict[str, list[dict[str, str]]] = defaultdict(list)
+    seen: dict[str, set[str]] = defaultdict(set)
+    for cluster in compressed_rows:
+        size = cluster.get("BACKSIZE", "").strip()
+        key = (cluster.get("MAKE", "").casefold(), cluster.get("MODEL", "").casefold(), size)
+        pool = [
+            row for row in by_model.get(key, [])
+            if overlaps(cluster.get("YEAR", ""), row.get("YEAR", ""))
+            and structure_matches(cluster.get("CONST", ""), row.get("结构", ""))
+        ]
+        version_pool = [row for row in pool if version_matches(cluster.get("VERSION", ""), row.get("版本", ""))]
+        if version_pool:
+            pool = version_pool
+        if not pool:
+            continue
+        representative = max(
+            pool,
+            key=lambda row: (end_year(row.get("YEAR", "")), number(row, "销量合计"), row.get("DIMENSION-ID", "")),
+        )
+        record_id = representative.get("DIMENSION-ID", "")
+        if record_id and record_id not in seen[size]:
+            groups[size].append(representative)
+            seen[size].add(record_id)
+    return groups
 
 
 def normalize(value: float, low: float, high: float) -> float:
@@ -106,8 +172,9 @@ def rank_group(rows: list[dict[str, str]]) -> list[dict[str, str]]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="按自动尺码生成代表车型报告")
+    parser = argparse.ArgumentParser(description="按压缩尺码表生成代表车型报告")
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
+    parser.add_argument("--details", type=Path, default=DEFAULT_DETAILS)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--region", default="US")
     parser.add_argument("--version-suffix", default="")
@@ -117,6 +184,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     source = args.source.resolve()
+    details = args.details.resolve()
     output_dir = args.output_dir.resolve()
     suffix = f"-{args.version_suffix}" if args.version_suffix else ""
     output = output_dir / f"代表车型{suffix}.csv"
@@ -125,11 +193,9 @@ def main() -> None:
 
     with source.open("r", encoding="utf-8-sig", newline="") as handle:
         source_rows = list(csv.DictReader(handle))
-    groups: dict[str, list[dict[str, str]]] = defaultdict(list)
-    for row in source_rows:
-        size = row.get("自动尺码", "").strip()
-        if size and size not in {"无可用尺码", "数据不全"} and number(row, "L-MM"):
-            groups[size].append(row)
+    with details.open("r", encoding="utf-8-sig", newline="") as handle:
+        detail_rows = list(csv.DictReader(handle))
+    groups = compressed_candidates(source_rows, detail_rows)
 
     output_rows = []
     for size in sorted(groups):
@@ -166,7 +232,10 @@ def main() -> None:
         source_label = source.relative_to(ROOT).as_posix()
     except ValueError:
         source_label = str(source)
-    lines = [f"# {args.region} 尺码代表车型报告", "", f"来源：`{source_label}`。每个自动尺码按销量和尺寸代表性最多选取四款车型。", ""]
+    lines = [
+        f"# {args.region} 尺码代表车型报告", "",
+        f"候选簇来源：`{source_label}`。尺寸、销量和 DIMENSION-ID 由 A0 全量表补齐；每个发货尺码按销量和尺寸代表性最多选取四款车型。", "",
+    ]
     for size in sorted(groups):
         rows = [row for row in output_rows if row["型号"] == size]
         lines.extend([f"## {size}", "", "| 车型 | 长×宽×高 mm | 销量 |", "|---|---:|---:|"])

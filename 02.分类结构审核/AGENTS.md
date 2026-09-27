@@ -13,11 +13,11 @@ python scripts/publish_release.py --nodes structure-review
 
 1. `data/分类标准.json`：三国通用 结构→分类（结构先去掉 ` Ndr` 门数后缀）。
    - `fixed`：确定映射，如 Wagon/Van/MPV/Bus→两厢车、Sedan→三厢车、SUV→越野车。
-   - `research_required`：Liftback、Fastback 必须按车型联网判定。
+   - `research_required`：Liftback、Fastback 必须按车型联网判定。2026-09-28 用户撤回新 SOP，恢复长斜背车衣分类规则。
    - `excluded`：半挂牵引车等非车衣车型，分类留空。
    - 出现标准未覆盖的结构时运行失败，必须先补标准。
-2. `data/分类联网判定.csv`：Liftback/Fastback 的车型级结论（区域、MAKE、MODEL、结构、可选 YEAR 限定、分类、依据、来源URL、核实日期）。每条必须有直接来源 URL 和车尾形状依据，判定口径见 `doc/车衣分类业务规则.md` 第四节。
-3. 输出 `output/车型结构.csv`（三国合并）与 `车型结构_{US,EU,RU}.csv`：只改 `分类`，`DIMENSION-ID` 和其他字段与上游完全一致（校验强制）。
+2. `data/分类联网判定.csv`：Liftback/Fastback 的车型级结论（区域、MAKE、MODEL、结构、可选 YEAR 限定、分类、依据、来源URL、核实日期）。判定口径使用 `doc/车衣分类业务规则.md` 第四节。新 SOP 已按用户要求撤回。
+3. 输出 `output/车型结构.csv`（三国合并）与 `车型结构_{US,EU,RU}.csv`：一般只改 `分类`。经联网核实的错误结构按 `data/结构联网修正.csv` 精确匹配区域、品牌、车型、原结构，并要求 YEAR 完整包含于规则范围；仅允许修改 `结构` 和有形状依据的 `分类`。`DIMENSION-ID` 保留上游关联键（其中的旧结构词不代表审核后结构），其他字段与上游完全一致（校验强制）。结构修正保存 `structure_changes.csv`，禁止按 Sportback 等营销词模糊匹配。
 4. 批次目录 `artifacts/<日期>_NN_category-standard/` 保存规则快照、上游 manifest、`changes.csv`（逐行分类变化）、`待联网.csv`（尚未判定的 Liftback/Fastback 车型，保留上游分类）和 `status.json`。
 
 `待联网.csv` 中的车型完成联网判定后写入 `data/分类联网判定.csv` 并重跑。

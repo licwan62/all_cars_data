@@ -96,6 +96,32 @@ def _index_by_model(rows: list[dict]) -> dict[ModelKey, dict]:
 
 
 index_ear_position_by_model = _index_by_model
+
+EAR_TYPES = ("普通", "靠前", "靠后")
+
+
+def index_ear_registry_by_model(rows: list[dict]) -> dict[ModelKey, str]:
+    """人工车耳状态登记（data/车耳状态登记.csv）：品牌+车型 -> 车耳类型。
+
+    登记按 品牌+车型+结构 记录；同一 品牌+车型 下多个结构的类型一致时取该类型，
+    不一致时按结构拼接（如 "Sedan 靠前；Hatchback 普通"）。车耳类型只能是 普通/靠前/靠后。
+    """
+    by_key: dict[ModelKey, list[tuple[str, str]]] = {}
+    for row in rows:
+        brand, model = (row.get("品牌") or "").strip(), (row.get("车型") or "").strip()
+        ear_type = (row.get("车耳类型") or "").strip()
+        if not brand or not model or not ear_type:
+            continue
+        if ear_type not in EAR_TYPES:
+            raise ValueError(f"车耳状态登记 {brand} {model} 的车耳类型必须是 {'/'.join(EAR_TYPES)}：{ear_type}")
+        by_key.setdefault(ModelKey(brand, model), []).append(((row.get("结构") or "").strip(), ear_type))
+    result: dict[ModelKey, str] = {}
+    for key, entries in by_key.items():
+        types = list(dict.fromkeys(ear_type for _, ear_type in entries))
+        result[key] = types[0] if len(types) == 1 else "；".join(
+            f"{structure} {ear_type}".strip() for structure, ear_type in entries
+        )
+    return result
 index_cab_bed_by_model = _index_by_model
 
 
@@ -228,9 +254,11 @@ def score_keys(
     ear_position_rows: list[dict],
     cab_bed_rows: list[dict] | None = None,
     rules: dict | None = None,
+    ear_registry_rows: list[dict] | None = None,
 ) -> tuple[list[dict], dict]:
     rules = rules or DEFAULT_RULES
     cab_bed_rows = cab_bed_rows or []
+    ear_registry = index_ear_registry_by_model(ear_registry_rows or [])
     grouped, dupes = index_negative_review_by_model(negative_review_rows)
     ear_by_key = index_ear_position_by_model(ear_position_rows)
     cab_bed_by_key = index_cab_bed_by_model(cab_bed_rows)
@@ -244,6 +272,8 @@ def score_keys(
         if cab_bed_note:
             note = f"{note}；{cab_bed_note}" if note else cab_bed_note
         ear_row = ear_by_key.get(key)
+        # 人工登记优先于 B0 从差评原文自动提取的耳位
+        ear_value = ear_registry.get(key) or (ear_row.get("耳位(普通/靠前/靠后)", "") if ear_row else "")
         level = bucket_level(score, rules["thresholds"])
         scored.append(
             {
@@ -252,7 +282,7 @@ def score_keys(
                 "差评评分": score,
                 "定制需求等级": "" if score is None else level,
                 "差评备注": note,
-                "耳位(普通/靠前/靠后)": ear_row.get("耳位(普通/靠前/靠后)", "") if ear_row else "",
+                "耳位(普通/靠前/靠后)": ear_value,
                 "年份": _collect_years(rows_for_key),
             }
         )
@@ -261,5 +291,6 @@ def score_keys(
         "车型数": len(keys),
         "差评表结构重复数": len(dupes),
         "数据不足车型数": sum(1 for row in scored if row["定制需求等级"] == ""),
+        "人工登记耳位车型数": sum(1 for key in keys if key in ear_registry),
     }
     return scored, report

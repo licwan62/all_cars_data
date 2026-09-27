@@ -30,7 +30,7 @@ size_mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(size_mod)
 
 PROJECT = _HERE.parent
-SOURCE = PROJECT / "data" / "00.差评分析汇总.csv"
+SOURCE = PROJECT / "data" / "差评分析汇总.csv"
 ANALYSIS = PROJECT / "output" / "差评分析表.csv"
 
 SUMMARY_FIELDS = ("品牌", "车型", "驾驶室货斗备注", "证据条数")

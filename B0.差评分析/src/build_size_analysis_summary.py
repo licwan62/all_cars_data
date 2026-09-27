@@ -11,10 +11,11 @@ from pathlib import Path
 
 
 PROJECT = Path(__file__).resolve().parents[1]
-SOURCE = PROJECT / "data" / "00.差评分析汇总.csv"
+SOURCE = PROJECT / "data" / "差评分析汇总.csv"
 RULES = PROJECT / "data" / "尺寸分析筛选规则.json"
-OUTPUT = PROJECT / "data" / "01.尺寸分析汇总表.csv"
-REVIEW_OUTPUT = PROJECT / "data" / "02.尺寸问题复核表.csv"
+# 中间清单供人工核对，可重建：默认写 work/，run.py 写进 artifacts/<批次>/
+OUTPUT = PROJECT / "work" / "01.差评分析精选.csv"
+REVIEW_OUTPUT = PROJECT / "work" / "02.尺寸问题复核表.csv"
 # The maintained analysis table moved to the node's stable output.  Keep the
 # path deterministic so merely importing this module does not depend on an
 # unrelated non-numbered CSV being present in data/.
@@ -178,13 +179,10 @@ def build(source: Path, rules_path: Path, output: Path, analysis: Path, review_o
     rules = json.loads(rules_path.read_text(encoding="utf-8"))
     with source.open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
-    # Re-read header separately; DictReader has consumed it.
-    with source.open(encoding="utf-8-sig", newline="") as handle:
-        raw_fields = list(csv.DictReader(handle).fieldnames or [])
     with analysis.open(encoding="utf-8-sig", newline="") as handle:
         analysis_rows = list(csv.DictReader(handle))
+    # 主键只在内存中补齐/刷新，不回写 data/（data/ 只由人工维护）。
     add_raw_keys(rows)
-    write_csv(source, rows, [*raw_fields, "差评汇总主键"] if "差评汇总主键" not in raw_fields else raw_fields)
     # 差评分析表.csv 是人工维护的文件，本节点只读不写；它的主键就是自身已校验唯一的
     # 品牌+车型+结构，不需要再造一列哈希主键（历史上加过 差评分析主键，因匹配逻辑用宽松
     # 子串比对，绝大多数行匹配不上，已删除，见 AGENTS.md 迁移记录）。

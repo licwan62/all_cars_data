@@ -87,7 +87,8 @@
       ],
       "pending": [],
       "release_notes": [
-        "2026-09-23 改为按 data/分类标准.json（三国通用 结构→分类）与 data/分类联网判定.csv（Liftback/Fastback 车型级联网判定）重算分类；只改 分类，DIMENSION-ID 不变；输出全量与分区域文件"
+        "2026-09-23 改为按 data/分类标准.json（三国通用 结构→分类）与 data/分类联网判定.csv（Liftback/Fastback 车型级联网判定）重算分类；DIMENSION-ID 不变；输出全量与分区域文件",
+        "2026-09-28 新增 data/结构联网修正.csv：官方资料核实长斜背 Hatchback→Liftback，按精确区域/车型/原结构及完整年份包含匹配；修正结构和分类，保留上游 DIMENSION-ID 与尺寸；77条涉及 Model S、Panamera、A7、A6 e-tron Sportback、Arteon"
       ]
     },
     {
@@ -283,11 +284,14 @@
       "role": "final",
       "upstream": [],
       "outputs": [
-        "差评分析表.csv"
+        "差评分析表.csv",
+        "耳位分析表.csv",
+        "皮卡驾驶室货斗分析表.csv"
       ],
       "pending": [],
       "release_notes": [
-        "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：从人工维护的差评原始台账筛选、汇总出品牌+车型+结构粒度的差评分析表；无上游流水线节点，原始数据是人工导出维护的台账"
+        "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：从人工维护的差评原始台账筛选、汇总出品牌+车型+结构粒度的差评分析表；无上游流水线节点，原始数据是人工导出维护的台账",
+        "2026-09-28 data/ 精简为唯一原始台账 差评分析汇总.csv + 人工维护的 差评分析表.csv 与两份筛选规则；运行不再回写 data/，01/02/03 核对清单只写入 artifacts/<批次>/；补登记 耳位分析表.csv、皮卡驾驶室货斗分析表.csv 为交付物（B1 已在读取）；退役一次性脚本 apply_model_semantic_repairs.py"
       ]
     },
     {
@@ -323,20 +327,24 @@
       "run": [
         "python src/build_size_representatives.py"
       ],
-      "tests": null,
-      "layer": 5,
+      "tests": "tests",
+      "layer": 6,
       "line": "C",
       "index": 1,
       "role": "final",
       "upstream": [
-        "size-calculation"
+        "size-calculation",
+        "size-compression"
       ],
       "outputs": [
         "代表车型.csv",
         "代表车型.tsv",
         "代表车型报告.md"
       ],
-      "pending": []
+      "pending": [],
+      "release_notes": [
+        "2026-09-27 候选来源改为 A2 US 压缩尺码表，按 BACKSIZE 分组；A0 US 全量表仅用于为压缩车型簇补齐尺寸、销量和 DIMENSION-ID，稳定输出接口不变"
+      ]
     },
     {
       "id": "sku-clustering",

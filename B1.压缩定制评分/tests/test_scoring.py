@@ -122,3 +122,29 @@ def test_bucket_level_thresholds():
     assert scoring_mod.bucket_level(0.5, rules["thresholds"]) == "中"
     assert scoring_mod.bucket_level(0.9, rules["thresholds"]) == "高"
     assert scoring_mod.bucket_level(None, rules["thresholds"]) == "数据不足"
+
+
+def test_ear_registry_overrides_extracted_ear_position():
+    keys = [key()]
+    extracted = [{"品牌": "Ford", "车型": "Focus", "耳位(普通/靠前/靠后)": "普通"}]
+    registry = [{"品牌": "Ford", "车型": "Focus", "结构": "", "车耳类型": "靠前", "年份": "2015"}]
+    scored, report = scoring_mod.score_keys(keys, [], extracted, None, None, registry)
+    assert scored[0]["耳位(普通/靠前/靠后)"] == "靠前"
+    assert report["人工登记耳位车型数"] == 1
+
+
+def test_ear_registry_rejects_unknown_ear_type():
+    import pytest
+
+    with pytest.raises(ValueError):
+        scoring_mod.index_ear_registry_by_model([{"品牌": "Ford", "车型": "Focus", "车耳类型": "偏前"}])
+
+
+def test_node_ear_registry_records_nissan_versa_forward_2015():
+    import csv
+    from pathlib import Path
+
+    path = Path(__file__).resolve().parents[1] / "data" / "车耳状态登记.csv"
+    rows = list(csv.DictReader(path.open(encoding="utf-8-sig")))
+    versa = [row for row in rows if (row["品牌"], row["车型"]) == ("Nissan", "Versa")]
+    assert [(row["车耳类型"], row["年份"]) for row in versa] == [("靠前", "2015")]

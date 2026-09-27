@@ -1,6 +1,6 @@
 """按三国通用车衣分类标准审核 01.整理尺寸库 的分类，生成 output/车型结构*.csv。
 
-输入：01.整理尺寸库/output/尺寸库_{US,EU,RU}.csv（只改 分类，不改 DIMENSION-ID 与其他字段）。
+输入：01.整理尺寸库/output/尺寸库_{US,EU,RU}.csv（联网修正结构和分类，保留上游关联ID与其他字段）。
 规则：data/分类标准.json（结构→分类）+ data/分类联网判定.csv（需联网判定结构的车型级结论）。
 运行先写新的 artifacts/<批次>/，校验通过后才原子更新 output/。
 """
@@ -24,12 +24,15 @@ UPSTREAM = ROOT / "01.整理尺寸库" / "output"
 DATA = PROJECT / "data"
 STANDARD_PATH = DATA / "分类标准.json"
 DECISIONS_PATH = DATA / "分类联网判定.csv"
+REPAIRS_PATH = DATA / "结构联网修正.csv"
 REGIONS = ("US", "EU", "RU")
 FIELDS = ["DIMENSION-ID", "MAKE", "MODEL", "版本", "CAB", "BED", "结构", "代际", "YEAR", "分类",
           "L-IN", "W-IN", "H-IN", "参考车型", "备注", "迭代状态"]
 DECISION_FIELDS = ["区域", "MAKE", "MODEL", "结构", "YEAR", "分类", "依据", "来源URL", "核实日期"]
 CHANGE_FIELDS = ["区域", "DIMENSION-ID", "MAKE", "MODEL", "结构", "YEAR", "原分类", "新分类", "规则", "依据", "来源URL"]
 QUEUE_FIELDS = ["区域", "MAKE", "MODEL", "结构", "YEAR范围", "行数", "当前分类", "允许分类"]
+REPAIR_FIELDS = ["区域", "MAKE", "MODEL", "原结构", "新结构", "YEAR", "分类", "依据", "来源URL", "核实日期"]
+REPAIR_CHANGE_FIELDS = ["区域", "DIMENSION-ID", "MAKE", "MODEL", "YEAR", "原结构", "新结构", "原分类", "新分类", "依据", "来源URL"]
 
 
 class ReviewError(ValueError):
@@ -120,17 +123,52 @@ def classify(
     raise ReviewError(f"结构未被分类标准覆盖：{region} {row['DIMENSION-ID']} 结构={row['结构']!r}")
 
 
-def review(region_rows: dict[str, list[dict[str, str]]], standard: dict, decisions: list[dict[str, str]]) -> dict:
+def load_repairs(path: Path = REPAIRS_PATH) -> list[dict[str, str]]:
+    rows = read_csv(path) if path.is_file() else []
+    for repair in rows:
+        if list(repair) != REPAIR_FIELDS or not repair["来源URL"].startswith("https://") or not repair["依据"] or not _years(repair["YEAR"]):
+            raise ReviewError(f"结构修正缺少完整键、年份或联网证据：{repair}")
+    return rows
+
+
+def repair_structure(region: str, source: dict, repairs: list[dict], standard: dict) -> tuple[dict, dict | None]:
+    hits = []
+    for repair in repairs:
+        if (repair["区域"], repair["MAKE"], repair["MODEL"], repair["原结构"]) != (region, source["MAKE"], source["MODEL"], source["结构"]):
+            continue
+        wanted, actual = _years(repair["YEAR"]), _years(source["YEAR"])
+        # 完整包含才能应用；跨代际区间不得用年份重叠扩大适用范围。
+        if wanted and actual and wanted[0] <= actual[0] and actual[1] <= wanted[1]:
+            hits.append(repair)
+    if len(hits) > 1:
+        raise ReviewError(f"结构修正重复匹配：{source['DIMENSION-ID']}")
+    row = dict(source)
+    if not hits:
+        return row, None
+    repair = hits[0]
+    family = structure_family(repair["新结构"], standard)
+    if family not in standard["research_required"] or repair["分类"] not in standard["research_required"][family]:
+        raise ReviewError(f"结构修正新结构或分类不在联网标准范围：{repair}")
+    row["结构"] = repair["新结构"]
+    return row, repair
+
+
+def review(region_rows: dict[str, list[dict[str, str]]], standard: dict, decisions: list[dict[str, str]], repairs: list[dict] | None = None) -> dict:
     outputs: dict[str, list[dict[str, str]]] = {}
     changes: list[dict[str, str]] = []
     pending: dict[tuple, dict] = {}
     rules = Counter()
+    structure_changes = []
     for region, rows in region_rows.items():
         reviewed = []
         for source in rows:
-            category, rule, decision = classify(region, source, standard, decisions)
+            row, repair = repair_structure(region, source, repairs or [], standard)
+            if repair:
+                category, rule, decision = repair["分类"], "联网结构修正", repair
+                structure_changes.append({"区域": region, "DIMENSION-ID": source["DIMENSION-ID"], "MAKE": source["MAKE"], "MODEL": source["MODEL"], "YEAR": source["YEAR"], "原结构": source["结构"], "新结构": row["结构"], "原分类": source["分类"], "新分类": category, "依据": repair["依据"], "来源URL": repair["来源URL"]})
+            else:
+                category, rule, decision = classify(region, row, standard, decisions)
             rules[rule.split("：")[0]] += 1
-            row = dict(source)
             row["分类"] = category
             reviewed.append(row)
             if category != source["分类"]:
@@ -157,10 +195,10 @@ def review(region_rows: dict[str, list[dict[str, str]]], standard: dict, decisio
             "行数": item["rows"], "当前分类": "; ".join(f"{k or '空'}×{v}" for k, v in item["categories"].items()),
             "允许分类": "/".join(standard["research_required"][family]),
         })
-    return {"outputs": outputs, "changes": changes, "queue": queue, "rule_counts": dict(rules)}
+    return {"outputs": outputs, "changes": changes, "structure_changes": structure_changes, "queue": queue, "rule_counts": dict(rules)}
 
 
-def validate(result: dict, region_rows: dict[str, list[dict[str, str]]], standard: dict) -> dict:
+def validate(result: dict, region_rows: dict[str, list[dict[str, str]]], standard: dict, repairs: list[dict] | None = None) -> dict:
     allowed = set(standard["allowed"])
     errors = []
     for region, rows in result["outputs"].items():
@@ -168,7 +206,8 @@ def validate(result: dict, region_rows: dict[str, list[dict[str, str]]], standar
         if [r["DIMENSION-ID"] for r in rows] != [r["DIMENSION-ID"] for r in source]:
             errors.append(f"{region} DIMENSION-ID 顺序或集合变化")
         for before, after in zip(source, rows, strict=True):
-            if any(before[f] != after[f] for f in FIELDS if f != "分类"):
+            expected, _ = repair_structure(region, before, repairs or [], standard)
+            if any(expected[f] != after[f] for f in FIELDS if f != "分类"):
                 errors.append(f"{region} {after['DIMENSION-ID']} 非分类字段被修改")
                 break
         for row in rows:
@@ -204,14 +243,15 @@ def next_artifact_dir(artifacts: Path, description: str) -> Path:
 def run(upstream: Path = UPSTREAM, output_dir: Path = PROJECT / "output", artifacts: Path = PROJECT / "artifacts") -> dict:
     standard = load_standard()
     decisions = load_decisions()
+    repairs = load_repairs()
     region_rows = {}
     for region in REGIONS:
         rows = read_csv(upstream / f"尺寸库_{region}.csv")
         if rows and list(rows[0].keys()) != FIELDS:
             raise ReviewError(f"尺寸库_{region}.csv 字段与约定不一致")
         region_rows[region] = rows
-    result = review(region_rows, standard, decisions)
-    validation = validate(result, region_rows, standard)
+    result = review(region_rows, standard, decisions, repairs)
+    validation = validate(result, region_rows, standard, repairs)
     if not validation["passed"]:
         raise ReviewError(f"校验失败：{validation['errors']}")
 
@@ -219,7 +259,7 @@ def run(upstream: Path = UPSTREAM, output_dir: Path = PROJECT / "output", artifa
     artifact.mkdir(parents=True)
     rules_dir = artifact / "rules"
     rules_dir.mkdir()
-    for path in (STANDARD_PATH, DECISIONS_PATH, Path(__file__)):
+    for path in (STANDARD_PATH, DECISIONS_PATH, REPAIRS_PATH, Path(__file__)):
         if path.is_file():
             shutil.copy2(path, rules_dir / path.name)
     upstream_manifest = upstream / "manifest.json"
@@ -231,6 +271,7 @@ def run(upstream: Path = UPSTREAM, output_dir: Path = PROJECT / "output", artifa
     for name, rows in files.items():
         write_csv(artifact / "output" / name, FIELDS, rows)
     write_csv(artifact / "changes.csv", CHANGE_FIELDS, result["changes"])
+    write_csv(artifact / "structure_changes.csv", REPAIR_CHANGE_FIELDS, result["structure_changes"])
     write_csv(artifact / "待联网.csv", QUEUE_FIELDS, result["queue"])
     change_summary = Counter((c["区域"], structure_family(c["结构"], standard), c["原分类"], c["新分类"]) for c in result["changes"])
     status = {
@@ -238,6 +279,7 @@ def run(upstream: Path = UPSTREAM, output_dir: Path = PROJECT / "output", artifa
         "rows": {region: len(result["outputs"][region]) for region in REGIONS},
         "rule_counts": result["rule_counts"],
         "changed_rows": len(result["changes"]),
+        "structure_changed_rows": len(result["structure_changes"]),
         "change_summary": [
             {"区域": r, "结构": f, "原分类": o, "新分类": n, "行数": c}
             for (r, f, o, n), c in sorted(change_summary.items(), key=lambda item: -item[1])

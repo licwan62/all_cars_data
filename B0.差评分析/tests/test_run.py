@@ -29,3 +29,20 @@ def test_add_sizes_uses_actual_size_and_deduplicates_in_source_order():
     assert analysis_rows[0]["尺码"] == "PK-XL；PK-XXL"
     assert analysis_rows[1]["尺码"] == ""
     assert report == {"有尺码行数": 1, "无尺码行数": 1}
+
+
+def test_run_reads_single_raw_ledger_and_never_writes_data(tmp_path: Path):
+    import hashlib
+    import shutil
+
+    data = tmp_path / "data"
+    shutil.copytree(PROJECT / "data", data)
+    before = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in data.iterdir()}
+    result = run_mod.run(data, tmp_path / "output", tmp_path / "artifacts")
+    after = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in data.iterdir()}
+    assert after == before
+    assert sorted(path.name for path in (tmp_path / "output").iterdir()) == sorted(result["outputs"])
+    artifact = Path(result["artifact"])
+    for name in (run_mod.SIZE_SUMMARY_NAME, run_mod.SIZE_REVIEW_NAME, run_mod.EAR_DETAIL_NAME):
+        assert (artifact / name).is_file()
+    assert sorted(path.name for path in (artifact / "input").iterdir()) == sorted(run_mod.REQUIRED_INPUTS)

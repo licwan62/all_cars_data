@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "released_at": "2026-09-27T21:00:23+08:00",
+  "released_at": "2026-09-28T04:43:37+08:00",
   "nodes": {
     "dimension-crawler": {
       "path": "00.自动化尺寸抓取器",
@@ -28,8 +28,8 @@
     },
     "structure-review": {
       "path": "02.分类结构审核",
-      "version": "20260927_05",
-      "artifact": "02.分类结构审核/artifacts/2026-09-27_05_structure-review-release",
+      "version": "20260928_09",
+      "artifact": "02.分类结构审核/artifacts/2026-09-28_09_structure-review-release",
       "deliverables": [
         "车型结构.csv",
         "车型结构_US.csv",
@@ -60,8 +60,8 @@
     },
     "shape-classification": {
       "path": "03.车形分类核定",
-      "version": "20260927_02",
-      "artifact": "03.车形分类核定/artifacts/2026-09-27_02_shape-classification-release",
+      "version": "20260928_02",
+      "artifact": "03.车形分类核定/artifacts/2026-09-28_02_shape-classification-release",
       "deliverables": [
         "车形分类.csv",
         "参考尺寸计算.csv"
@@ -70,8 +70,8 @@
     },
     "size-calculation": {
       "path": "A0.尺码计算",
-      "version": "20260927_28",
-      "artifact": "A0.尺码计算/artifacts/2026-09-27_28_size-calculation-release",
+      "version": "20260928_10",
+      "artifact": "A0.尺码计算/artifacts/2026-09-28_10_size-calculation-release",
       "deliverables": [
         "US/尺码匹配报告.md",
         "US/全量/全量表.csv",
@@ -88,8 +88,8 @@
     },
     "representative-model": {
       "path": "C1.车型代表分析",
-      "version": "20260927_03",
-      "artifact": "C1.车型代表分析/artifacts/2026-09-27_03_representative-model-release",
+      "version": "20260928_02",
+      "artifact": "C1.车型代表分析/artifacts/2026-09-28_02_representative-model-release",
       "deliverables": [
         "代表车型.csv",
         "代表车型.tsv",
@@ -137,8 +137,8 @@
     },
     "full-generation": {
       "path": "A1.全量生成",
-      "version": "20260927_09",
-      "artifact": "A1.全量生成/artifacts/2026-09-27_09_full-generation-release",
+      "version": "20260928_04",
+      "artifact": "A1.全量生成/artifacts/2026-09-28_04_full-generation-release",
       "deliverables": [
         "尺码宽高统计.csv",
         "尺码宽高极值车型.csv",
@@ -148,8 +148,8 @@
     },
     "compression-scoring": {
       "path": "B1.压缩定制评分",
-      "version": "20260927_09",
-      "artifact": "B1.压缩定制评分/artifacts/2026-09-27_09_compression-scoring-release",
+      "version": "20260928_05",
+      "artifact": "B1.压缩定制评分/artifacts/2026-09-28_05_compression-scoring-release",
       "deliverables": [
         "定制需求度评分.csv"
       ],
@@ -157,8 +157,8 @@
     },
     "size-compression": {
       "path": "A2.压缩尺寸信息",
-      "version": "20260927_18",
-      "artifact": "A2.压缩尺寸信息/artifacts/2026-09-27_18_size-compression-release",
+      "version": "20260928_04",
+      "artifact": "A2.压缩尺寸信息/artifacts/2026-09-28_04_size-compression-release",
       "deliverables": [
         "US/压缩尺码表.csv",
         "US/压缩尺码表_皮卡.csv",
@@ -177,10 +177,12 @@
     },
     "negative-review-analysis": {
       "path": "B0.差评分析",
-      "version": "20260927_02",
-      "artifact": "B0.差评分析/artifacts/2026-09-27_02_negative-review-analysis-release",
+      "version": "20260928_02",
+      "artifact": "B0.差评分析/artifacts/2026-09-28_02_negative-review-analysis-release",
       "deliverables": [
-        "差评分析表.csv"
+        "差评分析表.csv",
+        "耳位分析表.csv",
+        "皮卡驾驶室货斗分析表.csv"
       ],
       "pending": []
     }

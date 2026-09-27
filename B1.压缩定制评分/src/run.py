@@ -39,6 +39,7 @@ UPSTREAM_CAB_BED_OUTPUT = PROJECT_DIR.parent / "B0.差评分析" / "output"
 UPSTREAM_CAB_BED_FILE = "皮卡驾驶室货斗分析表.csv"
 DATA_DIR = PROJECT_DIR / "data"
 SCORING_RULES = DATA_DIR / "定制评分规则.json"
+EAR_REGISTRY = "车耳状态登记.csv"
 SCORE_OUTPUT_NAME = "定制需求度评分.csv"
 
 SCORE_FIELDS = ["品牌", "车型", "尺码", "差评评分", "定制需求等级", "差评备注", "耳位(普通/靠前/靠后)", "年份"]
@@ -104,9 +105,14 @@ def run(
         for row in rows if row.get("MAKE", "").strip() and row.get("MODEL", "").strip()
     })
     scoring_rules = load_json(data_dir / "定制评分规则.json", scoring_mod.DEFAULT_RULES)
-    scored_rows, scoring_meta = scoring_mod.score_keys(
-        keys, negative_review_rows, ear_position_rows, cab_bed_rows, scoring_rules,
-    )
+    ear_registry_path = data_dir / EAR_REGISTRY
+    ear_registry_rows = read_csv_rows(ear_registry_path) if ear_registry_path.is_file() else []
+    try:
+        scored_rows, scoring_meta = scoring_mod.score_keys(
+            keys, negative_review_rows, ear_position_rows, cab_bed_rows, scoring_rules, ear_registry_rows,
+        )
+    except ValueError as error:
+        raise ScoringError(str(error)) from error
 
     artifact = next_artifact_dir(artifacts_dir, "score")
     (artifact / "input").mkdir(parents=True)
@@ -117,8 +123,9 @@ def run(
     shutil.copy2(negative_review_path, artifact / "input")
     shutil.copy2(ear_position_path, artifact / "input")
     shutil.copy2(cab_bed_path, artifact / "input")
-    if SCORING_RULES.is_file():
-        shutil.copy2(SCORING_RULES, artifact / "input")
+    for rule_file in (data_dir / "定制评分规则.json", ear_registry_path):
+        if rule_file.is_file():
+            shutil.copy2(rule_file, artifact / "input")
 
     write_csv_atomic(artifact / "output" / SCORE_OUTPUT_NAME, SCORE_FIELDS, scored_rows)
 
@@ -128,6 +135,7 @@ def run(
         "上游差评分析表行数": len(negative_review_rows),
         "上游耳位分析表行数": len(ear_position_rows),
         "上游驾驶室货斗分析表行数": len(cab_bed_rows),
+        "车耳状态登记行数": len(ear_registry_rows),
         "评分": scoring_meta,
         "outputs": [SCORE_OUTPUT_NAME],
     }
