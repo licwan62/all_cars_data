@@ -10,7 +10,7 @@
 | `output/<国别>/压缩尺码表.csv` | 非皮卡高度压缩 | CAR, MAKE, MODEL, YEAR, VERSION, CONST, BACKSIZE |
 | `output/<国别>/压缩尺码表_皮卡.csv` | 皮卡高度压缩 | CAR, MAKE, MODEL, YEAR, VERSION, CAB, BED, BACKSIZE |
 
-默认只交付 US、EU、RU 三个国别的有损压缩表；国别已由目录表达，文件名不再加“有损”后缀。HNT、TM、TM_拆分店铺产线和无损表不再是默认 output 交付物。
+默认交付全部 6 条产线（US、HNT、TM、TM_拆分、EU、RU）的有损压缩表，按 `<产线>/` 目录存放，文件名不加“有损”后缀；无损表不是 output 交付物。
 
 US 表通过 SSH 发布到 `qnap-nas:/share/Public/PQData/pub_all_cars_data/size_compressed`
 （SMB：`\\NAS8824B4\Public\PQData\pub_all_cars_data\size_compressed`）：

@@ -3,10 +3,10 @@
 
 压缩引擎为内置的 src/sizechart（与网站流水线原压缩步骤同一算法，见 src/sizechart/VENDORED.md）：
 按原子事实（品牌、车型、结构/CAB/BED、版本、年份）校验，非皮卡与皮卡分表输出。
-默认交付仅保留 US、EU、RU 三个国别的高度压缩（有损）结果：
-  <国别>/压缩尺码表.csv       非皮卡高度压缩（车型组合/版本/结构两两合并，逐次原子校验）
-  <国别>/压缩尺码表_皮卡.csv  皮卡高度压缩
-无损表和店铺产线仍可由压缩引擎在内存中生成、供校验和按需扩展，但不是 output 流水线接口。
+默认交付所有已配置产线的高度压缩（有损）结果：
+  <产线>/压缩尺码表.csv       非皮卡高度压缩（车型组合/版本/结构两两合并，逐次原子校验）
+  <产线>/压缩尺码表_皮卡.csv  皮卡高度压缩
+其中 HNT、TM、TM_拆分均读取 US 店铺全量表；无损表不作为 output 流水线接口。
 运行先创建不可覆盖的 artifacts/<批次>/（输入与规则快照、压缩 log、原子事实表、原子检查问题），
 全部产线成功后才原子更新 output/。
 """
@@ -54,11 +54,11 @@ def upstream_file(line: str, region: str | None = None) -> str:
     return f"{region}/店铺/店铺全量_{line}.csv"
 
 
-def output_names(region: str) -> dict[str, str]:
-    """默认交付物：按国别目录存放，文件名不再标注“有损”。"""
+def output_names(line: str) -> dict[str, str]:
+    """默认交付物：按产线目录存放，文件名不再标注“有损”。"""
     return {
-        "non_pickup_high": f"{region}/压缩尺码表.csv",
-        "pickup_high": f"{region}/压缩尺码表_皮卡.csv",
+        "non_pickup_high": f"{line}/压缩尺码表.csv",
+        "pickup_high": f"{line}/压缩尺码表_皮卡.csv",
     }
 
 
@@ -73,8 +73,8 @@ def load_lines(data_dir: Path = DATA_DIR) -> dict[str, str]:
 
 
 def default_lines(lines: dict[str, str]) -> dict[str, str]:
-    """默认仅交付国别产线；HNT/TM 等店铺产线不占用国别输出目录。"""
-    return {line: region for line, region in lines.items() if line == region}
+    """默认交付所有配置产线；网站可再按用途排除 EU/RU。"""
+    return dict(lines)
 
 
 def region_of(dimension_id: str) -> str:
@@ -120,7 +120,7 @@ def compress_line(line: str, frame: pd.DataFrame, field_profile: dict, region: s
     non_lossless, _, non_high, pick_lossless, pick_high, log_df, atom_df = engine.transform_all_outputs(
         frame, progress=reporter, field_profile=field_profile
     )
-    names = output_names(region)
+    names = output_names(line)
     tables = {
         "non_pickup_lossless": export_or_empty(non_lossless, engine.export_non_pickup_table, engine.NON_PICKUP_EXPORT_COLUMNS),
         "non_pickup_high": export_or_empty(non_high, engine.export_non_pickup_table, engine.NON_PICKUP_EXPORT_COLUMNS),

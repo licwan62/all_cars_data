@@ -77,10 +77,11 @@ def test_model_combo_comes_from_node_data():
     assert run_mod.engine.DEFAULT_MODEL_COMBO_PATH == PROJECT_DIR / "data" / run_mod.MODEL_COMBO
 
 
-def write_sources(source_dir: Path, rows_by_region: dict[str, list[dict]]) -> None:
+def write_sources(source_dir: Path, rows_by_line: dict[str, list[dict]]) -> None:
     source_dir.mkdir(parents=True, exist_ok=True)
-    for region, rows in rows_by_region.items():
-        path = source_dir / run_mod.upstream_file(region)
+    configured = lines()
+    for line, rows in rows_by_line.items():
+        path = source_dir / run_mod.upstream_file(line, configured[line])
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("w", encoding="utf-8-sig", newline="") as handle:
             writer = csv.DictWriter(handle, fieldnames=FIELDS)
@@ -96,14 +97,14 @@ def test_lines_cover_regions_and_us_stores():
     assert lines() == {"US": "US", "HNT": "US", "TM": "US", "TM_拆分": "US", "EU": "EU", "RU": "RU"}
 
 
-def test_default_lines_only_include_country_outputs():
-    assert run_mod.default_lines(lines()) == {"US": "US", "EU": "EU", "RU": "RU"}
+def test_default_lines_include_country_and_us_store_outputs():
+    assert run_mod.default_lines(lines()) == lines()
 
 
-def test_output_names_are_grouped_by_country_without_lossy_suffix():
-    assert run_mod.output_names("US") == {
-        "non_pickup_high": "US/压缩尺码表.csv",
-        "pickup_high": "US/压缩尺码表_皮卡.csv",
+def test_output_names_are_grouped_by_line_without_lossy_suffix():
+    assert run_mod.output_names("HNT") == {
+        "non_pickup_high": "HNT/压缩尺码表.csv",
+        "pickup_high": "HNT/压缩尺码表_皮卡.csv",
     }
 
 
@@ -111,7 +112,7 @@ def test_run_writes_artifact_and_outputs(tmp_path: Path):
     countries = run_mod.default_lines(lines())
     write_sources(tmp_path / "src", {line: [row(region=region)] for line, region in countries.items()})
     result = run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "output", tmp_path / "artifacts", workers=1)
-    expected = sorted(name for region in countries.values() for name in run_mod.output_names(region).values())
+    expected = sorted(name for line in countries for name in run_mod.output_names(line).values())
     assert sorted(path.relative_to(tmp_path / "output").as_posix() for path in (tmp_path / "output").rglob("*.csv")) == expected
     artifact = Path(result["artifact"])
     status = json.loads((artifact / "status.json").read_text(encoding="utf-8"))

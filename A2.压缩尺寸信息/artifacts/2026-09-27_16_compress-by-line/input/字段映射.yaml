@@ -1,0 +1,16 @@
+# 压缩输入字段映射：标准字段 <- 上游列名候选（按顺序取第一个存在且非空的列）。
+# 与网站流水线 pipeline_carstable_to_webapp/configs/pipeline.yaml 的 columns/defaults 保持一致，
+# 最终尺码 = 确认尺码 > 自动尺码 > 最终尺码 > 对应尺码。
+columns:
+  品牌: [MAKE, 品牌]
+  前台车型: [MODEL, 前台车型]
+  结构: [结构]
+  版本: [版本]
+  年份区间: [YEAR, 年份区间]
+  最终尺码: [确认尺码, 自动尺码, 最终尺码, 对应尺码]
+  驾驶室类型: [CAB, 驾驶室类型]
+  货斗长度_ft: [BED, 货斗长度_ft]
+  子车系: [SUB-MODEL, 子车系]
+  分类: [分类]
+defaults:
+  分类: ""
