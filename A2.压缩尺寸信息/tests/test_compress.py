@@ -14,13 +14,13 @@ sys.path.insert(0, str(PROJECT_DIR))
 from src import run as run_mod  # noqa: E402
 from src import publish_ssh  # noqa: E402
 
-FIELDS = ["MAKE", "MODEL", "版本", "结构", "CAB", "BED", "YEAR", "分类", "自动尺码", "DIMENSION-ID"]
+FIELDS = ["MAKE", "MODEL", "版本", "结构", "CAB", "BED", "YEAR", "分类", "尺寸组销量", "自动尺码", "DIMENSION-ID"]
 
 
-def row(make="Ford", model="Focus", version="", structure="Sedan", cab="", bed="", year="2018-2019", category="三厢车", size="M", region="US"):
+def row(make="Ford", model="Focus", version="", structure="Sedan", cab="", bed="", year="2018-2019", category="三厢车", size="M", region="US", sales=0):
     return {
         "MAKE": make, "MODEL": model, "版本": version, "结构": structure, "CAB": cab, "BED": bed,
-        "YEAR": year, "分类": category, "自动尺码": size,
+        "YEAR": year, "分类": category, "尺寸组销量": str(sales), "自动尺码": size,
         "DIMENSION-ID": " ".join(part for part in [make, model, version, structure, year, region] if part),
     }
 
@@ -58,6 +58,138 @@ def test_same_size_rows_merge_in_high_table():
     assert years_of(tables["non_pickup_high"]) == ["2018-2021"]
 
 
+def test_overlapping_same_size_versions_merge_into_one_row():
+    # Golf：GTI、GTI/R、R 两两年份重叠且同尺码，任意两条合并后第三条仍命中同一原子；同尺码重复命中不算冲突
+    tables = compress([
+        row(model="Golf", structure="Hatchback", year="2000-2021", size="2XL"),
+        row(model="Golf", structure="Hatchback", version="GTI", year="2015-2026", size="2XL"),
+        row(model="Golf", structure="Hatchback", version="GTI/R", year="2022-2026", size="2XL"),
+        row(model="Golf", structure="Hatchback", version="R", year="2022-2026", size="2XL"),
+    ])
+    high = tables["non_pickup_high"]
+    assert high[["YEAR", "VERSION"]].values.tolist() == [["2000-2026", "Incl: GTI/R"]]
+
+
+def test_merge_never_loses_atoms_when_versions_contain_slashes():
+    # Berlingo：合并版本串 "Incl: m low/m/m high" 中 "m/m" 按单字母版本保护，切出 "m/m high"，m high 原子会变成 MISS；
+    # 合并必须保留左右两条原来覆盖的原子
+    berlingo = dict(model="Berlingo", size="2L+", region="EU")
+    frame = pd.DataFrame([
+        row(structure="Van", year="2008-2026", **berlingo),
+        row(structure="MPV", version="m", year="2018-2026", **berlingo),
+        row(structure="Van", version="m", year="2018-2026", **berlingo),
+        row(structure="Van", version="m high", year="2021-2026", **berlingo),
+        row(structure="Van", version="m low", year="2021-2026", **berlingo),
+    ], columns=FIELDS).astype(str)
+    check = run_mod.compress_line("EU", frame, profile(), "EU")["checks"]["非皮卡"]
+    assert set(check["检查结果"]) == {"OK"}
+
+
+def test_atom_check_matches_combined_model_names():
+    # A0 的 MODEL 可能本身是组合名（Audi A3/S3），原子检查不能因此误报 MISS，销量也要归到该行
+    frame = pd.DataFrame([row(make="Audi", model="A3/S3", year="2015-2016", size="3M", sales=40)], columns=FIELDS).astype(str)
+    result = run_mod.compress_line("US", frame, profile(), "US")
+    assert set(result["checks"]["非皮卡"]["检查结果"]) == {"OK"}
+    assert result["tables"]["non_pickup_high"]["尺码销量总和"].tolist() == [40]
+
+
+def test_merge_still_refuses_to_claim_a_different_size():
+    # Civic：Type R 2017-2026 与基础款 2022-2026 同为 2XXL，但基础款 2017-2021 是 2XL，不得合并
+    tables = compress([
+        row(model="Civic", structure="Hatchback", year="2017-2021", size="2XL"),
+        row(model="Civic", structure="Hatchback", year="2022-2026", size="2XXL"),
+        row(model="Civic", structure="Hatchback", version="Type R", year="2017-2026", size="2XXL"),
+    ])
+    assert len(tables["non_pickup_high"]) == 3
+
+
+def test_merge_does_not_bridge_long_gaps_without_atoms():
+    # Prelude：2002–2025 无原子（停产 24 年），超过 最大空档年数 不桥接
+    tables = compress([
+        row(model="Prelude", structure="Coupe", year="1983-2001", size="3M-0"),
+        row(model="Prelude", structure="Coupe", year="2026", size="3M-0"),
+    ])
+    assert years_of(tables["non_pickup_high"]) == ["1983-2001", "2026"]
+
+
+def test_merge_bridges_short_gaps_and_exempt_sizes():
+    assert run_mod.load_merge_rules().max_gap_years == 3
+    tables = compress([
+        row(model="Focus", year="2010-2012", size="M"),
+        row(model="Focus", year="2016-2018", size="M"),  # 空档 2013–2015 共 3 年
+        row(model="Century", structure="Wagon", year="1958", size="无可用尺码"),
+        row(model="Century", structure="Wagon", year="1973-1977", size="无可用尺码"),
+    ])
+    assert years_of(tables["non_pickup_high"]) == ["1958-1977", "2010-2018"]
+
+
+def test_pickup_merge_does_not_bridge_long_gaps():
+    pickup = dict(structure="", cab="Crew", bed="5.5", category="皮卡", size="PK-M")
+    tables = compress([
+        row(model="Ranger", year="1990-1995", **pickup),
+        row(model="Ranger", year="2000-2002", **pickup),  # 空档 4 年
+        row(model="Tacoma", year="2010-2012", **pickup),
+        row(model="Tacoma", year="2014-2016", **pickup),
+    ])
+    assert sorted(zip(tables["pickup_high"]["MODEL"], tables["pickup_high"]["YEAR"])) == [
+        ("Ranger", "1990-1995"), ("Ranger", "2000-2002"), ("Tacoma", "2010-2016"),
+    ]
+
+
+def test_record_sales_sum_the_rows_it_compresses():
+    tables = compress([
+        row(year="2018-2019", size="M", sales=100),
+        row(year="2020-2021", size="M", sales=50),
+        row(model="Fusion", year="2018", size="L", sales=7),
+    ])
+    high = tables["non_pickup_high"].set_index("MODEL")
+    assert high.loc["Focus", "尺码销量总和"] == 150
+    assert high.loc["Fusion", "尺码销量总和"] == 7
+
+
+def test_row_sales_split_across_records_by_year_share():
+    # 同一行的年份被拆到不同尺码的记录中时，行销量按原子（年份）均摊，总量守恒
+    tables = compress([
+        row(version="Base", year="2018-2021", size="M", sales=80),
+        row(version="Sport", year="2018-2019", size="M", sales=0),
+        row(version="Sport", year="2020-2021", size="L", sales=0),
+    ])
+    high = tables["non_pickup_high"]
+    assert high["尺码销量总和"].sum() == 80
+
+
+def test_pickup_sales_follow_cab_atoms():
+    tables = compress([
+        row(model="F-150", structure="", cab="Crew", bed="5.5", category="皮卡", year="2019-2020", size="PK-M", sales=30),
+    ])
+    assert tables["pickup_high"]["尺码销量总和"].tolist() == [30]
+
+
+def test_ru_format_renames_size_and_fills_ozon_and_shipping_sizes():
+    size_format = run_mod.load_size_formats(PROJECT_DIR / "data")["RU"]
+    assert size_format == {"尺码列名": "亚马逊尺码", "附加尺码列": ["OZON尺码", "发货尺码"]}
+    rows = [
+        {**row(model="Vesta", size="3M", region="RU"), "OZON尺码": "3M", "发货尺码": "L"},
+        {**row(model="Niva", structure="SUV", size="YS-410", region="RU"), "OZON尺码": "S", "发货尺码": "YM"},
+    ]
+    frame = pd.DataFrame(rows).astype(str)
+    tables = run_mod.compress_line("RU", frame, profile(), "RU", size_format=size_format)["tables"]
+    high = tables["non_pickup_high"]
+    assert list(high.columns[-4:]) == ["亚马逊尺码", "OZON尺码", "发货尺码", "尺码销量总和"]
+    assert "BACKSIZE" not in high.columns
+    assert set(zip(high["亚马逊尺码"], high["OZON尺码"], high["发货尺码"])) == {("3M", "3M", "L"), ("YS-410", "S", "YM")}
+
+
+def test_ru_format_rejects_ambiguous_extra_sizes():
+    rows = [
+        {**row(model="Vesta", year="2018", size="3M", region="RU"), "OZON尺码": "3M", "发货尺码": "L"},
+        {**row(model="Vesta", year="2019", size="3M", region="RU"), "OZON尺码": "3L", "发货尺码": "L"},
+    ]
+    frame = pd.DataFrame(rows).astype(str)
+    with pytest.raises(run_mod.CompressionError):
+        run_mod.compress_line("RU", frame, profile(), "RU", size_format=run_mod.load_size_formats(PROJECT_DIR / "data")["RU"])
+
+
 def test_pickups_are_split_into_pickup_tables():
     tables = compress([
         row(),
@@ -84,7 +216,9 @@ def write_sources(source_dir: Path, rows_by_line: dict[str, list[dict]]) -> None
         path = source_dir / run_mod.upstream_file(line, configured[line])
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("w", encoding="utf-8-sig", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=FIELDS)
+            # A0 RU 全量表带 OZON尺码/发货尺码，其余产线没有
+            fieldnames = [*FIELDS, "OZON尺码", "发货尺码"] if configured[line] == "RU" else FIELDS
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(rows)
 

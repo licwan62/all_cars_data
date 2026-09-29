@@ -178,9 +178,9 @@ def calculate_test(
     result = base.build_vehicle_base(dimensions, submodels)
     sales_total = base.aggregate_sales(sales)
     result = result.merge(sales_total, on="DIMENSION-ID", how="left", validate="one_to_one")
-    result["销量合计"] = result["销量合计"].fillna(0)
-    if np.allclose(result["销量合计"].dropna() % 1, 0):
-        result["销量合计"] = result["销量合计"].round().astype("Int64")
+    result["尺寸组销量"] = result["尺寸组销量"].fillna(0)
+    if np.allclose(result["尺寸组销量"].dropna() % 1, 0):
+        result["尺寸组销量"] = result["尺寸组销量"].round().astype("Int64")
     result = base.add_body_dimensions(result, bodies, references)
     result = add_equivalent_length(result, references)
 
@@ -205,7 +205,7 @@ def calculate_test(
         "L-MM",
         "W-MM",
         "H-MM",
-        "销量合计",
+        "尺寸组销量",
         "车形",
         "周长系数",
         "等效长",

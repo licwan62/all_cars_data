@@ -16,12 +16,10 @@ code:
   width: 2
   max_value: 99
 
-# 三个区域独立编码。DIMENSION-CODE = 区域前缀 + MAKECODE + MODELCODE + YEARCODE
-# US: 2 位；EU/RU: E/R 前缀 + 3 位。
+# 当前仅启用 US 编码。EU/RU 的历史映射保留在 data/mapping/eu、ru，暂不参与分析和交付。
+# DIMENSION-CODE = MAKECODE + MODELCODE + YEARCODE（US 使用 2 位品牌/车型代码）。
 regions:
   - {name: US, prefix: "",  width: 2, mapping_dir: ../data/mapping/us}
-  - {name: EU, prefix: "E", width: 3, mapping_dir: ../data/mapping/eu}
-  - {name: RU, prefix: "R", width: 3, mapping_dir: ../data/mapping/ru}
 
 mapping:
   make_path: ../data/mapping/us/make_mapping.csv

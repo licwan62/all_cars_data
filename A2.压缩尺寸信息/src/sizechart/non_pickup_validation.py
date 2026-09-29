@@ -3,9 +3,37 @@ from __future__ import annotations
 import re
 import unicodedata
 from collections import Counter
+from collections.abc import Callable, Iterable
+from dataclasses import dataclass
 from functools import lru_cache
 
 import pandas as pd
+
+
+@dataclass(frozen=True)
+class MergeRules:
+    """高度压缩两两合并的扩张约束（节点 data/合并规则.yaml）。
+
+    max_gap_years：合并记录的年份区间内，连续无原子（同车型、同车身/驾驶室范围）的年数上限；None 不限。
+    gap_exempt_sizes：不受空档限制的尺码（如“无可用尺码”，店铺页不展示）。
+    """
+
+    max_gap_years: int | None = None
+    gap_exempt_sizes: frozenset[str] = frozenset()
+
+    def gap_reason(self, size: str, years: Iterable[int], has_atom: Callable[[int], bool]) -> str:
+        if self.max_gap_years is None or size in self.gap_exempt_sizes:
+            return ""
+        years = sorted(years)
+        if not years:
+            return ""
+        longest = current = 0
+        for year in range(years[0], years[-1] + 1):
+            current = 0 if has_atom(year) else current + 1
+            longest = max(longest, current)
+        if longest > self.max_gap_years:
+            return f"候选年份区间跨越 {longest} 年无原子空档（上限 {self.max_gap_years}）"
+        return ""
 
 
 def normalize_text(value: object) -> str:
@@ -172,12 +200,12 @@ def non_pickup_candidate_validation_reason(records: pd.DataFrame, atoms: pd.Data
         atom_year = atom_year_value(atom)
         atom_const = normalize_text(row_value(atom, "Const", "CONST"))
         atom_size = normalize_text(row_value(atom, "BackSize", "BACKSIZE"))
-        if len(matched_sizes) > 1:
-            return f"{atom_brand} {atom_model} {atom_year} {atom_const} 原子事实对应多条候选记录"
+        # 多条记录命中同一原子只要尺码都一致就不算冲突（冗余而非矛盾），允许积极合并。
         if not matched_sizes:
             return f"{atom_brand} {atom_model} {atom_year} {atom_const} 原子事实未被候选记录覆盖"
-        if matched_sizes[0] != atom_size:
-            return f"{atom_brand} {atom_model} {atom_year} 命中尺码 {matched_sizes[0]} != 原子尺码 {atom_size}"
+        wrong = next((size for size in matched_sizes if size != atom_size), None)
+        if wrong is not None:
+            return f"{atom_brand} {atom_model} {atom_year} 命中尺码 {wrong} != 原子尺码 {atom_size}"
     return ""
 
 
@@ -260,19 +288,21 @@ def profile_matches(record: tuple, atom: tuple) -> bool:
 
 
 class NonPickupMergeValidator:
-    """两两合并的增量校验，结果与
-    non_pickup_candidate_validation_reason(candidate, non_pickup_atoms_in_record_scope(atoms, merged))
-    完全一致：当前 working 中每条记录命中的原子按内容缓存，候选只需看合并记录范围内的原子。"""
+    """两两合并的增量校验，尺码判定与
+    non_pickup_candidate_validation_reason(candidate, non_pickup_atoms_in_record_scope(atoms, merged)) 一致：
+    合并记录命中的每个原子尺码都必须等于合并尺码；其余记录同尺码的重复命中不算冲突，故只需看合并记录范围内的原子。
+    另要求左右两条原来命中的原子仍被合并记录覆盖（版本串拼接可能改变切分，如 m/m 与 m high），
+    并按 MergeRules 限制合并记录跨越的无原子年份空档。"""
 
-    def __init__(self, atoms: list[dict[str, object]]) -> None:
+    def __init__(self, atoms: list[dict[str, object]], rules: MergeRules | None = None) -> None:
         self.atoms = [atom_profile(atom) for atom in atoms]
+        self.rules = rules or MergeRules()
         self._atoms_by_year: dict[int, list[int]] = {}
         for index, atom in enumerate(self.atoms):
             if atom[2] is not None:
                 self._atoms_by_year.setdefault(atom[2], []).append(index)
         self._matched_cache: dict[tuple, tuple[int, ...]] = {}
         self.record_sets: list[frozenset[int]] = []
-        self.counts: Counter[int] = Counter()
 
     def matched_atoms(self, record: object) -> tuple[int, ...]:
         """记录命中（带非空尺码）的原子下标，按原子顺序。"""
@@ -288,20 +318,26 @@ class NonPickupMergeValidator:
 
     def reset(self, records: list[dict[str, object]]) -> None:
         self.record_sets = [frozenset(self.matched_atoms(record)) for record in records]
-        self.counts = Counter(index for matched in self.record_sets for index in matched)
+
+    def _has_scope_atom(self, brand: str, models: frozenset[str], consts: frozenset[str], year: int) -> bool:
+        return any(
+            atom[0] == brand and atom[1] in models and (not consts or atom[3] in consts)
+            for atom in (self.atoms[index] for index in self._atoms_by_year.get(year, ()))
+        )
 
     def merge_reason(self, left_index: int, right_index: int, merged: dict[str, object]) -> str:
         scoped = self.matched_atoms(merged)
         if not scoped:
             return "候选合并范围内没有可验证原子事实"
         merged_size = normalize_text(_first_value(merged, "BACKSIZE"))
-        left_set = self.record_sets[left_index]
-        right_set = self.record_sets[right_index]
         for index in scoped:
-            atom_brand, atom_model, atom_year, atom_const, _, _, atom_size = self.atoms[index]
-            others = self.counts[index] - (index in left_set) - (index in right_set)
-            if others > 0:
-                return f"{atom_brand} {atom_model} {atom_year} {atom_const} 原子事实对应多条候选记录"
+            atom_brand, atom_model, atom_year, _atom_const, _, _, atom_size = self.atoms[index]
             if merged_size != atom_size:
                 return f"{atom_brand} {atom_model} {atom_year} 命中尺码 {merged_size} != 原子尺码 {atom_size}"
-        return ""
+        lost = (self.record_sets[left_index] | self.record_sets[right_index]) - set(scoped)
+        if lost:
+            atom_brand, atom_model, atom_year, atom_const, *_ = self.atoms[min(lost)]
+            return f"{atom_brand} {atom_model} {atom_year} {atom_const} 原子事实未被候选记录覆盖"
+        brand, model, models, years, consts, *_ = record_profile(merged)
+        names = frozenset(models) | {model}
+        return self.rules.gap_reason(merged_size, years, lambda year: self._has_scope_atom(brand, names, consts, year))

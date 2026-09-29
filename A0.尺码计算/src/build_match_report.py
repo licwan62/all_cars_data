@@ -97,7 +97,7 @@ def size_order(sizes: pd.Series, rule_sizes: list[str]) -> list[str]:
 
 
 def distribution(frame: pd.DataFrame, column: str, order: list[str]) -> list[list[object]]:
-    sales = pd.to_numeric(frame["销量合计"], errors="coerce").fillna(0)
+    sales = pd.to_numeric(frame[analysis.SIZE_GROUP_SALES], errors="coerce").fillna(0)
     total_rows, total_sales = len(frame), float(sales.sum())
     rows = []
     for size in order:
@@ -108,7 +108,7 @@ def distribution(frame: pd.DataFrame, column: str, order: list[str]) -> list[lis
 
 
 def overview(frame: pd.DataFrame) -> list[str]:
-    sales = pd.to_numeric(frame["销量合计"], errors="coerce").fillna(0)
+    sales = pd.to_numeric(frame[analysis.SIZE_GROUP_SALES], errors="coerce").fillna(0)
     total, total_sales = len(frame), float(sales.sum())
     matched = ~frame["自动尺码"].isin(UNMATCHED) & frame["自动尺码"].ne("")
     rows = [["车型数（DIMENSION-ID）", f"{total:,}", "100.0%"],
@@ -155,7 +155,6 @@ def size_matcher_rules_text(region: str, rules: pd.DataFrame, parameters: pd.Dat
         "- **长**：车型 `L-MM`，与规则的 `长上限` 比较。",
         f"- **插片指数**：`(前宽 + 后宽) / 4 − {offset}`；皮卡只看车头：`前宽 / 2 − {offset}`。"
         "其中 `前宽 = W-MM × 前宽系数`、`后宽 = W-MM × 后宽系数`，系数按车形取自 `03.车形分类核定/output/参考尺寸计算.csv`。",
-        "- `等效长` 只作留痕参考，不参与匹配。",
         "- 长或插片指数缺失时结果为 **数据不全**。",
         "",
         "### 候选池",

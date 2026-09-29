@@ -52,13 +52,11 @@ DEFAULT_OUTPUT_COLUMNS = [
     "L-MM",
     "W-MM",
     "H-MM",
-    "销量合计",
+    "尺寸组销量",
+    "车型销量",
     "车形",
-    "前宽-MM",
-    "后宽-MM",
     "参考侧高",
     "插片指数",
-    "等效长",
     "自动尺码",
     "自动长度余量",
     "候选",
@@ -66,6 +64,11 @@ DEFAULT_OUTPUT_COLUMNS = [
     "相差数值",
     "DIMENSION-ID",
 ]
+
+
+SIZE_GROUP_SALES = "尺寸组销量"
+MODEL_SALES = "车型销量"
+MODEL_SALES_KEY = ["MAKE", "MODEL", "结构"]
 
 
 class DataContractError(ValueError):
@@ -317,9 +320,19 @@ def aggregate_sales(sales: pd.DataFrame) -> pd.DataFrame:
     grouped = (
         normalized.groupby("DIMENSION-ID", as_index=False, sort=False, dropna=False)["预估销量"]
         .sum(min_count=1)
-        .rename(columns={"预估销量": "销量合计"})
+        .rename(columns={"预估销量": SIZE_GROUP_SALES})
     )
     return grouped
+
+
+def add_model_sales(frame: pd.DataFrame) -> pd.DataFrame:
+    """按 MAKE+MODEL+结构 聚合尺寸组销量，回填到同车型同结构每一行的 车型销量。"""
+    _require_columns(frame, [*MODEL_SALES_KEY, SIZE_GROUP_SALES], "全量表")
+    result = frame.copy()
+    result[MODEL_SALES] = result.groupby(MODEL_SALES_KEY, dropna=False, sort=False)[
+        SIZE_GROUP_SALES
+    ].transform("sum")
+    return result
 
 
 def add_body_dimensions(
@@ -965,9 +978,10 @@ def calculate(
         result["TRIM"] = result["DIMENSION-ID"].map(trims).fillna("")
     sales_total = aggregate_sales(sales)
     result = result.merge(sales_total, on="DIMENSION-ID", how="left", validate="one_to_one")
-    result["销量合计"] = result["销量合计"].fillna(0)
-    if np.allclose(result["销量合计"].dropna() % 1, 0):
-        result["销量合计"] = result["销量合计"].round().astype("Int64")
+    result[SIZE_GROUP_SALES] = result[SIZE_GROUP_SALES].fillna(0)
+    if np.allclose(result[SIZE_GROUP_SALES].dropna() % 1, 0):
+        result[SIZE_GROUP_SALES] = result[SIZE_GROUP_SALES].round().astype("Int64")
+    result = add_model_sales(result)
     result = add_body_dimensions(result, bodies, references)
     result = add_equivalent_length(result, references)
     analysis = build_dimension_analysis(result)
@@ -998,7 +1012,7 @@ def validate_result(result: pd.DataFrame, expected_rows: int) -> dict[str, objec
         raise DataContractError(f"输出行数 {len(result)} 与车型尺寸行数 {expected_rows} 不一致")
     if result["DIMENSION-ID"].duplicated().any():
         raise DataContractError("输出 DIMENSION-ID 不唯一")
-    missing_sales = int(result["销量合计"].isna().sum())
+    missing_sales = int(result[[SIZE_GROUP_SALES, MODEL_SALES]].isna().any(axis=1).sum())
     if missing_sales:
         raise DataContractError(f"输出仍有 {missing_sales} 行空销量")
     invalid_status = result["自动尺码"].isna() | result["自动尺码"].astype("string").str.strip().eq("")
@@ -1010,7 +1024,7 @@ def validate_result(result: pd.DataFrame, expected_rows: int) -> dict[str, objec
         "matched_sizes": int((~result["自动尺码"].isin(["数据不全", "无可用尺码"])).sum()),
         "unavailable_sizes": int(result["自动尺码"].eq("无可用尺码").sum()),
         "incomplete_rows": int(result["自动尺码"].eq("数据不全").sum()),
-        "sales_total": int(pd.to_numeric(result["销量合计"], errors="coerce").sum()),
+        "sales_total": int(pd.to_numeric(result[SIZE_GROUP_SALES], errors="coerce").sum()),
     }
 
 

@@ -399,6 +399,21 @@ class BodyDimensionFormulaTests(unittest.TestCase):
         self.assertEqual(row["插片指数"], 210)
 
 
+class SalesColumnTests(unittest.TestCase):
+    def test_model_sales_sums_size_group_sales_by_make_model_and_structure(self) -> None:
+        frame = pd.DataFrame(
+            {
+                "MAKE": ["Ford", "Ford", "Ford", "Ford", "Kia"],
+                "MODEL": ["Focus", "Focus", "Focus", "Ranger", "Focus"],
+                "结构": ["Sedan", "Sedan", "Hatchback", "Pickup", "Sedan"],
+                "尺寸组销量": [10, 5, 4, 7, 3],
+            }
+        )
+        result = analysis.add_model_sales(frame)
+        self.assertEqual(result["尺寸组销量"].tolist(), [10, 5, 4, 7, 3])
+        self.assertEqual(result["车型销量"].tolist(), [15, 15, 4, 7, 3])
+
+
 class FullPipelineRegressionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -439,8 +454,18 @@ class FullPipelineRegressionTests(unittest.TestCase):
         dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]
         self.assertEqual(row["TRIM"], "")
-        self.assertEqual(row["销量合计"], 134815)
-        self.assertEqual(row["前宽-MM"], 2052)
+        self.assertEqual(row["尺寸组销量"], 134815)
+        self.assertNotIn("销量合计", self.result.columns)
+        bel_air = self.result.loc[
+            self.result["MAKE"].eq("Chevrolet")
+            & self.result["MODEL"].eq("Bel Air")
+            & self.result["结构"].eq(row["结构"]),
+            "尺寸组销量",
+        ].sum()
+        self.assertEqual(row["车型销量"], bel_air)
+        self.assertNotIn("前宽-MM", self.result.columns)
+        self.assertNotIn("后宽-MM", self.result.columns)
+        self.assertNotIn("等效长", self.result.columns)
         self.assertEqual(row["插片指数"], 276)
         self.assertEqual(row["自动尺码"], "4L")
         self.assertEqual(row["自动长度余量"], 146)

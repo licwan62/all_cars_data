@@ -34,7 +34,9 @@ def test_ru_full_base_uses_only_ru_dimensions_and_sales():
 
     assert len(result) == 13617
     assert result["DIMENSION-ID"].str.endswith(" RU").all()
-    assert result["销量合计"].sum() == 297009
+    assert result["尺寸组销量"].sum() == 297009
+    model_totals = result.groupby(["MAKE", "MODEL", "结构"])["尺寸组销量"].transform("sum")
+    assert result["车型销量"].eq(model_totals).all()
 
 
 def test_ru_matching_uses_per_size_length_margin():
@@ -74,13 +76,18 @@ def test_ru_rule_ozon_mapping_matches_the_approved_size_labels():
         "XL": ("YXXL", "YXL"),
     }
     for ozon, (amazon, ship) in expected.items():
-        row = rules.loc[rules["OZON尺码"].eq(ozon)].iloc[0]
-        assert (row["亚马逊尺码"], row["发货尺码"]) == (amazon, ship)
+        row = rules.loc[rules["OZON尺码"].eq(ozon) & rules["亚马逊尺码"].eq(amazon)].iloc[0]
+        assert row["发货尺码"] == ship
+
+    # 0928-1：YS-380/YS-410 挂上 OZON 与发货尺码；OZON S 同时对应 YM+ 与 YS-410
+    for amazon, (ozon, ship) in {"YS-380": ("XS", "S"), "YS-410": ("S", "YM")}.items():
+        row = rules.loc[rules["亚马逊尺码"].eq(amazon)].iloc[0]
+        assert (row["OZON尺码"], row["发货尺码"]) == (ozon, ship)
 
     for ozon, amazon in {"5S": "2L-200", "5M": "2XL-200"}.items():
         row = rules.loc[rules["OZON尺码"].eq(ozon)].iloc[0]
         assert (row["亚马逊尺码"], row["发货尺码"]) == (amazon, "")
 
     blank_ozon = rules.loc[rules["OZON尺码"].eq("")]
-    assert set(blank_ozon["亚马逊尺码"]) == {"2S-280", "2XXL-545", "YS-380", "YS-410"}
+    assert set(blank_ozon["亚马逊尺码"]) == {"2S-280", "2XXL-545"}
     assert blank_ozon["发货尺码"].eq("").all()

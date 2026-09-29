@@ -89,9 +89,9 @@ def validate_release() -> dict[str, object]:
     unknown_sizes = published_sizes - set(rules["亚马逊尺码"])
     if unknown_sizes:
         raise ValueError(f"全量表存在规则中未定义的自动尺码：{sorted(unknown_sizes)}")
-    sales = pd.to_numeric(full["销量合计"], errors="coerce")
+    sales = pd.to_numeric(full["尺寸组销量"], errors="coerce")
     if sales.isna().any():
-        raise ValueError("RU 全量表销量合计存在非数值")
+        raise ValueError("RU 全量表尺寸组销量存在非数值")
     return {
         "dimension_rows": int(len(dimensions)),
         "full_rows": int(len(full)),

@@ -279,7 +279,9 @@ def build_non_pickup_record_lookup(compress_df: pd.DataFrame) -> dict[tuple[str,
         if not is_non_pickup_record(record):
             continue
         make = normalize_text(record.get("MAKE", ""))
-        models = split_model_expression(record.get("MODEL", "")) or [normalize_text(record.get("MODEL", ""))]
+        # 原子 MODEL 可能本身就是组合名（A0 的 A3/S3），与拆开的单车型一起登记
+        full_model = normalize_text(record.get("MODEL", ""))
+        models = dict.fromkeys([*split_model_expression(full_model), full_model])
         for model in models:
             key = (make, model)
             item = dict(record)
@@ -306,8 +308,8 @@ def build_non_pickup_atom_check_row(atom_index: object, atom: pd.Series, records
     atom_size = normalize_text(atom.get("BACKSIZE", ""))
     if match_count == 0:
         result = "MISS"
-    elif match_count == 1 and unique_sizes == [atom_size]:
-        result = "OK"
+    elif unique_sizes == [atom_size]:
+        result = "OK"  # 多条同尺码记录命中同一原子是冗余而非冲突
     elif atom_size not in unique_sizes:
         result = "SIZE_MISMATCH"
     else:
@@ -380,8 +382,8 @@ def build_atom_check(
         atom_size = normalize_text(atom.get("BACKSIZE", ""))
         if match_count == 0:
             result = "MISS"
-        elif match_count == 1 and matched_sizes == [atom_size]:
-            result = "OK"
+        elif matched_sizes == [atom_size]:
+            result = "OK"  # 多条同尺码记录命中同一原子是冗余而非冲突
         elif atom_size not in matched_sizes:
             result = "SIZE_MISMATCH"
         else:

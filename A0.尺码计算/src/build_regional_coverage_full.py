@@ -83,7 +83,7 @@ def build_ru(shapes: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, object]]:
         raise ValueError("RU 全量表存在缺失车形候选")
     joined["车形"] = joined["车形_candidate"]
     joined = joined.drop(columns=["_base", "DIMENSION-ID_candidate", "车形_candidate", "置信度", "方法"])
-    report = {"rows": len(joined), "sales_total": int(pd.to_numeric(joined["销量合计"], errors="coerce").fillna(0).sum()), "sales_policy": "existing RU proxy sales retained", "shape_policy": "coverage candidate", "low_confidence_shapes": int(shapes["置信度"].eq("low").sum())}
+    report = {"rows": len(joined), "sales_total": int(pd.to_numeric(joined[analysis.SIZE_GROUP_SALES], errors="coerce").fillna(0).sum()), "sales_policy": "existing RU proxy sales retained", "shape_policy": "coverage candidate", "low_confidence_shapes": int(shapes["置信度"].eq("low").sum())}
     return joined, report
 
 

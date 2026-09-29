@@ -50,7 +50,7 @@ def _config(tmp_path: Path) -> Path:
     return config
 
 
-def test_run_all_encodes_each_region_independently(tmp_path):
+def test_run_all_only_encodes_enabled_us_region(tmp_path):
     with (tmp_path / "lib.csv").open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.writer(handle)
         writer.writerow(["DIMENSION-ID", "MAKE", "MODEL", "YEAR"])
@@ -62,8 +62,10 @@ def test_run_all_encodes_each_region_independently(tmp_path):
             ]
         )
     config = _config(tmp_path)
-    assert region_names(config) == ["US", "EU"]
-    assert load_settings(config, "EU").code_width == 3
+    # 模拟正式配置仅启用 US；输入中的 EU 行不得进入任一交付物。
+    text = config.read_text(encoding="utf-8")
+    config.write_text("\n".join(line for line in text.splitlines() if "name: EU" not in line) + "\n", encoding="utf-8")
+    assert region_names(config) == ["US"]
 
     run_all(config)
 
@@ -71,9 +73,12 @@ def test_run_all_encodes_each_region_independently(tmp_path):
         codes = {row["DIMENSION-ID"]: row["DIMENSION-CODE"] for row in csv.DictReader(handle)}
     assert codes == {
         "Ford Focus Sedan 2010-2014 US": "00001014",
-        "Ford Focus Sedan 2010-2014 EU": "E0010001014",
-        "Audi A4 Sedan 1994 EU": "E0000009494",
     }
+
+    with (tmp_path / "output" / "车型编码映射.csv").open(encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    assert rows
+    assert {row["REGION"] for row in rows} == {"US"}
 
 
 def test_dimension_id_is_kept_verbatim_not_nfkc_normalized(tmp_path):

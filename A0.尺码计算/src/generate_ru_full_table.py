@@ -144,14 +144,15 @@ def read_ru_proxy_sales(path: Path | None = None) -> tuple[pd.DataFrame, dict[st
     analysis._require_columns(sales, ["DIMENSION-ID", "销量合计"], "RU代理销量")
     if sales["DIMENSION-ID"].duplicated().any():
         raise analysis.DataContractError("RU代理销量 的 DIMENSION-ID 不唯一")
-    sales["销量合计"] = pd.to_numeric(sales["销量合计"], errors="coerce").fillna(0)
+    # 上游按 DIMENSION-ID 汇总的 销量合计 即本表的 尺寸组销量
+    sales[analysis.SIZE_GROUP_SALES] = pd.to_numeric(sales["销量合计"], errors="coerce").fillna(0)
     audit = {
         "source": str(path),
         "dimension_rows": int(len(sales)),
-        "sales_total": int(sales["销量合计"].sum()),
-        "dimension_rows_with_positive_proxy_sales": int(sales["销量合计"].gt(0).sum()),
+        "sales_total": int(sales[analysis.SIZE_GROUP_SALES].sum()),
+        "dimension_rows_with_positive_proxy_sales": int(sales[analysis.SIZE_GROUP_SALES].gt(0).sum()),
     }
-    return sales[["DIMENSION-ID", "销量合计"]], audit
+    return sales[["DIMENSION-ID", analysis.SIZE_GROUP_SALES]], audit
 
 
 def build_ru_full_base(dimensions: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
@@ -165,12 +166,14 @@ def build_ru_full_base(dimensions: pd.DataFrame, sales: pd.DataFrame) -> pd.Data
     for source, destination in [("L-IN", "L-MM"), ("W-IN", "W-MM"), ("H-IN", "H-MM")]:
         result[destination] = analysis._round_nullable(analysis._numeric(dimensions[source]) * analysis.MM_PER_INCH)
     result = result.merge(sales, on="DIMENSION-ID", how="left", validate="one_to_one")
-    result["销量合计"] = pd.to_numeric(result["销量合计"], errors="coerce").fillna(0)
-    if result["销量合计"].mod(1).ne(0).any():
+    sales_column = analysis.SIZE_GROUP_SALES
+    result[sales_column] = pd.to_numeric(result[sales_column], errors="coerce").fillna(0)
+    if result[sales_column].mod(1).ne(0).any():
         raise analysis.DataContractError("RU sale_detail 汇总结果不是整数")
-    result["销量合计"] = result["销量合计"].round().astype("Int64")
+    result[sales_column] = result[sales_column].round().astype("Int64")
+    result = analysis.add_model_sales(result)
     # Shape-derived fields are not available in the RU regional pipeline yet.
-    for column in ["车形", "前宽-MM", "后宽-MM", "参考侧高", "插片指数", "等效长"]:
+    for column in ["车形", "参考侧高", "插片指数"]:
         result[column] = ""
     return result[[column for column in analysis.DEFAULT_OUTPUT_COLUMNS if column not in {"自动尺码", "自动长度余量", "候选", "原因", "相差数值"}]]
 
@@ -194,7 +197,9 @@ def published_sales_snapshot(dimensions: pd.DataFrame) -> pd.DataFrame:
     if not path.is_file():
         raise analysis.DataContractError(f"Missing published RU sales snapshot: {path}")
     snapshot = analysis._read_csv(path)
-    analysis._require_columns(snapshot, ["DIMENSION-ID", "销量合计"], "published RU full table")
+    # 旧版全量表只有 销量合计（即尺寸组销量）
+    snapshot = snapshot.rename(columns={"销量合计": analysis.SIZE_GROUP_SALES})
+    analysis._require_columns(snapshot, ["DIMENSION-ID", analysis.SIZE_GROUP_SALES], "published RU full table")
     if snapshot["DIMENSION-ID"].duplicated().any():
         raise analysis.DataContractError("Published RU full table has duplicate DIMENSION-ID values")
     expected = set(dimensions["DIMENSION-ID"])
@@ -203,7 +208,7 @@ def published_sales_snapshot(dimensions: pd.DataFrame) -> pd.DataFrame:
         raise analysis.DataContractError(
             f"Published RU full table and dimensions disagree: dimensions-only {len(expected - actual)}, snapshot-only {len(actual - expected)}"
         )
-    return snapshot[["DIMENSION-ID", "销量合计"]].copy()
+    return snapshot[["DIMENSION-ID", analysis.SIZE_GROUP_SALES]].copy()
 
 
 def main() -> int:
@@ -226,7 +231,8 @@ def main() -> int:
         matched = match_ru_sizes(base, rules, parameters)
         result = base.copy()
         result = pd.concat([result, matched], axis=1)
-        ordered = [*analysis.DEFAULT_OUTPUT_COLUMNS[:21], "OZON尺码", "发货尺码", *analysis.DEFAULT_OUTPUT_COLUMNS[21:]]
+        split = analysis.DEFAULT_OUTPUT_COLUMNS.index("自动尺码") + 1
+        ordered = [*analysis.DEFAULT_OUTPUT_COLUMNS[:split], "OZON尺码", "发货尺码", *analysis.DEFAULT_OUTPUT_COLUMNS[split:]]
         # 只有 US 有 TRIM 匹配环节，RU 全量表不带 TRIM 列
         result = result[[column for column in ordered if column != "TRIM"]]
         expected_rows = len(dimensions)

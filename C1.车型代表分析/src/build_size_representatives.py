@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SOURCE = ROOT / "A2.压缩尺寸信息" / "output" / "US" / "压缩尺码表.csv"
 DEFAULT_DETAILS = ROOT / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
 DEFAULT_OUTPUT_DIR = ROOT / "C1.车型代表分析" / "output"
-OUTPUT_FIELDS = ["车型", "dimension-id", "型号", "车长", "车宽", "车高", "车形", "销量", "参考半周长", "in_eagle"]
+OUTPUT_FIELDS = ["车型", "dimension-id", "型号", "车长", "车宽", "车高", "车形", "销量", "in_eagle"]
 TSV_FIELDS = ["车型", "型号", "车长", "车宽", "车高", "车形"]
 
 
@@ -88,7 +88,7 @@ def compressed_candidates(
             continue
         representative = max(
             pool,
-            key=lambda row: (end_year(row.get("YEAR", "")), number(row, "销量合计"), row.get("DIMENSION-ID", "")),
+            key=lambda row: (end_year(row.get("YEAR", "")), number(row, "尺寸组销量"), row.get("DIMENSION-ID", "")),
         )
         record_id = representative.get("DIMENSION-ID", "")
         if record_id and record_id not in seen[size]:
@@ -121,31 +121,27 @@ def logical_size(row: dict[str, str], rules: list[dict[str, str]]) -> str:
 
 
 def rank_group(rows: list[dict[str, str]]) -> list[dict[str, str]]:
-    positive_sales = [row for row in rows if number(row, "销量合计") > 0]
+    positive_sales = [row for row in rows if number(row, "尺寸组销量") > 0]
     pool = positive_sales if len(positive_sales) >= 4 else rows
 
     lengths = [number(row, "L-MM") for row in pool]
-    girths = [number(row, "等效长") for row in pool]
     years = [end_year(row.get("YEAR", "")) for row in pool]
-    sales_logs = [math.log10(1 + number(row, "销量合计")) for row in pool]
-    bounds = (
-        min(lengths), max(lengths), min(girths), max(girths),
-        min(years), max(years), max(sales_logs),
-    )
+    sales_logs = [math.log10(1 + number(row, "尺寸组销量")) for row in pool]
+    bounds = (min(lengths), max(lengths), min(years), max(years), max(sales_logs))
 
     for row in pool:
         length_score = normalize(number(row, "L-MM"), bounds[0], bounds[1])
-        girth_score = normalize(number(row, "等效长"), bounds[2], bounds[3])
-        year_score = normalize(end_year(row.get("YEAR", "")), bounds[4], bounds[5])
-        sales_score = math.log10(1 + number(row, "销量合计")) / bounds[6] if bounds[6] else 0
-        row["_score"] = 0.30 * length_score + 0.30 * girth_score + 0.20 * sales_score + 0.20 * year_score
+        year_score = normalize(end_year(row.get("YEAR", "")), bounds[2], bounds[3])
+        sales_score = math.log10(1 + number(row, "尺寸组销量")) / bounds[4] if bounds[4] else 0
+        # A0 全量表不再提供等效长，打分只看长度、销量与年份（保持原 0.30/0.20/0.20 的相对权重）
+        row["_score"] = 0.30 * length_score + 0.20 * sales_score + 0.20 * year_score
 
     ranked = sorted(
         pool,
         key=lambda row: (
             row["_score"],
             end_year(row.get("YEAR", "")),
-            number(row, "销量合计"),
+            number(row, "尺寸组销量"),
             row.get("DIMENSION-ID", ""),
         ),
         reverse=True,
@@ -209,10 +205,7 @@ def main() -> None:
                     "车宽": int(number(row, "W-MM")),
                     "车高": int(number(row, "H-MM")),
                     "车形": row.get("车形", ""),
-                    "销量": int(number(row, "销量合计")),
-                    # Keep the established output column name for consumers;
-                    # the current calculation field is 等效长.
-                    "参考半周长": int(number(row, "等效长")),
+                    "销量": int(number(row, "尺寸组销量")),
                     "in_eagle": 0,
                 }
             )

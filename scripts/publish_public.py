@@ -6,7 +6,12 @@ public/ 只是仓库外发布或人工交换区，不是 agent 间数据总线�
   data/us_data|eu_data|ru_data/    区域数据表
     data/us_data/全量/              US 全量表与各店铺全量表（A0 US/店铺/ 也归到这里）
     data/us_data/压缩/<产线>/       A2 中区域为 US 的产线（US 及各店铺）压缩尺码表
-  data/                             其余通用数据表
+  data/基础数据/                    跨区域尺寸库与销量基础表
+  data/编码映射/                    ID、车型与尺寸编码映射
+  data/车型分类/                    车型结构、车形分类与参考尺寸
+  data/质量分析/                    尺码统计、极值与异常分析
+  data/差评分析/                    差评、耳位与皮卡结构分析
+  data/代表车型/                    代表车型表及其报告
   customizing/                      定制需求度评分等"定制"类落盘文件
 
 发布目录只保存可直接使用的 CSV 数据表；JSON、TSV、XLSX 等辅助小文件不发布。
@@ -30,13 +35,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_ROOT = Path(r"\\NAS8824B4\Public\PQData\pub_all_cars_data")
 # 相对 PUBLIC_ROOT、由本脚本完全接管的目录：不在 wanted 清单里的文件会被归档到 backup/。
-OWNED_DIRS = ("data/us_data", "data/eu_data", "data/ru_data", "customizing")
+OWNED_DIRS = ("data", "customizing")
 # 节点 output/ 中按 <国别>/... 分目录的交付物（如 A0 的 US/全量/全量表.csv）保留子路径，
 # 发布到 data/<国别>_data/ 下。
 REGION_DIR = re.compile(r"^(US|EU|RU)/(.+)$")
 # 落盘规则：这些文件发布到 PUBLIC_ROOT/customizing/，不进 data/（B1.压缩定制评分 的
 # 定制需求度评分.csv 是"定制"类产物，和区域尺寸数据分开存放）。
 CUSTOMIZING_FILES = {"定制需求度评分.csv"}
+# 不带国别目录的通用交付物按职责分组，避免 data/ 根目录堆放裸文件。
+COMMON_NODE_DIRS = {
+    "dimension-library": "基础数据",
+    "sales-estimation": "基础数据",
+    "code-mapping": "编码映射",
+    "structure-review": "车型分类",
+    "shape-classification": "车型分类",
+    "full-generation": "质量分析",
+    "negative-review-analysis": "差评分析",
+    "representative-model": "代表车型",
+}
 # A0 的店铺全量表与国别全量表同放 全量/。
 REGION_SUBDIR_ALIASES = {("US", "店铺"): "全量"}
 # A2 压缩尺码表按产线分目录（<产线>/压缩尺码表[_皮卡].csv），产线的区域见 A2 data/产线.yaml；
@@ -79,6 +95,9 @@ def target_for(name: str, node_id: str = "", lines: dict[str, str] | None = None
     region = re.search(r"_(US|EU|RU)\.[^.]+$", name)
     if region:
         return Path(f"data/{region.group(1).lower()}_data") / name
+    common_dir = COMMON_NODE_DIRS.get(node_id)
+    if common_dir:
+        return Path("data") / common_dir / name
     return Path("data") / name
 
 
@@ -216,7 +235,7 @@ def main() -> int:
         "",
         "仅发布 CSV 数据表；JSON 交付物（如尺码匹配报告）转换为同名 `.md` 说明文档，放在对应区域目录中，说明该目录文件的生成情况；原始 JSON 和其他辅助小文件保留在仓库的 `output/` 与 `artifacts/`，不存入本目录。",
         "",
-        "`data/` 和 `customizing/` 是本脚本管理的正式发布地址（本文件与来源清单描述的即是这两个目录的当前内容）；`customizing/` 存放定制类产物（如定制需求度评分），和区域尺寸数据分开。被替换的旧命名文件与历史批次统一归档到本目录的 `backup/`，不散落在其他位置；`car_code/`、`reference/`、`reports/`、`sku_cluster/` 为人工维护的参考资料，不受本脚本管理。",
+        "`data/` 和 `customizing/` 是本脚本管理的正式发布地址（本文件与来源清单描述的即是这两个目录的当前内容）。`data/` 下按国别或数据职责分目录，不在根目录堆放数据文件；`customizing/` 存放定制类产物（如定制需求度评分）。被替换的旧命名文件与历史批次统一归档到本目录的 `backup/`，不散落在其他位置；`car_code/`、`reference/`、`reports/`、`sku_cluster/` 为人工维护的参考资料，不受本脚本管理。",
         "",
         "## 文件与来源",
         "",

@@ -14,7 +14,7 @@ import pandas as pd
 
 from check_atom import build_atom_check
 from field_profile import apply_field_profile, load_field_profile
-from non_pickup_validation import NonPickupMergeValidator
+from non_pickup_validation import MergeRules, NonPickupMergeValidator
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -1226,6 +1226,7 @@ def build_non_pickup_high_new(
     lossless: pd.DataFrame,
     atoms: pd.DataFrame,
     progress: ProgressReporter | None = None,
+    merge_rules: MergeRules | None = None,
 ) -> tuple[pd.DataFrame, dict[tuple[str, str], dict[str, int]], pd.DataFrame]:
     stats: dict[tuple[str, str], dict[str, int]] = {}
     log_rows: list[dict[str, object]] = []
@@ -1255,7 +1256,7 @@ def build_non_pickup_high_new(
         key_stats = stats.setdefault(key, {"attempts": 0, "successes": 0, "fallbacks": 0})
         if progress:
             progress.update(current_make=key[0], current_model=key[1], completed_models=completed_groups)
-        validator = NonPickupMergeValidator([atom_records[position] for position in atom_positions.get(key, [])])
+        validator = NonPickupMergeValidator([atom_records[position] for position in atom_positions.get(key, [])], merge_rules)
         group = group.drop(columns=["__MODEL_GROUP"])
         working = group.sort_values(["START_YEAR", "year_start", "year_end", "MODEL", "BACKSIZE", "CONST", "VERSION"], kind="mergesort").reset_index(drop=True)
         # 两两尝试在纯 Python 记录上进行；只有合并成功时才重建 DataFrame 并排序。
@@ -1929,6 +1930,7 @@ def transform_non_pickup(
     progress: ProgressReporter | None = None,
     remove_null_size: bool = False,
     field_profile: dict[str, object] | None = None,
+    merge_rules: MergeRules | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Convert non-pickup rows into lossless and high-compression tables."""
     df = normalize_input_schema(df, field_profile=field_profile)
@@ -2017,7 +2019,7 @@ def transform_non_pickup(
 
     lossless_internal = build_non_pickup_lossless_new(renamed)
     high_internal = lossless_internal.copy()
-    higher_internal, merge_stats, compression_log = build_non_pickup_high_new(lossless_internal, renamed, progress=progress)
+    higher_internal, merge_stats, compression_log = build_non_pickup_high_new(lossless_internal, renamed, progress=progress, merge_rules=merge_rules)
     atom_table = build_non_pickup_atom_table(renamed)
     process_rows: list[dict[str, object]] = []
     lossless_counts = Counter(zip(lossless_internal["BRAND"].map(normalize_text), lossless_internal["MODEL"].map(normalize_text)))
@@ -2144,11 +2146,10 @@ def pickup_candidate_validation_reason(rows: pd.DataFrame, atoms: pd.DataFrame) 
         for _, row in rows.iterrows():
             if pickup_record_matches_atom_scope(row, atom):
                 matched_sizes.append(normalize_text(row.get("BACKSIZE", "")))
-        if len(matched_sizes) > 1:
-            return "原子事实对应多条候选记录"
+        # 多条同尺码记录命中同一原子不算冲突。
         if not matched_sizes:
             return "原子事实未被候选记录覆盖"
-        if matched_sizes[0] != normalize_text(atom.get("BackSize", "")):
+        if any(size != normalize_text(atom.get("BackSize", "")) for size in matched_sizes):
             return "原子事实命中不同尺码候选记录"
     return ""
 
@@ -2219,8 +2220,9 @@ class PickupMergeValidator:
     候选 = working 去掉左右两条再加合并记录，只有被这三条命中的原子状态会变化；
     其余原子沿用 working 的基线状态，取原子顺序上第一个失败的原因。"""
 
-    def __init__(self, atoms: list[dict[str, object]]) -> None:
+    def __init__(self, atoms: list[dict[str, object]], rules: MergeRules | None = None) -> None:
         self.atoms = [_pickup_atom_profile(atom) for atom in atoms]
+        self.rules = rules or MergeRules()
         self._atoms_by_year: dict[int, list[int]] = {}
         for index, atom in enumerate(self.atoms):
             self._atoms_by_year.setdefault(atom[5], []).append(index)
@@ -2241,13 +2243,17 @@ class PickupMergeValidator:
 
     @staticmethod
     def _reason(matched_sizes: list[str], atom_size: str) -> str:
-        if len(matched_sizes) > 1:
-            return "原子事实对应多条候选记录"
         if not matched_sizes:
             return "原子事实未被候选记录覆盖"
-        if matched_sizes[0] != atom_size:
+        if any(size != atom_size for size in matched_sizes):
             return "原子事实命中不同尺码候选记录"
         return ""
+
+    def _has_scope_atom(self, brand: str, models: frozenset[str], cab_text: str, cabs: frozenset[str], year: int) -> bool:
+        return any(
+            atom[0] == brand and atom[1] in models and (atom[4] in cabs if cab_text else not atom[4])
+            for atom in (self.atoms[index] for index in self._atoms_by_year.get(year, ()))
+        )
 
     def reset(self, records: list[dict[str, object]]) -> None:
         self.record_sets = [frozenset(self.matched_atoms(record)) for record in records]
@@ -2281,7 +2287,11 @@ class PickupMergeValidator:
             reason = self._reason(sizes, self.atoms[index][7])
             if reason:
                 return reason
-        return first_unaffected[1] if first_unaffected is not None else ""
+        if first_unaffected is not None:
+            return first_unaffected[1]
+        brand, model, models, _version, _incl, _tokens, cab_text, cabs, years, _bed = _pickup_record_profile(merged)
+        names = frozenset(models) | {model}
+        return self.rules.gap_reason(merged_size, years, lambda year: self._has_scope_atom(brand, names, cab_text, cabs, year))
 
 
 def pickup_internal_from_lossless(lossless: pd.DataFrame) -> pd.DataFrame:
@@ -2327,6 +2337,7 @@ def build_pickup_high_from_lossless(
     lossless: pd.DataFrame,
     atoms: pd.DataFrame,
     progress: ProgressReporter | None = None,
+    merge_rules: MergeRules | None = None,
 ) -> pd.DataFrame:
     output_columns = PICKUP_FINAL_COLUMNS
     process_stats: dict[object, dict[str, int]] = {}
@@ -2369,7 +2380,8 @@ def build_pickup_high_from_lossless(
         if progress:
             progress.update(current_make=brand, current_model=model_group, completed_models=completed_groups)
         validator = PickupMergeValidator(
-            [atom_records[position] for position in atom_positions.get((normalize_text(brand), normalize_text(model_group)), [])]
+            [atom_records[position] for position in atom_positions.get((normalize_text(brand), normalize_text(model_group)), [])],
+            merge_rules,
         )
         working = group.sort_values(["_year_start", "_year_end", "VERSION", "CAB", "BED_FT", "BACKSIZE"], kind="mergesort").reset_index(drop=True)
         # 两两尝试在纯 Python 记录上进行；只有合并成功时才重建 DataFrame 并排序。
@@ -2656,6 +2668,7 @@ def transform_pickup(
     progress: ProgressReporter | None = None,
     remove_null_size: bool = False,
     field_profile: dict[str, object] | None = None,
+    merge_rules: MergeRules | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Convert pickup rows into lossless and specificity-preserving compressed tables."""
     df = normalize_input_schema(df, field_profile=field_profile)
@@ -2734,7 +2747,7 @@ def transform_pickup(
     atom_table = build_pickup_atom_table(renamed)
 
     pickup_lossless = build_pickup_lossless_compressed(renamed)
-    pickup_specificity = build_pickup_high_from_lossless(pickup_lossless, renamed, progress=progress)
+    pickup_specificity = build_pickup_high_from_lossless(pickup_lossless, renamed, progress=progress, merge_rules=merge_rules)
     summary = {
         "pickup_atomic_rows": len(renamed),
         "pickup_bed_merged_year_groups": pickup_specificity.attrs.get("summary", {}).get("pickup_bed_merged_year_groups", 0),
@@ -2794,18 +2807,21 @@ def transform_all(
     progress: ProgressReporter | None = None,
     remove_null_size: bool = False,
     field_profile: dict[str, object] | None = None,
+    merge_rules: MergeRules | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     non_pickup_lossless, non_pickup_high, non_pickup_higher = transform_non_pickup(
         df,
         progress=progress,
         remove_null_size=remove_null_size,
         field_profile=field_profile,
+        merge_rules=merge_rules,
     )
     pickup_lossless, pickup_specificity = transform_pickup(
         df,
         progress=progress,
         remove_null_size=remove_null_size,
         field_profile=field_profile,
+        merge_rules=merge_rules,
     )
     return non_pickup_lossless, non_pickup_high, non_pickup_higher, pickup_lossless, pickup_specificity
 
@@ -2849,6 +2865,7 @@ def transform_all_outputs(
     remove_null_size: bool = False,
     progress: ProgressReporter | None = None,
     field_profile: dict[str, object] | None = None,
+    merge_rules: MergeRules | None = None,
 ) -> tuple[
     pd.DataFrame,
     pd.DataFrame,
@@ -2863,6 +2880,7 @@ def transform_all_outputs(
         progress=progress,
         remove_null_size=remove_null_size,
         field_profile=field_profile,
+        merge_rules=merge_rules,
     )
     log_df = build_compression_log(non_pickup_higher, pickup_specificity)
     atom_df = build_atom_table(non_pickup_lossless, pickup_lossless)

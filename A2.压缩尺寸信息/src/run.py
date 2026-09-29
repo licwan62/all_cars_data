@@ -33,6 +33,7 @@ sys.path.insert(0, str(PROJECT_DIR / "src" / "sizechart"))
 import process_tsv as engine  # noqa: E402
 from check_atom import build_atom_check  # noqa: E402
 from field_profile import load_field_profile  # noqa: E402
+from non_pickup_validation import MergeRules  # noqa: E402
 
 UPSTREAM_OUTPUT = PROJECT_DIR.parent / "A0.尺码计算" / "output"
 REGIONS = ("US", "EU", "RU")
@@ -40,6 +41,11 @@ DATA_DIR = PROJECT_DIR / "data"
 FIELD_PROFILE = "字段映射.yaml"
 MODEL_COMBO = "车型组合.tsv"
 LINES_CONFIG = "产线.yaml"
+MERGE_RULES = "合并规则.yaml"
+# A0 全量表逐行销量（按 DIMENSION-ID）与压缩表新增的记录销量列
+SALES_SOURCE_COLUMN = "尺寸组销量"
+SALES_COLUMN = "尺码销量总和"
+ATOM_KEY = ["压缩类型", "MAKE", "MODEL", "YEAR", "VERSION", "CONST", "CAB", "BED_FT", "BACKSIZE"]
 
 
 class CompressionError(ValueError):
@@ -70,6 +76,53 @@ def load_lines(data_dir: Path = DATA_DIR) -> dict[str, str]:
     if not lines or bad:
         raise CompressionError(f"{LINES_CONFIG} 产线为空或区域无效：{bad}")
     return lines
+
+
+def load_size_formats(data_dir: Path = DATA_DIR) -> dict[str, dict]:
+    """产线 -> 尺码输出格式 {"尺码列名": 输出中 BACKSIZE 的列名, "附加尺码列": [按尺码从全量表回填的列]}。"""
+    config = yaml.safe_load((data_dir / LINES_CONFIG).read_text(encoding="utf-8")) or {}
+    formats = {}
+    for name, body in (config.get("产线") or {}).items():
+        body = body or {}
+        extra = [str(column) for column in body.get("附加尺码列") or []]
+        formats[str(name)] = {"尺码列名": str(body.get("尺码列名") or "BACKSIZE"), "附加尺码列": extra}
+    return formats
+
+
+def apply_size_format(tables: dict[str, pd.DataFrame], frame: pd.DataFrame, field_profile: dict, size_format: dict | None) -> None:
+    """按产线格式在 BACKSIZE 后回填附加尺码列（如 RU 的 OZON尺码、发货尺码），再把 BACKSIZE 改名。
+
+    附加列取自全量表：同一匹配尺码必须对应唯一的附加尺码组合，否则运行失败。
+    """
+    if not size_format:
+        return
+    extra, size_name = size_format["附加尺码列"], size_format["尺码列名"]
+    if extra:
+        missing = [column for column in extra if column not in frame.columns]
+        if missing:
+            raise CompressionError(f"全量表缺少附加尺码列：{missing}")
+        sizes = engine.normalize_input_schema(frame, field_profile=field_profile)[engine.BACKSIZE_SOURCE_COLUMN].map(engine.normalize_text)
+        pairs = pd.concat([sizes.rename("BACKSIZE"), frame[extra].apply(lambda column: column.map(engine.normalize_text))], axis=1)
+        pairs = pairs[pairs["BACKSIZE"] != ""].drop_duplicates()
+        conflicts = sorted(pairs.loc[pairs["BACKSIZE"].duplicated(), "BACKSIZE"].unique())
+        if conflicts:
+            raise CompressionError(f"尺码对应多个附加尺码组合：{conflicts}")
+        mapping = pairs.set_index("BACKSIZE")
+    for key in ("non_pickup_high", "pickup_high"):
+        table = tables[key]
+        position = table.columns.get_loc("BACKSIZE") + 1
+        for offset, column in enumerate(extra):
+            table.insert(position + offset, column, table["BACKSIZE"].map(engine.normalize_text).map(mapping[column]).fillna(""))
+        tables[key] = table.rename(columns={"BACKSIZE": size_name})
+
+
+def load_merge_rules(data_dir: Path = DATA_DIR) -> MergeRules:
+    """高度压缩两两合并的扩张约束（data/合并规则.yaml）。"""
+    config = yaml.safe_load((data_dir / MERGE_RULES).read_text(encoding="utf-8")) or {}
+    gap = config.get("最大空档年数")
+    if gap is not None and (not isinstance(gap, int) or gap < 0):
+        raise CompressionError(f"{MERGE_RULES} 最大空档年数须为非负整数或留空：{gap!r}")
+    return MergeRules(max_gap_years=gap, gap_exempt_sizes=frozenset(str(size) for size in config.get("空档豁免尺码") or []))
 
 
 def default_lines(lines: dict[str, str]) -> dict[str, str]:
@@ -109,8 +162,79 @@ def export_or_empty(frame: pd.DataFrame, exporter, columns: list[str]) -> pd.Dat
     return pd.DataFrame(columns=columns) if frame.empty else exporter(frame)
 
 
-def compress_line(line: str, frame: pd.DataFrame, field_profile: dict, region: str | None = None, progress: bool = False) -> dict:
-    """返回 {"tables": {键: DataFrame}, "log": DataFrame, "atoms": DataFrame, "checks": {类型: DataFrame}}。"""
+def source_atom_sales(frame: pd.DataFrame, field_profile: dict) -> pd.DataFrame:
+    """把全量表每行的尺寸组销量均摊到它展开出的原子事实（与压缩引擎相同的展开规则）。
+
+    非皮卡按 车型（前台车型拆分）× 年份 × 结构 展开，皮卡按 年份 × CAB 展开；
+    返回按原子键（ATOM_KEY）汇总的 销量 列。
+    """
+    if SALES_SOURCE_COLUMN not in frame.columns:
+        raise CompressionError(f"全量表缺少 {SALES_SOURCE_COLUMN} 列")
+    sales = pd.to_numeric(frame[SALES_SOURCE_COLUMN].replace("", "0"), errors="coerce")
+    if sales.isna().any():
+        raise CompressionError(f"全量表 {SALES_SOURCE_COLUMN} 存在非数值")
+    work = engine.normalize_input_schema(frame, field_profile=field_profile)
+    text = lambda column: work[column].map(engine.normalize_text) if column in work.columns else pd.Series("", index=work.index)  # noqa: E731
+    category, cab, bed, size = text("分类"), text("驾驶室类型"), text("货斗长度_ft"), text(engine.BACKSIZE_SOURCE_COLUMN)
+    if category.str.contains("皮卡", na=False).any():
+        pickup = category.str.contains("皮卡", na=False)
+    else:
+        pickup = (cab != "") | (bed != "")
+    brand, model, version, structure, years = text("品牌"), text("前台车型"), text("版本"), text("结构"), text("年份区间")
+
+    atoms: list[tuple] = []
+    for index in work.index[size != ""]:
+        year_list = engine.parse_year_list(years[index])
+        if pickup[index]:
+            keys = {
+                ("皮卡", brand[index], model[index], str(year), version[index], "", cab_atom, bed[index], size[index])
+                for year in year_list
+                for cab_atom in engine.split_joined_atoms(cab[index])
+            }
+        else:
+            keys = {
+                ("非皮卡", brand[index], engine.normalize_text(model_atom), str(year), version[index], engine.normalize_text(const), "", "", size[index])
+                for model_atom in engine.split_front_model_atoms(model[index])
+                for year in year_list
+                for const in engine.split_const_atoms(structure[index])
+            }
+        atoms.extend((*key, float(sales[index]) / len(keys)) for key in keys)
+    result = pd.DataFrame(atoms, columns=[*ATOM_KEY, "销量"])
+    return result.groupby(ATOM_KEY, as_index=False, sort=False)["销量"].sum()
+
+
+def allocate_record_sales(atom_export: pd.DataFrame, atom_sales: pd.DataFrame, table: pd.DataFrame, check: pd.DataFrame) -> tuple[pd.Series, dict]:
+    """按原子检查的命中关系把原子销量汇总到压缩记录；原子命中多条同尺码记录时均分。"""
+    keys = atom_export[ATOM_KEY].astype(str).map(engine.normalize_text) if not atom_export.empty else atom_export[ATOM_KEY]
+    sales_by_key = atom_sales.set_index(ATOM_KEY)["销量"]
+    atom_values = pd.Series(
+        [float(sales_by_key.get(tuple(key), 0.0)) for key in keys.itertuples(index=False)], index=atom_export.index
+    )
+    line_sizes = {index + 2: engine.normalize_text(value) for index, value in table["BACKSIZE"].items()}
+    totals = pd.Series(0.0, index=table.index)
+    unallocated = 0.0
+    for atom_row, lines, atom_size in zip(check["原子行号"], check["压缩行号"], check["BACKSIZE"]):
+        value = atom_values[int(atom_row) - 2]
+        targets = [int(line) for line in str(lines).split("/") if line and line_sizes.get(int(line)) == atom_size]
+        if not targets:
+            unallocated += value
+            continue
+        for line in targets:
+            totals[line - 2] += value / len(targets)
+    audit = {"原子销量": round(float(atom_values.sum())), "已分配": round(float(totals.sum())), "未命中同尺码记录": round(unallocated)}
+    return totals.round().astype("Int64"), audit
+
+
+def compress_line(
+    line: str,
+    frame: pd.DataFrame,
+    field_profile: dict,
+    region: str | None = None,
+    progress: bool = False,
+    merge_rules: MergeRules | None = None,
+    size_format: dict | None = None,
+) -> dict:
+    """返回 {"tables": {键: DataFrame}, "log": DataFrame, "atoms": DataFrame, "checks": {类型: DataFrame}, "sales": {类型: 审计}}。"""
     region = region or line
     if "DIMENSION-ID" in frame.columns:
         wrong_region = set(frame["DIMENSION-ID"].map(region_of)) - {region}
@@ -118,7 +242,7 @@ def compress_line(line: str, frame: pd.DataFrame, field_profile: dict, region: s
             raise CompressionError(f"{upstream_file(line, region)} 含非 {region} 的 DIMENSION-ID：{sorted(wrong_region)}")
     reporter = engine.ProgressReporter(interval_seconds=10.0, enabled=progress)
     non_lossless, _, non_high, pick_lossless, pick_high, log_df, atom_df = engine.transform_all_outputs(
-        frame, progress=reporter, field_profile=field_profile
+        frame, progress=reporter, field_profile=field_profile, merge_rules=merge_rules or load_merge_rules()
     )
     names = output_names(line)
     tables = {
@@ -137,10 +261,27 @@ def compress_line(line: str, frame: pd.DataFrame, field_profile: dict, region: s
         checks["非皮卡"] = build_atom_check(atom_export[kinds == "非皮卡"].copy(), tables["non_pickup_high"], progress=reporter, progress_phase="非皮卡原子检查")
     if not tables["pickup_high"].empty:
         checks["皮卡"] = build_atom_check(atom_export[kinds == "皮卡"].copy(), tables["pickup_high"], progress=reporter, progress_phase="皮卡原子检查")
-    return {"names": names, "tables": tables, "log": engine.export_table(log_df), "atoms": atom_export, "checks": checks}
+
+    # 尺码销量总和：压缩记录所覆盖原子事实的尺寸组销量之和（行销量按原子均摊）
+    atom_sales = source_atom_sales(frame, field_profile)
+    export_keys = set(atom_export[ATOM_KEY].astype(str).map(engine.normalize_text).itertuples(index=False, name=None))
+    sales_keys = set(atom_sales[ATOM_KEY].itertuples(index=False, name=None))
+    if export_keys != sales_keys:
+        raise CompressionError(
+            f"{line} 销量原子与压缩原子不一致：仅销量 {len(sales_keys - export_keys)}，仅压缩 {len(export_keys - sales_keys)}"
+        )
+    sales_audit: dict[str, dict] = {}
+    for kind, key in (("非皮卡", "non_pickup_high"), ("皮卡", "pickup_high")):
+        table = tables[key]
+        if kind in checks:
+            table[SALES_COLUMN], sales_audit[kind] = allocate_record_sales(atom_export[kinds == kind], atom_sales, table, checks[kind])
+        else:
+            table[SALES_COLUMN] = pd.Series(dtype="Int64")
+    apply_size_format(tables, frame, field_profile, size_format)
+    return {"names": names, "tables": tables, "log": engine.export_table(log_df), "atoms": atom_export, "checks": checks, "sales": sales_audit}
 
 
-FALLBACK_REASONS = ("原子事实对应多条候选记录", "原子事实未被候选记录覆盖", "命中尺码", "原子事实命中不同尺码候选记录", "候选合并范围内没有可验证原子事实", "候选年份区间内存在同BED不同尺码事实")
+FALLBACK_REASONS = ("原子事实对应多条候选记录", "无原子空档", "原子事实未被候选记录覆盖", "命中尺码", "原子事实命中不同尺码候选记录", "候选合并范围内没有可验证原子事实", "候选年份区间内存在同BED不同尺码事实")
 
 
 def fallback_category(reason: str) -> str:
@@ -156,13 +297,16 @@ def summarize(result: dict) -> dict:
         "两两合并": dict(Counter(log["结果"])) if "结果" in log.columns else {},
         "fallback原因": dict(Counter(fallback["原因"].map(fallback_category))) if "原因" in fallback.columns else {},
         "原子检查": {kind: dict(Counter(check["检查结果"])) for kind, check in result["checks"].items()},
+        SALES_COLUMN: result["sales"],
     }
 
 
 def compress_file(line: str, path: Path, region: str, data_dir: Path, progress: bool = False) -> dict:
     """子进程入口：读取一条产线的全量表并压缩。"""
     field_profile = load_field_profile((data_dir / FIELD_PROFILE).resolve())
-    return compress_line(line, read_frame(path), field_profile, region, progress)
+    return compress_line(
+        line, read_frame(path), field_profile, region, progress, load_merge_rules(data_dir), load_size_formats(data_dir).get(line)
+    )
 
 
 def run(
@@ -198,6 +342,7 @@ def run(
         shutil.copy2(path, snapshot)
     shutil.copy2(data_dir / FIELD_PROFILE, artifact / "input")
     shutil.copy2(data_dir / LINES_CONFIG, artifact / "input")
+    shutil.copy2(data_dir / MERGE_RULES, artifact / "input")
     shutil.copy2(engine.DEFAULT_MODEL_COMBO_PATH, artifact / "input" / MODEL_COMBO)  # 车型组合固定取自本节点 data/
 
     outputs: list[str] = []

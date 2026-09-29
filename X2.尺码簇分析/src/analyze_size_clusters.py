@@ -186,7 +186,7 @@ def read_source(
         "L-MM",
         "W-MM",
         "H-MM",
-        "销量合计",
+        "尺寸组销量",
         "参考插片",
     ]
     records: list[dict[str, Any]] = []
@@ -200,7 +200,7 @@ def read_source(
             if not clean_text(record.get("DIMENSION-ID")):
                 continue
             record["__source_row"] = source_row
-            record["__sales"] = max(clean_number(record.get("销量合计")) or 0.0, 0.0)
+            record["__sales"] = max(clean_number(record.get("尺寸组销量")) or 0.0, 0.0)
             record["__length"] = clean_number(record.get("L-MM"))
             record["__width"] = clean_number(record.get("W-MM"))
             record["__height"] = clean_number(record.get("H-MM"))

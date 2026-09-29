@@ -100,6 +100,8 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
 
     data = pd.read_csv(args.data, encoding="utf-8-sig", dtype=str).fillna("")
+    # A0 全量表的逐行销量为 尺寸组销量；本节点输出沿用 销量合计 供 D2 读取
+    data = data.rename(columns={"尺寸组销量": "销量合计"})
     rules = pd.read_csv(args.rules, encoding="utf-8-sig", dtype=str).fillna("") if args.rules else pd.DataFrame(columns=["尺码"])
     if {"内部尺码", "逻辑尺码"}.issubset(rules.columns):
         internal_to_logical = dict(zip(rules["内部尺码"], rules["逻辑尺码"]))
