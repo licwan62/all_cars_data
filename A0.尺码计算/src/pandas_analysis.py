@@ -38,10 +38,11 @@ import data_layout  # noqa: E402
 MM_PER_INCH = 25.4
 PANEL_OFFSET_MM = 750.0
 EQUIVALENT_LENGTH_OFFSET_MM = 1500.0
+# DIMENSION-ID 在首列、TRIM 在末列（EU/RU 无 TRIM 列，末列为 相差数值）
 DEFAULT_OUTPUT_COLUMNS = [
+    "DIMENSION-ID",
     "MAKE",
     "MODEL",
-    "TRIM",
     "版本",
     "结构",
     "CAB",
@@ -62,7 +63,7 @@ DEFAULT_OUTPUT_COLUMNS = [
     "候选",
     "原因",
     "相差数值",
-    "DIMENSION-ID",
+    "TRIM",
 ]
 
 

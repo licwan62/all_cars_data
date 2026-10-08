@@ -40,7 +40,8 @@ def test_only_us_tables_have_trim_and_none_have_dimension_code():
         columns, _ = read_rows(OUTPUT / layout.full_table(region))
         assert ("TRIM" in columns) == (region == "US"), region
         assert "DIMENSION-CODE" not in columns
-        assert columns[-1] == "DIMENSION-ID"
+        assert columns[0] == "DIMENSION-ID"
+        assert (columns[-1] == "TRIM") == (region == "US"), region
 
 
 def test_trim_adapter_points_to_current_us_ids():

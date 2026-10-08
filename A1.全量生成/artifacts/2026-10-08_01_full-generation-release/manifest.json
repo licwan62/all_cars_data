@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "node": "full-generation",
+  "path": "A1.全量生成",
+  "version": "20261008_01",
+  "artifact": "A1.全量生成/artifacts/2026-10-08_01_full-generation-release",
+  "published_at": "2026-10-08T22:08:14+08:00",
+  "deliverables": [
+    {
+      "file": "尺码宽高统计.csv",
+      "versioned_file": "尺码宽高统计-20261008_01.csv",
+      "artifact_file": "A1.全量生成/artifacts/2026-10-08_01_full-generation-release/output/尺码宽高统计-20261008_01.csv",
+      "sha256": "d21186265158ec9e2a7c727a9ec0157cedff8e06ba26dc7b2ff6315b57b82b9c",
+      "bytes": 10007,
+      "rows": 106
+    },
+    {
+      "file": "尺码宽高极值车型.csv",
+      "versioned_file": "尺码宽高极值车型-20261008_01.csv",
+      "artifact_file": "A1.全量生成/artifacts/2026-10-08_01_full-generation-release/output/尺码宽高极值车型-20261008_01.csv",
+      "sha256": "f81fc263f98d2720ece95a246bce552ed10c4ec314890637dd41d4e6162b983f",
+      "bytes": 65604,
+      "rows": 464
+    },
+    {
+      "file": "尺码尺寸异常.csv",
+      "versioned_file": "尺码尺寸异常-20261008_01.csv",
+      "artifact_file": "A1.全量生成/artifacts/2026-10-08_01_full-generation-release/output/尺码尺寸异常-20261008_01.csv",
+      "sha256": "4e7e99d5dfc56e35bcd13841e366380c908b609be7e1c5122b7a546c8781a0fa",
+      "bytes": 639565,
+      "rows": 3177
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261008_05",
+      "artifact": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release",
+      "files": [
+        {
+          "file": "US/尺码匹配报告.md",
+          "versioned_file": "US/尺码匹配报告-20261008_05.md",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/US/尺码匹配报告-20261008_05.md",
+          "sha256": "c67ff87806e9494bce9fb40119d153bbe3fad07f0430e1e669adc5ee09cb3501"
+        },
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261008_05.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/US/全量/全量表-20261008_05.csv",
+          "sha256": "7378ce382432d2ece9a45ee71a0ef856635b79c5ea596cf48bdc6ac68b724edd"
+        },
+        {
+          "file": "US/店铺/店铺全量_HNT.csv",
+          "versioned_file": "US/店铺/店铺全量_HNT-20261008_05.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/US/店铺/店铺全量_HNT-20261008_05.csv",
+          "sha256": "3f907c734c9b5a3af8ad5eece659ea94020393cb0f715a02be58759d054bc3cf"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM.csv",
+          "versioned_file": "US/店铺/店铺全量_TM-20261008_05.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/US/店铺/店铺全量_TM-20261008_05.csv",
+          "sha256": "4c3cc5c6d36c3de79470d7463db027929f901fe392da5488cc63b4fd9091f6cb"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM_拆分.csv",
+          "versioned_file": "US/店铺/店铺全量_TM_拆分-20261008_05.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/US/店铺/店铺全量_TM_拆分-20261008_05.csv",
+          "sha256": "92b05fdeadd68e2b0c0c3fb8f9b73073d828687919b8694757eb35942c50c444"
+        },
+        {
+          "file": "US/TRIM/TRIM适配器.csv",
+          "versioned_file": "US/TRIM/TRIM适配器-20261008_05.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/US/TRIM/TRIM适配器-20261008_05.csv",
+          "sha256": "be340507cb98b5f751fc618e2df0abc343c7aadf431eac65c07648065f7641a0"
+        },
+        {
+          "file": "EU/尺码匹配报告.md",
+          "versioned_file": "EU/尺码匹配报告-20261008_05.md",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/EU/尺码匹配报告-20261008_05.md",
+          "sha256": "98a057da5f7683693aa08e35b9e8fce63d08fabdfa0a05c951212762e3d0ba12"
+        },
+        {
+          "file": "EU/全量/全量表.csv",
+          "versioned_file": "EU/全量/全量表-20261008_05.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/EU/全量/全量表-20261008_05.csv",
+          "sha256": "1ee3d42b999dcde5147b47c068c0741702fef8a20569759a90de7b5dffd9ba08"
+        },
+        {
+          "file": "RU/尺码匹配报告.md",
+          "versioned_file": "RU/尺码匹配报告-20261008_05.md",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/RU/尺码匹配报告-20261008_05.md",
+          "sha256": "fe19623ba92f584a2f2144b8502c965a1a7be050c41e203d0044c12ed05cdfd2"
+        },
+        {
+          "file": "RU/全量/全量表.csv",
+          "versioned_file": "RU/全量/全量表-20261008_05.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-08_05_size-calculation-release/output/RU/全量/全量表-20261008_05.csv",
+          "sha256": "2f846a10e5f60d8fd17771b732bbf93db6c8f47c7ca7b62d36983b8634ec1272"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/dimension_stats_config.json",
+      "sha256": "07b7d9f694e9eccffe3eaa41f9f4b1cd90aab7d44b5facced8ca35bf5d3a28db"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-22 由 full-table-summary（A1.全量汇总）与 adapter-trim（B1.适配器-Trim生成）合并为单一节点 A1.全量生成；历史 artifact 分别归档在 artifacts/legacy-full-table-summary/ 与 artifacts/legacy-adapter-trim/ 下，未做内容改动",
+    "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核（继承自 A0 口径限制，汇总表必须保留）",
+    "2026-09-25 整理 output：新增分区域全量表 全量生成_US/EU/RU.csv（= A0 全量表_<区域> 原行序原列 + Trims，EU/RU 的 Trims 为空），作为 A2.压缩尺寸信息 与网站流水线（pipeline_carstable_to_webapp/input）的区域输入；全量表_汇总.csv 不变",
+    "2026-09-25 新增店铺产线 全量生成_HNT/TM/TM_拆分.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、店铺发货尺码）+ Trims；A 线共 6 条产线（US、HNT、TM、TM_拆分、EU、RU）",
+    "2026-09-27 改为全量表分析节点：只读 A0 US/EU/RU 全量表做宽高统计（尺码宽高统计、尺码宽高极值车型、尺码尺寸异常）；TRIM 匹配、TRIM适配器 与 data/ TRIM 资料迁至 A0.尺码计算，不再输出 全量表_汇总、全量生成_<产线>、尺寸TRIM映射"
+  ]
+}

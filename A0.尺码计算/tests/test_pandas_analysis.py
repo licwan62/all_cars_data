@@ -444,9 +444,9 @@ class FullPipelineRegressionTests(unittest.TestCase):
         )  # TRIM 由 generate_store_outputs 的 TRIM 匹配回填，calculate 本身不产出 TRIM
 
     def test_full_result_contract(self) -> None:
-        summary = analysis.validate_result(self.result, 4377)
-        self.assertEqual(summary["unique_dimension_ids"], 4377)
-        self.assertEqual(summary["matched_sizes"], 4237)
+        summary = analysis.validate_result(self.result, 4378)
+        self.assertEqual(summary["unique_dimension_ids"], 4378)
+        self.assertEqual(summary["matched_sizes"], 4238)
         self.assertEqual(summary["unavailable_sizes"], 140)
         self.assertEqual(summary["incomplete_rows"], 0)
         self.assertEqual(summary["sales_total"], 750288484)
@@ -469,7 +469,8 @@ class FullPipelineRegressionTests(unittest.TestCase):
         self.assertEqual(row["插片指数"], 276)
         self.assertEqual(row["自动尺码"], "4L")
         self.assertEqual(row["自动长度余量"], 146)
-        self.assertEqual(self.result.columns[-1], "DIMENSION-ID")
+        self.assertEqual(self.result.columns[0], "DIMENSION-ID")
+        self.assertEqual(self.result.columns[-1], "TRIM")
         self.assertTrue(self.result["DIMENSION-ID"].is_monotonic_increasing)
         self.assertFalse(self.result["TRIM"].str.contains("|", regex=False).any())
         self.assertFalse(self.result["TRIM"].str.contains("-", regex=False).any())

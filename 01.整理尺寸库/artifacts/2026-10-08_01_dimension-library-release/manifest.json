@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "node": "dimension-library",
+  "path": "01.整理尺寸库",
+  "version": "20261008_01",
+  "artifact": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release",
+  "published_at": "2026-10-08T22:14:19+08:00",
+  "deliverables": [
+    {
+      "file": "尺寸库.csv",
+      "versioned_file": "尺寸库-20261008_01.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release/output/尺寸库-20261008_01.csv",
+      "sha256": "46812f683cd62ffcb68189c25f154f41b945d38431cdc2bc8d6fc1c1f5183916",
+      "bytes": 6408949,
+      "rows": 47355
+    },
+    {
+      "file": "尺寸库_US.csv",
+      "versioned_file": "尺寸库_US-20261008_01.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release/output/尺寸库_US-20261008_01.csv",
+      "sha256": "553830fcaa0d1d567a503f4d4d82c264d30e09b08097195faa889ef15934851a",
+      "bytes": 907566,
+      "rows": 4377
+    },
+    {
+      "file": "尺寸库_EU.csv",
+      "versioned_file": "尺寸库_EU-20261008_01.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release/output/尺寸库_EU-20261008_01.csv",
+      "sha256": "5d4d4351ca6ce48c7dd816ab1ec98cea5157c1627413f3892826053e5a536354",
+      "bytes": 3892687,
+      "rows": 29361
+    },
+    {
+      "file": "尺寸库_RU.csv",
+      "versioned_file": "尺寸库_RU-20261008_01.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release/output/尺寸库_RU-20261008_01.csv",
+      "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a",
+      "bytes": 1608928,
+      "rows": 13617
+    },
+    {
+      "file": "EU_ID迁移.csv",
+      "versioned_file": "EU_ID迁移-20261008_01.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release/output/EU_ID迁移-20261008_01.csv",
+      "sha256": "092b9ba729ff9b559c700ae2a8676aa3e912dfd83d57133d9476e7cdd3a4b8d4",
+      "bytes": 3446103,
+      "rows": 30875
+    },
+    {
+      "file": "来源映射_EU.csv",
+      "versioned_file": "来源映射_EU-20261008_01.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release/output/来源映射_EU-20261008_01.csv",
+      "sha256": "a43d64cf242536d0bae6e2193cfb4f378a66b6f58e85335c1bf685ce7bad37a9",
+      "bytes": 3268589,
+      "rows": 50389
+    },
+    {
+      "file": "来源映射_RU.csv",
+      "versioned_file": "来源映射_RU-20261008_01.csv",
+      "artifact_file": "01.整理尺寸库/artifacts/2026-10-08_01_dimension-library-release/output/来源映射_RU-20261008_01.csv",
+      "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe",
+      "bytes": 1209960,
+      "rows": 13868
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-crawler",
+      "version": "20260927_01",
+      "artifact": "00.自动化尺寸抓取器/artifacts/2026-09-27_01_dimension-crawler-release",
+      "files": []
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/dimension_id_generation.json",
+      "sha256": "8d4b332688231ac6de677cd58a9e7aaef2631c13af441b518669e627167a88f1"
+    },
+    {
+      "file": "data/eu/0916/00_EU尺寸库.csv",
+      "sha256": "2ea549a82ee0e1c5dfb2a722cba49ece8739417bdf0b66041473005b0c334dd8"
+    },
+    {
+      "file": "data/eu/0916/DimensionGroup尺寸.csv",
+      "sha256": "a1b017cff84091c6cfa3de9ced4fc188f3431883ecdebc21c41d539aae5ef968"
+    },
+    {
+      "file": "data/eu/0916/Ktype.csv",
+      "sha256": "8b3f2b0f79bede761b3ef5e782a5678b2c1e64c374b0b1342fa438513e30474c"
+    },
+    {
+      "file": "data/eu/0916/KtypeMatched.csv",
+      "sha256": "a4a43fd07f1657977f495c98abe75fd6c4db432e749db71691f091d0c0c3bbd6"
+    },
+    {
+      "file": "data/eu/0916/来源映射_EU.csv",
+      "sha256": "43349fabfc97c97696f8bf33ed977f3c627f259ee45a98878a4001597bd79d30"
+    },
+    {
+      "file": "data/EU_ID迁移.csv",
+      "sha256": "092b9ba729ff9b559c700ae2a8676aa3e912dfd83d57133d9476e7cdd3a4b8d4"
+    },
+    {
+      "file": "data/eu_key_versions.json",
+      "sha256": "416ac23c42e1758f5187d9000fdb2d72423d7284b58f6df4904dfeba910dd979"
+    },
+    {
+      "file": "data/EU裸SUV疑似重复候选.csv",
+      "sha256": "a792c1c759a1e98507c453f0b9bbfc5893b96c3863969fffd2ddbf7178881b70"
+    },
+    {
+      "file": "data/identity_merge_rules.json",
+      "sha256": "abb2b46e357dc725fa51b1bc5d9f0c6e205e588b03b1a0b4634a8f486d6d4b9e"
+    },
+    {
+      "file": "data/legacy/07-FULL.csv",
+      "sha256": "63837c59589d4551a3822f7e7ab1dde02dd02b08143796fde2d763cb66332ab6"
+    },
+    {
+      "file": "data/legacy/rules.csv",
+      "sha256": "59852e475afea0f48b1245f0b9f3b01e1d547a15efa9600b5c8d373abfec5138"
+    },
+    {
+      "file": "data/ru/0916/00_RU尺寸库.csv",
+      "sha256": "728f041cd149c694e3e411e5b2d8ddd83c32b34536519ebc4f2d0b061f02caf2"
+    },
+    {
+      "file": "data/ru/0916/auto_ru_catalog_rank.csv",
+      "sha256": "fa9e47480011d5add705ec9f8ec671987ce9c89fe20d4bddd13275fc27f779c9"
+    },
+    {
+      "file": "data/ru/0916/auto_ru_dimensions_with_match_key.csv",
+      "sha256": "445649aa97b369365b2a5007cc7d2e936bb2b354c9644018503cd20b56fd42cd"
+    },
+    {
+      "file": "data/ru/0916/auto_ru_model_sales_with_match_key.csv",
+      "sha256": "bb1b354b039b1eb1a12693b181bf1cef407ab34366c74164ef9fbfd21eda4208"
+    },
+    {
+      "file": "data/ru/0916/无尺码分析.csv",
+      "sha256": "d21d6d4aeb9e8bcb0da97dc10aed6d62f8cb51bae66f94b15ca1b1d8c3603299"
+    },
+    {
+      "file": "data/ru/0916/来源映射_RU.csv",
+      "sha256": "7e69a95cbd2b04200e942337805693f946c0e9f782f3f4619d4e02914513f298"
+    },
+    {
+      "file": "data/RU裸SUV疑似重复候选.csv",
+      "sha256": "8829120187437214c11d82ae0e276e1e6f732d37946e54cc98db7a11d28580c9"
+    },
+    {
+      "file": "data/structure_normalization.json",
+      "sha256": "2e7263f3dcfcf7c3465dd85e73c3177a050566ca973f115323d8da3fc1f08186"
+    },
+    {
+      "file": "data/us/0916/00_US尺寸库.csv",
+      "sha256": "8afbaf0899e4ad5b29271df0b6d8eb15b64b386a93a56ea519471349c1963615"
+    },
+    {
+      "file": "data/us/2027_gle_sources.md",
+      "sha256": "e81b270998e3ebe674f681d9b994b7a0b20e527822cf9a4d9e9773405d1386bf"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-27 EU 版本列只保留关键版本（data/eu_key_versions.json），非必要版本留空，冲突时依次追加其余变体词、底盘代号、尺寸；EU 记录 29707 → 29361，版本非空 84% → 55%；EU DIMENSION-ID 随之变化，发布 EU_ID迁移.csv（旧→新）",
+    "2026-09-27 新增 来源映射_EU/RU.csv（源数据行 ID → 最终 DIMENSION-ID），建库时记录、合并时换算并校验覆盖全部区域记录，供下游按源键挂接数据而无需重跑本节点代码"
+  ]
+}

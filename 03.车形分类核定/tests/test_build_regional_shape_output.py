@@ -88,3 +88,9 @@ def test_reference_table_must_cover_allowed_shapes_with_numeric_coefficients():
 
 def test_current_reference_data_passes_validation():
     assert all(module.validate_reference(module.read_rows(module.REFERENCE)).values())
+
+
+def test_2027_gle_shape_overrides_cover_both_body_styles():
+    overrides = module.read_generic_shape_overrides(module.GENERIC_SHAPE_OVERRIDES, RULES)
+    assert overrides[("mercedes-benz", "gle-class", "gen2", "coupe")] == "SU1"
+    assert overrides[("mercedes-benz", "gle-class", "gen2", "suv")] == "SU1"
