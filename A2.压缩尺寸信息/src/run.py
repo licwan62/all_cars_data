@@ -7,6 +7,8 @@
   <产线>/压缩尺码表.csv       非皮卡高度压缩（车型组合/版本/结构两两合并，逐次原子校验）
   <产线>/压缩尺码表_皮卡.csv  皮卡高度压缩
 其中 HNT、TM、TM_拆分均读取 US 店铺全量表；无损表不作为 output 流水线接口。
+代号区域（data/产线.yaml，当前 US）的产线在首列加 CODE：02.代码映射/output/车型编码映射.csv 的
+MAKE_CODE + MODEL_CODE + YEARCODE（与 DIMENSION-CODE 同一规则）。
 运行先创建不可覆盖的 artifacts/<批次>/（输入与规则快照、压缩 log、原子事实表、原子检查问题），
 全部产线成功后才原子更新 output/。
 """
@@ -20,6 +22,7 @@ from concurrent.futures import ProcessPoolExecutor
 import re
 import shutil
 import sys
+import unicodedata
 from collections import Counter
 from datetime import date
 from pathlib import Path
@@ -36,6 +39,7 @@ from field_profile import load_field_profile  # noqa: E402
 from non_pickup_validation import MergeRules  # noqa: E402
 
 UPSTREAM_OUTPUT = PROJECT_DIR.parent / "A0.尺码计算" / "output"
+CODE_MAPPING = PROJECT_DIR.parent / "02.代码映射" / "output" / "车型编码映射.csv"
 REGIONS = ("US", "EU", "RU")
 DATA_DIR = PROJECT_DIR / "data"
 FIELD_PROFILE = "字段映射.yaml"
@@ -45,6 +49,7 @@ MERGE_RULES = "合并规则.yaml"
 # A0 全量表逐行销量（按 DIMENSION-ID）与压缩表新增的记录销量列
 SALES_SOURCE_COLUMN = "尺寸组销量"
 SALES_COLUMN = "尺码销量总和"
+CODE_COLUMN = "CODE"
 ATOM_KEY = ["压缩类型", "MAKE", "MODEL", "YEAR", "VERSION", "CONST", "CAB", "BED_FT", "BACKSIZE"]
 
 
@@ -114,6 +119,54 @@ def apply_size_format(tables: dict[str, pd.DataFrame], frame: pd.DataFrame, fiel
         for offset, column in enumerate(extra):
             table.insert(position + offset, column, table["BACKSIZE"].map(engine.normalize_text).map(mapping[column]).fillna(""))
         tables[key] = table.rename(columns={"BACKSIZE": size_name})
+
+
+def load_code_regions(data_dir: Path = DATA_DIR) -> set[str]:
+    """在压缩表加 CODE 列的区域（data/产线.yaml 代号区域）。"""
+    config = yaml.safe_load((data_dir / LINES_CONFIG).read_text(encoding="utf-8")) or {}
+    regions = {str(region) for region in config.get("代号区域") or []}
+    if regions - set(REGIONS):
+        raise CompressionError(f"{LINES_CONFIG} 代号区域无效：{sorted(regions - set(REGIONS))}")
+    return regions
+
+
+def name_key(text: str) -> str:
+    """与 02.代码映射 相同的名称匹配键：NFKC、去首尾空格、忽略大小写。"""
+    return unicodedata.normalize("NFKC", str(text)).strip().casefold()
+
+
+def load_code_mapping(path: Path = CODE_MAPPING) -> dict[tuple[str, str, str], str]:
+    """(REGION, MAKE 键, MODEL 键) -> MAKE_CODE + MODEL_CODE。"""
+    frame = read_frame(path)
+    missing = {"REGION", "MAKE", "MODEL", "MAKE_CODE", "MODEL_CODE"} - set(frame.columns)
+    if missing:
+        raise CompressionError(f"{path.name} 缺少列：{sorted(missing)}")
+    mapping: dict[tuple[str, str, str], str] = {}
+    for item in frame.itertuples(index=False):
+        key = (item.REGION.strip(), name_key(item.MAKE), name_key(item.MODEL))
+        if key in mapping:
+            raise CompressionError(f"{path.name} 车型重复：{item.REGION} {item.MAKE} {item.MODEL}")
+        mapping[key] = item.MAKE_CODE + item.MODEL_CODE
+    return mapping
+
+
+def year_code(year: str) -> str:
+    """YEARCODE：年份区间两端后两位（1956-2012 -> 5612，单年 1994 -> 9494），同 02.代码映射。"""
+    match = re.fullmatch(r"(\d{4})(?:\s*-\s*(\d{4}))?", str(year).strip())
+    if not match:
+        raise CompressionError(f"YEAR 无法生成 YEARCODE：{year!r}")
+    return match.group(1)[2:] + (match.group(2) or match.group(1))[2:]
+
+
+def apply_codes(tables: dict[str, pd.DataFrame], mapping: dict[tuple[str, str, str], str], region: str, line: str) -> None:
+    """在两张交付表首列插入 CODE = MAKE_CODE + MODEL_CODE + YEARCODE；车型不在映射中则运行失败。"""
+    for key in ("non_pickup_high", "pickup_high"):
+        table = tables[key]
+        prefixes = [mapping.get((region, name_key(make), name_key(model))) for make, model in zip(table["MAKE"], table["MODEL"])]
+        missing = sorted({f"{make} {model}" for make, model, prefix in zip(table["MAKE"], table["MODEL"], prefixes) if prefix is None})
+        if missing:
+            raise CompressionError(f"{line} 车型不在 02.代码映射 {region} 车型编码映射中：{missing[:20]}")
+        table.insert(0, CODE_COLUMN, [prefix + year_code(year) for prefix, year in zip(prefixes, table["YEAR"])])
 
 
 def load_merge_rules(data_dir: Path = DATA_DIR) -> MergeRules:
@@ -316,9 +369,12 @@ def run(
     artifacts_dir: Path = PROJECT_DIR / "artifacts",
     progress: bool = False,
     workers: int = 0,
+    code_mapping: Path = CODE_MAPPING,
 ) -> dict:
     """workers：并行进程数，0 = 每条产线一个进程（上限 CPU 数），1 = 当前进程串行。"""
     lines = default_lines(load_lines(data_dir))
+    code_regions = load_code_regions(data_dir)
+    codes = load_code_mapping(code_mapping) if code_regions & set(lines.values()) else {}
     inputs = {line: source_dir / upstream_file(line, lines[line]) for line in lines}
     for path in inputs.values():
         if not path.is_file():
@@ -332,6 +388,9 @@ def run(
         with ProcessPoolExecutor(max_workers=workers) as executor:
             futures = {job[0]: executor.submit(compress_file, *job) for job in jobs}
             results = {line: future.result() for line, future in futures.items()}
+    for line, result in results.items():
+        if lines[line] in code_regions:
+            apply_codes(result["tables"], codes, lines[line], line)
 
     artifacts_dir.mkdir(parents=True, exist_ok=True)
     artifact = next_artifact_dir(artifacts_dir, "compress-by-line")
@@ -344,6 +403,8 @@ def run(
     shutil.copy2(data_dir / LINES_CONFIG, artifact / "input")
     shutil.copy2(data_dir / MERGE_RULES, artifact / "input")
     shutil.copy2(engine.DEFAULT_MODEL_COMBO_PATH, artifact / "input" / MODEL_COMBO)  # 车型组合固定取自本节点 data/
+    if codes:
+        shutil.copy2(code_mapping, artifact / "input" / code_mapping.name)
 
     outputs: list[str] = []
     status_lines = {}
@@ -381,6 +442,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
     parser.add_argument("--output-dir", type=Path, default=PROJECT_DIR / "output")
     parser.add_argument("--artifacts-dir", type=Path, default=PROJECT_DIR / "artifacts")
+    parser.add_argument("--code-mapping", type=Path, default=CODE_MAPPING, help="02.代码映射 车型编码映射.csv")
     parser.add_argument("--no-progress", action="store_true", help="不输出周期进度")
     parser.add_argument("--workers", type=int, default=0, help="并行进程数；0 = 每条产线一个（上限 CPU 数），1 = 串行")
     args = parser.parse_args(argv)
@@ -390,6 +452,7 @@ def main(argv: list[str] | None = None) -> int:
             args.output_dir.resolve(), args.artifacts_dir.resolve(),
             progress=not args.no_progress,
             workers=args.workers,
+            code_mapping=args.code_mapping.resolve(),
         )
     except CompressionError as error:
         print(f"运行失败：{error}", file=sys.stderr)

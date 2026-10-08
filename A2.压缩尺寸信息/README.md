@@ -7,8 +7,11 @@
 
 | 文件 | 内容 | 列 |
 |---|---|---|
-| `output/<国别>/压缩尺码表.csv` | 非皮卡高度压缩 | CAR, MAKE, MODEL, YEAR, VERSION, CONST, BACKSIZE |
-| `output/<国别>/压缩尺码表_皮卡.csv` | 皮卡高度压缩 | CAR, MAKE, MODEL, YEAR, VERSION, CAB, BED, BACKSIZE |
+| `output/<国别>/压缩尺码表.csv` | 非皮卡高度压缩 | [CODE,] CAR, MAKE, MODEL, YEAR, VERSION, CONST, BACKSIZE, 尺码销量总和 |
+| `output/<国别>/压缩尺码表_皮卡.csv` | 皮卡高度压缩 | [CODE,] CAR, MAKE, MODEL, YEAR, VERSION, CAB, BED, BACKSIZE, 尺码销量总和 |
+
+`CODE`（代号）只出现在 US 区域产线（US、HNT、TM、TM_拆分）：取自 `02.代码映射/output/车型编码映射.csv`，
+`CODE = MAKE_CODE + MODEL_CODE + YEARCODE`（压缩记录 YEAR 两端后两位，`1964-1974` → `6474`），与 DIMENSION-CODE 同一规则。
 
 默认交付全部 6 条产线（US、HNT、TM、TM_拆分、EU、RU）的有损压缩表，按 `<产线>/` 目录存放，文件名不加“有损”后缀；无损表不是 output 交付物。
 

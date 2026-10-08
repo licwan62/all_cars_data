@@ -287,3 +287,51 @@ def test_ssh_publish_plan_uses_us_manifest_outputs():
 def test_upstream_files_follow_a0_layout():
     assert run_mod.upstream_file("EU") == "EU/全量/全量表.csv"
     assert run_mod.upstream_file("TM_拆分", "US") == "US/店铺/店铺全量_TM_拆分.csv"
+
+
+def write_code_mapping(path: Path, rows: list[tuple[str, str, str, str, str]]) -> Path:
+    with path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["REGION", "MAKE", "MODEL", "MAKE_CODE", "MODEL_CODE"])
+        writer.writerows(rows)
+    return path
+
+
+def test_year_code_matches_dimension_code_rule():
+    assert run_mod.year_code("1964-1974") == "6474"
+    assert run_mod.year_code("1968") == "6868"
+    with pytest.raises(run_mod.CompressionError):
+        run_mod.year_code("2020-2021,2023")
+
+
+def test_code_regions_are_us_only():
+    assert run_mod.load_code_regions(PROJECT_DIR / "data") == {"US"}
+
+
+def test_apply_codes_inserts_first_column_with_case_insensitive_names(tmp_path: Path):
+    mapping = run_mod.load_code_mapping(write_code_mapping(tmp_path / "map.csv", [("US", "ford", "FOCUS", "07", "12"), ("US", "Ford", "F-150", "07", "00")]))
+    tables = compress([row(), row(year="2020", size="L"), row(model="F-150", structure="", cab="Crew", bed="5.5", category="皮卡", year="2015-2020")])
+    run_mod.apply_codes(tables, mapping, "US", "US")
+    assert list(tables["non_pickup_high"].columns[:2]) == ["CODE", "CAR"]
+    assert dict(zip(tables["non_pickup_high"]["YEAR"], tables["non_pickup_high"]["CODE"])) == {"2018-2019": "07121819", "2020": "07122020"}
+    assert tables["pickup_high"]["CODE"].tolist() == ["07001520"]
+
+
+def test_apply_codes_fails_for_unmapped_model(tmp_path: Path):
+    mapping = run_mod.load_code_mapping(write_code_mapping(tmp_path / "map.csv", [("US", "Ford", "Fiesta", "07", "13")]))
+    with pytest.raises(run_mod.CompressionError, match="Ford Focus"):
+        run_mod.apply_codes(compress([row()]), mapping, "US", "US")
+
+
+def test_run_adds_codes_only_to_code_regions(tmp_path: Path):
+    countries = run_mod.default_lines(lines())
+    write_sources(tmp_path / "src", {line: [row(region=region)] for line, region in countries.items()})
+    code_map = write_code_mapping(tmp_path / "map.csv", [("US", "Ford", "Focus", "07", "12")])
+    result = run_mod.run(tmp_path / "src", PROJECT_DIR / "data", tmp_path / "output", tmp_path / "artifacts", workers=1, code_mapping=code_map)
+    for line, region in countries.items():
+        table = pd.read_csv(tmp_path / "output" / line / "压缩尺码表.csv", dtype=str, encoding="utf-8-sig")
+        if region == "US":
+            assert table.columns[0] == "CODE" and table["CODE"].tolist() == ["07121819"]
+        else:
+            assert "CODE" not in table.columns
+    assert (Path(result["artifact"]) / "input" / "map.csv").is_file()
