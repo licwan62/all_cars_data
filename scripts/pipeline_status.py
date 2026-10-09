@@ -20,7 +20,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUS_NAME = "流水线状态.md"
-LINE_NAMES = {"U": "上游", "A": "A 全量表", "B": "B 定制评分", "C": "C 代表车型", "D": "D 发货单", "X": "X 旁路"}
+LINE_NAMES = {"U": "上游", "A": "A 全量表", "B": "B 定制评分", "C": "C 代表车型", "D": "D 发货单", "E": "E 尺寸分析", "X": "X 旁路"}
+TRIGGERS = {"auto": "自动", "on_demand": "按需"}
+ON_DEMAND_STATE = "按需待刷新"
+
+
+def node_trigger(payload: dict, node: dict) -> str:
+    """节点触发方式：节点 trigger 字段优先，否则取 pipeline.json line_triggers 中所在线的设置，缺省 auto。"""
+    return node.get("trigger") or payload.get("line_triggers", {}).get(node.get("line", "U"), "auto")
+
+
+def is_on_demand(payload: dict, node: dict) -> bool:
+    """按需节点不随默认发布刷新；上游更新只标为“按需待刷新”，不算过期。"""
+    return node_trigger(payload, node) == "on_demand"
 
 
 def _load_json(path: Path) -> dict | None:
@@ -31,8 +43,11 @@ def _manifest(root: Path, node: dict) -> dict | None:
     return _load_json(root / node["path"] / "output" / "manifest.json")
 
 
-def node_state(root: Path, node: dict, by_id: dict[str, dict]) -> tuple[str, list[str]]:
-    """返回 (状态, 说明)。状态：最新 / 过期 / 待产出 / 未发布。"""
+def node_state(root: Path, node: dict, by_id: dict[str, dict], on_demand: bool = False) -> tuple[str, list[str]]:
+    """返回 (状态, 说明)。状态：最新 / 过期 / 按需待刷新 / 待产出 / 未发布。
+
+    ``on_demand`` 节点的上游更新只说明“需要时可刷新”，状态为 按需待刷新 而不是 过期。
+    """
     manifest = _manifest(root, node)
     if manifest is None:
         return "未发布", ["缺少 output/manifest.json"]
@@ -52,7 +67,7 @@ def node_state(root: Path, node: dict, by_id: dict[str, dict]) -> tuple[str, lis
                 f"上游 {upstream['path']} 已更新（使用 {used.get('version')}，当前 {current.get('version')}）：{'、'.join(changed)}"
             )
     if notes:
-        return "过期", notes
+        return (ON_DEMAND_STATE if on_demand else "过期"), notes
     if not manifest.get("deliverables") and node.get("pending"):
         return "待产出", []
     return "最新", []
@@ -63,7 +78,7 @@ def render_status(root: Path = ROOT) -> str:
     nodes = payload["nodes"]
     by_id = {node["id"]: node for node in nodes}
     release = _load_json(root / "release.json") or {}
-    states = {node["id"]: node_state(root, node, by_id) for node in nodes}
+    states = {node["id"]: node_state(root, node, by_id, is_on_demand(payload, node)) for node in nodes}
 
     counts: dict[str, int] = {}
     for state, _ in states.values():
@@ -75,12 +90,12 @@ def render_status(root: Path = ROOT) -> str:
         "> `python scripts/validate_pipeline_structure.py` 会校验它与各节点 `output/manifest.json` 一致。",
         "",
         f"- 最近发布：`{release.get('released_at', '-')}`",
-        f"- 节点：{len(nodes)} 个；" + "，".join(f"{state} {counts[state]}" for state in ("最新", "过期", "待产出", "未发布") if counts.get(state)),
+        f"- 节点：{len(nodes)} 个；" + "，".join(f"{state} {counts[state]}" for state in ("最新", "过期", ON_DEMAND_STATE, "待产出", "未发布") if counts.get(state)),
         "",
         "## 节点",
         "",
-        "| 节点 | 产线 | 版本 | 交付物 | 上游 | 待产出 | 状态 |",
-        "| --- | --- | --- | ---: | --- | --- | --- |",
+        "| 节点 | 产线 | 触发 | 版本 | 交付物 | 上游 | 待产出 | 状态 |",
+        "| --- | --- | --- | --- | ---: | --- | --- | --- |",
     ]
     for node in nodes:
         manifest = _manifest(root, node) or {}
@@ -89,16 +104,28 @@ def render_status(root: Path = ROOT) -> str:
         state, _ = states[node["id"]]
         lines.append(
             f"| {node['path']} | {LINE_NAMES.get(node.get('line', 'U'), node.get('line', ''))} | "
-            f"`{manifest.get('version', '-')}` | {len(manifest.get('deliverables', []))} | {upstream} | {pending} | {state} |"
+            f"{TRIGGERS.get(node_trigger(payload, node), node_trigger(payload, node))} | `{manifest.get('version', '-')}` | {len(manifest.get('deliverables', []))} | {upstream} | {pending} | {state} |"
         )
 
-    problems = [(node, notes) for node in nodes for state, notes in [states[node["id"]]] if notes]
+    problems = [(node, notes) for node in nodes for state, notes in [states[node["id"]]] if notes and state != ON_DEMAND_STATE]
     lines += ["", "## 需要处理", ""]
     if problems:
         for node, notes in problems:
             lines.extend(f"- {node['path']}：{note}" for note in notes)
     else:
-        lines.append("- 无：所有已发布节点使用的都是上游当前版本。")
+        lines.append("- 无：所有自动发布节点使用的都是上游当前版本。")
+
+    deferred = [(node, notes) for node in nodes for state, notes in [states[node["id"]]] if state == ON_DEMAND_STATE]
+    if deferred:
+        lines += [
+            "",
+            f"## {ON_DEMAND_STATE}",
+            "",
+            "> 按需节点不随上游发布自动刷新；需要时在节点目录运行 `run`，再 `python scripts/publish_release.py --nodes <id>`。",
+            "",
+        ]
+        for node, notes in deferred:
+            lines.extend(f"- {node['path']}（`{node['id']}`）：{note}" for note in notes)
 
     lines += ["", "## 最终产物", "", "| 产物 | 节点 | 文件 | 待产出 |", "| --- | --- | --- | --- |"]
     for product in payload.get("final_products", []):

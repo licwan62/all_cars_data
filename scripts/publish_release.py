@@ -2,21 +2,32 @@
 """按 pipeline.json 对各节点做一次标准发布（自上游到下游）。
 
 每个节点：
-1. 新建不可覆盖的 ``artifacts/YYYY-MM-DD_NN_<node>-release/``，并写入 ``REPORT.md``；
-2. 把 ``outputs`` 声明的稳定交付物按 ``名称-YYYYMMDD_NN.扩展名`` 保存进该批次的 ``output/``，
-   并写 ``manifest.json``（交付物、sha256、上游节点及其版本、本节点 data/ 规则快照 ``rules``、待落地项）；
-3. 全部校验通过后，去掉版本后缀，原子发布到节点 ``output/``，同时写入同样的 ``output/manifest.json``；
-4. ``REPORT.md`` 将当前交付物与上一版本 artifact 比较，记录 CSV 的新增、删除、字段修改及示例。
+1. 交付物、上游输入（sha256）、本节点 data/ 规则快照、pending 与发布说明都与当前 manifest 相同时**不发布**，
+   沿用原版本（``--force`` 除外）；
+2. 否则新建不可覆盖的 ``artifacts/YYYY-MM-DD_NN_<node>-release/``，写 ``manifest.json`` 与 ``REPORT.md``；
+3. 每个交付物的字节只存一次（见 ``artifact_refs``）：内容与上一版相同则引用上一版的 ``artifact_file``；
+   与节点运行批次 ``run.json`` 登记的输出相同则引用运行批次文件；都没有才按 ``名称-YYYYMMDD_NN.扩展名``
+   复制进本批次 ``output/``。只改了规则或上游的发布批次因此只有几 KB；
+4. 全部校验通过后，原子写入节点 ``output/manifest.json``（``output/`` 的交付物本身就是发布内容）；
+5. ``REPORT.md`` 说明发布原因，并将交付物与上一版本比较，记录 CSV 的新增、删除、字段修改及示例。
 
 最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源，并重新生成 ``流水线状态.md``
 （该状态文件只由本脚本写入）。
+
+触发方式（``pipeline.json`` 的 ``line_triggers``）：默认只发布 auto 节点（上游与 A 线）；B/C/D/E/X 等按需节点
+不随上游刷新，只在 ``--nodes``、``--lines`` 显式点名或 ``--all`` 时发布。
+
+    python scripts/publish_release.py                       # 只发布 auto 节点
+    python scripts/publish_release.py --nodes representative-model
+    python scripts/publish_release.py --lines B,C           # 按线发布按需节点
+    python scripts/publish_release.py --all                 # 包括全部按需节点
+    python scripts/publish_release.py --nodes <id> --force  # 内容未变也新建发布批次
 """
 
 from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 import json
 import os
 import re
@@ -26,8 +37,11 @@ import time
 from datetime import date, datetime
 from pathlib import Path
 
-from pipeline_status import write_status
-from rules_snapshot import describe_changes, rules_changes, rules_snapshot
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
+
+from artifact_refs import RUN_RECORD, sha256, versioned_name
+from pipeline_status import is_on_demand, write_status
+from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_NAME = "manifest.json"
@@ -38,25 +52,12 @@ class ReleaseError(ValueError):
     pass
 
 
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
-
-
 def row_count(path: Path) -> int | None:
     if path.suffix.lower() not in {".csv", ".tsv"}:
         return None
     delimiter = "\t" if path.suffix.lower() == ".tsv" else ","
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         return max(sum(1 for _ in csv.reader(handle, delimiter=delimiter)) - 1, 0)
-
-
-def versioned_name(file_name: str, version: str) -> str:
-    path = Path(file_name)
-    return path.with_name(f"{path.stem}-{version}{path.suffix}").as_posix()
 
 
 def topological_order(nodes: list[dict]) -> list[dict]:
@@ -139,14 +140,14 @@ def _csv_change_summary(previous: Path, current: Path) -> list[str]:
     return summary
 
 
-def write_report(path: Path, node: dict, version: str, released_at: str, previous_manifest: dict | None, deliverables: list[dict], output_dir: Path, root: Path, rules: list[dict] | None = None) -> None:
+def write_report(path: Path, node: dict, version: str, released_at: str, previous_manifest: dict | None, deliverables: list[dict], output_dir: Path, root: Path, rules: list[dict] | None = None, reasons: list[str] | None = None) -> None:
     """Write an auditable, compact Markdown description of this artifact's changes."""
     lines = [
         "# 发布报告", "",
         f"- 节点：`{node['id']}`（`{node['path']}`）",
         f"- 版本：`{version}`",
         f"- 发布时间：`{released_at}`",
-        f"- 工作描述：{artifact_slug(node).removesuffix('-release')} 输出刷新。", "",
+        f"- 发布原因：{'；'.join(reasons or ['输出刷新'])}。", "",
     ]
     if rules is not None:
         lines.extend(["## 规则（data/）", ""])
@@ -171,10 +172,10 @@ def write_report(path: Path, node: dict, version: str, released_at: str, previou
             lines.extend(["", "- 未找到上一版本 artifact，无法生成内容差异。", ""])
             continue
         if old.get("sha256") == item["sha256"]:
-            lines.extend(["", "- 内容未变化；仅产生新的发布版本。", ""])
+            lines.extend(["", f"- 内容未变化；引用 `{item['artifact_file']}`，未复制。", ""])
             continue
         lines.append("")
-        lines.append(f"- 内容已变化：{old.get('rows', 'N/A')} 行 → {item.get('rows', 'N/A')} 行。")
+        lines.append(f"- 内容已变化：{old.get('rows', 'N/A')} 行 → {item.get('rows', 'N/A')} 行；存于 `{item['artifact_file']}`。")
         if current.suffix.lower() == ".csv" and old_path.suffix.lower() == ".csv":
             lines.extend(_csv_change_summary(old_path, current))
         else:
@@ -201,7 +202,7 @@ def upstream_records(root: Path, node: dict, by_id: dict[str, dict]) -> list[dic
                     {
                         "file": item["file"],
                         "versioned_file": item.get("versioned_file"),
-                        "artifact_file": f"{manifest['artifact']}/output/{item.get('versioned_file')}",
+                        "artifact_file": item.get("artifact_file") or f"{manifest['artifact']}/output/{item.get('versioned_file')}",
                         "sha256": item["sha256"],
                     }
                     for item in manifest["deliverables"]
@@ -232,35 +233,104 @@ def replace_with_retry(source: Path, target: Path, attempts: int = 5, delay: flo
             time.sleep(delay)
 
 
-def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, released_at: str) -> dict:
+def _upstream_signature(records: list[dict]) -> list[tuple]:
+    return sorted((record["node"], item["file"], item["sha256"]) for record in records for item in record.get("files", []))
+
+
+def _reusable(root: Path, item: dict | None, digest: str) -> bool:
+    """旧记录指向的 artifact 文件存在且内容就是 digest。"""
+    if not item or item.get("sha256") != digest or not item.get("artifact_file") or not item.get("versioned_file"):
+        return False
+    source = root / item["artifact_file"]
+    return source.is_file() and sha256(source) == digest
+
+
+def run_batch_outputs(project: Path) -> dict[tuple[str, str], dict]:
+    """节点运行批次 run.json 登记的成功输出：(文件, sha256) → 记录；同内容取最早批次（字节最先存在那里）。"""
+    found: dict[tuple[str, str], dict] = {}
+    for record_path in sorted((project / "artifacts").glob(f"*/{RUN_RECORD}")):
+        try:
+            record = json.loads(record_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        if record.get("status", {}).get("status") != "passed":
+            continue
+        for item in record.get("outputs", []):
+            found.setdefault((item["file"], item["sha256"]), item)
+    return found
+
+
+def release_reasons(previous: dict | None, deliverables: list[dict], upstream: list[dict], rules: list[dict], node: dict) -> list[str]:
+    """与当前 manifest 比较，返回需要新建发布批次的原因；空表示无变化。"""
+    if previous is None:
+        return ["首次发布"]
+    reasons = []
+    old = {item["file"]: item["sha256"] for item in previous.get("deliverables", [])}
+    new = {item["file"]: item["sha256"] for item in deliverables}
+    if old != new:
+        reasons.append("交付物变化：" + "、".join(sorted(name for name in old.keys() | new.keys() if old.get(name) != new.get(name))))
+    if _upstream_signature(previous.get("upstream", [])) != _upstream_signature(upstream):
+        reasons.append("上游输入变化")
+    if "rules" not in previous:
+        reasons.append("首次记录规则快照")
+    elif previous["rules"] != rules:
+        reasons.append(f"规则变化（{describe_changes(rules_changes(previous['rules'], rules))}）")
+    if previous.get("pending", []) != node.get("pending", []) or previous.get("notes", []) != node.get("release_notes", []):
+        reasons.append("pending/发布说明变化")
+    return reasons
+
+
+def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, released_at: str, force: bool = False) -> dict | None:
+    """发布一个节点；交付物、上游、规则与说明均未变化且未 force 时返回 None，沿用当前版本。"""
     project = root / node["path"]
     output_dir = project / "output"
     artifacts_dir = project / "artifacts"
-    artifacts_dir.mkdir(exist_ok=True)
     previous_manifest_path = output_dir / MANIFEST_NAME
     previous_manifest = json.loads(previous_manifest_path.read_text(encoding="utf-8")) if previous_manifest_path.is_file() else None
+    previous = {item["file"]: item for item in (previous_manifest or {}).get("deliverables", [])}
+
+    current = []
+    for name in node.get("outputs", []):
+        published = output_dir / name
+        current.append({"file": name, "sha256": sha256(published), "bytes": published.stat().st_size, "rows": row_count(published)})
+    upstream = upstream_records(root, node, by_id)
+    rules = rules_snapshot(project)
+    reasons = release_reasons(previous_manifest, current, upstream, rules, node)
+    if not reasons:
+        if not force:
+            return None
+        reasons = ["--force 强制发布（内容未变化）"]
+
+    artifacts_dir.mkdir(exist_ok=True)
     batch_name, version = next_batch(artifacts_dir, today, artifact_slug(node))
     batch_dir = artifacts_dir / batch_name
     staging = artifacts_dir / f".{batch_name}.tmp"
     if staging.exists():
         shutil.rmtree(staging)
-    (staging / "output").mkdir(parents=True)
+    staging.mkdir(parents=True)
 
+    run_outputs = run_batch_outputs(project)
     deliverables = []
-    for name in node.get("outputs", []):
-        source = output_dir / name
-        target = staging / "output" / versioned_name(name, version)
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, target)
+    copied = []
+    for item in current:
+        name = item["file"]
+        run_item = run_outputs.get((name, item["sha256"]))
+        if _reusable(root, previous.get(name), item["sha256"]):
+            source = previous[name]
+        elif _reusable(root, run_item, item["sha256"]):
+            source = run_item
+        else:
+            versioned = versioned_name(name, version)
+            target = staging / "output" / versioned
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(output_dir / name, target)
+            if sha256(target) != item["sha256"]:
+                raise ReleaseError(f"{node['path']}: output/{name} 在发布过程中被改动")
+            source = {"versioned_file": versioned, "artifact_file": f"{node['path']}/artifacts/{batch_name}/output/{versioned}"}
+            copied.append(name)
         deliverables.append(
-            {
-                "file": name,
-                "versioned_file": target.relative_to(staging / "output").as_posix(),
-                "artifact_file": f"{node['path']}/artifacts/{batch_name}/output/{target.relative_to(staging / 'output').as_posix()}",
-                "sha256": sha256(target),
-                "bytes": target.stat().st_size,
-                "rows": row_count(target),
-            }
+            {"file": name, "versioned_file": source["versioned_file"], "artifact_file": source["artifact_file"],
+             "sha256": item["sha256"], "bytes": item["bytes"], "rows": item["rows"]}
         )
     manifest = {
         "schema_version": 1,
@@ -270,25 +340,17 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
         "artifact": f"{node['path']}/artifacts/{batch_name}",
         "published_at": released_at,
         "deliverables": deliverables,
-        "upstream": upstream_records(root, node, by_id),
-        "rules": rules_snapshot(project),
+        "upstream": upstream,
+        "rules": rules,
         "pending": node.get("pending", []),
         "notes": node.get("release_notes", []),
     }
-    write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root, manifest["rules"])
+    write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root, rules, reasons)
     write_json_atomic(staging / MANIFEST_NAME, manifest)
     replace_with_retry(staging, batch_dir)
 
-    # 校验通过后才发布：去掉版本后缀，逐文件原子替换
-    for item in deliverables:
-        published = output_dir / item["file"]
-        published.parent.mkdir(parents=True, exist_ok=True)
-        temporary = published.with_name(f".{published.name}.tmp")
-        shutil.copy2(batch_dir / "output" / item["versioned_file"], temporary)
-        os.replace(temporary, published)
-    # A changed output contract may intentionally retire old stable files.  Only
-    # remove files that the immediately previous manifest owned, and only after
-    # all current deliverables have been atomically published.
+    # output/ 的交付物本身就是发布内容（上面已按 sha256 与来源校验），无需回写。
+    # 输出合同变化时只退役上一版 manifest 拥有、本版不再声明的稳定文件。
     current_files = {item["file"] for item in deliverables}
     for item in (previous_manifest or {}).get("deliverables", []):
         name = item.get("file")
@@ -296,14 +358,27 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
         if name and name not in current_files and retired and retired.is_file():
             retired.unlink()
     write_json_atomic(output_dir / MANIFEST_NAME, manifest)
-    return manifest
+    return {**manifest, "_copied": copied, "_reasons": reasons}
 
 
-def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False) -> dict:
+def select_nodes(payload: dict, nodes: list[dict], only: set[str] | None, lines: set[str] | None, include_on_demand: bool) -> list[dict]:
+    """显式点名（only/lines）的节点不论触发方式都发布；否则只发布 auto 节点，include_on_demand 时全部发布。"""
+    known_ids = {node["id"] for node in nodes}
+    known_lines = {node.get("line", "U") for node in nodes}
+    unknown = sorted((only or set()) - known_ids) + sorted((lines or set()) - known_lines)
+    if unknown:
+        raise ReleaseError(f"未知节点或产线：{', '.join(unknown)}")
+    if only or lines:
+        return [node for node in nodes if node["id"] in (only or set()) or node.get("line", "U") in (lines or set())]
+    return [node for node in nodes if include_on_demand or not is_on_demand(payload, node)]
+
+
+def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False, lines: set[str] | None = None, include_on_demand: bool = False, force: bool = False) -> dict:
     payload = json.loads((root / "pipeline.json").read_text(encoding="utf-8"))
     nodes = topological_order(payload["nodes"])
     by_id = {node["id"]: node for node in payload["nodes"]}
-    selected = [node for node in nodes if not only or node["id"] in only]
+    selected = select_nodes(payload, nodes, only, lines, include_on_demand)
+    skipped = [node for node in nodes if node not in selected and is_on_demand(payload, node)]
     errors = check_outputs(root, selected)
     if errors:
         raise ReleaseError("\n".join(errors))
@@ -313,9 +388,18 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False)
         if dry_run:
             print(f"[dry-run] {node['id']}: {len(node.get('outputs', []))} 个交付物")
             continue
-        manifest = release_node(root, node, by_id, date.today().isoformat(), now.isoformat(timespec="seconds"))
-        released[node["id"]] = manifest
-        print(f"{node['path']}: {manifest['version']}  {len(manifest['deliverables'])} 个交付物，pending {len(manifest['pending'])}")
+        result = release_node(root, node, by_id, date.today().isoformat(), now.isoformat(timespec="seconds"), force)
+        if result is None:
+            print(f"{node['path']}: 未变化，沿用当前版本")
+            continue
+        copied, reasons = result.pop("_copied"), result.pop("_reasons")
+        released[node["id"]] = result
+        print(
+            f"{node['path']}: {result['version']}  {len(result['deliverables'])} 个交付物（新存 {len(copied)}，其余引用），"
+            f"pending {len(result['pending'])}；{'；'.join(reasons)}"
+        )
+    if skipped and not (only or lines):
+        print("按需节点未发布（需要时用 --nodes/--lines/--all）：" + "、".join(node["path"] for node in skipped))
     if not dry_run and released:
         summary_path = root / "release.json"
         previous = json.loads(summary_path.read_text(encoding="utf-8-sig"))["nodes"] if summary_path.is_file() else {}
@@ -342,7 +426,10 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False)
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--nodes", help="只发布这些节点 id（逗号分隔），默认全量")
+    parser.add_argument("--nodes", help="只发布这些节点 id（逗号分隔，可点名按需节点），默认发布全部 auto 节点")
+    parser.add_argument("--lines", help="发布这些产线的全部节点（逗号分隔，如 B,C），可与 --nodes 合用")
+    parser.add_argument("--all", action="store_true", help="默认发布时同时包括按需节点")
+    parser.add_argument("--force", action="store_true", help="交付物、上游、规则均未变化也新建发布批次（交付物仍只引用不复制）")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--status-only", action="store_true", help="不发布，只按当前各节点 manifest 重建 流水线状态.md")
     args = parser.parse_args(argv)
@@ -350,7 +437,14 @@ def main(argv: list[str] | None = None) -> int:
         print(f"已更新 {write_status(ROOT).name}")
         return 0
     try:
-        release_all(ROOT, set(args.nodes.split(",")) if args.nodes else None, args.dry_run)
+        release_all(
+            ROOT,
+            set(args.nodes.split(",")) if args.nodes else None,
+            args.dry_run,
+            set(args.lines.split(",")) if args.lines else None,
+            args.all,
+            args.force,
+        )
     except ReleaseError as error:
         print(f"发布失败：{error}", file=sys.stderr)
         return 2

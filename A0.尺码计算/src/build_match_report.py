@@ -40,7 +40,7 @@ def read_csv(path: Path) -> pd.DataFrame:
 
 
 def content_sha256(path: Path) -> str:
-    # 与 scripts/rules_snapshot.py 一致：CRLF→LF 归一，避免检出换行差异
+    # 与 lib/rules_snapshot.py 一致：CRLF→LF 归一，避免检出换行差异
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 

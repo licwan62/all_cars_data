@@ -1,8 +1,17 @@
+"""把各节点 artifacts 下较旧的批次移入 .bak/artifacts/<节点>/<批次>，只保留最近 N 个。
+
+按引用计数保护：当前各节点 output/manifest.json 引用的批次（交付物来源、上游输入），以及被保留批次的
+manifest.json / run.json 间接引用的批次一律不移动，保证移走后 trace_pipeline 仍能追到每份字节。
+"""
+
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 from pathlib import Path
+
+from artifact_refs import referenced_batches
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDE_DIR_NAMES = {".bak", "node_modules", "__pycache__", ".git"}
@@ -37,21 +46,28 @@ def batch_dirs(artifacts_dir: Path) -> list[Path]:
 
 
 def plan_moves(root: Path, keep: int) -> list[tuple[Path, Path]]:
+    pipeline = root / "pipeline.json"
+    nodes = json.loads(pipeline.read_text(encoding="utf-8"))["nodes"] if pipeline.is_file() else []
+    artifact_dirs = find_artifacts_dirs(root)
+    recent = {
+        batch.relative_to(root).as_posix()
+        for artifacts_dir in artifact_dirs
+        for batch in batch_dirs(artifacts_dir)[-keep:] if keep > 0
+    }
+    protected = referenced_batches(root, nodes, recent)
     moves: list[tuple[Path, Path]] = []
-    for artifacts_dir in find_artifacts_dirs(root):
-        batches = batch_dirs(artifacts_dir)
-        if len(batches) <= keep:
-            continue
+    for artifacts_dir in artifact_dirs:
         project_rel = artifacts_dir.parent.relative_to(root)
-        for batch in batches[: len(batches) - keep]:
-            dest = root / ".bak" / "artifacts" / project_rel / batch.name
-            moves.append((batch, dest))
+        for batch in batch_dirs(artifacts_dir):
+            if batch.relative_to(root).as_posix() in protected:
+                continue
+            moves.append((batch, root / ".bak" / "artifacts" / project_rel / batch.name))
     return moves
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="把各项目 artifacts 目录下较旧的批次移入 .bak/artifacts/<项目>/<批次>，只保留最近 N 个。"
+        description="把各项目 artifacts 目录下较旧且未被引用的批次移入 .bak/artifacts/<项目>/<批次>，只保留最近 N 个。"
     )
     parser.add_argument("--keep", type=int, default=5, help="每个 artifacts 目录保留的最近批次数（默认 5）")
     parser.add_argument("--root", type=Path, default=ROOT, help="仓库根目录（默认脚本所在目录）")

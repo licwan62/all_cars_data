@@ -25,7 +25,7 @@ def test_common_deliverables_are_grouped_by_responsibility():
     assert pp.target_for("尺寸库.csv", "dimension-library") == Path("data/基础数据/尺寸库.csv")
     assert pp.target_for("车型编码映射.csv", "code-mapping") == Path("data/编码映射/车型编码映射.csv")
     assert pp.target_for("车形分类.csv", "shape-classification") == Path("data/车型分类/车形分类.csv")
-    assert pp.target_for("尺码尺寸异常.csv", "full-generation") == Path("data/质量分析/尺码尺寸异常.csv")
+    assert pp.target_for("尺码尺寸异常.csv", "size-analysis") == Path("data/质量分析/尺码尺寸异常.csv")
     assert pp.target_for("耳位分析表.csv", "negative-review-analysis") == Path("data/差评分析/耳位分析表.csv")
     assert pp.target_for("代表车型.csv", "representative-model") == Path("data/代表车型/代表车型.csv")
 

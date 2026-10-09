@@ -1,6 +1,6 @@
 # TrimList v2 生成器
 
-> **2026-09-27 迁移**：TRIM 匹配已从 `A1.全量生成` 迁入 `A0.尺码计算`：代码在 `src/trim/`，维护资料在 `data/US/TRIM/`。正式流程由 `src/generate_store_outputs.py` 在计算 US 尺码后调用 `trim.matching.match_trims`，回填 US/店铺全量表的 `TRIM` 列并输出 `output/US/TRIM/TRIM适配器.csv`；下文中的 `rebuild_trimlist.py`（原 `src/run.py`）、`analyze_sizes.py` 等为离线维护工具，默认写入 `work/trim/`，不直接改 `output/`。只有 US 有 TRIM 环节。
+> **2026-09-27 迁移**：TRIM 匹配已从 `A1.全量生成`（现 `E0.尺寸分析`）迁入 `A0.尺码计算`：代码在 `src/trim/`，维护资料在 `data/US/TRIM/`。正式流程由 `src/generate_store_outputs.py` 在计算 US 尺码后调用 `trim.matching.match_trims`，回填 US/店铺全量表的 `TRIM` 列并输出 `output/US/TRIM/TRIM适配器.csv`；下文中的 `rebuild_trimlist.py`（原 `src/run.py`）、`analyze_sizes.py` 等为离线维护工具，默认写入 `work/trim/`，不直接改 `output/`。只有 US 有 TRIM 环节。
 
 
 本项目将车型尺寸库中的 `DIMENSION-ID` 直接映射到 4A 的逐年

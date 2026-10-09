@@ -33,6 +33,7 @@ from pathlib import Path
 
 import trace_pipeline
 import validate_pipeline_structure
+from pipeline_status import is_on_demand
 
 ROOT = Path(__file__).resolve().parents[1]
 CODE_SUFFIXES = {".py", ".ps1", ".psm1"}
@@ -46,6 +47,7 @@ class NodeResult:
     node: dict
     errors: list[str] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)  # 按需节点的上游更新，不影响状态
     tests: str = "—"
     rebuild: str = "—"
 
@@ -223,13 +225,14 @@ def render_report(results: list[NodeResult], global_errors: list[str], root_test
     lines += ["", f"仓库级测试 `tests/`：{root_tests}", ""]
     if global_errors:
         lines += ["## 全局问题", "", *[f"- {error}" for error in global_errors], ""]
-    details = [result for result in results if result.errors or result.warnings]
+    details = [result for result in results if result.errors or result.warnings or result.notes]
     if details:
         lines += ["## 节点问题", ""]
         for result in details:
             lines.append(f"### {result.node['path']}")
             lines.extend(f"- 错误：{error}" for error in result.errors)
             lines.extend(f"- 提示：{warning}" for warning in result.warnings)
+            lines.extend(f"- 按需待刷新：{note}" for note in result.notes)
             lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 
@@ -264,9 +267,10 @@ def main(argv: list[str] | None = None) -> int:
     results: list[NodeResult] = []
     for node in nodes:
         result = NodeResult(node)
-        errors, stale = trace_pipeline.trace_node(node, by_id)
+        errors, stale, deferred = trace_pipeline.trace_node(node, by_id, is_on_demand(payload, node))
         result.errors += errors
         result.warnings += [line.split(": ", 1)[-1] for line in stale]
+        result.notes += [line.split(": ", 1)[-1] for line in deferred]
         dep_errors, dep_warnings = check_dependencies(node, nodes)
         result.errors += dep_errors
         result.warnings += dep_warnings
@@ -288,6 +292,8 @@ def main(argv: list[str] | None = None) -> int:
             print(f"    ✗ {error}")
         for warning in result.warnings:
             print(f"    · {warning}")
+        for note in result.notes:
+            print(f"    ○ 按需待刷新：{note}")
 
     root_tests = "未运行"
     if not args.skip_tests:

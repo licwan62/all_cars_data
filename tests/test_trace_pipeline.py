@@ -10,5 +10,5 @@ def test_current_repo_traces_clean():
     payload = json.loads((trace.ROOT / "pipeline.json").read_text(encoding="utf-8"))
     by_id = {node["id"]: node for node in payload["nodes"]}
     for node in payload["nodes"]:
-        errors, _stale = trace.trace_node(node, by_id)  # 过期只提示，不让测试失败
+        errors, _stale, _deferred = trace.trace_node(node, by_id)  # 过期只提示，不让测试失败
         assert not errors, errors

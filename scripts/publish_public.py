@@ -5,7 +5,7 @@ public/ 只是仓库外发布或人工交换区，不是 agent 间数据总线�
 校验 sha256 后复制；目标路径（均相对 PUBLIC_ROOT）按类别分组：
   data/us_data|eu_data|ru_data/    区域数据表
     data/us_data/全量/              US 全量表与各店铺全量表（A0 US/店铺/ 也归到这里）
-    data/us_data/压缩/<产线>/       A2 中区域为 US 的产线（US 及各店铺）压缩尺码表
+    data/us_data/压缩/<产线>/       A1.压缩尺寸信息 中区域为 US 的产线（US 及各店铺）压缩尺码表
   data/基础数据/                    跨区域尺寸库与销量基础表
   data/编码映射/                    ID、车型与尺寸编码映射
   data/车型分类/                    车型结构、车形分类与参考尺寸
@@ -49,16 +49,16 @@ COMMON_NODE_DIRS = {
     "code-mapping": "编码映射",
     "structure-review": "车型分类",
     "shape-classification": "车型分类",
-    "full-generation": "质量分析",
+    "size-analysis": "质量分析",
     "negative-review-analysis": "差评分析",
     "representative-model": "代表车型",
 }
 # A0 的店铺全量表与国别全量表同放 全量/。
 REGION_SUBDIR_ALIASES = {("US", "店铺"): "全量"}
-# A2 压缩尺码表按产线分目录（<产线>/压缩尺码表[_皮卡].csv），产线的区域见 A2 data/产线.yaml；
+# A1.压缩尺寸信息 压缩尺码表按产线分目录（<产线>/压缩尺码表[_皮卡].csv），产线的区域见 A1 data/产线.yaml；
 # 发布到 data/<区域>_data/压缩/<产线>/。
 COMPRESSION_NODE = "size-compression"
-COMPRESSION_LINES_FILE = ROOT / "A2.压缩尺寸信息" / "data" / "产线.yaml"
+COMPRESSION_LINES_FILE = ROOT / "A1.压缩尺寸信息" / "data" / "产线.yaml"
 COMPRESSION_REGIONS = {"US"}
 PUBLISH_SUFFIXES = {".csv"}
 
@@ -68,7 +68,7 @@ def sha256(path: Path) -> str:
 
 
 def compression_lines(path: Path = COMPRESSION_LINES_FILE) -> dict[str, str]:
-    """A2 产线 -> 区域。"""
+    """A1.压缩尺寸信息 产线 -> 区域。"""
     import yaml
 
     config = yaml.safe_load(path.read_text(encoding="utf-8")) or {}

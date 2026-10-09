@@ -7,12 +7,16 @@
 - **00–03 上游**：目录前缀 `NN.` = 层号（最长上游链长度），同层互不依赖。
 - **A0 尺码计算**：各产线共用的枢纽。从它开始按最终产物分线，线内序号自 1 递增：
 
-| 产线 | 最终产物 | 节点 |
-| --- | --- | --- |
-| A 全量表 + TRIM 适配器 | 全量表 US（含 TRIM）/EU/RU、店铺全量表、TRIM适配器、尺码匹配报告（A0）；尺码宽高统计（A1）；压缩尺码表（A2） | A0.尺码计算 → A1.全量生成（分析）、A0 → A2.压缩尺寸信息 |
-| C 代表车型 | 代表车型报告 | C1.车型代表分析 |
-| D 发货单 | 发货单 | D1.聚类SKU → D2.链接分析 |
-| X 旁路 | 不进入最终产物 | X1.尺寸迭代、X2.尺码簇分析 |
+| 产线 | 触发 | 最终产物 | 节点 |
+| --- | --- | --- | --- |
+| A 全量表 + 压缩尺码表 | 自动 | 全量表 US（含 TRIM）/EU/RU、店铺全量表、TRIM适配器、尺码匹配报告（A0）；压缩尺码表（A1） | A0.尺码计算 → A1.压缩尺寸信息 |
+| B 定制评分 | 按需 | 差评分析表、定制需求度评分 | B0.差评分析 → B1.压缩定制评分 |
+| C 代表车型 | 按需 | 代表车型报告 | C1.车型代表分析 |
+| D 发货单 | 按需 | 发货单 | D1.聚类SKU → D2.链接分析 |
+| E 尺寸分析 | 按需 | 尺码宽高统计、极值车型、尺寸异常 | E0.尺寸分析 |
+| X 旁路 | 按需 | 不进入最终产物 | X1.尺寸迭代、X2.尺码簇分析 |
+
+**触发方式**（`pipeline.json` 的 `line_triggers`）：上游 00–03 与 A 线为自动，默认发布自上游到下游刷新；B/C/D/E/X 为按需分析，上游更新不会触发它们，只在状态中标为“按需待刷新”，需要时再运行该节点并点名发布。自动节点不得依赖按需节点。
 
 ```mermaid
 flowchart LR
@@ -26,12 +30,16 @@ flowchart LR
   n02b --> A0
   n02c --> A0
   n01 --> A0
-  A0 --> A1["A1 全量生成"] --> fa(["全量表"])
-  A1 --> fb(["TRIM适配器"])
-  A1 --> A2["A2 压缩尺寸信息"] --> fz(["压缩尺码表"])
-  A0 --> C1["C1 车型代表分析"] --> fc(["代表车型报告"])
-  A0 --> D1["D1 聚类SKU"] --> D2["D2 链接分析"] --> fd(["发货单"])
-  n02b --> D1
+  A0 --> fa(["全量表 / TRIM适配器"])
+  A0 --> A1["A1 压缩尺寸信息"] --> fz(["压缩尺码表"])
+  n02c --> A1
+  A0 -.-> B1["B1 压缩定制评分"] --> fs(["定制需求度评分"])
+  B0["B0 差评分析"] -.-> B1
+  A0 -.-> C1["C1 车型代表分析"] --> fc(["代表车型报告"])
+  A1 -.-> C1
+  A0 -.-> D1["D1 聚类SKU"] --> D2["D2 链接分析"] --> fd(["发货单"])
+  n02b -.-> D1
+  A0 -.-> E0["E0 尺寸分析"] --> fe(["尺码宽高统计"])
   A0 -.-> X1["X1 尺寸迭代"]
   A0 -.-> X2["X2 尺码簇分析"]
 ```
@@ -40,12 +48,14 @@ flowchart LR
 
 稳定交付物用中文语义名（`车型结构`、`车形分类`、`原子销量`、`尺寸库_US`、`全量表_US`、`TRIM适配器`、`代表车型报告`…）。
 
-- **artifacts 内**：带批次版本后缀，`车型结构-20260921_01.csv`（`YYYYMMDD_NN` 与批次目录 `YYYY-MM-DD_NN_*` 一致）。
+- **artifacts 内**：带批次版本后缀，`车型结构-20260921_01.csv`（`YYYYMMDD_NN` 与批次目录 `YYYY-MM-DD_NN_*` 一致）。每份字节只存一次：未变化的交付物引用旧批次文件，上游输入与已提交规则只记引用（见 `lib/artifact_batch.py`），内容未变化的节点发布时不新建批次。
 - **发布到 `output/`**：去掉后缀，文件名稳定（`车型结构.csv`），并写 `output/manifest.json`：交付物、sha256、行数、来源 artifact、上游节点及其版本、pending 项。
 - 根目录 `release.json` 汇总每个节点当前版本与 artifact。
 
 ```powershell
-python scripts/publish_release.py            # 自上游到下游全量发布（同时刷新 流水线状态.md）
+python scripts/publish_release.py            # 自上游到下游发布全部自动节点（U、A 线；同时刷新 流水线状态.md）
+python scripts/publish_release.py --nodes representative-model   # 按需节点：运行节点 run 后点名发布
+python scripts/publish_release.py --lines B,C # 按线发布按需节点；--all 包括全部按需节点
 python scripts/publish_release.py --dry-run
 python scripts/publish_release.py --status-only  # 不发布，只按当前 manifest 重建 流水线状态.md
 python scripts/validate_pipeline_structure.py
@@ -53,7 +63,7 @@ python scripts/verify_pipeline.py            # 打通验证：依赖、编译、
 python scripts/verify_pipeline.py --rebuild all  # 沙箱重跑节点并比对 output
 ```
 
-当前流水线状态见 [`流水线状态.md`](流水线状态.md)：节点版本、是否过期、待产出项与交付物来源。该文件只由发布脚本生成，请勿手工修改。
+当前流水线状态见 [`流水线状态.md`](流水线状态.md)：节点版本、触发方式、是否过期/按需待刷新、待产出项与交付物来源。该文件只由发布脚本生成，请勿手工修改。
 
 ## 代码布局
 
@@ -65,7 +75,7 @@ python scripts/verify_pipeline.py --rebuild all  # 沙箱重跑节点并比对 o
 | `scripts/` | 仓库级工具：发布、追踪、结构校验、打通验证 |
 | `tests/` | 仓库级测试 |
 
-每个节点的正式生成命令登记在 `pipeline.json` 的 `run`，在节点目录下执行，例如 `A2.压缩尺寸信息` 为 `python src/run.py`。
+每个节点的正式生成命令登记在 `pipeline.json` 的 `run`，在节点目录下执行，例如 `A1.压缩尺寸信息` 为 `python src/run.py`。
 
 `pipeline.json` 的 `outputs` 只列已存在的稳定交付物，尚未产出的放 `pending`（当前：区域抓取候选、原子销量、全量表_EU、全量表_汇总、SKU聚类结果、发货单、尺寸迭代候选）。
 
@@ -89,6 +99,6 @@ python scripts/verify_pipeline.py --rebuild all  # 沙箱重跑节点并比对 o
 | --- | --- | --- |
 | `data/` | agent 自己维护的规则、映射、例外和参考资料 | 仅本 agent |
 | `output/` | 当前已校验的稳定交付物 + manifest.json | 是，唯一正式接口 |
-| `artifacts/` | 每次运行的输入、规则、带版本后缀的输出、报告快照 | 否，仅审计与回溯 |
+| `artifacts/` | 每次运行的输入引用、规则快照（sha256 + git commit）、带版本后缀的输出、gzip 中间表、报告 | 否，仅审计与回溯 |
 
 对外发布目录为 `\\NAS8824B4\Public\PQData\pub_all_cars_data`，不纳入 Git，也不是 agent 间的数据源。仅发布 CSV 数据表；JSON 等辅助小文件保留在节点 `output/` 和 `artifacts/`，发布内容和来源由该目录的 `README.md` 说明。根目录 `pipeline.json` 由流水线最后节点 `D2.链接分析` 维护。

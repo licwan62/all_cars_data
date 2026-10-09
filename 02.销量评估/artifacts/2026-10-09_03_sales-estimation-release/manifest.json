@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "node": "sales-estimation",
+  "path": "02.销量评估",
+  "version": "20261009_03",
+  "artifact": "02.销量评估/artifacts/2026-10-09_03_sales-estimation-release",
+  "published_at": "2026-10-09T15:35:34+08:00",
+  "deliverables": [
+    {
+      "file": "原子销量.csv",
+      "versioned_file": "原子销量-20261009_03.csv",
+      "artifact_file": "02.销量评估/artifacts/2026-10-09_03_sales-estimation-release/output/原子销量-20261009_03.csv",
+      "sha256": "b1b50200dce7529f62149e6335fbb401b08eb5a78df21335604014664b401611",
+      "bytes": 881060,
+      "rows": 15210
+    },
+    {
+      "file": "RU代理销量.csv",
+      "versioned_file": "RU代理销量-20261009_03.csv",
+      "artifact_file": "02.销量评估/artifacts/2026-10-09_03_sales-estimation-release/output/RU代理销量-20261009_03.csv",
+      "sha256": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd",
+      "bytes": 520302,
+      "rows": 13617
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-library",
+      "version": "20261009_05",
+      "artifact": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release",
+      "files": [
+        {
+          "file": "尺寸库.csv",
+          "versioned_file": "尺寸库-20261009_05.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release/output/尺寸库-20261009_05.csv",
+          "sha256": "8bcad1984480ba01d886290923ff922a121a6687f58a4b41057f5ae02aa8a3a5"
+        },
+        {
+          "file": "尺寸库_US.csv",
+          "versioned_file": "尺寸库_US-20261009_05.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release/output/尺寸库_US-20261009_05.csv",
+          "sha256": "7d6844b67089a667bc79e88e93ed4dcdc00848548fe7f0909f010fbc09428f25"
+        },
+        {
+          "file": "尺寸库_EU.csv",
+          "versioned_file": "尺寸库_EU-20261009_05.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release/output/尺寸库_EU-20261009_05.csv",
+          "sha256": "5d4d4351ca6ce48c7dd816ab1ec98cea5157c1627413f3892826053e5a536354"
+        },
+        {
+          "file": "尺寸库_RU.csv",
+          "versioned_file": "尺寸库_RU-20261009_05.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release/output/尺寸库_RU-20261009_05.csv",
+          "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+        },
+        {
+          "file": "EU_ID迁移.csv",
+          "versioned_file": "EU_ID迁移-20261009_05.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release/output/EU_ID迁移-20261009_05.csv",
+          "sha256": "4cd2b24a5a41668a10f338ee238df954c3f05900b34371b7118cb6646766c81b"
+        },
+        {
+          "file": "来源映射_EU.csv",
+          "versioned_file": "来源映射_EU-20261009_05.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release/output/来源映射_EU-20261009_05.csv",
+          "sha256": "a43d64cf242536d0bae6e2193cfb4f378a66b6f58e85335c1bf685ce7bad37a9"
+        },
+        {
+          "file": "来源映射_RU.csv",
+          "versioned_file": "来源映射_RU-20261009_05.csv",
+          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_05_dimension-library-release/output/来源映射_RU-20261009_05.csv",
+          "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/config.json",
+      "sha256": "8173ce8ba67e43beb203174912bcf1b5993e396e241f8185c4a1dd0c1d21f46b"
+    },
+    {
+      "file": "data/modeled_config_share_policy.json",
+      "sha256": "9f08cb720c87d13bd1511b01465a004639f75922f86d9885ab53a1bc7af7c69d"
+    },
+    {
+      "file": "data/modeled_historic_us_sales.csv",
+      "sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f"
+    },
+    {
+      "file": "data/README.md",
+      "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef"
+    },
+    {
+      "file": "data/ru/auto_ru_model_sales_with_match_key.csv",
+      "sha256": "bb1b354b039b1eb1a12693b181bf1cef407ab34366c74164ef9fbfd21eda4208"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布",
+    "2026-09-27 新增 RU代理销量.csv：本节点 data/ru 的 Auto.ru 在售样本按 match_key 汇总，经 01 来源映射_RU.csv 落到 RU DIMENSION-ID（原由 A0 现场重跑 01 建库代码计算，结果逐 ID 一致）"
+  ]
+}

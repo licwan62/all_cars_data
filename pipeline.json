@@ -8,11 +8,21 @@
   "directory_contract": {
     "data": "agent-maintained rules and reference material",
     "output": "current validated handoff for downstream agents (stable names, no version suffix) plus manifest.json",
-    "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext",
+    "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext, each byte stored once: published upstream inputs and committed data/ rules are referenced (sha256 / git commit) not copied; run batches via lib/artifact_batch.py write run.json",
     "code": "节点代码集中在 code_dir 声明的目录（src/、code/ 或 scripts/）；节点根目录不放 .py 脚本。run 为在节点目录下执行的正式生成命令，tests 为自动测试目录。仓库级共享模块在根目录 lib/，仓库级工具在 scripts/。"
   },
-  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表、B 定制评分、C 代表车型、D 发货单、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账），序号规则同样适用（线内后续序号必须大于它）。",
-  "release_contract": "python scripts/publish_release.py 自上游到下游发布：artifact 内交付物带 -YYYYMMDD_NN 后缀，发布到 output/ 时去掉后缀，manifest.json 记录交付物 sha256、artifact 来源、上游版本与本节点 data/ 规则快照（rules，换行归一后的 sha256）；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
+  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表与压缩尺码表、B 定制评分、C 代表车型、D 发货单、E 尺寸分析、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账、E0 尺寸分析直接读 A0 全量表），序号规则同样适用（线内后续序号必须大于它）。",
+  "release_contract": "python scripts/publish_release.py 自上游到下游发布：交付物、上游输入、data/ 规则快照与说明均未变化的节点不新建批次；否则新建发布批次，交付物与上一版或运行批次 run.json 登记的输出相同则引用该 artifact 文件，否则以 -YYYYMMDD_NN 后缀存入本批次；manifest.json 记录交付物 sha256、artifact 来源、上游版本与本节点 data/ 规则快照（rules，换行归一后的 sha256）；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
+  "trigger_contract": "按产线区分触发方式（line_triggers，节点可用 trigger 字段覆盖）：auto 线随默认的 python scripts/publish_release.py 自上游到下游发布；on_demand 线只在显式指定时发布（--nodes <id> / --lines <线> / --all），上游更新不会触发它们。按需节点的上游变化只标为“按需待刷新”，不算过期、不使追踪失败；其自身 data/ 规则变化仍算过期。auto 节点不得依赖 on_demand 节点。",
+  "line_triggers": {
+    "U": "auto",
+    "A": "auto",
+    "B": "on_demand",
+    "C": "on_demand",
+    "D": "on_demand",
+    "E": "on_demand",
+    "X": "on_demand"
+  },
   "nodes": [
     {
       "id": "dimension-crawler",
@@ -203,37 +213,8 @@
       ]
     },
     {
-      "id": "full-generation",
-      "path": "A1.全量生成",
-      "code_dir": "src",
-      "run": [
-        "python src/build_dimension_statistics.py"
-      ],
-      "tests": "tests",
-      "layer": 5,
-      "line": "A",
-      "index": 1,
-      "role": "final",
-      "upstream": [
-        "size-calculation"
-      ],
-      "outputs": [
-        "尺码宽高统计.csv",
-        "尺码宽高极值车型.csv",
-        "尺码尺寸异常.csv"
-      ],
-      "pending": [],
-      "release_notes": [
-        "2026-09-22 由 full-table-summary（A1.全量汇总）与 adapter-trim（B1.适配器-Trim生成）合并为单一节点 A1.全量生成；历史 artifact 分别归档在 artifacts/legacy-full-table-summary/ 与 artifacts/legacy-adapter-trim/ 下，未做内容改动",
-        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核（继承自 A0 口径限制，汇总表必须保留）",
-        "2026-09-25 整理 output：新增分区域全量表 全量生成_US/EU/RU.csv（= A0 全量表_<区域> 原行序原列 + Trims，EU/RU 的 Trims 为空），作为 A2.压缩尺寸信息 与网站流水线（pipeline_carstable_to_webapp/input）的区域输入；全量表_汇总.csv 不变",
-        "2026-09-25 新增店铺产线 全量生成_HNT/TM/TM_拆分.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、店铺发货尺码）+ Trims；A 线共 6 条产线（US、HNT、TM、TM_拆分、EU、RU）",
-        "2026-09-27 改为全量表分析节点：只读 A0 US/EU/RU 全量表做宽高统计（尺码宽高统计、尺码宽高极值车型、尺码尺寸异常）；TRIM 匹配、TRIM适配器 与 data/ TRIM 资料迁至 A0.尺码计算，不再输出 全量表_汇总、全量生成_<产线>、尺寸TRIM映射"
-      ]
-    },
-    {
       "id": "size-compression",
-      "path": "A2.压缩尺寸信息",
+      "path": "A1.压缩尺寸信息",
       "code_dir": "src",
       "run": [
         "python src/run.py"
@@ -241,7 +222,7 @@
       "tests": "tests",
       "layer": 5,
       "line": "A",
-      "index": 2,
+      "index": 1,
       "role": "final",
       "upstream": [
         "size-calculation",
@@ -275,7 +256,9 @@
         "2026-09-28 压缩表末列新增 尺码销量总和：A0 全量表每行 尺寸组销量 按其原子事实均摊，再按原子检查命中关系汇总到压缩记录（多条同尺码命中均分）；原子检查 MISS 的销量无法归属，计入 status.json；其余列不变",
         "2026-09-28 RU 压缩表 BACKSIZE 改名 亚马逊尺码，并回填 OZON尺码、发货尺码（按亚马逊尺码取自 A0 RU 全量表，须一一对应）；由 data/产线.yaml 的 尺码列名/附加尺码列 配置，其余产线格式不变",
         "2026-10-08 US 区域产线（US、HNT、TM、TM_拆分）压缩表首列新增 CODE（代号）：取自 02.代码映射 车型编码映射.csv，CODE = MAKE_CODE + MODEL_CODE + YEARCODE（压缩记录 YEAR 两端后两位），与 DIMENSION-CODE 同一规则；车型不在映射中则运行失败；data/产线.yaml 代号区域 配置，EU/RU 不加；其余列不变",
-        "2026-09-28 高度压缩改为积极合并+合理扩张（data/合并规则.yaml）：同一原子被多条同尺码记录命中不再阻止两两合并（如 Golf GTI/GTI/R/R 合为一行），原子检查同尺码多重命中记 OK；合并记录年份区间内连续无原子的年数不超过 3（无可用尺码豁免），不再桥接停产期（如 Prelude 1983-2026 拆为 1983-2001 与 2026）；非皮卡合并须保留左右两条原覆盖的原子（修复含 / 版本名拼接丢原子，EU MISS 3774→约 3600）；原子检查按组合车型全名匹配（修复 US Audi A3/S3 等 308 个误报 MISS 与其销量未归属）"
+        "2026-09-28 高度压缩改为积极合并+合理扩张（data/合并规则.yaml）：同一原子被多条同尺码记录命中不再阻止两两合并（如 Golf GTI/GTI/R/R 合为一行），原子检查同尺码多重命中记 OK；合并记录年份区间内连续无原子的年数不超过 3（无可用尺码豁免），不再桥接停产期（如 Prelude 1983-2026 拆为 1983-2001 与 2026）；非皮卡合并须保留左右两条原覆盖的原子（修复含 / 版本名拼接丢原子，EU MISS 3774→约 3600）；原子检查按组合车型全名匹配（修复 US Audi A3/S3 等 308 个误报 MISS 与其销量未归属）",
+        "2026-10-09 节点目录由 A2.压缩尺寸信息 改为 A1.压缩尺寸信息（原 A1.全量生成 移出 A 线为 E0.尺寸分析）；id、交付物与算法不变",
+        "2026-10-09 运行批次改用 lib/artifact_batch.py：上游全量表/代码映射只记引用，data/ 规则记 sha256 + git commit，压缩 log、原子事实表、原子检查问题移入 extra/ 并 gzip，状态并入 run.json（取代 status.json）；批次约 31 MB → 2.6 MB，输出不变"
       ]
     },
     {
@@ -353,7 +336,8 @@
       "release_notes": [
         "2026-09-27 候选来源改为 A2 US 压缩尺码表，按 BACKSIZE 分组；A0 US 全量表仅用于为压缩车型簇补齐尺寸、销量和 DIMENSION-ID，稳定输出接口不变",
         "2026-09-28 A0 全量表 销量合计 更名为 尺寸组销量，代表车型排序与销量列改读该列，结果不变",
-        "2026-09-28 A0 全量表不再提供 等效长：代表车型打分去掉周长项（长度/销量/年份保持原 0.30/0.20/0.20 相对权重），代表车型.csv 删除 参考半周长 列"
+        "2026-09-28 A0 全量表不再提供 等效长：代表车型打分去掉周长项（长度/销量/年份保持原 0.30/0.20/0.20 相对权重），代表车型.csv 删除 参考半周长 列",
+        "2026-10-09 候选来源随目录改名改读 A1.压缩尺寸信息/output/US/压缩尺码表.csv（原 A2）；代表车型.csv/.tsv 逐字节不变，报告仅来源路径一行变化"
       ]
     },
     {
@@ -406,6 +390,37 @@
       ],
       "release_notes": [
         "2026-09-27 W型车/run.py 改为只读 D1.聚类SKU/output/W型车，不再调用 D1 代码或写入 D1 artifacts；皮卡/run.py（依赖从未入库的 D1 皮卡代码并读 NAS）归档至 archive/皮卡/"
+      ]
+    },
+    {
+      "id": "size-analysis",
+      "path": "E0.尺寸分析",
+      "code_dir": "src",
+      "run": [
+        "python src/build_dimension_statistics.py"
+      ],
+      "tests": "tests",
+      "layer": 5,
+      "line": "E",
+      "index": 0,
+      "role": "final",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [
+        "尺码宽高统计.csv",
+        "尺码宽高极值车型.csv",
+        "尺码尺寸异常.csv"
+      ],
+      "pending": [],
+      "release_notes": [
+        "2026-09-22 由 full-table-summary（A1.全量汇总）与 adapter-trim（B1.适配器-Trim生成）合并为单一节点 A1.全量生成；历史 artifact 分别归档在 artifacts/legacy-full-table-summary/ 与 artifacts/legacy-adapter-trim/ 下，未做内容改动",
+        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核（继承自 A0 口径限制，汇总表必须保留）",
+        "2026-09-25 整理 output：新增分区域全量表 全量生成_US/EU/RU.csv（= A0 全量表_<区域> 原行序原列 + Trims，EU/RU 的 Trims 为空），作为 A2.压缩尺寸信息 与网站流水线（pipeline_carstable_to_webapp/input）的区域输入；全量表_汇总.csv 不变",
+        "2026-09-25 新增店铺产线 全量生成_HNT/TM/TM_拆分.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、店铺发货尺码）+ Trims；A 线共 6 条产线（US、HNT、TM、TM_拆分、EU、RU）",
+        "2026-09-27 改为全量表分析节点：只读 A0 US/EU/RU 全量表做宽高统计（尺码宽高统计、尺码宽高极值车型、尺码尺寸异常）；TRIM 匹配、TRIM适配器 与 data/ TRIM 资料迁至 A0.尺码计算，不再输出 全量表_汇总、全量生成_<产线>、尺寸TRIM映射",
+        "2026-10-09 由 A1.全量生成（id full-generation）移出 A 线，改为 E0.尺寸分析（id size-analysis），按需运行，A 线发布不再自动刷新；交付物与算法不变",
+        "2026-10-09 运行批次改用 lib/artifact_batch.py：A0 全量表只记引用不复制，规则记 sha256 + git commit；批次约 8 MB → 0.7 MB，输出不变"
       ]
     },
     {
@@ -464,7 +479,7 @@
     },
     {
       "name": "尺码宽高统计",
-      "node": "full-generation",
+      "node": "size-analysis",
       "files": [
         "尺码宽高统计.csv",
         "尺码宽高极值车型.csv",

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "counts": {
+    "fitment_input_rows": 51826,
+    "unique_4a_atoms": 51812,
+    "attempted_4a_atoms": 51812,
+    "unattempted_4a_atoms": 0,
+    "coverage_candidate_rows": 896
+  },
+  "attempt_status_counts": {
+    "ATTEMPTED_NO_DIMENSION_CANDIDATE": 38168,
+    "MATCHED": 12586,
+    "ONLINE_REVIEW_ATTEMPTED": 697,
+    "SEMANTIC_CANDIDATE_ATTEMPTED": 361
+  },
+  "semantic_level_candidate_counts": {
+    "MODEL_CONTAINS": 539,
+    "MODEL_SIMILAR": 228,
+    "VERSION_EXACT": 62,
+    "MODEL_EXACT": 50,
+    "MODEL_VERSION_EXACT": 13,
+    "MODEL_COMPONENT_EXACT": 4
+  },
+  "checks": {
+    "every_unique_4a_atom_has_one_coverage_row": true,
+    "no_unattempted_4a_atoms": true,
+    "all_4a_input_rows_accounted_for": true,
+    "all_candidates_respect_year_and_make": true
+  },
+  "hard_errors": [],
+  "sources": {
+    "fitment": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\artifacts\\2026-09-22_04_fitment-coverage-recovered-4a\\input\\4a_fitment_0722.csv",
+      "sha256": "12E995FC740110E6845BB299D7DEF1D0673A5D071A5E3719430D2835EBF617D8"
+    },
+    "dimensions": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\artifacts\\2026-09-22_04_fitment-coverage-recovered-4a\\input\\尺寸库_从A0派生.csv",
+      "sha256": "E11406BC7C18B5AC4E0577BFEC93669662484E72FF425C5BAEBB741E5115FD5F"
+    },
+    "trim": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\data\\TrimList.csv",
+      "sha256": "4FA432C8B68ACDC4E83C187FC429DB3603956848EE1B9C22B28923E7C525B496"
+    },
+    "online_review": {
+      "path": "D:\\Licheng\\Repo\\all_cars_data\\B1.适配器-Trim生成\\data\\TrimList_online_review.csv",
+      "sha256": "9DCA7249F7E24A88752734C5307492A6ACA55E0B8ABAC111E372891AFD0283D8"
+    }
+  }
+}

@@ -19,7 +19,7 @@ def trace_b(repo, monkeypatch) -> list[str]:
     monkeypatch.setattr(trace, "ROOT", repo)
     payload = json.loads((repo / "pipeline.json").read_text(encoding="utf-8"))
     by_id = {node["id"]: node for node in payload["nodes"]}
-    errors, stale = trace.trace_node(by_id["b"], by_id)
+    errors, stale, _deferred = trace.trace_node(by_id["b"], by_id)
     assert not errors, errors
     return stale
 

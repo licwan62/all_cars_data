@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-import hashlib
 import json
 import re
 import sys
 from pathlib import Path
 
-from pipeline_status import check_status
+from artifact_refs import check_deliverable_source, sha256
+from pipeline_status import check_status, node_trigger
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,6 +61,32 @@ def check_layers(nodes: list[dict]) -> list[str]:
     return errors
 
 
+TRIGGER_VALUES = {"auto", "on_demand"}
+
+
+def check_triggers(payload: dict) -> list[str]:
+    """每条线须在 line_triggers 声明 auto/on_demand；auto 节点不得依赖按需节点（否则默认发布会读到未刷新的输入）。"""
+    errors: list[str] = []
+    nodes = payload.get("nodes", [])
+    declared = payload.get("line_triggers", {})
+    for line, value in declared.items():
+        if value not in TRIGGER_VALUES:
+            errors.append(f"line_triggers.{line}={value!r}，只能是 auto 或 on_demand")
+    by_id = {node["id"]: node for node in nodes}
+    for node in nodes:
+        line = node.get("line", "U")
+        if line not in declared and "trigger" not in node:
+            errors.append(f"{node['id']}: 产线 {line} 未在 line_triggers 声明触发方式")
+        if node.get("trigger") not in (None, *TRIGGER_VALUES):
+            errors.append(f"{node['id']}: trigger={node['trigger']!r}，只能是 auto 或 on_demand")
+        if node_trigger(payload, node) != "auto":
+            continue
+        for up in node.get("upstream", []):
+            if up in by_id and node_trigger(payload, by_id[up]) == "on_demand":
+                errors.append(f"{node['id']}: 自动发布节点不得依赖按需节点 {up}")
+    return errors
+
+
 def check_outputs(nodes: list[dict]) -> list[str]:
     """outputs 只列已存在的稳定交付物；未产出的必须写入 pending。"""
     return [
@@ -74,12 +100,9 @@ def check_outputs(nodes: list[dict]) -> list[str]:
 VERSION_SUFFIX = re.compile(r"-\d{8}_\d{2}(?=\.[^.]+$)")
 
 
-def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
 def check_release_naming(nodes: list[dict]) -> list[str]:
-    """artifact 内文件带 -YYYYMMDD_NN 后缀；output/ 使用去后缀的稳定文件名，内容与 artifact 一致。"""
+    """artifact 内文件带 -YYYYMMDD_NN 后缀（未变化的交付物引用更早批次，后缀可早于 manifest 版本）；
+    output/ 使用去后缀的稳定文件名，内容与来源 artifact 一致。"""
     errors: list[str] = []
     for node in nodes:
         base = ROOT / node["path"]
@@ -87,20 +110,16 @@ def check_release_naming(nodes: list[dict]) -> list[str]:
         if not manifest_path.is_file():
             continue
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        version = manifest.get("version", "")
-        artifact_dir = ROOT / manifest.get("artifact", "")
+        if not (ROOT / manifest.get("artifact", "") / "manifest.json").is_file():
+            errors.append(f"{node['id']}: 发布批次 {manifest.get('artifact')} 缺少 manifest.json")
         for item in manifest.get("deliverables", []):
-            name, versioned = item["file"], item.get("versioned_file", "")
-            stem, dot, ext = name.rpartition(".")
-            if versioned != f"{stem}-{version}{dot}{ext}":
-                errors.append(f"{node['id']}: {name} 的 versioned_file 应为 {stem}-{version}{dot}{ext}，实际 {versioned}")
+            problem = check_deliverable_source(ROOT, manifest, item)
+            if problem:
+                errors.append(f"{node['id']}: {problem}")
                 continue
-            out_file = base / "output" / name
-            art_file = artifact_dir / "output" / versioned
-            if not art_file.is_file():
-                errors.append(f"{node['id']}: 来源 artifact 缺少 {art_file.relative_to(ROOT)}")
-            elif out_file.is_file() and sha256(out_file) != sha256(art_file):
-                errors.append(f"{node['id']}: output/{name} 与 {versioned} 内容不一致")
+            out_file = base / "output" / item["file"]
+            if out_file.is_file() and sha256(out_file) != sha256(ROOT / item["artifact_file"]):
+                errors.append(f"{node['id']}: output/{item['file']} 与 {item['versioned_file']} 内容不一致")
         for path in (base / "output").rglob("*"):
             if VERSION_SUFFIX.search(path.name):
                 errors.append(f"{node['id']}: output/ 不得带 artifact 后缀: {path.name}")
@@ -191,6 +210,7 @@ def main() -> int:
                 errors.append(f"{node_id}: 不得依赖自身")
 
     errors.extend(check_layers(nodes))
+    errors.extend(check_triggers(payload))
     errors.extend(check_outputs(nodes))
     errors.extend(check_release_naming(nodes))
     errors.extend(check_final_products(payload.get("final_products", []), nodes))

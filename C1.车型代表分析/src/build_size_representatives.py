@@ -11,7 +11,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_SOURCE = ROOT / "A2.压缩尺寸信息" / "output" / "US" / "压缩尺码表.csv"
+DEFAULT_SOURCE = ROOT / "A1.压缩尺寸信息" / "output" / "US" / "压缩尺码表.csv"
 DEFAULT_DETAILS = ROOT / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
 DEFAULT_OUTPUT_DIR = ROOT / "C1.车型代表分析" / "output"
 OUTPUT_FIELDS = ["车型", "dimension-id", "型号", "车长", "车宽", "车高", "车形", "销量", "in_eagle"]

@@ -21,6 +21,24 @@ def test_cycle_is_reported():
     assert "依赖存在环" in validator.check_layers(nodes)[0]
 
 
+def test_triggers_must_be_declared_and_auto_nodes_cannot_depend_on_demand_nodes():
+    payload = {
+        "line_triggers": {"U": "auto", "A": "auto", "C": "on_demand"},
+        "nodes": [
+            {"id": "u", "line": "U", "upstream": []},
+            {"id": "c", "line": "C", "upstream": ["u"]},
+            {"id": "a", "line": "A", "upstream": ["c"]},
+            {"id": "e", "line": "E", "upstream": ["u"]},
+        ],
+    }
+    errors = validator.check_triggers(payload)
+    assert any("a" in error and "不得依赖按需节点 c" in error for error in errors)
+    assert any("e" in error and "未在 line_triggers 声明" in error for error in errors)
+    payload["nodes"][2]["upstream"] = ["u"]
+    payload["nodes"][3]["trigger"] = "on_demand"
+    assert validator.check_triggers(payload) == []
+
+
 def test_repository_pipeline_is_valid():
     assert validator.main() == 0
 

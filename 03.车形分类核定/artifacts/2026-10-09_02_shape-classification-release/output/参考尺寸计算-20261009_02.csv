@@ -1,0 +1,18 @@
+车身号,分类,结构细分,描述,参考车型,下摆上限,后宽系数,前宽系数,颈宽系数,弧长系数,周长系数
+H0,Hatchback,Low Sloping Hatch,低矮、流线、后顶较早下降,Honda Civic Hatchback、Mazda3 Hatchback、Toyota Corolla Hatchback、Ford Focus Hatchback、Hyundai Elantra GT / i30 Hatchback、Peugeot 308 Hatchback,170,0.732 ,0.718 ,0.890 ,0.810 ,0.920 
+H1,Hatchback,Tall Box Hatch,高 CAB、短机舱、平顶、直尾,Kia Soul、Nissan Cube、Scion xB、Toyota bB、Ford Transit Courier、Honda N-Box / Suzuki Wagon R（用于极端方盒参考）,230,0.746 ,0.720 ,0.870 ,0.815 ,0.917 
+H2,Wagon,Wagon Touring,低 CAB、斜前挡、长车顶、现代流线 Wagon,Audi RS6 Avant / A6 Avant、Volvo V60、Volvo V90、BMW 3 Series Touring、BMW 5 Series Touring、Mercedes-Benz E-Class Wagon、VW Golf SportWagen / Golf Variant,170,0.750 ,0.702 ,0.870 ,0.804 ,0.917 
+H3,Wagon,Classic Estate,长平顶、较直 A/D 柱、小后 R、经典方正 Wagon,Mercedes-Benz W123 Estate、Volvo 240 Wagon、Volvo 740/760 Wagon、Volvo 940 Wagon、Volvo 850 / early V70 Wagon、Buick Roadmaster Estate、Chevrolet Caprice Estate、Oldsmobile Custom Cruiser,250,0.757 ,0.763 ,0.870 ,0.800 ,0.930 
+JP,SUV,Jeep-like Boxy,硬派方盒 SUV，车头、前挡根部和车顶都比较宽，整体从下到上收窄很少，属于前部和车顶宽度需求都较大的类型。,Wrangler、Bronco、G-Class、Defender 90/110,270,0.677 ,0.764 ,0.776 ,0.795 ,0.913 
+P0,Pickup,Standard Body,普通皮卡车身，轮拱没有明显向外突出，车头宽度和车身主体基本协调，作为普通 Pickup 的基础板型。,F-150 普通版、Silverado 1500 普通版、RAM 1500 普通版,300,0.852 ,0.693 ,0.880 ,0.789 ,0.940 
+P1,Pickup,Flared Fender,轮拱明显向外突出，比普通皮卡更宽，尤其前轮区域需要更大的横向余量。,Ranger、Tacoma、Colorado、F-250/F-350 SRW、Silverado/Sierra HD SRW、RAM 2500/3500 SRW,300,0.905 ,0.765 ,0.880 ,0.789 ,0.959 
+P2,Pickup,Wide-body Performance,性能宽体皮卡，前后轮拱明显大幅外扩，车头和车身整体更宽，需要明显更大的补宽。,F-150 Raptor、RAM TRX、Ranger Raptor,300,0.832 ,0.720 ,0.830 ,0.767 ,0.940 
+DUAL,Pickup,DRW,双后轮皮卡，后轮区域大幅向外突出，主要增加车衣后半部分的宽度需求。,F-350 DRW、Silverado 3500HD DRW、Sierra 3500HD DRW、RAM 3500 DRW,350,0.747 ,0.625 ,0.707 ,0.729 ,0.914 
+SD0,Sedan/Coupe,Low Sport,低矮运动型车。车身和前轮区域可能很宽，但前挡和车顶明显更窄，属于“下宽上窄”的车身结构。,Mustang、GR86、Camaro、Porsche Taycan、Corvette,200,0.676 ,0.710 ,0.789 ,0.909 ,0.907 
+SD1,Sedan,Standard / Fastback,普通轿车板型，车头通常有一定圆角并逐渐收窄。传统 Sedan、Fastback、Sportback 均归这一类，不单独区分尾部形状。,Avalon、Camry、Accord、Altima、Malibu Sedan、Model 3、Mercedes CLA、Audi A5 Sportback,200,0.800 ,0.730 ,0.870 ,0.807 ,0.930 
+SD2,Sedan/Coupe,Boxy Classic,老式方正轿车。车头宽且方，俯视两侧较平直，前部不会像现代轿车那样明显收窄，因此需要更大的前部覆盖宽度。,Chevrolet Bel Air 4-Door Sedan、Chevrolet Caprice、经典 Cadillac Sedan、Lincoln Continental,170,1.000 ,1.000 ,0.950 ,0.815 ,1.000 
+SU0,SUV,Streamlined SUV,前角过渡更圆滑，俯视车头向前收窄较明显，车身向前挡和车顶的横向收窄也较明显；前挡通常更平躺，即与水平面的夹角较小。以前部和座舱的实际收窄为主要依据，前挡倾角仅作辅助；溜背不是必要条件，也不能仅因 Coupe 或 Fastback 造型归入本类,Tesla Model X、Tesla Model Y、Porsche Macan、Genesis GV60,200,0.700 ,0.670 ,0.830 ,0.810 ,0.910 
+SU1,SUV,Conventional SUV,车头与座舱轮廓更饱满、更方正，向前及向上的收窄较弱，但仍保留现代 SUV 的圆角过渡,CR-V、RAV4、Highlander、CX-5；BMW X6、Audi Q8、Range Rover Velar,200,0.746 ,0.732 ,0.890 ,0.810 ,0.925 
+SU2,SUV,Boxy SUV,方正 SUV，车头比普通 SUV 更宽、更方，俯视两侧收窄较少，因此通常需要更大的前部覆盖宽度。,4Runner、Bronco Sport、GLB、Tahoe、Yukon、Escalade、Expedition,350,0.830 ,0.700 ,0.860 ,0.787 ,0.925 
+V0,Minivan,Standard Minivan,车头较短但整体较宽，前挡根部和车顶也较宽，前部到车顶的宽度变化较小。,Sienna、Odyssey、Carnival、Pacifica,170,0.729 ,0.714 ,0.873 ,0.855 ,0.923 
+V1,Van,Full-size Van,车头、车身和车顶都比较方正且宽，前部向上收窄很少，属于整体宽度需求较大的板型。,Transit、Sprinter、ProMaster,200,0.876 ,0.730 ,0.848 ,0.855 ,0.946 
