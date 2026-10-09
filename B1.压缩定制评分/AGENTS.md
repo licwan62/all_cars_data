@@ -48,7 +48,7 @@ python src/run.py
   拆分为独立节点 `A2.压缩尺寸信息`。
 - 差评分析相关文件拆分为独立节点 `B0.差评分析`；本节点从
   `B0.差评分析/output/差评分析表.csv` 读取差评维度输入，不再把它当作自己的 `data/`。
-- 拆分前的历史批次归档在 `artifacts/legacy-compression-scoring/`，未做内容改动。
+- 拆分前的历史批次原在 `artifacts/legacy-compression-scoring/`，2026-10-09 原样归档到 NAS `\\NAS8824B4\Public\PQData\bak\all_cars_data\artifacts\B1.压缩定制评分\legacy-compression-scoring`（索引见仓库根目录 `artifacts_archive.json`）。
 
 2026-09-23（第二次）：删除"人工维护进度""车耳状态"两个人工登记评分维度，评分粒度从
 品牌+车型+结构 收窄为 品牌+车型：

@@ -34,7 +34,7 @@
 python scripts/trace_pipeline.py
 ```
 
-清理：`python scripts/archive_old_artifacts.py --keep N --dry-run` 把较旧批次移到 `.bak/artifacts/`，被当前 manifest 或保留批次（`manifest.json`/`run.json`）直接或间接引用的批次不会移动。
+归档：`python scripts/archive_old_artifacts.py --keep N --dest "\\NAS8824B4\Public\PQData\bak\all_cars_data\artifacts" --dry-run` 把较旧批次复制到 NAS、逐文件校验 sha256 后删除本地（不带 `--dest` 时移到 `.bak/artifacts/`）。被当前 manifest 或保留批次（`manifest.json`/`run.json`）直接或间接引用的批次，以及含未提交文件的批次不会移动。每次归档追加到根目录 `artifacts_archive.json`（批次 → NAS 位置、各文件 sha256），归档后提交本地删除与索引。NAS 归档目录不是流水线输入。
 
 执行结构变更后运行：
 

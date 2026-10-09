@@ -2,7 +2,7 @@
 
 `id: size-analysis`（原 `full-generation`）。2026-10-09 起由 `A1.全量生成` 移出 A 线，改为 `E0.尺寸分析`，按需运行：A 线发布不会自动刷新本节点。2026-09-27 起只做全量表分析：读取 `A0.尺码计算` 发布的 US/EU/RU 全量表，按区域 + 自动尺码生成宽高统计。全量表本身、TRIM 匹配与 TRIM适配器 均由 A0 产出，本节点不再输出全量表（`全量表_汇总.csv`、`全量生成_<产线>.csv`、`尺寸TRIM映射.csv`、`TRIM适配器.csv` 已取消）；原 TRIM 代码与 `data/` 资料已迁至 `A0.尺码计算/src/trim/` 与 `A0.尺码计算/data/US/TRIM/`。
 
-历史批次保存在 `artifacts/`（含 `legacy-adapter-trim/`、`legacy-full-table-summary/`），不做改动。
+历史批次保存在 `artifacts/`；合并前的 `legacy-adapter-trim/`、`legacy-full-table-summary/` 与较旧批次已于 2026-10-09 原样归档到 NAS `\\NAS8824B4\Public\PQData\bak\all_cars_data\artifacts\E0.尺寸分析\`（索引见仓库根目录 `artifacts_archive.json`）。
 
 上游：`A0.尺码计算/output/<国别>/全量/全量表.csv`（US、EU、RU；只有 US 带 TRIM）。
 
