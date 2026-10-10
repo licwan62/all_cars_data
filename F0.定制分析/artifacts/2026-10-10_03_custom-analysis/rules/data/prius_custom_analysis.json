@@ -1,0 +1,31 @@
+{
+  "make": "Toyota",
+  "model": "Prius",
+  "region": "US",
+  "structure": "Hatchback",
+  "report_title": "Toyota Prius 定制 SKU 分析与 Sketchfab 参考任务",
+  "dimension_tolerances_mm": {"L-MM": 250, "W-MM": 150, "H-MM": 100},
+  "search_date": "2026-10-10",
+  "sketchfab_generation_by_internal_generation": {"gen2": "gen2 2004–2009", "gen3": "gen3 2010–2015", "gen4": "gen4 2016–2022", "gen5": "gen5 2023–2026"},
+  "analysis_notes": [
+    "尺寸不合适出现 2 次，太重、不好穿各出现 1 次，差评汇总数量为 3、严重度为中。优先验证包覆适配与安装体验；耳位没有直接差评证据。",
+    "五条两厢记录总体跨度 L=201、W=58、H=61 mm，满足既有阈值，因此尺寸算法得到 1 个候选 SKU，包络 4646 × 1783 × 1491 mm。这不证明四代车型可直接共用裁片。",
+    "建议先按 2004–2015、2016–2026 两个打样组验证共版，再决定最终 SKU 数量。2023–2026 与 2016–2022 相比 L 少 46、W 多 23、H 少 46 mm，重点检查车顶与尾部贴合，必要时把第五代独立为第三组。",
+    "范围仅限 MODEL=Prius、Hatchback。Prius C、V、Prime、Plug-in Hybrid 不因名称或 TRIM 列相近自动纳入；2001–2003 Sedan 也不属于本次两厢定制范围。",
+    "前次按自动尺码给出的两组为选购/打样建议，并非现行尺寸算法的最少 SKU 结论。差评中 2XXL-525、0 等历史尺码标记未核实对应关系，不能直接换算为当前版型。"
+  ],
+  "sampling_groups": [
+    {"id": "PRIUS-HB-04-15", "generations": ["gen2", "gen3"], "reason": "先验证 2012–2015 的最大车长与 2004–2009 最小尺寸车型；两代轮廓均需核验。"},
+    {"id": "PRIUS-HB-16-26", "generations": ["gen4", "gen5"], "reason": "2016–2022 是长度/高度极值，2023–2026 是宽度极值；跨代际共同打样，贴合失败则拆出第五代。"}
+  ],
+  "acceptance_notes": [
+    "先测 2012–2015 与 2004–2009 的覆盖差异，再测 2016–2022 和 2023–2026 的长度/宽度极值；订单年款确认、镜耳定位和尾部收束纳入验收。",
+    "太重和不好穿各只有一次原因记录：记录样品克重、单人安装用时与方向辨识，验证后再决定轻量化或工艺变更。未确认偏差方向前不直接整体加长或缩短。"
+  ],
+  "sketchfab_searches": [
+    {"generation": "gen2 2004–2009", "query": "site:sketchfab.com/3d-models Toyota Prius 2008", "representative_url": "https://sketchfab.com/models/9fe294ecd0454269809650062a0bd4ae/embed", "models": [{"title": "Toyota Prius 2008 V2", "url": "https://sketchfab.com/models/9fe294ecd0454269809650062a0bd4ae/embed"}], "note": "找到标题/作者页面，浏览器模型视图提示加载失败，状态为待外形核验；先确认标准车身及比例，不能当作完成验证。"},
+    {"generation": "gen3 2010–2015", "query": "site:sketchfab.com/3d-models Toyota Prius 2012", "representative_url": "https://sketchfab.com/3d-models/toyota-prius-2012-04eaf6b288cc466785365b7d985e3b29", "models": [{"title": "Toyota Prius 2012 · Doz3", "url": "https://sketchfab.com/3d-models/toyota-prius-2012-04eaf6b288cc466785365b7d985e3b29"}], "note": "仅用于第三代外形参考，页面登记 CC BY；真实比例和镜耳位置仍待核验。"},
+    {"generation": "gen4 2016–2022", "query": "site:sketchfab.com/3d-models Toyota Prius 2016", "representative_url": "https://sketchfab.com/3d-models/toyota-prius-2016-1c4c15986a8d4e53a752c7b435959985", "models": [{"title": "Toyota Prius 2016 · Gov3dstudio", "url": "https://sketchfab.com/3d-models/toyota-prius-2016-1c4c15986a8d4e53a752c7b435959985"}], "note": "页面模型年款为 2016，作为第四代候选参考；未购买或下载模型。"},
+    {"generation": "gen5 2023–2026", "query": "site:sketchfab.com/3d-models Toyota Prius 2023", "representative_url": "https://sketchfab.com/3d-models/low-poly-car-toyota-prius-2023-c52b75068d7441268ca2abbc03869852", "models": [{"title": "Low Poly Car – Toyota Prius 2023 · ROH3D", "url": "https://sketchfab.com/3d-models/low-poly-car-toyota-prius-2023-c52b75068d7441268ca2abbc03869852"}], "note": "低多边形模型仅用于整体轮廓参考，镜耳和局部曲面需要实车补测；未购买或下载。"}
+  ]
+}

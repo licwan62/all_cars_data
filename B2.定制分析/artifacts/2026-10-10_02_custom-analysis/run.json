@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "batch": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis",
+  "version": "20261010_02",
+  "description": "custom-analysis",
+  "created_at": "2026-10-10T11:28:49+08:00",
+  "finished_at": "2026-10-10T11:28:49+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261009_04",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261009_04.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv",
+      "sha256": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965"
+    },
+    {
+      "node": "code-mapping",
+      "path": "02.代码映射",
+      "version": "20261009_04",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261009_04.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv",
+      "sha256": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445"
+    }
+  ],
+  "rules": {
+    "data_dir": "B2.定制分析/data",
+    "git_commit": "c4508d37ecf307d701f9a1a944e05e7a2023dc4d",
+    "copied": [
+      "data/mercedes_e_class_custom_analysis.json",
+      "data/mini_countryman_custom_analysis.json",
+      "data/README.md"
+    ],
+    "files": [
+      {
+        "file": "data/mercedes_e_class_custom_analysis.json",
+        "sha256": "14b888c54188343bca8a0552f139379a63d282bfaad3e3be5ef0abc80ee7d6e2",
+        "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/rules/data/mercedes_e_class_custom_analysis.json"
+      },
+      {
+        "file": "data/mini_countryman_custom_analysis.json",
+        "sha256": "c9f3d174e4eca98ccd07347a80981f89e685adc57f717db2cb5a9491c2e972ba",
+        "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/rules/data/mini_countryman_custom_analysis.json"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "adba77ffb4d3dd733dd4da4039ebea904fc7054910297f308e6c63fa8b32a32d",
+        "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/rules/data/README.md"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "mercedes_e_class/定制SKU聚簇.csv",
+      "versioned_file": "mercedes_e_class/定制SKU聚簇-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mercedes_e_class/定制SKU聚簇-20261010_02.csv",
+      "sha256": "9b90ce1b184361d435bedbbbc844932f2bbc86d1892057cc1e12ac5714acdc2a",
+      "bytes": 694,
+      "rows": 2
+    },
+    {
+      "file": "mercedes_e_class/定制SKU聚簇成员.csv",
+      "versioned_file": "mercedes_e_class/定制SKU聚簇成员-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mercedes_e_class/定制SKU聚簇成员-20261010_02.csv",
+      "sha256": "4f6c2b81212e573fd7edbeb9fabc0d210c523725a035633e781d1c0e74979a27",
+      "bytes": 1549,
+      "rows": 15
+    },
+    {
+      "file": "mercedes_e_class/Sketchfab检索记录.csv",
+      "versioned_file": "mercedes_e_class/Sketchfab检索记录-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mercedes_e_class/Sketchfab检索记录-20261010_02.csv",
+      "sha256": "b34223dc167207d6e1c5c3919a7c541e6bd05562825363e4779e04efade8dbea",
+      "bytes": 1144,
+      "rows": 6
+    },
+    {
+      "file": "mercedes_e_class/定制SKU聚簇报告.md",
+      "versioned_file": "mercedes_e_class/定制SKU聚簇报告-20261010_02.md",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mercedes_e_class/定制SKU聚簇报告-20261010_02.md",
+      "sha256": "8e7362b4cf69fe23ace0cf5550252986850084894e84f393704060beb4fc5a0a",
+      "bytes": 2713,
+      "rows": null
+    },
+    {
+      "file": "mercedes_e_class/Sketchfab参考任务.csv",
+      "versioned_file": "mercedes_e_class/Sketchfab参考任务-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mercedes_e_class/Sketchfab参考任务-20261010_02.csv",
+      "sha256": "f9971ac524774ef1c57633f7aec76147570fa551cec33c2734617b5c43979207",
+      "bytes": 2339,
+      "rows": 6
+    },
+    {
+      "file": "mini_countryman/定制SKU聚簇.csv",
+      "versioned_file": "mini_countryman/定制SKU聚簇-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mini_countryman/定制SKU聚簇-20261010_02.csv",
+      "sha256": "9702bfdc07c01cda3becf5be09828974afeeef736d9055182c923ba40050eeda",
+      "bytes": 603,
+      "rows": 2
+    },
+    {
+      "file": "mini_countryman/定制SKU聚簇成员.csv",
+      "versioned_file": "mini_countryman/定制SKU聚簇成员-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mini_countryman/定制SKU聚簇成员-20261010_02.csv",
+      "sha256": "67f26ed4183599550d00693ba72707948cf91caebdd2abb789fb7cc0cadf2651",
+      "bytes": 416,
+      "rows": 4
+    },
+    {
+      "file": "mini_countryman/Sketchfab检索记录.csv",
+      "versioned_file": "mini_countryman/Sketchfab检索记录-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mini_countryman/Sketchfab检索记录-20261010_02.csv",
+      "sha256": "7ab5c33219b9b74f820bab4e92a6c4126535704ef7ad64a15a4ba15f15e0fa33",
+      "bytes": 542,
+      "rows": 3
+    },
+    {
+      "file": "mini_countryman/定制SKU聚簇报告.md",
+      "versioned_file": "mini_countryman/定制SKU聚簇报告-20261010_02.md",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mini_countryman/定制SKU聚簇报告-20261010_02.md",
+      "sha256": "33abd88a2c3433d5b78993561360368f9f68e8fe07938f9571a833468d0bba66",
+      "bytes": 2073,
+      "rows": null
+    },
+    {
+      "file": "mini_countryman/Sketchfab参考任务.csv",
+      "versioned_file": "mini_countryman/Sketchfab参考任务-20261010_02.csv",
+      "artifact_file": "B2.定制分析/artifacts/2026-10-10_02_custom-analysis/output/mini_countryman/Sketchfab参考任务-20261010_02.csv",
+      "sha256": "8fb4e924a17b11afda856c02e014c75fbaeb8e2bd1b06f91da201622e6ec6b94",
+      "bytes": 943,
+      "rows": 3
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "mercedes_e_class",
+        "input_rows": 15,
+        "reference_tasks": 6
+      },
+      {
+        "case": "mini_countryman",
+        "input_rows": 4,
+        "reference_tasks": 3
+      }
+    ],
+    "migration": "C1 定制分析代码与配置独立到 B2；历史批次保持原位"
+  }
+}

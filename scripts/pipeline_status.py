@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 STATUS_NAME = "流水线状态.md"
-LINE_NAMES = {"U": "上游", "A": "A 全量表", "B": "B 定制评分", "C": "C 代表车型", "D": "D 发货单", "E": "E 尺寸分析", "X": "X 旁路"}
+LINE_NAMES = {"U": "上游", "A": "A 全量表", "B": "B 定制评分", "C": "C 代表车型", "D": "D 发货单", "E": "E 尺寸分析", "F": "F 定制分析", "X": "X 旁路"}
 TRIGGERS = {"auto": "自动", "on_demand": "按需"}
 ON_DEMAND_STATE = "按需待刷新"
 

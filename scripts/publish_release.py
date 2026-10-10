@@ -14,7 +14,7 @@
 最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源，并重新生成 ``流水线状态.md``
 （该状态文件只由本脚本写入）。
 
-触发方式（``pipeline.json`` 的 ``line_triggers``）：默认只发布 auto 节点（上游与 A 线）；B/C/D/E/X 等按需节点
+触发方式（``pipeline.json`` 的 ``line_triggers``）：默认只发布 auto 节点（上游与 A 线）；B/C/D/E/F/X 等按需节点
 不随上游刷新，只在 ``--nodes``、``--lines`` 显式点名或 ``--all`` 时发布。
 
     python scripts/publish_release.py                       # 只发布 auto 节点

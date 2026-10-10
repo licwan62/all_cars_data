@@ -11,7 +11,7 @@
     "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext, each byte stored once: published upstream inputs and committed data/ rules are referenced (sha256 / git commit) not copied; run batches via lib/artifact_batch.py write run.json",
     "code": "节点代码集中在 code_dir 声明的目录（src/、code/ 或 scripts/）；节点根目录不放 .py 脚本。run 为在节点目录下执行的正式生成命令，tests 为自动测试目录。仓库级共享模块在根目录 lib/，仓库级工具在 scripts/。"
   },
-  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表与压缩尺码表、B 定制评分、C 代表车型、D 发货单、E 尺寸分析、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账、E0 尺寸分析直接读 A0 全量表），序号规则同样适用（线内后续序号必须大于它）。",
+  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表与压缩尺码表、B 定制评分、C 代表车型、D 发货单、E 尺寸分析、F 独立定制分析、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账、E0 尺寸分析与 F0 定制分析直接读 A0 全量表），序号规则同样适用（线内后续序号必须大于它）。",
   "release_contract": "python scripts/publish_release.py 自上游到下游发布：交付物、上游输入、data/ 规则快照与说明均未变化的节点不新建批次；否则新建发布批次，交付物与上一版或运行批次 run.json 登记的输出相同则引用该 artifact 文件，否则以 -YYYYMMDD_NN 后缀存入本批次；manifest.json 记录交付物 sha256、artifact 来源、上游版本与本节点 data/ 规则快照（rules，换行归一后的 sha256）；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
   "trigger_contract": "按产线区分触发方式（line_triggers，节点可用 trigger 字段覆盖）：auto 线随默认的 python scripts/publish_release.py 自上游到下游发布；on_demand 线只在显式指定时发布（--nodes <id> / --lines <线> / --all），上游更新不会触发它们。按需节点的上游变化只标为“按需待刷新”，不算过期、不使追踪失败；其自身 data/ 规则变化仍算过期。auto 节点不得依赖 on_demand 节点。",
   "line_triggers": {
@@ -21,7 +21,8 @@
     "C": "on_demand",
     "D": "on_demand",
     "E": "on_demand",
-    "X": "on_demand"
+    "X": "on_demand",
+    "F": "on_demand"
   },
   "nodes": [
     {
@@ -312,6 +313,27 @@
       ]
     },
     {
+      "id": "custom-analysis",
+      "path": "F0.定制分析",
+      "code_dir": "src",
+      "run": ["python src/run.py"],
+      "tests": "tests",
+      "layer": 5,
+      "line": "F",
+      "index": 0,
+      "role": "final",
+      "upstream": ["size-calculation", "code-mapping", "negative-review-analysis"],
+      "outputs": [
+        "mercedes_e_class/定制SKU聚簇报告.md",
+        "mini_countryman/定制SKU聚簇报告.md",
+        "prius/定制SKU聚簇报告.md"
+      ],
+      "pending": [],
+      "release_notes": [
+        "2026-10-10 F0 独立 F 产线按需运行；正式输入只读 A0、02、B0 output。每车型仅交付完整 Markdown（结论、差评、SKU、成员、打样和 Sketchfab 任务），取消 CSV，新增 Prius；历史批次保留原位。"
+      ]
+    },
+    {
       "id": "representative-model",
       "path": "C1.车型代表分析",
       "code_dir": "src",
@@ -521,6 +543,16 @@
       "node": "compression-scoring",
       "files": [
         "定制需求度评分.csv"
+      ],
+      "pending": []
+    },
+    {
+      "name": "定制SKU分析与Sketchfab参考任务",
+      "node": "custom-analysis",
+      "files": [
+        "mercedes_e_class/定制SKU聚簇报告.md",
+        "mini_countryman/定制SKU聚簇报告.md",
+        "prius/定制SKU聚簇报告.md"
       ],
       "pending": []
     },

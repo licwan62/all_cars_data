@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "batch": "B2.定制分析/artifacts/2026-10-10_01_custom-analysis",
+  "version": "20261010_01",
+  "description": "custom-analysis",
+  "created_at": "2026-10-10T11:28:40+08:00",
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261009_04",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261009_04.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv",
+      "sha256": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965"
+    },
+    {
+      "node": "code-mapping",
+      "path": "02.代码映射",
+      "version": "20261009_04",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261009_04.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv",
+      "sha256": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445"
+    }
+  ],
+  "status": {
+    "status": "failed",
+    "error": "OSError: [WinError 17] 系统无法将文件移到不同的磁盘驱动器。: 'C:\\\\Users\\\\cc\\\\AppData\\\\Local\\\\Temp\\\\custom-analysis-lrprdk0q\\\\定制SKU聚簇.csv' -> 'D:\\\\Licheng\\\\Repo\\\\all_cars_data\\\\B2.定制分析\\\\artifacts\\\\2026-10-10_01_custom-analysis\\\\output\\\\mercedes_e_class\\\\定制SKU聚簇-20261010_01.csv'"
+  }
+}

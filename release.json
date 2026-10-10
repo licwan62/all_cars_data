@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "released_at": "2026-10-09T17:39:45+08:00",
+  "released_at": "2026-10-10T11:45:59+08:00",
   "nodes": {
     "dimension-crawler": {
       "path": "00.自动化尺寸抓取器",
@@ -88,8 +88,8 @@
     },
     "representative-model": {
       "path": "C1.车型代表分析",
-      "version": "20261009_05",
-      "artifact": "C1.车型代表分析/artifacts/2026-10-09_05_representative-model-release",
+      "version": "20261010_02",
+      "artifact": "C1.车型代表分析/artifacts/2026-10-10_02_representative-model-release",
       "deliverables": [
         "代表车型.csv",
         "代表车型.tsv",
@@ -183,6 +183,17 @@
         "尺码宽高统计.csv",
         "尺码宽高极值车型.csv",
         "尺码尺寸异常.csv"
+      ],
+      "pending": []
+    },
+    "custom-analysis": {
+      "path": "F0.定制分析",
+      "version": "20261010_04",
+      "artifact": "F0.定制分析/artifacts/2026-10-10_04_custom-analysis-release",
+      "deliverables": [
+        "mercedes_e_class/定制SKU聚簇报告.md",
+        "mini_countryman/定制SKU聚簇报告.md",
+        "prius/定制SKU聚簇报告.md"
       ],
       "pending": []
     }

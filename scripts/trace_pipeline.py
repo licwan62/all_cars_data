@@ -9,7 +9,7 @@
 4. 本节点 data/ 规则：与 manifest 的 ``rules`` 快照比对；规则已改而输出未重新发布即过期。
    旧 manifest 没有 ``rules`` 时显示“未记录”，下次发布后生效。
 
-按需节点（``pipeline.json`` 的 ``line_triggers`` 为 on_demand，如 B/C/D/E/X 线）不随上游刷新：上游变化只记为
+按需节点（``pipeline.json`` 的 ``line_triggers`` 为 on_demand，如 B/C/D/E/F/X 线）不随上游刷新：上游变化只记为
 “按需待刷新”（ON-DEMAND）提示，不算过期；其自身规则变化仍算过期。
 
 打印追踪表；存在不一致或过期节点时返回 1。
