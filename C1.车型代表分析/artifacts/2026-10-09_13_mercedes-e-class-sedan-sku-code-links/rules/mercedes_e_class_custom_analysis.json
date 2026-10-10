@@ -1,0 +1,34 @@
+{
+  "make": "Mercedes-Benz",
+  "model": "E-Class",
+  "region": "US",
+  "structure": "Sedan",
+  "sketchfab_generation_by_internal_generation": {
+    "gen1": "W124",
+    "gen2": "W210",
+    "gen3": "W211",
+    "gen4": "W212",
+    "gen5": "W213",
+    "gen6": "W214"
+  },
+  "code_mapping_source": "02.代码映射/output/尺寸编码映射.csv",
+  "method": "minimum-sku-envelope-clustering",
+  "dimension_tolerances_mm": {
+    "L-MM": 150,
+    "W-MM": 100,
+    "H-MM": 80
+  },
+  "effective_length": {
+    "source": "L-MM",
+    "role": "primary_hard_constraint",
+    "note": "A0 no longer publishes a separate effective-length field. Vehicle length is used as its available proxy; no automatic-size field is read."
+  },
+  "sketchfab_searches": [
+    {"generation": "W124", "query": "site:sketchfab.com/3d-models Mercedes-Benz E-Class W124", "representative_url": "https://sketchfab.com/3d-models/mercedes-benz-e-class-mk2w124-81b317899e9641d9ac08f0be4fd09fac"},
+    {"generation": "W210", "query": "site:sketchfab.com/3d-models Mercedes-Benz E-Class W210", "representative_url": "https://sketchfab.com/3d-models/mercedes-benz-e-class-w210-sedan-ca4387f139da4dc8a51c1abd2edd01c1"},
+    {"generation": "W211", "query": "site:sketchfab.com/3d-models Mercedes-Benz E-Class W211", "representative_url": "https://sketchfab.com/3d-models/mercedes-benz-klasy-e-iii-w211-2002-2009-eeec59df77404b7082498bbe63034ecf"},
+    {"generation": "W212", "query": "site:sketchfab.com/3d-models Mercedes-Benz E-Class W212", "representative_url": "https://sketchfab.com/3d-models/mercedes-benz-e-class-w212-9b70707fd2304f578175158564719c5d"},
+    {"generation": "W213", "query": "site:sketchfab.com/3d-models Mercedes-Benz E-Class W213", "representative_url": "https://sketchfab.com/models/468fd13bf3d64d658b420497dcb5fa80/embed"},
+    {"generation": "W214", "query": "site:sketchfab.com/3d-models Mercedes-Benz E-Class W214", "representative_url": ""}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "completed_at": "2026-10-09T16:00:00+08:00",
+  "input_rows": 30,
+  "sku_clusters": 5,
+  "validation": {
+    "command": "python -m pytest C1.车型代表分析/tests/test_mercedes_e_class_custom.py -q",
+    "result": "1 passed"
+  },
+  "notes": [
+    "Only L-MM, W-MM, and H-MM were used for clustering; 自动尺码 was not read.",
+    "L-MM is the available effective-length proxy because A0 does not publish a separate effective-length field.",
+    "Sketchfab links are recorded for visual verification only and do not affect clustering."
+  ]
+}

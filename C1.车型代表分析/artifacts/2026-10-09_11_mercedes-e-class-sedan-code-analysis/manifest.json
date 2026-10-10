@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "node": "representative-model",
+  "analysis": "Mercedes-Benz E-Class Sedan custom SKU clustering with dimension codes",
+  "upstream": [
+    {"file": "A0.尺码计算/output/US/全量/全量表.csv", "snapshot": "input/全量表.csv"},
+    {"file": "02.代码映射/output/尺寸编码映射.csv", "snapshot": "input/尺寸编码映射.csv"}
+  ],
+  "rules": [
+    {"file": "data/mercedes_e_class_custom_analysis.json", "sha256": "869115ca2980f822bb1cb6ca4b0626326bd22af3e5bb9361d63ee951c871d0ce"},
+    {"file": "data/README.md", "sha256": "35427bebd570a7fbadc8605bade0957463afb5ad540954f32572d3dbfd7322f3"}
+  ],
+  "deliverables": [
+    {"file": "output/定制SKU聚簇.csv", "sha256": "7e33c9039baf1087ee51e3a02e0e6b45b17750e350816e1087def6abdbc3d336"},
+    {"file": "output/定制SKU聚簇成员.csv", "sha256": "847ca6e4b18018dea8d692ac6b2a044c73ae9fc164094f3fa613d93f86fbfdec"},
+    {"file": "output/Sketchfab检索记录.csv", "sha256": "08a0afb033b6e7b3ab339c1a7d39f01b8aff9d0f1c0a3482167625ba74b29275"},
+    {"file": "output/定制SKU聚簇报告.md", "sha256": "bb1a07ad5be1545629b933e5a7ca14d425d0b6299ed1095b8f8da79b2055043c"}
+  ],
+  "pending": []
+}
