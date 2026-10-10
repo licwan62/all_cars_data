@@ -35,6 +35,11 @@ def test_sku_code_uses_one_sku_year_range() -> None:
     assert sku_code(rows, {"a": "23019495", "b": "23010309"}) == "23019409"
 
 
+def test_sku_code_requires_explicit_family_code_for_multiple_models() -> None:
+    rows = (row("a", 4800, 1800, 1450) | {"YEAR": "2012-2015"}, row("b", 4801, 1800, 1450) | {"YEAR": "2017-2022"})
+    assert sku_code(rows, {"a": "02081215", "b": "02231722"}, "TOYOTA-PRIUS-") == "TOYOTA-PRIUS-1222"
+
+
 def test_countryman_reference_case_preserves_two_envelopes() -> None:
     groups = cluster_minimum_envelopes([
         row("R60", 4110, 1788, 1562), row("R60-JCW", 4143, 1788, 1562),

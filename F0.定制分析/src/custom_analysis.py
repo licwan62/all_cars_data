@@ -47,22 +47,28 @@ def year_bounds(value: str) -> tuple[int, int]:
     return start, int(parts[-1])
 
 
-def sku_code(rows: tuple[dict[str, str], ...], codes: dict[str, str]) -> str:
+def sku_code(rows: tuple[dict[str, str], ...], codes: dict[str, str], family_code: str = "") -> str:
     """Use the stable 4-digit make/model code plus the SKU's inclusive YY–YY span."""
     model_codes = {codes[row["DIMENSION-ID"]][:4] for row in rows}
-    if len(model_codes) != 1:
+    if len(model_codes) != 1 and not family_code:
         raise ValueError(f"SKU crosses model codes: {sorted(model_codes)}")
     starts, ends = zip(*(year_bounds(row["YEAR"]) for row in rows))
-    return f"{model_codes.pop()}{min(starts) % 100:02d}{max(ends) % 100:02d}"
+    prefix = family_code or model_codes.pop()
+    return f"{prefix}{min(starts) % 100:02d}{max(ends) % 100:02d}"
 
 
-def active_rows(path: Path, make: str, model: str, structure: str = "") -> list[dict[str, str]]:
+def active_rows(
+    path: Path, make: str, model: str = "", structure: str = "",
+    *, models: list[str] | None = None, structures: list[str] | None = None,
+) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
+    selected_models = set(models or ([model] if model else []))
+    selected_structures = set(structures or ([structure] if structure else []))
     selected = [
         row for row in rows
-        if row.get("MAKE") == make and row.get("MODEL") == model
-        and (not structure or row.get("结构") == structure)
+        if row.get("MAKE") == make and (not selected_models or row.get("MODEL") in selected_models)
+        and (not selected_structures or row.get("结构") in selected_structures)
         and all(row.get(field, "").isdigit() for field in ("L-MM", "W-MM", "H-MM"))
     ]
     return sorted(selected, key=lambda row: (int(row["L-MM"]), int(row["W-MM"]), int(row["H-MM"]), row["DIMENSION-ID"]))

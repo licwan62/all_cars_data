@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "batch": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis",
+  "version": "20261010_14",
+  "description": "custom-analysis",
+  "created_at": "2026-10-10T17:25:03+08:00",
+  "finished_at": "2026-10-10T17:25:03+08:00",
+  "command": [
+    "run.py",
+    "--case",
+    "jeep_gladiator"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261010_01",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261009_04.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv",
+      "sha256": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965"
+    },
+    {
+      "node": "code-mapping",
+      "path": "02.代码映射",
+      "version": "20261010_01",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261009_04.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv",
+      "sha256": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "B0.差评分析",
+      "version": "20261009_04",
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261009_04.csv",
+      "artifact_file": "B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+    }
+  ],
+  "rules": {
+    "data_dir": "F0.定制分析/data",
+    "git_commit": "0713b2b953956f3e5c03985077bac13a492fef31",
+    "copied": [
+      "data/jeep_gladiator_custom_analysis.json",
+      "data/prius_custom_analysis.json",
+      "data/README.md",
+      "data/subaru_forester_custom_analysis.json"
+    ],
+    "files": [
+      {
+        "file": "data/jeep_gladiator_custom_analysis.json",
+        "sha256": "56a967fe59dc740c78338dbd2cc49fd9ef19c010dae251f4782f2f1b7c3163db",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis/rules/data/jeep_gladiator_custom_analysis.json"
+      },
+      {
+        "file": "data/mercedes_e_class_custom_analysis.json",
+        "sha256": "14b888c54188343bca8a0552f139379a63d282bfaad3e3be5ef0abc80ee7d6e2"
+      },
+      {
+        "file": "data/mini_countryman_custom_analysis.json",
+        "sha256": "c9f3d174e4eca98ccd07347a80981f89e685adc57f717db2cb5a9491c2e972ba"
+      },
+      {
+        "file": "data/prius_custom_analysis.json",
+        "sha256": "464c9430061dc93cdf7ed8f60b5c52a6ae0fd35a7ae7a5c85a27ce12467f3e81",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis/rules/data/prius_custom_analysis.json"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis/rules/data/README.md"
+      },
+      {
+        "file": "data/subaru_forester_custom_analysis.json",
+        "sha256": "159409b7176b151c90532b32e249cf9a826ab065eeda8ab410b19a5eafc5cf6f",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis/rules/data/subaru_forester_custom_analysis.json"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "jeep_gladiator/定制SKU聚簇报告.md",
+      "versioned_file": "jeep_gladiator/定制SKU聚簇报告-20261010_14.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis/output/jeep_gladiator/定制SKU聚簇报告-20261010_14.md",
+      "sha256": "2669b219b4c31b89627e17ad3e03a04796dc396fb8c33aae71af84dffd16a9ff",
+      "bytes": 8797,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "jeep_gladiator",
+        "input_rows": 6
+      }
+    ],
+    "change": "仅交付完整 Markdown，新增 Prius 和差评依据；历史批次保留"
+  }
+}

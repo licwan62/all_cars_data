@@ -22,7 +22,13 @@ REPORT_NAME = "定制SKU聚簇报告.md"
 
 def reference_tasks(config: dict, members: list[dict], rows: list[dict]) -> list[dict]:
     generations = config.get("sketchfab_generation_by_internal_generation", {})
-    row_generations = {row["DIMENSION-ID"]: generations.get(row.get("代际", ""), row.get("代际", "")) for row in rows}
+    row_generations = {
+        row["DIMENSION-ID"]: generations.get(
+            f"{row.get('MODEL', '')}:{row.get('代际', '')}",
+            generations.get(row.get("代际", ""), row.get("代际", "")),
+        )
+        for row in rows
+    }
     references = {item["generation"]: item for item in config["sketchfab_searches"]}
     grouped: dict[tuple[str, str], list[str]] = {}
     for member in members:
@@ -60,7 +66,10 @@ def main() -> None:
             if set(config["dimension_tolerances_mm"]) != {"L-MM", "W-MM", "H-MM"} or any(int(x) < 0 for x in config["dimension_tolerances_mm"].values()):
                 raise ValueError("L/W/H 阈值必须完整且非负")
             case = path.stem.removesuffix("_custom_analysis")
-            rows = active_rows(details, config["make"], config["model"], config.get("structure", ""))
+            rows = active_rows(
+                details, config["make"], config.get("model", ""), config.get("structure", ""),
+                models=config.get("models"), structures=config.get("structures"),
+            )
             report = render_report(config, rows, codes, reviews, batch.inputs, reference_tasks)
             batch.output(f"{case}/{REPORT_NAME}").write_text(report, encoding="utf-8")
             cases.append({"case": case, "input_rows": len(rows)})

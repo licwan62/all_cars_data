@@ -14,13 +14,14 @@ sys.path.insert(0, str(PROJECT_DIR))
 from src import run as run_mod  # noqa: E402
 from src import publish_ssh  # noqa: E402
 
-FIELDS = ["MAKE", "MODEL", "版本", "结构", "CAB", "BED", "YEAR", "分类", "尺寸组销量", "自动尺码", "DIMENSION-ID"]
+FIELDS = ["MAKE", "MODEL", "版本", "结构", "CAB", "BED", "YEAR", "分类", "L-MM", "W-MM", "H-MM", "尺寸组销量", "自动尺码", "DIMENSION-ID"]
 
 
-def row(make="Ford", model="Focus", version="", structure="Sedan", cab="", bed="", year="2018-2019", category="三厢车", size="M", region="US", sales=0):
+def row(make="Ford", model="Focus", version="", structure="Sedan", cab="", bed="", year="2018-2019", category="三厢车", size="M", region="US", sales=0,
+        length=4500, width=1800, height=1450):
     return {
         "MAKE": make, "MODEL": model, "版本": version, "结构": structure, "CAB": cab, "BED": bed,
-        "YEAR": year, "分类": category, "尺寸组销量": str(sales), "自动尺码": size,
+        "YEAR": year, "分类": category, "L-MM": str(length), "W-MM": str(width), "H-MM": str(height), "尺寸组销量": str(sales), "自动尺码": size,
         "DIMENSION-ID": " ".join(part for part in [make, model, version, structure, year, region] if part),
     }
 
@@ -165,6 +166,54 @@ def test_pickup_sales_follow_cab_atoms():
     assert tables["pickup_high"]["尺码销量总和"].tolist() == [30]
 
 
+def test_record_dimensions_keep_extremes_and_their_years():
+    # 记录来源尺寸：命中的同尺码原子的长宽高最大/最小值及取到该值的年份；不同尺码的原子不计入
+    tables = compress([
+        row(year="2015-2017", length=4500, width=1800, height=1460),
+        row(year="2018-2019", length=4630, width=1790, height=1460),
+        row(year="2020", length=4630, width=1810, height=""),
+        row(model="Fusion", year="2018", size="L", length=4870),
+    ])
+    focus = tables["non_pickup_high"].set_index("MODEL").loc["Focus"]
+    assert focus["YEAR"] == "2015-2020"
+    assert (focus["最大长-MM"], focus["最大长年份"], focus["最小长-MM"], focus["最小长年份"]) == ("4630", "2018-2020", "4500", "2015-2017")
+    assert (focus["最大宽-MM"], focus["最大宽年份"], focus["最小宽-MM"], focus["最小宽年份"]) == ("1810", "2020", "1790", "2018-2019")
+    assert (focus["最大高-MM"], focus["最大高年份"], focus["最小高-MM"], focus["最小高年份"]) == ("1460", "2015-2019", "1460", "2015-2019")
+
+
+def test_record_dimensions_split_discontinuous_years_and_follow_pickup_cabs():
+    tables = compress([
+        row(year="2010", length=4600), row(year="2011", length=4500), row(year="2012", length=4600),
+        row(model="F-150", structure="", cab="Crew/SuperCab", bed="5.5", category="皮卡", year="2019", size="PK-M", length=5900),
+    ])
+    assert tables["non_pickup_high"][["最大长-MM", "最大长年份"]].values.tolist() == [["4600", "2010/2012"]]
+    assert tables["pickup_high"][["最大长-MM", "最大长年份"]].values.tolist() == [["5900", "2019"]]
+    assert run_mod.year_ranges([2012, 2010, 2011, 2015, 2017, 2016]) == "2010-2012/2015-2017"
+
+
+def test_sources_list_rows_and_years_each_record_covers():
+    # 压缩来源：每条记录（压缩类型 + 记录序号）覆盖的全量表行、覆盖年份与长宽高；不同尺码的行归各自记录
+    tables = compress([
+        row(year="2015-2017", length=4500),
+        row(year="2018-2019", length=4630),
+        row(version="Sport", year="2018-2021", size="L", length=4700),
+        row(model="F-150", structure="Pickup", cab="Crew", bed="5.5", category="皮卡", year="2019", size="PK-M", length=5900),
+    ])
+    sources = tables["sources"]
+    assert list(sources.columns) == run_mod.SOURCE_COLUMNS
+    high = tables["non_pickup_high"].reset_index(drop=True)
+    by_record = {
+        (kind, high.loc[number - 1, "VERSION"] if kind == "非皮卡" else "pickup"): group[["YEAR", "L-MM"]].values.tolist()
+        for (kind, number), group in sources.groupby(["压缩类型", "记录序号"])
+    }
+    assert by_record == {
+        ("非皮卡", ""): [["2015-2017", "4500"], ["2018-2019", "4630"]],
+        ("非皮卡", "Sport"): [["2018-2021", "4700"]],
+        ("皮卡", "pickup"): [["2019", "5900"]],
+    }
+    assert sources.loc[sources["压缩类型"] == "皮卡", ["CAB", "BED"]].values.tolist() == [["Crew", "5.5"]]
+
+
 def test_ru_format_renames_size_and_fills_ozon_and_shipping_sizes():
     size_format = run_mod.load_size_formats(PROJECT_DIR / "data")["RU"]
     assert size_format == {"尺码列名": "亚马逊尺码", "附加尺码列": ["OZON尺码", "发货尺码"]}
@@ -175,7 +224,7 @@ def test_ru_format_renames_size_and_fills_ozon_and_shipping_sizes():
     frame = pd.DataFrame(rows).astype(str)
     tables = run_mod.compress_line("RU", frame, profile(), "RU", size_format=size_format)["tables"]
     high = tables["non_pickup_high"]
-    assert list(high.columns[-4:]) == ["亚马逊尺码", "OZON尺码", "发货尺码", "尺码销量总和"]
+    assert list(high.columns[-4 - len(run_mod.DIMENSION_COLUMNS):]) == ["亚马逊尺码", "OZON尺码", "发货尺码", "尺码销量总和", *run_mod.DIMENSION_COLUMNS]
     assert "BACKSIZE" not in high.columns
     assert set(zip(high["亚马逊尺码"], high["OZON尺码"], high["发货尺码"])) == {("3M", "3M", "L"), ("YS-410", "S", "YM")}
 
@@ -239,6 +288,7 @@ def test_output_names_are_grouped_by_line_without_lossy_suffix():
     assert run_mod.output_names("HNT") == {
         "non_pickup_high": "HNT/压缩尺码表.csv",
         "pickup_high": "HNT/压缩尺码表_皮卡.csv",
+        "sources": "HNT/压缩来源.csv",
     }
 
 

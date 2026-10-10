@@ -6,9 +6,11 @@
 默认交付所有已配置产线的高度压缩（有损）结果：
   <产线>/压缩尺码表.csv       非皮卡高度压缩（车型组合/版本/结构两两合并，逐次原子校验）
   <产线>/压缩尺码表_皮卡.csv  皮卡高度压缩
+  <产线>/压缩来源.csv         两张压缩表每条记录（压缩类型 + 记录序号）覆盖的全量表行、覆盖年份与长宽高
 其中 HNT、TM、TM_拆分均读取 US 店铺全量表；无损表不作为 output 流水线接口。
 代号区域（data/产线.yaml，当前 US）的产线在首列加 CODE：02.代码映射/output/车型编码映射.csv 的
 MAKE_CODE + MODEL_CODE + YEARCODE（与 DIMENSION-CODE 同一规则）。
+两张交付表末列为 尺码销量总和 与来源尺寸（记录命中的同尺码原子的长宽高最大/最小值 mm 及取到该值的年份）。
 全部产线压缩成功后才创建不可覆盖的 artifacts/<批次>/（lib/artifact_batch.py）：run.json 记录上游输入引用、
 data/ 规则快照（sha256 + git commit）与输出 sha256；extra/ 保存压缩 log、原子事实表、原子检查问题（gzip），
 随后原子更新 output/。
@@ -52,6 +54,13 @@ MERGE_RULES = "合并规则.yaml"
 # A0 全量表逐行销量（按 DIMENSION-ID）与压缩表新增的记录销量列
 SALES_SOURCE_COLUMN = "尺寸组销量"
 SALES_COLUMN = "尺码销量总和"
+# 记录来源尺寸：维度名 -> A0 全量表列；压缩表在 尺码销量总和 之后输出各维度最大/最小值（mm）及取到该值的年份
+DIMENSION_SOURCES = {"长": "L-MM", "宽": "W-MM", "高": "H-MM"}
+DIMENSION_EXTREMES = (("最大", "max"), ("最小", "min"))
+DIMENSION_COLUMNS = [f"{extreme}{name}{suffix}" for name in DIMENSION_SOURCES for extreme, _ in DIMENSION_EXTREMES for suffix in ("-MM", "年份")]
+# 来源明细（<产线>/压缩来源.csv）：压缩记录覆盖的全量表行，供网站展开查看各年份长宽高
+SOURCE_ROW_COLUMNS = ["DIMENSION-ID", "MAKE", "MODEL", "版本", "结构", "CAB", "BED"]
+SOURCE_COLUMNS = ["压缩类型", "记录序号", *SOURCE_ROW_COLUMNS, "YEAR", *DIMENSION_SOURCES.values()]
 CODE_COLUMN = "CODE"
 ATOM_KEY = ["压缩类型", "MAKE", "MODEL", "YEAR", "VERSION", "CONST", "CAB", "BED_FT", "BACKSIZE"]
 
@@ -73,6 +82,7 @@ def output_names(line: str) -> dict[str, str]:
     return {
         "non_pickup_high": f"{line}/压缩尺码表.csv",
         "pickup_high": f"{line}/压缩尺码表_皮卡.csv",
+        "sources": f"{line}/压缩来源.csv",
     }
 
 
@@ -209,17 +219,11 @@ def export_or_empty(frame: pd.DataFrame, exporter, columns: list[str]) -> pd.Dat
     return pd.DataFrame(columns=columns) if frame.empty else exporter(frame)
 
 
-def source_atom_sales(frame: pd.DataFrame, field_profile: dict) -> pd.DataFrame:
-    """把全量表每行的尺寸组销量均摊到它展开出的原子事实（与压缩引擎相同的展开规则）。
+def source_atoms(frame: pd.DataFrame, field_profile: dict) -> pd.DataFrame:
+    """全量表每行展开出的原子事实（与压缩引擎相同的展开规则）：ATOM_KEY + 行号（frame 索引）+ 份数（该行展开的原子数）。
 
-    非皮卡按 车型（前台车型拆分）× 年份 × 结构 展开，皮卡按 年份 × CAB 展开；
-    返回按原子键（ATOM_KEY）汇总的 销量 列。
+    非皮卡按 车型（前台车型拆分）× 年份 × 结构 展开，皮卡按 年份 × CAB 展开。
     """
-    if SALES_SOURCE_COLUMN not in frame.columns:
-        raise CompressionError(f"全量表缺少 {SALES_SOURCE_COLUMN} 列")
-    sales = pd.to_numeric(frame[SALES_SOURCE_COLUMN].replace("", "0"), errors="coerce")
-    if sales.isna().any():
-        raise CompressionError(f"全量表 {SALES_SOURCE_COLUMN} 存在非数值")
     work = engine.normalize_input_schema(frame, field_profile=field_profile)
     text = lambda column: work[column].map(engine.normalize_text) if column in work.columns else pd.Series("", index=work.index)  # noqa: E731
     category, cab, bed, size = text("分类"), text("驾驶室类型"), text("货斗长度_ft"), text(engine.BACKSIZE_SOURCE_COLUMN)
@@ -245,31 +249,129 @@ def source_atom_sales(frame: pd.DataFrame, field_profile: dict) -> pd.DataFrame:
                 for year in year_list
                 for const in engine.split_const_atoms(structure[index])
             }
-        atoms.extend((*key, float(sales[index]) / len(keys)) for key in keys)
-    result = pd.DataFrame(atoms, columns=[*ATOM_KEY, "销量"])
+        atoms.extend((*key, index, len(keys)) for key in keys)
+    return pd.DataFrame(atoms, columns=[*ATOM_KEY, "行号", "份数"])
+
+
+def source_atom_sales(frame: pd.DataFrame, atoms: pd.DataFrame) -> pd.DataFrame:
+    """把全量表每行的尺寸组销量均摊到它展开出的原子事实；返回按原子键（ATOM_KEY）汇总的 销量 列。"""
+    if SALES_SOURCE_COLUMN not in frame.columns:
+        raise CompressionError(f"全量表缺少 {SALES_SOURCE_COLUMN} 列")
+    sales = pd.to_numeric(frame[SALES_SOURCE_COLUMN].replace("", "0"), errors="coerce")
+    if sales.isna().any():
+        raise CompressionError(f"全量表 {SALES_SOURCE_COLUMN} 存在非数值")
+    result = atoms[ATOM_KEY].copy()
+    result["销量"] = [float(sales[index]) / count for index, count in zip(atoms["行号"], atoms["份数"])]
     return result.groupby(ATOM_KEY, as_index=False, sort=False)["销量"].sum()
+
+
+def source_dimensions(frame: pd.DataFrame) -> pd.DataFrame:
+    """全量表各行的长宽高（mm，缺值为 NaN），列名为维度名（长、宽、高）。"""
+    missing = [column for column in DIMENSION_SOURCES.values() if column not in frame.columns]
+    if missing:
+        raise CompressionError(f"全量表缺少尺寸列：{missing}")
+    result = pd.DataFrame(index=frame.index)
+    for name, column in DIMENSION_SOURCES.items():
+        text = frame[column].map(engine.normalize_text)
+        result[name] = pd.to_numeric(text, errors="coerce")
+        if (result[name].isna() & (text != "")).any():
+            raise CompressionError(f"全量表 {column} 存在非数值")
+    return result
+
+
+def same_size_hits(table: pd.DataFrame, check: pd.DataFrame):
+    """原子检查命中关系中与原子尺码相同的压缩记录：逐原子产出 (原子索引, [记录索引])，未命中同尺码记录时列表为空。"""
+    line_sizes = {index + 2: engine.normalize_text(value) for index, value in table["BACKSIZE"].items()}
+    for atom_row, lines, atom_size in zip(check["原子行号"], check["压缩行号"], check["BACKSIZE"]):
+        targets = [int(line) for line in str(lines).split("/") if line and line_sizes.get(int(line)) == atom_size]
+        yield int(atom_row) - 2, [line - 2 for line in targets]
+
+
+def atom_export_keys(atom_export: pd.DataFrame) -> pd.DataFrame:
+    return atom_export[ATOM_KEY].astype(str).map(engine.normalize_text) if not atom_export.empty else atom_export[ATOM_KEY]
 
 
 def allocate_record_sales(atom_export: pd.DataFrame, atom_sales: pd.DataFrame, table: pd.DataFrame, check: pd.DataFrame) -> tuple[pd.Series, dict]:
     """按原子检查的命中关系把原子销量汇总到压缩记录；原子命中多条同尺码记录时均分。"""
-    keys = atom_export[ATOM_KEY].astype(str).map(engine.normalize_text) if not atom_export.empty else atom_export[ATOM_KEY]
+    keys = atom_export_keys(atom_export)
     sales_by_key = atom_sales.set_index(ATOM_KEY)["销量"]
     atom_values = pd.Series(
         [float(sales_by_key.get(tuple(key), 0.0)) for key in keys.itertuples(index=False)], index=atom_export.index
     )
-    line_sizes = {index + 2: engine.normalize_text(value) for index, value in table["BACKSIZE"].items()}
     totals = pd.Series(0.0, index=table.index)
     unallocated = 0.0
-    for atom_row, lines, atom_size in zip(check["原子行号"], check["压缩行号"], check["BACKSIZE"]):
-        value = atom_values[int(atom_row) - 2]
-        targets = [int(line) for line in str(lines).split("/") if line and line_sizes.get(int(line)) == atom_size]
+    for atom, targets in same_size_hits(table, check):
+        value = atom_values[atom]
         if not targets:
             unallocated += value
             continue
-        for line in targets:
-            totals[line - 2] += value / len(targets)
+        for target in targets:
+            totals[target] += value / len(targets)
     audit = {"原子销量": round(float(atom_values.sum())), "已分配": round(float(totals.sum())), "未命中同尺码记录": round(unallocated)}
     return totals.round().astype("Int64"), audit
+
+
+def year_ranges(years) -> str:
+    """年份集合 -> 连续区间以 / 分隔（2019-2021/2024），与压缩引擎 parse_year_list 可互逆。"""
+    ordered = sorted(set(int(year) for year in years))
+    parts, start = [], None
+    for position, year in enumerate(ordered):
+        start = year if start is None else start
+        if position + 1 == len(ordered) or ordered[position + 1] != year + 1:
+            parts.append(str(year) if start == year else f"{start}-{year}")
+            start = None
+    return "/".join(parts)
+
+
+def millimetres(value: float) -> str:
+    return str(int(value)) if float(value).is_integer() else f"{value:g}"
+
+
+def record_source_hits(atom_export: pd.DataFrame, atoms: pd.DataFrame, table: pd.DataFrame, check: pd.DataFrame) -> pd.DataFrame:
+    """压缩记录命中的同尺码原子（原子检查）回溯到展开出它的全量表行：去重的 (记录, 行号, 年份)。
+
+    合理扩张出的无原子年份不在其中；同一原子来自多行时各行都计入。
+    """
+    pairs = [(target, atom) for atom, targets in same_size_hits(table, check) for target in targets]
+    if not pairs:
+        return pd.DataFrame(columns=["记录", "行号", "年份"])
+    keys = atom_export_keys(atom_export).assign(原子=atom_export.index)
+    hits = pd.DataFrame(pairs, columns=["记录", "原子"]).merge(keys, on="原子").merge(atoms[[*ATOM_KEY, "行号"]], on=ATOM_KEY)
+    hits["年份"] = hits["YEAR"].astype(int)
+    return hits[["记录", "行号", "年份"]].drop_duplicates(ignore_index=True)
+
+
+def record_dimensions(hits: pd.DataFrame, dimensions: pd.DataFrame, table: pd.DataFrame) -> pd.DataFrame:
+    """压缩记录的来源尺寸：所覆盖来源行 × 年份中各维度的最大/最小值，及取到该值的年份。"""
+    result = pd.DataFrame("", index=table.index, columns=DIMENSION_COLUMNS)
+    hits = hits.join(dimensions, on="行号")
+    for name in DIMENSION_SOURCES:
+        valid = hits.dropna(subset=[name])
+        if valid.empty:
+            continue
+        for extreme, how in DIMENSION_EXTREMES:
+            grouped = valid[valid[name] == valid.groupby("记录")[name].transform(how)].groupby("记录")
+            values = grouped[name].first()
+            result.loc[values.index, f"{extreme}{name}-MM"] = values.map(millimetres)
+            result.loc[values.index, f"{extreme}{name}年份"] = grouped["年份"].agg(year_ranges)
+    return result
+
+
+def record_sources(hits: pd.DataFrame, frame: pd.DataFrame, kind: str) -> pd.DataFrame:
+    """来源明细：每条压缩记录（记录序号 = 压缩表数据行序号，从 1 起）覆盖的全量表行及其被覆盖的年份与长宽高。"""
+    if hits.empty:
+        return pd.DataFrame(columns=SOURCE_COLUMNS)
+    grouped = hits.groupby(["记录", "行号"], sort=False)["年份"]
+    rows = grouped.agg(year_ranges).rename("YEAR").reset_index().assign(首年=grouped.min().to_numpy())
+    rows = rows.sort_values(["记录", "首年", "行号"], kind="stable", ignore_index=True)
+    result = pd.DataFrame({"压缩类型": kind, "记录序号": rows["记录"] + 1})
+    for column in SOURCE_ROW_COLUMNS:
+        values = frame[column].map(engine.normalize_text) if column in frame.columns else pd.Series("", index=frame.index)
+        result[column] = values.loc[rows["行号"]].to_numpy()
+    result["YEAR"] = rows["YEAR"]
+    for column in DIMENSION_SOURCES.values():
+        result[column] = frame[column].map(engine.normalize_text).loc[rows["行号"]].to_numpy()
+    return result[SOURCE_COLUMNS]
 
 
 def compress_line(
@@ -309,8 +411,10 @@ def compress_line(
     if not tables["pickup_high"].empty:
         checks["皮卡"] = build_atom_check(atom_export[kinds == "皮卡"].copy(), tables["pickup_high"], progress=reporter, progress_phase="皮卡原子检查")
 
-    # 尺码销量总和：压缩记录所覆盖原子事实的尺寸组销量之和（行销量按原子均摊）
-    atom_sales = source_atom_sales(frame, field_profile)
+    # 尺码销量总和：压缩记录所覆盖原子事实的尺寸组销量之和（行销量按原子均摊）；来源尺寸：所覆盖原子的长宽高最大/最小值及年份
+    atoms = source_atoms(frame, field_profile)
+    atom_sales = source_atom_sales(frame, atoms)
+    dimensions = source_dimensions(frame)
     export_keys = set(atom_export[ATOM_KEY].astype(str).map(engine.normalize_text).itertuples(index=False, name=None))
     sales_keys = set(atom_sales[ATOM_KEY].itertuples(index=False, name=None))
     if export_keys != sales_keys:
@@ -318,12 +422,20 @@ def compress_line(
             f"{line} 销量原子与压缩原子不一致：仅销量 {len(sales_keys - export_keys)}，仅压缩 {len(export_keys - sales_keys)}"
         )
     sales_audit: dict[str, dict] = {}
+    sources: list[pd.DataFrame] = []
     for kind, key in (("非皮卡", "non_pickup_high"), ("皮卡", "pickup_high")):
         table = tables[key]
         if kind in checks:
             table[SALES_COLUMN], sales_audit[kind] = allocate_record_sales(atom_export[kinds == kind], atom_sales, table, checks[kind])
+            hits = record_source_hits(atom_export[kinds == kind], atoms, table, checks[kind])
         else:
             table[SALES_COLUMN] = pd.Series(dtype="Int64")
+            hits = pd.DataFrame(columns=["记录", "行号", "年份"])
+        record_dims = record_dimensions(hits, dimensions, table)
+        for column in DIMENSION_COLUMNS:
+            table[column] = record_dims[column]
+        sources.append(record_sources(hits, frame, kind))
+    tables["sources"] = pd.concat(sources, ignore_index=True)
     apply_size_format(tables, frame, field_profile, size_format)
     return {"names": names, "tables": tables, "log": engine.export_table(log_df), "atoms": atom_export, "checks": checks, "sales": sales_audit}
 

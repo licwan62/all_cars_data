@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "batch": "F0.定制分析/artifacts/2026-10-10_05_custom-analysis",
+  "version": "20261010_05",
+  "description": "custom-analysis",
+  "created_at": "2026-10-10T14:40:00+08:00",
+  "finished_at": "2026-10-10T14:40:00+08:00",
+  "command": [
+    "run.py",
+    "--case",
+    "prius"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261010_01",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261009_04.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv",
+      "sha256": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965"
+    },
+    {
+      "node": "code-mapping",
+      "path": "02.代码映射",
+      "version": "20261010_01",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261009_04.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv",
+      "sha256": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "B0.差评分析",
+      "version": "20261009_04",
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261009_04.csv",
+      "artifact_file": "B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+    }
+  ],
+  "rules": {
+    "data_dir": "F0.定制分析/data",
+    "git_commit": "0713b2b953956f3e5c03985077bac13a492fef31",
+    "copied": [
+      "data/prius_custom_analysis.json",
+      "data/README.md"
+    ],
+    "files": [
+      {
+        "file": "data/mercedes_e_class_custom_analysis.json",
+        "sha256": "14b888c54188343bca8a0552f139379a63d282bfaad3e3be5ef0abc80ee7d6e2"
+      },
+      {
+        "file": "data/mini_countryman_custom_analysis.json",
+        "sha256": "c9f3d174e4eca98ccd07347a80981f89e685adc57f717db2cb5a9491c2e972ba"
+      },
+      {
+        "file": "data/prius_custom_analysis.json",
+        "sha256": "0edf206592022f81eb38dd0721bf76d13428e9b4413779e882c8c142ee23b8c4",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-10_05_custom-analysis/rules/data/prius_custom_analysis.json"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-10_05_custom-analysis/rules/data/README.md"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "prius/定制SKU聚簇报告.md",
+      "versioned_file": "prius/定制SKU聚簇报告-20261010_05.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-10_05_custom-analysis/output/prius/定制SKU聚簇报告-20261010_05.md",
+      "sha256": "15ebbf4e00d0fe3d44afe8ecfd7ed961045f134e8c8d4d9ec7ef787b8787d6b7",
+      "bytes": 11865,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "prius",
+        "input_rows": 13
+      }
+    ],
+    "change": "仅交付完整 Markdown，新增 Prius 和差评依据；历史批次保留"
+  }
+}

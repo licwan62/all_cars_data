@@ -1,0 +1,38 @@
+{
+  "make": "Subaru",
+  "model": "Forester",
+  "region": "US",
+  "structure": "SUV",
+  "report_title": "Subaru Forester 定制 SKU 分析与 Sketchfab 参考任务",
+  "dimension_tolerances_mm": {"L-MM": 250, "W-MM": 150, "H-MM": 100},
+  "search_date": "2026-10-10",
+  "sketchfab_generation_by_internal_generation": {
+    "gen1": "SF 1998–2002",
+    "gen2": "SG 2003–2008",
+    "gen3": "SH 2009–2013",
+    "gen4": "SJ 2014–2018",
+    "gen5": "SK 2019–2024",
+    "gen6": "SL 2025–2026"
+  },
+  "analysis_notes": [
+    "范围为 US Subaru Forester SUV，包括 1998–2026 常规版与 2022–2026 Wilderness；Wilderness 作为版本记录保留，不因名称不同而漏出。",
+    "250/150/100 mm 的 L/W/H 跨度只产生尺寸候选 SKU：2009–2026 为一组，1998–2008 为一组。不同代际的车顶弧线、轮眉、镜耳和尾门轮廓必须经外形核验后，才能确认共版。",
+    "B0 命中 2 条低严重度差评：尺寸不合适与少件各 1 次。没有年款、偏差方向或少件部位，不能直接整体加大/缩小，亦不能归因到某一候选 SKU。",
+    "不设打样 SKU 方案，改为审视同一自动尺码覆盖车型之间的余量、侧高与外廓跨度；缺件问题需在包装、配件与发货清单中单列闭环。"
+  ],
+  "universal_size_risk": true,
+  "universal_size_risk_notes": [
+    "YM 覆盖 1998–2021 的 5 条记录：长度跨度 175 mm、宽度跨度 81 mm、高度跨度 81 mm；自动长度余量从 5 mm（2019–2021）到 180 mm（1998–2002）。同一尺码内既有贴近长度边界的记录，也有较大余量记录，通用版的前后下摆松紧风险不对称。",
+    "YL 覆盖 2022–2026 的 3 条记录：外廓跨度较小，但包含 Wilderness；Wilderness 与常规版的轮眉、行李架及车顶外形仍可能改变包覆和镜耳附近的受力，不能仅凭 L/W/H 合并。",
+    "Forester 为前置发动机 SUV，代际更替可能改变发动机舱、A 柱与乘员舱的相对比例；这会影响镜耳相对前端的位置，是通用车衣的潜在风险而非当前数据已经证实的偏移。总宽度增加也不等于镜耳必然外移，须分开测量车身宽和含镜宽。",
+    "参考侧高从早期 1232 mm 到 2026 Wilderness 的 1420 mm，跨全部记录相差 188 mm；车顶、行李架、轮眉和侧面张力的变化，可能使同尺码的垂落高度与耳位开孔对位发生偏差。"
+  ],
+  "sketchfab_searches": [
+    {"generation": "SF 1998–2002", "query": "site:sketchfab.com/3d-models Subaru Forester 1997", "representative_url": "https://sketchfab.com/3d-models/subaru-forester-1997-24c934fdef954cb189930cf809ef7b01", "models": [{"title": "Subaru Forester 1997 · Golden", "url": "https://sketchfab.com/3d-models/subaru-forester-1997-24c934fdef954cb189930cf809ef7b01"}], "note": "1997 年款仅作相邻早期代际外形参考；须以 1998–2002 实车尺寸和镜耳位置复核。"},
+    {"generation": "SG 2003–2008", "query": "site:sketchfab.com/3d-models Subaru Forester SG 03-08", "representative_url": "https://sketchfab.com/3d-models/subaru-forester-sg-03-08-6af0afe604b94dbc88282f8ff7464961", "models": [{"title": "Subaru Forester SG 03-08 · Samidi", "url": "https://sketchfab.com/3d-models/subaru-forester-sg-03-08-6af0afe604b94dbc88282f8ff7464961"}], "note": "低多边形参考只用于外形初筛；不得据此确认裁片或放量。"},
+    {"generation": "SH 2009–2013", "query": "site:sketchfab.com/3d-models Subaru Forester SH 2012", "models": [], "note": "待人工补充可核验的 SH 代外形参考。"},
+    {"generation": "SJ 2014–2018", "query": "site:sketchfab.com/3d-models Subaru Forester SJ 2016", "models": [], "note": "待人工补充可核验的 SJ 代外形参考。"},
+    {"generation": "SK 2019–2024", "query": "site:sketchfab.com/3d-models Subaru Forester 2019", "representative_url": "https://sketchfab.com/3d-models/subaru-forester-2019-31c7af107f8f49b1b1308bd29276965e", "models": [{"title": "Subaru Forester 2019 · Nieve5677", "url": "https://sketchfab.com/3d-models/subaru-forester-2019-31c7af107f8f49b1b1308bd29276965e"}], "note": "2019 模型仅作第五代整体轮廓候选；Wilderness 外观、镜耳和车顶附件须另以实车核验。"},
+    {"generation": "SL 2025–2026", "query": "site:sketchfab.com/3d-models Subaru Forester 2025", "models": [], "note": "待人工补充第六代及 Wilderness 的可核验外形参考。"}
+  ]
+}

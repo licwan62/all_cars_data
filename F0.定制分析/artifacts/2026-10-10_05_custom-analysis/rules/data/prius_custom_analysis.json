@@ -1,0 +1,40 @@
+{
+  "make": "Toyota",
+  "model": "Prius",
+  "models": ["Prius", "Prius C", "Prius V", "Prius Prime", "Prius Plug-in Hybrid"],
+  "region": "US",
+  "structures": ["Hatchback", "Wagon"],
+  "sku_family_code": "TOYOTA-PRIUS-",
+  "report_title": "Toyota Prius 家族定制 SKU 分析与 Sketchfab 参考任务",
+  "dimension_tolerances_mm": {"L-MM": 300, "W-MM": 300, "H-MM": 300},
+  "search_date": "2026-10-10",
+  "sketchfab_generation_by_internal_generation": {"Prius:gen2": "gen2 2004–2009", "Prius:gen3": "gen3 2010–2015", "Prius:gen4": "gen4 2016–2022", "Prius:gen5": "gen5 2023–2026", "Prius C:gen1": "Prius C 2012–2019", "Prius V:gen1": "Prius v 2012–2017", "Prius Prime:gen1": "Prius Prime 2017–2022", "Prius Prime:gen2": "Prius Prime 2023–2026", "Prius Plug-in Hybrid:gen1": "Prius Plug-in Hybrid 2012–2015"},
+  "analysis_notes": [
+    "分析范围扩大为 Prius、Prius C、Prius v、Prius Prime 与 Prius Plug-in Hybrid；保留 Hatchback 与 Wagon，明确排除 2001–2003 Prius Sedan。",
+    "SKU 包络的 L/W/H 最大跨度统一放宽至 300 mm。该阈值只用于尺寸候选聚簇，不能证明不同车身轮廓、镜耳、尾门或裁片可直接共版。",
+    "家族记录按统一尺寸阈值形成候选 SKU；跨 MODEL 的候选使用 TOYOTA-PRIUS 家族标识，不冒充任何单一子车系的标准 DIMENSION-CODE。",
+    "现有差评仅命中 Prius Hatchback：尺寸不合适 2 次、太重与不好穿各 1 次。其他子车系没有直接差评记录，不应被解读为已经验证适配。",
+    "优先对 Prius C（短车）、Prius v（高车）及最长 Prius/Prime 的极值车做实车打样；如果车顶弧线、镜耳或尾部收束不能通过放量解决，应拆分 SKU。"
+  ],
+  "sampling_groups": [
+    {"id": "PRIUS-C-12-19", "models": ["Prius C"], "generations": ["gen1"], "reason": "家族最短车侧，单独核验短车下摆与松量。"},
+    {"id": "PRIUS-HB-04-15", "models": ["Prius", "Prius Plug-in Hybrid"], "generations": ["gen1", "gen2", "gen3"], "reason": "验证常规两厢第二、三代及早期 Plug-in 的车顶与尾部轮廓。"},
+    {"id": "PRIUS-HB-16-26", "models": ["Prius", "Prius Prime"], "generations": ["gen1", "gen2", "gen4", "gen5"], "reason": "覆盖常规 Prius/Prime 的长车、宽车极值与不同代际车顶曲线。"},
+    {"id": "PRIUS-V-12-17", "models": ["Prius V"], "generations": ["gen1"], "reason": "家族高度极值；Wagon/MPV 轮廓与两厢车分开确认裁片及尾门收束。"}
+  ],
+  "acceptance_notes": [
+    "先测 2012–2015 与 2004–2009 的覆盖差异，再测 2016–2022 和 2023–2026 的长度/宽度极值；订单年款确认、镜耳定位和尾部收束纳入验收。",
+    "太重和不好穿各只有一次原因记录：记录样品克重、单人安装用时与方向辨识，验证后再决定轻量化或工艺变更。未确认偏差方向前不直接整体加长或缩短。"
+  ],
+  "sketchfab_searches": [
+    {"generation": "gen2 2004–2009", "query": "site:sketchfab.com/3d-models Toyota Prius 2008", "representative_url": "https://sketchfab.com/models/9fe294ecd0454269809650062a0bd4ae/embed", "models": [{"title": "Toyota Prius 2008 V2", "url": "https://sketchfab.com/models/9fe294ecd0454269809650062a0bd4ae/embed"}], "note": "找到标题/作者页面，浏览器模型视图提示加载失败，状态为待外形核验；先确认标准车身及比例，不能当作完成验证。"},
+    {"generation": "gen3 2010–2015", "query": "site:sketchfab.com/3d-models Toyota Prius 2012", "representative_url": "https://sketchfab.com/3d-models/toyota-prius-2012-04eaf6b288cc466785365b7d985e3b29", "models": [{"title": "Toyota Prius 2012 · Doz3", "url": "https://sketchfab.com/3d-models/toyota-prius-2012-04eaf6b288cc466785365b7d985e3b29"}], "note": "仅用于第三代外形参考，页面登记 CC BY；真实比例和镜耳位置仍待核验。"},
+    {"generation": "gen4 2016–2022", "query": "site:sketchfab.com/3d-models Toyota Prius 2016", "representative_url": "https://sketchfab.com/3d-models/toyota-prius-2016-1c4c15986a8d4e53a752c7b435959985", "models": [{"title": "Toyota Prius 2016 · Gov3dstudio", "url": "https://sketchfab.com/3d-models/toyota-prius-2016-1c4c15986a8d4e53a752c7b435959985"}], "note": "页面模型年款为 2016，作为第四代候选参考；未购买或下载模型。"},
+    {"generation": "gen5 2023–2026", "query": "site:sketchfab.com/3d-models Toyota Prius 2023", "representative_url": "https://sketchfab.com/3d-models/low-poly-car-toyota-prius-2023-c52b75068d7441268ca2abbc03869852", "models": [{"title": "Low Poly Car – Toyota Prius 2023 · ROH3D", "url": "https://sketchfab.com/3d-models/low-poly-car-toyota-prius-2023-c52b75068d7441268ca2abbc03869852"}], "note": "低多边形模型仅用于整体轮廓参考，镜耳和局部曲面需要实车补测；未购买或下载。"},
+    {"generation": "Prius C 2012–2019", "query": "site:sketchfab.com/3d-models Toyota Prius C", "models": [], "note": "待人工补充可核验的 Prius C 外形参考。"},
+    {"generation": "Prius v 2012–2017", "query": "site:sketchfab.com/3d-models Toyota Prius v", "models": [], "note": "待人工补充可核验的 Prius v/Wagon 外形参考。"},
+    {"generation": "Prius Prime 2017–2022", "query": "site:sketchfab.com/3d-models Toyota Prius Prime 2017", "models": [], "note": "待人工补充可核验的 Prius Prime 外形参考。"},
+    {"generation": "Prius Prime 2023–2026", "query": "site:sketchfab.com/3d-models Toyota Prius Prime 2023", "models": [], "note": "待人工补充可核验的 Prius Prime 外形参考。"},
+    {"generation": "Prius Plug-in Hybrid 2012–2015", "query": "site:sketchfab.com/3d-models Toyota Prius Plug-in Hybrid 2012", "models": [], "note": "待人工补充可核验的 Plug-in Hybrid 外形参考。"}
+  ]
+}
