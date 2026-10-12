@@ -49,7 +49,7 @@ def test_forester_document_covers_wilderness_and_all_generations():
     assert 'Subaru Forester Wilderness SUV 2026 US' in document
     assert '尺寸不合适(1)；少件(1)' in document
     assert '## 通用尺码适配风险' in document
-    assert 'YM 覆盖 1998–2021' in document
+    assert 'YM 与 SKU-02 共用' in document and 'Subaru Forester SUV 2019-2021 US 5 mm' in document
     assert '\n## 打样 SKU 方案\n' not in document
 
 
@@ -63,7 +63,7 @@ def test_gladiator_document_keeps_pickup_fitment_risks_visible():
                 '主要差评原因': '质量差(2)；尺寸小(1)；防风带不够长(1)'}]
     document = render_report(config, rows, codes, reviews, [], reference_tasks)
     assert '6 条尺寸记录形成 1 个尺寸候选 SKU' in document
-    assert 'PK-M 覆盖全部 6 条记录' in document
+    assert '| SKU-01 | 07082026 | 6 | PK-M×6 |' in document
     assert '后备箱-PK-L' in document
     assert '驾驶室—货斗分界' in document
 
@@ -81,7 +81,8 @@ def test_kia_soul_document_covers_all_generations_and_review_structure_alias():
     assert all(row['DIMENSION-ID'] in document for row in rows)
     assert all(generation in document for generation in ('AM 2010–2013', 'PS 2014–2019', 'SK3 2020–2025'))
     assert '尺寸不合适(3)；小(1)；偏小(1)' in document
-    assert '2L 覆盖 2010–2019' in document and '自动长度余量为 324 mm' in document
+    assert '| SKU-01 | 16031025 | 4 | 2L×3；2XL×1 | 0–324（跨度 324） |' in document
+    assert '第三代仅比第二代长 56 mm' in document
     assert 'SQUIR3D' not in document
     assert document.count('（可下载）') == 2
 
@@ -111,8 +112,22 @@ def test_ford_mustang_document_excludes_mach_e_and_covers_all_generations():
     assert '## 完整成员明细' not in document
     assert '完整成员已用于计算与完整性校验' in document
     assert sorted(item['sku'] for item in config['sketchfab_sku_searches']) == ['SKU-01', 'SKU-02', 'SKU-03', 'SKU-04']
-    assert all(item['representative_url'] and len(item['models']) >= 4 for item in config['sketchfab_sku_searches'])
+    assert all(len(item['models']) >= 4 for item in config['sketchfab_sku_searches'])
+    assert all(m.get('dimension_id') for item in config['sketchfab_sku_searches'] for m in item['models'])
     assert '待补参考模型' not in document
+    # 首选模型须接近 SKU 车长上限；SKU-04 只有 1969–1970 模型（下限 4760），不得设首选。
+    assert '| SKU-04 | 01036973 | 12 |' in document
+    assert '| SKU-04 | Ford Mustang Coupe 1973 US（4923 mm） | 无（待补上限参考模型） | 待补上限参考模型 |' in document
+    assert '首选｜1969' not in document
+    assert '### SKU-04｜Mustang｜12 条｜车长 4760–4923 mm' in document
+    assert '| 1973 | — | Convertible / Coupe / Fastback | 4923 |' in document
+    assert '| SportsRoof | Coupe | 4760 | -163 | 可下载，83k 三角面 |' in document
+    assert '| 首选 | [2024 Ford Mustang Dark Horse · Ddiaz Design]' in document
+    assert '同年段其他 SKU' not in document
+    assert '| SKU-01 | 01036504 | 19 | 3L-0×14；2XXL×2；3M-0×2；2XL×1 |' in document
+    assert '- SKU-04：3XL-0 与 SKU-03 共用' in document
+    assert 'Ford Mustang Coupe 1979-1986 US 6 mm' in document
+    assert '- SKU-02：全部为 YL，不与其他候选共用' in document
     assert '1993 Ford Mustang GT Foxbody' in document
     assert '2005 Ford Mustang GT' in document
     assert '2024 Ford Mustang Dark Horse' in document
@@ -125,4 +140,3 @@ def test_ford_mustang_document_excludes_mach_e_and_covers_all_generations():
     assert '长度中心较短：小于 SKU-02/SKU-03/SKU-04' in document
     assert '| SKU-01 + SKU-04 | 长度 478>250 |' in document
     assert '| SKU-02 + SKU-03 | 高度 302>100 |' in document
-    assert '19 条｜1965–2004' in document

@@ -1,0 +1,15 @@
+allowed_domains:
+  - vpic.nhtsa.dot.gov
+  - commons.wikimedia.org
+  - upload.wikimedia.org
+  - thumb.wikimedia.org
+  - github.com
+documented_api_endpoints:
+  - https://commons.wikimedia.org/w/api.php
+licensed_media_domains: [upload.wikimedia.org, thumb.wikimedia.org]
+seconds_per_request: 1
+timeout_seconds: 15
+retries: 1
+# 仅明确 variant_key、url、publisher、page、license_note 的官方资料可下载；
+# 添加来源时同时人工核实使用条款并将域名加入白名单。
+official_sources: []

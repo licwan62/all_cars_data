@@ -48,12 +48,15 @@ def year_bounds(value: str) -> tuple[int, int]:
 
 
 def sku_code(rows: tuple[dict[str, str], ...], codes: dict[str, str], family_code: str = "") -> str:
-    """Use the stable 4-digit make/model code plus the SKU's inclusive YY–YY span."""
+    """Use the stable 4-digit make/model code plus the SKU's inclusive YY–YY span.
+
+    The family code is only a fallback for SKUs that really cross model codes.
+    """
     model_codes = {codes[row["DIMENSION-ID"]][:4] for row in rows}
     if len(model_codes) != 1 and not family_code:
         raise ValueError(f"SKU crosses model codes: {sorted(model_codes)}")
     starts, ends = zip(*(year_bounds(row["YEAR"]) for row in rows))
-    prefix = family_code or model_codes.pop()
+    prefix = model_codes.pop() if len(model_codes) == 1 else family_code
     return f"{prefix}{min(starts) % 100:02d}{max(ends) % 100:02d}"
 
 

@@ -20,17 +20,15 @@
     "gen7": "第七代 S650 2024–2026"
   },
   "analysis_notes": [
-    "范围为 US Ford Mustang 与 Mustang Mach-E，覆盖 1965–2026 的跑车车身及 Mach-E SUV/Crossover 记录；两者使用家族 SKU 代号，但不会因名称相近而预设共版。",
+    "范围为 US Ford Mustang 与 Mustang Mach-E，覆盖 1965–2026 的跑车车身及 Mach-E SUV/Crossover 记录；单一车系候选使用数字尺寸编码（4 位车型码 + 起止年 YY），跨车系时才用家族代号；不会因名称相近而预设共版。",
     "范围横跨七代 Mustang、四种传统车身结构以及 Mach-E SUV/Crossover；算法候选仅反映 L/W/H 包络，不能把软顶/硬顶、Fastback/Hatchback 后部曲线或跨车系镜耳位置视为已共版。",
     "B0 中 Convertible 有 4 条中严重度差评（尺寸不合适 2、绑带断裂 1、质量差 1），Coupe 有 13 条高严重度差评（质量差 2、不防水 2、尺寸不合适 2）；台账缺少大多数年款和实际尺码，不能直接归因到某一代。",
     "另有一条未识别品牌的 Fit Ford Mustang, Shelby Camaro, etc C4 混合适配记录；因无法可靠归属 Ford Mustang，本报告不把它计入 Mustang 差评证据。"
   ],
   "universal_size_risk": true,
+  "universal_size_risk_by_sku": true,
   "universal_size_risk_notes": [
-    "A0 自动尺码跨多个档位，且 Mach-E 的高度中心明显高于传统 Mustang；现行通用尺码不能作为整个 Mustang 家族共版的证据，应优先核对各候选中心与极值车型。",
-    "第一代记录的长度范围为 4613–4923 mm、宽度 1732–1882 mm，内部差异已明显大于后续多代；早期 Convertible、Coupe 与 Fastback 应分别覆盖极值验证。",
-    "第五至第七代宽度约 1875–1918 mm、车长约 4765–4818 mm，但车顶、后窗、尾厢/掀背轮廓和扰流板随代际及结构变化；L/W/H 接近不能证明成品裁片、镜耳和绑带位置可共用。",
-    "Convertible 的软顶轮廓与 Coupe/Fastback 不同，且已有尺寸不合适与绑带断裂反馈；需分别记录车顶最高点、前挡至后缘长度、绑带路径与下摆固定位置。"
+    "- Convertible 软顶已有尺寸不合适和绑带断裂反馈，各 SKU 内应与硬顶分开验证。"
   ],
   "acceptance_notes": [
     "打样时至少覆盖每个候选 SKU 的 L/W/H 极值，并在同一候选内同时包含 Convertible 与硬顶结构时各取一辆核验。",
@@ -44,12 +42,12 @@
       "query": "site:sketchfab.com/3d-models Ford Mustang 1967 1968 Coupe Fastback downloadable",
       "representative_url": "https://sketchfab.com/3d-models/1967-ford-mustang-fastback-4096px2-02933292f4d64a52a9bec5923e24b0af",
       "models": [
-        {"title": "首选｜1967 Ford Mustang Fastback 4096px² · Mark Peters（可下载，505k 三角面）", "url": "https://sketchfab.com/3d-models/1967-ford-mustang-fastback-4096px2-02933292f4d64a52a9bec5923e24b0af"},
-        {"title": "1967 Ford Mustang Fastback · gopikrishnanp3007（可下载，786k 三角面）", "url": "https://sketchfab.com/3d-models/ford-mustang-fastback-1967-3d-model-586d22df7fbc4ae89b96d15c03694788"},
-        {"title": "1967 Ford Mustang Shelby GT500 · Made in Brunel（可下载，294k 三角面）", "url": "https://sketchfab.com/3d-models/1967-ford-mustang-shelby-gt500-489749d318714b64b09ce3216957d047"},
-        {"title": "1968 Mustang · king1of1kings（可下载，287k 三角面）", "url": "https://sketchfab.com/3d-models/mustang-1968-31cc01c2ce7b496aa1404d53e3f449e8"},
-        {"title": "1993 Ford Mustang GT Foxbody · Randomness（可下载，146k 三角面；范围内补充）", "url": "https://sketchfab.com/3d-models/1993-ford-mustang-gt-foxbody-c548815b8a8c4b5b9974dcb0f5f7f443"},
-        {"title": "1999 Ford Mustang GT · ImperialBlue3D（可下载；范围内补充）", "url": "https://sketchfab.com/3d-models/1999-ford-mustang-gt-9418fca6fc654a2d89d310b69ad791c9"}
+        {"title": "首选｜1967 Ford Mustang Fastback 4096px² · Mark Peters（可下载，505k 三角面）", "url": "https://sketchfab.com/3d-models/1967-ford-mustang-fastback-4096px2-02933292f4d64a52a9bec5923e24b0af", "dimension_id": "Ford Mustang Fastback 1967-1968 US"},
+        {"title": "1967 Ford Mustang Fastback · gopikrishnanp3007（可下载，786k 三角面）", "url": "https://sketchfab.com/3d-models/ford-mustang-fastback-1967-3d-model-586d22df7fbc4ae89b96d15c03694788", "dimension_id": "Ford Mustang Fastback 1967-1968 US"},
+        {"title": "1967 Ford Mustang Shelby GT500 · Made in Brunel（可下载，294k 三角面）", "url": "https://sketchfab.com/3d-models/1967-ford-mustang-shelby-gt500-489749d318714b64b09ce3216957d047", "dimension_id": "Ford Mustang Fastback 1967-1968 US"},
+        {"title": "1968 Mustang · king1of1kings（可下载，287k 三角面）", "url": "https://sketchfab.com/3d-models/mustang-1968-31cc01c2ce7b496aa1404d53e3f449e8", "dimension_id": "Ford Mustang Fastback 1967-1968 US"},
+        {"title": "1993 Ford Mustang GT Foxbody · Randomness（可下载，146k 三角面；范围内补充）", "url": "https://sketchfab.com/3d-models/1993-ford-mustang-gt-foxbody-c548815b8a8c4b5b9974dcb0f5f7f443", "dimension_id": "Ford Mustang Hatchback 1987-1993 US"},
+        {"title": "1999 Ford Mustang GT · ImperialBlue3D（可下载；范围内补充）", "url": "https://sketchfab.com/3d-models/1999-ford-mustang-gt-9418fca6fc654a2d89d310b69ad791c9", "dimension_id": "Ford Mustang Coupe 1999-2004 US"}
       ],
       "verification": ["代表车型 Coupe 与 Fastback 后部轮廓差异", "Convertible 软顶", "Foxbody/SN95 跨代共版风险", "镜耳与下摆位置"],
       "note": "首选模型与算法代表车型同年段且高面数、可下载；但它是 Fastback，不能代替 1967–1968 Coupe 的后部轮廓实车核验。其余模型用于覆盖该候选中跨度很大的成员，不代表这些车型应共版。"
@@ -61,12 +59,12 @@
       "query": "site:sketchfab.com/3d-models 2024 Ford Mustang Dark Horse downloadable",
       "representative_url": "https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-7de701277d3745d6b75a797f54560122",
       "models": [
-        {"title": "首选｜2024 Ford Mustang Dark Horse · Ddiaz Design（可下载，321k 三角面）", "url": "https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-7de701277d3745d6b75a797f54560122"},
-        {"title": "2024 Ford Mustang Dark Horse · Maroi Studio（可下载，321k 三角面）", "url": "https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-f3cecf4bf9ec481fbcd8be96fd600055"},
-        {"title": "2024 Ford Mustang GT · Ddiaz Design（可下载，296k 三角面）", "url": "https://sketchfab.com/3d-models/2024-ford-mustang-gt-16f0753d26a04a089223f2d9107a777f"},
-        {"title": "2015 Ford Mustang GT · Ddiaz Design（可下载，57k 三角面；范围内补充）", "url": "https://sketchfab.com/3d-models/2015-ford-mustang-gt-4538f40506cf4e2289a58afff5f051b9"},
-        {"title": "2005 Ford Mustang GT · user121212（可下载，75k 三角面；范围内补充）", "url": "https://sketchfab.com/3d-models/ford-mustang-2005-gt-b4175d8289de442e9ea571c17ca028ea"},
-        {"title": "2024 Dark Horse PS1 低模 · LolAndPop!（可下载，仅轮廓对照）", "url": "https://sketchfab.com/3d-models/ps1-low-poly-2024-ford-mustang-dark-horse-d15e5daca29a4b7384b5743f1ec53bd1"}
+        {"title": "首选｜2024 Ford Mustang Dark Horse · Ddiaz Design（可下载，321k 三角面）", "url": "https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-7de701277d3745d6b75a797f54560122", "dimension_id": "Ford Mustang Dark Horse Coupe 2024-2026 US"},
+        {"title": "2024 Ford Mustang Dark Horse · Maroi Studio（可下载，321k 三角面）", "url": "https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-f3cecf4bf9ec481fbcd8be96fd600055", "dimension_id": "Ford Mustang Dark Horse Coupe 2024-2026 US"},
+        {"title": "2024 Ford Mustang GT · Ddiaz Design（可下载，296k 三角面）", "url": "https://sketchfab.com/3d-models/2024-ford-mustang-gt-16f0753d26a04a089223f2d9107a777f", "dimension_id": "Ford Mustang Coupe 2024-2026 US"},
+        {"title": "2015 Ford Mustang GT · Ddiaz Design（可下载，57k 三角面；范围内补充）", "url": "https://sketchfab.com/3d-models/2015-ford-mustang-gt-4538f40506cf4e2289a58afff5f051b9", "dimension_id": "Ford Mustang Coupe 2015-2020 US"},
+        {"title": "2005 Ford Mustang GT · user121212（可下载，75k 三角面；范围内补充）", "url": "https://sketchfab.com/3d-models/ford-mustang-2005-gt-b4175d8289de442e9ea571c17ca028ea", "dimension_id": "Ford Mustang Coupe 2005 US"},
+        {"title": "2024 Dark Horse PS1 低模 · LolAndPop!（可下载，仅轮廓对照）", "url": "https://sketchfab.com/3d-models/ps1-low-poly-2024-ford-mustang-dark-horse-d15e5daca29a4b7384b5743f1ec53bd1", "dimension_id": "Ford Mustang Dark Horse Coupe 2024-2026 US"}
       ],
       "verification": ["Dark Horse 扰流板与前后包围", "GT 与 Dark Horse 轮廓差异", "Convertible 软顶", "S197/S550/S650 跨代镜耳和下摆位置"],
       "note": "两个高面数 Dark Horse 可下载模型直接命中算法代表车型，优先级最高；PS1 低模只保留作拓扑和整体比例对照，不参与尺寸判断。"
@@ -74,17 +72,17 @@
     {
       "sku": "SKU-04",
       "representative": "Ford Mustang Coupe 1973 US",
-      "scope": "候选成员 1969–1973；以 1969–1970 高质量模型覆盖范围前段，1973 实车仍须补测",
-      "query": "site:sketchfab.com/3d-models Ford Mustang 1969 1970 1971 1973 downloadable",
-      "representative_url": "https://sketchfab.com/3d-models/1969-ford-mustang-boss-302-4f5c06d79aeb483480641f8135fb20f8",
+      "scope": "候选成员 1969–1973；上限车型 1973（4923 mm）及 1971–1972（4813 mm）暂无 Sketchfab 模型",
+      "query": "site:sketchfab.com/3d-models Ford Mustang 1971 1972 1973 Mach 1 Sportsroof Convertible",
+      "representative_url": "",
       "models": [
-        {"title": "首选｜1969 Ford Mustang Boss 302 · Ddiaz Design（可下载，83k 三角面）", "url": "https://sketchfab.com/3d-models/1969-ford-mustang-boss-302-4f5c06d79aeb483480641f8135fb20f8"},
-        {"title": "1970 Ford Mustang Boss 302 · DisneyCars（可下载，230k 三角面）", "url": "https://sketchfab.com/3d-models/1970-ford-mustang-boss-302-a5a5083c4bc94d749d8e340f438c94a2"},
-        {"title": "1970 Ford Mustang · JakobOlbracht（可下载，62k 三角面；改型低优先）", "url": "https://sketchfab.com/3d-models/low-poly-ford-mustang-1970-ce3d3e0a3a234a90bc2d563600f408ad"},
-        {"title": "1969 Ford Mustang Fastback Mach 1 · Ddiaz Design（可下载）", "url": "https://sketchfab.com/ddiaz-design/collections/ford-base-models-e8cd641bdf2d49e78b0e63ff64acb73c"}
+        {"title": "轮廓对照｜1969 Ford Mustang Boss 302 · Ddiaz Design（可下载，83k 三角面）", "url": "https://sketchfab.com/3d-models/1969-ford-mustang-boss-302-4f5c06d79aeb483480641f8135fb20f8", "dimension_id": "Ford Mustang SportsRoof Coupe 1969 US"},
+        {"title": "轮廓对照｜1969 Ford Mustang Mach-1 428 Cobra Jet · Ddiaz Design（可下载，269k 三角面）", "url": "https://sketchfab.com/3d-models/1969-ford-mustang-mach-1-428-cobra-jet-679cdf81b9854759860b0afe9d1e4012", "dimension_id": "Ford Mustang SportsRoof Coupe 1969 US"},
+        {"title": "轮廓对照｜1970 Ford Mustang Boss 302 · DisneyCars（可下载，230k 三角面）", "url": "https://sketchfab.com/3d-models/1970-ford-mustang-boss-302-a5a5083c4bc94d749d8e340f438c94a2", "dimension_id": "Ford Mustang Fastback 1970 US"},
+        {"title": "轮廓对照｜1970 Ford Mustang · JakobOlbracht（可下载，62k 三角面；改型低优先）", "url": "https://sketchfab.com/3d-models/low-poly-ford-mustang-1970-ce3d3e0a3a234a90bc2d563600f408ad", "dimension_id": "Ford Mustang Fastback 1970 US"}
       ],
-      "verification": ["1973 代表车型与 1969–1970 前段模型的车长差异", "Coupe/Fastback/Convertible 后部轮廓", "前后包围", "镜耳与下摆位置"],
-      "note": "尚未检得可确认的 1973 同年 Sketchfab 全车模型，因此不冒充精确代表；使用同候选范围内的 1969–1970 高质量可下载模型作外形参考，并把 1973 实车测量列为强制项。"
+      "verification": ["1973 实车全长、前后保险杠外伸", "1971–1973 Coupe/Fastback/Convertible 后部轮廓", "镜耳与下摆位置"],
+      "note": "不设首选：Sketchfab 检索（API 遍历约 850 个 Mustang 模型，2026-10-12）未找到 1971–1973 年款全车模型；现有 1969–1970 模型车长 4760 mm，处于 SKU 下限，比上限短 163 mm，只能作轮廓对照，不能用于尺寸判断。版型须以 1973 实车测量为准。"
     },
     {
       "sku": "SKU-02",
@@ -93,10 +91,10 @@
       "query": "site:sketchfab.com/3d-models Ford Mustang Mach-E GT Rally downloadable",
       "representative_url": "https://sketchfab.com/models/98c3a8f248b44670834a37761afbd12c/embed",
       "models": [
-        {"title": "首选｜2021 Ford Mustang Mach-E GT 4x · Ddiaz Design（可下载）", "url": "https://sketchfab.com/models/98c3a8f248b44670834a37761afbd12c/embed"},
-        {"title": "Ford Mustang Mach-E · iSteven（按真实尺寸缩放，6k 三角面，付费）", "url": "https://sketchfab.com/3d-models/ford-mustang-mach-e-15-6b7ba734a46a4870ba5ca66a6cea51e6"},
-        {"title": "Mustang Mach E · MattDoesBlender（可下载）", "url": "https://sketchfab.com/models/e7d2d6c00d6d43ac9d3cf90ae5b4022a/embed"},
-        {"title": "Mustang Mach-E GT 2021 · slowpoly（低模、付费）", "url": "https://sketchfab.com/3d-models/ford-mustang-mach-e-gt-2021-4ad1d43227b64b3abde72a008e822dcb"}
+        {"title": "首选｜2021 Ford Mustang Mach-E GT 4x · Ddiaz Design（可下载）", "url": "https://sketchfab.com/models/98c3a8f248b44670834a37761afbd12c/embed", "dimension_id": "Ford Mustang Mach-E SUV 2021-2022 US"},
+        {"title": "Ford Mustang Mach-E · iSteven（按真实尺寸缩放，6k 三角面，付费）", "url": "https://sketchfab.com/3d-models/ford-mustang-mach-e-15-6b7ba734a46a4870ba5ca66a6cea51e6", "dimension_id": "Ford Mustang Mach-E SUV 2021-2022 US"},
+        {"title": "Mustang Mach E · MattDoesBlender（可下载）", "url": "https://sketchfab.com/models/e7d2d6c00d6d43ac9d3cf90ae5b4022a/embed", "dimension_id": "Ford Mustang Mach-E SUV 2021-2022 US"},
+        {"title": "Mustang Mach-E GT 2021 · slowpoly（低模、付费）", "url": "https://sketchfab.com/3d-models/ford-mustang-mach-e-gt-2021-4ad1d43227b64b3abde72a008e822dcb", "dimension_id": "Ford Mustang Mach-E SUV 2021-2022 US"}
       ],
       "verification": ["Rally 版本前后包围与离地高度", "SUV/Crossover 车顶和尾门", "GT 与普通版轮廓差异", "镜耳与下摆位置"],
       "note": "Mach-E 因高度中心显著更高形成独立候选。当前首选可下载 GT 4x；尚未检得可靠的 Rally 同款模型，因此 Rally 的包围、扰流板和离地高度必须用实车补测。"

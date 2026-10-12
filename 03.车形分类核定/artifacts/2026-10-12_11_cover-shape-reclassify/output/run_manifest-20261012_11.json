@@ -1,0 +1,70 @@
+{
+  "pipeline_version": "0.2.0",
+  "taxonomy_version": "cover-shape-v1-uncalibrated",
+  "started_at_utc": "2026-10-12T10:07:00Z",
+  "elapsed_seconds": 0.092,
+  "mode": "reclassify",
+  "input_references": [
+    {
+      "node": "shape-classification",
+      "path": "03.车形分类核定",
+      "version": "20261012_10",
+      "file": "evidence.jsonl",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_10_cover-shape-online/output/evidence-20261012_10.jsonl",
+      "sha256": "11392de81595c4daa01e285953f165c1f743e193646e584b86303a21e66e806a",
+      "source": "explicit frozen research run"
+    },
+    {
+      "node": "shape-classification",
+      "path": "03.车形分类核定",
+      "version": "20261012_10",
+      "file": "cover_shape_records.jsonl",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_10_cover-shape-online/output/cover_shape_records-20261012_10.jsonl",
+      "sha256": "84d24c9246c76b2195ab7f4918abd9190a37d1e0ccb5377effbfedfe711effb3",
+      "source": "explicit frozen research run"
+    }
+  ],
+  "dependency_versions": {
+    "python": "3.13.14",
+    "PyYAML": "6.0.3",
+    "numpy": "2.5.1",
+    "Pillow": "12.3.0",
+    "opencv-python": "5.0.0.93",
+    "onnxruntime": "1.31.0"
+  },
+  "network_adapters": [],
+  "network_requests": 0,
+  "cache_hits": 0,
+  "variant_count": 8,
+  "status_counts": {
+    "UNKNOWN": 2,
+    "INFERRED": 6
+  },
+  "evidence_outcomes": {
+    "VARIANT_AMBIGUOUS": 8,
+    "DOCUMENT_FAILED": 1,
+    "DISCOVERED": 22,
+    "REJECTED_METADATA": 173,
+    "REJECTED_IMAGE": 20,
+    "NO_ACCEPTED_IMAGE": 8,
+    "AUTO_DESCRIPTION_EXTRACTED": 6,
+    "NO_DATA": 2
+  },
+  "fit_status": "NOT_TESTED",
+  "published": false,
+  "rules_provenance": "run.json rules (sha256 + git commit + dirty snapshots)",
+  "implementation_sha256": {
+    "__init__.py": "c9fcf6eff9284e184a019766218666ffc5e45241b70d8176e07d2789b71e4bb4",
+    "automatic.py": "47cb6b29adf74e49dc055a0b67b8113bad217cbbbe64553e1e46798f08b90a2a",
+    "automatic_documents.py": "20bb17bf201cc36ecf0ddf63f16649c9b89c76e1d5986ecd669a268c0a1fd05d",
+    "automatic_geometry.py": "ebf483b9769cfd75d6a8c79c13c30dbb719bab8493d4a52cd045329bfd810a1f",
+    "classifier.py": "198bfaab3d521bfdac7179b05d346976f9dc8b2ea96faa164b3eaaed55c57b4a",
+    "cli.py": "d02038c778cbfbc0b3dde35c9fc9ab2aeb20be918eb5d7eb3260f903d0b99a6d",
+    "evidence.py": "cf05002b6e38b9cdcd9cc9b16b2726d2b0a8f8f4c945b355acb582e2a7d3e3ad",
+    "fetchers.py": "c71115b8bad1d851e190cd26ca6f2822d8729d50d8d8deec9291cca73a86202e",
+    "geometry.py": "d1d848e0328e4c4bbbcb26c5dc234598df487d75745ae527eeed3e33420257b8",
+    "ingest.py": "468252f18a86649f3b2daeeaf003e86c0dd4d315d6947d01ab39c5dd02a250df"
+  },
+  "reclassify_records": "cover_shape_records.jsonl",
+  "automatic_rule_version": "geometric-auto-v2-experimental"
+}

@@ -1,0 +1,10 @@
+taxonomy_version: cover-shape-v1-uncalibrated
+# 尚无经人工确认的金标准，禁止凭模型名/结构列生成正式类别。
+prototypes: []
+# 以下仅是待标定的试验门禁/冲突容差，不宣称普适精度。
+image_gate:
+  max_wheel_level_delta: 0.015
+  max_wheel_radius_delta: 0.08
+profile_conflict_tolerance: 0.12
+dimension_conflict_relative: 0.03
+alternate_distance_margin: 0.15

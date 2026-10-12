@@ -5,7 +5,7 @@
 区域：US；车系范围：Ford Mustang / Mustang Mach-E；结构：Convertible / Coupe / Fastback / Hatchback / SUV / Crossover。
 57 条尺寸记录形成 4 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。
 
-范围为 US Ford Mustang 与 Mustang Mach-E，覆盖 1965–2026 的跑车车身及 Mach-E SUV/Crossover 记录；两者使用家族 SKU 代号，但不会因名称相近而预设共版。
+范围为 US Ford Mustang 与 Mustang Mach-E，覆盖 1965–2026 的跑车车身及 Mach-E SUV/Crossover 记录；单一车系候选使用数字尺寸编码（4 位车型码 + 起止年 YY），跨车系时才用家族代号；不会因名称相近而预设共版。
 范围横跨七代 Mustang、四种传统车身结构以及 Mach-E SUV/Crossover；算法候选仅反映 L/W/H 包络，不能把软顶/硬顶、Fastback/Hatchback 后部曲线或跨车系镜耳位置视为已共版。
 B0 中 Convertible 有 4 条中严重度差评（尺寸不合适 2、绑带断裂 1、质量差 1），Coupe 有 13 条高严重度差评（质量差 2、不防水 2、尺寸不合适 2）；台账缺少大多数年款和实际尺码，不能直接归因到某一代。
 另有一条未识别品牌的 Fit Ford Mustang, Shelby Camaro, etc C4 混合适配记录；因无法可靠归属 Ford Mustang，本报告不把它计入 Mustang 差评证据。
@@ -25,10 +25,10 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 
 | 候选 SKU | 车型代号 | 记录数 | L/mm | W/mm | H/mm | 最大包络/mm | 代表车型 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| SKU-01 | FORD-MUSTANG-6504 | 19 | 4445–4663（跨度 218） | 1732–1857（跨度 125） | 1260–1354（跨度 94） | 4663 × 1857 × 1354 | Ford Mustang Coupe 1967-1968 US |
-| SKU-02 | FORD-MUSTANG-2126 | 4 | 4714–4750（跨度 36） | 1882–1882（跨度 0） | 1608–1651（跨度 43） | 4750 × 1882 × 1651 | Ford Mustang Mach-E Rally Crossover 2024-2026 US |
-| SKU-03 | FORD-MUSTANG-9426 | 22 | 4610–4818（跨度 208） | 1824–1918（跨度 94） | 1349–1425（跨度 76） | 4818 × 1918 × 1425 | Ford Mustang Dark Horse Coupe 2024-2026 US |
-| SKU-04 | FORD-MUSTANG-6973 | 12 | 4760–4923（跨度 163） | 1826–1882（跨度 56） | 1270–1308（跨度 38） | 4923 × 1882 × 1308 | Ford Mustang Coupe 1973 US |
+| SKU-01 | 01036504 | 19 | 4445–4663（跨度 218） | 1732–1857（跨度 125） | 1260–1354（跨度 94） | 4663 × 1857 × 1354 | Ford Mustang Coupe 1967-1968 US |
+| SKU-02 | 01222126 | 4 | 4714–4750（跨度 36） | 1882–1882（跨度 0） | 1608–1651（跨度 43） | 4750 × 1882 × 1651 | Ford Mustang Mach-E Rally Crossover 2024-2026 US |
+| SKU-03 | 01039426 | 22 | 4610–4818（跨度 208） | 1824–1918（跨度 94） | 1349–1425（跨度 76） | 4818 × 1918 × 1425 | Ford Mustang Dark Horse Coupe 2024-2026 US |
+| SKU-04 | 01036973 | 12 | 4760–4923（跨度 163） | 1826–1882（跨度 56） | 1270–1308（跨度 38） | 4923 × 1882 × 1308 | Ford Mustang Coupe 1973 US |
 
 ## 候选 SKU 分组原因
 
@@ -55,92 +55,169 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 各维度最大值可能来自不同车型，代表车型不一定达到三项最大值。包络是车辆外廓，不是成品车衣的放量或裁片尺寸。
 
 
-完整成员已用于计算与完整性校验，本报告按要求不展开逐条明细；记录范围见候选汇总与 Sketchfab 参考任务。
+完整成员已用于计算与完整性校验，本报告按要求不展开逐条明细；记录范围见候选汇总与 Sketchfab 参考。
 
 
 ## 通用尺码适配风险
 
-下表按 A0 的自动尺码汇总同尺码车型；“自动长度余量”与“参考侧高”是现有计算字段，不是实测镜耳或发动机舱坐标。跨度越大只代表同一通用尺码覆盖的外廓差异更大，不能单独证明不适配。
+按候选 SKU 对照成员在 A0 中的自动尺码；“自动长度余量”与“参考侧高”是现有计算字段，不是实测镜耳或发动机舱坐标。
 
-| 自动尺码 | 覆盖年款 | 记录数 | L/mm | W/mm | H/mm | 自动长度余量/mm | 参考侧高/mm |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 2XL | 1974–1978 | 1 | 4445–4445（跨度 0） | 1783–1783（跨度 0） | 1260–1260（跨度 0） | 75–75（跨度 0） | 1206–1206（跨度 0） |
-| 2XXL | 1979–1993 | 2 | 4554–4562（跨度 8） | 1755–1755（跨度 0） | 1323–1323（跨度 0） | 268–276（跨度 8） | 1250–1250（跨度 0） |
-| 3L-0 | 1965–2004 | 15 | 4562–4663（跨度 101） | 1732–1857（跨度 125） | 1300–1354（跨度 54） | 77–178（跨度 101） | 1219–1325（跨度 106） |
-| 3M-0 | 1974–1986 | 2 | 4445–4554（跨度 109） | 1755–1783（跨度 28） | 1260–1323（跨度 63） | 6–115（跨度 109） | 1206–1250（跨度 44） |
-| 3XL-0 | 1969–2026 | 33 | 4760–4923（跨度 163） | 1826–1918（跨度 92） | 1270–1425（跨度 155） | 127–290（跨度 163） | 1242–1398（跨度 156） |
-| YL | 2021–2026 | 4 | 4714–4750（跨度 36） | 1882–1882（跨度 0） | 1608–1651（跨度 43） | 100–136（跨度 36） | 1315–1350（跨度 35） |
+| 候选 SKU | 车型代号 | 记录数 | 自动尺码×条数 | 自动长度余量/mm | 参考侧高/mm |
+| --- | --- | --- | --- | --- | --- |
+| SKU-01 | 01036504 | 19 | 3L-0×14；2XXL×2；3M-0×2；2XL×1 | 6–276（跨度 270） | 1206–1325（跨度 119） |
+| SKU-02 | 01222126 | 4 | YL×4 | 100–136（跨度 36） | 1315–1350（跨度 35） |
+| SKU-03 | 01039426 | 22 | 3XL-0×21；3L-0×1 | 130–285（跨度 155） | 1305–1398（跨度 93） |
+| SKU-04 | 01036973 | 12 | 3XL-0×12 | 127–290（跨度 163） | 1242–1294（跨度 52） |
 
 ### 风险解读
 
-A0 自动尺码跨多个档位，且 Mach-E 的高度中心明显高于传统 Mustang；现行通用尺码不能作为整个 Mustang 家族共版的证据，应优先核对各候选中心与极值车型。
-第一代记录的长度范围为 4613–4923 mm、宽度 1732–1882 mm，内部差异已明显大于后续多代；早期 Convertible、Coupe 与 Fastback 应分别覆盖极值验证。
-第五至第七代宽度约 1875–1918 mm、车长约 4765–4818 mm，但车顶、后窗、尾厢/掀背轮廓和扰流板随代际及结构变化；L/W/H 接近不能证明成品裁片、镜耳和绑带位置可共用。
-Convertible 的软顶轮廓与 Coupe/Fastback 不同，且已有尺寸不合适与绑带断裂反馈；需分别记录车顶最高点、前挡至后缘长度、绑带路径与下摆固定位置。
+- SKU-01：现行分属 4 个通用尺码，定制需一个版型覆盖；3L-0 与 SKU-03 共用，现行尺码区分不了这些候选；长度余量相差 270 mm，同一版型松紧不一；余量偏紧（<50 mm）：Ford Mustang Coupe 1979-1986 US 6 mm。
+- SKU-02：全部为 YL，不与其他候选共用，余量集中，风险低。
+- SKU-03：现行分属 2 个通用尺码，定制需一个版型覆盖；3XL-0 与 SKU-04 共用、3L-0 与 SKU-01 共用，现行尺码区分不了这些候选；长度余量相差 155 mm，同一版型松紧不一。
+- SKU-04：3XL-0 与 SKU-03 共用，现行尺码区分不了这些候选；长度余量相差 163 mm，同一版型松紧不一。
+- Convertible 软顶已有尺寸不合适和绑带断裂反馈，各 SKU 内应与硬顶分开验证。
 
-全量表没有发动机布局、前保险杠至镜耳中心距离、A 柱至镜耳距离、镜耳外伸量或车顶/尾门曲线坐标。因此不能从“前置发动机”或总宽度推定镜耳一定前移、后移或偏出；这些是需要按代际实测核验的风险假设。建议对每种自动尺码记录上述坐标及前/侧/后覆盖照片，再判断是否需拆分通用尺码。
+全量表缺少镜耳位置和车顶/尾门曲线坐标，镜耳前后与外伸须按代际实测，不能由总宽或发动机布局推定。
 
-## Sketchfab 参考任务
+## Sketchfab 参考
 
-链接检索登记日期：2026-10-12。链接已找到表示参考候选，尚未完成外形与真实比例验证。
+检索日期：2026-10-12。首选模型须对应 SKU 车长上限附近的车型（差距不超过 50 mm），否则不设首选、只作轮廓对照；链接均未完成外形与真实比例验证。
 
-| 候选 SKU | 参考范围 | 覆盖车型 | 状态 | 核验项目 |
-| --- | --- | --- | --- | --- |
-| SKU-01 | 候选成员 1965–2004；重点覆盖代表车型 1967–1968 Coupe | 19 条｜1965–2004｜Convertible / Coupe / Fastback / Hatchback | 待外形核验 | 代表车型 Coupe 与 Fastback 后部轮廓差异；Convertible 软顶；Foxbody/SN95 跨代共版风险；镜耳与下摆位置 |
-| SKU-02 | 候选成员 2021–2026；Mustang Mach-E SUV/Crossover 独立高车身组 | 4 条｜2021–2026｜Crossover / SUV | 待外形核验 | Rally 版本前后包围与离地高度；SUV/Crossover 车顶和尾门；GT 与普通版轮廓差异；镜耳与下摆位置 |
-| SKU-03 | 候选成员 1994–2026；重点覆盖代表车型 Dark Horse 2024–2026 | 22 条｜1994–2026｜Convertible / Coupe | 待外形核验 | Dark Horse 扰流板与前后包围；GT 与 Dark Horse 轮廓差异；Convertible 软顶；S197/S550/S650 跨代镜耳和下摆位置 |
-| SKU-04 | 候选成员 1969–1973；以 1969–1970 高质量模型覆盖范围前段，1973 实车仍须补测 | 12 条｜1969–1973｜Convertible / Coupe / Fastback | 待外形核验 | 1973 代表车型与 1969–1970 前段模型的车长差异；Coupe/Fastback/Convertible 后部轮廓；前后包围；镜耳与下摆位置 |
+| 候选 SKU | 代表车型（车长上限） | 首选模型（与上限差） | 状态 |
+| --- | --- | --- | --- |
+| SKU-01 | Ford Mustang Coupe 1967-1968 US（4663 mm） | [1967 Ford Mustang Fastback 4096px² · Mark Peters](https://sketchfab.com/3d-models/1967-ford-mustang-fastback-4096px2-02933292f4d64a52a9bec5923e24b0af)（+0 mm） | 待外形核验 |
+| SKU-02 | Ford Mustang Mach-E Rally Crossover 2024-2026 US（4750 mm） | [2021 Ford Mustang Mach-E GT 4x · Ddiaz Design](https://sketchfab.com/models/98c3a8f248b44670834a37761afbd12c/embed)（-36 mm） | 待外形核验 |
+| SKU-03 | Ford Mustang Dark Horse Coupe 2024-2026 US（4818 mm） | [2024 Ford Mustang Dark Horse · Ddiaz Design](https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-7de701277d3745d6b75a797f54560122)（+0 mm） | 待外形核验 |
+| SKU-04 | Ford Mustang Coupe 1973 US（4923 mm） | 无（待补上限参考模型） | 待补上限参考模型 |
 
-## Sketchfab 检索与完整参考链接
+### SKU-01｜Mustang｜19 条｜车长 4445–4663 mm
 
+覆盖车型：
 
-### SKU-01｜代表车型：Ford Mustang Coupe 1967–1968 US
+| 年份 | 版本 | 结构 | 车长/mm |
+| --- | --- | --- | --- |
+| 1965-1966 | — | Convertible / Coupe | 4613 |
+| 1967-1968 | — | Convertible / Coupe / Fastback | 4663 |
+| 1974-1978 | — | Coupe / Hatchback | 4445 |
+| 1979-1986 | — | Coupe / Hatchback | 4554 |
+| 1984 | SVO | Coupe | 4597 |
+| 1985-1986 | SVO | Coupe | 4592 |
+| 1987-1993 | Notchback | Coupe | 4562 |
+| 1987-1993 | — | Convertible / Hatchback | 4562 |
+| 1994-1998 | — | Coupe | 4610 |
+| 1999-2004 | — | Convertible / Coupe | 4653 |
+| 2003-2004 | Mach 1 | Coupe | 4653 |
+| 2003-2004 | SVT Cobra | Coupe | 4661 |
 
-检索式：`site:sketchfab.com/3d-models Ford Mustang 1967 1968 Coupe Fastback downloadable`
+参考模型：
 
-- [首选｜1967 Ford Mustang Fastback 4096px² · Mark Peters（可下载，505k 三角面）](https://sketchfab.com/3d-models/1967-ford-mustang-fastback-4096px2-02933292f4d64a52a9bec5923e24b0af)
-- [1967 Ford Mustang Fastback · gopikrishnanp3007（可下载，786k 三角面）](https://sketchfab.com/3d-models/ford-mustang-fastback-1967-3d-model-586d22df7fbc4ae89b96d15c03694788)
-- [1967 Ford Mustang Shelby GT500 · Made in Brunel（可下载，294k 三角面）](https://sketchfab.com/3d-models/1967-ford-mustang-shelby-gt500-489749d318714b64b09ce3216957d047)
-- [1968 Mustang · king1of1kings（可下载，287k 三角面）](https://sketchfab.com/3d-models/mustang-1968-31cc01c2ce7b496aa1404d53e3f449e8)
-- [1993 Ford Mustang GT Foxbody · Randomness（可下载，146k 三角面；范围内补充）](https://sketchfab.com/3d-models/1993-ford-mustang-gt-foxbody-c548815b8a8c4b5b9974dcb0f5f7f443)
-- [1999 Ford Mustang GT · ImperialBlue3D（可下载；范围内补充）](https://sketchfab.com/3d-models/1999-ford-mustang-gt-9418fca6fc654a2d89d310b69ad791c9)
+| 角色 | 模型 | 对应年份 | 版本 | 结构 | 车长/mm | 与上限差/mm | 说明 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 首选 | [1967 Ford Mustang Fastback 4096px² · Mark Peters](https://sketchfab.com/3d-models/1967-ford-mustang-fastback-4096px2-02933292f4d64a52a9bec5923e24b0af) | 1967-1968 | — | Fastback | 4663 | +0 | 可下载，505k 三角面 |
+| 对照 | [1967 Ford Mustang Fastback · gopikrishnanp3007](https://sketchfab.com/3d-models/ford-mustang-fastback-1967-3d-model-586d22df7fbc4ae89b96d15c03694788) | 1967-1968 | — | Fastback | 4663 | +0 | 可下载，786k 三角面 |
+| 对照 | [1967 Ford Mustang Shelby GT500 · Made in Brunel](https://sketchfab.com/3d-models/1967-ford-mustang-shelby-gt500-489749d318714b64b09ce3216957d047) | 1967-1968 | — | Fastback | 4663 | +0 | 可下载，294k 三角面 |
+| 对照 | [1968 Mustang · king1of1kings](https://sketchfab.com/3d-models/mustang-1968-31cc01c2ce7b496aa1404d53e3f449e8) | 1967-1968 | — | Fastback | 4663 | +0 | 可下载，287k 三角面 |
+| 对照 | [1993 Ford Mustang GT Foxbody · Randomness](https://sketchfab.com/3d-models/1993-ford-mustang-gt-foxbody-c548815b8a8c4b5b9974dcb0f5f7f443) | 1987-1993 | — | Hatchback | 4562 | -101 | 可下载，146k 三角面；范围内补充 |
+| 对照 | [1999 Ford Mustang GT · ImperialBlue3D](https://sketchfab.com/3d-models/1999-ford-mustang-gt-9418fca6fc654a2d89d310b69ad791c9) | 1999-2004 | — | Coupe | 4653 | -10 | 可下载；范围内补充 |
+
+核验项目：代表车型 Coupe 与 Fastback 后部轮廓差异；Convertible 软顶；Foxbody/SN95 跨代共版风险；镜耳与下摆位置。
 
 首选模型与算法代表车型同年段且高面数、可下载；但它是 Fastback，不能代替 1967–1968 Coupe 的后部轮廓实车核验。其余模型用于覆盖该候选中跨度很大的成员，不代表这些车型应共版。
 
-### SKU-02｜代表车型：Ford Mustang Mach-E Rally Crossover 2024–2026 US
+检索式：`site:sketchfab.com/3d-models Ford Mustang 1967 1968 Coupe Fastback downloadable`
 
-检索式：`site:sketchfab.com/3d-models Ford Mustang Mach-E GT Rally downloadable`
+### SKU-02｜Mustang Mach-E｜4 条｜车长 4714–4750 mm
 
-- [首选｜2021 Ford Mustang Mach-E GT 4x · Ddiaz Design（可下载）](https://sketchfab.com/models/98c3a8f248b44670834a37761afbd12c/embed)
-- [Ford Mustang Mach-E · iSteven（按真实尺寸缩放，6k 三角面，付费）](https://sketchfab.com/3d-models/ford-mustang-mach-e-15-6b7ba734a46a4870ba5ca66a6cea51e6)
-- [Mustang Mach E · MattDoesBlender（可下载）](https://sketchfab.com/models/e7d2d6c00d6d43ac9d3cf90ae5b4022a/embed)
-- [Mustang Mach-E GT 2021 · slowpoly（低模、付费）](https://sketchfab.com/3d-models/ford-mustang-mach-e-gt-2021-4ad1d43227b64b3abde72a008e822dcb)
+覆盖车型：
+
+| 年份 | 版本 | 结构 | 车长/mm |
+| --- | --- | --- | --- |
+| 2021-2022 | — | SUV | 4714 |
+| 2023-2025 | — | SUV | 4742 |
+| 2024-2026 | Rally | Crossover | 4750 |
+| 2026 | — | SUV | 4742 |
+
+参考模型：
+
+| 角色 | 模型 | 对应年份 | 版本 | 结构 | 车长/mm | 与上限差/mm | 说明 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 首选 | [2021 Ford Mustang Mach-E GT 4x · Ddiaz Design](https://sketchfab.com/models/98c3a8f248b44670834a37761afbd12c/embed) | 2021-2022 | — | SUV | 4714 | -36 | 可下载 |
+| 对照 | [Ford Mustang Mach-E · iSteven](https://sketchfab.com/3d-models/ford-mustang-mach-e-15-6b7ba734a46a4870ba5ca66a6cea51e6) | 2021-2022 | — | SUV | 4714 | -36 | 按真实尺寸缩放，6k 三角面，付费 |
+| 对照 | [Mustang Mach E · MattDoesBlender](https://sketchfab.com/models/e7d2d6c00d6d43ac9d3cf90ae5b4022a/embed) | 2021-2022 | — | SUV | 4714 | -36 | 可下载 |
+| 对照 | [Mustang Mach-E GT 2021 · slowpoly](https://sketchfab.com/3d-models/ford-mustang-mach-e-gt-2021-4ad1d43227b64b3abde72a008e822dcb) | 2021-2022 | — | SUV | 4714 | -36 | 低模、付费 |
+
+核验项目：Rally 版本前后包围与离地高度；SUV/Crossover 车顶和尾门；GT 与普通版轮廓差异；镜耳与下摆位置。
 
 Mach-E 因高度中心显著更高形成独立候选。当前首选可下载 GT 4x；尚未检得可靠的 Rally 同款模型，因此 Rally 的包围、扰流板和离地高度必须用实车补测。
 
-### SKU-03｜代表车型：Ford Mustang Dark Horse Coupe 2024–2026 US
+检索式：`site:sketchfab.com/3d-models Ford Mustang Mach-E GT Rally downloadable`
 
-检索式：`site:sketchfab.com/3d-models 2024 Ford Mustang Dark Horse downloadable`
+### SKU-03｜Mustang｜22 条｜车长 4610–4818 mm
 
-- [首选｜2024 Ford Mustang Dark Horse · Ddiaz Design（可下载，321k 三角面）](https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-7de701277d3745d6b75a797f54560122)
-- [2024 Ford Mustang Dark Horse · Maroi Studio（可下载，321k 三角面）](https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-f3cecf4bf9ec481fbcd8be96fd600055)
-- [2024 Ford Mustang GT · Ddiaz Design（可下载，296k 三角面）](https://sketchfab.com/3d-models/2024-ford-mustang-gt-16f0753d26a04a089223f2d9107a777f)
-- [2015 Ford Mustang GT · Ddiaz Design（可下载，57k 三角面；范围内补充）](https://sketchfab.com/3d-models/2015-ford-mustang-gt-4538f40506cf4e2289a58afff5f051b9)
-- [2005 Ford Mustang GT · user121212（可下载，75k 三角面；范围内补充）](https://sketchfab.com/3d-models/ford-mustang-2005-gt-b4175d8289de442e9ea571c17ca028ea)
-- [2024 Dark Horse PS1 低模 · LolAndPop!（可下载，仅轮廓对照）](https://sketchfab.com/3d-models/ps1-low-poly-2024-ford-mustang-dark-horse-d15e5daca29a4b7384b5743f1ec53bd1)
+覆盖车型：
+
+| 年份 | 版本 | 结构 | 车长/mm |
+| --- | --- | --- | --- |
+| 1994-1998 | — | Convertible | 4610 |
+| 2005 | — | Convertible / Coupe | 4765 |
+| 2006-2007 | — | Convertible / Coupe | 4765 |
+| 2008 | — | Convertible / Coupe | 4775 |
+| 2009 | — | Convertible | 4775 |
+| 2009 | — | Coupe | 4765 |
+| 2010-2011 | — | Coupe | 4778 |
+| 2010-2012 | — | Convertible | 4778 |
+| 2012-2013 | — | Coupe | 4778 |
+| 2013 | — | Convertible | 4778 |
+| 2014 | — | Convertible / Coupe | 4788 |
+| 2015-2020 | — | Convertible / Coupe | 4783 |
+| 2021-2023 | — | Convertible / Coupe | 4798 |
+| 2024-2026 | Dark Horse | Coupe | 4818 |
+| 2024-2026 | — | Convertible / Coupe | 4811 |
+
+参考模型：
+
+| 角色 | 模型 | 对应年份 | 版本 | 结构 | 车长/mm | 与上限差/mm | 说明 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 首选 | [2024 Ford Mustang Dark Horse · Ddiaz Design](https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-7de701277d3745d6b75a797f54560122) | 2024-2026 | Dark Horse | Coupe | 4818 | +0 | 可下载，321k 三角面 |
+| 对照 | [2024 Ford Mustang Dark Horse · Maroi Studio](https://sketchfab.com/3d-models/2024-ford-mustang-dark-horse-f3cecf4bf9ec481fbcd8be96fd600055) | 2024-2026 | Dark Horse | Coupe | 4818 | +0 | 可下载，321k 三角面 |
+| 对照 | [2024 Ford Mustang GT · Ddiaz Design](https://sketchfab.com/3d-models/2024-ford-mustang-gt-16f0753d26a04a089223f2d9107a777f) | 2024-2026 | — | Coupe | 4811 | -7 | 可下载，296k 三角面 |
+| 对照 | [2015 Ford Mustang GT · Ddiaz Design](https://sketchfab.com/3d-models/2015-ford-mustang-gt-4538f40506cf4e2289a58afff5f051b9) | 2015-2020 | — | Coupe | 4783 | -35 | 可下载，57k 三角面；范围内补充 |
+| 对照 | [2005 Ford Mustang GT · user121212](https://sketchfab.com/3d-models/ford-mustang-2005-gt-b4175d8289de442e9ea571c17ca028ea) | 2005 | — | Coupe | 4765 | -53 | 可下载，75k 三角面；范围内补充 |
+| 对照 | [2024 Dark Horse PS1 低模 · LolAndPop!](https://sketchfab.com/3d-models/ps1-low-poly-2024-ford-mustang-dark-horse-d15e5daca29a4b7384b5743f1ec53bd1) | 2024-2026 | Dark Horse | Coupe | 4818 | +0 | 可下载，仅轮廓对照 |
+
+核验项目：Dark Horse 扰流板与前后包围；GT 与 Dark Horse 轮廓差异；Convertible 软顶；S197/S550/S650 跨代镜耳和下摆位置。
 
 两个高面数 Dark Horse 可下载模型直接命中算法代表车型，优先级最高；PS1 低模只保留作拓扑和整体比例对照，不参与尺寸判断。
 
-### SKU-04｜代表车型：Ford Mustang Coupe 1973 US
+检索式：`site:sketchfab.com/3d-models 2024 Ford Mustang Dark Horse downloadable`
 
-检索式：`site:sketchfab.com/3d-models Ford Mustang 1969 1970 1971 1973 downloadable`
+### SKU-04｜Mustang｜12 条｜车长 4760–4923 mm
 
-- [首选｜1969 Ford Mustang Boss 302 · Ddiaz Design（可下载，83k 三角面）](https://sketchfab.com/3d-models/1969-ford-mustang-boss-302-4f5c06d79aeb483480641f8135fb20f8)
-- [1970 Ford Mustang Boss 302 · DisneyCars（可下载，230k 三角面）](https://sketchfab.com/3d-models/1970-ford-mustang-boss-302-a5a5083c4bc94d749d8e340f438c94a2)
-- [1970 Ford Mustang · JakobOlbracht（可下载，62k 三角面；改型低优先）](https://sketchfab.com/3d-models/low-poly-ford-mustang-1970-ce3d3e0a3a234a90bc2d563600f408ad)
-- [1969 Ford Mustang Fastback Mach 1 · Ddiaz Design（可下载）](https://sketchfab.com/ddiaz-design/collections/ford-base-models-e8cd641bdf2d49e78b0e63ff64acb73c)
+覆盖车型：
 
-尚未检得可确认的 1973 同年 Sketchfab 全车模型，因此不冒充精确代表；使用同候选范围内的 1969–1970 高质量可下载模型作外形参考，并把 1973 实车测量列为强制项。
+| 年份 | 版本 | 结构 | 车长/mm |
+| --- | --- | --- | --- |
+| 1969 | Hardtop | Coupe | 4760 |
+| 1969 | SportsRoof | Coupe | 4760 |
+| 1969 | — | Convertible / Fastback | 4760 |
+| 1970 | — | Convertible / Fastback | 4760 |
+| 1971-1972 | — | Convertible / Coupe / Fastback | 4813 |
+| 1973 | — | Convertible / Coupe / Fastback | 4923 |
+
+参考模型：
+
+| 角色 | 模型 | 对应年份 | 版本 | 结构 | 车长/mm | 与上限差/mm | 说明 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 对照 | [1969 Ford Mustang Boss 302 · Ddiaz Design](https://sketchfab.com/3d-models/1969-ford-mustang-boss-302-4f5c06d79aeb483480641f8135fb20f8) | 1969 | SportsRoof | Coupe | 4760 | -163 | 可下载，83k 三角面 |
+| 对照 | [1969 Ford Mustang Mach-1 428 Cobra Jet · Ddiaz Design](https://sketchfab.com/3d-models/1969-ford-mustang-mach-1-428-cobra-jet-679cdf81b9854759860b0afe9d1e4012) | 1969 | SportsRoof | Coupe | 4760 | -163 | 可下载，269k 三角面 |
+| 对照 | [1970 Ford Mustang Boss 302 · DisneyCars](https://sketchfab.com/3d-models/1970-ford-mustang-boss-302-a5a5083c4bc94d749d8e340f438c94a2) | 1970 | — | Fastback | 4760 | -163 | 可下载，230k 三角面 |
+| 对照 | [1970 Ford Mustang · JakobOlbracht](https://sketchfab.com/3d-models/low-poly-ford-mustang-1970-ce3d3e0a3a234a90bc2d563600f408ad) | 1970 | — | Fastback | 4760 | -163 | 可下载，62k 三角面；改型低优先 |
+
+核验项目：1973 实车全长、前后保险杠外伸；1971–1973 Coupe/Fastback/Convertible 后部轮廓；镜耳与下摆位置。
+
+不设首选：Sketchfab 检索（API 遍历约 850 个 Mustang 模型，2026-10-12）未找到 1971–1973 年款全车模型；现有 1969–1970 模型车长 4760 mm，处于 SKU 下限，比上限短 163 mm，只能作轮廓对照，不能用于尺寸判断。版型须以 1973 实车测量为准。
+
+检索式：`site:sketchfab.com/3d-models Ford Mustang 1971 1972 1973 Mach 1 Sportsroof Convertible`
 
 ## 适配核验与待确认事项
 

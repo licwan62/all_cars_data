@@ -1,0 +1,38 @@
+{
+  "pipeline_version": "0.2.0",
+  "automatic_rule_version": "geometric-auto-v2-experimental",
+  "node_tests": "77 passed",
+  "source_sha256": {
+    "01.整理尺寸库/output/尺寸库.csv": "5b3fccb71c6e69fa9fde07f62cd6d99584582ccbe278f871c6c60ec2422e1f69",
+    "02.分类结构审核/output/车型结构.csv": "29fcf79541d4bc7379b36b46e91a0765d08d9bcabf79925f83d074b7c23c80ae",
+    "03.车形分类核定/output/车形分类.csv": "a932b9ee78f771c37d4d6000a200796488332264772120bd6f424fb112f9c33c"
+  },
+  "source_unchanged": true,
+  "legacy_rebuild": "byte-identical",
+  "candidate_status_counts": {
+    "UNKNOWN": 2,
+    "INFERRED": 6
+  },
+  "manual_images_required": false,
+  "manual_keypoints_required": false,
+  "manual_prototypes_required": false,
+  "frozen_results_identical_except_processed_at": true,
+  "features_byte_identical": true,
+  "validated_real_side_profiles": 0,
+  "network_requests": 5,
+  "cache_hits": 60,
+  "dependency_versions": {
+    "python": "3.13.14",
+    "PyYAML": "6.0.3",
+    "numpy": "2.5.1",
+    "Pillow": "12.3.0",
+    "opencv-python": "5.0.0.93",
+    "onnxruntime": "1.31.0"
+  },
+  "published": false,
+  "global_tests": "not rerun; prior A0 and X1 issues recorded",
+  "source_batches": [
+    "20261012_10",
+    "20261012_11"
+  ]
+}

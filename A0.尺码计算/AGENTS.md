@@ -41,7 +41,8 @@ output/
 1. `python src/generate_store_outputs.py`：US 尺码计算 → `trim.matching.match_trims` 做 TRIM 匹配（`data/US/TRIM`，含 ID 迁移）→ 回填 US 与店铺全量表 `TRIM` → 输出 TRIM适配器。
 2. `python src/generate_ru_full_table.py`：RU 全量表。
 3. `python src/build_regional_coverage_full.py`：EU 覆盖版全量表，RU 车形候选回填。
-4. `python src/build_match_report.py`：读取上述结果与 data/ 规则，生成三份 `尺码匹配报告.md`。
+4. `python src/add_cover_shape.py`：只读 03 `output/COVER_SHAPE.csv`，按精确地区 DIMENSION-ID 仅回填国别与 US 店铺全量表的 SHAPE。状态/代表年/方法/备选/来源由 03 节点维护，不带入全量表。配置在 `data/全量SHAPE.yaml`；字段紧跟旧车形，不参与尺码计算，其他原列值及行序保持不变。
+5. `python src/build_match_report.py`：读取上述结果与 data/ 规则，生成三份 `尺码匹配报告.md`。
 
 只有 US 有 TRIM 环节；EU/RU 全量表不带 `TRIM` 列。TRIM 资料维护与离线工具见 [src/trim/README.md](src/trim/README.md)。
 

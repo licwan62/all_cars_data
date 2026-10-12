@@ -36,8 +36,106 @@ def universal_size_risk_section(config, rows):
     result.extend(['',
                    '### 风险解读', '',
                    *config.get('universal_size_risk_notes', []), '',
-                   '全量表没有发动机布局、前保险杠至镜耳中心距离、A 柱至镜耳距离、镜耳外伸量或车顶/尾门曲线坐标。因此不能从“前置发动机”或总宽度推定镜耳一定前移、后移或偏出；这些是需要按代际实测核验的风险假设。建议对每种自动尺码记录上述坐标及前/侧/后覆盖照片，再判断是否需拆分通用尺码。'])
+                   '全量表缺少镜耳位置和车顶/尾门曲线坐标，镜耳前后与外伸须按代际实测，不能由总宽或发动机布局推定。'])
     return result
+
+
+def universal_size_by_sku_section(config, clusters, codes):
+    """Compare each candidate SKU with the A0 universal sizes its members currently use."""
+    names = [f'SKU-{i:02d}' for i in range(1, len(clusters) + 1)]
+    tight = int(config.get('risk_tight_margin_mm', 50))
+    loose_span = int(config.get('risk_margin_span_mm', 100))
+    size_skus = {}
+    for name, cluster in zip(names, clusters):
+        for row in cluster.rows:
+            size_skus.setdefault(row.get('自动尺码') or '无', set()).add(name)
+    records, notes = [], []
+    for name, cluster in zip(names, clusters):
+        sizes = {}
+        for row in cluster.rows:
+            sizes[row.get('自动尺码') or '无'] = sizes.get(row.get('自动尺码') or '无', 0) + 1
+        ordered = sorted(sizes.items(), key=lambda item: (-item[1], item[0]))
+        margins = [(int(r['自动长度余量']), r['DIMENSION-ID']) for r in cluster.rows if r.get('自动长度余量', '').lstrip('-').isdigit()]
+        heights = [int(r['参考侧高']) for r in cluster.rows if r.get('参考侧高', '').lstrip('-').isdigit()]
+        span = lambda values: f'{min(values)}–{max(values)}（跨度 {max(values) - min(values)}）' if values else '未提供'
+        shared = {size: sorted(size_skus[size] - {name}) for size, _ in ordered if size_skus[size] - {name}}
+        risks = []
+        if len(ordered) > 1:
+            risks.append(f"现行分属 {len(ordered)} 个通用尺码，定制需一个版型覆盖")
+        if shared:
+            risks.append('、'.join(f"{size} 与 {'/'.join(others)} 共用" for size, others in shared.items()) + '，现行尺码区分不了这些候选')
+        if margins:
+            low, high = min(margins), max(margins)
+            if high[0] - low[0] > loose_span:
+                risks.append(f"长度余量相差 {high[0] - low[0]} mm，同一版型松紧不一")
+            tight_rows = sorted(m for m in margins if m[0] < tight)
+            if tight_rows:
+                risks.append(f"余量偏紧（<{tight} mm）：" + '、'.join(f'{i} {v} mm' for v, i in tight_rows))
+        if not risks:
+            risks.append(f"全部为 {ordered[0][0]}，不与其他候选共用，余量集中，风险低")
+        records.append([name, sku_code(cluster.rows, codes, config.get('sku_family_code', '')), len(cluster.rows),
+                        '；'.join(f'{size}×{count}' for size, count in ordered),
+                        span([v for v, _ in margins]), span(heights)])
+        notes.append(f"- {name}：{'；'.join(risks)}。")
+    return ['## 通用尺码适配风险', '',
+            '按候选 SKU 对照成员在 A0 中的自动尺码；“自动长度余量”与“参考侧高”是现有计算字段，不是实测镜耳或发动机舱坐标。', '',
+            *table(['候选 SKU', '车型代号', '记录数', '自动尺码×条数', '自动长度余量/mm', '参考侧高/mm'], records),
+            '', '### 风险解读', '', *notes, *config.get('universal_size_risk_notes', []), '',
+            '全量表缺少镜耳位置和车顶/尾门曲线坐标，镜耳前后与外伸须按代际实测，不能由总宽或发动机布局推定。']
+
+
+def sketchfab_sku_section(config, clusters, rows, tasks):
+    """One overview table, then per SKU: covered vehicles and reference models with year/version/body/length."""
+    names = [f'SKU-{i:02d}' for i in range(1, len(clusters) + 1)]
+    row_by_id = {r['DIMENSION-ID']: r for r in rows}
+    tolerance = int(config.get('reference_length_tolerance_mm', 50))
+    status = {t['SKU聚簇']: t['状态'] for t in tasks}
+    searches = {item['sku']: item for item in config['sketchfab_sku_searches']}
+
+    overview, details = [], []
+    for name, cluster in zip(names, clusters):
+        item, upper = searches.get(name, {}), cluster.max_value('L-MM')
+        series = sorted({r['MODEL'] for r in cluster.rows})
+        multi_model = len(series) > 1
+
+        def vehicle(row):
+            return ([row['MODEL']] if multi_model else []) + [row['YEAR'], row.get('版本') or '—', row['结构']]
+
+        representative = max(cluster.rows, key=lambda r: tuple(int(r[f]) for f in ('L-MM', 'W-MM', 'H-MM')))
+        groups = {}
+        for row in cluster.rows:
+            groups.setdefault((row['MODEL'], row['YEAR'], row.get('版本') or '—', row['L-MM']), []).append(row['结构'])
+        covered = [([model] if multi_model else []) + [year, version, ' / '.join(sorted(bodies)), length]
+                   for (model, year, version, length), bodies in sorted(groups.items(), key=lambda g: (year_bounds(g[0][1]), g[0][0], g[0][2]))]
+        models, preferred = [], '无（待补上限参考模型）'
+        for m in item.get('models', []):
+            if m['dimension_id'] not in row_by_id:
+                raise ValueError(f"Sketchfab 模型对应车型不在输入范围：{m['dimension_id']}")
+            target = row_by_id[m['dimension_id']]
+            length = int(target['L-MM'])
+            title = m['title'].split('｜')[-1]
+            label, _, info = title.partition('（')
+            role = '首选' if m['url'] == item.get('representative_url') else '对照'
+            if role == '首选':
+                if upper - length > tolerance:
+                    raise ValueError(f"{name} 首选模型车长 {length} 比 SKU 上限 {upper} 短 {upper - length} mm，超过 {tolerance} mm")
+                preferred = f'[{label.strip()}]({m["url"]})（{length - upper:+d} mm）'
+            models.append([role, f'[{label.strip()}]({m["url"]})', *vehicle(target), length, f'{length - upper:+d}', info.rstrip('）') or '—'])
+        models.sort(key=lambda record: record[0] != '首选')
+        overview.append([name, f"{representative['DIMENSION-ID']}（{upper} mm）", preferred, status.get(name, '待补参考模型')])
+        model_heading = ['车系'] if multi_model else []
+        details.extend(['', f"### {name}｜{' / '.join(series)}｜{len(cluster.rows)} 条｜车长 {cluster.min_value('L-MM')}–{upper} mm", '',
+                        '覆盖车型：', '', *table([*model_heading, '年份', '版本', '结构', '车长/mm'], covered), '',
+                        '参考模型：', '',
+                        *(table(['角色', '模型', *model_heading, '对应年份', '版本', '结构', '车长/mm', '与上限差/mm', '说明'], models) if models else ['待补可靠参考模型。']),
+                        '', f"核验项目：{'；'.join(item.get('verification', ['车顶弧线', '前后轮廓', '后视镜位置', '尾门及扰流板']))}。"])
+        if item.get('note'):
+            details.extend(['', item['note']])
+        if item.get('query'):
+            details.extend(['', f"检索式：`{item['query']}`"])
+    return ['## Sketchfab 参考', '',
+            f"检索日期：{config.get('search_date', '未登记')}。首选模型须对应 SKU 车长上限附近的车型（差距不超过 {tolerance} mm），否则不设首选、只作轮廓对照；链接均未完成外形与真实比例验证。", '',
+            *table(['候选 SKU', '代表车型（车长上限）', '首选模型（与上限差）', '状态'], overview), *details]
 
 
 CENTER_LABELS = {'L-MM': '长度', 'W-MM': '宽度', 'H-MM': '高度'}
@@ -151,14 +249,15 @@ def render_report(config, rows, codes, reviews, provenance, tasks_builder):
     report.extend(['', '各维度最大值可能来自不同车型，代表车型不一定达到三项最大值。包络是车辆外廓，不是成品车衣的放量或裁片尺寸。', '', '## 完整成员明细', ''])
     membership = {m['DIMENSION-ID']: m['SKU聚簇'] for m in members}
     if config.get('omit_member_detail'):
-        report[-2:] = ['', '完整成员已用于计算与完整性校验，本报告按要求不展开逐条明细；记录范围见候选汇总与 Sketchfab 参考任务。', '']
+        report[-2:] = ['', '完整成员已用于计算与完整性校验，本报告按要求不展开逐条明细；记录范围见候选汇总与 Sketchfab 参考。', '']
     elif config.get('compact_report'):
         report.extend(table(['候选 SKU', 'DIMENSION-ID', '原子代号', 'L×W×H/mm'],
                             [[membership[r['DIMENSION-ID']], r['DIMENSION-ID'], codes[r['DIMENSION-ID']], ' × '.join(r[f] for f in fields)] for r in rows]))
     else:
         report.extend(table(['候选 SKU', 'DIMENSION-ID', '原子代号', '年款', '代际', '版本', '结构', 'L/mm', 'W/mm', 'H/mm', '尺寸组销量'],
                             [[membership[r['DIMENSION-ID']], r['DIMENSION-ID'], codes[r['DIMENSION-ID']], r['YEAR'], r.get('代际', ''), r.get('版本') or '—', r['结构'], *[r[f] for f in fields], r.get('尺寸组销量', '')] for r in rows]))
-    risk = universal_size_risk_section(config, rows)
+    risk = (universal_size_by_sku_section(config, clusters, codes) if config.get('universal_size_risk_by_sku')
+            else universal_size_risk_section(config, rows))
     if risk:
         report.extend(['', *risk])
     if config.get('sampling_groups'):
@@ -175,22 +274,18 @@ def render_report(config, rows, codes, reviews, provenance, tasks_builder):
                             sum(int(r.get('尺寸组销量') or 0) for r in subset), group['reason']])
         report.extend(table(['打样 SKU', '年款', '包络/mm', '历史尺寸组销量合计', '验证理由'], samples))
         report.extend(['', '历史销量仅用于验证顺序，不等于当前保有量或采购预测。'])
-    report.extend(['', '## Sketchfab 参考任务', '', f"链接检索登记日期：{config.get('search_date', '未登记')}。链接已找到表示参考候选，尚未完成外形与真实比例验证。", ''])
-    scope_heading = '参考范围' if config.get('sketchfab_sku_searches') else '代际'
-    report.extend(table(['候选 SKU', scope_heading, '覆盖车型', '状态', '核验项目'], [[t[k] for k in ('SKU聚簇', '代际', '覆盖车型', '状态', '核验项目')] for t in tasks]))
-    report.extend(['', '## Sketchfab 检索与完整参考链接', ''])
-    search_groups = config.get('sketchfab_sku_searches', config.get('sketchfab_searches', []))
     if config.get('sketchfab_sku_searches'):
-        search_groups = sorted(search_groups, key=lambda item: item['sku'])
-    for item in search_groups:
-        heading = item.get('sku', item.get('generation', '参考组'))
-        if item.get('representative'):
-            heading += f"｜代表车型：{item['representative']}"
-        report.extend(['', f"### {heading}", '', f"检索式：`{item['query']}`", ''])
-        models = item.get('models', []) or ([{'title': '参考模型', 'url': item['representative_url']}] if item.get('representative_url') else [])
-        report.extend([f"- [{m['title']}]({m['url']})" for m in models] or ['- 待补可靠参考模型。'])
-        if item.get('note'):
-            report.extend(['', item['note']])
+        report.extend(['', *sketchfab_sku_section(config, clusters, rows, tasks)])
+    else:
+        report.extend(['', '## Sketchfab 参考任务', '', f"链接检索登记日期：{config.get('search_date', '未登记')}。链接已找到表示参考候选，尚未完成外形与真实比例验证。", ''])
+        report.extend(table(['候选 SKU', '代际', '覆盖车型', '状态', '核验项目'], [[t[k] for k in ('SKU聚簇', '代际', '覆盖车型', '状态', '核验项目')] for t in tasks]))
+        report.extend(['', '## Sketchfab 检索与完整参考链接', ''])
+        for item in config.get('sketchfab_searches', []):
+            report.extend(['', f"### {item.get('generation', '参考组')}", '', f"检索式：`{item['query']}`", ''])
+            models = item.get('models', []) or ([{'title': '参考模型', 'url': item['representative_url']}] if item.get('representative_url') else [])
+            report.extend([f"- [{m['title']}]({m['url']})" for m in models] or ['- 待补可靠参考模型。'])
+            if item.get('note'):
+                report.extend(['', item['note']])
     report.extend(['', '## 适配核验与待确认事项', '',
                    '1. 每个拟共版 SKU 验证 L/W/H 极值车型，拍摄前、侧、后与镜耳位置；记录偏大、偏小、偏长、偏短及下摆覆盖。',
                    '2. 核对车顶弧线、尾门、扰流板和镜耳位置；跨代际外形差异无法通过放量解决时拆分 SKU。',

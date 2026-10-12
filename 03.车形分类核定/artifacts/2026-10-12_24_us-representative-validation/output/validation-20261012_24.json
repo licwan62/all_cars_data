@@ -1,0 +1,116 @@
+{
+  "validation": {
+    "source_unchanged": true,
+    "non_us_node_unchanged": true,
+    "node_order_unchanged": true,
+    "same_full_tables": true,
+    "A0.尺码计算/output/EU/全量/全量表.csv:contract": true,
+    "A0.尺码计算/output/EU/全量/全量表.csv:existing_cells": true,
+    "A0.尺码计算/output/EU/全量/全量表.csv:node_values": true,
+    "A0.尺码计算/output/RU/全量/全量表.csv:contract": true,
+    "A0.尺码计算/output/RU/全量/全量表.csv:existing_cells": true,
+    "A0.尺码计算/output/RU/全量/全量表.csv:node_values": true,
+    "A0.尺码计算/output/US/全量/全量表.csv:contract": true,
+    "A0.尺码计算/output/US/全量/全量表.csv:existing_cells": true,
+    "A0.尺码计算/output/US/全量/全量表.csv:node_values": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_HNT.csv:contract": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_HNT.csv:existing_cells": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_HNT.csv:node_values": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_TM.csv:contract": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_TM.csv:existing_cells": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_TM.csv:node_values": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_TM_拆分.csv:contract": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_TM_拆分.csv:existing_cells": true,
+    "A0.尺码计算/output/US/店铺/店铺全量_TM_拆分.csv:node_values": true,
+    "changed_rows_us_only": true,
+    "research_us_only": true,
+    "research_model_diversity": true
+  },
+  "changes": [
+    {
+      "id": "Honda Accord Sedan 2023-2026 US",
+      "before": "STANDARD_SEDAN",
+      "after": "SPORT_LIFTBACK"
+    },
+    {
+      "id": "Nissan Z Coupe 2023-2026 US",
+      "before": "LOW_NOTCHBACK",
+      "after": "LOW_FASTBACK"
+    }
+  ],
+  "research_batch": "2026-10-12_22_shape-queue-research",
+  "research_run": {
+    "status": "passed",
+    "rows": 47356,
+    "representative_groups": 37042,
+    "rule_version": "representative-shape-v1",
+    "shape_counts": {
+      "BOXY_SUV": 5366,
+      "STANDARD_SEDAN": 13781,
+      "LOW_NOTCHBACK": 3364,
+      "LOW_FASTBACK": 122,
+      "SPORT_LIFTBACK": 5170,
+      "WAGON": 427,
+      "SLOPED_CROSSOVER": 780,
+      "TALL_BOX": 9559,
+      "PICKUP": 4196,
+      "COMPACT_HATCH": 4571,
+      "OTHER": 20
+    },
+    "status_counts": {
+      "INFERRED": 47356
+    },
+    "method_counts": {
+      "prototype_geometry_dimensions": 47345,
+      "representative_evidence": 11
+    },
+    "by_country": {
+      "US": 4378,
+      "EU": 29361,
+      "RU": 13617
+    },
+    "validation": {
+      "exact_source_order_and_coverage": true,
+      "unique_ids": true,
+      "all_have_class": true,
+      "valid_status": true,
+      "complete_metadata": true,
+      "source_unchanged": true
+    },
+    "fit_status": "NOT_TESTED",
+    "network_requests": 0,
+    "research_queue": {
+      "groups": 37042,
+      "states": {
+        "NO_EVIDENCE": 11,
+        "PENDING": 37000,
+        "EVIDENCE_AVAILABLE": 6,
+        "RESEARCHED": 5,
+        "BLOCKED_INPUT": 20
+      },
+      "research_markets": [
+        "US"
+      ],
+      "representative_tasks": 2814,
+      "attempted_groups": 16
+    },
+    "limitations": "原型几何先验与尺寸补齐是推断；20 条尺寸缺失/无效记录归 OTHER，未补猜尺寸",
+    "research_run": {
+      "selected": 8,
+      "attempted": 8,
+      "new_geometry_facts": 5,
+      "markets": [
+        "US"
+      ],
+      "selection": "representative_models",
+      "representatives": 2814,
+      "requests": 78,
+      "cache_hits": 1,
+      "results": {
+        "RESEARCHED": 5,
+        "NO_EVIDENCE": 3
+      }
+    }
+  },
+  "full_tables": 6
+}

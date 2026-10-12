@@ -1,0 +1,588 @@
+{
+  "schema_version": 1,
+  "batch": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research",
+  "version": "20261012_18",
+  "description": "shape-queue-research",
+  "created_at": "2026-10-12T19:19:50+08:00",
+  "finished_at": "2026-10-12T19:21:05+08:00",
+  "command": [
+    "research_cover_shape.py",
+    "--mode",
+    "online",
+    "--limit",
+    "8",
+    "--max-requests",
+    "120"
+  ],
+  "inputs": [
+    {
+      "node": "structure-review",
+      "path": "02.分类结构审核",
+      "version": "20261010_01",
+      "file": "车型结构.csv",
+      "versioned_file": "车型结构-20261009_04.csv",
+      "artifact_file": "02.分类结构审核/artifacts/2026-10-09_04_structure-review-release/output/车型结构-20261009_04.csv",
+      "sha256": "29fcf79541d4bc7379b36b46e91a0765d08d9bcabf79925f83d074b7c23c80ae"
+    },
+    {
+      "node": "shape-classification",
+      "path": "03.车形分类核定",
+      "version": "20261012_17",
+      "file": "车形分类.csv",
+      "versioned_file": "车形分类-20261009_04.csv",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-09_04_shape-classification-release/output/车形分类-20261009_04.csv",
+      "sha256": "a932b9ee78f771c37d4d6000a200796488332264772120bd6f424fb112f9c33c"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\0d8fd19939bd1b1165ed32784310cf68f29cb8b89ac1ce573b2b8a22810003fb.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/a9abf00380d92bfac5bfec8f09583238098f73bdaaff98b64fbab9dedd4d229a.body",
+      "sha256": "ada2a601f24c7f102c6432340d6adca256996c391606174b387338725fe7cf7d",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/0d8fd19939bd1b1165ed32784310cf68f29cb8b89ac1ce573b2b8a22810003fb.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/0d8fd19939bd1b1165ed32784310cf68f29cb8b89ac1ce573b2b8a22810003fb.json",
+      "sha256": "9eb7a77e8edc7663a9c2c7ccae1c3f8fe721f8e8ac789f155ac07377daff5f89",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/1106ce0fdf52ff3e1089628a0293828d5d4896c6a253b15484edcb4a8095fe89.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/1106ce0fdf52ff3e1089628a0293828d5d4896c6a253b15484edcb4a8095fe89.body",
+      "sha256": "7c867384e6f2c9ed6ff30c9ba24430338f2efe59ab56f684a2e9066a09bab468",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/1106ce0fdf52ff3e1089628a0293828d5d4896c6a253b15484edcb4a8095fe89.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/1106ce0fdf52ff3e1089628a0293828d5d4896c6a253b15484edcb4a8095fe89.json",
+      "sha256": "7bce8aa4895f9ecdbb43ed7aa67684c2cad8e28bf860d3d3941447bf09ea76a7",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/14d6f089620803bbb328a78c54e8c87c30398c2011f178180a4afea85058bdc6.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/14d6f089620803bbb328a78c54e8c87c30398c2011f178180a4afea85058bdc6.body",
+      "sha256": "08d8cdc56909b2242682b31f4f2d1f4750bb4a5d4060b68debd41ea186b1eb6b",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/14d6f089620803bbb328a78c54e8c87c30398c2011f178180a4afea85058bdc6.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/14d6f089620803bbb328a78c54e8c87c30398c2011f178180a4afea85058bdc6.json",
+      "sha256": "b6ebb25f2b159e28632eb091953a9775f85cc5b15af025d4a0acb7a9aac8a1be",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/15b87682c9145b916c60d1c0dc5980974d838e50d82bdefb84016f60ce546b84.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/15b87682c9145b916c60d1c0dc5980974d838e50d82bdefb84016f60ce546b84.body",
+      "sha256": "b71db2833f1cef03a387a692b2a34c5648dc677d4a420553226d4fbd7a71aed2",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/15b87682c9145b916c60d1c0dc5980974d838e50d82bdefb84016f60ce546b84.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/15b87682c9145b916c60d1c0dc5980974d838e50d82bdefb84016f60ce546b84.json",
+      "sha256": "078d355ce53081b10baa916806533dafd9994b70b03212d2bdb5b3a917a54c20",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/2c7db25589df5327c9a15daace2038f3083e4df58168214d94b212612eb9f404.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/2c7db25589df5327c9a15daace2038f3083e4df58168214d94b212612eb9f404.body",
+      "sha256": "2de5ae7ab243694b6e726d354c53a9bee64f1e6b8af05970667eb616100cd99f",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/2c7db25589df5327c9a15daace2038f3083e4df58168214d94b212612eb9f404.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/2c7db25589df5327c9a15daace2038f3083e4df58168214d94b212612eb9f404.json",
+      "sha256": "aa4fb7007f5c0afbf9508d2f356b8095e0df6d5edb07660dff8027af8bd4f8c3",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/2ce270d25aa5042b224b92ff789ba4e0285b90ce4764aabf0585f96a29115e95.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/2ce270d25aa5042b224b92ff789ba4e0285b90ce4764aabf0585f96a29115e95.body",
+      "sha256": "596abb0511e937f0ea588f9c9270a1ab9354adbca1638894f7cfc77976052392",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/2ce270d25aa5042b224b92ff789ba4e0285b90ce4764aabf0585f96a29115e95.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/2ce270d25aa5042b224b92ff789ba4e0285b90ce4764aabf0585f96a29115e95.json",
+      "sha256": "78ed99d2623ff882e2120fe90d53c15d7a56ce69283f611c762d6cf8f1493818",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/3c1cc29a377c634dff4cd0a4aad6b66be9ea49b0a91df0a2cf725afb1393978a.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/3c1cc29a377c634dff4cd0a4aad6b66be9ea49b0a91df0a2cf725afb1393978a.body",
+      "sha256": "2d7231d4db271948d06cabb5086ea4c5dd569709c1887762db64f532e70e0fee",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/3c1cc29a377c634dff4cd0a4aad6b66be9ea49b0a91df0a2cf725afb1393978a.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/3c1cc29a377c634dff4cd0a4aad6b66be9ea49b0a91df0a2cf725afb1393978a.json",
+      "sha256": "48e47753d0a54b40240cc98304e02e7c76c24f9afcac30c9924753380119d2f1",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/3cfc45112941d48da772a1d0c7707e20e80458a3a14db3726f15e7b8d395d78e.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/3cfc45112941d48da772a1d0c7707e20e80458a3a14db3726f15e7b8d395d78e.body",
+      "sha256": "d71501728d504c4036c51c8030d59c507eff1e9277e7aaf0732763c96fbc3052",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/3cfc45112941d48da772a1d0c7707e20e80458a3a14db3726f15e7b8d395d78e.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/3cfc45112941d48da772a1d0c7707e20e80458a3a14db3726f15e7b8d395d78e.json",
+      "sha256": "4ddd4998aecc6ced72cc25d91bc6b64bdd086b5f45cfcf596908c96ea033684d",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/405ae16aa79d07311bfe5c55de9fac2ce6f857031b9e4a62c38453d2f19720cc.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/405ae16aa79d07311bfe5c55de9fac2ce6f857031b9e4a62c38453d2f19720cc.body",
+      "sha256": "a7a6676f20c5d5ac811d266510f5c285ee1c4ed92b1b60201ff25e8ac20d71d4",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/405ae16aa79d07311bfe5c55de9fac2ce6f857031b9e4a62c38453d2f19720cc.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/405ae16aa79d07311bfe5c55de9fac2ce6f857031b9e4a62c38453d2f19720cc.json",
+      "sha256": "f9c8e681a30a76bc679c7eaafeb93a158077ea5765a5ab8fde4e9120a2574748",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/467c76648925e846b416d722337e720efd735a7da23796cdb746bfbe354ee148.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/467c76648925e846b416d722337e720efd735a7da23796cdb746bfbe354ee148.body",
+      "sha256": "499c97e8db651e638f89186db2d859f208562b257727b16aec4dc1e958b11e82",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/467c76648925e846b416d722337e720efd735a7da23796cdb746bfbe354ee148.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/467c76648925e846b416d722337e720efd735a7da23796cdb746bfbe354ee148.json",
+      "sha256": "37f7f50dd9712aeddc907fa9bb95230396714312cb8dde9bb2685537a6d88594",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/46d5fd993916d440ced6ba7589782729a5480dd4e1a3f2cf323b90c9c2cc7dd1.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/46d5fd993916d440ced6ba7589782729a5480dd4e1a3f2cf323b90c9c2cc7dd1.body",
+      "sha256": "aeb6459231f13831c1e8d4c3ee811ab46eb2984c25d0a88ed9171a7a16b88b80",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/46d5fd993916d440ced6ba7589782729a5480dd4e1a3f2cf323b90c9c2cc7dd1.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/46d5fd993916d440ced6ba7589782729a5480dd4e1a3f2cf323b90c9c2cc7dd1.json",
+      "sha256": "3d271c4da4a6db4af3dc24ffa73f4688d6a03cd91b120b62fffc84e65b5f2f79",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/4a850a115b3d23ca1cfffbce949795213f7f700c1203ed7db3f582c524d3590f.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/4a850a115b3d23ca1cfffbce949795213f7f700c1203ed7db3f582c524d3590f.body",
+      "sha256": "c198a26b93f71a5e54abd4b8edd6e8ad6f45cde242a37fa6d0dda7d7e1d1cad8",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/4a850a115b3d23ca1cfffbce949795213f7f700c1203ed7db3f582c524d3590f.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/4a850a115b3d23ca1cfffbce949795213f7f700c1203ed7db3f582c524d3590f.json",
+      "sha256": "4fdfaf175b67ffded4703daed2d9fa7e9611b17b7cdc4233af7088bc2d907a2b",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/560c687620a292d380b4db2ddda5e62a920e70aa9788503162931df4a878cac2.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/560c687620a292d380b4db2ddda5e62a920e70aa9788503162931df4a878cac2.body",
+      "sha256": "98437e88e95c507eb81e96cde2001c7d13c7e9920fb87a7fc7e2c49cc93091e0",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/560c687620a292d380b4db2ddda5e62a920e70aa9788503162931df4a878cac2.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/560c687620a292d380b4db2ddda5e62a920e70aa9788503162931df4a878cac2.json",
+      "sha256": "7e2737668a8993a0113d946129a053354975786f85672b0ac575a6e95d4f5ee2",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/75a6c9dd61ab74011bd53bc2ca606f144275bce0fe9a0fc8e926760f84b974ef.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/75a6c9dd61ab74011bd53bc2ca606f144275bce0fe9a0fc8e926760f84b974ef.body",
+      "sha256": "1b9381b93e0d8eae5fc04d399ea50a6158bdf0f90dc30c810e7b84236572abfb",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/75a6c9dd61ab74011bd53bc2ca606f144275bce0fe9a0fc8e926760f84b974ef.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/75a6c9dd61ab74011bd53bc2ca606f144275bce0fe9a0fc8e926760f84b974ef.json",
+      "sha256": "0f733dca0aac84a42d8142244aab52fbe31369173412a33ca5f142ab027fdfcf",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/7d38f9930aca720586b513f666d09bbe953cfe758225cfa0c1ef33b0b8656009.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/7d38f9930aca720586b513f666d09bbe953cfe758225cfa0c1ef33b0b8656009.body",
+      "sha256": "3bec57c6cfc6a05965b2f37ab11eeed8e16479596a3a27a0a3f53372c9dd25ca",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/7d38f9930aca720586b513f666d09bbe953cfe758225cfa0c1ef33b0b8656009.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/7d38f9930aca720586b513f666d09bbe953cfe758225cfa0c1ef33b0b8656009.json",
+      "sha256": "99b95e71debb0d572ed18a364df206b437fc140ca92654e86d7a14de7f8a8bad",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/821da78cde47d49fa331d6b2fa78928f9b6f8d8e6b2e7df0641b114fcf40c322.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/821da78cde47d49fa331d6b2fa78928f9b6f8d8e6b2e7df0641b114fcf40c322.body",
+      "sha256": "280a7e3ee5ad1f692f940d58dba0414915302597fb0aadf24f2a0e2864d99029",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/821da78cde47d49fa331d6b2fa78928f9b6f8d8e6b2e7df0641b114fcf40c322.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/821da78cde47d49fa331d6b2fa78928f9b6f8d8e6b2e7df0641b114fcf40c322.json",
+      "sha256": "16d51e0e6a384bb1f5c3677b44e7e138b66383f89ff20069794ae87264080e39",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/84782038c85f4afeda401bb01b9d08f135d2866d245b51a534edcc659c2cb12f.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/84782038c85f4afeda401bb01b9d08f135d2866d245b51a534edcc659c2cb12f.body",
+      "sha256": "46a634706f3b756f873925f8fc441cd0a64fa5acc97629721c6f86736f4d80ef",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/84782038c85f4afeda401bb01b9d08f135d2866d245b51a534edcc659c2cb12f.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/84782038c85f4afeda401bb01b9d08f135d2866d245b51a534edcc659c2cb12f.json",
+      "sha256": "372a8f18b619ec10369b0188ca622595b52293f2fdd5d1d893762ad6912f4107",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/852145d04b9ef0aaa7cf436f8a21c2acf1940d701d3d064a397accf66dc56b7c.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/852145d04b9ef0aaa7cf436f8a21c2acf1940d701d3d064a397accf66dc56b7c.body",
+      "sha256": "5d29aab2b0c50184e08b9cbbdee336d758df05446f5ca2b4de01d4c4f5a6d3b5",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/852145d04b9ef0aaa7cf436f8a21c2acf1940d701d3d064a397accf66dc56b7c.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/852145d04b9ef0aaa7cf436f8a21c2acf1940d701d3d064a397accf66dc56b7c.json",
+      "sha256": "a5fcff93ecfe2bb92a1a4ba895753ef1191bc84538c77490ad74a122348a4f75",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/89ad58393f9dd01a2768ed9ed557f3d8f238f6e49dfaef081c2a1880ffb69605.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/89ad58393f9dd01a2768ed9ed557f3d8f238f6e49dfaef081c2a1880ffb69605.body",
+      "sha256": "006739dec7dcf630ea41973ba81cd9d9aedc84204cb1f04958b71aaa1223b0fe",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/89ad58393f9dd01a2768ed9ed557f3d8f238f6e49dfaef081c2a1880ffb69605.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/89ad58393f9dd01a2768ed9ed557f3d8f238f6e49dfaef081c2a1880ffb69605.json",
+      "sha256": "5996982e93a5908be22a8343e2d914a3ee6376978e2b00c7e14f69866e15bd96",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/90e41ed2af877ecaaa6d819530d18aa7e813eda077f37b9fa3d2fb210f7cf6d5.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/90e41ed2af877ecaaa6d819530d18aa7e813eda077f37b9fa3d2fb210f7cf6d5.body",
+      "sha256": "3838dc31491347a22457c6a55be38eecbfffd8a0976eccd6eb6ed467cc005cac",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/90e41ed2af877ecaaa6d819530d18aa7e813eda077f37b9fa3d2fb210f7cf6d5.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/90e41ed2af877ecaaa6d819530d18aa7e813eda077f37b9fa3d2fb210f7cf6d5.json",
+      "sha256": "03717e57eb24f7c531e0e866f774690c7d01694ead98a268243b62e972e1d412",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/93dd6c83aabc5409636acb6ccaea4c4b54c8ce419b02ba5f4c46eee02bcf60ff.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/93dd6c83aabc5409636acb6ccaea4c4b54c8ce419b02ba5f4c46eee02bcf60ff.body",
+      "sha256": "434910ebce66f1ad2bf6b1ed93e984fb4209244b589a4f6a5c004c61f5f736fd",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/93dd6c83aabc5409636acb6ccaea4c4b54c8ce419b02ba5f4c46eee02bcf60ff.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/93dd6c83aabc5409636acb6ccaea4c4b54c8ce419b02ba5f4c46eee02bcf60ff.json",
+      "sha256": "8c214ea49463e8dbb4323fd9a6ed43ff4eaf912d2ef77f0b4773b69661501fdc",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/94ac26f0aa8ee4db700cebc835a9f727799006861279f3d8c9f62382a60930ee.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/94ac26f0aa8ee4db700cebc835a9f727799006861279f3d8c9f62382a60930ee.body",
+      "sha256": "53cd8095b0a9e3f431a821a2b3475bd5bf604b14e1a84d666f4902fce07ace5b",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/94ac26f0aa8ee4db700cebc835a9f727799006861279f3d8c9f62382a60930ee.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/94ac26f0aa8ee4db700cebc835a9f727799006861279f3d8c9f62382a60930ee.json",
+      "sha256": "2cc0c42bac36904b252c8804fac8d815381ab079b84401d98921b9a85494b174",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/9fcf3f8300b2b65bc653eeba50cba00437d5000bb4ce23e4492a164d22184994.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/9fcf3f8300b2b65bc653eeba50cba00437d5000bb4ce23e4492a164d22184994.body",
+      "sha256": "aa8e4e41ed4f5fab4a3f6af7f320747aa6d25accc5a75a9e40924631364e34d1",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/9fcf3f8300b2b65bc653eeba50cba00437d5000bb4ce23e4492a164d22184994.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/9fcf3f8300b2b65bc653eeba50cba00437d5000bb4ce23e4492a164d22184994.json",
+      "sha256": "6200dee3972258d1fcf5494a7f6689768f2446f4fd4d94c93dbc2e8a7d4ae15e",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/a304b3419510105b5be3f765291a6770f2ba64ea932cb22b14598541c640af30.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/a304b3419510105b5be3f765291a6770f2ba64ea932cb22b14598541c640af30.body",
+      "sha256": "2ebc524305010dd2442daadf36ba76ace80ba059a80e2e2eef9921d6d5dc50d2",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/a304b3419510105b5be3f765291a6770f2ba64ea932cb22b14598541c640af30.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/a304b3419510105b5be3f765291a6770f2ba64ea932cb22b14598541c640af30.json",
+      "sha256": "e438b8be9754d9bd0de79c90bcd710c054a74ee69f119562e494dc3063f94793",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/aa04a504c7320bbe41c37de4a253550efea52bcbdaab4ca3bb5874e446848413.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/aa04a504c7320bbe41c37de4a253550efea52bcbdaab4ca3bb5874e446848413.body",
+      "sha256": "ad3229a07ac51e4e3ef1ad07a63a2d33f2c6ca791a8fe961a6e5efaf9dd504e1",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/aa04a504c7320bbe41c37de4a253550efea52bcbdaab4ca3bb5874e446848413.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/aa04a504c7320bbe41c37de4a253550efea52bcbdaab4ca3bb5874e446848413.json",
+      "sha256": "1019ae3bdc61b9a5dc45e70798fc9862e4ee5bfb869622fb8d07698cfa5ddd2a",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/ababb69e86106c2c7d017a4187784b821712442ed39cc7de3f0b526652bab193.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/ababb69e86106c2c7d017a4187784b821712442ed39cc7de3f0b526652bab193.body",
+      "sha256": "5d420e30dbaace9b6db43aebcf3039b513be311ebf39fb8b9ba7c2d71f2faac3",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/ababb69e86106c2c7d017a4187784b821712442ed39cc7de3f0b526652bab193.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/ababb69e86106c2c7d017a4187784b821712442ed39cc7de3f0b526652bab193.json",
+      "sha256": "e1fbcb4eff83624c4570f4ab53a613f1947c72fba1cfd3b3ea79308174916989",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/de3cc794443ffa1cec25d7091db58ecf401858184a45328da2a748923375b920.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/de3cc794443ffa1cec25d7091db58ecf401858184a45328da2a748923375b920.body",
+      "sha256": "31c88cc2d741cfa65a5214252d0a393309a761ffefe4fd0562899904d0fc0cfa",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/de3cc794443ffa1cec25d7091db58ecf401858184a45328da2a748923375b920.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/de3cc794443ffa1cec25d7091db58ecf401858184a45328da2a748923375b920.json",
+      "sha256": "189cbb80a21ab70db1c9e66fbeb7caf298f06176a8c4060a177dafd125c082dd",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/e521240e6aab26769bdea098acf2f0ced5975d78934bb9655fe322854d111bf8.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/e521240e6aab26769bdea098acf2f0ced5975d78934bb9655fe322854d111bf8.body",
+      "sha256": "a330a398247f44a88cf25aa2fccd2c3cfefa2cf918854e974d21a7b6a435003d",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/e521240e6aab26769bdea098acf2f0ced5975d78934bb9655fe322854d111bf8.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/e521240e6aab26769bdea098acf2f0ced5975d78934bb9655fe322854d111bf8.json",
+      "sha256": "92ccb56a04c1e8e3cf329828195a84189e4cda09cb46d912821208f269c8ceda",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/f5de1041af902747e1bb13ab000e8942b762c583d1d57f8be11b095cf48506b1.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/f5de1041af902747e1bb13ab000e8942b762c583d1d57f8be11b095cf48506b1.body",
+      "sha256": "59a2ebc0c714a35a30852457d8fc90ad5e1706eb50c43750730e81a37c5996ac",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/f5de1041af902747e1bb13ab000e8942b762c583d1d57f8be11b095cf48506b1.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/input/network/f5de1041af902747e1bb13ab000e8942b762c583d1d57f8be11b095cf48506b1.json",
+      "sha256": "ffa32beca4d7c3e747e32596e7b58da3eaa6d10d7bb3141750a8a24c13822a2f",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\models\\u2netp.onnx",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/u2netp.onnx",
+      "sha256": "309c8469258dda742793dce0ebea8e6dd393174f89934733ecc8b14c76f4ddd8",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "node": "shape-classification",
+      "path": "03.车形分类核定",
+      "version": "20261012_17",
+      "file": "shape_research_queue.jsonl",
+      "versioned_file": "shape_research_queue-20261012_16.jsonl",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_16_representative-cover-shape/output/shape_research_queue-20261012_16.jsonl",
+      "sha256": "57b8050aa1d31fb74655dd15cd7aa23abf1e98654cf0fc2c6d6dc072c19542a2"
+    }
+  ],
+  "rules": {
+    "data_dir": "03.车形分类核定/data",
+    "git_commit": "4ddc5026b174e142b4b96c8fe03e2d36857ab7db",
+    "copied": [
+      "data/cover_shape/automatic.yaml",
+      "data/cover_shape/column_map.yaml",
+      "data/cover_shape/evidence.jsonl",
+      "data/cover_shape/full_table.yaml",
+      "data/cover_shape/pilot_cases.csv",
+      "data/cover_shape/pipeline.yaml",
+      "data/cover_shape/README.md",
+      "data/cover_shape/research_queue.yaml",
+      "data/cover_shape/sources.yaml",
+      "data/cover_shape/taxonomy_v1.yaml"
+    ],
+    "files": [
+      {
+        "file": "data/2026-09-18_us_shape_supplement.csv",
+        "sha256": "db65907df489b3b82ddd6ba279cf441e292b6bdff48fd905ecd1b147f341d5cf"
+      },
+      {
+        "file": "data/cover_shape/automatic.yaml",
+        "sha256": "12dd3233bf9df7c6fc63df31a2ffa3d1624538b3f2b7139ae29f37b67594b338",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/automatic.yaml"
+      },
+      {
+        "file": "data/cover_shape/column_map.yaml",
+        "sha256": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/column_map.yaml"
+      },
+      {
+        "file": "data/cover_shape/evidence.jsonl",
+        "sha256": "e361b1cf4fcb72213117b9c0049063219f2c119c6615fe4b7160b752a0d21e5b",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/evidence.jsonl"
+      },
+      {
+        "file": "data/cover_shape/full_table.yaml",
+        "sha256": "21b6b7118ad10ba1cd0add7132c5d1111f771a7d0074dbb779f3d04997ed3957",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/full_table.yaml"
+      },
+      {
+        "file": "data/cover_shape/pilot_cases.csv",
+        "sha256": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/pilot_cases.csv"
+      },
+      {
+        "file": "data/cover_shape/pipeline.yaml",
+        "sha256": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/pipeline.yaml"
+      },
+      {
+        "file": "data/cover_shape/README.md",
+        "sha256": "e5760e641e1d382930d19172bcb7d892a4f1279f053c4a73050ebb9f9aca1743",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/README.md"
+      },
+      {
+        "file": "data/cover_shape/research_queue.yaml",
+        "sha256": "3bb5c6148553c47991eea92cce5be954c68bea1bc53feaed2cfbe76a6402fef1",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/research_queue.yaml"
+      },
+      {
+        "file": "data/cover_shape/sources.yaml",
+        "sha256": "fee9c085bc7067bb55b4b72bcb261c87b6a23a7af1f91c0db9684ec79480d0bb",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/sources.yaml"
+      },
+      {
+        "file": "data/cover_shape/taxonomy_v1.yaml",
+        "sha256": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/rules/data/cover_shape/taxonomy_v1.yaml"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "7961a54403e9b2454dfe18c57231c952325ba7d842846b0511adf215a4cb0b1a"
+      },
+      {
+        "file": "data/US车形ID迁移.csv",
+        "sha256": "4d2b1a33fd35127c66f22014af46359e58920f6627da9c54ddb4432224be87dd"
+      },
+      {
+        "file": "data/区域车形代理规则.json",
+        "sha256": "39796b24d9fa68fc2f8afb4ead1fda7b4dd1b32506e1b790d97e7158872e17fd"
+      },
+      {
+        "file": "data/参考尺寸计算.csv",
+        "sha256": "40ff78b8c39ab715b34fa1bf4aeaccaed844f16b565f05139995b9e3c85c668c"
+      },
+      {
+        "file": "data/通用车身号覆盖.csv",
+        "sha256": "ca46fb02cfc3f457d109c9f700e077ce5c7da2aa072953beeac20f49bb3abd01"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "shape_research_queue.jsonl",
+      "versioned_file": "shape_research_queue-20261012_18.jsonl",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/output/shape_research_queue-20261012_18.jsonl",
+      "sha256": "7f8a43865b6ba2e05425eabfe76c1ffd82f4948fc2bfa35bccea9f5b1ef02792",
+      "bytes": 23621271,
+      "rows": null
+    },
+    {
+      "file": "COVER_SHAPE.csv",
+      "versioned_file": "COVER_SHAPE-20261012_18.csv",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/output/COVER_SHAPE-20261012_18.csv",
+      "sha256": "8c0167543b08bc20a10f0f853e0416172e7fb286841902f98d8071c9ba5bea2f",
+      "bytes": 6325214,
+      "rows": 47356
+    },
+    {
+      "file": "cover_shape_summary.json",
+      "versioned_file": "cover_shape_summary-20261012_18.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/output/cover_shape_summary-20261012_18.json",
+      "sha256": "a9e4f58b05d075e57cba4c5b79846ddb11894213970e20c7b255909551e1144a",
+      "bytes": 1248,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/extra/research_evidence.jsonl",
+    "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/extra/research_results.jsonl",
+    "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/extra/network_requests.jsonl",
+    "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/extra/representative_audit.json.gz",
+    "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/extra/REPORT.md",
+    "03.车形分类核定/artifacts/2026-10-12_18_shape-queue-research/extra/RESEARCH_REPORT.md"
+  ],
+  "status": {
+    "status": "passed",
+    "rows": 47356,
+    "representative_groups": 37042,
+    "rule_version": "representative-shape-v1",
+    "shape_counts": {
+      "BOXY_SUV": 5366,
+      "STANDARD_SEDAN": 13782,
+      "LOW_NOTCHBACK": 3365,
+      "LOW_FASTBACK": 121,
+      "SPORT_LIFTBACK": 5169,
+      "WAGON": 427,
+      "SLOPED_CROSSOVER": 780,
+      "TALL_BOX": 9559,
+      "PICKUP": 4196,
+      "COMPACT_HATCH": 4571,
+      "OTHER": 20
+    },
+    "status_counts": {
+      "INFERRED": 47356
+    },
+    "method_counts": {
+      "prototype_geometry_dimensions": 47350,
+      "representative_evidence": 6
+    },
+    "by_country": {
+      "US": 4378,
+      "EU": 29361,
+      "RU": 13617
+    },
+    "validation": {
+      "exact_source_order_and_coverage": true,
+      "unique_ids": true,
+      "all_have_class": true,
+      "valid_status": true,
+      "complete_metadata": true,
+      "source_unchanged": true
+    },
+    "fit_status": "NOT_TESTED",
+    "network_requests": 0,
+    "research_queue": {
+      "groups": 37042,
+      "states": {
+        "NO_EVIDENCE": 8,
+        "PENDING": 37008,
+        "EVIDENCE_AVAILABLE": 6,
+        "BLOCKED_INPUT": 20
+      },
+      "attempted_groups": 8
+    },
+    "limitations": "原型几何先验与尺寸补齐是推断；20 条尺寸缺失/无效记录归 OTHER，未补猜尺寸",
+    "research_run": {
+      "selected": 8,
+      "attempted": 8,
+      "new_geometry_facts": 0,
+      "requests": 45,
+      "cache_hits": 6,
+      "results": {
+        "NO_EVIDENCE": 8
+      }
+    }
+  }
+}

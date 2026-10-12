@@ -1,0 +1,757 @@
+{
+  "pipeline_version": "0.2.0",
+  "taxonomy_version": "cover-shape-v1-uncalibrated",
+  "started_at_utc": "2026-10-12T10:04:45Z",
+  "elapsed_seconds": 13.513,
+  "mode": "online",
+  "input_references": [
+    {
+      "node": "structure-review",
+      "path": "02.分类结构审核",
+      "version": "20261010_01",
+      "file": "车型结构.csv",
+      "versioned_file": "车型结构-20261009_04.csv",
+      "artifact_file": "02.分类结构审核/artifacts/2026-10-09_04_structure-review-release/output/车型结构-20261009_04.csv",
+      "sha256": "29fcf79541d4bc7379b36b46e91a0765d08d9bcabf79925f83d074b7c23c80ae"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\0d428f4ead8141dcde79e386af4a297f333da1e93fe218f1f22925554c7f9054.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/0d428f4ead8141dcde79e386af4a297f333da1e93fe218f1f22925554c7f9054.body",
+      "sha256": "e7a427cd4edc054f77a64cd796682ebe0835e5074890b7f8c1e3608fc3fe9b49",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\0d428f4ead8141dcde79e386af4a297f333da1e93fe218f1f22925554c7f9054.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/0d428f4ead8141dcde79e386af4a297f333da1e93fe218f1f22925554c7f9054.json",
+      "sha256": "0abd0ea2dc5791b04407a1fb29555fd05a207815a34117ac69d97fb9776a0148",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\1dd1169ad9fe6d6070183769f028594d6a2736840017f499e60925ceddf9f235.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/1dd1169ad9fe6d6070183769f028594d6a2736840017f499e60925ceddf9f235.body",
+      "sha256": "4cbea4ee4880855119f689de0453516ec31d531360354480d7f9a32d218b9417",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\1dd1169ad9fe6d6070183769f028594d6a2736840017f499e60925ceddf9f235.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/1dd1169ad9fe6d6070183769f028594d6a2736840017f499e60925ceddf9f235.json",
+      "sha256": "f2162cae2be7002935013902491556968324ac14ae6f96d89c0a99a0e36768a7",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\1fa532c7093faa4958a7e7341b95809a2820a996a67123e0c7967473d8a20221.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/1fa532c7093faa4958a7e7341b95809a2820a996a67123e0c7967473d8a20221.body",
+      "sha256": "ffbcb32fc1082bbc0f971e16d88fffa65977991fbc4639d357e8b8ef756987d7",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\1fa532c7093faa4958a7e7341b95809a2820a996a67123e0c7967473d8a20221.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/1fa532c7093faa4958a7e7341b95809a2820a996a67123e0c7967473d8a20221.json",
+      "sha256": "f54d06809a0f13c705e77d01285ed513bb644fdb1434c38b6e48d1bbc08c156e",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\2026566db7b7b3d7deff002ecdf82b12b900e704e8f6470a283d1f3e9808d331.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/2026566db7b7b3d7deff002ecdf82b12b900e704e8f6470a283d1f3e9808d331.body",
+      "sha256": "e866ce141a39de06d62f8165c60035ad559118d77f7c4059abda51c790d57eb1",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\2026566db7b7b3d7deff002ecdf82b12b900e704e8f6470a283d1f3e9808d331.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/2026566db7b7b3d7deff002ecdf82b12b900e704e8f6470a283d1f3e9808d331.json",
+      "sha256": "cda3189121af956beb9edfb024dd8e0d6683eadb2d0c8c794a1e8a6fb00126ad",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\302e9e84525064a86fb0a2c203e779e011e465b9749982e4b27f5eec5662c2df.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/302e9e84525064a86fb0a2c203e779e011e465b9749982e4b27f5eec5662c2df.body",
+      "sha256": "5e13a32b6e8029e50b949daf4b4d66867a2c5c2419767e59453a3b87bb235ca4",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\302e9e84525064a86fb0a2c203e779e011e465b9749982e4b27f5eec5662c2df.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/302e9e84525064a86fb0a2c203e779e011e465b9749982e4b27f5eec5662c2df.json",
+      "sha256": "21e9dc45904166b15f404a45c22f012ed1c65171dfb7a58d76f27c6b3448d7d7",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\3cb8276c77232fb538ff5b79afc4add43d21f937dd20b34f7e10a15a997300be.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/3cb8276c77232fb538ff5b79afc4add43d21f937dd20b34f7e10a15a997300be.body",
+      "sha256": "f535401e36109302d4c84ba3aa3120077e03b3b8f3994453128a06f42a49b6d6",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\3cb8276c77232fb538ff5b79afc4add43d21f937dd20b34f7e10a15a997300be.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/3cb8276c77232fb538ff5b79afc4add43d21f937dd20b34f7e10a15a997300be.json",
+      "sha256": "4a5963597c2e35bd5248375123858d6aece1b4a9c5edec88cb6d31193bf7cd23",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\46f52852edcc0521be1f7908f14bddbf5c670a19bff1a18d7cb0ae6392482068.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/46f52852edcc0521be1f7908f14bddbf5c670a19bff1a18d7cb0ae6392482068.body",
+      "sha256": "4e0f5d7b2b4128ff12774c59f13497819c23fba66a962342ac5fb2888dc3c56e",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\46f52852edcc0521be1f7908f14bddbf5c670a19bff1a18d7cb0ae6392482068.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/46f52852edcc0521be1f7908f14bddbf5c670a19bff1a18d7cb0ae6392482068.json",
+      "sha256": "9bfda57eda512c7cd8069ff149c4b4c858958734cab1473277fd5e0cc6540b64",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\471b2f1650e2df9ccdc5d283f23a10965da719803275ab12ea3fe550c3d96066.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/471b2f1650e2df9ccdc5d283f23a10965da719803275ab12ea3fe550c3d96066.body",
+      "sha256": "8b67487ccbb69439f6a0dcf975f619434b514cca3481afc05f594a3e99af8554",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\471b2f1650e2df9ccdc5d283f23a10965da719803275ab12ea3fe550c3d96066.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/471b2f1650e2df9ccdc5d283f23a10965da719803275ab12ea3fe550c3d96066.json",
+      "sha256": "5349db0dc5d943d9b2cf9be6f795f2b6ba68b4c0255bf576fbb6aed20a86449b",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\483cb656e1c4fca67ef743b432619dc40a6fe6a43525a3cc1ad7225666ae707e.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/483cb656e1c4fca67ef743b432619dc40a6fe6a43525a3cc1ad7225666ae707e.body",
+      "sha256": "efd8a48bc738da97324451e8df589d93145895435fcfa925c985c67830b5acf9",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\483cb656e1c4fca67ef743b432619dc40a6fe6a43525a3cc1ad7225666ae707e.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/483cb656e1c4fca67ef743b432619dc40a6fe6a43525a3cc1ad7225666ae707e.json",
+      "sha256": "919d2531ab10e3d790b8049b9f08767c7dc9f98d0a4d59cfc970b59920bbcd2a",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\49c7649e2d45c73bf9e3c49430c6cd4c66429461dd5a1d39de30ea78a51b68d9.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/49c7649e2d45c73bf9e3c49430c6cd4c66429461dd5a1d39de30ea78a51b68d9.body",
+      "sha256": "f563257bd2d63afd39c7b70d769e5949b432b406b9379f801516efa9a2938682",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\49c7649e2d45c73bf9e3c49430c6cd4c66429461dd5a1d39de30ea78a51b68d9.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/49c7649e2d45c73bf9e3c49430c6cd4c66429461dd5a1d39de30ea78a51b68d9.json",
+      "sha256": "bd30f52e21297167fd41ccad8129e8341d92b15ff5f8ad0523a8a9bb41ee06ba",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\4bc171a59054987e6b3d85522eb758890cb2640427fb699b6dfbce86e936f779.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/4bc171a59054987e6b3d85522eb758890cb2640427fb699b6dfbce86e936f779.body",
+      "sha256": "aad0184b550117706d6c73cf28a0f56dbccf5cbc47b88a90fa1b40ad4e273318",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\4bc171a59054987e6b3d85522eb758890cb2640427fb699b6dfbce86e936f779.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/4bc171a59054987e6b3d85522eb758890cb2640427fb699b6dfbce86e936f779.json",
+      "sha256": "2cb1ce24de3dab9d3c45ddaf58b7dc98ad4dd61436e27cbb3ba8b4cbf0b70ce9",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\53c3b7461cc34f37103bb98da5894b6f359c9e51a4cefe4a1cc1664742b1744a.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/53c3b7461cc34f37103bb98da5894b6f359c9e51a4cefe4a1cc1664742b1744a.body",
+      "sha256": "f3c61dc502ae35385ac05ae08bbc44676c21f9334451664d935655e72f9566d3",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\53c3b7461cc34f37103bb98da5894b6f359c9e51a4cefe4a1cc1664742b1744a.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/53c3b7461cc34f37103bb98da5894b6f359c9e51a4cefe4a1cc1664742b1744a.json",
+      "sha256": "40615d74232d41193e11b237f8f00feca8d23097216ae85e43f6f61f036ff62b",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\5894d44ddfce40c96ba8719ecf4d5e83afb87cfb6228fd92f66ffbcecb5e07b2.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/5894d44ddfce40c96ba8719ecf4d5e83afb87cfb6228fd92f66ffbcecb5e07b2.body",
+      "sha256": "d05006ce5f1e35bf267d74f354892d259083aefec2d5928143c3ec23db8bd9c7",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\5894d44ddfce40c96ba8719ecf4d5e83afb87cfb6228fd92f66ffbcecb5e07b2.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/5894d44ddfce40c96ba8719ecf4d5e83afb87cfb6228fd92f66ffbcecb5e07b2.json",
+      "sha256": "829e5ce8d3e618d33d758b8a800bfc5d33a0d946199814a05fd655e63f2362ed",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\5f68e0f375f5b1700c179c42968350665d445c613fab2112e0dc23626d068950.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/5f68e0f375f5b1700c179c42968350665d445c613fab2112e0dc23626d068950.body",
+      "sha256": "737bf646858e2c1531a543d5e62e9899571b4164bb0061cccf2436a8b0f8fc0f",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\5f68e0f375f5b1700c179c42968350665d445c613fab2112e0dc23626d068950.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/5f68e0f375f5b1700c179c42968350665d445c613fab2112e0dc23626d068950.json",
+      "sha256": "4490ba702cee6a06779d2e27a347c66faf793c7ba3097caf30a8b45dfeacc4dc",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6087de081ae05790d492c536bc78cf0e24ae1c5ee2fc5dcada4292455f502331.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/6087de081ae05790d492c536bc78cf0e24ae1c5ee2fc5dcada4292455f502331.body",
+      "sha256": "cd5e0be7efe12fa9a4b3e85c782db224d8d233d26fd0a1bf24e93844bc80a2f3",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6087de081ae05790d492c536bc78cf0e24ae1c5ee2fc5dcada4292455f502331.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/6087de081ae05790d492c536bc78cf0e24ae1c5ee2fc5dcada4292455f502331.json",
+      "sha256": "6dc4e823a1932b0004f2966004dbb59aa1452def6875e7c1afbe1aecc90bf082",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6658e34329009bb669658da4925850972d48214a821198ea86e47fb6ba1314fa.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/6658e34329009bb669658da4925850972d48214a821198ea86e47fb6ba1314fa.body",
+      "sha256": "b0cc542eab5c9c49be170a76f913f866f2d6f197d6c3b72bffe61f99a3a02d8a",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6658e34329009bb669658da4925850972d48214a821198ea86e47fb6ba1314fa.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/6658e34329009bb669658da4925850972d48214a821198ea86e47fb6ba1314fa.json",
+      "sha256": "dac05ee860c886d4a4c044ca52197d0cd90a43660806484a465a0437e0c3c0d2",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6abaab336c4a4a5c2e1a34f9e527a428559d6c25d140870de710ecffb88da673.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/6abaab336c4a4a5c2e1a34f9e527a428559d6c25d140870de710ecffb88da673.body",
+      "sha256": "a3ef58f7bad3f829a4537a385e31755ec8a126ef4abe0393aa46c01abef03973",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6abaab336c4a4a5c2e1a34f9e527a428559d6c25d140870de710ecffb88da673.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/6abaab336c4a4a5c2e1a34f9e527a428559d6c25d140870de710ecffb88da673.json",
+      "sha256": "1f0b93a05089993477d0a51bedccffa68c1e93b3ff0e78dcc2493ccbfdd768ac",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6ff2eeb0917698298d29af19f671ac67e5476e98ee4d12d56aee1efed450ed5c.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/6ff2eeb0917698298d29af19f671ac67e5476e98ee4d12d56aee1efed450ed5c.body",
+      "sha256": "f4d841d09d5a08b808500af5799998e225f474ae3a21c9ff46dcd4b36e3893ef",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\6ff2eeb0917698298d29af19f671ac67e5476e98ee4d12d56aee1efed450ed5c.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/6ff2eeb0917698298d29af19f671ac67e5476e98ee4d12d56aee1efed450ed5c.json",
+      "sha256": "fcf269cecb9d8236d01377ce15191770631972ca5ff03a429f809311b8f0bfa5",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\707253fb1915efd5717c81be9a3b9e8bb878f7d84bb22fbd2e3e8afec7dc9fae.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/707253fb1915efd5717c81be9a3b9e8bb878f7d84bb22fbd2e3e8afec7dc9fae.body",
+      "sha256": "09eb21db97ef76a84ae0013cf21376fd08a4828a9602d324fa9d46153a21c9f9",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\707253fb1915efd5717c81be9a3b9e8bb878f7d84bb22fbd2e3e8afec7dc9fae.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/707253fb1915efd5717c81be9a3b9e8bb878f7d84bb22fbd2e3e8afec7dc9fae.json",
+      "sha256": "7d75a58cc1ba6ca56ffecfe38eca2f40792bdd125c404abd2eca993968546be2",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\70901b038f82558eb14b958fe05a042eb6e28f4acd91b3b1392e77d1155987e3.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/70901b038f82558eb14b958fe05a042eb6e28f4acd91b3b1392e77d1155987e3.body",
+      "sha256": "d1b38d68ab457bc935fdd9a5cca6147f21a2988144103719a6c031c7a9dad7c2",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\70901b038f82558eb14b958fe05a042eb6e28f4acd91b3b1392e77d1155987e3.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/70901b038f82558eb14b958fe05a042eb6e28f4acd91b3b1392e77d1155987e3.json",
+      "sha256": "ca962d2466176f8824cffb7ef82360b3b56f3e5bc346bf86d6f1bf4c9f038090",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\739f92f53d427f8b6e6683654e1b4ae950e4ec1f79fa601a9ff00fd5f740e84e.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/739f92f53d427f8b6e6683654e1b4ae950e4ec1f79fa601a9ff00fd5f740e84e.body",
+      "sha256": "c6c0d016fe79bd8f055962a140f2df68606496c4686d6db75bfcc49c84fd4218",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\739f92f53d427f8b6e6683654e1b4ae950e4ec1f79fa601a9ff00fd5f740e84e.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/739f92f53d427f8b6e6683654e1b4ae950e4ec1f79fa601a9ff00fd5f740e84e.json",
+      "sha256": "3a4c288741d6b7541001d0ae7f48f8c9770efdb9bb9dcfcb62c6f9b7751b236e",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\74a12d4773c7a5df7a847f6ae4fab8b08bf184751ef75387b6e5b8308d306621.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/74a12d4773c7a5df7a847f6ae4fab8b08bf184751ef75387b6e5b8308d306621.body",
+      "sha256": "7bf84a14f6c2ef982a77569c084ee43785a13aab772c5867c0e6933864bec34a",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\74a12d4773c7a5df7a847f6ae4fab8b08bf184751ef75387b6e5b8308d306621.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/74a12d4773c7a5df7a847f6ae4fab8b08bf184751ef75387b6e5b8308d306621.json",
+      "sha256": "9d324501d720e47495a0b037991bd7dba42af7ebdc5d4de072ae1db735ced058",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7afc93e2be686edb01d05fabf268739864169bfaf20bdc72fc68a67e4a790b09.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_09_cover-shape-online/input/network/7afc93e2be686edb01d05fabf268739864169bfaf20bdc72fc68a67e4a790b09.body",
+      "sha256": "d9b7fb96568dc5bc380cd4efcb807ae0df96d882992131beee5a3c6b93ebea82",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7afc93e2be686edb01d05fabf268739864169bfaf20bdc72fc68a67e4a790b09.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_09_cover-shape-online/input/network/7afc93e2be686edb01d05fabf268739864169bfaf20bdc72fc68a67e4a790b09.json",
+      "sha256": "b6ed867127019dbaeb12440465126736910b28bed14a335be84f2ae03a29011c",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7b8aa5adc7eb4a57eece36cedb7fbc9ad1fab647a52985245d16989f946a15dd.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/7b8aa5adc7eb4a57eece36cedb7fbc9ad1fab647a52985245d16989f946a15dd.body",
+      "sha256": "b4b874981eaa4ec8aade26e30dcb55ca445133221e4bcc5b947a9e673cf44492",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7b8aa5adc7eb4a57eece36cedb7fbc9ad1fab647a52985245d16989f946a15dd.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/7b8aa5adc7eb4a57eece36cedb7fbc9ad1fab647a52985245d16989f946a15dd.json",
+      "sha256": "9ebdf4b61c11241182ab2fee85537faace7c43834bf2a01c28b2ab0eacc92ebd",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7baf982a657ebb48b12704669c1f61b5901c0af96dc705137c4846a0a5791e2e.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/7baf982a657ebb48b12704669c1f61b5901c0af96dc705137c4846a0a5791e2e.body",
+      "sha256": "6855c50eea50916b71e01d3efa470335faf1a2479e879b908df9b4b841699b02",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7baf982a657ebb48b12704669c1f61b5901c0af96dc705137c4846a0a5791e2e.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/7baf982a657ebb48b12704669c1f61b5901c0af96dc705137c4846a0a5791e2e.json",
+      "sha256": "c79d5f6a7728916acc286b9720439708e41a6d4df4f4c82091a3be3762d77598",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7d3efd0bab3afff08e1009b0311f0e3b0cb9bf04c44e8a1be349c00bac2e56a3.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/7d3efd0bab3afff08e1009b0311f0e3b0cb9bf04c44e8a1be349c00bac2e56a3.body",
+      "sha256": "4bd211167ccf56cbb950d438e599908d76e4fd80cc9017452b6763b414334441",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7d3efd0bab3afff08e1009b0311f0e3b0cb9bf04c44e8a1be349c00bac2e56a3.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/7d3efd0bab3afff08e1009b0311f0e3b0cb9bf04c44e8a1be349c00bac2e56a3.json",
+      "sha256": "caf556f7b5e322237f365f38f8bc7e68997dbcaf489fbce3e682b59f0c683e49",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7e76cb363fa5ed39259ffa1703a98b1d81928fd0cc872ffd8ab70f34b03b26b0.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/7e76cb363fa5ed39259ffa1703a98b1d81928fd0cc872ffd8ab70f34b03b26b0.body",
+      "sha256": "1cd196761e4ddd9df38bc5d596d136e134066a5c8c3195c83f87b6e661795a98",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\7e76cb363fa5ed39259ffa1703a98b1d81928fd0cc872ffd8ab70f34b03b26b0.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/7e76cb363fa5ed39259ffa1703a98b1d81928fd0cc872ffd8ab70f34b03b26b0.json",
+      "sha256": "690bcd3a37fb5ecfe23e644f6df42bc39c5ebf25bd596f45d27ace1d5113fe1d",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\84c28571967947053e561cfaacff527ab12322c736bca3d258fae2617d787e13.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/84c28571967947053e561cfaacff527ab12322c736bca3d258fae2617d787e13.body",
+      "sha256": "2b517467e1a501cc62874cfd7af0eeb43f36f766822930fd63661f4c831f6af9",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\84c28571967947053e561cfaacff527ab12322c736bca3d258fae2617d787e13.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/84c28571967947053e561cfaacff527ab12322c736bca3d258fae2617d787e13.json",
+      "sha256": "8912cf71e1656b354cf5f5839abc2e4230c878e28ab9d45d54b67231230cd84b",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\8570609411a3541731e859cd2e770dead68dcf5f7be589dc0bb512055b76219f.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/8570609411a3541731e859cd2e770dead68dcf5f7be589dc0bb512055b76219f.body",
+      "sha256": "6ddb9c45c9e316e829a9e6911258ee14a2e83e9e581b77006c58403e808bea68",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\8570609411a3541731e859cd2e770dead68dcf5f7be589dc0bb512055b76219f.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/8570609411a3541731e859cd2e770dead68dcf5f7be589dc0bb512055b76219f.json",
+      "sha256": "f65a2fd2e828ac3e264f87b51342e2bd9488a2acfb4bab8177741aad56a3e002",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\85c70b5845742775f1d74f6e4c743d447a452888dcf9da2b866284843c117f96.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/85c70b5845742775f1d74f6e4c743d447a452888dcf9da2b866284843c117f96.body",
+      "sha256": "afc4e9f9df1c1b9619f1c3fd87ef8b9ebe3b0b9b5388273feadb9ba88797d01d",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\85c70b5845742775f1d74f6e4c743d447a452888dcf9da2b866284843c117f96.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/85c70b5845742775f1d74f6e4c743d447a452888dcf9da2b866284843c117f96.json",
+      "sha256": "374835bf65bfcda967bb0d2f55c86383831c560526582dc913b9feef58864fe1",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\86f3f7599bef69c08647a0a2b436f066a8c2118adb10204aefb1ad41a9e66ebe.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/86f3f7599bef69c08647a0a2b436f066a8c2118adb10204aefb1ad41a9e66ebe.body",
+      "sha256": "e3683c63fb5c96951b29c874c1ff416a5ea95987cfc7fbd6ad121454d47d4e62",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\86f3f7599bef69c08647a0a2b436f066a8c2118adb10204aefb1ad41a9e66ebe.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/86f3f7599bef69c08647a0a2b436f066a8c2118adb10204aefb1ad41a9e66ebe.json",
+      "sha256": "aeb235188786eed0db2741f0489726fc2308cc16c39fe72b45ea287033bc2088",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/8dcefe0177513c2ce3ac80f9126f6e296a58dcc1dccf1c7b1a8bd9a9d5969c4d.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_10_cover-shape-online/input/network/8dcefe0177513c2ce3ac80f9126f6e296a58dcc1dccf1c7b1a8bd9a9d5969c4d.body",
+      "sha256": "80c80f9ec71ceb4f19ada9e933f6ec522c2c18e42cb3548ebb4e19d625115fc8",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "03.车形分类核定/cache/cover_shape/8dcefe0177513c2ce3ac80f9126f6e296a58dcc1dccf1c7b1a8bd9a9d5969c4d.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_10_cover-shape-online/input/network/8dcefe0177513c2ce3ac80f9126f6e296a58dcc1dccf1c7b1a8bd9a9d5969c4d.json",
+      "sha256": "044a45c9d907b860707c72e81846b831b6c227170a586085fa39e3c9be4464ca",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\8e043b06a100bf908a9aaf62fbc070dcc0c06058852a7805cec56a103046675f.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/8e043b06a100bf908a9aaf62fbc070dcc0c06058852a7805cec56a103046675f.body",
+      "sha256": "7fcd076de7271317cb2920ad81be3f706f8ff5b92cdf4aadb4e99db466ded3cd",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\8e043b06a100bf908a9aaf62fbc070dcc0c06058852a7805cec56a103046675f.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/8e043b06a100bf908a9aaf62fbc070dcc0c06058852a7805cec56a103046675f.json",
+      "sha256": "6f6f12bf8185bb1eb3a770d05b7a85f8e788bed1687b3f62e6d4244fcb2e8e6b",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\935820cdb31e73824edd7af5e9d19a6cdd1e85d5b424933dadac4a73d07d170b.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/935820cdb31e73824edd7af5e9d19a6cdd1e85d5b424933dadac4a73d07d170b.body",
+      "sha256": "1c013d85f135383c80f35cb5a5742440192a5c3e5bc8854d33eea33f7b47000d",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\935820cdb31e73824edd7af5e9d19a6cdd1e85d5b424933dadac4a73d07d170b.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/935820cdb31e73824edd7af5e9d19a6cdd1e85d5b424933dadac4a73d07d170b.json",
+      "sha256": "bccc92d59ea8717a192b23bb16a7ec47f8c17ef7b03cada329cd81c5a910fe86",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\945c66379d0a0d55e9cd9ddcdf62205695cc1de93bd0a994c315b9dba896bcb8.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/a9abf00380d92bfac5bfec8f09583238098f73bdaaff98b64fbab9dedd4d229a.body",
+      "sha256": "ada2a601f24c7f102c6432340d6adca256996c391606174b387338725fe7cf7d",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\945c66379d0a0d55e9cd9ddcdf62205695cc1de93bd0a994c315b9dba896bcb8.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/945c66379d0a0d55e9cd9ddcdf62205695cc1de93bd0a994c315b9dba896bcb8.json",
+      "sha256": "a8a8f2ce3ecc4a949ade7a54665d07ed8d5c9b6f8ead90e5944812f9d8fc8bea",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\992b830ef49531cba3d54f2a5d213cf4478f30f5bd60b4982af048cba094e435.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/992b830ef49531cba3d54f2a5d213cf4478f30f5bd60b4982af048cba094e435.body",
+      "sha256": "c280dc9ce592d24ce20bccea446211b6fecae59914287df7ffc1f26343ca4c1d",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\992b830ef49531cba3d54f2a5d213cf4478f30f5bd60b4982af048cba094e435.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/992b830ef49531cba3d54f2a5d213cf4478f30f5bd60b4982af048cba094e435.json",
+      "sha256": "47e8758d0ed8c0f271aed21192e5e93178db140ac54bcc53fd5d484e1a209b48",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\9eb937edba46622d46d72e2b871914860e7a765573cc07a22488921542be693c.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/9eb937edba46622d46d72e2b871914860e7a765573cc07a22488921542be693c.body",
+      "sha256": "1e231f820e8297ca4b358d5e59bfea74e2c675447cb5ed3ed5e926e1e85ee34a",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\9eb937edba46622d46d72e2b871914860e7a765573cc07a22488921542be693c.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/9eb937edba46622d46d72e2b871914860e7a765573cc07a22488921542be693c.json",
+      "sha256": "3fd7c01787e7b1e18df2255e312544eb72d4c976b4e59333bd21a37deebdf6d7",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a1881005201d4c17ff627fe8b0a93c265707f587c61edb2ac5acc8af7a43ba69.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/a1881005201d4c17ff627fe8b0a93c265707f587c61edb2ac5acc8af7a43ba69.body",
+      "sha256": "04d47a0c46b2ed6868656ee23b569f0e822b1b9e3421b47e6ed347bccc9fbc17",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a1881005201d4c17ff627fe8b0a93c265707f587c61edb2ac5acc8af7a43ba69.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/a1881005201d4c17ff627fe8b0a93c265707f587c61edb2ac5acc8af7a43ba69.json",
+      "sha256": "429e21fe0faafe1ec5749c331f6df0be9930f837d5eddee818cf3a2ea5519b57",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a3c9076e6333873fb9c11e3f5fdfaf2b1a673a01f186f0db3b501fe9284cee02.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/a3c9076e6333873fb9c11e3f5fdfaf2b1a673a01f186f0db3b501fe9284cee02.body",
+      "sha256": "9775f0931834922ec0629a78f646b0d6b1f0b9e75e47b49679a901e0c3099c94",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a3c9076e6333873fb9c11e3f5fdfaf2b1a673a01f186f0db3b501fe9284cee02.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/a3c9076e6333873fb9c11e3f5fdfaf2b1a673a01f186f0db3b501fe9284cee02.json",
+      "sha256": "5afff89b0ad68fa2326d142a9a5af7bea1961594fd5a321dc1db5f76d6da7f28",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a6c4ecb6231c71e001d82b3f4b1c560319f33d95fe2152280be30b7243cef573.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/a6c4ecb6231c71e001d82b3f4b1c560319f33d95fe2152280be30b7243cef573.body",
+      "sha256": "221198f6345a39dc1b4727b380f71b8159e20344954a07b229fee6ecfc7fb19a",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a6c4ecb6231c71e001d82b3f4b1c560319f33d95fe2152280be30b7243cef573.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/a6c4ecb6231c71e001d82b3f4b1c560319f33d95fe2152280be30b7243cef573.json",
+      "sha256": "9d9835e7c6207e4dc4a6b17b9ee5f5229392f6d6542fc6c009bbf3d3abd1cf9b",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a9abf00380d92bfac5bfec8f09583238098f73bdaaff98b64fbab9dedd4d229a.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/a9abf00380d92bfac5bfec8f09583238098f73bdaaff98b64fbab9dedd4d229a.body",
+      "sha256": "ada2a601f24c7f102c6432340d6adca256996c391606174b387338725fe7cf7d",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\a9abf00380d92bfac5bfec8f09583238098f73bdaaff98b64fbab9dedd4d229a.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/a9abf00380d92bfac5bfec8f09583238098f73bdaaff98b64fbab9dedd4d229a.json",
+      "sha256": "3d864e7dc6cf3d5e20adf1b8820b7e304920fb818b61d594884de56f1ba7a38f",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\ac5998a025d9e6e96a3231006e3910b12504dfaa8001ce7e0088bf65a40d8bc4.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/ac5998a025d9e6e96a3231006e3910b12504dfaa8001ce7e0088bf65a40d8bc4.body",
+      "sha256": "dcf483056777c820429d9b3dd1e2de03ff8b664dd04cb05969fa177a3bf25ed4",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\ac5998a025d9e6e96a3231006e3910b12504dfaa8001ce7e0088bf65a40d8bc4.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/ac5998a025d9e6e96a3231006e3910b12504dfaa8001ce7e0088bf65a40d8bc4.json",
+      "sha256": "5a06b09279dad48320f0eda60141337e6184f6e666c94203e281fd4e7df20513",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\b83c71b06ccfa9e6ed1cd5c114287e31431239c4176472b8cccd47a3dcb4e553.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/b83c71b06ccfa9e6ed1cd5c114287e31431239c4176472b8cccd47a3dcb4e553.body",
+      "sha256": "142c35e985998e68e99d849fc59c50b9c091e7a2d539644c66dcdb037236fe3c",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\b83c71b06ccfa9e6ed1cd5c114287e31431239c4176472b8cccd47a3dcb4e553.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/b83c71b06ccfa9e6ed1cd5c114287e31431239c4176472b8cccd47a3dcb4e553.json",
+      "sha256": "adb78fe402246c281aa14178b659e040dde24f74baf05c5182a5a47c4c278461",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\bb5b483adb81099d74c82b46512033dafc81cf1e986ae6f7b39dfa51f270c688.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/bb5b483adb81099d74c82b46512033dafc81cf1e986ae6f7b39dfa51f270c688.body",
+      "sha256": "79c6c986841756c4c1426853eb428fd942e0eebc8c023aaa8876cc5e14f4213b",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\bb5b483adb81099d74c82b46512033dafc81cf1e986ae6f7b39dfa51f270c688.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/bb5b483adb81099d74c82b46512033dafc81cf1e986ae6f7b39dfa51f270c688.json",
+      "sha256": "647fc01b727ee96c2c744dec70b90c3e8a982f80bfe93d49a6f4026ee89e376c",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c151816ea94da89e59cdea3274259d700fedaa8f18f47d48ca88b38a5781f50e.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/c151816ea94da89e59cdea3274259d700fedaa8f18f47d48ca88b38a5781f50e.body",
+      "sha256": "aec283d420816f060010a8e97ab4ddd64f51283d6d677012e8d4c97546157615",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c151816ea94da89e59cdea3274259d700fedaa8f18f47d48ca88b38a5781f50e.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/c151816ea94da89e59cdea3274259d700fedaa8f18f47d48ca88b38a5781f50e.json",
+      "sha256": "2954a28d3a2f41fd37718f70c5e6aac369e5c74c55d108188e213bfdad3742f5",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c4906b94c22f6aafc54501ac271e753844ed4819028a855d1eebc49ac27ae928.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/c4906b94c22f6aafc54501ac271e753844ed4819028a855d1eebc49ac27ae928.body",
+      "sha256": "25e9ccec302bca39ecd0a4a6cd9a3d54ea0e68b248923c1df1535fa9a191eab2",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c4906b94c22f6aafc54501ac271e753844ed4819028a855d1eebc49ac27ae928.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/c4906b94c22f6aafc54501ac271e753844ed4819028a855d1eebc49ac27ae928.json",
+      "sha256": "6f7f774159522378408409648f480c418e97a37deba51fe20dd73b72a8c9832f",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c621314fd6492fda1b29e4a894e6c3cac7f4245f7d9b208fc618fcd94850c28b.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/c621314fd6492fda1b29e4a894e6c3cac7f4245f7d9b208fc618fcd94850c28b.body",
+      "sha256": "551416647866e2f6db27821356c909d821e60703877363277cf79db6ebe5330f",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c621314fd6492fda1b29e4a894e6c3cac7f4245f7d9b208fc618fcd94850c28b.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/c621314fd6492fda1b29e4a894e6c3cac7f4245f7d9b208fc618fcd94850c28b.json",
+      "sha256": "693f8223b45a5c3005e61ee3c956c2f42b0c054eae4092a25f83d8e751ae8eb5",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c74f3adfc8a520f89ece3b2efd46fcfc4856bfa743449e5d14dee2ef26f9703d.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/c74f3adfc8a520f89ece3b2efd46fcfc4856bfa743449e5d14dee2ef26f9703d.body",
+      "sha256": "db0bd792d3540f24c7bec9730efc90672f38f5053351adbf537f649cfb21ae16",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c74f3adfc8a520f89ece3b2efd46fcfc4856bfa743449e5d14dee2ef26f9703d.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/c74f3adfc8a520f89ece3b2efd46fcfc4856bfa743449e5d14dee2ef26f9703d.json",
+      "sha256": "b0c14ed8a6d3df8acbe98e05cb094d8bc612af0253b17a7fe0f3366df5c2e3a7",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c7d8dbdc4f94e06ef47c376040cec94cad034aee0fb5e2dd59c7592886f8c729.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/c7d8dbdc4f94e06ef47c376040cec94cad034aee0fb5e2dd59c7592886f8c729.body",
+      "sha256": "c780d6419733d51413efe92cd93195d5ab521171b76c3726f1f36dc8112046e3",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c7d8dbdc4f94e06ef47c376040cec94cad034aee0fb5e2dd59c7592886f8c729.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/c7d8dbdc4f94e06ef47c376040cec94cad034aee0fb5e2dd59c7592886f8c729.json",
+      "sha256": "6f98c65ef8835158841cd6de91ac12109191602508ceffbf93c471eebfea7a68",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c8bd27a6aacb6b726de593976987a92b3f1c65fc5d9f1f57074903e5bc8ade75.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/c8bd27a6aacb6b726de593976987a92b3f1c65fc5d9f1f57074903e5bc8ade75.body",
+      "sha256": "11e284fb7cc14c4c47371b08a07bdc0091272fd951081b8f8b5640762ee3a9b3",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\c8bd27a6aacb6b726de593976987a92b3f1c65fc5d9f1f57074903e5bc8ade75.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/c8bd27a6aacb6b726de593976987a92b3f1c65fc5d9f1f57074903e5bc8ade75.json",
+      "sha256": "f2f5f66c8ca8ccbbc6987ef569bd26b492e8e645398f60333b74dd2dea6c90ce",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\cbb823a4f2bc03314a671cec543fc1b7afa5ca133ae2a04d7f036c0f981e0335.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/cbb823a4f2bc03314a671cec543fc1b7afa5ca133ae2a04d7f036c0f981e0335.body",
+      "sha256": "23a4bbc324578bb7a866bf2a6870d63eef3154ac0cf64e744db8b95dd257058c",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\cbb823a4f2bc03314a671cec543fc1b7afa5ca133ae2a04d7f036c0f981e0335.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_08_cover-shape-online/input/network/cbb823a4f2bc03314a671cec543fc1b7afa5ca133ae2a04d7f036c0f981e0335.json",
+      "sha256": "2a61cc1560fbadf34ba2d72173c7c74d324ec3fc124cc96ea3a74538a805e455",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\dca64863aa771fe62ce22a63498f30f1ccad2e3ac00dd9bd5db1dba549f8f4f1.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/dca64863aa771fe62ce22a63498f30f1ccad2e3ac00dd9bd5db1dba549f8f4f1.body",
+      "sha256": "d2b9e9704c10d69b9d4cd12f723b4b607f9db41998c1e5e03958e8f4668a032c",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\dca64863aa771fe62ce22a63498f30f1ccad2e3ac00dd9bd5db1dba549f8f4f1.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/dca64863aa771fe62ce22a63498f30f1ccad2e3ac00dd9bd5db1dba549f8f4f1.json",
+      "sha256": "05d6459f871939287e6e1bfaa0da121dcab3ab8aff03eb3c57ba396f7d3f24eb",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\e2a9679a45bc196c3209406024e779237ae813d61bb68d12d26412d0fd1b8db7.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/e2a9679a45bc196c3209406024e779237ae813d61bb68d12d26412d0fd1b8db7.body",
+      "sha256": "1cbfdd404fac975c92849f399b6d3907e4e9850fdf9d349b325a2106687e8de3",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\e2a9679a45bc196c3209406024e779237ae813d61bb68d12d26412d0fd1b8db7.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/e2a9679a45bc196c3209406024e779237ae813d61bb68d12d26412d0fd1b8db7.json",
+      "sha256": "ba94ec41cd954b24651e0e59fd3ee17cb032a0916e2f19df5185487befbf2064",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\e8fb98a00a2dd721f7513a8d23351ea651857c8540249ea5afc4cb76a2df807f.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/e8fb98a00a2dd721f7513a8d23351ea651857c8540249ea5afc4cb76a2df807f.body",
+      "sha256": "32aac77272e922724e46d2de096b7a78d3c07925ae5954a9c26852dbaceef543",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\e8fb98a00a2dd721f7513a8d23351ea651857c8540249ea5afc4cb76a2df807f.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/e8fb98a00a2dd721f7513a8d23351ea651857c8540249ea5afc4cb76a2df807f.json",
+      "sha256": "4c501af844c338da03d9a0ce14278e226b1c2f3bd871b4b505bc211d57517d19",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\ecf1b68ff41ff0e847e352ab61a95e40ca98980d04e5a954bd814b4ecc6f1f36.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/ecf1b68ff41ff0e847e352ab61a95e40ca98980d04e5a954bd814b4ecc6f1f36.body",
+      "sha256": "447138b0e4395e61dcba616df14f35324bda42dcb10c0424a7a8f62f9f42d478",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\ecf1b68ff41ff0e847e352ab61a95e40ca98980d04e5a954bd814b4ecc6f1f36.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/ecf1b68ff41ff0e847e352ab61a95e40ca98980d04e5a954bd814b4ecc6f1f36.json",
+      "sha256": "fa19000007742494407662fe83e3f254f24a10d1c5121b1dd0bf4acc9504cda3",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\f09a7b30d8b8252dab1bad534a3be0452140e919b4ea3e65a2535f2cc26014e5.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/f09a7b30d8b8252dab1bad534a3be0452140e919b4ea3e65a2535f2cc26014e5.body",
+      "sha256": "9b953f84e998c134c5ff6059c866d14159e41a372cbfc70c065405fbe3009064",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\f09a7b30d8b8252dab1bad534a3be0452140e919b4ea3e65a2535f2cc26014e5.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_07_cover-shape-online/input/network/f09a7b30d8b8252dab1bad534a3be0452140e919b4ea3e65a2535f2cc26014e5.json",
+      "sha256": "e90edf99c91ef6a96541d1ff7ab60d421ed5752018976037cf16ac539eca7c29",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\fb44551913dd2f836cffde113c5927452b3359216508e2afde29a8581b778896.body",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/fb44551913dd2f836cffde113c5927452b3359216508e2afde29a8581b778896.body",
+      "sha256": "0f560cfabb02f0c7687753e9290e64482e66aa9016a58f89118392b635d69561",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\fb44551913dd2f836cffde113c5927452b3359216508e2afde29a8581b778896.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_03_cover-shape-online/input/network/fb44551913dd2f836cffde113c5927452b3359216508e2afde29a8581b778896.json",
+      "sha256": "e60e786e9acc791fd773cabec41efa79f5edd851d4371deaa91305a1420a026a",
+      "source": "identical previously archived research resource"
+    },
+    {
+      "file": "D:\\Licheng\\Repo\\all_cars_data\\03.车形分类核定\\cache\\cover_shape\\models\\u2netp.onnx",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-12_06_cover-shape-online/input/network/u2netp.onnx",
+      "sha256": "309c8469258dda742793dce0ebea8e6dd393174f89934733ecc8b14c76f4ddd8",
+      "source": "identical previously archived research resource"
+    }
+  ],
+  "dependency_versions": {
+    "python": "3.13.14",
+    "PyYAML": "6.0.3",
+    "numpy": "2.5.1",
+    "Pillow": "12.3.0",
+    "opencv-python": "5.0.0.93",
+    "onnxruntime": "1.31.0"
+  },
+  "network_adapters": [
+    "NHTSA_CVS",
+    "explicit_official_url",
+    "source_geometry_descriptions",
+    "Commons_API",
+    "local_U2netp_OpenCV"
+  ],
+  "network_requests": 5,
+  "cache_hits": 60,
+  "variant_count": 8,
+  "status_counts": {
+    "UNKNOWN": 2,
+    "INFERRED": 6
+  },
+  "evidence_outcomes": {
+    "VARIANT_AMBIGUOUS": 8,
+    "DOCUMENT_FAILED": 1,
+    "DISCOVERED": 22,
+    "REJECTED_METADATA": 173,
+    "REJECTED_IMAGE": 20,
+    "NO_ACCEPTED_IMAGE": 8,
+    "AUTO_DESCRIPTION_EXTRACTED": 6,
+    "NO_DATA": 2
+  },
+  "fit_status": "NOT_TESTED",
+  "published": false,
+  "rules_provenance": "run.json rules (sha256 + git commit + dirty snapshots)",
+  "implementation_sha256": {
+    "__init__.py": "c9fcf6eff9284e184a019766218666ffc5e45241b70d8176e07d2789b71e4bb4",
+    "automatic.py": "47cb6b29adf74e49dc055a0b67b8113bad217cbbbe64553e1e46798f08b90a2a",
+    "automatic_documents.py": "20bb17bf201cc36ecf0ddf63f16649c9b89c76e1d5986ecd669a268c0a1fd05d",
+    "automatic_geometry.py": "ebf483b9769cfd75d6a8c79c13c30dbb719bab8493d4a52cd045329bfd810a1f",
+    "classifier.py": "198bfaab3d521bfdac7179b05d346976f9dc8b2ea96faa164b3eaaed55c57b4a",
+    "cli.py": "d02038c778cbfbc0b3dde35c9fc9ab2aeb20be918eb5d7eb3260f903d0b99a6d",
+    "evidence.py": "cf05002b6e38b9cdcd9cc9b16b2726d2b0a8f8f4c945b355acb582e2a7d3e3ad",
+    "fetchers.py": "c71115b8bad1d851e190cd26ca6f2822d8729d50d8d8deec9291cca73a86202e",
+    "geometry.py": "d1d848e0328e4c4bbbcb26c5dc234598df487d75745ae527eeed3e33420257b8",
+    "ingest.py": "468252f18a86649f3b2daeeaf003e86c0dd4d315d6947d01ab39c5dd02a250df"
+  },
+  "reclassify_records": "cover_shape_records.jsonl",
+  "automatic_rule_version": "geometric-auto-v2-experimental"
+}

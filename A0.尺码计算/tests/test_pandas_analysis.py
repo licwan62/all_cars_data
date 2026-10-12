@@ -420,7 +420,7 @@ class FullPipelineRegressionTests(unittest.TestCase):
         cls._source_tmp = tempfile.TemporaryDirectory()
         cls.source_dir = Path(cls._source_tmp.name)
         dimensions = analysis._read_csv(
-            PROJECT_DIR.parent / "01.整理尺寸库" / "output" / "尺寸库_US.csv"
+            PROJECT_DIR.parent / "02.分类结构审核" / "output" / "车型结构_US.csv"
         )
         dimensions["DIMENSION-ID"] = dimensions["DIMENSION-ID"].map(
             analysis.base_dimension_id

@@ -1,0 +1,79 @@
+{
+  "full_table_projection": [
+    "SHAPE"
+  ],
+  "node_metadata_fields": [
+    "SHAPE",
+    "SHAPE_STATUS",
+    "SHAPE_YEAR",
+    "SHAPE_METHOD",
+    "SHAPE_ALTERNATES",
+    "SHAPE_SOURCE"
+  ],
+  "queue_states": {
+    "NO_EVIDENCE": 8,
+    "PENDING": 37008,
+    "EVIDENCE_AVAILABLE": 6,
+    "BLOCKED_INPUT": 20
+  },
+  "queue_groups": 37042,
+  "attempted_groups": 8,
+  "research_run": {
+    "selected": 8,
+    "attempted": 8,
+    "new_geometry_facts": 0,
+    "requests": 45,
+    "cache_hits": 6,
+    "results": {
+      "NO_EVIDENCE": 8
+    }
+  },
+  "tests": "206 passed, 11 subtests passed",
+  "rebuild": {
+    "shape-classification": "byte-identical",
+    "size-calculation": "byte-identical"
+  },
+  "tables": {
+    "US/全量/全量表.csv": {
+      "rows": 4378,
+      "only_shape_in_full_table": true,
+      "other_values_and_order_unchanged": true,
+      "nas_sha256": "d815a375669ab2e74315c956535d10858dc83b6fbe8e28ab9ebf2dc641aef842"
+    },
+    "EU/全量/全量表.csv": {
+      "rows": 29361,
+      "only_shape_in_full_table": true,
+      "other_values_and_order_unchanged": true,
+      "nas_sha256": "8d6a0187dab44457dd4aa3f2c8c404074a7908decdef68d0b72db0b09cb64282"
+    },
+    "RU/全量/全量表.csv": {
+      "rows": 13617,
+      "only_shape_in_full_table": true,
+      "other_values_and_order_unchanged": true,
+      "nas_sha256": "4986194b516367ba76ffffc56704b8f0eeecf651d5594c8a36d72599c7175375"
+    },
+    "US/店铺/店铺全量_HNT.csv": {
+      "rows": 4378,
+      "only_shape_in_full_table": true,
+      "other_values_and_order_unchanged": true,
+      "nas_sha256": "cde8cc76209c77853c49e31e7141d555a9043b44585d3139bd1e75cc31e4075b"
+    },
+    "US/店铺/店铺全量_TM.csv": {
+      "rows": 4378,
+      "only_shape_in_full_table": true,
+      "other_values_and_order_unchanged": true,
+      "nas_sha256": "a891dd2b4a7540d576c8906a2dde57e642f7da392e35cb071109542d48fe36b2"
+    },
+    "US/店铺/店铺全量_TM_拆分.csv": {
+      "rows": 4378,
+      "only_shape_in_full_table": true,
+      "other_values_and_order_unchanged": true,
+      "nas_sha256": "d13a1135a3a99ccd9d1a4fcaa420520a6269454e6199e3fea094a0cd997c2fa7"
+    }
+  },
+  "node_metadata_retained": true,
+  "progress_retained_on_rebuild": true,
+  "new_geometry_facts": 0,
+  "no_false_research_coverage": true,
+  "fit_status": "NOT_TESTED"
+}

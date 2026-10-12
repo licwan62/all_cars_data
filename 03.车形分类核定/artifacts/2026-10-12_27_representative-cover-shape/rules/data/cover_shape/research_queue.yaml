@@ -1,0 +1,33 @@
+version: shape-research-queue-v3-family-cache
+# 研究单元 = 市场 + 品牌 + 车型 + 结构（车型族）；结构不同分开研究，结构只做身份分组，不直接决定 SHAPE。
+# 每个代际只抽少数年份：跨度短于 long_span_years 取中位年，否则按分位取 max_samples_per_span 个年份（前期/后期，覆盖改款）。
+# 研究结论写 family_cache.csv，可按代际/年份/模式细分；其余年份、尺寸、trim、CAB/BED 分支继承同族结论。
+batch_limit: 12
+max_requests: 120
+max_attempts: 3
+retry_after_hours: 48
+market_priority: [US, EU, RU]
+research_markets: [US]
+max_per_model_per_batch: 1
+long_span_years: 9
+max_samples_per_span: 2
+# 自动联网研究每个车型族最多研究的未覆盖代际数（其余代际留给下一批）。
+max_generations_per_auto_task: 2
+# EU/RU 无同市场结论时，按年份重叠复用这些市场同品牌/车型/结构的结论（状态 INFERRED，方法 family_cache_cross_market）。
+cross_market_sources: [US]
+# 起步队列优先补充原型推断中的边界车型；不预填分类结果。
+kickoff_selectors:
+  - {make: Tesla, model: Model Y, market: US}
+  - {make: Kia, model: Soul, market: US}
+  - {make: Ford, model: Mustang, market: US}
+  - {make: Acura, model: Integra, body_type: Hatchback, market: US}
+  - {make: Honda, model: Accord, body_type: Sedan, market: US}
+  - {make: Toyota, model: C-HR, market: US}
+  - {make: Toyota, model: Land Cruiser, market: US}
+  - {make: Toyota, model: Venza, market: US}
+  - {make: Nissan, model: Z, market: US}
+  - {make: Toyota, model: Corolla, body_type: Hatchback, market: US}
+  - {make: Honda, model: HR-V, market: US}
+priority_order: [conflict, kickoff, ambiguous_low_roof, ambiguous, prototype]
+missing_dimensions_state: BLOCKED_INPUT
+automatic_network: explicit_online_command_only

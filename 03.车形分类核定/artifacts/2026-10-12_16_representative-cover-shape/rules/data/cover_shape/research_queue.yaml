@@ -1,0 +1,15 @@
+version: shape-research-queue-v1
+batch_limit: 8
+max_requests: 120
+max_attempts: 3
+retry_after_hours: 48
+market_priority: [US, EU, RU]
+# 起步队列优先补充已知仍只有原型推断的边界车型；不预填分类结果。
+kickoff_selectors:
+  - {make: Tesla, model: Model Y, generation: gen1, market: US}
+  - {make: Kia, model: Soul, generation: gen3, market: US}
+  - {make: Ford, model: Mustang, generation: gen1, market: US}
+  - {make: Ford, model: Mustang, generation: gen3, market: US}
+priority_order: [conflict, kickoff, ambiguous_low_roof, ambiguous, prototype]
+missing_dimensions_state: BLOCKED_INPUT
+automatic_network: explicit_online_command_only

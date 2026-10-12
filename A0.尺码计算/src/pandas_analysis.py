@@ -326,6 +326,30 @@ def aggregate_sales(sales: pd.DataFrame) -> pd.DataFrame:
     return grouped
 
 
+def apply_sales_id_migrations(sales: pd.DataFrame, vehicle_ids: Iterable[str], migrations: pd.DataFrame,
+                              unqualified_region: str | None = None) -> pd.DataFrame:
+    """显式记录的 ID 延年/改名迁移，保留原子销量总额；不推断新年份销量。"""
+    _require_columns(migrations, ["COUNTRY", "旧DIMENSION-ID", "新DIMENSION-ID", "理由"], "销量 ID 迁移")
+    if migrations["旧DIMENSION-ID"].duplicated().any():
+        raise DataContractError("销量 ID 迁移旧 ID 不唯一")
+    result = sales.copy()
+    target_ids = set(vehicle_ids)
+    for row in migrations.to_dict("records"):
+        country, old, new = row["COUNTRY"], row["旧DIMENSION-ID"], row["新DIMENSION-ID"]
+        if not str(old).endswith(" " + country) or not str(new).endswith(" " + country) or not row["理由"]:
+            raise DataContractError("销量 ID 迁移必须明确相同地区与原因")
+        pairs = [(old, new)]
+        if unqualified_region == country:
+            pairs.append((base_dimension_id(old), base_dimension_id(new)))
+        for previous, current in pairs:
+            if current not in target_ids or previous in target_ids:
+                continue
+            if result["DIMENSION-ID"].eq(previous).any() and result["DIMENSION-ID"].eq(current).any():
+                raise DataContractError("销量 ID 迁移前后都已有销量，须先解决重复来源")
+            result.loc[result["DIMENSION-ID"].eq(previous), "DIMENSION-ID"] = current
+    return result
+
+
 def add_model_sales(frame: pd.DataFrame) -> pd.DataFrame:
     """按 MAKE+MODEL+结构 聚合尺寸组销量，回填到同车型同结构每一行的 车型销量。"""
     _require_columns(frame, [*MODEL_SALES_KEY, SIZE_GROUP_SALES], "全量表")
@@ -978,6 +1002,11 @@ def calculate(
         # TRIM，未命中的记录留空，等待本 agent 的 data/子车系维护表补齐。
         result["TRIM"] = result["DIMENSION-ID"].map(trims).fillna("")
     sales_total = aggregate_sales(sales)
+    migration_path = PROJECT_DIR / "data" / "销量ID迁移.csv"
+    if migration_path.is_file():
+        config_parts = {str(p).upper() for p in (parameters_path or config_dir or PROJECT_DIR / "data/US").parts}
+        region_hint = next((r for r in ("US", "EU", "RU") if r in config_parts), None)
+        sales_total = apply_sales_id_migrations(sales_total, result["DIMENSION-ID"], _read_csv(migration_path), region_hint)
     result = result.merge(sales_total, on="DIMENSION-ID", how="left", validate="one_to_one")
     result[SIZE_GROUP_SALES] = result[SIZE_GROUP_SALES].fillna(0)
     if np.allclose(result[SIZE_GROUP_SALES].dropna() % 1, 0):

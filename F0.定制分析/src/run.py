@@ -26,19 +26,14 @@ def reference_tasks(config: dict, members: list[dict], rows: list[dict]) -> list
         grouped: dict[str, list[str]] = {}
         for member in members:
             grouped.setdefault(member["SKU聚簇"], []).append(member["DIMENSION-ID"])
-        row_by_id = {row["DIMENSION-ID"]: row for row in rows}
         return [
             {"SKU聚簇": sku,
              "代际": references.get(sku, {}).get("scope", "候选 SKU 成员范围"),
-             "覆盖车型": (
-                 f"{len(identifiers)} 条｜"
-                 f"{min(year_bounds(row_by_id[identifier]['YEAR'])[0] for identifier in identifiers)}–"
-                 f"{max(year_bounds(row_by_id[identifier]['YEAR'])[1] for identifier in identifiers)}｜"
-                 f"{' / '.join(sorted({row_by_id[identifier]['结构'] for identifier in identifiers}))}"
-             ),
+             "覆盖车型": f"{len(identifiers)} 条",
              "检索式": references.get(sku, {}).get("query", ""),
              "参考链接": references.get(sku, {}).get("representative_url", ""),
-             "状态": "待外形核验" if references.get(sku, {}).get("representative_url") else "待补参考模型",
+             "状态": "待外形核验" if references.get(sku, {}).get("representative_url")
+                     else "待补上限参考模型" if references.get(sku, {}).get("models") else "待补参考模型",
              "核验项目": "；".join(references.get(sku, {}).get("verification", ["车顶弧线", "前后轮廓", "后视镜位置", "尾门及扰流板", "共版可行性"]))}
             for sku, identifiers in sorted(grouped.items())
         ]
