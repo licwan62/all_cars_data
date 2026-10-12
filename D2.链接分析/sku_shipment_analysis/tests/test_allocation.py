@@ -5,7 +5,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from main import allocate, fixed_consumer_name, merge_test_year, proportional_integer_allocation, sku_name, year_code
+from main import allocate, fitment_rows, fixed_consumer_name, merge_test_year, proportional_integer_allocation, sku_name, year_code
 from build_merged_clusters import sibling_size_merge_targets
 
 
@@ -87,6 +87,30 @@ def test_pickup_consumer_name_preserves_source_cab_and_bed_labels():
         "CONSUMER_NAME": "Ford F-150 1994-1995 | SuperCab | 6.5' Standard Bed",
     })
     assert fixed_consumer_name(row, config) == "Ford F-150 1994-1995 | SuperCab | 6.5' Standard Bed"
+
+
+def test_fitment_vehicle_excludes_year_and_keeps_separate_year_field():
+    detail = pd.DataFrame({
+        "CLUSTER_ID": ["LINK-1", "LINK-1"],
+        "MAKE_NORMALIZED": ["Ford", "Ford"],
+        "MODEL_FAMILY": ["F-150", "F-150"],
+        "YEAR": ["2019-2020", "2022"],
+    })
+    result = fitment_rows(detail)
+    assert result.loc[0, "适配车型"] == "Ford F-150"
+    assert result.loc[0, "适配年份"] == "2019-2020/2022"
+
+
+def test_fitment_vehicle_can_read_legacy_include_year_rule():
+    detail = pd.DataFrame({
+        "CLUSTER_ID": ["LINK-1"],
+        "MAKE_NORMALIZED": ["Ford"],
+        "MODEL_FAMILY": ["F-150"],
+        "YEAR": ["2019-2020"],
+    })
+    result = fitment_rows(detail, include_year_in_vehicle=True)
+    assert result.loc[0, "适配车型"] == "Ford F-150 2019-2020"
+    assert result.loc[0, "适配年份"] == "2019-2020"
 
 
 def test_sedan_coupe_consumer_name_omits_structure():

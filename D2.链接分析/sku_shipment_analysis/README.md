@@ -48,7 +48,7 @@ python main.py `
 - `shipment_input.csv`：本次使用的物理尺码发货量，可作为下次运行输入。
 - `sku_shipment_analysis.csv`：全部 Cluster 的分配计算。
 - `grouping_detail.csv`：分配量大于 0 的 Cluster。
-- `listing_detail.csv`：包含 `SIZENAME` 和 `适配车型` 的上架明细。
+- `listing_detail.csv`：包含 `SIZENAME`、`适配车型` 和 `适配年份` 的上架明细；`适配车型` 不重复年份。
 - `年份合并测试报告.csv`：对全部 Cluster 记录候选年份、扩张年份、建议最终尺码、长度余量和合并结论，不受本次发货量是否为零影响。
 
 项目只生成 CSV，不生成工作簿。
@@ -95,6 +95,6 @@ Ford F-150 1994-1995 | SuperCab | 6.5' Standard Bed
 - 同一 MAKE、MODEL 的兄弟 Cluster 如果原始年份有交集，会在发货分配前尝试合并；程序选择能够容纳全部源记录（含长度容差）的最小现有兄弟尺码。
 - 在目标上限以内或超出不超过阈值时，建议使用当前 Cluster 的逻辑尺码并允许年份扩张；超过阈值才拒绝扩张。
 - 若没有不可接受的尺码冲突，保留单个 Cluster，并在 `CONSUMER_NAME` 与 `SKU_NAME` 中使用合并年份。
-- `listing_detail.csv` 使用中文审核字段；`年份合并测试报告.csv` 提供完整的中文审计明细；`适配车型` 仍保留原始事实范围。
+- `listing_detail.csv` 使用中文审核字段；`年份合并测试报告.csv` 提供完整的中文审计明细；`适配车型` 只保留品牌与车型，原始事实年份单独写入 `适配年份`。
 
 例如 Pontiac Bonneville 的 1970 年车长为 5705 mm，`3XXXL` 长度上限为 5700 mm，只超出 5 mm；相关年份的最大车长为 5740 mm，整体最多超出 40 mm。因此两个相关尺码簇均建议统一到 `3XXXL`，命名年份可扩张为 `1959-1976`。

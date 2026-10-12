@@ -332,8 +332,10 @@
       "role": "final",
       "upstream": ["size-calculation", "code-mapping", "negative-review-analysis"],
       "outputs": [
+        "ford_mustang/定制SKU聚簇报告.md",
         "mercedes_e_class/定制SKU聚簇报告.md",
         "jeep_gladiator/定制SKU聚簇报告.md",
+        "kia_soul/定制SKU聚簇报告.md",
         "mini_countryman/定制SKU聚簇报告.md",
         "prius/定制SKU聚簇报告.md",
         "subaru_forester/定制SKU聚簇报告.md"
@@ -400,11 +402,15 @@
       "path": "D2.链接分析",
       "code_dir": [
         "W型车",
+        "皮卡",
         "sku_shipment_analysis"
       ],
-      "run": [],
+      "run": [
+        "python 皮卡/run.py"
+      ],
       "tests": [
         "W型车/tests",
+        "皮卡/tests",
         "sku_shipment_analysis/tests"
       ],
       "layer": 6,
@@ -421,7 +427,11 @@
         "发货单.csv"
       ],
       "release_notes": [
-        "2026-09-27 W型车/run.py 改为只读 D1.聚类SKU/output/W型车，不再调用 D1 代码或写入 D1 artifacts；皮卡/run.py（依赖从未入库的 D1 皮卡代码并读 NAS）归档至 archive/皮卡/"
+        "2026-09-27 W型车/run.py 改为只读 D1.聚类SKU/output/W型车，不再调用 D1 代码或写入 D1 artifacts；皮卡/run.py（依赖从未入库的 D1 皮卡代码并读 NAS）归档至 archive/皮卡/",
+        "2026-10-11 皮卡/run.py 改为审核 data/发货单明细.xlsx 的既成发货事实：逐行验证 CUSUMER_NAME、SIZE_NAME、适配车型并反查工作簿内嵌 ref_cluster_detail；输出字段审核、发货分配核对和报告。",
+        "2026-10-11 链接字段规则改为适配车型不含年份，年份单独写入适配年份；皮卡新增上架链接明细.csv，共享引擎 listing_detail.csv 同步拆分。",
+        "2026-10-11 皮卡作为 D2 下的独立业务子项目：运行批次、规则和稳定输出分别归入 皮卡/artifacts、皮卡/data、皮卡/output；CSV 发布到 NAS public/sku_cluster/皮卡。",
+        "2026-10-11 新增 SKU发货数量.csv：以 CLUSTER_ID 为既成发货 SKU 唯一键，保留 102 条正向分配及合计 801，不向 108 条展示链接重新摊分。"
       ]
     },
     {
@@ -563,8 +573,10 @@
       "name": "定制SKU分析与Sketchfab参考任务",
       "node": "custom-analysis",
       "files": [
+        "ford_mustang/定制SKU聚簇报告.md",
         "mercedes_e_class/定制SKU聚簇报告.md",
         "jeep_gladiator/定制SKU聚簇报告.md",
+        "kia_soul/定制SKU聚簇报告.md",
         "mini_countryman/定制SKU聚簇报告.md",
         "prius/定制SKU聚簇报告.md",
         "subaru_forester/定制SKU聚簇报告.md"

@@ -68,5 +68,61 @@ def test_gladiator_document_keeps_pickup_fitment_risks_visible():
     assert '驾驶室—货斗分界' in document
 
 
+def test_kia_soul_document_covers_all_generations_and_review_structure_alias():
+    config = json.loads((PROJECT / 'data' / 'kia_soul_custom_analysis.json').read_text(encoding='utf-8'))
+    root = PROJECT.parent
+    rows = active_rows(root / 'A0.尺码计算' / 'output' / 'US' / '全量' / '全量表.csv',
+                       config['make'], config['model'], structures=config['structures'])
+    codes = dimension_codes(root / '02.代码映射' / 'output' / '尺寸编码映射.csv')
+    reviews = [{'品牌': 'Kia', '车型': 'Soul', '结构': 'Hatchback 5dr', '尺码': '2M；2L+；2XL+',
+                '差评数量': '3', '主要差评原因': '尺寸不合适(3)；小(1)；偏小(1)', '严重度评级': '中'}]
+    document = render_report(config, rows, codes, reviews, [], reference_tasks)
+    assert '4 条尺寸记录形成 1 个尺寸候选 SKU' in document
+    assert all(row['DIMENSION-ID'] in document for row in rows)
+    assert all(generation in document for generation in ('AM 2010–2013', 'PS 2014–2019', 'SK3 2020–2025'))
+    assert '尺寸不合适(3)；小(1)；偏小(1)' in document
+    assert '2L 覆盖 2010–2019' in document and '自动长度余量为 324 mm' in document
+    assert 'SQUIR3D' not in document
+    assert document.count('（可下载）') == 2
+
+
 def test_markdown_members_with_pipe_versions_keep_table_columns():
     assert table(['版本'], [['A | B']])[-1] == '| A \\| B |'
+
+
+def test_ford_mustang_document_excludes_mach_e_and_covers_all_generations():
+    config = json.loads((PROJECT / 'data' / 'ford_mustang_custom_analysis.json').read_text(encoding='utf-8'))
+    root = PROJECT.parent
+    rows = active_rows(root / 'A0.尺码计算' / 'output' / 'US' / '全量' / '全量表.csv',
+                       config['make'], models=config['models'], structures=config['structures'])
+    codes = dimension_codes(root / '02.代码映射' / 'output' / '尺寸编码映射.csv')
+    reviews = [
+        {'品牌': 'Ford', '车型': 'Mustang', '结构': 'Convertible', '差评数量': '4',
+         '主要差评原因': '尺寸不合适(2)；绑带断裂(1)；质量差(1)', '严重度评级': '中'},
+        {'品牌': 'Ford', '车型': 'Mustang', '结构': 'Coupe', '差评数量': '13',
+         '主要差评原因': '质量差(2)；不防水(2)；尺寸不合适(2)', '严重度评级': '高'},
+    ]
+    document = render_report(config, rows, codes, reviews, [], reference_tasks)
+    assert len(rows) == 57
+    assert {row['MODEL'] for row in rows} == {'Mustang', 'Mustang Mach-E'}
+    assert 'Ford Mustang Mach-E Rally Crossover 2024-2026 US' in document
+    assert {row['代际'] for row in rows} == {f'gen{i}' for i in range(1, 8)}
+    assert '13' in document and '绑带断裂(1)' in document
+    assert '## 完整成员明细' not in document
+    assert '完整成员已用于计算与完整性校验' in document
+    assert sorted(item['sku'] for item in config['sketchfab_sku_searches']) == ['SKU-01', 'SKU-02', 'SKU-03', 'SKU-04']
+    assert all(item['representative_url'] and len(item['models']) >= 4 for item in config['sketchfab_sku_searches'])
+    assert '待补参考模型' not in document
+    assert '1993 Ford Mustang GT Foxbody' in document
+    assert '2005 Ford Mustang GT' in document
+    assert '2024 Ford Mustang Dark Horse' in document
+    assert '1969 Ford Mustang Boss 302' in document
+    assert '## 候选 SKU 分组原因' in document
+    assert '高度中心/mm' in document and '长度中心/mm' in document
+    assert '| SKU-02 | Mustang Mach-E | 4 |' in document
+    assert '高度中心较高：大于 SKU-01/SKU-03/SKU-04（+322.5/+242.5/+340.5 mm）' in document
+    assert '长度中心较长：大于 SKU-01/SKU-03（+287.5/+127.5 mm）' in document
+    assert '长度中心较短：小于 SKU-02/SKU-03/SKU-04' in document
+    assert '| SKU-01 + SKU-04 | 长度 478>250 |' in document
+    assert '| SKU-02 + SKU-03 | 高度 302>100 |' in document
+    assert '19 条｜1965–2004' in document

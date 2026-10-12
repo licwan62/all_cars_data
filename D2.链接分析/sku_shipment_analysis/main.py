@@ -179,7 +179,7 @@ def allocate(summary: pd.DataFrame, shipment: pd.DataFrame, pack_size: int) -> p
     return result
 
 
-def fitment_rows(detail: pd.DataFrame) -> pd.DataFrame:
+def fitment_rows(detail: pd.DataFrame, *, include_year_in_vehicle: bool = False) -> pd.DataFrame:
     make_col = first_column(detail, ["MAKE_NORMALIZED", "MAKE"], "品牌")
     model_col = first_column(detail, ["MODEL_FAMILY", "MODEL"], "车型")
     rows: list[dict[str, str]] = []
@@ -190,7 +190,8 @@ def fitment_rows(detail: pd.DataFrame) -> pd.DataFrame:
         rows.append({
             "CLUSTER_ID": cid, "FITMENT_MAKE": str(make).strip(), "FITMENT_MODEL": str(model).strip(),
             "MAKE_MODEL": model_name, "FITMENT_YEAR": year_text,
-            "适配车型": f"{model_name} {year_text}".strip(),
+            "适配车型": f"{model_name} {year_text}".strip() if include_year_in_vehicle else model_name,
+            "适配年份": year_text,
         })
     return pd.DataFrame(rows)
 
@@ -456,12 +457,16 @@ def merge_test_year(
 
 
 def listing_detail(allocated: pd.DataFrame, detail: pd.DataFrame, config: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
-    fits = fitment_rows(detail)
+    fits = fitment_rows(
+        detail,
+        include_year_in_vehicle=bool(config.get("fitment_vehicle_include_year", False)),
+    )
     listing = allocated.copy().merge(fits, on="CLUSTER_ID", how="left")
     listing["MAKE"] = listing["FITMENT_MAKE"].fillna(listing.get("MAKE", ""))
     listing["MODEL"] = listing["FITMENT_MODEL"].fillna(listing.get("MODEL", ""))
     listing["MAKE_MODEL"] = listing["MAKE_MODEL"].fillna("")
-    listing["适配车型"] = listing["适配车型"].fillna(listing["CONSUMER_NAME"])
+    listing["适配车型"] = listing["适配车型"].fillna(listing["MAKE_MODEL"])
+    listing["适配年份"] = listing["适配年份"].fillna(listing["FITMENT_YEAR"])
     listing["SIZENAME"] = listing["CONSUMER_NAME"].str.replace(" · ", " ", regex=False)
     ownership = build_year_ownership(detail)
     capacities = size_length_capacities(detail)
@@ -505,7 +510,7 @@ def listing_detail(allocated: pd.DataFrame, detail: pd.DataFrame, config: dict) 
     })
     listing["年份合并结论"] = listing["年份合并结论"].map(status_cn).fillna(listing["年份合并结论"])
     cols = [
-        "SKU_NAME", "CLUSTER_ID", "PHYSICAL_SIZE", "CONSUMER_NAME", "SIZENAME", "适配车型", "行发货量",
+        "SKU_NAME", "CLUSTER_ID", "PHYSICAL_SIZE", "CONSUMER_NAME", "SIZENAME", "适配车型", "适配年份", "行发货量",
         "原始年份", "命名年份", "年份合并结论", "新增年份数", "年份冲突明细",
     ]
     # Keep the full naming catalogue here.  The final W-car workflow performs
@@ -530,12 +535,19 @@ def main() -> None:
         default=Path(__file__).resolve().parent / "config" / "sku_abbreviations.json",
         help="固定 MAKE、MODEL、CAB 等 SKU 缩写规则",
     )
+    parser.add_argument(
+        "--link-rules", type=Path,
+        default=repo / "D2.链接分析" / "data" / "链接字段规则.json",
+        help="适配车型、适配年份等链接展示字段规则",
+    )
     args = parser.parse_args()
 
     summary, detail = load_clusters(args.cluster_dir)
     shipment = read_shipment(args.shipment) if args.shipment else example_shipment(summary, args.example_total)
     allocated = allocate(summary, shipment, args.pack_size)
     abbreviations = load_abbreviations(args.abbreviations)
+    if args.link_rules.is_file():
+        abbreviations.update(json.loads(args.link_rules.read_text(encoding="utf-8")))
     listing, merge_report = listing_detail(allocated, detail, abbreviations)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     shipment_output = chinese_output(shipment, physical_size_name="逻辑尺码")

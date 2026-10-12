@@ -1,5 +1,5 @@
 """Render all custom SKU evidence in one Markdown document."""
-from custom_analysis import cluster_minimum_envelopes, sku_code
+from custom_analysis import cluster_minimum_envelopes, sku_code, year_bounds
 
 
 def table(headers, records):
@@ -23,7 +23,12 @@ def universal_size_risk_section(config, rows):
     records = []
     for size, members in sorted(groups.items()):
         span = lambda field: f"{min(int(r[field]) for r in members)}–{max(int(r[field]) for r in members)}（跨度 {max(int(r[field]) for r in members)-min(int(r[field]) for r in members)}）"
-        records.append([size, '；'.join(r['YEAR'] for r in members), len(members), span('L-MM'), span('W-MM'), span('H-MM'),
+        if config.get('compact_report'):
+            starts, ends = zip(*(year_bounds(r['YEAR']) for r in members))
+            years = f'{min(starts)}–{max(ends)}'
+        else:
+            years = '；'.join(r['YEAR'] for r in members)
+        records.append([size, years, len(members), span('L-MM'), span('W-MM'), span('H-MM'),
                         span('自动长度余量'), span('参考侧高')])
     result = ['## 通用尺码适配风险', '',
               '下表按 A0 的自动尺码汇总同尺码车型；“自动长度余量”与“参考侧高”是现有计算字段，不是实测镜耳或发动机舱坐标。跨度越大只代表同一通用尺码覆盖的外廓差异更大，不能单独证明不适配。', '']
@@ -33,6 +38,73 @@ def universal_size_risk_section(config, rows):
                    *config.get('universal_size_risk_notes', []), '',
                    '全量表没有发动机布局、前保险杠至镜耳中心距离、A 柱至镜耳距离、镜耳外伸量或车顶/尾门曲线坐标。因此不能从“前置发动机”或总宽度推定镜耳一定前移、后移或偏出；这些是需要按代际实测核验的风险假设。建议对每种自动尺码记录上述坐标及前/侧/后覆盖照片，再判断是否需拆分通用尺码。'])
     return result
+
+
+CENTER_LABELS = {'L-MM': '长度', 'W-MM': '宽度', 'H-MM': '高度'}
+RANK_LABELS = {'L-MM': ('最短', '最长'), 'W-MM': ('最窄', '最宽'), 'H-MM': ('最低', '最高')}
+
+
+def cluster_reason_section(clusters, limits):
+    """Explain each candidate by its envelope center and the dimensions that block merging."""
+    fields = ('L-MM', 'W-MM', 'H-MM')
+    names = [f'SKU-{i:02d}' for i in range(1, len(clusters) + 1)]
+    centers = [{field: (cluster.min_value(field) + cluster.max_value(field)) / 2 for field in fields}
+               for cluster in clusters]
+
+    def merged_span(a, b, field):
+        return (max(clusters[a].max_value(field), clusters[b].max_value(field))
+                - min(clusters[a].min_value(field), clusters[b].min_value(field)))
+
+    def rank_label(index, field):
+        ordered = sorted(item[field] for item in centers)
+        rank, last = ordered.index(centers[index][field]), len(ordered) - 1
+        low, high = RANK_LABELS[field]
+        if len(ordered) > 2 and rank in (1, last - 1) and rank * 2 != last:
+            return f'次{low[1:]}' if rank == 1 else f'次{high[1:]}'
+        return low if rank == 0 else high if rank == last else '居中'
+
+    def joined(items):
+        return '/'.join(items)
+
+    records, blocks = [], []
+    for index, cluster in enumerate(clusters):
+        others = [j for j in range(len(clusters)) if j != index]
+        exceeded = {j: [f for f in fields if merged_span(index, j, f) > limits[f]] for j in others}
+        counts = {f: sum(f in dims for dims in exceeded.values()) for f in fields}
+        top = max(counts.values(), default=0)
+        reasons = []
+        for field in fields:
+            if not top or counts[field] != top:
+                continue
+            blocked = [j for j in others if field in exceeded[j]]
+            higher = [j for j in blocked if centers[index][field] > centers[j][field]]
+            lower = [j for j in blocked if centers[index][field] <= centers[j][field]]
+            name, (low_word, high_word) = CENTER_LABELS[field], RANK_LABELS[field]
+            delta = lambda js: joined(f'{centers[index][field] - centers[j][field]:+.1f}' for j in js)
+            parts = []
+            if higher:
+                parts.append(f'大于 {joined(names[j] for j in higher)}（{delta(higher)} mm）')
+            if lower:
+                parts.append(f'小于 {joined(names[j] for j in lower)}（{delta(lower)} mm）')
+            headline = (f'{name}中心较{high_word[1:]}' if not lower else
+                        f'{name}中心较{low_word[1:]}' if not higher else f'{name}中心居中')
+            reasons.append(f"{headline}：{'，'.join(parts)}")
+        if not top:
+            reasons.append('与其他候选合并后 L/W/H 均不超阈值，分开源于按长度降序的贪心分配顺序')
+        models = ' / '.join(sorted({row['MODEL'] for row in cluster.rows}))
+        records.append([names[index], models, len(cluster.rows),
+                        *[f"{centers[index][f]:.1f}（{rank_label(index, f)}）" for f in fields],
+                        '；'.join(reasons)])
+        for j in others:
+            if j > index:
+                spans = [f"{CENTER_LABELS[f]} {merged_span(index, j, f)}>{limits[f]}" for f in exceeded[j]]
+                blocks.append([f'{names[index]} + {names[j]}', '、'.join(spans) or '不超阈值'])
+    return ['## 候选 SKU 分组原因', '',
+            '中心值为各候选 L/W/H 最小值与最大值的中点，用于解释分组位置；它不是平均车型尺寸，也不是成品尺寸。'
+            '“主要分组原因”取与其他候选合并时最常超阈的维度，并给出该维度中心与被阻挡候选的差值。', '',
+            *table(['候选 SKU', '车系', '记录数', '长度中心/mm', '宽度中心/mm', '高度中心/mm', '主要分组原因'], records),
+            '', '两两合并后的包络跨度（mm）与阈值对比；超阈维度即两组不能合并的直接原因：', '',
+            *table(['候选对', '超阈维度（合并跨度>阈值）'], blocks)]
 
 
 def render_report(config, rows, codes, reviews, provenance, tasks_builder):
@@ -74,11 +146,21 @@ def render_report(config, rows, codes, reviews, provenance, tasks_builder):
         summary.append([f'SKU-{i:02d}', sku_code(cluster.rows, codes, config.get('sku_family_code', '')), len(cluster.rows), *ranges,
                         ' × '.join(str(cluster.max_value(f)) for f in fields), representative['DIMENSION-ID']])
     report.extend(table(['候选 SKU', '车型代号', '记录数', 'L/mm', 'W/mm', 'H/mm', '最大包络/mm', '代表车型'], summary))
+    if config.get('analyze_cluster_centers'):
+        report.extend(['', *cluster_reason_section(clusters, limits)])
     report.extend(['', '各维度最大值可能来自不同车型，代表车型不一定达到三项最大值。包络是车辆外廓，不是成品车衣的放量或裁片尺寸。', '', '## 完整成员明细', ''])
     membership = {m['DIMENSION-ID']: m['SKU聚簇'] for m in members}
-    report.extend(table(['候选 SKU', 'DIMENSION-ID', '原子代号', '年款', '代际', '版本', '结构', 'L/mm', 'W/mm', 'H/mm', '尺寸组销量'],
-                        [[membership[r['DIMENSION-ID']], r['DIMENSION-ID'], codes[r['DIMENSION-ID']], r['YEAR'], r.get('代际', ''), r.get('版本') or '—', r['结构'], *[r[f] for f in fields], r.get('尺寸组销量', '')] for r in rows]))
-    report.extend(['', *universal_size_risk_section(config, rows)])
+    if config.get('omit_member_detail'):
+        report[-2:] = ['', '完整成员已用于计算与完整性校验，本报告按要求不展开逐条明细；记录范围见候选汇总与 Sketchfab 参考任务。', '']
+    elif config.get('compact_report'):
+        report.extend(table(['候选 SKU', 'DIMENSION-ID', '原子代号', 'L×W×H/mm'],
+                            [[membership[r['DIMENSION-ID']], r['DIMENSION-ID'], codes[r['DIMENSION-ID']], ' × '.join(r[f] for f in fields)] for r in rows]))
+    else:
+        report.extend(table(['候选 SKU', 'DIMENSION-ID', '原子代号', '年款', '代际', '版本', '结构', 'L/mm', 'W/mm', 'H/mm', '尺寸组销量'],
+                            [[membership[r['DIMENSION-ID']], r['DIMENSION-ID'], codes[r['DIMENSION-ID']], r['YEAR'], r.get('代际', ''), r.get('版本') or '—', r['结构'], *[r[f] for f in fields], r.get('尺寸组销量', '')] for r in rows]))
+    risk = universal_size_risk_section(config, rows)
+    if risk:
+        report.extend(['', *risk])
     if config.get('sampling_groups'):
         report.extend(['', '## 打样 SKU 方案', '', '人工打样方案与尺寸算法候选分别记录，打样通过后才能确认共版范围。', ''])
         samples = []
@@ -94,10 +176,17 @@ def render_report(config, rows, codes, reviews, provenance, tasks_builder):
         report.extend(table(['打样 SKU', '年款', '包络/mm', '历史尺寸组销量合计', '验证理由'], samples))
         report.extend(['', '历史销量仅用于验证顺序，不等于当前保有量或采购预测。'])
     report.extend(['', '## Sketchfab 参考任务', '', f"链接检索登记日期：{config.get('search_date', '未登记')}。链接已找到表示参考候选，尚未完成外形与真实比例验证。", ''])
-    report.extend(table(['候选 SKU', '代际', '覆盖车型', '状态', '核验项目'], [[t[k] for k in ('SKU聚簇', '代际', '覆盖车型', '状态', '核验项目')] for t in tasks]))
+    scope_heading = '参考范围' if config.get('sketchfab_sku_searches') else '代际'
+    report.extend(table(['候选 SKU', scope_heading, '覆盖车型', '状态', '核验项目'], [[t[k] for k in ('SKU聚簇', '代际', '覆盖车型', '状态', '核验项目')] for t in tasks]))
     report.extend(['', '## Sketchfab 检索与完整参考链接', ''])
-    for item in config['sketchfab_searches']:
-        report.extend(['', f"### {item['generation']}", '', f"检索式：`{item['query']}`", ''])
+    search_groups = config.get('sketchfab_sku_searches', config.get('sketchfab_searches', []))
+    if config.get('sketchfab_sku_searches'):
+        search_groups = sorted(search_groups, key=lambda item: item['sku'])
+    for item in search_groups:
+        heading = item.get('sku', item.get('generation', '参考组'))
+        if item.get('representative'):
+            heading += f"｜代表车型：{item['representative']}"
+        report.extend(['', f"### {heading}", '', f"检索式：`{item['query']}`", ''])
         models = item.get('models', []) or ([{'title': '参考模型', 'url': item['representative_url']}] if item.get('representative_url') else [])
         report.extend([f"- [{m['title']}]({m['url']})" for m in models] or ['- 待补可靠参考模型。'])
         if item.get('note'):

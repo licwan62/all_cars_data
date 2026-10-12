@@ -3,7 +3,7 @@
 ## 结论与范围
 
 区域：US；车系范围：Toyota Prius / Prius C / Prius V / Prius Prime / Prius Plug-in Hybrid；结构：Hatchback / Wagon。
-13 条尺寸记录形成 2 个尺寸候选 SKU。跨代际共版须完成外形核验和实车打样。
+13 条尺寸记录形成 2 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。
 
 分析范围扩大为 Prius、Prius C、Prius v、Prius Prime 与 Prius Plug-in Hybrid；保留 Hatchback 与 Wagon，明确排除 2001–2003 Prius Sedan。
 SKU 包络的 L/W/H 最大跨度统一放宽至 300 mm。该阈值只用于尺寸候选聚簇，不能证明不同车身轮廓、镜耳、尾门或裁片可直接共版。
@@ -153,7 +153,7 @@ L/W/H 跨度阈值：300/300/300 mm。L-MM 作为长度代理。按长度降序�
 
 待人工补充可核验的 Plug-in Hybrid 外形参考。
 
-## 打样验收与待确认事项
+## 适配核验与待确认事项
 
 1. 每个拟共版 SKU 验证 L/W/H 极值车型，拍摄前、侧、后与镜耳位置；记录偏大、偏小、偏长、偏短及下摆覆盖。
 2. 核对车顶弧线、尾门、扰流板和镜耳位置；跨代际外形差异无法通过放量解决时拆分 SKU。

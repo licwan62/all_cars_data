@@ -2,10 +2,18 @@
   "schema_version": 1,
   "node": "custom-analysis",
   "path": "F0.定制分析",
-  "version": "20261010_15",
-  "artifact": "F0.定制分析/artifacts/2026-10-10_15_custom-analysis-release",
-  "published_at": "2026-10-10T17:25:04+08:00",
+  "version": "20261012_09",
+  "artifact": "F0.定制分析/artifacts/2026-10-12_09_custom-analysis-release",
+  "published_at": "2026-10-12T13:50:45+08:00",
   "deliverables": [
+    {
+      "file": "ford_mustang/定制SKU聚簇报告.md",
+      "versioned_file": "ford_mustang/定制SKU聚簇报告-20261012_08.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_08_custom-analysis/output/ford_mustang/定制SKU聚簇报告-20261012_08.md",
+      "sha256": "1a5c414e65b55da3537bc22bfa61aa29fae1eba603b5d0a8a4a94eb56d13dd3f",
+      "bytes": 17320,
+      "rows": null
+    },
     {
       "file": "mercedes_e_class/定制SKU聚簇报告.md",
       "versioned_file": "mercedes_e_class/定制SKU聚簇报告-20261010_03.md",
@@ -20,6 +28,14 @@
       "artifact_file": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis/output/jeep_gladiator/定制SKU聚簇报告-20261010_14.md",
       "sha256": "2669b219b4c31b89627e17ad3e03a04796dc396fb8c33aae71af84dffd16a9ff",
       "bytes": 8797,
+      "rows": null
+    },
+    {
+      "file": "kia_soul/定制SKU聚簇报告.md",
+      "versioned_file": "kia_soul/定制SKU聚簇报告-20261011_03.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-11_03_custom-analysis/output/kia_soul/定制SKU聚簇报告-20261011_03.md",
+      "sha256": "a8a5112b522d877b02ecac392b0ec9869d88ae3a60561edd184800e19cfcb636",
+      "bytes": 8364,
       "rows": null
     },
     {
@@ -162,8 +178,16 @@
   ],
   "rules": [
     {
+      "file": "data/ford_mustang_custom_analysis.json",
+      "sha256": "99deabaa19047de1ee4a6c7adbe130760c9e3ff7d2ef81368c1d829bbaab6274"
+    },
+    {
       "file": "data/jeep_gladiator_custom_analysis.json",
       "sha256": "56a967fe59dc740c78338dbd2cc49fd9ef19c010dae251f4782f2f1b7c3163db"
+    },
+    {
+      "file": "data/kia_soul_custom_analysis.json",
+      "sha256": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd"
     },
     {
       "file": "data/mercedes_e_class_custom_analysis.json",
@@ -179,7 +203,7 @@
     },
     {
       "file": "data/README.md",
-      "sha256": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd"
+      "sha256": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221"
     },
     {
       "file": "data/subaru_forester_custom_analysis.json",

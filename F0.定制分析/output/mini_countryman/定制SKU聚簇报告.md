@@ -2,8 +2,8 @@
 
 ## 结论与范围
 
-区域：US；精确车型：MINI Countryman；结构：SUV。
-4 条尺寸记录形成 2 个尺寸候选 SKU。跨代际共版须完成外形核验和实车打样。
+区域：US；车系范围：MINI Countryman；结构：SUV。
+4 条尺寸记录形成 2 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。
 
 
 ## 差评依据
@@ -63,7 +63,7 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 
 - 待补可靠参考模型。
 
-## 打样验收与待确认事项
+## 适配核验与待确认事项
 
 1. 每个拟共版 SKU 验证 L/W/H 极值车型，拍摄前、侧、后与镜耳位置；记录偏大、偏小、偏长、偏短及下摆覆盖。
 2. 核对车顶弧线、尾门、扰流板和镜耳位置；跨代际外形差异无法通过放量解决时拆分 SKU。
@@ -77,6 +77,6 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 
 | 节点 | 输入 | 上游版本 | sha256 | 来源 artifact |
 | --- | --- | --- | --- | --- |
-| size-calculation | US/全量/全量表.csv | 20261009_04 | d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965 | A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv |
-| code-mapping | 尺寸编码映射.csv | 20261009_04 | e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445 | 02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv |
+| size-calculation | US/全量/全量表.csv | 20261010_01 | d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965 | A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv |
+| code-mapping | 尺寸编码映射.csv | 20261010_01 | e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445 | 02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv |
 | negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |

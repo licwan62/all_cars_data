@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "batch": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis",
+  "version": "20261012_11",
+  "description": "custom-analysis",
+  "created_at": "2026-10-12T14:06:53+08:00",
+  "finished_at": "2026-10-12T14:06:53+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261010_01",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261009_04.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv",
+      "sha256": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965"
+    },
+    {
+      "node": "code-mapping",
+      "path": "02.代码映射",
+      "version": "20261010_01",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261009_04.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv",
+      "sha256": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "B0.差评分析",
+      "version": "20261009_04",
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261009_04.csv",
+      "artifact_file": "B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+    }
+  ],
+  "rules": {
+    "data_dir": "F0.定制分析/data",
+    "git_commit": "8b3c951132b22c6b77eaac30df8568b22699d99d",
+    "copied": [
+      "data/ford_mustang_custom_analysis.json",
+      "data/kia_soul_custom_analysis.json",
+      "data/README.md"
+    ],
+    "files": [
+      {
+        "file": "data/ford_mustang_custom_analysis.json",
+        "sha256": "31209f83487a8cf1cebf36af6300c0256ae1ad29c750d31d8b5ecd9e2ac31201",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/rules/data/ford_mustang_custom_analysis.json"
+      },
+      {
+        "file": "data/jeep_gladiator_custom_analysis.json",
+        "sha256": "56a967fe59dc740c78338dbd2cc49fd9ef19c010dae251f4782f2f1b7c3163db"
+      },
+      {
+        "file": "data/kia_soul_custom_analysis.json",
+        "sha256": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/rules/data/kia_soul_custom_analysis.json"
+      },
+      {
+        "file": "data/mercedes_e_class_custom_analysis.json",
+        "sha256": "14b888c54188343bca8a0552f139379a63d282bfaad3e3be5ef0abc80ee7d6e2"
+      },
+      {
+        "file": "data/mini_countryman_custom_analysis.json",
+        "sha256": "c9f3d174e4eca98ccd07347a80981f89e685adc57f717db2cb5a9491c2e972ba"
+      },
+      {
+        "file": "data/prius_custom_analysis.json",
+        "sha256": "464c9430061dc93cdf7ed8f60b5c52a6ae0fd35a7ae7a5c85a27ce12467f3e81"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/rules/data/README.md"
+      },
+      {
+        "file": "data/subaru_forester_custom_analysis.json",
+        "sha256": "159409b7176b151c90532b32e249cf9a826ab065eeda8ab410b19a5eafc5cf6f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "ford_mustang/定制SKU聚簇报告.md",
+      "versioned_file": "ford_mustang/定制SKU聚簇报告-20261012_11.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/output/ford_mustang/定制SKU聚簇报告-20261012_11.md",
+      "sha256": "513f9d36126f0959f352318636df472d490986ae38c7f82e78f8bafd9f03bc00",
+      "bytes": 15997,
+      "rows": null
+    },
+    {
+      "file": "jeep_gladiator/定制SKU聚簇报告.md",
+      "versioned_file": "jeep_gladiator/定制SKU聚簇报告-20261012_11.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/output/jeep_gladiator/定制SKU聚簇报告-20261012_11.md",
+      "sha256": "2669b219b4c31b89627e17ad3e03a04796dc396fb8c33aae71af84dffd16a9ff",
+      "bytes": 8797,
+      "rows": null
+    },
+    {
+      "file": "kia_soul/定制SKU聚簇报告.md",
+      "versioned_file": "kia_soul/定制SKU聚簇报告-20261012_11.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/output/kia_soul/定制SKU聚簇报告-20261012_11.md",
+      "sha256": "a8a5112b522d877b02ecac392b0ec9869d88ae3a60561edd184800e19cfcb636",
+      "bytes": 8364,
+      "rows": null
+    },
+    {
+      "file": "mercedes_e_class/定制SKU聚簇报告.md",
+      "versioned_file": "mercedes_e_class/定制SKU聚簇报告-20261012_11.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/output/mercedes_e_class/定制SKU聚簇报告-20261012_11.md",
+      "sha256": "e8d09141cdae1fc8ea9b6ed8ba54115373071a5c841f161aaf87d2612b4b2f54",
+      "bytes": 8399,
+      "rows": null
+    },
+    {
+      "file": "mini_countryman/定制SKU聚簇报告.md",
+      "versioned_file": "mini_countryman/定制SKU聚簇报告-20261012_11.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/output/mini_countryman/定制SKU聚簇报告-20261012_11.md",
+      "sha256": "cd564267fde3ff792a81ebcca1f072f4c7aff15a3d21c70c01cf7107602ec946",
+      "bytes": 5095,
+      "rows": null
+    },
+    {
+      "file": "prius/定制SKU聚簇报告.md",
+      "versioned_file": "prius/定制SKU聚簇报告-20261012_11.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/output/prius/定制SKU聚簇报告-20261012_11.md",
+      "sha256": "94c62e734172a7a94e927928890227fe128806346a3a1230ead77a4722624cec",
+      "bytes": 11990,
+      "rows": null
+    },
+    {
+      "file": "subaru_forester/定制SKU聚簇报告.md",
+      "versioned_file": "subaru_forester/定制SKU聚簇报告-20261012_11.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis/output/subaru_forester/定制SKU聚簇报告-20261012_11.md",
+      "sha256": "0811372cbedab46429eff77d4b17c3fab02b61b432ceb39e8c999ee81daf559b",
+      "bytes": 10416,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "ford_mustang",
+        "input_rows": 57
+      },
+      {
+        "case": "jeep_gladiator",
+        "input_rows": 6
+      },
+      {
+        "case": "kia_soul",
+        "input_rows": 4
+      },
+      {
+        "case": "mercedes_e_class",
+        "input_rows": 15
+      },
+      {
+        "case": "mini_countryman",
+        "input_rows": 4
+      },
+      {
+        "case": "prius",
+        "input_rows": 13
+      },
+      {
+        "case": "subaru_forester",
+        "input_rows": 8
+      }
+    ],
+    "change": "仅交付完整 Markdown，新增 Prius 和差评依据；历史批次保留"
+  }
+}
