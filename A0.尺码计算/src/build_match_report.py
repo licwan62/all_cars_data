@@ -28,6 +28,7 @@ import yaml
 import data_layout
 import output_layout as layout
 import pandas_analysis as analysis
+from rule_identity import RULE_ID_COLUMN, rule_ids
 
 PROJECT = Path(__file__).resolve().parents[1]
 OUTPUT = PROJECT / "output"
@@ -48,7 +49,10 @@ def relative(path: Path) -> str:
     try:
         return path.resolve().relative_to(PROJECT).as_posix()
     except ValueError:
-        return path.as_posix()
+        try:
+            return "../" + path.resolve().relative_to(PROJECT.parent).as_posix()
+        except ValueError:
+            return path.as_posix()
 
 
 def cell(value: object) -> str:
@@ -86,6 +90,9 @@ def region_sources(region: str) -> dict[str, tuple[Path, str]]:
     sources = {"规则": (config.rules, config.size_column), "参数": (config.parameters, "")}
     if region == "US":
         sources["店铺货架配置"] = (data_layout.SHELF_CONFIG, "")
+        from shape_adjustment import CONFIG, SOURCE
+        sources["SHAPE调整规则"] = (CONFIG, "")
+        sources["SHAPE调整来源"] = (SOURCE, "")
     return sources
 
 
@@ -204,6 +211,20 @@ def ru_rules_text(parameters: pd.DataFrame) -> list[str]:
     ]
 
 
+def check_rule_ids(region: str, output_dir: Path, frame: pd.DataFrame, known: set[str]) -> None:
+    """全量表（US 含各店铺表）的规则ID 必须都能在本报告规则表中找到。"""
+    tables = [(layout.full_table(region), frame)]
+    if region == "US":
+        tables += [(layout.store_table(store), read_csv(output_dir / layout.store_table(store)))
+                   for store in dict.fromkeys(row[0] for row in shelf_rows())]
+    for name, table in tables:
+        if RULE_ID_COLUMN not in table.columns:
+            raise ValueError(f"{name} 缺少 {RULE_ID_COLUMN} 列")
+        unknown = sorted(set(table[RULE_ID_COLUMN]) - known - {""})
+        if unknown:
+            raise ValueError(f"{name} 的 {RULE_ID_COLUMN} 不在当前规则表中：{', '.join(unknown[:5])}")
+
+
 def build_report(region: str, output_dir: Path) -> str:
     table_path = output_dir / layout.full_table(region)
     frame = read_csv(table_path)
@@ -270,11 +291,55 @@ def build_report(region: str, output_dir: Path) -> str:
     lines += ["", "## 尺码规则", "",
               f"规则：`{relative(rule_path)}`；参数：`{relative(parameters_path)}`（当前版本由 `data/当前规则.yaml` 指定）。", ""]
     lines += ru_rules_text(parameters) if region == "RU" else size_matcher_rules_text(region, rules, parameters)
+    ids = rule_ids(rules)
+    check_rule_ids(region, output_dir, frame, set(ids))
     lines += ["", f"### 规则表（{len(rules)} 条）", ""]
-    lines += md_table(list(rules.columns), rules.values.tolist())
+    lines += [f"末列 `{RULE_ID_COLUMN}` 由规则行内容生成（不含备注），全量表的 `{RULE_ID_COLUMN}` 列即本行命中的规则；"
+              "无可用尺码 / 数据不全的行为空。" + ("店铺全量表另有 `匹配尺码`：换成发货尺码前的规则匹配尺码。" if region == "US" else ""), ""]
+    lines += md_table([*rules.columns, RULE_ID_COLUMN], [[*row, rule] for row, rule in zip(rules.values.tolist(), ids)])
     lines += ["", "### 参数", ""]
     lines += md_table(list(parameters.columns), parameters.values.tolist())
+    if region == "US":
+        lines += shape_adjustment_text(frame, rules, parameters)
     return "\n".join(lines) + "\n"
+
+
+def shape_adjustment_text(frame, rules, parameters):
+    from shape_adjustment import CONFIG, adjust, load_config, MATCH_COLUMNS
+    config = load_config()
+    # 从当前正式表的原计算量重算基础结果，再执行同一个调整器，避免报告另写一套条件。
+    inputs = frame.drop(columns=[c for c in MATCH_COLUMNS if c in frame]).copy()
+    for spec in analysis.DEFAULT_LIMITS:
+        inputs[spec.source_column] = pd.to_numeric(inputs[spec.source_column], errors="coerce")
+    base = analysis.SizeMatcher(parameters, rules).apply(inputs)
+    adjusted, audit = adjust(base, parameters, rules, config=config)
+    if adjusted["自动尺码"].tolist() != frame["自动尺码"].tolist():
+        raise ValueError("US SHAPE调整报告重算与当前全量表不一致，请先重建US结果")
+    if not config["enabled"]:
+        return ["", "## SHAPE 版型调整提醒", "",
+                f"调整规则：`{relative(CONFIG)}`；**当前已停用（enabled: false）**。", "",
+                "本次仅使用原基础规则进行尺码匹配，SHAPE仅作为展示与研究标签；SHAPE调整记录数为0。"
+                "原调整条件保留在规则文件中，重新启用并重建前不会影响全量表、店铺匹配或TRIM适配器。", ""]
+    lines = ["", "## SHAPE 版型调整提醒", "",
+             f"调整规则：`{relative(CONFIG)}`；基础规则七字段保持不变，先基础匹配，再执行调整。", "",
+             f"启用：{config['enabled']}；SHAPE：{', '.join(config['shapes'])}；结构：{', '.join(config['structures'])}；"
+             f"原分类：{', '.join(config['categories'])}；车高：0 < H-MM ≤ {config['height_max_mm']} mm；"
+             f"证据状态：{', '.join(config['statuses'])}。", "",
+             f"目标3X尺码：{', '.join(config['target_sizes'])}。目标规则仍执行原长度、插片上下限、余量容差和店铺货架约束。", "",
+             config['note'], "",
+             "**提醒：SHAPE标签并非实车适配验证；白名单优先，证据不足或目标不可用时保留基础结果。基础分类、车形、插片指数均不改写；规则ID指向最终命中的基础规则行。**", ""]
+    counts = pd.Series([r['处理'] for r in audit], dtype=str).value_counts()
+    lines += md_table(["处理", "记录数"], [[k, int(v)] for k, v in counts.items()]) if audit else ["本次没有符合几何条件的记录。"]
+    changed = [r for r in audit if r['处理'] == '已调整']
+    lines += ["", f"### 实际调整明细（{len(changed)} 条）", ""]
+    headers = ["DIMENSION-ID", "结构", "分类", "SHAPE", "SHAPE_STATUS", "H-MM", "基础尺码", "调整尺码"]
+    lines += md_table(headers, [[r[c] for c in headers] for r in changed]) if changed else ["无。"]
+    skipped = [r for r in audit if r['处理'] != '已调整']
+    if skipped:
+        lines += ["", "### 保留基础结果的候选", ""]
+        headers += ["处理"]
+        lines += md_table(headers, [[r[c] for c in headers] for r in skipped])
+    return lines
 
 
 def next_artifact_dir() -> Path:
@@ -288,27 +353,26 @@ def next_artifact_dir() -> Path:
 
 
 def main() -> int:
-    artifact = next_artifact_dir()
-    staging = artifact.with_name(f".{artifact.name}.tmp")
+    from artifact_batch import RunBatch
+    from shape_adjustment import SOURCE, load_config
+    batch = RunBatch.create(ARTIFACTS, "match-report-shape", data_dir=PROJECT / "data")
     try:
+        batch.input(SOURCE)
         reports = {region: build_report(region, OUTPUT) for region in layout.REGIONS}
         for region, text in reports.items():
-            target = staging / "output" / layout.match_report(region)
-            target.parent.mkdir(parents=True, exist_ok=True)
+            target = batch.output(layout.match_report(region))
             target.write_text(text, encoding="utf-8")
-        os.replace(staging, artifact)
+        batch.extra("REPORT.md", compress=False).write_text(
+            "# 尺码报告规则差异\n\nUS新增SHAPE调整条件、来源哈希、实际换码与保留基础结果的候选清单；"
+            "基础尺码规则表保留，EU/RU未启用SHAPE调整。"
+            f"本批次US调整启用状态：{load_config()['enabled']}。\n", encoding="utf-8")
+        batch.finish(publish_to=OUTPUT)
         for region in reports:
             name = layout.match_report(region)
-            destination = OUTPUT / name
-            destination.parent.mkdir(parents=True, exist_ok=True)
-            temporary = destination.with_name(f".{destination.name}.tmp")
-            shutil.copy2(artifact / "output" / name, temporary)
-            os.replace(temporary, destination)
             print(f"{name}: {len(reports[region].splitlines())} 行")
         return 0
     except (OSError, ValueError, KeyError, yaml.YAMLError) as error:
-        if staging.exists():
-            shutil.rmtree(staging)
+        batch.fail(error)
         print(f"生成尺码匹配报告失败：{error}", file=sys.stderr)
         return 2
 

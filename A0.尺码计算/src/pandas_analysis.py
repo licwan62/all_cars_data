@@ -32,6 +32,7 @@ if str(Path(__file__).resolve().parent) not in sys.path:
 
 from id_scheme import append_country_code, base_dimension_id
 from full_table_schema import build_dimension_analysis
+from rule_identity import RULE_ID_COLUMN, rule_ids
 import data_layout  # noqa: E402
 
 
@@ -63,6 +64,7 @@ DEFAULT_OUTPUT_COLUMNS = [
     "候选",
     "原因",
     "相差数值",
+    "规则ID",
     "TRIM",
 ]
 
@@ -111,6 +113,8 @@ class MatchResult:
     reason: str | None = None
     difference: float | None = None
     has_final_candidate: bool = False
+    # 命中规则的规则ID（rule_identity）；未匹配时为空
+    rule_id: str | None = None
 
 
 @dataclass
@@ -489,6 +493,8 @@ class SizeMatcher:
         version-agnostic, exactly like an empty ``CAB``.
         """
         normalized = rules.copy()
+        # 规则ID 按规则文件原始列计算（在补列、按分类展开之前），与报告「规则表」末列一致
+        normalized["_规则ID"] = rule_ids(rules)
         if "内部尺码" not in normalized.columns and "尺码" in normalized.columns:
             normalized["内部尺码"] = normalized["尺码"]
         if "CAB" not in normalized.columns:
@@ -804,6 +810,7 @@ class SizeMatcher:
                     auto_size=_clean_text(base_candidate.get("内部尺码")) or "",
                     length_margin=None if margin is None else self._round_one(margin),
                     has_final_candidate=True,
+                    rule_id=_clean_text(base_candidate.get("_规则ID")),
                 )
 
         if nearest is not None:
@@ -925,6 +932,7 @@ class SizeMatcher:
                 "候选": [result.candidate for result in results],
                 "原因": [result.reason for result in results],
                 "相差数值": [result.difference for result in results],
+                RULE_ID_COLUMN: [result.rule_id or "" for result in results],
             },
             index=vehicles.index,
         )

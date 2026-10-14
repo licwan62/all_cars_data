@@ -30,8 +30,10 @@ def register_base(batch, path):
 
 def main():
     config = yaml.safe_load((PROJECT / "data/全量SHAPE.yaml").read_text(encoding="utf-8"))
-    if config["fields"] != FULL_TABLE_SHAPE_FIELDS or config["use_for_size_matching"] is not False:
-        raise ValueError("全量 SHAPE 合同不一致，不能用于尺码匹配")
+    from shape_adjustment import load_config
+    adjustment_enabled = load_config()["enabled"]
+    if config["fields"] != FULL_TABLE_SHAPE_FIELDS or config["use_for_size_matching"] != adjustment_enabled:
+        raise ValueError("全量 SHAPE 合同不一致")
     source_path = ROOT / "03.车形分类核定" / "output" / config["source_file"]
     with RunBatch.create(PROJECT / "artifacts", "full-table-cover-shape", data_dir=PROJECT / "data") as batch:
         batch.input(source_path)
@@ -62,10 +64,11 @@ def main():
             summaries[name] = {"rows": len(enriched), "shape_counts": dict(Counter(enriched["SHAPE"])),
                                "all_shape_nonblank": bool(enriched["SHAPE"].ne("").all()), "existing_fields_unchanged": True}
         status = {"tables": summaries, "base_table_sha256": base_hashes, "new_fields": FULL_TABLE_SHAPE_FIELDS,
-                  "shape_not_used_for_size_matching": True}
+                  "shape_size_adjustment_rule": config["size_adjustment_rule"],
+                  "shape_size_adjustment_enabled": adjustment_enabled}
         batch.extra("REPORT.md", compress=False).write_text("# 全量表 SHAPE 回填\n\n" + json.dumps(status, ensure_ascii=False, indent=2) +
             "\n\n规则差异：全量SHAPE.yaml 仅插入 SHAPE；状态/代表年/方法/备选/来源由 03 节点维护。"
-            "全表行序、原列值和 TRIM 均逐项验证不变；SHAPE 不参与尺码匹配。\n", encoding="utf-8")
+            f"本回填步骤保持全表行序、原列值和TRIM不变；US独立SHAPE调整规则启用状态：{adjustment_enabled}，EU/RU未启用。\n", encoding="utf-8")
         batch.finish(status, publish_to=PROJECT / "output")
         print(json.dumps({"batch": str(batch.directory), **status}, ensure_ascii=False, indent=2))
 

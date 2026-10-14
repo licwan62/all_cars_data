@@ -23,6 +23,7 @@ if str(WORKSPACE_ROOT / "lib") not in sys.path:
 import data_layout
 import output_layout as layout
 import pandas_analysis as analysis
+from rule_identity import rule_ids
 
 
 SOURCE_DIR = WORKSPACE_ROOT / "02.分类结构审核" / "output"
@@ -65,6 +66,8 @@ def read_rules(path: Path, default_length_margin: float = DEFAULT_LENGTH_MARGIN_
     rules = analysis._read_csv(path)
     analysis._require_columns(rules, RULE_COLUMNS, "RU 尺码规则")
     result = rules[[*RULE_COLUMNS, *([LENGTH_MARGIN_COLUMN] if LENGTH_MARGIN_COLUMN in rules.columns else [])]].copy()
+    # 规则ID 按规则文件原始列计算，与报告「规则表」末列一致
+    result[analysis.RULE_ID_COLUMN] = rule_ids(rules)
     # Older snapshots did not carry a per-size allowance.  Keep them usable
     # with the historical current setting while new rule files make it explicit.
     if LENGTH_MARGIN_COLUMN not in result.columns:
@@ -99,11 +102,11 @@ def match_ru_sizes(
         category = str(vehicle["分类"]).strip()
         length, width, height = (pd.to_numeric(vehicle[column], errors="coerce") for column in ["L-MM", "W-MM", "H-MM"])
         if pd.isna(length) or pd.isna(width) or pd.isna(height):
-            matched.append({"自动尺码": "数据不全", "OZON尺码": "", "发货尺码": "", "自动长度余量": "", "候选": "", "原因": "数据不全", "相差数值": ""})
+            matched.append({"自动尺码": "数据不全", "OZON尺码": "", "发货尺码": "", "自动长度余量": "", "候选": "", "原因": "数据不全", "相差数值": "", analysis.RULE_ID_COLUMN: ""})
             continue
         pool = by_category.get(category)
         if pool is None:
-            matched.append({"自动尺码": "无可用尺码", "OZON尺码": "", "发货尺码": "", "自动长度余量": "", "候选": "", "原因": "无同分类规则", "相差数值": ""})
+            matched.append({"自动尺码": "无可用尺码", "OZON尺码": "", "发货尺码": "", "自动长度余量": "", "候选": "", "原因": "无同分类规则", "相差数值": "", analysis.RULE_ID_COLUMN: ""})
             continue
         fits = pool.loc[
             (pool["长_mm"] >= length)
@@ -119,7 +122,7 @@ def match_ru_sizes(
             rule = fits.sort_values(
                 ["_envelope_volume", "长_mm", "宽_mm", "高_mm", "亚马逊尺码"], kind="stable"
             ).iloc[0]
-            matched.append({"自动尺码": rule["亚马逊尺码"], "OZON尺码": rule["OZON尺码"], "发货尺码": rule["发货尺码"], "自动长度余量": round(float(rule["长_mm"] - length), 1), "候选": "", "原因": "", "相差数值": ""})
+            matched.append({"自动尺码": rule["亚马逊尺码"], "OZON尺码": rule["OZON尺码"], "发货尺码": rule["发货尺码"], "自动长度余量": round(float(rule["长_mm"] - length), 1), "候选": "", "原因": "", "相差数值": "", analysis.RULE_ID_COLUMN: rule.get(analysis.RULE_ID_COLUMN, "")})
             continue
         # Diagnostics select the closest dimensional upper-limit violation.
         differences = pd.concat([
@@ -133,7 +136,7 @@ def match_ru_sizes(
         nearest = max_difference.sort_values(kind="stable").index[0]
         rule = pool.loc[nearest]
         reason = differences.loc[nearest].idxmax()
-        matched.append({"自动尺码": "无可用尺码", "OZON尺码": "", "发货尺码": "", "自动长度余量": "", "候选": rule["亚马逊尺码"], "原因": reason, "相差数值": round(float(max_difference.loc[nearest]), 1)})
+        matched.append({"自动尺码": "无可用尺码", "OZON尺码": "", "发货尺码": "", "自动长度余量": "", "候选": rule["亚马逊尺码"], "原因": reason, "相差数值": round(float(max_difference.loc[nearest]), 1), analysis.RULE_ID_COLUMN: ""})
     return pd.DataFrame(matched, index=vehicles.index)
 
 
@@ -175,7 +178,7 @@ def build_ru_full_base(dimensions: pd.DataFrame, sales: pd.DataFrame) -> pd.Data
     # Shape-derived fields are not available in the RU regional pipeline yet.
     for column in ["车形", "参考侧高", "插片指数"]:
         result[column] = ""
-    return result[[column for column in analysis.DEFAULT_OUTPUT_COLUMNS if column not in {"自动尺码", "自动长度余量", "候选", "原因", "相差数值"}]]
+    return result[[column for column in analysis.DEFAULT_OUTPUT_COLUMNS if column not in {"自动尺码", "自动长度余量", "候选", "原因", "相差数值", analysis.RULE_ID_COLUMN}]]
 
 
 def next_artifact_dir() -> Path:

@@ -87,6 +87,25 @@ def test_kia_soul_document_covers_all_generations_and_review_structure_alias():
     assert document.count('（可下载）') == 2
 
 
+def test_kia_forte_document_includes_negative_review_and_body_style_risks():
+    config = json.loads((PROJECT / 'data' / 'kia_forte_custom_analysis.json').read_text(encoding='utf-8'))
+    root = PROJECT.parent
+    rows = active_rows(root / 'A0.尺码计算' / 'output' / 'US' / '全量' / '全量表.csv',
+                       config['make'], config['model'], structures=config['structures'])
+    codes = dimension_codes(root / '02.代码映射' / 'output' / '尺寸编码映射.csv')
+    reviews = [{'品牌': 'Kia', '车型': 'Forte', '结构': 'Sedan', '尺码': '3L',
+                '差评数量': '1', '主要差评原因': '不好装(1)', '严重度评级': '低'}]
+    document = render_report(config, rows, codes, reviews, [], reference_tasks)
+    assert '6 条尺寸记录形成 2 个尺寸候选 SKU' in document
+    assert all(row['DIMENSION-ID'] in document for row in rows)
+    assert '| SKU-01 | 16041418 | 1 | 2XL×1 |' in document
+    assert '| SKU-02 | 16041024 | 5 | 3M×2；3M-0×2；3L×1 |' in document
+    assert '不好装(1)' in document and '原因为“不好装”' in document
+    assert '首次安装用时' in document and '前后方向辨识' in document
+    assert all(generation in document for generation in ('TD 2010–2013', 'YD 2014–2018', 'BD 2019–2024'))
+    assert 'Forte5 Hatchback 的尾门和车顶轮廓' in document
+
+
 def test_markdown_members_with_pipe_versions_keep_table_columns():
     assert table(['版本'], [['A | B']])[-1] == '| A \\| B |'
 

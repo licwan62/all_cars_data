@@ -13,6 +13,7 @@ import json
 import re
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 from typing import Iterable, Mapping
 
@@ -30,6 +31,9 @@ import data_layout  # noqa: E402
 import output_layout as layout  # noqa: E402
 import pandas_analysis as analysis  # noqa: E402
 from trim.matching import match_trims  # noqa: E402
+
+# 店铺全量表：换成发货尺码前的规则匹配尺码
+MATCH_SIZE_COLUMN = "匹配尺码"
 
 
 def _required_mapping(value: object, name: str) -> Mapping[str, object]:
@@ -106,9 +110,15 @@ def load_shelf_config(
 def apply_shipping_sizes(
     result: pd.DataFrame, mappings: Iterable[tuple[str, str]]
 ) -> pd.DataFrame:
-    """将规则匹配结果和诊断候选转换为店铺发货尺码。"""
+    """将规则匹配结果和诊断候选转换为店铺发货尺码。
+
+    换码前的实际匹配尺码保留在 ``匹配尺码`` 列（紧挨 ``规则ID`` 之前），
+    使店铺表能追溯本行命中的规则；未匹配时与 自动尺码 相同（无可用尺码 / 数据不全）。
+    """
     size_map = dict(mappings)
     mapped = result.copy()
+    position = mapped.columns.get_loc(analysis.RULE_ID_COLUMN) if analysis.RULE_ID_COLUMN in mapped.columns else len(mapped.columns)
+    mapped.insert(position, MATCH_SIZE_COLUMN, mapped["自动尺码"])
     for column in ["自动尺码", "候选"]:
         mapped[column] = mapped[column].map(
             lambda value: size_map.get(value, value)
@@ -131,6 +141,8 @@ def _calculate(
     )
     result = us_rows(result)
     result["DIMENSION-ID"] = result["DIMENSION-ID"].map(us_dimension_id)
+    from shape_adjustment import adjust
+    result, _ = adjust(result, analysis._read_csv(parameters_path), analysis._read_csv(rule_path), allowed_sizes)
     return result
 
 
@@ -178,14 +190,26 @@ def main() -> int:
     args = parse_args()
     source_dir = args.source_dir.resolve()
     shelf_config = args.shelf_config.resolve()
+    batch = None
+    temporary_work = None
     try:
         rule_path, size_column, shops = load_shelf_config(shelf_config)
         config_dir = data_layout.current("US").parameters
-        output_dir = (
-            args.output_dir.resolve()
-            if args.output_dir
-            else analysis.next_artifact_output_dir(PROJECT_DIR / "artifacts", "us-size-trim")
-        )
+        if args.output_dir:
+            output_dir = args.output_dir.resolve()
+        else:
+            from artifact_batch import RunBatch
+            from shape_adjustment import SOURCE
+            batch = RunBatch.create(PROJECT_DIR / "artifacts", "us-size-trim-shape", data_dir=PROJECT_DIR / "data")
+            batch.input(SOURCE)
+            for node in ["02.分类结构审核", "02.销量评估", "03.车形分类核定"]:
+                manifest = json.loads((WORKSPACE_ROOT / node / "output/manifest.json").read_text(encoding="utf-8"))
+                for entry in manifest["deliverables"]:
+                    path = WORKSPACE_ROOT / node / "output" / entry["file"]
+                    if path != SOURCE:
+                        batch.input(path)
+            temporary_work = tempfile.TemporaryDirectory(prefix="us-size-shape-")
+            output_dir = Path(temporary_work.name) / "output"
         expected_rows = len(us_rows(analysis._read_csv(analysis.resolve_data_file(source_dir, "dimensions"))))
 
         full_result = _calculate(source_dir, config_dir, rule_path)
@@ -226,19 +250,34 @@ def main() -> int:
             "trim": {**trim.status, "data_dir": str(data_layout.TRIM_DIR), "adapter": str(adapter_path)},
             "outputs": outputs,
         }
+        if batch is not None:
+            from shape_adjustment import load_config
+            summary["shape_adjustment_enabled"] = load_config()["enabled"]
+            summary["trim"]["adapter"] = layout.TRIM_ADAPTER
+            for item in outputs.values():
+                item["output"] = Path(item["output"]).relative_to(output_dir).as_posix()
         (output_dir.parent / "status.json").write_text(
             json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
-        if args.output_dir is None:
-            current_output = PROJECT_DIR / "output"
+        if batch is not None:
             for generated in output_dir.rglob("*"):
                 if generated.is_file():
-                    analysis.promote_file(generated, current_output / generated.relative_to(output_dir))
+                    shutil.copy2(generated, batch.output(generated.relative_to(output_dir).as_posix()))
+            batch.extra("REPORT.md", compress=False).write_text(
+                "# US SHAPE调整规则变更\n\n基础七字段规则保留不变。新增 data/US/规则/SHAPE调整.yaml："
+                "低矮掀背／溜背按已登记SHAPE及证据状态尝试普通3X系列，保留白名单和原数值约束。"
+                f"本批次启用状态：{summary['shape_adjustment_enabled']}。具体条件、实际调整及跳过记录见US尺码匹配报告。\n", encoding="utf-8")
+            batch.finish(summary, publish_to=PROJECT_DIR / "output")
         print(json.dumps(summary, ensure_ascii=False, indent=2))
         return 0
     except (analysis.DataContractError, FileNotFoundError, ValueError, pd.errors.ParserError, yaml.YAMLError) as error:
+        if batch is not None:
+            batch.fail(error)
         print(f"生成失败：{error}", file=sys.stderr)
         return 2
+    finally:
+        if temporary_work is not None:
+            temporary_work.cleanup()
 
 
 if __name__ == "__main__":

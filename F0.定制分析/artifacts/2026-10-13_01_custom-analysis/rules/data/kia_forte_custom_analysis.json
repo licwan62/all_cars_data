@@ -1,0 +1,57 @@
+{
+  "make": "Kia",
+  "model": "Forte",
+  "region": "US",
+  "structures": ["Coupe", "Hatchback", "Sedan"],
+  "review_structures": ["Sedan"],
+  "report_title": "Kia Forte 定制 SKU 分析与通用尺码风险",
+  "dimension_tolerances_mm": {"L-MM": 250, "W-MM": 150, "H-MM": 100},
+  "search_date": "2026-10-13",
+  "sketchfab_generation_by_internal_generation": {
+    "gen1": "TD 2010–2013",
+    "gen2": "YD 2014–2018",
+    "gen3": "BD 2019–2024"
+  },
+  "analysis_notes": [
+    "范围为 US Kia Forte 的 2010–2024 尺寸记录，覆盖 Sedan、Koup/Coupe 与 Forte5 Hatchback；不同结构不会因车系名称相同而预设共版。",
+    "按 250/150/100 mm 的 L/W/H 阈值形成两个尺寸候选 SKU：2014–2018 Forte5 Hatchback 单独成组，其余 Sedan 与 Coupe/Koup 记录形成另一组；尺寸同组不代表车顶、尾部和镜耳位置可共版。",
+    "B0 命中 1 条 Sedan / 3L 的低严重度差评，原因为“不好装”；台账未提供年款、实际偏差方向、安装步骤或卡住部位，因此只作为 3L 适配与安装验证的风险信号，不能直接归因第三代或据此整体加大/缩小。",
+    "2014–2018 Sedan 的 3M 自动长度余量仅 1 mm，2014–2016 Koup 为 31 mm；应优先验证前后下摆、保险杠包覆和安装顺序，并与差评所购 3L 实物分别核对。"
+  ],
+  "universal_size_risk": true,
+  "universal_size_risk_by_sku": true,
+  "universal_size_risk_notes": [
+    "- 现有差评尺码为 3L，而第三代 Sedan 的自动尺码也是 3L；先补录差评年款、实物标签、安装方向和卡滞部位，再判断是版型、标识还是操作问题。",
+    "- SKU-02 同时包含 Sedan 与 Coupe/Koup，尽管 L/W/H 在阈值内，低车顶、后风挡斜率、尾箱轮廓和镜耳位置仍需分结构打样；任何一项无法通过放量解决即拆版。",
+    "- Forte5 Hatchback 的尾门和车顶轮廓与三厢/双门版本不同，保持独立候选并单独核验后部包覆。"
+  ],
+  "acceptance_notes": [
+    "5. 针对“不好装”差评，打样记录应增加首次安装用时、前后方向辨识、拉链/绑带操作、最紧部位及是否需要两人安装；结果按年款、结构和实物尺码回填。"
+  ],
+  "sketchfab_searches": [
+    {
+      "generation": "TD 2010–2013",
+      "query": "site:sketchfab.com/3d-models Kia Forte 2010 Koup",
+      "representative_url": "https://sketchfab.com/3d-models/2010-kia-forte-koup-2240c1e0f4874f909051de7f6401ee97",
+      "models": [
+        {"title": "2010 Kia Forte Koup · Ddiaz Design（可下载，34k 三角面）", "url": "https://sketchfab.com/3d-models/2010-kia-forte-koup-2240c1e0f4874f909051de7f6401ee97"},
+        {"title": "2010 Kia Forte Koup · danielandressierratorres4（下载状态未确认）", "url": "https://sketchfab.com/models/d48388f384fc4ae382a2ea0ffd1806aa/embed"}
+      ],
+      "note": "首选模型明确对应 2010 Koup 且可下载，仅用于第一代 Coupe 外形初筛；不能替代同代 Sedan 的车顶、后风挡和尾箱核验。"
+    },
+    {
+      "generation": "YD 2014–2018",
+      "query": "site:sketchfab.com/3d-models Kia Forte 2014 Koup Sedan Forte5",
+      "models": [],
+      "note": "待补第二代 Sedan、Koup 和 Forte5 的可靠同代模型；三种结构须分别核验。"
+    },
+    {
+      "generation": "BD 2019–2024",
+      "query": "site:sketchfab.com/3d-models Kia Forte 2019 2024 sedan",
+      "models": [
+        {"title": "Kia Forte · Power Lice（可下载，500k 三角面；年款未确认）", "url": "https://sketchfab.com/3d-models/kia-forte-af0249da2e374e059cae35f4f905c1ee"}
+      ],
+      "note": "页面未说明确切年款，不能设为第三代代表模型；仅作轮廓候选，须先人工确认与 2019–2024 US Sedan 的对应关系。"
+    }
+  ]
+}

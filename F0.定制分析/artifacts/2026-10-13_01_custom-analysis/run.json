@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "batch": "F0.定制分析/artifacts/2026-10-13_01_custom-analysis",
+  "version": "20261013_01",
+  "description": "custom-analysis",
+  "created_at": "2026-10-13T18:13:33+08:00",
+  "finished_at": "2026-10-13T18:13:33+08:00",
+  "command": [
+    "run.py",
+    "--case",
+    "kia_forte"
+  ],
+  "inputs": [
+    {
+      "file": "A0.尺码计算/output/US/全量/全量表.csv",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-13_01_custom-analysis/input/US/全量/全量表.csv",
+      "sha256": "f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4",
+      "copied_because": "A0.尺码计算/output/US/全量/全量表.csv 与其 manifest 版本 20261013_12 不一致（上游改动后未发布）"
+    },
+    {
+      "node": "code-mapping",
+      "path": "02.代码映射",
+      "version": "20261010_01",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261009_04.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv",
+      "sha256": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "B0.差评分析",
+      "version": "20261009_04",
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261009_04.csv",
+      "artifact_file": "B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+    }
+  ],
+  "rules": {
+    "data_dir": "F0.定制分析/data",
+    "git_commit": "5106935243f40447c60907f6fb1ff4ac412a937d",
+    "copied": [
+      "data/kia_forte_custom_analysis.json"
+    ],
+    "files": [
+      {
+        "file": "data/ford_mustang_custom_analysis.json",
+        "sha256": "c69ed520f5607be1d88ab188efd2df1f5d1df5970413e6ddb40751ebb2cb5dbc"
+      },
+      {
+        "file": "data/jeep_gladiator_custom_analysis.json",
+        "sha256": "81ffce2c3cf73891276aec9de95d724eb1600c67d327124798c4b57c12cf26ea"
+      },
+      {
+        "file": "data/kia_forte_custom_analysis.json",
+        "sha256": "6822fe8b41850aa6e5b9fab423194f61bf966e8067d3ec95a45ced66b6021af6",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-13_01_custom-analysis/rules/data/kia_forte_custom_analysis.json"
+      },
+      {
+        "file": "data/kia_soul_custom_analysis.json",
+        "sha256": "02e12a4ed9184038077373d18f66e76192dd5d2f3cc43e6c428f66c853a236f0"
+      },
+      {
+        "file": "data/mercedes_e_class_custom_analysis.json",
+        "sha256": "189c80e78816a5b2f44d3789d12f6177b1fe597f030c4535c5ba9a517c699758"
+      },
+      {
+        "file": "data/mini_countryman_custom_analysis.json",
+        "sha256": "b76a1018af9b8afdbe7b05db8c356be7de55cf2f0aef6a69a248be9e8deafa43"
+      },
+      {
+        "file": "data/prius_custom_analysis.json",
+        "sha256": "169f8bb8934b01dc745b7e58fc10b0c67bebd9e13dad2f8ba7c9f310619053e2"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "71dfbae551431e047b62afa4240505db8c438b009f3cba038eec0dc9bb1a9295"
+      },
+      {
+        "file": "data/subaru_forester_custom_analysis.json",
+        "sha256": "5ba3eed488b403805c67c9753c259059a8fe2a4238a39b0649f2bfdf8e64f8af"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "kia_forte/定制SKU聚簇报告.md",
+      "versioned_file": "kia_forte/定制SKU聚簇报告-20261013_01.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-13_01_custom-analysis/output/kia_forte/定制SKU聚簇报告-20261013_01.md",
+      "sha256": "8a88e43f74a1bc0e387e2b52546c989732e1d21f609bec7566512bcb7c042362",
+      "bytes": 8949,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "kia_forte",
+        "input_rows": 6
+      }
+    ],
+    "change": "仅交付完整 Markdown，新增 Prius 和差评依据；历史批次保留"
+  }
+}

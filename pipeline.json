@@ -220,7 +220,8 @@
         "2026-09-28 全量表（US/EU/RU 全量表与 US 店铺全量）将 销量合计 拆为 尺寸组销量（原 销量合计，按 DIMENSION-ID）与 车型销量（同表按 MAKE+MODEL 汇总尺寸组销量）；两列位于 H-MM 之后，其余列不变。下游 C1、X2 改读 尺寸组销量，D1 读入后仍以 销量合计 输出供 D2",
         "2026-09-28 RU 规则改用 data/RU/规则/0928-1.csv（YS-380→OZON XS/发货 S，YS-410→OZON S/发货 YM）；全量表不再输出 前宽-MM、后宽-MM、等效长（仍在内部用于插片指数）；车型销量 统计粒度改为 MAKE+MODEL+结构",
         "2026-10-08 全量表（US/EU/RU 全量表与 US 店铺全量）调整字段顺序：DIMENSION-ID 移至首列，US 表 TRIM 移至末列（EU/RU 无 TRIM，末列为 相差数值）；行、列集合与取值不变。下游 A1/A2/B1/C1 均按列名读取，重跑结果逐字节不变",
-        "2026-10-12 三国与 US 店铺全量表紧跟旧车形仅插入 SHAPE；状态、代表年、方法、备选与来源由 03/COVER_SHAPE.csv 维护；按精确地区 ID 全覆盖关联，移除上一轮全量表的 SHAPE 辅助列，其他列值/行序/TRIM 不变，SHAPE 不参与尺码计算"
+        "2026-10-12 三国与 US 店铺全量表紧跟旧车形仅插入 SHAPE；状态、代表年、方法、备选与来源由 03/COVER_SHAPE.csv 维护；按精确地区 ID 全覆盖关联，移除上一轮全量表的 SHAPE 辅助列，其他列值/行序/TRIM 不变，SHAPE 不参与尺码计算",
+        "2026-10-13 全量表（US/EU/RU 全量表与 US 店铺全量）在 相差数值 之后新增 规则ID：命中规则的内容标识（规则行规范化内容的 SHA-256 前 10 位，不含备注；无可用尺码/数据不全为空），与 <国别>/尺码匹配报告.md 规则表末列 规则ID 对应；US 店铺全量表在 规则ID 之前新增 匹配尺码（换成发货尺码前的规则匹配尺码）。其他列值、行序与 TRIM 不变，A1 重跑逐字节不变；下游均按列名读取"
       ]
     },
     {
@@ -345,6 +346,7 @@
         "ford_mustang/定制SKU聚簇报告.md",
         "mercedes_e_class/定制SKU聚簇报告.md",
         "jeep_gladiator/定制SKU聚簇报告.md",
+        "kia_forte/定制SKU聚簇报告.md",
         "kia_soul/定制SKU聚簇报告.md",
         "mini_countryman/定制SKU聚簇报告.md",
         "prius/定制SKU聚簇报告.md",
@@ -586,6 +588,7 @@
         "ford_mustang/定制SKU聚簇报告.md",
         "mercedes_e_class/定制SKU聚簇报告.md",
         "jeep_gladiator/定制SKU聚簇报告.md",
+        "kia_forte/定制SKU聚簇报告.md",
         "kia_soul/定制SKU聚簇报告.md",
         "mini_countryman/定制SKU聚簇报告.md",
         "prius/定制SKU聚簇报告.md",
