@@ -160,7 +160,15 @@ def to_markdown(plan: dict) -> str:
 
 def execute(plan_path: Path, delete_source: bool) -> int:
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
-    done = []
+    done: list[dict] = []
+    try:
+        return _execute_units(plan, delete_source, done)
+    finally:
+        if done:  # 中途失败也要登记已完成（可能已删除本地）的单元
+            _append_index(plan, done)
+
+
+def _execute_units(plan: dict, delete_source: bool, done: list[dict]) -> int:
     for unit in plan["units"]:
         src = (ROOT / unit["source"]).resolve()
         if BAK.resolve() not in src.parents:
@@ -196,8 +204,10 @@ def execute(plan_path: Path, delete_source: bool) -> int:
             print(f"  已删除本地 {unit['source']}")
         done.append({"source": unit["source"], "archive_path": str(dest), "files": unit["files"], "bytes": unit["bytes"],
                      "sha256": {e["path"]: e["sha256"] for e in unit["entries"]}, "local_deleted": delete_source})
-    if not done:
-        return 0
+    return 0
+
+
+def _append_index(plan: dict, done: list[dict]) -> None:
     record = {"archived_at": datetime.now().astimezone().isoformat(timespec="seconds"), "kind": "dotbak", "dest": plan["dest_root"], "units": done}
     index = ROOT / INDEX_NAME
     data = json.loads(index.read_text(encoding="utf-8")) if index.is_file() else {"schema_version": 1, "archives": []}
@@ -207,7 +217,6 @@ def execute(plan_path: Path, delete_source: bool) -> int:
     existing = json.loads(dest_index.read_text(encoding="utf-8")) if dest_index.is_file() else {"schema_version": 1, "archives": []}
     existing["archives"].append(record)
     dest_index.write_text(json.dumps(existing, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    return 0
 
 
 def main(argv: list[str] | None = None) -> int:
