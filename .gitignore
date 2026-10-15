@@ -4,6 +4,11 @@
 **/desktop.ini
 **/.pytest_cache/
 
+# 可重建的临时依赖与工作区（AGENTS.md 运行规则 6）。已跟踪的人工资料不受影响，
+# 新增长期资料应放节点 data/；清理分类见 docs/瘦身结构优化/阶段B-work清理清单.md。
+**/node_modules/
+**/work/
+
 # Generated/public-facing data is not versioned.
 /public/
 
