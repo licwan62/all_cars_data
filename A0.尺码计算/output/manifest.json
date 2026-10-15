@@ -2,9 +2,9 @@
   "schema_version": 1,
   "node": "size-calculation",
   "path": "A0.尺码计算",
-  "version": "20261013_28",
-  "artifact": "A0.尺码计算/artifacts/2026-10-13_28_size-calculation-release",
-  "published_at": "2026-10-13T18:48:39+08:00",
+  "version": "20261015_02",
+  "artifact": "A0.尺码计算/artifacts/2026-10-15_02_size-calculation-release",
+  "published_at": "2026-10-15T09:19:59+08:00",
   "deliverables": [
     {
       "file": "US/尺码匹配报告.md",
@@ -55,6 +55,30 @@
       "rows": 23258
     },
     {
+      "file": "US/尺码规则.json",
+      "versioned_file": "US/尺码规则-20261015_01.json",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+      "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb",
+      "bytes": 9006,
+      "rows": null
+    },
+    {
+      "file": "US/店铺货架.json",
+      "versioned_file": "US/店铺货架-20261015_01.json",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/店铺货架-20261015_01.json",
+      "sha256": "8e369204b7136f916dc86b8a31d6065449ce2be7f73d04c162764fdb32c417e0",
+      "bytes": 3196,
+      "rows": null
+    },
+    {
+      "file": "US/新旧尺码对应.csv",
+      "versioned_file": "US/新旧尺码对应-20261015_01.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/新旧尺码对应-20261015_01.csv",
+      "sha256": "0b7cf7d20b962a1006f677c4d7900ebec43a22bc8a84722549bfc661af70ce33",
+      "bytes": 1098,
+      "rows": 35
+    },
+    {
       "file": "EU/尺码匹配报告.md",
       "versioned_file": "EU/尺码匹配报告-20261013_18.md",
       "artifact_file": "A0.尺码计算/artifacts/2026-10-13_18_size-calculation-release/output/EU/尺码匹配报告-20261013_18.md",
@@ -71,6 +95,14 @@
       "rows": 29361
     },
     {
+      "file": "EU/尺码规则.json",
+      "versioned_file": "EU/尺码规则-20261015_01.json",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/EU/尺码规则-20261015_01.json",
+      "sha256": "716ec1ed53d3ccb4610868d5df09933c5d91d348a779450e29576b62303533ef",
+      "bytes": 9452,
+      "rows": null
+    },
+    {
       "file": "RU/尺码匹配报告.md",
       "versioned_file": "RU/尺码匹配报告-20261013_18.md",
       "artifact_file": "A0.尺码计算/artifacts/2026-10-13_18_size-calculation-release/output/RU/尺码匹配报告-20261013_18.md",
@@ -85,6 +117,14 @@
       "sha256": "f590acf28068183915807153b490a16728c1b553ceaa793d8bc22954d9872217",
       "bytes": 2165023,
       "rows": 13617
+    },
+    {
+      "file": "RU/尺码规则.json",
+      "versioned_file": "RU/尺码规则-20261015_01.json",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/RU/尺码规则-20261015_01.json",
+      "sha256": "6c9fa6f391284b0aeba3ac6bbb9adb2aecc2002858de943eb5fc35c516838ab4",
+      "bytes": 9916,
+      "rows": null
     }
   ],
   "upstream": [
@@ -493,6 +533,7 @@
     "2026-09-28 RU 规则改用 data/RU/规则/0928-1.csv（YS-380→OZON XS/发货 S，YS-410→OZON S/发货 YM）；全量表不再输出 前宽-MM、后宽-MM、等效长（仍在内部用于插片指数）；车型销量 统计粒度改为 MAKE+MODEL+结构",
     "2026-10-08 全量表（US/EU/RU 全量表与 US 店铺全量）调整字段顺序：DIMENSION-ID 移至首列，US 表 TRIM 移至末列（EU/RU 无 TRIM，末列为 相差数值）；行、列集合与取值不变。下游 A1/A2/B1/C1 均按列名读取，重跑结果逐字节不变",
     "2026-10-12 三国与 US 店铺全量表紧跟旧车形仅插入 SHAPE；状态、代表年、方法、备选与来源由 03/COVER_SHAPE.csv 维护；按精确地区 ID 全覆盖关联，移除上一轮全量表的 SHAPE 辅助列，其他列值/行序/TRIM 不变，SHAPE 不参与尺码计算",
-    "2026-10-13 全量表（US/EU/RU 全量表与 US 店铺全量）在 相差数值 之后新增 规则ID：命中规则的内容标识（规则行规范化内容的 SHA-256 前 10 位，不含备注；无可用尺码/数据不全为空），与 <国别>/尺码匹配报告.md 规则表末列 规则ID 对应；US 店铺全量表在 规则ID 之前新增 匹配尺码（换成发货尺码前的规则匹配尺码）。其他列值、行序与 TRIM 不变，A1 重跑逐字节不变；下游均按列名读取"
+    "2026-10-13 全量表（US/EU/RU 全量表与 US 店铺全量）在 相差数值 之后新增 规则ID：命中规则的内容标识（规则行规范化内容的 SHA-256 前 10 位，不含备注；无可用尺码/数据不全为空），与 <国别>/尺码匹配报告.md 规则表末列 规则ID 对应；US 店铺全量表在 规则ID 之前新增 匹配尺码（换成发货尺码前的规则匹配尺码）。其他列值、行序与 TRIM 不变，A1 重跑逐字节不变；下游均按列名读取",
+    "2026-10-14 新增机器接口（build_match_report.py 产出）：<国别>/尺码规则.json（报告规则表与参数的结构化版本，含 规则ID、余量长容差 mm、规则/参数文件与 sha256）、US/店铺货架.json（data/US/店铺/货架.yaml 的结构化发布）、US/新旧尺码对应.csv（data/参考/新旧尺码对应/新旧尺码对应2.csv 原样、LF）；Markdown 报告不变，继续供人阅读。网站流水线改读这些文件，不再解析报告表格或读取 A0 data/。全量表与报告字节不变"
   ]
 }
