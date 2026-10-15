@@ -6032,6 +6032,1668 @@
      "local_deleted": false
     }
    ]
+  },
+  {
+   "archived_at": "2026-10-15T09:38:08+08:00",
+   "dest": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts",
+   "keep": 5,
+   "batches": [
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_01_cover-shape-inspection",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_01_cover-shape-inspection",
+     "files": 11,
+     "bytes": 2940906,
+     "sha256": {
+      "extra/REPORT.md": "7af346d1ba99bee85f65066f235facd88c6fad6a69e3f31ad5273b0689a21d35",
+      "output/column_map_draft-20261012_01.yaml": "58519a332befb238d8abbbd851703923fb2faf8241d763ce05c08eeca7ac53ae",
+      "output/inspection-20261012_01.json": "c43a9bc1664a24b14f716f376d876799ea45f1d7021ebaeaf4ba964ad10fa7be",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "5b2ef089ae5d53848f800954d48f0c84e7f3a3a2144344ce42750028e26d5360",
+      "rules/data/cover_shape/README.md": "7dd20fe9424d5827b77e7e834a77269a26cdda2fd3ee800cba81a88718657ab4",
+      "rules/data/cover_shape/sources.yaml": "e99eb0b2fdde6d436f50a67f6ed2a4231dcab567261b7871738b20006a4e2886",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "1fb0d1dc69fbd692d81bb7c74105e4e51916282cb065b3f386a7e940d09d780a"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_02_cover-shape-offline",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_02_cover-shape-offline",
+     "files": 15,
+     "bytes": 45629,
+     "sha256": {
+      "extra/REPORT.md": "dc4f50efc6e83324a971d92e0d6fad4420ce8c5e878526063eab914c6c40a43e",
+      "output/cover_shape_features-20261012_02.jsonl": "3dbdd135368e3b3c862a5f8264ade69836c99c7d875be025dd3bedebf111b121",
+      "output/cover_shape_records-20261012_02.jsonl": "84d24c9246c76b2195ab7f4918abd9190a37d1e0ccb5377effbfedfe711effb3",
+      "output/cover_shape_results-20261012_02.csv": "f36a83ecb12f7f7094fcc345b0c96b99c4d5abf4801376acd0a8b9148af58445",
+      "output/evidence-20261012_02.jsonl": "3611012a6cba3c5652ed5bbbcd8e6af8855b8fff003c1ea59a4cf33161b8e0ab",
+      "output/review_queue-20261012_02.csv": "fa31900cf3abe17f087f34dedd4626929ddbd66f9a93b461ffa69d153c1b04be",
+      "output/run_manifest-20261012_02.json": "8d031cb4d31a3f59afe8324bd4b39a03ff28b6d0a7b5d94c8a822fd964c84090",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "5b2ef089ae5d53848f800954d48f0c84e7f3a3a2144344ce42750028e26d5360",
+      "rules/data/cover_shape/README.md": "7dd20fe9424d5827b77e7e834a77269a26cdda2fd3ee800cba81a88718657ab4",
+      "rules/data/cover_shape/sources.yaml": "e99eb0b2fdde6d436f50a67f6ed2a4231dcab567261b7871738b20006a4e2886",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "25cb1c072bd011211a6301e8d5333b0aa43d0de4853e75ae6eef349bf35d52b2"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_04_cover-shape-reclassify",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_04_cover-shape-reclassify",
+     "files": 15,
+     "bytes": 66100,
+     "sha256": {
+      "extra/REPORT.md": "7deaa1968213a9f8cafcf15e4f028d5a093e32ec4c5e5c68a4bcc2970d7e2cd2",
+      "output/cover_shape_features-20261012_04.jsonl": "3dbdd135368e3b3c862a5f8264ade69836c99c7d875be025dd3bedebf111b121",
+      "output/cover_shape_records-20261012_04.jsonl": "84d24c9246c76b2195ab7f4918abd9190a37d1e0ccb5377effbfedfe711effb3",
+      "output/cover_shape_results-20261012_04.csv": "d79982b93abfee1c760a3f8804a770d5dba975ba756f16f1ec476572ebebb346",
+      "output/evidence-20261012_04.jsonl": "c8f2488b5a2dcf80b2f8fb572429ccfdf82ffdebdd9d198b1a5ef10b1714e169",
+      "output/review_queue-20261012_04.csv": "4a9dac7f51657bee2edd13990bbfb028e327169e5058891eeddeb01e1903fb7f",
+      "output/run_manifest-20261012_04.json": "0d5acab8944a9b7c1c5e65d6a470e4843ef314db6c01cc1f20f248aeb59bb398",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "5b2ef089ae5d53848f800954d48f0c84e7f3a3a2144344ce42750028e26d5360",
+      "rules/data/cover_shape/README.md": "7dd20fe9424d5827b77e7e834a77269a26cdda2fd3ee800cba81a88718657ab4",
+      "rules/data/cover_shape/sources.yaml": "e99eb0b2fdde6d436f50a67f6ed2a4231dcab567261b7871738b20006a4e2886",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "294497dae8dcc66aea9c7c236617c310dd94c6828cb716a9b2ff573ce85e887c"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_05_cover-shape-validation",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_05_cover-shape-validation",
+     "files": 12,
+     "bytes": 20427,
+     "sha256": {
+      "extra/cover_shape_pipeline_verification.md": "a792729bac09164600e486fa7a7a8a8061e8bc544bc5f191a672ec42b1669407",
+      "extra/cover_shape_static_verification.md": "5ccb1d15f5b786ae8c078b6a7d3bec2ebc9ea26eba88b14798469f9943ec297b",
+      "extra/REPORT.md": "6b83717d1ca4d2e6dd86049f5bd2aeb60b795f63eee6e06e8483b212b700d7ee",
+      "output/validation-20261012_05.json": "8c30b936a27001588403b1ebfe492259cfce6c4ac6e695d6661e252b501fac67",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "5b2ef089ae5d53848f800954d48f0c84e7f3a3a2144344ce42750028e26d5360",
+      "rules/data/cover_shape/README.md": "7dd20fe9424d5827b77e7e834a77269a26cdda2fd3ee800cba81a88718657ab4",
+      "rules/data/cover_shape/sources.yaml": "e99eb0b2fdde6d436f50a67f6ed2a4231dcab567261b7871738b20006a4e2886",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "c261d1f4ec891ff0719763439526ec085a6ad1f31a161f57157c05c6fc83b18f"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_09_cover-shape-online",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_09_cover-shape-online",
+     "files": 21,
+     "bytes": 1144248,
+     "sha256": {
+      "extra/network_requests.jsonl": "75f04c71383ab0e8d715dda481aca6ba223c43627d329a329291a62e0821add4",
+      "extra/REPORT.md": "bca43cba55e3b3093c8f3b6d541eb706d6107a05996780b2647fb133575f63ab",
+      "input/network/3387a65db46eea7924a1ea74621e2b446d8190d538f218e3d2d617e2b36b0b5c.body": "d54589e9bf97321615d2eedfb3d609b592376c0fd10fdd70a645103ceb0e55b4",
+      "input/network/3387a65db46eea7924a1ea74621e2b446d8190d538f218e3d2d617e2b36b0b5c.json": "b295665f546c5d6507a3a435bbb4de2e9b09b79e89011326a4ab29a6b1c3762c",
+      "input/network/7afc93e2be686edb01d05fabf268739864169bfaf20bdc72fc68a67e4a790b09.body": "d9b7fb96568dc5bc380cd4efcb807ae0df96d882992131beee5a3c6b93ebea82",
+      "input/network/7afc93e2be686edb01d05fabf268739864169bfaf20bdc72fc68a67e4a790b09.json": "b6ed867127019dbaeb12440465126736910b28bed14a335be84f2ae03a29011c",
+      "output/cover_shape_features-20261012_09.jsonl": "5099da14ede07ae55310bd248a235aa182a8f0e476e7d8e2d746c5fa672f815d",
+      "output/cover_shape_records-20261012_09.jsonl": "84d24c9246c76b2195ab7f4918abd9190a37d1e0ccb5377effbfedfe711effb3",
+      "output/cover_shape_results-20261012_09.csv": "3bf0e4b3492a7786b80fa15c3e4677c4158746c5d3f4ce59b5dcffb91916234a",
+      "output/evidence-20261012_09.jsonl": "2734d2758f0223bc5bf071cc3e2417645ffba96f500c84e1edeb4ccb8e84968c",
+      "output/review_queue-20261012_09.csv": "bf924567048b54eca07c3c01564662495b71f4a47ec1462e3c52b30802c0bebd",
+      "output/run_manifest-20261012_09.json": "975d688c5df730a33efb661c9ea1421158b2cb22bb399f2032189e18fad3c314",
+      "rules/data/cover_shape/automatic.yaml": "2b3769ae6aa77cb3a8d2029e05548f59ed38b610f5dd668b2a0f21fb19449d94",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+      "rules/data/cover_shape/README.md": "7dd20fe9424d5827b77e7e834a77269a26cdda2fd3ee800cba81a88718657ab4",
+      "rules/data/cover_shape/sources.yaml": "fee9c085bc7067bb55b4b72bcb261c87b6a23a7af1f91c0db9684ec79480d0bb",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "6a20aed3d3928edd6f29fa8bd3dcb9d4c6f22a8a9bb19da34d444dd4aa98d916"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_10_cover-shape-online",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_10_cover-shape-online",
+     "files": 19,
+     "bytes": 744054,
+     "sha256": {
+      "extra/network_requests.jsonl": "5375279dc97be7feb418a47adcee3cec907973881aa9207498017ab5e591aa06",
+      "extra/REPORT.md": "5c57056ce54e9d613d8def492c42405e8e0a8bdc85c598c909d1a2c61fd1e19b",
+      "input/network/8dcefe0177513c2ce3ac80f9126f6e296a58dcc1dccf1c7b1a8bd9a9d5969c4d.body": "80c80f9ec71ceb4f19ada9e933f6ec522c2c18e42cb3548ebb4e19d625115fc8",
+      "input/network/8dcefe0177513c2ce3ac80f9126f6e296a58dcc1dccf1c7b1a8bd9a9d5969c4d.json": "044a45c9d907b860707c72e81846b831b6c227170a586085fa39e3c9be4464ca",
+      "output/cover_shape_features-20261012_10.jsonl": "0e174b292bfe652ffc8cdced8da9f1ff3cd404cdb60bb90050ebe6cdfa4e045f",
+      "output/cover_shape_records-20261012_10.jsonl": "84d24c9246c76b2195ab7f4918abd9190a37d1e0ccb5377effbfedfe711effb3",
+      "output/cover_shape_results-20261012_10.csv": "28a11c194985caa36420448f8eb4798534f68d2d3a38045c00abe6fc8e41b937",
+      "output/evidence-20261012_10.jsonl": "11392de81595c4daa01e285953f165c1f743e193646e584b86303a21e66e806a",
+      "output/review_queue-20261012_10.csv": "583e110f667c8e8c2c11650eb5c49a71b092ac492b4e2cd1304e4edab44faf6a",
+      "output/run_manifest-20261012_10.json": "02d16290f89be49ca33c92c3247b3f12e6becbdd7e166efd9422655e3300e011",
+      "rules/data/cover_shape/automatic.yaml": "12dd3233bf9df7c6fc63df31a2ffa3d1624538b3f2b7139ae29f37b67594b338",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+      "rules/data/cover_shape/README.md": "e5760e641e1d382930d19172bcb7d892a4f1279f053c4a73050ebb9f9aca1743",
+      "rules/data/cover_shape/sources.yaml": "fee9c085bc7067bb55b4b72bcb261c87b6a23a7af1f91c0db9684ec79480d0bb",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "495dcf223b90c45aee87e51e18d44d32353652b602b5d751e64747c2e1a65d56"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_11_cover-shape-reclassify",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_11_cover-shape-reclassify",
+     "files": 16,
+     "bytes": 467093,
+     "sha256": {
+      "extra/REPORT.md": "822c87c50cf2b5c64614eff8eac3747c28feb230860756602ff24f057ffb906b",
+      "output/cover_shape_features-20261012_11.jsonl": "0e174b292bfe652ffc8cdced8da9f1ff3cd404cdb60bb90050ebe6cdfa4e045f",
+      "output/cover_shape_records-20261012_11.jsonl": "84d24c9246c76b2195ab7f4918abd9190a37d1e0ccb5377effbfedfe711effb3",
+      "output/cover_shape_results-20261012_11.csv": "34fed752d9d15489d085907984df84d6449614763e4bdb4169167efcc0b2bd89",
+      "output/evidence-20261012_11.jsonl": "11392de81595c4daa01e285953f165c1f743e193646e584b86303a21e66e806a",
+      "output/review_queue-20261012_11.csv": "583e110f667c8e8c2c11650eb5c49a71b092ac492b4e2cd1304e4edab44faf6a",
+      "output/run_manifest-20261012_11.json": "326842d5a5ec1b18f05834c6d88d13dfd47c705b55547512770471e16887abe7",
+      "rules/data/cover_shape/automatic.yaml": "12dd3233bf9df7c6fc63df31a2ffa3d1624538b3f2b7139ae29f37b67594b338",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+      "rules/data/cover_shape/README.md": "e5760e641e1d382930d19172bcb7d892a4f1279f053c4a73050ebb9f9aca1743",
+      "rules/data/cover_shape/sources.yaml": "fee9c085bc7067bb55b4b72bcb261c87b6a23a7af1f91c0db9684ec79480d0bb",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "95bae43ab2da2b07f171f687e89f890450d5f8c160c5281733401ef84004b6d0"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_12_cover-shape-auto-validation",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_12_cover-shape-auto-validation",
+     "files": 12,
+     "bytes": 29529,
+     "sha256": {
+      "extra/pipeline_verification.md": "ecf5b186ec84d36103ee90b04dd2a6e9ef09d6d9c4d4877c5df84fe873c9d2f0",
+      "extra/REPORT.md": "10b314c6c9e3bfe2ad581f80175d9017b2d6ef94feab398e640bee9b62055fb2",
+      "output/validation-20261012_12.json": "ef578dbf0fc1fd68252a9db56f19457b01d21f33aec9f3fe78f85be13ebd965d",
+      "rules/data/cover_shape/automatic.yaml": "12dd3233bf9df7c6fc63df31a2ffa3d1624538b3f2b7139ae29f37b67594b338",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+      "rules/data/cover_shape/README.md": "e5760e641e1d382930d19172bcb7d892a4f1279f053c4a73050ebb9f9aca1743",
+      "rules/data/cover_shape/sources.yaml": "fee9c085bc7067bb55b4b72bcb261c87b6a23a7af1f91c0db9684ec79480d0bb",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "73a369ce6ad7cdc8bde30dc874813bfc0b700ddf7d50ffcd066b3d53c0bac767"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_13_cover-shape-reference-import",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_13_cover-shape-reference-import",
+     "files": 11,
+     "bytes": 31529,
+     "sha256": {
+      "extra/REPORT.md": "9f08574a1b70c3b581687b25570a8d38fbc0946ba838df2f4acdcff46590c7f2",
+      "rules/data/cover_shape/automatic.yaml": "12dd3233bf9df7c6fc63df31a2ffa3d1624538b3f2b7139ae29f37b67594b338",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "8a59c7a99c2955917e77e0a286a59776a0c6f7ec07d063e8eea01cccfc5e01d1",
+      "rules/data/cover_shape/full_table.yaml": "21b6b7118ad10ba1cd0add7132c5d1111f771a7d0074dbb779f3d04997ed3957",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+      "rules/data/cover_shape/README.md": "e5760e641e1d382930d19172bcb7d892a4f1279f053c4a73050ebb9f9aca1743",
+      "rules/data/cover_shape/sources.yaml": "fee9c085bc7067bb55b4b72bcb261c87b6a23a7af1f91c0db9684ec79480d0bb",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "68ea4c963b2215a21a263b3f94f406bc56ac73a1a99ec2673d50ee8bb4c27921"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_15_shape-classification-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_15_shape-classification-release",
+     "files": 2,
+     "bytes": 10221,
+     "sha256": {
+      "manifest.json": "938b8c60d9290b21efa80f2f9e959e55362f9b99df3b1c2872af0817cd644f2a",
+      "REPORT.md": "3f5ac1886a7c185d3130f6568dbf8a9d022def7c86e1787202cfa22d8ec6350a"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_19_shape-classification-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_19_shape-classification-release",
+     "files": 2,
+     "bytes": 11128,
+     "sha256": {
+      "manifest.json": "f44f7088c100159a14e90db415f7cf32947d5f4a3cc31884fcb35a4cd77b43b8",
+      "REPORT.md": "32bcac3d629d7a175423c088bce84609e5a914d397165a8f11b20685121d4a9c"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_21_shape-classification-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_21_shape-classification-release",
+     "files": 2,
+     "bytes": 11300,
+     "sha256": {
+      "manifest.json": "de363a80421bd0af9e8c7fd1c830a77c20683d5ce4004b0c5f926da34002667d",
+      "REPORT.md": "803c09a46e7911ab20dbb2bf94a4df0b3cdfe62659fcb5b9c560441b8c5911ed"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_23_shape-classification-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_23_shape-classification-release",
+     "files": 2,
+     "bytes": 11901,
+     "sha256": {
+      "manifest.json": "b0f5e6e981f501668d61d680c2949c0cf80d43ae2c7a29ebae598a4cfe0bec9d",
+      "REPORT.md": "70eca579e890917b392fba4a3f856fde6de9cf13c9607c817e52ed1d73a655cc"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_24_us-representative-validation",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_24_us-representative-validation",
+     "files": 13,
+     "bytes": 55419,
+     "sha256": {
+      "extra/REPORT.md": "b171bc5159d3147c925d368ba218b5afd10461a96292df3b8e08cc7c5101ce29",
+      "output/validation-20261012_24.json": "f585939019116701ca72c7ac44ed406f34e6b95f416e78b721aff775ea0bdb8e",
+      "rules/data/cover_shape/automatic.yaml": "062b971c2fe4b624eb9f84c618f5e383aaa466649ca991c4841c4ca1555d25ca",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "5e81754f5c107a493f7824148dc5f111574168e3ab1d65ffe4f137bb690edb8b",
+      "rules/data/cover_shape/full_table.yaml": "21b6b7118ad10ba1cd0add7132c5d1111f771a7d0074dbb779f3d04997ed3957",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+      "rules/data/cover_shape/README.md": "dbbd38e236f53eefc48d036498d0800058ec7cf653ed983c36a87554aea48f7b",
+      "rules/data/cover_shape/research_queue.yaml": "3e0973e3700684cef31124218e202bf15a4e74a2da94f3cdbdcd2df8566ac034",
+      "rules/data/cover_shape/sources.yaml": "c3a8521a3a81aa9bdbc6b757ee734ae115e669b2fe8456853212593c60005078",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "25a1b0e539586434b71ca13db5f4f9537ef54b5d3cf4988df6701406534a8d59"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_25_representative-cover-shape",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_25_representative-cover-shape",
+     "files": 17,
+     "bytes": 18417779,
+     "sha256": {
+      "extra/REPORT.md": "dd3d8797bc7d349b83847e19d66539906094ba0defc7caf68774a44295f88462",
+      "extra/representative_audit.json.gz": "068df4c791845da79bbb14b022953e81edc383b7c94a002124420b7dd091d96c",
+      "output/COVER_SHAPE-20261012_25.csv": "f17f1a285d2e8dff86775c57be8bd639242595dc1a8f66154dd7b940d5f69ac0",
+      "output/cover_shape_summary-20261012_25.json": "aeaf2e136824d2013696e48ff3a73b0debeb1b30473bf2e0496f399dca11f064",
+      "output/shape_research_queue-20261012_25.jsonl": "c38cfccae3cd8c2bcf7b3252eba2ab898b1897b084d963d1c9bab6a17672140a",
+      "rules/data/cover_shape/automatic.yaml": "062b971c2fe4b624eb9f84c618f5e383aaa466649ca991c4841c4ca1555d25ca",
+      "rules/data/cover_shape/column_map.yaml": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06",
+      "rules/data/cover_shape/evidence.jsonl": "5e81754f5c107a493f7824148dc5f111574168e3ab1d65ffe4f137bb690edb8b",
+      "rules/data/cover_shape/family_cache.csv": "4ccfe09d366d80d3e971f0171ad5056251a80eba93502df88084c3468ca73943",
+      "rules/data/cover_shape/full_table.yaml": "21b6b7118ad10ba1cd0add7132c5d1111f771a7d0074dbb779f3d04997ed3957",
+      "rules/data/cover_shape/pilot_cases.csv": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c",
+      "rules/data/cover_shape/pipeline.yaml": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0",
+      "rules/data/cover_shape/README.md": "dbbd38e236f53eefc48d036498d0800058ec7cf653ed983c36a87554aea48f7b",
+      "rules/data/cover_shape/research_queue.yaml": "24e3369a1060e4bcc3856efd3bcac5a482f7d541054760f872e94a2cfa349f4e",
+      "rules/data/cover_shape/sources.yaml": "c3a8521a3a81aa9bdbc6b757ee734ae115e669b2fe8456853212593c60005078",
+      "rules/data/cover_shape/taxonomy_v1.yaml": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e",
+      "run.json": "3d218cc275ba39c7cfb291d4dc5ef810503afb93a8fe947ca34dbd3ea70ba373"
+     }
+    },
+    {
+     "batch": "03.车形分类核定/artifacts/2026-10-12_26_representative-cover-shape",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\03.车形分类核定\\2026-10-12_26_representative-cover-shape",
+     "files": 2,
+     "bytes": 9258625,
+     "sha256": {
+      "input/shape_research_queue.jsonl": "c38cfccae3cd8c2bcf7b3252eba2ab898b1897b084d963d1c9bab6a17672140a",
+      "run.json": "678d1657159a5571203f20385cdcb4909cf9aef87afc1dd5411b3061b4d3f8e1"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_02_match-report",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_02_match-report",
+     "files": 3,
+     "bytes": 24577,
+     "sha256": {
+      "output/EU/尺码匹配报告.md": "9ea9c2afe2db342ead80a9dcbcbe524d26254425460fb1781c18cd4a3ec8a03b",
+      "output/RU/尺码匹配报告.md": "e5fe8aa48b9bff56a0310fd7893ec8fba2027981cad4c00c3d6eae0bb9f2ed00",
+      "output/US/尺码匹配报告.md": "e10bb22a2bb7b4080e56cfb40bf7d69ed2d357e50f1ee98c2983185b92fe803b"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_03_size-calculation-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_03_size-calculation-release",
+     "files": 5,
+     "bytes": 68435,
+     "sha256": {
+      "manifest.json": "d0055b00112cf64e16aaf2b0f6910fdcd8a068395ecdcd7a365854139e2620bd",
+      "output/EU/尺码匹配报告-20261012_03.md": "9ea9c2afe2db342ead80a9dcbcbe524d26254425460fb1781c18cd4a3ec8a03b",
+      "output/RU/尺码匹配报告-20261012_03.md": "e5fe8aa48b9bff56a0310fd7893ec8fba2027981cad4c00c3d6eae0bb9f2ed00",
+      "output/US/尺码匹配报告-20261012_03.md": "e10bb22a2bb7b4080e56cfb40bf7d69ed2d357e50f1ee98c2983185b92fe803b",
+      "REPORT.md": "e08c291d369e23685b3faad8e7201b9067ef07ec0fc1c0b6ddd52522a93194a9"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_04_size-calculation-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_04_size-calculation-release",
+     "files": 2,
+     "bytes": 25450,
+     "sha256": {
+      "manifest.json": "edb1c7229aa0f7855a596933cd8206f15ad1e8ccc4dfbccee8d7c04d8f471c5f",
+      "REPORT.md": "26dc62f0a347db1ffcca7f693fa482baf20eb42ec92c759fd26acbf9d6a6b3e4"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_05_full-table-shape-validation",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_05_full-table-shape-validation",
+     "files": 6,
+     "bytes": 26315,
+     "sha256": {
+      "extra/pipeline_rebuild.md": "aa0fc122230ad9a97fce9df206c3ecdffc8222cbfbf2d215f13bbfc36a97ac01",
+      "extra/REPORT.md": "84378dc8cf90eaf9b0783142df6d5003d6469152dcc54b86381720c7877319f2",
+      "output/validation-20261012_05.json": "97c3cc79235d7bf4f576bcf83eba6dfcdad81aa53a8b66e999041f11d8507a67",
+      "rules/data/全量SHAPE.yaml": "3d204e8b866e9a274473261f80274a41c358dd96614ab71a464a1dca8f6aba31",
+      "rules/data/销量ID迁移.csv": "779742d8a3011ed06fc7d58d7e5c875e3c79bd978af5fbd3ce60d3aacdd04522",
+      "run.json": "6deeda60e5817617784f5fd684d6043f970a9c2c22b5b5e7f4682135c458f994"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_07_match-report",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_07_match-report",
+     "files": 3,
+     "bytes": 24577,
+     "sha256": {
+      "output/EU/尺码匹配报告.md": "cff2ead2da3ba0a0af98fc698a4a1c19da14b6ce60d89e3c8550a72edff355f4",
+      "output/RU/尺码匹配报告.md": "c471940eabf3a364b49f9d2b7eb9685675199af65d87376da926f19e6404b063",
+      "output/US/尺码匹配报告.md": "1f25f8670b14c75266c0bed5db1d6fe583848aeedfce7352020c472b552fcdeb"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_09_size-calculation-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_09_size-calculation-release",
+     "files": 2,
+     "bytes": 25787,
+     "sha256": {
+      "manifest.json": "e14784bcc1d9c6ef91e3412ec4f1dfb74410ed2989fe8f15fb8d9305d824a88f",
+      "REPORT.md": "56977055e6a50934682a6d769404b7c22ffa002252c5b1bc62dd9c719a115856"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_10_shape-queue-contract-validation",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_10_shape-queue-contract-validation",
+     "files": 6,
+     "bytes": 26074,
+     "sha256": {
+      "extra/rebuild.md": "b6c14a50b6e04f9dfd149a9c4c3b3cc3acf87b1fe4c2d6a32ec3bfd30dce63be",
+      "extra/REPORT.md": "64e80afc6ad0c087b8608909af34e3ec6ccee189d4ca95558b43566a83cfa4bb",
+      "output/validation-20261012_10.json": "e2663de539fef4e969a1a8f36ef6546b7738d28ad1d29d5d1a19c8d5e151cb44",
+      "rules/data/全量SHAPE.yaml": "ae98823f7ea22972baac7fad5f43e1f38a6a5288fd0de417bf8d963e809b1f4e",
+      "rules/data/销量ID迁移.csv": "779742d8a3011ed06fc7d58d7e5c875e3c79bd978af5fbd3ce60d3aacdd04522",
+      "run.json": "a38ff98416cd619d0b8213276ac9d2f19f369311bd7835e20feeb7c42e260d76"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_11_full-table-cover-shape",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_11_full-table-cover-shape",
+     "files": 10,
+     "bytes": 9775063,
+     "sha256": {
+      "extra/REPORT.md": "dcafab3c7fb0038e9454f1b216803b20c1e4a1bf81059a8ea7bd37ad496e1618",
+      "output/EU/全量/全量表-20261012_11.csv": "8d6a0187dab44457dd4aa3f2c8c404074a7908decdef68d0b72db0b09cb64282",
+      "output/RU/全量/全量表-20261012_11.csv": "4986194b516367ba76ffffc56704b8f0eeecf651d5594c8a36d72599c7175375",
+      "output/US/全量/全量表-20261012_11.csv": "fd688b9006cb55f1f350fa61f91076538a0e42566717ea112564c96c7293f186",
+      "output/US/店铺/店铺全量_HNT-20261012_11.csv": "76084bbd3f44fb6c08b412ce961220239dfea87426ee7b2825665cdca05deb0d",
+      "output/US/店铺/店铺全量_TM-20261012_11.csv": "4a38758bd9dc33ac1ff1774a49ce331341d58dec530220a74d20105b31b2d183",
+      "output/US/店铺/店铺全量_TM_拆分-20261012_11.csv": "fe07ee39d9ac5691d84f6117c70dba0a72da5318e7cf92f92a165449bbf63e74",
+      "rules/data/全量SHAPE.yaml": "ae98823f7ea22972baac7fad5f43e1f38a6a5288fd0de417bf8d963e809b1f4e",
+      "rules/data/销量ID迁移.csv": "779742d8a3011ed06fc7d58d7e5c875e3c79bd978af5fbd3ce60d3aacdd04522",
+      "run.json": "7fedac9ffd2e72d141c0b16ebed38d003b6d852b1271ebefee4e855e5ad30452"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_12_match-report",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_12_match-report",
+     "files": 3,
+     "bytes": 24577,
+     "sha256": {
+      "output/EU/尺码匹配报告.md": "cff2ead2da3ba0a0af98fc698a4a1c19da14b6ce60d89e3c8550a72edff355f4",
+      "output/RU/尺码匹配报告.md": "c471940eabf3a364b49f9d2b7eb9685675199af65d87376da926f19e6404b063",
+      "output/US/尺码匹配报告.md": "f5a89f057d28b6980bb682d486979920b856d3a8e509e275e1c97023294ae8a1"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-12_13_size-calculation-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-12_13_size-calculation-release",
+     "files": 3,
+     "bytes": 38363,
+     "sha256": {
+      "manifest.json": "abfa0018974a9cefdbb054ec684a1d980c9c7ad3ebaabd4451af58d18098254c",
+      "output/US/尺码匹配报告-20261012_13.md": "f5a89f057d28b6980bb682d486979920b856d3a8e509e275e1c97023294ae8a1",
+      "REPORT.md": "e379b58970e12a41cfb00ddcb0f37f7a92bd532936f2702f4b3204f5990248f7"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_01_us-size-trim",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_01_us-size-trim",
+     "files": 21,
+     "bytes": 19413370,
+     "sha256": {
+      "output/US/TRIM/TRIM适配器.csv": "62a8806a7c2050d58a0cacd1af2ea75ca7accf1aa6cd0e9fc858bb27353d0deb",
+      "output/US/全量/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "output/US/店铺/店铺全量_HNT.csv": "59c4cf12838782bb5b286893b3bb5a70bf427ad642257179aa38a162f27e7a27",
+      "output/US/店铺/店铺全量_TM.csv": "0ec0ab2361845c5145598c295e0aa5a5a5503fa6500f91abc9cf84527dd8362d",
+      "output/US/店铺/店铺全量_TM_拆分.csv": "81644f8f672591e07a5a2f2ccc666282b7028de8905a67300e846fd743b5d613",
+      "status.json": "4e159a2cc8387624e2ce9790c76f63b71c47f9f74df47a3d8fbcd1bfd5ebe31c",
+      "trim/input/trim_values.csv": "077f9942353e1fddc4cb185cbee602f5dd57f62e0b931082dc3c7ed2302fc93a",
+      "trim/input/TrimList.csv": "4fb239fe20b8e02c7bee13b77b89cbf1c6b050b4fdf2b0eaa58af145b183c40d",
+      "trim/input/TrimList_audit.csv": "0756cfa1a55e03a2faa7a72d34296b32a28f2ae78a1f3c6ab6bdabea22428395",
+      "trim/input/TrimList_ID迁移.csv": "d62dc7bef1b061f38bdd6e3ff85d7acbdc7f76c84c310ba53afd9f3d68f39b64",
+      "trim/input/全量表_US_基础ID.csv": "ece2004d960e68e1187d520e3715e1086c4d112fa4caf1891dd103ed54ebc90a",
+      "trim/reports/AdapterSizeList.csv": "778c97e99831d7699362cf0472787d5ad0a2e0cd10fbb5ab18153f4100269d90",
+      "trim/reports/DimensionSizeMap.csv": "10691b65fc1b4c2a3192f8406cebd655832f111a39393a72b43791088c706e2b",
+      "trim/reports/MultipleSizeDetail.csv": "54eac6b9a8780f3d6483da6cfd2c81a4ab505770d4636aa0673b56e444191524",
+      "trim/reports/MultipleSizeReport.csv": "46d9b0dcf0c92063c85499f6d25ef3599a714c615fdcbb825b5f7546c42cd9cf",
+      "trim/reports/NoPublishableSizeReport.csv": "10ec6262bbf2db5fd1d86fce42fceff4e510902ffc26b4f832817ed338f5a786",
+      "trim/reports/SizeAnalysis.csv": "1cdc51c0e930bc77e55e73d2a3b4106606646a639f27188b8dba2027d2dddeaf",
+      "trim/reports/SizeAnalysisSummary.json": "91ca51394cbbb17737d1289519730fd438c1a3cbbfeaaa36eb1bc2656c17c713",
+      "trim/reports/SizeAnalysisSummary.md": "0d5bc500277e1992694b6a00cbfc6e94fef479661b34856a3f5ad5136a627486",
+      "trim/TRIM适配器.csv": "62a8806a7c2050d58a0cacd1af2ea75ca7accf1aa6cd0e9fc858bb27353d0deb",
+      "trim/尺寸TRIM映射.csv": "51b467dc7a5edf9387f9356db84a8fe6afaa5902ed1555f126612ebfdabe0bae"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_02_ru-full-size-matching",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_02_ru-full-size-matching",
+     "files": 7,
+     "bytes": 3935027,
+     "sha256": {
+      "input/0921.1-仅余量.csv": "f448bb3583e89be5b8bace70a6b1611aca02f6a32efe456d78eb0df0c8ca7c14",
+      "input/0928-1.csv": "3d59eebc8c7e9b7ea21b9baf962a55bc02a154df0b8ac089e35b9c5826081227",
+      "input/RU代理销量.csv": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd",
+      "input/尺寸库_RU.csv": "5a46d24aa8b51a2434dedbfabff230f1d96cb305399e6b9d803872559795696f",
+      "output/RU/全量/全量表.csv": "e6386482fb4b3fb816195b420378fbc2bbc8af1acb5a34c4842541d5b2b0b7fe",
+      "status.json": "6637f2789102c2db61ffa4f30f8142aca5a2290bd5e99b692bc7d0b5bcf7490d",
+      "尺码匹配报告_RU.json": "76ce369e76582dcbb59d7c75c8ad44628841f2511de14d43ad573c94acab5c53"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_03_regional-coverage-full",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_03_regional-coverage-full",
+     "files": 7,
+     "bytes": 12827470,
+     "sha256": {
+      "input/eu-compat/原子销量.csv": "085a93e20fa5b29af96a42e03a32916a0567fbfe6b2ce821cd9c8de8ca61d8ff",
+      "input/eu-compat/尺寸库.csv": "e9f0e6db709e0e9701134a7af5eef7a76a9c55178acaf7c0eeed773f6818ed54",
+      "input/eu-compat/车形分类.csv": "0472dcbab33202e08d36c24a5b0011be548c6cf4cb856a8370772bb006711f84",
+      "output/EU/全量/全量表.csv": "1ee3d42b999dcde5147b47c068c0741702fef8a20569759a90de7b5dffd9ba08",
+      "output/RU/全量/全量表.csv": "2f846a10e5f60d8fd17771b732bbf93db6c8f47c7ca7b62d36983b8634ec1272",
+      "reports/尺码匹配报告_EU.json": "2adc12d0c986e9aa15b3b9d72bf24cdb72f84a0827e131b15e0060c88cdec182",
+      "reports/尺码匹配报告_RU.json": "629b459636aa56438e53753ad68ba852d02e2bf2afcabcc219aabfd941e21956"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_04_full-table-cover-shape",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_04_full-table-cover-shape",
+     "files": 10,
+     "bytes": 9779995,
+     "sha256": {
+      "extra/REPORT.md": "72aea3d31bb2fecfe4253316cf9c2d4be79be7107c235f666163fc488acfd527",
+      "output/EU/全量/全量表-20261013_04.csv": "8d6a0187dab44457dd4aa3f2c8c404074a7908decdef68d0b72db0b09cb64282",
+      "output/RU/全量/全量表-20261013_04.csv": "4986194b516367ba76ffffc56704b8f0eeecf651d5594c8a36d72599c7175375",
+      "output/US/全量/全量表-20261013_04.csv": "f87f6cc123f18150407ac2213d1a0858b58bb4a40b96cb9afbc80b1479bd7d3b",
+      "output/US/店铺/店铺全量_HNT-20261013_04.csv": "1c8356e34a1a50167fdec3dd49c4400dbe55d76edd3669ec336d723e90214e19",
+      "output/US/店铺/店铺全量_TM-20261013_04.csv": "65dc5d3887f9f9eef18badadc518b07a714eadff605f3a09e38bfe8fe122cd47",
+      "output/US/店铺/店铺全量_TM_拆分-20261013_04.csv": "788b86d22625a0e49c8e1757fbc861c464db71a40aef8c7b79a2427279f0df91",
+      "rules/data/全量SHAPE.yaml": "ae98823f7ea22972baac7fad5f43e1f38a6a5288fd0de417bf8d963e809b1f4e",
+      "rules/data/销量ID迁移.csv": "779742d8a3011ed06fc7d58d7e5c875e3c79bd978af5fbd3ce60d3aacdd04522",
+      "run.json": "af5cda457107cc64f487b9f68ea187d4e03bcc370c4499da076caf56ba52cad6"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_05_match-report",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_05_match-report",
+     "files": 3,
+     "bytes": 24577,
+     "sha256": {
+      "output/EU/尺码匹配报告.md": "cff2ead2da3ba0a0af98fc698a4a1c19da14b6ce60d89e3c8550a72edff355f4",
+      "output/RU/尺码匹配报告.md": "c471940eabf3a364b49f9d2b7eb9685675199af65d87376da926f19e6404b063",
+      "output/US/尺码匹配报告.md": "ba3c03f20d33cfe36e9de9e8651d4ef7c294eb20cc50040bd4f1c699a7761a6c"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_06_size-calculation-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_06_size-calculation-release",
+     "files": 3,
+     "bytes": 41733,
+     "sha256": {
+      "manifest.json": "e0918c9e5859edcf8066243c3f6690107a830ad273fe5604b94e06e390d2402a",
+      "output/US/尺码匹配报告-20261013_06.md": "ba3c03f20d33cfe36e9de9e8651d4ef7c294eb20cc50040bd4f1c699a7761a6c",
+      "REPORT.md": "d14c6e77514ed6860adf252b82fbe902dfb8fb6c6a724025c8ed8b912fa5f5db"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_07_us-size-trim",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_07_us-size-trim",
+     "files": 21,
+     "bytes": 19413370,
+     "sha256": {
+      "output/US/TRIM/TRIM适配器.csv": "62a8806a7c2050d58a0cacd1af2ea75ca7accf1aa6cd0e9fc858bb27353d0deb",
+      "output/US/全量/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "output/US/店铺/店铺全量_HNT.csv": "59c4cf12838782bb5b286893b3bb5a70bf427ad642257179aa38a162f27e7a27",
+      "output/US/店铺/店铺全量_TM.csv": "0ec0ab2361845c5145598c295e0aa5a5a5503fa6500f91abc9cf84527dd8362d",
+      "output/US/店铺/店铺全量_TM_拆分.csv": "81644f8f672591e07a5a2f2ccc666282b7028de8905a67300e846fd743b5d613",
+      "status.json": "e9620ccabccd0ecb4a9be487c1c907f7a8dc4001906cffa68a2b8fbaf226c3ae",
+      "trim/input/trim_values.csv": "077f9942353e1fddc4cb185cbee602f5dd57f62e0b931082dc3c7ed2302fc93a",
+      "trim/input/TrimList.csv": "4fb239fe20b8e02c7bee13b77b89cbf1c6b050b4fdf2b0eaa58af145b183c40d",
+      "trim/input/TrimList_audit.csv": "0756cfa1a55e03a2faa7a72d34296b32a28f2ae78a1f3c6ab6bdabea22428395",
+      "trim/input/TrimList_ID迁移.csv": "d62dc7bef1b061f38bdd6e3ff85d7acbdc7f76c84c310ba53afd9f3d68f39b64",
+      "trim/input/全量表_US_基础ID.csv": "ece2004d960e68e1187d520e3715e1086c4d112fa4caf1891dd103ed54ebc90a",
+      "trim/reports/AdapterSizeList.csv": "778c97e99831d7699362cf0472787d5ad0a2e0cd10fbb5ab18153f4100269d90",
+      "trim/reports/DimensionSizeMap.csv": "10691b65fc1b4c2a3192f8406cebd655832f111a39393a72b43791088c706e2b",
+      "trim/reports/MultipleSizeDetail.csv": "54eac6b9a8780f3d6483da6cfd2c81a4ab505770d4636aa0673b56e444191524",
+      "trim/reports/MultipleSizeReport.csv": "46d9b0dcf0c92063c85499f6d25ef3599a714c615fdcbb825b5f7546c42cd9cf",
+      "trim/reports/NoPublishableSizeReport.csv": "10ec6262bbf2db5fd1d86fce42fceff4e510902ffc26b4f832817ed338f5a786",
+      "trim/reports/SizeAnalysis.csv": "1cdc51c0e930bc77e55e73d2a3b4106606646a639f27188b8dba2027d2dddeaf",
+      "trim/reports/SizeAnalysisSummary.json": "8b4da052b6b4ae45a036543f3424a365aa452bd28c2da13d4287f9fd0612cec8",
+      "trim/reports/SizeAnalysisSummary.md": "0d5bc500277e1992694b6a00cbfc6e94fef479661b34856a3f5ad5136a627486",
+      "trim/TRIM适配器.csv": "62a8806a7c2050d58a0cacd1af2ea75ca7accf1aa6cd0e9fc858bb27353d0deb",
+      "trim/尺寸TRIM映射.csv": "51b467dc7a5edf9387f9356db84a8fe6afaa5902ed1555f126612ebfdabe0bae"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_08_ru-full-size-matching",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_08_ru-full-size-matching",
+     "files": 7,
+     "bytes": 3935027,
+     "sha256": {
+      "input/0921.1-仅余量.csv": "f448bb3583e89be5b8bace70a6b1611aca02f6a32efe456d78eb0df0c8ca7c14",
+      "input/0928-1.csv": "3d59eebc8c7e9b7ea21b9baf962a55bc02a154df0b8ac089e35b9c5826081227",
+      "input/RU代理销量.csv": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd",
+      "input/尺寸库_RU.csv": "5a46d24aa8b51a2434dedbfabff230f1d96cb305399e6b9d803872559795696f",
+      "output/RU/全量/全量表.csv": "e6386482fb4b3fb816195b420378fbc2bbc8af1acb5a34c4842541d5b2b0b7fe",
+      "status.json": "bd6732d5b40dab5bb38cc7ec133d2e4ead6538cc7f6d960d9f1e46748b84087d",
+      "尺码匹配报告_RU.json": "76ce369e76582dcbb59d7c75c8ad44628841f2511de14d43ad573c94acab5c53"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_09_regional-coverage-full",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_09_regional-coverage-full",
+     "files": 7,
+     "bytes": 12827470,
+     "sha256": {
+      "input/eu-compat/原子销量.csv": "085a93e20fa5b29af96a42e03a32916a0567fbfe6b2ce821cd9c8de8ca61d8ff",
+      "input/eu-compat/尺寸库.csv": "e9f0e6db709e0e9701134a7af5eef7a76a9c55178acaf7c0eeed773f6818ed54",
+      "input/eu-compat/车形分类.csv": "0472dcbab33202e08d36c24a5b0011be548c6cf4cb856a8370772bb006711f84",
+      "output/EU/全量/全量表.csv": "1ee3d42b999dcde5147b47c068c0741702fef8a20569759a90de7b5dffd9ba08",
+      "output/RU/全量/全量表.csv": "2f846a10e5f60d8fd17771b732bbf93db6c8f47c7ca7b62d36983b8634ec1272",
+      "reports/尺码匹配报告_EU.json": "2adc12d0c986e9aa15b3b9d72bf24cdb72f84a0827e131b15e0060c88cdec182",
+      "reports/尺码匹配报告_RU.json": "629b459636aa56438e53753ad68ba852d02e2bf2afcabcc219aabfd941e21956"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_11_match-report",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_11_match-report",
+     "files": 3,
+     "bytes": 24577,
+     "sha256": {
+      "output/EU/尺码匹配报告.md": "cff2ead2da3ba0a0af98fc698a4a1c19da14b6ce60d89e3c8550a72edff355f4",
+      "output/RU/尺码匹配报告.md": "c471940eabf3a364b49f9d2b7eb9685675199af65d87376da926f19e6404b063",
+      "output/US/尺码匹配报告.md": "8751f8df2ab576e15e0d2abe41bde28266ceac859ea5fd857b94d30f61f01a32"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_13_us-size-trim",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_13_us-size-trim",
+     "files": 21,
+     "bytes": 19739383,
+     "sha256": {
+      "output/US/TRIM/TRIM适配器.csv": "62a8806a7c2050d58a0cacd1af2ea75ca7accf1aa6cd0e9fc858bb27353d0deb",
+      "output/US/全量/全量表.csv": "b613a515735a3d8c77cf5bd248c1a9f0e8ee46ece3904f1e03c70c5f5d8fd88b",
+      "output/US/店铺/店铺全量_HNT.csv": "dc829b3815e045b99a7e4860811039c53c59629bbb9d3def6a478acf509e6f84",
+      "output/US/店铺/店铺全量_TM.csv": "c224efcc317d8856a5948fbaba2554414c3027d871b4386fff2ef36c49fa8766",
+      "output/US/店铺/店铺全量_TM_拆分.csv": "66829c1897cb17a36be2ede71e57fc20b3291ddde674c78eb4cb2be0d6f72a57",
+      "status.json": "03ba1157643c284b4c16b2965614da4b05c66af3edfd02de0f973ee45e22fe75",
+      "trim/input/trim_values.csv": "077f9942353e1fddc4cb185cbee602f5dd57f62e0b931082dc3c7ed2302fc93a",
+      "trim/input/TrimList.csv": "4fb239fe20b8e02c7bee13b77b89cbf1c6b050b4fdf2b0eaa58af145b183c40d",
+      "trim/input/TrimList_audit.csv": "0756cfa1a55e03a2faa7a72d34296b32a28f2ae78a1f3c6ab6bdabea22428395",
+      "trim/input/TrimList_ID迁移.csv": "d62dc7bef1b061f38bdd6e3ff85d7acbdc7f76c84c310ba53afd9f3d68f39b64",
+      "trim/input/全量表_US_基础ID.csv": "be41e7c8d2abfe2e4255b2693ecd49ee34d28d38810d7a9db7fbfbf02c98ce67",
+      "trim/reports/AdapterSizeList.csv": "778c97e99831d7699362cf0472787d5ad0a2e0cd10fbb5ab18153f4100269d90",
+      "trim/reports/DimensionSizeMap.csv": "10691b65fc1b4c2a3192f8406cebd655832f111a39393a72b43791088c706e2b",
+      "trim/reports/MultipleSizeDetail.csv": "54eac6b9a8780f3d6483da6cfd2c81a4ab505770d4636aa0673b56e444191524",
+      "trim/reports/MultipleSizeReport.csv": "46d9b0dcf0c92063c85499f6d25ef3599a714c615fdcbb825b5f7546c42cd9cf",
+      "trim/reports/NoPublishableSizeReport.csv": "10ec6262bbf2db5fd1d86fce42fceff4e510902ffc26b4f832817ed338f5a786",
+      "trim/reports/SizeAnalysis.csv": "1cdc51c0e930bc77e55e73d2a3b4106606646a639f27188b8dba2027d2dddeaf",
+      "trim/reports/SizeAnalysisSummary.json": "a5a75133a94dfc2f766d25d703d4f93867bb8b14aa32fcfc77fffd509d3c0f4d",
+      "trim/reports/SizeAnalysisSummary.md": "0d5bc500277e1992694b6a00cbfc6e94fef479661b34856a3f5ad5136a627486",
+      "trim/TRIM适配器.csv": "62a8806a7c2050d58a0cacd1af2ea75ca7accf1aa6cd0e9fc858bb27353d0deb",
+      "trim/尺寸TRIM映射.csv": "51b467dc7a5edf9387f9356db84a8fe6afaa5902ed1555f126612ebfdabe0bae"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_14_ru-full-size-matching",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_14_ru-full-size-matching",
+     "files": 7,
+     "bytes": 4092984,
+     "sha256": {
+      "input/0921.1-仅余量.csv": "f448bb3583e89be5b8bace70a6b1611aca02f6a32efe456d78eb0df0c8ca7c14",
+      "input/0928-1.csv": "3d59eebc8c7e9b7ea21b9baf962a55bc02a154df0b8ac089e35b9c5826081227",
+      "input/RU代理销量.csv": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd",
+      "input/尺寸库_RU.csv": "5a46d24aa8b51a2434dedbfabff230f1d96cb305399e6b9d803872559795696f",
+      "output/RU/全量/全量表.csv": "18dbad56538e3e3b5cebd5563542c0593ff6f3a66fed897ac62fa61188fbbc62",
+      "status.json": "142bcfdb8c8df63849410aa629922fdd243cbbc016dd1bd5daca59bd042485d5",
+      "尺码匹配报告_RU.json": "76ce369e76582dcbb59d7c75c8ad44628841f2511de14d43ad573c94acab5c53"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_15_regional-coverage-full",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_15_regional-coverage-full",
+     "files": 7,
+     "bytes": 13301160,
+     "sha256": {
+      "input/eu-compat/原子销量.csv": "085a93e20fa5b29af96a42e03a32916a0567fbfe6b2ce821cd9c8de8ca61d8ff",
+      "input/eu-compat/尺寸库.csv": "e9f0e6db709e0e9701134a7af5eef7a76a9c55178acaf7c0eeed773f6818ed54",
+      "input/eu-compat/车形分类.csv": "0472dcbab33202e08d36c24a5b0011be548c6cf4cb856a8370772bb006711f84",
+      "output/EU/全量/全量表.csv": "cfb1e2244c187801698ab3654fc5f0fe6b293bb68316ed8d349e6cdbd416a182",
+      "output/RU/全量/全量表.csv": "ab868ee08a47f8f26e1b6ca8f2450fb2f40bc385beba007498123aa0b2a18cf9",
+      "reports/尺码匹配报告_EU.json": "2adc12d0c986e9aa15b3b9d72bf24cdb72f84a0827e131b15e0060c88cdec182",
+      "reports/尺码匹配报告_RU.json": "629b459636aa56438e53753ad68ba852d02e2bf2afcabcc219aabfd941e21956"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_17_match-report",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_17_match-report",
+     "files": 3,
+     "bytes": 26778,
+     "sha256": {
+      "output/EU/尺码匹配报告.md": "472664564f132933ec0f838863c3cbf29c666189458f70d6f6c49c15a7daf522",
+      "output/RU/尺码匹配报告.md": "a2fa1f2db40098e7677e8b6ba9e41b3c6f685101359043ccb2a3f605c59d3d0d",
+      "output/US/尺码匹配报告.md": "933cc794703cec9e49658dc23373dfe5a70ffe93c1dc23bc9ba638fcde492c7b"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_21_match-report-shape",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_21_match-report-shape",
+     "files": 7,
+     "bytes": 49766,
+     "sha256": {
+      "extra/REPORT.md": "a8e3f9c5b0029873fa6d60b0447cd643a4055115dc4d433a2f64687a6ad60bd4",
+      "output/EU/尺码匹配报告-20261013_21.md": "472664564f132933ec0f838863c3cbf29c666189458f70d6f6c49c15a7daf522",
+      "output/RU/尺码匹配报告-20261013_21.md": "a2fa1f2db40098e7677e8b6ba9e41b3c6f685101359043ccb2a3f605c59d3d0d",
+      "output/US/尺码匹配报告-20261013_21.md": "185c97bf7e77e016798fb8e8a1c7073631fd5c04def9a44bd480520299c02ee9",
+      "rules/data/US/规则/SHAPE调整.yaml": "305e01019e93fb72b171968b4a94cb62c83d919717e0ed17f19a083f496bc768",
+      "rules/data/全量SHAPE.yaml": "acc4ee076f6f5a7e4fc0e74f731fe29d38245cf6d4d72c0951f7b591c3a5e55a",
+      "run.json": "5ce9ec9d54fa97b03259751c259508d3a2e15ea3b26e3312252bbf296e6236e4"
+     }
+    },
+    {
+     "batch": "A0.尺码计算/artifacts/2026-10-13_22_size-calculation-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A0.尺码计算\\2026-10-13_22_size-calculation-release",
+     "files": 2,
+     "bytes": 35777,
+     "sha256": {
+      "manifest.json": "4cb9641264606a448b68132579e098492025f60b9339ea408e6ed6e43147a572",
+      "REPORT.md": "3e73b390529fe293a9540423f8b2d51da8fbccf158c63ac3af55e0b5905be9c8"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-09_06_compress-by-line",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-09_06_compress-by-line",
+     "files": 38,
+     "bytes": 2636488,
+     "sha256": {
+      "extra/压缩log_EU.csv.gz": "00f777ecb9b6d2bd20dd5ced0e82fbef3c16e02e3bcb97031428cd5652d4a9c6",
+      "extra/压缩log_HNT.csv.gz": "8ae58532f28dee89b962f9baab4c1bb2a8ba4f958d9e34e65fc9d9649cbcb358",
+      "extra/压缩log_RU.csv.gz": "86af17f9909a809d735d9110da1f913684b1c2b5ce5655fb748ab7ebb3afffec",
+      "extra/压缩log_TM.csv.gz": "b54e4aa6eb477ff7f5781c6002101f4122437a1958b2631816344d94daa3485f",
+      "extra/压缩log_TM_拆分.csv.gz": "f32871250f5b10c909ea4f0c84f8e400dba38204dac60779b543c8aa07aa6ec2",
+      "extra/压缩log_US.csv.gz": "43d7c9a63aee96fe9c6b76b15875e44d70250a95cd29a92b4caa4fbc85549b02",
+      "extra/原子事实表_EU.csv.gz": "08c76122dd27b5c4abe43d1441fac59b5fd1b81a5ca11e4fc00e56b1b9e3d0d7",
+      "extra/原子事实表_HNT.csv.gz": "0780b4d2adb8d6bb15ac21e3088aa93ba8b9ab6eb7975daf96f7e808a2eb7e91",
+      "extra/原子事实表_RU.csv.gz": "7c70f4e7fe8295b1fde3f1eb2d3ad4a226e6feb4f2f6959a22aaad0ee20da725",
+      "extra/原子事实表_TM.csv.gz": "523094ba5ed72dddfdb664426d9c1f15649d23d751dcc30d9f3798f72a8a6286",
+      "extra/原子事实表_TM_拆分.csv.gz": "9621e05bd22f6980a2943a60f8a4824f63982cff8c8f147df31a6fee08f856d9",
+      "extra/原子事实表_US.csv.gz": "ed18ada2f28c95f95c092390c0fd5c635d3cc49713143d454693f449393be031",
+      "extra/原子检查问题_EU_皮卡.csv.gz": "41b1131f7b547ff6c92513c962a9edb5e104fc1fc4690850810201401f1edab9",
+      "extra/原子检查问题_EU_非皮卡.csv.gz": "d836495e60cd070e675d074090734205e84d8523a38eb6737b58bbab856b6f6f",
+      "extra/原子检查问题_HNT_非皮卡.csv.gz": "6d35696289cf6b3034667dcd4393dfdfb1951435105cc5ac3667db3577075bcb",
+      "extra/原子检查问题_RU_皮卡.csv.gz": "05b86f8bed12ffe47a86e852db19e8215b163cdb078ac1dc8b0bcc4ede404628",
+      "extra/原子检查问题_RU_非皮卡.csv.gz": "6a1ebc05524d245a20e70717b4179ffa8619084294888dd17a2249c018c96a5b",
+      "extra/原子检查问题_TM_拆分_非皮卡.csv.gz": "99ef2bf323eff4e4b8d44a05a4b90b4e864360d53207cbbd54bc87c24aa870aa",
+      "extra/原子检查问题_TM_非皮卡.csv.gz": "18940d23b59476bc1d8d0520b6b3ea7e08bd6270348601d98117c2568236508d",
+      "extra/原子检查问题_US_非皮卡.csv.gz": "676b8c8e7a96ff0ee0b43cdffbd9dd5789ad72efa993454b74c9a0bf2fad9670",
+      "output/EU/压缩尺码表-20261009_06.csv": "c46a84668bc8349bbd3b7b4272d2ec77937283c5aaa7cbbf2e21b43316f72e39",
+      "output/EU/压缩尺码表_皮卡-20261009_06.csv": "6ffd74eb843600b04268dd9aa97791ac00cda23e09a5db3e4dd5e0ffe3f92b17",
+      "output/HNT/压缩尺码表-20261009_06.csv": "bd8539fd5ece96dba8552de5a95f0d4e91f99344de0be4ece7c45faeb4176220",
+      "output/HNT/压缩尺码表_皮卡-20261009_06.csv": "a1ecf578ecb68c496321c5b7af97d22526ab1913d0c2fc1e9c6914a7f7d0008f",
+      "output/RU/压缩尺码表-20261009_06.csv": "6f89e78a912abbf4c101c5a99cd360d9207b0644fd32c70bd3cf5ae227a0a6d0",
+      "output/RU/压缩尺码表_皮卡-20261009_06.csv": "c09a0200a0f74d7df639c0a1f12f41cb1e8b007adedcc0eb2415734a801d5be3",
+      "output/TM/压缩尺码表-20261009_06.csv": "00afac7797af4d193b933d62743ca7f158a5bede41b69d11e5ad216797eb42cf",
+      "output/TM/压缩尺码表_皮卡-20261009_06.csv": "3dca41edc1629399be3149de18b6dd15c2711bb569a90631e6fd6fb6e0df2dac",
+      "output/TM_拆分/压缩尺码表-20261009_06.csv": "7d4d56ab6a32db6210d0d403586e523f5a0e3b9596967f9dc4f47166a372aafc",
+      "output/TM_拆分/压缩尺码表_皮卡-20261009_06.csv": "83cc68db43fee40a2e68de77f8ca871f16aa490d5b45d181ade48da7c113f1a2",
+      "output/US/压缩尺码表-20261009_06.csv": "205fe174ccb6e68fc7b1e57ef0ec78404acd175e40e5f546251f5041498ffedc",
+      "output/US/压缩尺码表_皮卡-20261009_06.csv": "3dca41edc1629399be3149de18b6dd15c2711bb569a90631e6fd6fb6e0df2dac",
+      "rules/data/ssh发布.yaml": "19cc2cfa1c3ebec79b142121ece46e245443cb01d5d6575bd4c2d6c9dde9bb82",
+      "rules/data/产线.yaml": "bfe5617fcae2d0710eff312d25085fc4ad3f87e4d6b9862ff502115ad84a1188",
+      "rules/data/合并规则.yaml": "bcedbd27c92bf3f60cebb887438286d08ce2cd7cb8fe6b3f9e00eb00f7d64c88",
+      "rules/data/字段映射.yaml": "faa266434882d96a072181f3b5ca1d77388e56e556d5bdf0df8b7fd5ac2a686c",
+      "rules/data/车型组合.tsv": "2839a38db7f019cee534198d889ecf6f29ae2a16e156d2f719d80eb349ef88db",
+      "run.json": "d679aa1a653e7771c8a8fd1b5ab9e53c20b7061197779f9e28b0cfab0e949c39"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-10_02_size-compression-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-10_02_size-compression-release",
+     "files": 2,
+     "bytes": 22469,
+     "sha256": {
+      "manifest.json": "6159b364db54648e4045ad471c9477575431931b027f9e1491c832cb33e4fa4d",
+      "REPORT.md": "4b2c56faf64dd7a709bf37958ddb178e3ecb0ac7b009ab73b270a094888b7072"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-12_01_compress-by-line",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-12_01_compress-by-line",
+     "files": 39,
+     "bytes": 10799720,
+     "sha256": {
+      "extra/压缩log_EU.csv.gz": "80dc9ea1082e605a1efbc1060b786ccd4d4290f007b2ece9eb0cd28fcb5711f3",
+      "extra/压缩log_HNT.csv.gz": "3f6d59e487172ea2408802fad16c7a6cdeb88bf33a55f5d3b1571897916fec50",
+      "extra/压缩log_RU.csv.gz": "662402c4cffd765dbe5c0d46329a7e20c49fdc3ec7df436b3869437ef2426caa",
+      "extra/压缩log_TM.csv.gz": "8ffdec9b8193b784755ea18cd34f8161fa9c9c2dbb58475092943235fc7b2ed9",
+      "extra/压缩log_TM_拆分.csv.gz": "befc2b2925ccd10c732820639256feeafc0f52b0b55da39d07666e7fbf19ff1b",
+      "extra/压缩log_US.csv.gz": "b3d997b7636266154b1da42bc55aa492dcac655dce642021b903ff648ce664a7",
+      "extra/原子事实表_EU.csv.gz": "5debb89b97c8e835c651424a450f5df588a38181b0126ea16ac026a2b098fb83",
+      "extra/原子事实表_HNT.csv.gz": "193a65bf32d676c19dabb98d99261c1714db8e9b200e3e89f904ee391705f1a7",
+      "extra/原子事实表_RU.csv.gz": "3115b818026ae54af0f756362a0a2fac8d21453837f83dbd78a3938852b2564f",
+      "extra/原子事实表_TM.csv.gz": "730a73d4eed6480d07d6c444deeff182884b26fe547665db8abfae06ca731267",
+      "extra/原子事实表_TM_拆分.csv.gz": "50e5075f22b6ea142163cfeb29161f3afb4c5c9c4e8d5f3d1dbfb8cb4b8d6c65",
+      "extra/原子事实表_US.csv.gz": "c8532f2051c5ffa25671b1b40bb96495b32b0fbf01694a86468ecb772b93ba86",
+      "extra/原子检查问题_EU_皮卡.csv.gz": "8512f74564569fd4ab8071d18d7ea437bba24fdb8b39d78c0bc1d7f2376b52a4",
+      "extra/原子检查问题_EU_非皮卡.csv.gz": "c305fbd13df73e2e78889a29fa8688acaac01abb669426f3e5a1a42e3934013b",
+      "extra/原子检查问题_HNT_非皮卡.csv.gz": "d16979272836bdd0095e0c91cc6056705134a4e824196ea25452c158b426de77",
+      "extra/原子检查问题_RU_皮卡.csv.gz": "0080e601a7221fac8dd75b1e9070db9684271311a1a4761f677199db0ab36a6f",
+      "extra/原子检查问题_RU_非皮卡.csv.gz": "a0688a0dced0c90f59bade231042d2e3532daa8f44e589ac8b7ec802666a3ccf",
+      "extra/原子检查问题_TM_拆分_非皮卡.csv.gz": "c12fa572a0487de725c4761bab534ee31a2b68b22f5e32aad8453adb1feb49c1",
+      "extra/原子检查问题_TM_非皮卡.csv.gz": "605837e517613e9a6d236f972c24e2a038474dc85a3c0af94569ffb6d38f73f3",
+      "extra/原子检查问题_US_非皮卡.csv.gz": "3783e133302662e61d1cb63c51327f7074c9cc89adba2e5a86c408973919d1c2",
+      "output/EU/压缩尺码表-20261012_01.csv": "a555ff89079b493defb28645877c193dbf3334d82e91859626fde2025bdfc240",
+      "output/EU/压缩尺码表_皮卡-20261012_01.csv": "28fdaf210743611880994bc994af2e1c6f0463e3fe51e584d430c5300aa95570",
+      "output/EU/压缩来源-20261012_01.csv": "6e8671cc0b5f436679fded011cda633afc2f8dab6fad821225fcad9445787cce",
+      "output/HNT/压缩尺码表-20261012_01.csv": "ae8c28fc84f767c50b9efde17a150f344b66cac168c097a2c02ed872719791af",
+      "output/HNT/压缩尺码表_皮卡-20261012_01.csv": "88bc3802af2c22fbb4cfd555acc0dac0e953344dce25fcde6618f72472bbb5ae",
+      "output/HNT/压缩来源-20261012_01.csv": "570acda5948e1165b1697b0e243b12aca0e5ff58b0506e4df34320869450481c",
+      "output/RU/压缩尺码表-20261012_01.csv": "f3298d798324cd9ee8a685fe0a87bbb6734841f14af0781bdc748dc9b7cee17d",
+      "output/RU/压缩尺码表_皮卡-20261012_01.csv": "613f2c11f7c322508daaaa996b8921574a49e29f055c4589b11a17dbd4b4c7f2",
+      "output/RU/压缩来源-20261012_01.csv": "70d19df6bef257f5a10f277790b8bd3aed49432799780f22c3dfc0bdc35992dd",
+      "output/TM/压缩尺码表-20261012_01.csv": "7d35891f16fe2ece3263788d505d11f87cbde22945f6c7f021dc7dd8675bd0eb",
+      "output/TM/压缩尺码表_皮卡-20261012_01.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/TM/压缩来源-20261012_01.csv": "10009dce987701eaad75adc5bed492acae1d44cb7bdbe9d9e033ad50e2608819",
+      "output/TM_拆分/压缩尺码表-20261012_01.csv": "20a8717c9013cdd2d60fe837877be6d1f92ac29d2a454ec6173bef19654d1125",
+      "output/TM_拆分/压缩尺码表_皮卡-20261012_01.csv": "3594abf06551874653ba25e320580bbc3b7b311d8c1a9a11bde16f7074881892",
+      "output/TM_拆分/压缩来源-20261012_01.csv": "fb571665e887330cc56d1925e907b788c883bc6223a5d6164052b0535b300fa9",
+      "output/US/压缩尺码表-20261012_01.csv": "38ad8147df0adc34b93a437c44720cd0e7e77641d8fd49e06e9498360965dd56",
+      "output/US/压缩尺码表_皮卡-20261012_01.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/US/压缩来源-20261012_01.csv": "1cc469b773618b56e59bb86fa2f66527e950e2ae3eec8055baf45f444b94ca08",
+      "run.json": "c30ba64c1febb68958ad6dfcc68d04930b9af57fdcb3950119d6323e129d53d4"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-12_02_size-compression-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-12_02_size-compression-release",
+     "files": 2,
+     "bytes": 21311,
+     "sha256": {
+      "manifest.json": "7f1a417a011fe063ab93f84b01a9137354d257b6b7da440d3d02ec46eedf2f5a",
+      "REPORT.md": "b7a70a4068716ecb9f437f73db62205486e980390e850b710938e0eee05344de"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-12_03_size-compression-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-12_03_size-compression-release",
+     "files": 2,
+     "bytes": 21311,
+     "sha256": {
+      "manifest.json": "d85f10b6784b7e0fd05c4a3b36c7b47a663c23fad3248ce3a77ffb28465d2769",
+      "REPORT.md": "a2bdf1544b889a9c9fec1cfb06d99ba8badc6fd5ce5b445dbc2cdc95036c40af"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-12_04_size-compression-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-12_04_size-compression-release",
+     "files": 2,
+     "bytes": 21311,
+     "sha256": {
+      "manifest.json": "d583b5e3e876049d0507a94ddc50b08e649e8de4bbdc3316bc13beb0878442e5",
+      "REPORT.md": "886eb5d72e491643d48c7646d249a38243359cd8fe1722b50ecc784ce653b9c9"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-12_05_compress-by-line",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-12_05_compress-by-line",
+     "files": 39,
+     "bytes": 10799720,
+     "sha256": {
+      "extra/压缩log_EU.csv.gz": "b090098192868caa4a0abd34178ab67d86d9f90e508d00c65d2e26353adc3828",
+      "extra/压缩log_HNT.csv.gz": "dd07aa5ff0358421d5f93abfa86cf76857f1f09a3c4bbc1da2e7a6d00f0d661d",
+      "extra/压缩log_RU.csv.gz": "008221b1ef856d4632aac95f5585a3ddfe6225be339bead09c86fdabe5c2dcee",
+      "extra/压缩log_TM.csv.gz": "8b5406ce907392c5ad520aaf5957ff601faebb099bd45faa633c70d1b6943fa5",
+      "extra/压缩log_TM_拆分.csv.gz": "f51ed512f7f518d6b5937c8da1d2c728e7f87f6bed8b1d4425bd59db36baa39d",
+      "extra/压缩log_US.csv.gz": "2d4f07c4c8472c2e083851e12fb92da279e8bdb376edbe6941d504f7b96b20ce",
+      "extra/原子事实表_EU.csv.gz": "4de262c2cdd057a4ae4af51d52a784cab029dd6fc16f32597708d189ae490d4c",
+      "extra/原子事实表_HNT.csv.gz": "6360ff7718e84029da182c8a1383a4d74d3166acd8610da8ae89fc06722bf869",
+      "extra/原子事实表_RU.csv.gz": "a8797d0ddb414a9d5e1ff99d15fc8261dbfc93d7e142e8c2f9975b788a0ad3a5",
+      "extra/原子事实表_TM.csv.gz": "936341ae620d969abe6ee2973c0b5e1ebdfb02db38c843378c4188b0cf628d77",
+      "extra/原子事实表_TM_拆分.csv.gz": "b6be8434f81ae5acdbfcef4c8c2ffc4f219e4e69d8561560db8f9e06de749697",
+      "extra/原子事实表_US.csv.gz": "b4d6201d18addc8b8703f1bbdbf241dc4cedad8480687e619cd101fc79a0620e",
+      "extra/原子检查问题_EU_皮卡.csv.gz": "d3c935fc14b96c19c503894a51bf3a5aa4d6dc99be15e0b686393217c0324ff6",
+      "extra/原子检查问题_EU_非皮卡.csv.gz": "877a034364df6609eedc6d842a3c2aedce8c071bbbe675ad45344339743914c7",
+      "extra/原子检查问题_HNT_非皮卡.csv.gz": "80e1d4584173da17aff2c3e03ceb67fe604f98cba8cd923770231ae86df25144",
+      "extra/原子检查问题_RU_皮卡.csv.gz": "b1fb7a362cae6dd996fedce4b9cdfb3d256318ef71f8299e945d08d7be9d931d",
+      "extra/原子检查问题_RU_非皮卡.csv.gz": "a0d9bd4a7481fda6c1493ee0cf2092cc5f57939669ba3fa52ebe3422d242d667",
+      "extra/原子检查问题_TM_拆分_非皮卡.csv.gz": "9fffe42d6587ebb1bb16a6d9671d22404f8135d3dcd1056409e17acee681492e",
+      "extra/原子检查问题_TM_非皮卡.csv.gz": "37bd13d82164b79483532d409a4092e8430d3461b4578c319948e2e18c2f2b6e",
+      "extra/原子检查问题_US_非皮卡.csv.gz": "df585125f0217bf5a734e641c256c5d15f485c96fb261b19c072207557d6777f",
+      "output/EU/压缩尺码表-20261012_05.csv": "a555ff89079b493defb28645877c193dbf3334d82e91859626fde2025bdfc240",
+      "output/EU/压缩尺码表_皮卡-20261012_05.csv": "28fdaf210743611880994bc994af2e1c6f0463e3fe51e584d430c5300aa95570",
+      "output/EU/压缩来源-20261012_05.csv": "6e8671cc0b5f436679fded011cda633afc2f8dab6fad821225fcad9445787cce",
+      "output/HNT/压缩尺码表-20261012_05.csv": "ae8c28fc84f767c50b9efde17a150f344b66cac168c097a2c02ed872719791af",
+      "output/HNT/压缩尺码表_皮卡-20261012_05.csv": "88bc3802af2c22fbb4cfd555acc0dac0e953344dce25fcde6618f72472bbb5ae",
+      "output/HNT/压缩来源-20261012_05.csv": "570acda5948e1165b1697b0e243b12aca0e5ff58b0506e4df34320869450481c",
+      "output/RU/压缩尺码表-20261012_05.csv": "f3298d798324cd9ee8a685fe0a87bbb6734841f14af0781bdc748dc9b7cee17d",
+      "output/RU/压缩尺码表_皮卡-20261012_05.csv": "613f2c11f7c322508daaaa996b8921574a49e29f055c4589b11a17dbd4b4c7f2",
+      "output/RU/压缩来源-20261012_05.csv": "70d19df6bef257f5a10f277790b8bd3aed49432799780f22c3dfc0bdc35992dd",
+      "output/TM/压缩尺码表-20261012_05.csv": "7d35891f16fe2ece3263788d505d11f87cbde22945f6c7f021dc7dd8675bd0eb",
+      "output/TM/压缩尺码表_皮卡-20261012_05.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/TM/压缩来源-20261012_05.csv": "10009dce987701eaad75adc5bed492acae1d44cb7bdbe9d9e033ad50e2608819",
+      "output/TM_拆分/压缩尺码表-20261012_05.csv": "20a8717c9013cdd2d60fe837877be6d1f92ac29d2a454ec6173bef19654d1125",
+      "output/TM_拆分/压缩尺码表_皮卡-20261012_05.csv": "3594abf06551874653ba25e320580bbc3b7b311d8c1a9a11bde16f7074881892",
+      "output/TM_拆分/压缩来源-20261012_05.csv": "fb571665e887330cc56d1925e907b788c883bc6223a5d6164052b0535b300fa9",
+      "output/US/压缩尺码表-20261012_05.csv": "38ad8147df0adc34b93a437c44720cd0e7e77641d8fd49e06e9498360965dd56",
+      "output/US/压缩尺码表_皮卡-20261012_05.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/US/压缩来源-20261012_05.csv": "1cc469b773618b56e59bb86fa2f66527e950e2ae3eec8055baf45f444b94ca08",
+      "run.json": "1a2141c12665346b41a14401cf56fcbe5e082359b42350380c75622c89f2034e"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-13_01_compress-by-line",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-13_01_compress-by-line",
+     "files": 39,
+     "bytes": 10799720,
+     "sha256": {
+      "extra/压缩log_EU.csv.gz": "8ec78c88ba07ba106ca62cd96131388a9bd9d6eb0cea50095e726af342d9bf8d",
+      "extra/压缩log_HNT.csv.gz": "0eaae716e69c56e036ac30ff1e24cedbf5b990d738f66c166a879fa4fa6a708d",
+      "extra/压缩log_RU.csv.gz": "430ae7fd199529ec0617f884e2ce6cdecf6422956cdfe800541a80270245bc47",
+      "extra/压缩log_TM.csv.gz": "5773bbc49b9bc9d86124b100467a5f2cc01b12aa90ddc64d82a8eebc2a298826",
+      "extra/压缩log_TM_拆分.csv.gz": "50fc6d3c6ab6e9e427fd9ebec326b85d74079116c9100a3dec89b01e4c08d7d9",
+      "extra/压缩log_US.csv.gz": "ab2a9ad9e37d20f6fe65a0a78f73c8e9663ac286040433bf03f8f47674066e45",
+      "extra/原子事实表_EU.csv.gz": "785d8dddd23179900d713f4f3a161e9bd17b8fd3b486372543a98d47dd187ab0",
+      "extra/原子事实表_HNT.csv.gz": "0081336e4b8578fb311247e2a90e5bac009c8cac1f08396dbb8e7e8789256726",
+      "extra/原子事实表_RU.csv.gz": "d4a69fb89b54694686653df8cc3b29ba4f44717297799465a81387bb67392222",
+      "extra/原子事实表_TM.csv.gz": "7c432efa351c821440793d153a3c6cdde843d00a7e0d5a7141d8c55d4e5d1b9d",
+      "extra/原子事实表_TM_拆分.csv.gz": "903fda7588de259a6cf2c4006b7699b46dc9caf7d0a11b2c413bd1a2c3b095d8",
+      "extra/原子事实表_US.csv.gz": "876806505c30c2987f2d771eab12c79b9b8bb867a501240f4ae234946474db2d",
+      "extra/原子检查问题_EU_皮卡.csv.gz": "70db4f3cf9df42fc097a39012102871962a8bd4f3e1a761d689994758e09827d",
+      "extra/原子检查问题_EU_非皮卡.csv.gz": "b1b5c0cb0366dd7cea29256d5651700bd144b7ac08672d8bfe2a862af9ad4e30",
+      "extra/原子检查问题_HNT_非皮卡.csv.gz": "cccb76b7a12b866b82c0ca807fb794ae29f6d1a26ddb0fee0e6c19cb988b5a35",
+      "extra/原子检查问题_RU_皮卡.csv.gz": "7f52090bbf63ff8808ec3ceb614a5c7164aeddc33842ec8ffa8980f2cffd8f67",
+      "extra/原子检查问题_RU_非皮卡.csv.gz": "f37a4f6ecf21d421a0e0ef9a6e467043746e42c18194e6560534c3c069d971b7",
+      "extra/原子检查问题_TM_拆分_非皮卡.csv.gz": "75de860a2503bfad855e403b6caeef818b51ad3126b5d0b9cdca0dd26b75a97b",
+      "extra/原子检查问题_TM_非皮卡.csv.gz": "3e5d7d2276312223031de4e340b520a63fa30459ea66c3497020706762e56155",
+      "extra/原子检查问题_US_非皮卡.csv.gz": "8c7d64d05ab59184600fd495039ad28cdc63a5ad34821a0264a8b189d8e2a100",
+      "output/EU/压缩尺码表-20261013_01.csv": "a555ff89079b493defb28645877c193dbf3334d82e91859626fde2025bdfc240",
+      "output/EU/压缩尺码表_皮卡-20261013_01.csv": "28fdaf210743611880994bc994af2e1c6f0463e3fe51e584d430c5300aa95570",
+      "output/EU/压缩来源-20261013_01.csv": "6e8671cc0b5f436679fded011cda633afc2f8dab6fad821225fcad9445787cce",
+      "output/HNT/压缩尺码表-20261013_01.csv": "ae8c28fc84f767c50b9efde17a150f344b66cac168c097a2c02ed872719791af",
+      "output/HNT/压缩尺码表_皮卡-20261013_01.csv": "88bc3802af2c22fbb4cfd555acc0dac0e953344dce25fcde6618f72472bbb5ae",
+      "output/HNT/压缩来源-20261013_01.csv": "570acda5948e1165b1697b0e243b12aca0e5ff58b0506e4df34320869450481c",
+      "output/RU/压缩尺码表-20261013_01.csv": "f3298d798324cd9ee8a685fe0a87bbb6734841f14af0781bdc748dc9b7cee17d",
+      "output/RU/压缩尺码表_皮卡-20261013_01.csv": "613f2c11f7c322508daaaa996b8921574a49e29f055c4589b11a17dbd4b4c7f2",
+      "output/RU/压缩来源-20261013_01.csv": "70d19df6bef257f5a10f277790b8bd3aed49432799780f22c3dfc0bdc35992dd",
+      "output/TM/压缩尺码表-20261013_01.csv": "7d35891f16fe2ece3263788d505d11f87cbde22945f6c7f021dc7dd8675bd0eb",
+      "output/TM/压缩尺码表_皮卡-20261013_01.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/TM/压缩来源-20261013_01.csv": "10009dce987701eaad75adc5bed492acae1d44cb7bdbe9d9e033ad50e2608819",
+      "output/TM_拆分/压缩尺码表-20261013_01.csv": "20a8717c9013cdd2d60fe837877be6d1f92ac29d2a454ec6173bef19654d1125",
+      "output/TM_拆分/压缩尺码表_皮卡-20261013_01.csv": "3594abf06551874653ba25e320580bbc3b7b311d8c1a9a11bde16f7074881892",
+      "output/TM_拆分/压缩来源-20261013_01.csv": "fb571665e887330cc56d1925e907b788c883bc6223a5d6164052b0535b300fa9",
+      "output/US/压缩尺码表-20261013_01.csv": "38ad8147df0adc34b93a437c44720cd0e7e77641d8fd49e06e9498360965dd56",
+      "output/US/压缩尺码表_皮卡-20261013_01.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/US/压缩来源-20261013_01.csv": "1cc469b773618b56e59bb86fa2f66527e950e2ae3eec8055baf45f444b94ca08",
+      "run.json": "b9add6b0ef70e993a4df6fe076f17af11d460f9ebd356147fd2795f34d30ac06"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-13_02_size-compression-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-13_02_size-compression-release",
+     "files": 2,
+     "bytes": 21311,
+     "sha256": {
+      "manifest.json": "eb4d04e050a4661ebf3960539001790519be594c06c578fab752b9361d85edcd",
+      "REPORT.md": "9aad4c3ce46d2a0401f3271087578a5f78333ba2b35614cb5566cbc81b39f040"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-13_03_compress-by-line",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-13_03_compress-by-line",
+     "files": 45,
+     "bytes": 21298209,
+     "sha256": {
+      "extra/压缩log_EU.csv.gz": "f42218b50858d5022fb740ede8aa1cb30a9adc0ca6b326377e77165670d711f0",
+      "extra/压缩log_HNT.csv.gz": "ea78eda58e204bb35b4f7889596929b7af41e14de4fd25b93e17671adcdc4568",
+      "extra/压缩log_RU.csv.gz": "da65d18e5efab039eebfe6729d21d98e7cc6fe561c74c03f1f09a0ba13f5fa69",
+      "extra/压缩log_TM.csv.gz": "380ac466269391146ed95df6740d209dde6ba27bb25c7bdb74b5423792a3c21d",
+      "extra/压缩log_TM_拆分.csv.gz": "1f12cc497798c2c1e786246548d65586eb0ceaee3f7c3a0655a2ca08e87f55a3",
+      "extra/压缩log_US.csv.gz": "4e275f2124375d185994ef85d3c55c9e27cf7fd932feb974042148ed3e10fa3f",
+      "extra/原子事实表_EU.csv.gz": "7c8e2fcc73753edf06f4cbd99c4f1d1f8f62784d46db721d1b42274deba32a18",
+      "extra/原子事实表_HNT.csv.gz": "b4195c0dd1fbb5a569ad2b49cbf6614f52fd2e2b0534c945a2ca289fac57f4c0",
+      "extra/原子事实表_RU.csv.gz": "abe36f16ae8563589dedcf7aeed9ff43c3911e1b4623356798c2823a7bf8d2cb",
+      "extra/原子事实表_TM.csv.gz": "bafc348eda37b36c2e7877433eac5dba4d98f5bd6b16d0d098be9fce450ec435",
+      "extra/原子事实表_TM_拆分.csv.gz": "5e4560beda33244ba5fc5e371b3bb88cad10129afe5951356f2484f56156e572",
+      "extra/原子事实表_US.csv.gz": "1944ea85377cfcb8e3dd1f1047f3ae92a970eeaddcaa87c96d98d65c192a2388",
+      "extra/原子检查问题_EU_皮卡.csv.gz": "43d054c09e607ccecf1ff1bdfc4b0fab391d37ed91857fec840e09a860b7f39f",
+      "extra/原子检查问题_EU_非皮卡.csv.gz": "04cba987f9622fe9ba11c77346a5d7b1d854ba600b4fbe97f28c22cb8133b935",
+      "extra/原子检查问题_HNT_非皮卡.csv.gz": "bac9e014cc49cac112a0fc1381255a3db928d7b7b35f5af293e6c39fa4f75e19",
+      "extra/原子检查问题_RU_皮卡.csv.gz": "5ec88e7dfc5f7d5e1aa1dc2b1bc05731c450f4c655dbb4c5a22ae8aff46c5eb1",
+      "extra/原子检查问题_RU_非皮卡.csv.gz": "32b8d452d74b6efb7d1610895490ac9291351584064137d7b6e0bca6dcb4c0a3",
+      "extra/原子检查问题_TM_拆分_非皮卡.csv.gz": "fa8251b2e1fe23ea9c99efe98d0751bd8d59cb6c0a2441c772c85cda82b43981",
+      "extra/原子检查问题_TM_非皮卡.csv.gz": "90e64aa4c9631b00f16c520a5c7cb106dc191c56891d05960bce216f1d5f691a",
+      "extra/原子检查问题_US_非皮卡.csv.gz": "b52e1817523e5f5a2a5e10e14bba23543f4806650d2bd53fc064a13031e19393",
+      "input/EU/全量/全量表.csv": "43250bf7748fcff6651aa5ae2e7f47fe22d1945731f99fc9a4dae41a04b3406d",
+      "input/RU/全量/全量表.csv": "f590acf28068183915807153b490a16728c1b553ceaa793d8bc22954d9872217",
+      "input/US/全量/全量表.csv": "f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4",
+      "input/US/店铺/店铺全量_HNT.csv": "a7cd13d3808b1721fb016d697faf16548f9ed066237d7d17072a9385cc5382b9",
+      "input/US/店铺/店铺全量_TM.csv": "dde471bb65efda7d23d58e3cbdf9fbb5275a9abee57afa3b9ac8638239b9d399",
+      "input/US/店铺/店铺全量_TM_拆分.csv": "363b33d2cb685a230c3b066f0a8d2c0c8e9288581920170e0abd2a52b582392c",
+      "output/EU/压缩尺码表-20261013_03.csv": "a555ff89079b493defb28645877c193dbf3334d82e91859626fde2025bdfc240",
+      "output/EU/压缩尺码表_皮卡-20261013_03.csv": "28fdaf210743611880994bc994af2e1c6f0463e3fe51e584d430c5300aa95570",
+      "output/EU/压缩来源-20261013_03.csv": "6e8671cc0b5f436679fded011cda633afc2f8dab6fad821225fcad9445787cce",
+      "output/HNT/压缩尺码表-20261013_03.csv": "ae8c28fc84f767c50b9efde17a150f344b66cac168c097a2c02ed872719791af",
+      "output/HNT/压缩尺码表_皮卡-20261013_03.csv": "88bc3802af2c22fbb4cfd555acc0dac0e953344dce25fcde6618f72472bbb5ae",
+      "output/HNT/压缩来源-20261013_03.csv": "570acda5948e1165b1697b0e243b12aca0e5ff58b0506e4df34320869450481c",
+      "output/RU/压缩尺码表-20261013_03.csv": "f3298d798324cd9ee8a685fe0a87bbb6734841f14af0781bdc748dc9b7cee17d",
+      "output/RU/压缩尺码表_皮卡-20261013_03.csv": "613f2c11f7c322508daaaa996b8921574a49e29f055c4589b11a17dbd4b4c7f2",
+      "output/RU/压缩来源-20261013_03.csv": "70d19df6bef257f5a10f277790b8bd3aed49432799780f22c3dfc0bdc35992dd",
+      "output/TM/压缩尺码表-20261013_03.csv": "7d35891f16fe2ece3263788d505d11f87cbde22945f6c7f021dc7dd8675bd0eb",
+      "output/TM/压缩尺码表_皮卡-20261013_03.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/TM/压缩来源-20261013_03.csv": "10009dce987701eaad75adc5bed492acae1d44cb7bdbe9d9e033ad50e2608819",
+      "output/TM_拆分/压缩尺码表-20261013_03.csv": "20a8717c9013cdd2d60fe837877be6d1f92ac29d2a454ec6173bef19654d1125",
+      "output/TM_拆分/压缩尺码表_皮卡-20261013_03.csv": "3594abf06551874653ba25e320580bbc3b7b311d8c1a9a11bde16f7074881892",
+      "output/TM_拆分/压缩来源-20261013_03.csv": "fb571665e887330cc56d1925e907b788c883bc6223a5d6164052b0535b300fa9",
+      "output/US/压缩尺码表-20261013_03.csv": "38ad8147df0adc34b93a437c44720cd0e7e77641d8fd49e06e9498360965dd56",
+      "output/US/压缩尺码表_皮卡-20261013_03.csv": "8225057abafecf92fe8638107f5e2ce11290e03d32e7d3fdd13234abcd25bf52",
+      "output/US/压缩来源-20261013_03.csv": "1cc469b773618b56e59bb86fa2f66527e950e2ae3eec8055baf45f444b94ca08",
+      "run.json": "77981aed6e8cbe7445a45622c2f9bcc3bbae9b44e134d0bfd12fb710b6cc5226"
+     }
+    },
+    {
+     "batch": "A1.压缩尺寸信息/artifacts/2026-10-13_04_size-compression-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\A1.压缩尺寸信息\\2026-10-13_04_size-compression-release",
+     "files": 2,
+     "bytes": 21311,
+     "sha256": {
+      "manifest.json": "b42860bfe24bf28181321980a272feadd0445f94baebf045124e792420be9da5",
+      "REPORT.md": "143329ab8dd71991dee6ddabd1612ccbe0d03df13c67392a19e499377fa22777"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_05_mercedes-e-class-custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_05_mercedes-e-class-custom-analysis",
+     "files": 6,
+     "bytes": 679732,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "output/Sketchfab检索记录.csv": "08a0afb033b6e7b3ab339c1a7d39f01b8aff9d0f1c0a3482167625ba74b29275",
+      "output/定制SKU聚簇.csv": "f06ff0ad0b31920adeb46c9879b107fb96b46c6d4a2cfb443176dc463b98eb68",
+      "output/定制SKU聚簇成员.csv": "e85eb477e594406bc7f687e9bad46b15462bc100b9bb804962474e777428566c",
+      "output/定制SKU聚簇报告.md": "89759f85349d798e8bedac25c01e318a4d184f067a6dcd24fbe4868e7a2cbf1a",
+      "rules/mercedes_e_class_custom_analysis.json": "2ac57e93009db25396a0cd8ab119221f05fe4401db8f7e66855c92fd8e258bb9"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_06_mercedes-e-class-custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_06_mercedes-e-class-custom-analysis",
+     "files": 2,
+     "bytes": 673502,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "rules/mercedes_e_class_custom_analysis.json": "2ac57e93009db25396a0cd8ab119221f05fe4401db8f7e66855c92fd8e258bb9"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_07_mercedes-e-class-custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_07_mercedes-e-class-custom-analysis",
+     "files": 2,
+     "bytes": 673502,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "rules/mercedes_e_class_custom_analysis.json": "2ac57e93009db25396a0cd8ab119221f05fe4401db8f7e66855c92fd8e258bb9"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_08_mercedes-e-class-custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_08_mercedes-e-class-custom-analysis",
+     "files": 2,
+     "bytes": 673502,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "rules/mercedes_e_class_custom_analysis.json": "2ac57e93009db25396a0cd8ab119221f05fe4401db8f7e66855c92fd8e258bb9"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_09_mercedes-e-class-custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_09_mercedes-e-class-custom-analysis",
+     "files": 8,
+     "bytes": 681357,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "manifest.json": "9dd60800ee55ea8ce51a51997b874e86d1c97e33bf2596b123ce1669a4c4e977",
+      "output/Sketchfab检索记录.csv": "08a0afb033b6e7b3ab339c1a7d39f01b8aff9d0f1c0a3482167625ba74b29275",
+      "output/定制SKU聚簇.csv": "f06ff0ad0b31920adeb46c9879b107fb96b46c6d4a2cfb443176dc463b98eb68",
+      "output/定制SKU聚簇成员.csv": "e85eb477e594406bc7f687e9bad46b15462bc100b9bb804962474e777428566c",
+      "output/定制SKU聚簇报告.md": "89759f85349d798e8bedac25c01e318a4d184f067a6dcd24fbe4868e7a2cbf1a",
+      "rules/mercedes_e_class_custom_analysis.json": "2ac57e93009db25396a0cd8ab119221f05fe4401db8f7e66855c92fd8e258bb9",
+      "status.json": "6a2b9d0faba6d3378c63d435bc96ebe75af9c8731b9a76f26c9daef07ea9a739"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_10_mercedes-e-class-sedan-custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_10_mercedes-e-class-sedan-custom-analysis",
+     "files": 8,
+     "bytes": 679076,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "manifest.json": "a1625176ba5626ff80bb8dbd03cb0ab3c3a6ed2cd62af26041871c4d7b4fe79b",
+      "output/Sketchfab检索记录.csv": "08a0afb033b6e7b3ab339c1a7d39f01b8aff9d0f1c0a3482167625ba74b29275",
+      "output/定制SKU聚簇.csv": "44914577169faa7f3cce7f1a2e70618bfe319cdf5c60c906e5a7523a44a3f268",
+      "output/定制SKU聚簇成员.csv": "3d3805c6efd902376cfa99fc79d3aa0d1bc888e6d8afa9af8cd6d2856470b0a8",
+      "output/定制SKU聚簇报告.md": "b23e8f1cfaddca1416270fe2a05490f6754d86b8da9cab8925d882eb0ee44188",
+      "rules/mercedes_e_class_custom_analysis.json": "a065785cf3b5cf41d2bc99acb217624d4c032a942e13c8ef9d7a7e34d88bca99",
+      "status.json": "62c6322c2ddac9c067472368d7db3f43a1654d96363d48ab9a21a6ee4b93e967"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_11_mercedes-e-class-sedan-code-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_11_mercedes-e-class-sedan-code-analysis",
+     "files": 9,
+     "bytes": 880893,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "input/尺寸编码映射.csv": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445",
+      "manifest.json": "e7fbd376e11026192094534fcce2fb993339a474ec3a82a5b395ac3b1d5832bf",
+      "output/Sketchfab检索记录.csv": "08a0afb033b6e7b3ab339c1a7d39f01b8aff9d0f1c0a3482167625ba74b29275",
+      "output/定制SKU聚簇.csv": "7e33c9039baf1087ee51e3a02e0e6b45b17750e350816e1087def6abdbc3d336",
+      "output/定制SKU聚簇成员.csv": "847ca6e4b18018dea8d692ac6b2a044c73ae9fc164094f3fa613d93f86fbfdec",
+      "output/定制SKU聚簇报告.md": "bb1a07ad5be1545629b933e5a7ca14d425d0b6299ed1095b8f8da79b2055043c",
+      "rules/mercedes_e_class_custom_analysis.json": "869115ca2980f822bb1cb6ca4b0626326bd22af3e5bb9361d63ee951c871d0ce",
+      "status.json": "327c6ce4302cd1132ad79d421e684ca03baa8cb3ce57aa586704f45791fee03d"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_12_mercedes-e-class-sedan-sku-links",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_12_mercedes-e-class-sedan-sku-links",
+     "files": 7,
+     "bytes": 880149,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "input/尺寸编码映射.csv": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445",
+      "output/Sketchfab检索记录.csv": "08a0afb033b6e7b3ab339c1a7d39f01b8aff9d0f1c0a3482167625ba74b29275",
+      "output/定制SKU聚簇.csv": "6ab7f540d76da44b61de0cf942a4bcf9d67756f4aaf46d41affd0b91a9ea56f8",
+      "output/定制SKU聚簇成员.csv": "847ca6e4b18018dea8d692ac6b2a044c73ae9fc164094f3fa613d93f86fbfdec",
+      "output/定制SKU聚簇报告.md": "c6a091fc97d353e2dfee0ea17412f5a659a428feb3481185d771f4414cd09a59",
+      "rules/mercedes_e_class_custom_analysis.json": "2d5e95ccea27ed74e96d3601cde157e41976313eabc39cb2899e64b042c4fc44"
+     }
+    },
+    {
+     "batch": "C1.车型代表分析/artifacts/2026-10-09_13_mercedes-e-class-sedan-sku-code-links",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\C1.车型代表分析\\2026-10-09_13_mercedes-e-class-sedan-sku-code-links",
+     "files": 7,
+     "bytes": 879934,
+     "sha256": {
+      "input/全量表.csv": "d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965",
+      "input/尺寸编码映射.csv": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445",
+      "output/Sketchfab检索记录.csv": "08a0afb033b6e7b3ab339c1a7d39f01b8aff9d0f1c0a3482167625ba74b29275",
+      "output/定制SKU聚簇.csv": "8793d9ec808b0bcee41bbe4cabcf7469a8f10a3b8f764ee9d63d8293b2e8a249",
+      "output/定制SKU聚簇成员.csv": "ebf4c7050a3e2bce8dde59873a2131db26f879c72c316654f208113bc346f353",
+      "output/定制SKU聚簇报告.md": "f1407a194c072507385148530a6cf6dcaa16e42c58bc5cb05ce76ccabc00776b",
+      "rules/mercedes_e_class_custom_analysis.json": "2d5e95ccea27ed74e96d3601cde157e41976313eabc39cb2899e64b042c4fc44"
+     }
+    },
+    {
+     "batch": "D2.链接分析/皮卡/artifacts/0914",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\D2.链接分析\\皮卡\\0914",
+     "files": 6,
+     "bytes": 153733,
+     "sha256": {
+      "grouping_detail.csv": "28f8759d305c522f44e1f0e0b62f6868b8d8cf988c6eec71227993efdc5fd057",
+      "listing_detail.csv": "7ddae2193464927346fd6dc3a9f0f6ffe1314c6a3ef60ad10267fa69cc31954b",
+      "shipment_input.csv": "c3b497a4084f4c6236eea8908b6aeb6c993e5b9ad051413d3d478fe3ac4b01c5",
+      "sku_shipment_analysis.csv": "42fbd99b0077a5ed2a4bb72197a9ebe437f9375ba3f75043595432ac4e608c64",
+      "年份合并测试报告.csv": "8726efc3ff1806802aaa569c700afd745d8fc06065abb445732b4c956b654571",
+      "最终报告.md": "7a07477d63a472af4603a81a7a886b9e6d0f044fa2e983d73ab2fae43a5b5c39"
+     }
+    },
+    {
+     "batch": "D2.链接分析/皮卡/artifacts/2026-10-11_01_pickup-link-audit",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\D2.链接分析\\皮卡\\2026-10-11_01_pickup-link-audit",
+     "files": 8,
+     "bytes": 307316,
+     "sha256": {
+      "input/发货单明细.xlsx": "61b7ae59d9b5a3e8354fa8a8b1a22aea88ad0d4ceafd64708d187b7c812620b1",
+      "output/上架链接明细-20261011_01.csv": "212d14c60f808c030be3ef48df9cb101fc36b0bceb74312b8d48b9ea3e76313d",
+      "output/发货分配核对-20261011_01.csv": "b112bfc3a79db9708c2c743432602a614a160199ae581600b4cc0c1679df4886",
+      "output/链接分析报告-20261011_01.md": "6d30ba8870440935315c9d677052ae4af4d4ae6872ee470650d33d6bc83429a1",
+      "output/链接字段审核-20261011_01.csv": "95eeff4eca03c638dd4f3b5040409c9f25a13eaf95d9fc0ce3183cd068c28aae",
+      "rules/data/README.md": "60b480a3b3199f08d9636ef239a75c73247a31de26534b8ff5d3884bd8c677e4",
+      "rules/data/链接字段规则.json": "fe7db99c230740451de81b189be685f18ff2650668fd897fbec804bd8d58d473",
+      "run.json": "740c81130d99b3732cb6699b42bd145e8fe59f8e7c2de929a1e0367f0aed10a0"
+     }
+    },
+    {
+     "batch": "D2.链接分析/皮卡/artifacts/2026-10-11_02_pickup-link-audit",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\D2.链接分析\\皮卡\\2026-10-11_02_pickup-link-audit",
+     "files": 9,
+     "bytes": 318570,
+     "sha256": {
+      "input/发货单明细.xlsx": "61b7ae59d9b5a3e8354fa8a8b1a22aea88ad0d4ceafd64708d187b7c812620b1",
+      "output/SKU发货数量-20261011_02.csv": "15eb62ee08ff58555881f4b4e52b7a8e8ba99f8e2bb5e860d2d92a3c1c0d74df",
+      "output/上架链接明细-20261011_02.csv": "212d14c60f808c030be3ef48df9cb101fc36b0bceb74312b8d48b9ea3e76313d",
+      "output/发货分配核对-20261011_02.csv": "b112bfc3a79db9708c2c743432602a614a160199ae581600b4cc0c1679df4886",
+      "output/链接分析报告-20261011_02.md": "ccb41e7950ed87698269de9455a9a943cc59251af077716a94cd908ac27b9926",
+      "output/链接字段审核-20261011_02.csv": "95eeff4eca03c638dd4f3b5040409c9f25a13eaf95d9fc0ce3183cd068c28aae",
+      "rules/data/README.md": "60b480a3b3199f08d9636ef239a75c73247a31de26534b8ff5d3884bd8c677e4",
+      "rules/data/链接字段规则.json": "fe7db99c230740451de81b189be685f18ff2650668fd897fbec804bd8d58d473",
+      "run.json": "50cedb65011d005c78198626470795b18fe48db6482e8b5b593d2d92b8849490"
+     }
+    },
+    {
+     "batch": "D2.链接分析/皮卡/artifacts/2026-10-12_01_pickup-link-audit",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\D2.链接分析\\皮卡\\2026-10-12_01_pickup-link-audit",
+     "files": 10,
+     "bytes": 319307,
+     "sha256": {
+      "input/发货单明细.xlsx": "61b7ae59d9b5a3e8354fa8a8b1a22aea88ad0d4ceafd64708d187b7c812620b1",
+      "output/SKU发货数量-20261012_01.csv": "757a4dc77c24c4e001a26e88f19a3eef8ca7ef1ef5ad1d778a26cb7e0f492f2b",
+      "output/上架链接明细-20261012_01.csv": "dfa234534a1443726fb27c6cc01e9e5e9021296c6fa554df379cfd7b0cd98b02",
+      "output/发货分配核对-20261012_01.csv": "fc30eb33cb9102d99801c80de0ac004f8c5effa80750586afb655a453cd3efb7",
+      "output/链接分析报告-20261012_01.md": "84858b7b68d53b85718f33441e1c0b0c6f97a953cd1ceff53dfc724ecbadbc4d",
+      "output/链接字段审核-20261012_01.csv": "ba390623e3bab90f25edc72d8e8fd2b8b629e116f24a8106634195cc312068b6",
+      "rules/data/PHYSICAL_SKU映射.json": "c695bd433b478f04064c04c6f764c67a97e444b111dd8e4460f415bbd8e5553e",
+      "rules/data/README.md": "dacfdfb1d6aa50fbab232a273f203fed581fec797406b1ccd22dc605302adc29",
+      "rules/data/链接字段规则.json": "fe7db99c230740451de81b189be685f18ff2650668fd897fbec804bd8d58d473",
+      "run.json": "9f747a64ac99e785cd60cb4a1051ef5325fa27d3462cadfd296e49121d8b0ddc"
+     }
+    },
+    {
+     "batch": "D2.链接分析/皮卡/artifacts/2026-10-12_02_pickup-link-audit",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\D2.链接分析\\皮卡\\2026-10-12_02_pickup-link-audit",
+     "files": 10,
+     "bytes": 321526,
+     "sha256": {
+      "input/发货单明细.xlsx": "61b7ae59d9b5a3e8354fa8a8b1a22aea88ad0d4ceafd64708d187b7c812620b1",
+      "output/SKU发货数量-20261012_02.csv": "757a4dc77c24c4e001a26e88f19a3eef8ca7ef1ef5ad1d778a26cb7e0f492f2b",
+      "output/上架链接明细-20261012_02.csv": "dfa234534a1443726fb27c6cc01e9e5e9021296c6fa554df379cfd7b0cd98b02",
+      "output/发货分配核对-20261012_02.csv": "fc30eb33cb9102d99801c80de0ac004f8c5effa80750586afb655a453cd3efb7",
+      "output/链接分析报告-20261012_02.md": "02f5f17a8a69fd14bb8e628b9b492d53cce255c4659b1b0d88494f1b79a9041c",
+      "output/链接字段审核-20261012_02.csv": "25e2fe1948ca85cd77b34befa6a820b730697faf6b2edb1e2fa6d73c3c2fd3d2",
+      "rules/data/PHYSICAL_SKU映射.json": "c695bd433b478f04064c04c6f764c67a97e444b111dd8e4460f415bbd8e5553e",
+      "rules/data/README.md": "dacfdfb1d6aa50fbab232a273f203fed581fec797406b1ccd22dc605302adc29",
+      "rules/data/链接字段规则.json": "fe7db99c230740451de81b189be685f18ff2650668fd897fbec804bd8d58d473",
+      "run.json": "48b635f9e8f61e6c5253b16ffa486350ab7a83977d8c2bef6cdee75dc3f4557c"
+     }
+    },
+    {
+     "batch": "D2.链接分析/皮卡/artifacts/2026-10-12_03_pickup-link-audit",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\D2.链接分析\\皮卡\\2026-10-12_03_pickup-link-audit",
+     "files": 12,
+     "bytes": 336011,
+     "sha256": {
+      "input/发货单明细.xlsx": "61b7ae59d9b5a3e8354fa8a8b1a22aea88ad0d4ceafd64708d187b7c812620b1",
+      "output/SKU发货数量-20261012_03.csv": "de4f4a3c2a41596eeb0b694e2604fe0814a3eee70d012d8bf832d8e99bd583ec",
+      "output/上架链接明细-20261012_03.csv": "dfa234534a1443726fb27c6cc01e9e5e9021296c6fa554df379cfd7b0cd98b02",
+      "output/发货分配核对-20261012_03.csv": "f697c4e41182ec36774bdd93b098281fe1142254557880738f5a5a8c02ac6e60",
+      "output/链接分析报告-20261012_03.md": "efdbe9fc8d77844becaee85f80046c734ebca3762ba9f58d99b502fedff6da96",
+      "output/链接字段审核-20261012_03.csv": "25e2fe1948ca85cd77b34befa6a820b730697faf6b2edb1e2fa6d73c3c2fd3d2",
+      "rules/data/PHYSICAL_SKU映射.json": "c695bd433b478f04064c04c6f764c67a97e444b111dd8e4460f415bbd8e5553e",
+      "rules/data/README.md": "c35e3c84b32eba5b90d41ca40f933e0ccb9c460e11ef9ea2b79930493cacd3a7",
+      "rules/data/SKU上架映射.csv": "3d4fec316f24293977beafc4f060aad3bfa1f2341f2e1eeaedad71f7d85c0835",
+      "rules/data/发货事实.csv": "e7943eea9aa17753d49c929ea6ad1aca97254d3e8a31af88bc195bf4fdda0cb4",
+      "rules/data/链接字段规则.json": "fe7db99c230740451de81b189be685f18ff2650668fd897fbec804bd8d58d473",
+      "run.json": "f7ec08f42bd78925710490945a9acf2077a3bbc3d86985b89be863b399084208"
+     }
+    },
+    {
+     "batch": "D2.链接分析/皮卡/artifacts/2026-10-13_01_pickup-link-audit",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\D2.链接分析\\皮卡\\2026-10-13_01_pickup-link-audit",
+     "files": 7,
+     "bytes": 282936,
+     "sha256": {
+      "input/发货单明细.xlsx": "14f0f6c0309a51ccb46d3a4038f8650d663605c9705ff995f8015cb0fca43988",
+      "output/SKU发货数量-20261013_01.csv": "e84650083af1b47c85718d865bbbd692bf894c4206da856e268ca51feb616f69",
+      "output/上架链接明细-20261013_01.csv": "eee2867844b291ede338748df1ce26cf89cdd3d8f74070c713cd62e0d60c9d14",
+      "output/发货分配核对-20261013_01.csv": "f697c4e41182ec36774bdd93b098281fe1142254557880738f5a5a8c02ac6e60",
+      "output/链接分析报告-20261013_01.md": "0564b7b1046502f42c5ae6af4ff219a08621eff4ee0fb175f91300b19d864b1c",
+      "output/链接字段审核-20261013_01.csv": "d71286862eefa048bee7605fddea9b5f7174fa0e52ff40355322cfc5e2242892",
+      "run.json": "8ef048a33b65bf04523e9f32bbb746d9d90c81a7bd8aaea93dae3223fd9ddd14"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_01_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_01_custom-analysis-release",
+     "files": 2,
+     "bytes": 12583,
+     "sha256": {
+      "manifest.json": "3a9bfc4dfcd2d60010654e282c37bb8037e98ef97ea8ce4390f12c5a0ed98925",
+      "REPORT.md": "351332ea537b7a0e3ec9e2e08eee7c239505803ddbc00c90d2cce82b05f963fb"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_02_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_02_custom-analysis-release",
+     "files": 2,
+     "bytes": 12598,
+     "sha256": {
+      "manifest.json": "6f4ff29f8eb0456b5500086a97fd209a9b0536ed71c1870c1791851bed4c782e",
+      "REPORT.md": "23bd0e8c17b3864ba58ca16e66e9402b0bfb754f02f5702bc17a303799cae0c8"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_03_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_03_custom-analysis",
+     "files": 8,
+     "bytes": 38295,
+     "sha256": {
+      "output/mercedes_e_class/定制SKU聚簇报告-20261010_03.md": "01f6d5171a9448cc515749412e79f1b684b088a627fc5a8cd8e5f2b8ece1196b",
+      "output/mini_countryman/定制SKU聚簇报告-20261010_03.md": "2a950ac732f3b106988064c485c70b2d4266be5281b63a83ac81c2fc7c362d83",
+      "output/prius/定制SKU聚簇报告-20261010_03.md": "86a121c7824507d5ba605e31d611767ccd85497e70e9d699ec7912dbb2aa22e0",
+      "rules/data/mercedes_e_class_custom_analysis.json": "14b888c54188343bca8a0552f139379a63d282bfaad3e3be5ef0abc80ee7d6e2",
+      "rules/data/mini_countryman_custom_analysis.json": "c9f3d174e4eca98ccd07347a80981f89e685adc57f717db2cb5a9491c2e972ba",
+      "rules/data/prius_custom_analysis.json": "08e6bb6e861630d96a764e9708918ccb7daa62d1a13497c662189ef61c9e95d4",
+      "rules/data/README.md": "41a32fca10c874c9db5199e93a6ddd5fa48e18843665c4d7cf29769b48309918",
+      "run.json": "c36bd24451a78add61bea94f06653cf6779194e1940f773ace7c4565159c869f"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_04_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_04_custom-analysis-release",
+     "files": 2,
+     "bytes": 10222,
+     "sha256": {
+      "manifest.json": "94b686cf4ea820981cbce3d800962dd5d106f7f5fb9aaf2b599777e0678275ea",
+      "REPORT.md": "ab4bb57d5561099e3130760e4b797ebbfeff73e39e3137a252e6b9297ce31c01"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_05_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_05_custom-analysis",
+     "files": 4,
+     "bytes": 22693,
+     "sha256": {
+      "output/prius/定制SKU聚簇报告-20261010_05.md": "15ebbf4e00d0fe3d44afe8ecfd7ed961045f134e8c8d4d9ec7ef787b8787d6b7",
+      "rules/data/prius_custom_analysis.json": "0edf206592022f81eb38dd0721bf76d13428e9b4413779e882c8c142ee23b8c4",
+      "rules/data/README.md": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+      "run.json": "59fad8ba23828227b73290330d7a42f73274c7da94035cddd76fc7beed367185"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_06_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_06_custom-analysis",
+     "files": 4,
+     "bytes": 22962,
+     "sha256": {
+      "output/prius/定制SKU聚簇报告-20261010_06.md": "3425b0eba8655d3465d893df197823373edb4d7c41229e12ca33480ef74b1789",
+      "rules/data/prius_custom_analysis.json": "464c9430061dc93cdf7ed8f60b5c52a6ae0fd35a7ae7a5c85a27ce12467f3e81",
+      "rules/data/README.md": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+      "run.json": "fec2ea522018d4f90d2b32fde2b031c5b47023a790f20bc2fece4ca65d50b43f"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_07_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_07_custom-analysis-release",
+     "files": 2,
+     "bytes": 9746,
+     "sha256": {
+      "manifest.json": "c7dfec17920a67c7092e53f9037864530a613f7ee6107223b1da2332903267b7",
+      "REPORT.md": "1fb3534a5d6409bc50d83a89aa07f18a67abb402552448b34112113e57a4612b"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_08_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_08_custom-analysis",
+     "files": 5,
+     "bytes": 25207,
+     "sha256": {
+      "output/subaru_forester/定制SKU聚簇报告-20261010_08.md": "78b9cc10e58ba753a8c18138c64a147777c25c78c8df34d3d05aea8abdad85f9",
+      "rules/data/prius_custom_analysis.json": "464c9430061dc93cdf7ed8f60b5c52a6ae0fd35a7ae7a5c85a27ce12467f3e81",
+      "rules/data/README.md": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+      "rules/data/subaru_forester_custom_analysis.json": "98abd71fab52c388559047cea09d3b430c76ad1f4cead8aa5641b4728c36f3b6",
+      "run.json": "f73a8a39d5584d81512a99a74d64ba53f97365f388873a848b68c4a119fc06d5"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_09_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_09_custom-analysis-release",
+     "files": 2,
+     "bytes": 10341,
+     "sha256": {
+      "manifest.json": "e52a7405dc3512de5ff8309a59a35301cfec36962176fed748c2a3af2b561148",
+      "REPORT.md": "994cb65403ffc6bd0287719bce88ee7664bb11aee8c739c62aadcc1c1ff5cd06"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_10_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_10_custom-analysis",
+     "files": 5,
+     "bytes": 26258,
+     "sha256": {
+      "output/subaru_forester/定制SKU聚簇报告-20261010_10.md": "3240fc0c415615666bd880405e545db94e4a808aa7dae7d6501955c8eb42d60d",
+      "rules/data/prius_custom_analysis.json": "464c9430061dc93cdf7ed8f60b5c52a6ae0fd35a7ae7a5c85a27ce12467f3e81",
+      "rules/data/README.md": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+      "rules/data/subaru_forester_custom_analysis.json": "159409b7176b151c90532b32e249cf9a826ab065eeda8ab410b19a5eafc5cf6f",
+      "run.json": "5b8d4a3f4252a4460ae04937eb488d11b047a9c2508851bf5952f50b640002c2"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_11_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_11_custom-analysis-release",
+     "files": 2,
+     "bytes": 10542,
+     "sha256": {
+      "manifest.json": "1763d184be9246c706badc2690816bfaa2f7d8d02bec13d661d7c8b36c205122",
+      "REPORT.md": "f5421dd3da336c2c37b6d6d0063fbebb75c92390067e814b7d07d6e0d11f6390"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_12_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_12_custom-analysis",
+     "files": 5,
+     "bytes": 26264,
+     "sha256": {
+      "output/subaru_forester/定制SKU聚簇报告-20261010_12.md": "0811372cbedab46429eff77d4b17c3fab02b61b432ceb39e8c999ee81daf559b",
+      "rules/data/prius_custom_analysis.json": "464c9430061dc93cdf7ed8f60b5c52a6ae0fd35a7ae7a5c85a27ce12467f3e81",
+      "rules/data/README.md": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+      "rules/data/subaru_forester_custom_analysis.json": "159409b7176b151c90532b32e249cf9a826ab065eeda8ab410b19a5eafc5cf6f",
+      "run.json": "fd433438b0b87ffe4e4fe62b258da88c7b3b9bddd06248d351191c04a992118d"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_13_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_13_custom-analysis-release",
+     "files": 2,
+     "bytes": 10425,
+     "sha256": {
+      "manifest.json": "997313db925a0139e0e2efe31a9f2ee908ea808ddd6a39f90445a4f97e87417f",
+      "REPORT.md": "14c51707bb0c87f6b660a83600cc3b95dca915ea4cc91504c946615d962fa4d5"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_14_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_14_custom-analysis",
+     "files": 6,
+     "bytes": 28443,
+     "sha256": {
+      "output/jeep_gladiator/定制SKU聚簇报告-20261010_14.md": "2669b219b4c31b89627e17ad3e03a04796dc396fb8c33aae71af84dffd16a9ff",
+      "rules/data/jeep_gladiator_custom_analysis.json": "56a967fe59dc740c78338dbd2cc49fd9ef19c010dae251f4782f2f1b7c3163db",
+      "rules/data/prius_custom_analysis.json": "464c9430061dc93cdf7ed8f60b5c52a6ae0fd35a7ae7a5c85a27ce12467f3e81",
+      "rules/data/README.md": "f63739bfdf5ea77909578a84aa9ec5162bfe78d1270f24bec5de547665ccc2bd",
+      "rules/data/subaru_forester_custom_analysis.json": "159409b7176b151c90532b32e249cf9a826ab065eeda8ab410b19a5eafc5cf6f",
+      "run.json": "c249a43fb51c43ddfb0dab4e4fbe5786ed5145f4b7f24b43c15d1ee8e0179b94"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-10_15_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-10_15_custom-analysis-release",
+     "files": 2,
+     "bytes": 11131,
+     "sha256": {
+      "manifest.json": "8907b5013b4f7c366cabe6d7295462e381a53a2c10389a80cb1abde4bfb82a71",
+      "REPORT.md": "100ee1f4adf6696e416af24d64ef33e152e4b658086680d09e3e96aa2fc58b0d"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-11_01_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-11_01_custom-analysis",
+     "files": 3,
+     "bytes": 16115,
+     "sha256": {
+      "output/kia_soul/定制SKU聚簇报告-20261011_01.md": "cab855cc266ad1e8fe69290e723c5a59ca7ae17df3be9f82ca2660452a194922",
+      "rules/data/kia_soul_custom_analysis.json": "7b065c677fc02eb7619760f293de0371a662247e9bcc955f5d9cebd4cafe4bba",
+      "run.json": "f1ab87fbbf5b777d751fc876d225a1b0db9ba2fb065e324fd18514989c0c899c"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-11_02_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-11_02_custom-analysis-release",
+     "files": 2,
+     "bytes": 11874,
+     "sha256": {
+      "manifest.json": "77367d044fa9fd275744d44afab6b43e09c0c9761d508ba779c8bd65183846ca",
+      "REPORT.md": "79fc0d99f48ba1d3a2e1869b119aee86a31754f48417efea627fea2b02215b24"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-11_03_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-11_03_custom-analysis",
+     "files": 4,
+     "bytes": 17926,
+     "sha256": {
+      "output/kia_soul/定制SKU聚簇报告-20261011_03.md": "a8a5112b522d877b02ecac392b0ec9869d88ae3a60561edd184800e19cfcb636",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "ceddeeabeed6712a609c86616648a989cb290cd9e6fe16de57239afb62650c35"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-11_04_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-11_04_custom-analysis-release",
+     "files": 2,
+     "bytes": 12099,
+     "sha256": {
+      "manifest.json": "d063b35061a2c98d4d16f05988c8964e88192af69ea6979717088735a76feffe",
+      "REPORT.md": "1b88ba1c988a52c2ddd520ae6185a7e1027517cd20c73d5e2114ef72ea38ed4f"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_01_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_01_custom-analysis",
+     "files": 5,
+     "bytes": 35626,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_01.md": "d0c0edf00a8ce5a2ccb0afe85cc01e1da29c42d8aef7d65444406129bdcdc630",
+      "rules/data/ford_mustang_custom_analysis.json": "a37b6ac1938ae5f53fb1bc7de09a7adfb003f2f8c3b3c0ed52adcb62e54ccc8e",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "e9fdf1a0412e281564547583d1e589463378e5fcd426e44d3eb513c9699fae26"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_02_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_02_custom-analysis-release",
+     "files": 2,
+     "bytes": 12662,
+     "sha256": {
+      "manifest.json": "10d051a2489e029ad8b66d1d371404c0b2e9052d89042c26ec2df429cdf16f3d",
+      "REPORT.md": "c21e13f9525add18257946318a2efae2b5f7eee888464de06610e79250c1bb7b"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_03_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_03_custom-analysis",
+     "files": 5,
+     "bytes": 38115,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_03.md": "5526de7d6f8dade86fec8ca8514d9b7ce60de46fc77179b57c42c896957c0cae",
+      "rules/data/ford_mustang_custom_analysis.json": "fce2fa0f306a93a30fddee2d1a1e4537bbe1e30eff6cfbb88263895d7d80d2a6",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "2f623cdd9dc77b83f404a07e80c6e48495ad0439e9f69081b8c0dc50573df767"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_04_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_04_custom-analysis-release",
+     "files": 2,
+     "bytes": 12859,
+     "sha256": {
+      "manifest.json": "171cba657e372e61baae7b92d0c44dd90eccd32df66d493e0058475a2c3e1372",
+      "REPORT.md": "b9265dced9c964a1701925d0393db3484633c4fed26d4d842140ed1c480a2be1"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_05_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_05_custom-analysis",
+     "files": 5,
+     "bytes": 39798,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_05.md": "b056403e255ff7fe9c799fa2e031c9f59373ad481fc79fb60dc2eed0bbbb798b",
+      "rules/data/ford_mustang_custom_analysis.json": "018c52dac4021e54a4bacd7999e8a340fd899b960b27a5d519569a0077bcf8a9",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "c27391ab523f91abe7ff3775c1675fb852a56d3b0971bf0c90bf7aa0d6914907"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_06_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_06_custom-analysis",
+     "files": 5,
+     "bytes": 39804,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_06.md": "aa843b8568435266fa6eb568e13762c72fe4ca70741ce737e045ffd35d9795c9",
+      "rules/data/ford_mustang_custom_analysis.json": "018c52dac4021e54a4bacd7999e8a340fd899b960b27a5d519569a0077bcf8a9",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "0f4ebef5484aab7a1a33f18a5812164fe5aec35f04a4d3deca79b9fc11e6f226"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_07_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_07_custom-analysis-release",
+     "files": 2,
+     "bytes": 12859,
+     "sha256": {
+      "manifest.json": "53bd377a414917fd9bf3b67ce8463b3d8b34da3cd8437d6ec2d3cb6d68177ddb",
+      "REPORT.md": "59e7569b332ebaae887d48ea306655073a0262a18b9ea919cb1f90922a7ae9c2"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_08_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_08_custom-analysis",
+     "files": 5,
+     "bytes": 35814,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_08.md": "1a5c414e65b55da3537bc22bfa61aa29fae1eba603b5d0a8a4a94eb56d13dd3f",
+      "rules/data/ford_mustang_custom_analysis.json": "99deabaa19047de1ee4a6c7adbe130760c9e3ff7d2ef81368c1d829bbaab6274",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "01577eca57b48789c2237447fca7caeb23d0d072358ce4370f7ffe70c013eba0"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_09_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_09_custom-analysis-release",
+     "files": 2,
+     "bytes": 12859,
+     "sha256": {
+      "manifest.json": "e768b80fd2d1489c5d826da00363b7c019fe929c66851bb9d0e4190c30ec2bbe",
+      "REPORT.md": "ce9e8343a9ecdc20405a282f7529e80a21c61e8fe626e522e87861cafa5a9ed0"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_10_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_10_custom-analysis",
+     "files": 5,
+     "bytes": 36025,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_10.md": "220111d6224ec928604c1c19788ed258835e35ca38a4a76001ff122f8724e10b",
+      "rules/data/ford_mustang_custom_analysis.json": "31209f83487a8cf1cebf36af6300c0256ae1ad29c750d31d8b5ecd9e2ac31201",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "3431aefb9e233d1b7e14b7c6472babb63e75c9f9e001780ca203635010a78f5c"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_11_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_11_custom-analysis",
+     "files": 11,
+     "bytes": 92210,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_11.md": "513f9d36126f0959f352318636df472d490986ae38c7f82e78f8bafd9f03bc00",
+      "output/jeep_gladiator/定制SKU聚簇报告-20261012_11.md": "2669b219b4c31b89627e17ad3e03a04796dc396fb8c33aae71af84dffd16a9ff",
+      "output/kia_soul/定制SKU聚簇报告-20261012_11.md": "a8a5112b522d877b02ecac392b0ec9869d88ae3a60561edd184800e19cfcb636",
+      "output/mercedes_e_class/定制SKU聚簇报告-20261012_11.md": "e8d09141cdae1fc8ea9b6ed8ba54115373071a5c841f161aaf87d2612b4b2f54",
+      "output/mini_countryman/定制SKU聚簇报告-20261012_11.md": "cd564267fde3ff792a81ebcca1f072f4c7aff15a3d21c70c01cf7107602ec946",
+      "output/prius/定制SKU聚簇报告-20261012_11.md": "94c62e734172a7a94e927928890227fe128806346a3a1230ead77a4722624cec",
+      "output/subaru_forester/定制SKU聚簇报告-20261012_11.md": "0811372cbedab46429eff77d4b17c3fab02b61b432ceb39e8c999ee81daf559b",
+      "rules/data/ford_mustang_custom_analysis.json": "31209f83487a8cf1cebf36af6300c0256ae1ad29c750d31d8b5ecd9e2ac31201",
+      "rules/data/kia_soul_custom_analysis.json": "decc072b1d3b578b9cdf8da4dc08fadb54ab32f7910e052e52ec3690947556cd",
+      "rules/data/README.md": "094d3113d6511aabd7db73129dd0243935345ad06f40155f1165bca327926221",
+      "run.json": "eaca43851ed945c2b80be6916aced79bcf0c51fb4bc0a6dd4752fbbfcfd3df13"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_12_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_12_custom-analysis",
+     "files": 10,
+     "bytes": 90497,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_12.md": "c3b30b1ee6b3c33e74060605671a57db5629bf2f4b59575a8f9fe46b1c088cf0",
+      "output/jeep_gladiator/定制SKU聚簇报告-20261012_12.md": "dd267e3f203155537fa74b61a9aca083e95bc5d6340694fb4d71f50bf63b0418",
+      "output/kia_soul/定制SKU聚簇报告-20261012_12.md": "9f3e9fff697ef319afb6f3a24a1f324e32ce75ac1fbbca6c32f21ce9cec00352",
+      "output/mercedes_e_class/定制SKU聚簇报告-20261012_12.md": "e8d09141cdae1fc8ea9b6ed8ba54115373071a5c841f161aaf87d2612b4b2f54",
+      "output/mini_countryman/定制SKU聚簇报告-20261012_12.md": "cd564267fde3ff792a81ebcca1f072f4c7aff15a3d21c70c01cf7107602ec946",
+      "output/prius/定制SKU聚簇报告-20261012_12.md": "6edc80a3c7beb0bae7be98d42ebf74d79e3ef30a83836db12cec3cb984c4a730",
+      "output/subaru_forester/定制SKU聚簇报告-20261012_12.md": "8e4932fb4ed09cdd9ca972cc18e06215d1a382f10105d030f1edcda09f990289",
+      "rules/data/ford_mustang_custom_analysis.json": "9e7ec5711f53b26db5828c4b7de04a102d2af9e0d818f979300edd8348d21743",
+      "rules/data/README.md": "12004634aa2d657b8856530091d88dbd3843439ca4aa137665e5f3b5a7e0c77e",
+      "run.json": "af89ad69e143e5d457b191a94fa901e658d0ac603c31dd7ef7c34bc722fb8191"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_13_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_13_custom-analysis-release",
+     "files": 2,
+     "bytes": 13642,
+     "sha256": {
+      "manifest.json": "74bf6189a09bdc26a9ad1d241a995a51e3696ffbc5b0b202e114083f79029907",
+      "REPORT.md": "463f93c212a20e090446dd82da36e5de7854d9c712db983663072be4d1d082b1"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_14_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_14_custom-analysis",
+     "files": 10,
+     "bytes": 89678,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_14.md": "7ef2715aa1353f7c56743458aa25c00faa13d909a1b76a13e5e968b4a6bdf394",
+      "output/jeep_gladiator/定制SKU聚簇报告-20261012_14.md": "dd267e3f203155537fa74b61a9aca083e95bc5d6340694fb4d71f50bf63b0418",
+      "output/kia_soul/定制SKU聚簇报告-20261012_14.md": "9f3e9fff697ef319afb6f3a24a1f324e32ce75ac1fbbca6c32f21ce9cec00352",
+      "output/mercedes_e_class/定制SKU聚簇报告-20261012_14.md": "e8d09141cdae1fc8ea9b6ed8ba54115373071a5c841f161aaf87d2612b4b2f54",
+      "output/mini_countryman/定制SKU聚簇报告-20261012_14.md": "cd564267fde3ff792a81ebcca1f072f4c7aff15a3d21c70c01cf7107602ec946",
+      "output/prius/定制SKU聚簇报告-20261012_14.md": "6edc80a3c7beb0bae7be98d42ebf74d79e3ef30a83836db12cec3cb984c4a730",
+      "output/subaru_forester/定制SKU聚簇报告-20261012_14.md": "8e4932fb4ed09cdd9ca972cc18e06215d1a382f10105d030f1edcda09f990289",
+      "rules/data/ford_mustang_custom_analysis.json": "c69ed520f5607be1d88ab188efd2df1f5d1df5970413e6ddb40751ebb2cb5dbc",
+      "rules/data/README.md": "12004634aa2d657b8856530091d88dbd3843439ca4aa137665e5f3b5a7e0c77e",
+      "run.json": "1d296066ea3a7a199015950196b733d8c69212a6453be6e3e6fa6e3ed1318e10"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_15_custom-analysis",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_15_custom-analysis",
+     "files": 10,
+     "bytes": 90097,
+     "sha256": {
+      "output/ford_mustang/定制SKU聚簇报告-20261012_15.md": "7ef2715aa1353f7c56743458aa25c00faa13d909a1b76a13e5e968b4a6bdf394",
+      "output/jeep_gladiator/定制SKU聚簇报告-20261012_15.md": "dd267e3f203155537fa74b61a9aca083e95bc5d6340694fb4d71f50bf63b0418",
+      "output/kia_soul/定制SKU聚簇报告-20261012_15.md": "9f3e9fff697ef319afb6f3a24a1f324e32ce75ac1fbbca6c32f21ce9cec00352",
+      "output/mercedes_e_class/定制SKU聚簇报告-20261012_15.md": "e8d09141cdae1fc8ea9b6ed8ba54115373071a5c841f161aaf87d2612b4b2f54",
+      "output/mini_countryman/定制SKU聚簇报告-20261012_15.md": "cd564267fde3ff792a81ebcca1f072f4c7aff15a3d21c70c01cf7107602ec946",
+      "output/prius/定制SKU聚簇报告-20261012_15.md": "6edc80a3c7beb0bae7be98d42ebf74d79e3ef30a83836db12cec3cb984c4a730",
+      "output/subaru_forester/定制SKU聚簇报告-20261012_15.md": "8e4932fb4ed09cdd9ca972cc18e06215d1a382f10105d030f1edcda09f990289",
+      "rules/data/ford_mustang_custom_analysis.json": "c69ed520f5607be1d88ab188efd2df1f5d1df5970413e6ddb40751ebb2cb5dbc",
+      "rules/data/README.md": "157e70ac2c87619ab7c310d2d673b79871f85277551d91b5042304f41ae6d352",
+      "run.json": "51e42f22b23e136f8d376c1a823951288770a1b672dc5251a6bc6b1351b81797"
+     }
+    },
+    {
+     "batch": "F0.定制分析/artifacts/2026-10-12_16_custom-analysis-release",
+     "archive_path": "\\\\NAS8824B4\\Public\\PQData\\bak\\all_cars_data\\artifacts\\F0.定制分析\\2026-10-12_16_custom-analysis-release",
+     "files": 2,
+     "bytes": 12891,
+     "sha256": {
+      "manifest.json": "b82fad6ed989e4347f1c3dfff8c7bee9eb98a5e50234390e52d06219ab90a21b",
+      "REPORT.md": "4b774a3adf91839f9ed22f18928ce70eb2c5867fbf1fc50189f235f3a1c5e876"
+     }
+    }
+   ]
   }
  ]
 }
