@@ -187,6 +187,28 @@ class RunBatch:
         })
         return path
 
+    def input_published(self, output_dir: Path, exclude: tuple[Path, ...] = (), name_prefix: str | None = None,
+                        missing_ok: bool = False) -> list[Path]:
+        """登记上游节点 output/manifest.json 的全部交付物（exclude 中的路径除外），返回登记的路径。
+
+        name_prefix 只决定需要复制时的快照名（``<prefix>/<file>``）；manifest 不存在时 missing_ok 才跳过。
+        """
+        output_dir = Path(output_dir)
+        manifest_path = output_dir / MANIFEST
+        if not manifest_path.is_file():
+            if missing_ok:
+                return []
+            raise BatchError(f"找不到上游 manifest：{manifest_path}")
+        skip = {Path(path).resolve() for path in exclude}
+        registered = []
+        for item in json.loads(manifest_path.read_text(encoding="utf-8"))["deliverables"]:
+            path = output_dir / item["file"]
+            if path.resolve() in skip:
+                continue
+            self.input(path, f"{name_prefix}/{item['file']}" if name_prefix else None)
+            registered.append(path)
+        return registered
+
     @staticmethod
     def _default_input_name(path: Path) -> str:
         parts = path.resolve().parts

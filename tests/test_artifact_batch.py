@@ -128,3 +128,27 @@ def test_rules_outside_git_are_all_copied(tmp_path):
     batch = ab.RunBatch.create(tmp_path / "node" / "artifacts", "demo", data_dir=data)
     rules = batch.finish()["rules"]
     assert rules["git_commit"] is None and rules["copied"] == ["data/规则.json"]
+
+
+def test_input_published_registers_manifest_deliverables(tmp_path):
+    table = published_upstream(tmp_path)
+    output_dir = table.parents[1]
+    changed = output_dir / "US" / "其他.csv"
+    changed.write_text("ID\n9\n", encoding="utf-8")
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    manifest["deliverables"].append({"file": "US/其他.csv", "sha256": "0" * 64})  # 与登记不一致：需复制
+    (output_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
+
+    batch = ab.RunBatch.create(tmp_path / "node" / "artifacts", "demo")
+    assert batch.input_published(output_dir, exclude=(table,), name_prefix="up") == [changed]
+    assert len(batch.inputs) == 1 and "copied_because" in batch.inputs[0]
+    assert (batch.directory / "input" / "up" / "US" / "其他.csv").is_file()
+
+    batch2 = ab.RunBatch.create(tmp_path / "node" / "artifacts", "demo")
+    assert batch2.input_published(output_dir) == [table, changed]
+    assert batch2.inputs[0]["version"] == "20260101_01"
+    assert (batch2.directory / "input" / "US" / "其他.csv").is_file()
+
+    assert batch2.input_published(tmp_path / "缺失" / "output", missing_ok=True) == []
+    with pytest.raises(ab.BatchError):
+        batch2.input_published(tmp_path / "缺失" / "output")

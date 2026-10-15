@@ -25,6 +25,8 @@ US = DATA / "US"
 SHELF_CONFIG = US / "店铺" / "货架.yaml"
 TRIM_DIR = US / "TRIM"
 EU_RESEARCH = DATA / "EU" / "研究" / "当前已审核全量.csv"
+# 网站流水线使用的新旧尺码对应（新通用尺码 -> 尺码代码），经 output/US/新旧尺码对应.csv 发布
+SIZE_CODE_MAP = DATA / "参考" / "新旧尺码对应" / "新旧尺码对应2.csv"
 
 
 @dataclass(frozen=True)

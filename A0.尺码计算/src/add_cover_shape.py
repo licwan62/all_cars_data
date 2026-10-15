@@ -41,14 +41,7 @@ def main():
         # 所有基表都来自本节点正式生成流程；上游真实输入只记 output 版本引用。
         upstream_nodes = ["01.整理尺寸库", "02.分类结构审核", "02.销量评估", "03.车形分类核定"]
         for node in upstream_nodes:
-            manifest_path = ROOT / node / "output/manifest.json"
-            if manifest_path.is_file():
-                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-                for item in manifest["deliverables"]:
-                    path = ROOT / node / "output" / item["file"]
-                    if path == source_path:
-                        continue
-                    batch.input(path, node + "/" + item["file"])
+            batch.input_published(ROOT / node / "output", exclude=(source_path,), name_prefix=node, missing_ok=True)
         summaries, base_hashes = {}, {}
         for name in config["full_tables"]:
             country = name.split("/")[0]

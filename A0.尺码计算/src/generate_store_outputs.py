@@ -203,11 +203,7 @@ def main() -> int:
             batch = RunBatch.create(PROJECT_DIR / "artifacts", "us-size-trim-shape", data_dir=PROJECT_DIR / "data")
             batch.input(SOURCE)
             for node in ["02.分类结构审核", "02.销量评估", "03.车形分类核定"]:
-                manifest = json.loads((WORKSPACE_ROOT / node / "output/manifest.json").read_text(encoding="utf-8"))
-                for entry in manifest["deliverables"]:
-                    path = WORKSPACE_ROOT / node / "output" / entry["file"]
-                    if path != SOURCE:
-                        batch.input(path)
+                batch.input_published(WORKSPACE_ROOT / node / "output", exclude=(SOURCE,))
             temporary_work = tempfile.TemporaryDirectory(prefix="us-size-shape-")
             output_dir = Path(temporary_work.name) / "output"
         expected_rows = len(us_rows(analysis._read_csv(analysis.resolve_data_file(source_dir, "dimensions"))))

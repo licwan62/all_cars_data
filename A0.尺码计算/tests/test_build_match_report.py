@@ -63,3 +63,67 @@ def test_report_explains_matching_rules_with_current_parameters():
     assert f"余量长容差 **{tolerance} mm**" in section
     ru = report.build_report("RU", report.OUTPUT).split("## 尺码规则", 1)[1]
     assert "包络体积最小" in ru and "### 选码" not in ru
+
+
+def _md_table_after(text, heading):
+    """按网站旧解析方式读取报告中 heading 之后的第一张表（逐格 strip、反转义竖线）。"""
+    import re
+
+    lines = text.splitlines()
+    start = next(i for i, line in enumerate(lines) if line.startswith(heading))
+    table = []
+    for line in lines[start + 1:]:
+        if line.startswith("#"):
+            break
+        if line.startswith("|"):
+            table.append(line)
+        elif table:
+            break
+    split = re.compile(r"(?<!\\)\|")
+    cells = lambda line: [part.strip().replace("\\|", "|") for part in split.split(line.strip())[1:-1]]  # noqa: E731
+    headers = cells(table[0])
+    return headers, [dict(zip(headers, cells(line))) for line in table[2:]]
+
+
+def _normalized(value):
+    return str(value).replace("\n", " ").strip()
+
+
+def test_size_rules_json_matches_report_rule_table_and_tolerance():
+    for region in layout.REGIONS:
+        payload = report.size_rules_payload(region)
+        text = report.build_report(region, report.OUTPUT)
+        headers, rows = _md_table_after(text, "### 规则表")
+        assert payload["headers"] == headers
+        assert [{k: _normalized(v) for k, v in row.items()} for row in payload["rules"]] == rows
+        assert payload["rule_id_column"] == "规则ID" and all(row["规则ID"] for row in payload["rules"])
+        assert f"余量长容差 {'**' if region != 'RU' else ''}{payload['length_tolerance_mm']:g} mm" in text
+        assert payload["rules_file"].startswith("data/") and len(payload["rules_sha256"]) == 64
+        assert payload["length_unit"] == "mm"
+
+
+def test_shelf_json_matches_report_shelf_table():
+    payload = report.shelf_payload()
+    _, rows = _md_table_after(report.build_report("US", report.OUTPUT), "### 店铺货架")
+    flattened = [{"店铺": store, **item} for store, items in payload["stores"].items() for item in items]
+    assert flattened == rows
+    assert payload["source_file"] == "data/US/店铺/货架.yaml"
+
+
+def test_size_code_map_is_published_verbatim_with_lf(tmp_path):
+    data = report.size_code_map_bytes()
+    assert b"\r\n" not in data
+    assert data == data_layout.SIZE_CODE_MAP.read_bytes().replace(b"\r\n", b"\n")
+    assert data.decode("utf-8-sig").startswith("模式,分类,尺码,新通用尺码,尺码代码")
+    broken = tmp_path / "map.csv"
+    broken.write_bytes("分类,尺码\n皮卡,X\n".encode())
+    import pytest
+
+    with pytest.raises(ValueError, match="新通用尺码"):
+        report.size_code_map_bytes(broken)
+
+
+def test_machine_interfaces_have_stable_layout_names():
+    assert layout.size_rules("EU") == "EU/尺码规则.json"
+    assert layout.STORE_SHELF == "US/店铺货架.json"
+    assert layout.SIZE_CODE_MAP == "US/新旧尺码对应.csv"

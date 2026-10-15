@@ -15,6 +15,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import re
 import shutil
@@ -342,6 +343,64 @@ def shape_adjustment_text(frame, rules, parameters):
     return lines
 
 
+SCHEMA_VERSION = 1
+
+
+def json_text(payload: dict) -> str:
+    return json.dumps(payload, ensure_ascii=False, indent=1) + "\n"
+
+
+def size_rules_payload(region: str) -> dict:
+    """报告“规则表”“参数”两节的结构化版本，供网站等机器读取（Markdown 报告继续供人阅读）。
+
+    规则行的值保持规则 CSV 原文（字符串），末列 规则ID 与报告、全量表一致；长度类字段单位为 mm。
+    length_tolerance_mm 即参数 余量长容差（US/EU：长上限 − 长 的上限；RU 规则行自带 余量长上限_mm 时以行值为准）。
+    """
+    sources = region_sources(region)
+    rule_path, size_column = sources["规则"]
+    parameters_path, _ = sources["参数"]
+    rules = read_csv(rule_path)
+    parameters = read_csv(parameters_path)
+    tolerance = float(parameter_value(parameters, "余量长容差"))
+    headers = [*rules.columns, RULE_ID_COLUMN]
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "region": region,
+        "rules_file": relative(rule_path),
+        "rules_sha256": content_sha256(rule_path),
+        "size_column": size_column,
+        "rule_id_column": RULE_ID_COLUMN,
+        "parameters_file": relative(parameters_path),
+        "parameters_sha256": content_sha256(parameters_path),
+        "length_unit": "mm",
+        "length_tolerance_mm": int(tolerance) if tolerance.is_integer() else tolerance,
+        "headers": headers,
+        "rules": [dict(zip(headers, [*row, rule])) for row, rule in zip(rules.values.tolist(), rule_ids(rules))],
+        "parameters": [dict(zip(parameters.columns, row)) for row in parameters.values.tolist()],
+    }
+
+
+def shelf_payload(config_path: Path = data_layout.SHELF_CONFIG) -> dict:
+    """店铺货架（匹配尺码 → 发货尺码）的结构化版本，顺序与报告“店铺货架”表一致。"""
+    stores: dict[str, list[dict[str, str]]] = {}
+    for store, match, ship in shelf_rows(config_path):
+        stores.setdefault(store, []).append({"匹配尺码": match, "发货尺码": ship})
+    return {"schema_version": SCHEMA_VERSION, "source_file": relative(config_path), "source_sha256": content_sha256(config_path), "stores": stores}
+
+
+SIZE_CODE_COLUMNS = ("分类", "尺码", "新通用尺码", "尺码代码")
+
+
+def size_code_map_bytes(path: Path = data_layout.SIZE_CODE_MAP) -> bytes:
+    """新旧尺码对应（新通用尺码 → 尺码代码）原样发布，换行统一为 LF 保证重跑逐字节一致。"""
+    data = path.read_bytes().replace(b"\r\n", b"\n")
+    header = data.decode("utf-8-sig").split("\n", 1)[0].split(",")
+    missing = [column for column in SIZE_CODE_COLUMNS if column not in header]
+    if missing:
+        raise ValueError(f"{relative(path)} 缺少列 {', '.join(missing)}")
+    return data
+
+
 def next_artifact_dir() -> Path:
     prefix = f"{date.today().isoformat()}_"
     used = [
@@ -362,10 +421,15 @@ def main() -> int:
         for region, text in reports.items():
             target = batch.output(layout.match_report(region))
             target.write_text(text, encoding="utf-8")
+            batch.output(layout.size_rules(region)).write_bytes(json_text(size_rules_payload(region)).encode("utf-8"))
+        batch.output(layout.STORE_SHELF).write_bytes(json_text(shelf_payload()).encode("utf-8"))
+        batch.output(layout.SIZE_CODE_MAP).write_bytes(size_code_map_bytes())
         batch.extra("REPORT.md", compress=False).write_text(
             "# 尺码报告规则差异\n\nUS新增SHAPE调整条件、来源哈希、实际换码与保留基础结果的候选清单；"
             "基础尺码规则表保留，EU/RU未启用SHAPE调整。"
-            f"本批次US调整启用状态：{load_config()['enabled']}。\n", encoding="utf-8")
+            f"本批次US调整启用状态：{load_config()['enabled']}。\n\n"
+            "机器接口：<国别>/尺码规则.json（规则表+参数+规则ID+余量长容差）、US/店铺货架.json、US/新旧尺码对应.csv，"
+            "与报告中的表格同源；网站流水线改读这些文件，不再解析 Markdown 或读取 data/。\n", encoding="utf-8")
         batch.finish(publish_to=OUTPUT)
         for region in reports:
             name = layout.match_report(region)

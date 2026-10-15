@@ -27,14 +27,17 @@ data/
 output/
 ├─ US/
 │  ├─ 尺码匹配报告.md   所用规则全文、参数、匹配概况与尺码分布、店铺货架与店铺分布、TRIM 概况
+│  ├─ 尺码规则.json     报告规则表+参数的机器接口（含 规则ID、余量长容差 mm、规则/参数文件与 sha256）
+│  ├─ 店铺货架.json     店铺 匹配尺码 → 发货尺码（data/US/店铺/货架.yaml 的结构化发布）
+│  ├─ 新旧尺码对应.csv  新通用尺码 → 尺码代码（data/参考/新旧尺码对应/新旧尺码对应2.csv，LF）
 │  ├─ 全量/全量表.csv   带 TRIM（TRIM 匹配回填）
 │  ├─ 店铺/店铺全量_<店铺>.csv（HNT、TM、TM_拆分；与 US 全量同行同序，自动尺码为发货尺码，带 TRIM）
 │  └─ TRIM/TRIM适配器.csv
-├─ EU/  尺码匹配报告.md、全量/全量表.csv（无 TRIM 列）
-└─ RU/  尺码匹配报告.md、全量/全量表.csv（无 TRIM 列）
+├─ EU/  尺码匹配报告.md、尺码规则.json、全量/全量表.csv（无 TRIM 列）
+└─ RU/  尺码匹配报告.md、尺码规则.json、全量/全量表.csv（无 TRIM 列）
 ```
 
-文件名不带区域后缀，区域由目录表示。规则与店铺货架不再单独输出 CSV，以 md 报告中的表格为准；各生成脚本的 JSON 状态只留在对应 artifact。
+文件名不带区域后缀，区域由目录表示。规则与店铺货架不再单独输出 CSV：md 报告中的表格供人阅读，机器读取用同源的 `尺码规则.json`、`店铺货架.json`（2026-10-14 起；下游不得解析 md 表格或读取本节点 `data/`）；各生成脚本的 JSON 状态只留在对应 artifact。
 
 ## 运行（`pipeline.json` 的 `run`，在节点目录执行）
 
@@ -42,10 +45,10 @@ output/
 2. `python src/generate_ru_full_table.py`：RU 全量表。
 3. `python src/build_regional_coverage_full.py`：EU 覆盖版全量表，RU 车形候选回填。
 4. `python src/add_cover_shape.py`：只读 03 `output/COVER_SHAPE.csv`，按精确地区 DIMENSION-ID 仅回填国别与 US 店铺全量表的 SHAPE。状态/代表年/方法/备选/来源由 03 节点维护，不带入全量表。配置在 `data/全量SHAPE.yaml`；字段紧跟旧车形，本回填步骤保持其他原列值及行序不变。US生成阶段单独消费SHAPE与状态执行调整；EU/RU未启用。
-5. `python src/build_match_report.py`：读取上述结果与 data/ 规则，生成三份 `尺码匹配报告.md`；US报告包含SHAPE调整条件、证据提醒、基础→调整尺码与跳过原因，重算核对最终尺码。
+5. `python src/build_match_report.py`：读取上述结果与 data/ 规则，生成三份 `尺码匹配报告.md` 及机器接口 `<国别>/尺码规则.json`、`US/店铺货架.json`、`US/新旧尺码对应.csv`；US报告包含SHAPE调整条件、证据提醒、基础→调整尺码与跳过原因，重算核对最终尺码。
 
 只有 US 有 TRIM 环节；EU/RU 全量表不带 `TRIM` 列。TRIM 资料维护与离线工具见 [src/trim/README.md](src/trim/README.md)。
 
-下游：`A1.压缩尺寸信息`（国别线/店铺线全量表）、`E0.尺寸分析`（宽高统计）、`B1.压缩定制评分`（评分键）、`C1`/`D*`/`X*`，以及网站流水线（读取全量表、店铺表与报告中的规则/货架表格）。
+下游：`A1.压缩尺寸信息`（国别线/店铺线全量表）、`E0.尺寸分析`（宽高统计）、`B1.压缩定制评分`（评分键）、`C1`/`D*`/`X*`，以及网站流水线（读取全量表、店铺表、`尺码规则.json`、`店铺货架.json` 与 `US/新旧尺码对应.csv`）。
 
 EU 覆盖版销量为零占位，RU 销量为 Auto.ru 代理，报告与下游必须保留该口径限制。
