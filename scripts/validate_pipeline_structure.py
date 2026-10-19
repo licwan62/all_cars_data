@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from artifact_refs import check_deliverable_source, sha256
+from identity_coverage import validate_rules as check_identity_rules
 from pipeline_status import check_status, node_trigger
 
 
@@ -95,6 +96,25 @@ def check_outputs(nodes: list[dict]) -> list[str]:
         for name in node.get("outputs", [])
         if not (ROOT / node["path"] / "output" / name).is_file()
     ]
+
+
+PUBLIC_SUFFIXES = {".csv", ".md", ".json"}
+
+
+def check_public_outputs(nodes: list[dict]) -> list[str]:
+    """对外发布清单必须显式登记，且只能取本节点已登记、可发布类型的交付物。"""
+    errors: list[str] = []
+    for node in nodes:
+        if "public_outputs" not in node:
+            errors.append(f"{node['id']}: pipeline.json 缺少 public_outputs（不对外发布写 []）")
+            continue
+        outputs = set(node.get("outputs", []))
+        for name in node["public_outputs"]:
+            if name not in outputs:
+                errors.append(f"{node['id']}: public_outputs 的 {name} 不在 outputs")
+            elif Path(name).suffix.lower() not in PUBLIC_SUFFIXES:
+                errors.append(f"{node['id']}: public_outputs 的 {name} 不是可发布类型（{'/'.join(sorted(PUBLIC_SUFFIXES))}）")
+    return errors
 
 
 VERSION_SUFFIX = re.compile(r"-\d{8}_\d{2}(?=\.[^.]+$)")
@@ -212,6 +232,8 @@ def main() -> int:
     errors.extend(check_layers(nodes))
     errors.extend(check_triggers(payload))
     errors.extend(check_outputs(nodes))
+    errors.extend(check_public_outputs(nodes))
+    errors.extend(check_identity_rules(nodes))
     errors.extend(check_release_naming(nodes))
     errors.extend(check_final_products(payload.get("final_products", []), nodes))
     errors.extend(check_code_layout(nodes))

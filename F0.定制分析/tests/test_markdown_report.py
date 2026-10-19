@@ -36,6 +36,28 @@ def test_empty_vehicle_fails_before_publication():
         render_report({}, [], {}, [], [], reference_tasks)
 
 
+def test_mini_cooper_document_splits_early_and_modern_groups_and_matches_review_case():
+    config = json.loads((PROJECT / 'data' / 'mini_cooper_custom_analysis.json').read_text(encoding='utf-8'))
+    root = PROJECT.parent
+    rows = active_rows(root / 'A0.尺码计算' / 'output' / 'US' / '全量' / '全量表.csv',
+                       config['make'], config['model'], config['structure'])
+    codes = dimension_codes(root / '02.代码映射' / 'output' / '尺寸编码映射.csv')
+    reviews = [{'品牌': 'Mini', '车型': 'Cooper', '结构': 'Hatchback', '差评数量': '1',
+                '主要差评原因': '太大(1)；绑带太少(1)', '严重度评级': '低'}]
+    document = render_report(config, rows, codes, reviews, [], reference_tasks)
+    assert len(rows) == 10
+    assert {row['MODEL'] for row in rows} == {'Cooper'}
+    assert '10 条尺寸记录形成 2 个尺寸候选 SKU' in document
+    assert '| SKU-01 | 32000213 | 3 |' in document
+    assert '| SKU-02 | 32001426 | 7 |' in document
+    assert all(row['DIMENSION-ID'] in document for row in rows)
+    assert 'MINI Cooper SE Hatchback 2020-2024 US' not in document
+    assert '太大(1)；绑带太少(1)' in document
+    assert '长度余量相差 203 mm' in document
+    assert '2007 MINI Cooper S' in document
+    assert '无（待补上限参考模型）' in document
+
+
 def test_forester_document_covers_wilderness_and_all_generations():
     config = json.loads((PROJECT / 'data' / 'subaru_forester_custom_analysis.json').read_text(encoding='utf-8'))
     root = PROJECT.parent
@@ -123,7 +145,7 @@ def test_ford_mustang_document_excludes_mach_e_and_covers_all_generations():
          '主要差评原因': '质量差(2)；不防水(2)；尺寸不合适(2)', '严重度评级': '高'},
     ]
     document = render_report(config, rows, codes, reviews, [], reference_tasks)
-    assert len(rows) == 57
+    assert len(rows) == 58  # 2026-10-19 01 新增 Ford Mustang Coupe 1970 US
     assert {row['MODEL'] for row in rows} == {'Mustang', 'Mustang Mach-E'}
     assert 'Ford Mustang Mach-E Rally Crossover 2024-2026 US' in document
     assert {row['代际'] for row in rows} == {f'gen{i}' for i in range(1, 8)}
@@ -135,10 +157,10 @@ def test_ford_mustang_document_excludes_mach_e_and_covers_all_generations():
     assert all(m.get('dimension_id') for item in config['sketchfab_sku_searches'] for m in item['models'])
     assert '待补参考模型' not in document
     # 首选模型须接近 SKU 车长上限；SKU-04 只有 1969–1970 模型（下限 4760），不得设首选。
-    assert '| SKU-04 | 01036973 | 12 |' in document
+    assert '| SKU-04 | 01036973 | 13 |' in document  # 含 2026-10-19 新增 Mustang Coupe 1970
     assert '| SKU-04 | Ford Mustang Coupe 1973 US（4923 mm） | 无（待补上限参考模型） | 待补上限参考模型 |' in document
     assert '首选｜1969' not in document
-    assert '### SKU-04｜Mustang｜12 条｜车长 4760–4923 mm' in document
+    assert '### SKU-04｜Mustang｜13 条｜车长 4760–4923 mm' in document
     assert '| 1973 | — | Convertible / Coupe / Fastback | 4923 |' in document
     assert '| SportsRoof | Coupe | 4760 | -163 | 可下载，83k 三角面 |' in document
     assert '| 首选 | [2024 Ford Mustang Dark Horse · Ddiaz Design]' in document

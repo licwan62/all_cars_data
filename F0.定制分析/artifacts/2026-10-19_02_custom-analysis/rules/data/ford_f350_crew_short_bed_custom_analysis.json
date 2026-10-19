@@ -1,0 +1,64 @@
+{
+  "region": "US",
+  "structure": "Pickup",
+  "dimension_tolerances_mm": {
+    "L-MM": 250,
+    "W-MM": 150,
+    "H-MM": 100
+  },
+  "search_date": "2026-10-19",
+  "universal_size_risk": true,
+  "universal_size_risk_by_sku": true,
+  "analyze_cluster_centers": true,
+  "universal_size_risk_notes": [
+    "- 同尺寸聚簇不代表驾驶室—货斗分界、镜耳、轮眉、天线和绑带挂点可以共版；特殊版本须独立实车核验。"
+  ],
+  "acceptance_notes": [
+    "实测前杠至镜耳中心、驾驶室末端、货斗上沿及尾门坐标，核验含镜宽、天线孔、侧面下垂和绑带有效长度。",
+    "每组优先打样 L/W/H 极值与最小自动长度余量车型；跨代际或性能版轮廓验证失败时拆版，不根据尺寸聚簇直接下单。"
+  ],
+  "make": "Ford",
+  "model": "F-250/F-350 Super Duty",
+  "year_range": [
+    1999,
+    2026
+  ],
+  "cabs": [
+    "Crew"
+  ],
+  "beds": [
+    "6.8"
+  ],
+  "excluded_versions": [],
+  "report_title": "Ford F-350 1999–2026 Crew Cab Short Bed 定制分析",
+  "review_models": [
+    "F-250/F-350 Super Duty",
+    "F-350 Super Duty"
+  ],
+  "analysis_notes": [
+    "A0 常规短斗以 MODEL=F-250/F-350 Super Duty 合并记录，不能从合并数据独立验证 F-350 各配置。",
+    "仅分析 Crew、BED=6.8 ft 合并尺寸；F-350 DRW 当前只有 8 ft 长斗记录，不纳入，也不外推到短斗双后轮。"
+  ],
+  "review_scope_note": "差评为 B0 车型级汇总，未按本报告驾驶室、货斗、版本和年份逐条确认；仅作背景风险，不能作为本范围差评数量或适配率。 F-250/F-350 合并 5 条与 F-350 独立 5 条是两种台账口径，不能相加为短斗 F-350 差评数；后者可能涉及被排除的 DRW。",
+  "sketchfab_searches": [
+    {
+      "generation": "候选轮廓线索（不指定首选）",
+      "query": "site:sketchfab.com/3d-models Ford F-350 1999–2026 Crew Cab Short Bed",
+      "representative_url": "",
+      "models": [
+        {
+          "title": "2005 Ford F-350 Super Duty · 页面提供下载；驾驶室/货斗待核",
+          "url": "https://sketchfab.com/3d-models/2005-ford-f-350-super-duty-bbde6f3691cc4fcea59db4e4ff6e3e19"
+        }
+      ],
+      "note": "2026-10-19 检索到的页面线索。未将模型精确绑定到尺寸记录，不能确认同代、同货斗或真实比例，故不设首选；其余代际及各 SKU 的上限参考仍待补。页面下载状态及许可需在实际使用时复核。"
+    }
+  ],
+  "sketchfab_generation_by_internal_generation": {
+    "gen1": "候选轮廓线索（不指定首选）",
+    "gen2": "候选轮廓线索（不指定首选）",
+    "gen3": "候选轮廓线索（不指定首选）",
+    "gen4": "候选轮廓线索（不指定首选）",
+    "gen5": "候选轮廓线索（不指定首选）"
+  }
+}

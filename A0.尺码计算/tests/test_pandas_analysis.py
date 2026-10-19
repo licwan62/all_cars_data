@@ -426,6 +426,7 @@ class FullPipelineRegressionTests(unittest.TestCase):
             analysis.base_dimension_id
         )
         dimensions.to_csv(cls.source_dir / "尺寸库.csv", index=False, encoding="utf-8-sig")
+        cls.expected_rows = len(dimensions)  # 跟随上游 02 结构表当前行数，不写死
         # 上游车形与原子销量带 " US" 后缀；本回归以基础 ID 计算，需同步去后缀。
         bodies = analysis._read_csv(analysis.SHAPE_OUTPUT)
         bodies = bodies.loc[bodies["COUNTRY"].eq("US"), ["DIMENSION-ID", "车形"]].copy()
@@ -444,10 +445,10 @@ class FullPipelineRegressionTests(unittest.TestCase):
         )  # TRIM 由 generate_store_outputs 的 TRIM 匹配回填，calculate 本身不产出 TRIM
 
     def test_full_result_contract(self) -> None:
-        summary = analysis.validate_result(self.result, 4378)
-        self.assertEqual(summary["unique_dimension_ids"], 4378)
-        self.assertEqual(summary["matched_sizes"], 4238)
+        summary = analysis.validate_result(self.result, self.expected_rows)
+        self.assertEqual(summary["unique_dimension_ids"], self.expected_rows)
         self.assertEqual(summary["unavailable_sizes"], 140)
+        self.assertEqual(summary["matched_sizes"], self.expected_rows - 140)
         self.assertEqual(summary["incomplete_rows"], 0)
         self.assertEqual(summary["sales_total"], 750288484)
 

@@ -1,0 +1,68 @@
+{
+  "region": "US",
+  "structure": "Pickup",
+  "dimension_tolerances_mm": {
+    "L-MM": 250,
+    "W-MM": 150,
+    "H-MM": 100
+  },
+  "search_date": "2026-10-19",
+  "universal_size_risk": true,
+  "universal_size_risk_by_sku": true,
+  "analyze_cluster_centers": true,
+  "universal_size_risk_notes": [
+    "- 同尺寸聚簇不代表驾驶室—货斗分界、镜耳、轮眉、天线和绑带挂点可以共版；特殊版本须独立实车核验。"
+  ],
+  "acceptance_notes": [
+    "实测前杠至镜耳中心、驾驶室末端、货斗上沿及尾门坐标，核验含镜宽、天线孔、侧面下垂和绑带有效长度。",
+    "每组优先打样 L/W/H 极值与最小自动长度余量车型；跨代际或性能版轮廓验证失败时拆版，不根据尺寸聚簇直接下单。"
+  ],
+  "make": "Ford",
+  "model": "F-150",
+  "year_range": [
+    2008,
+    2026
+  ],
+  "cabs": [
+    "SuperCrew"
+  ],
+  "beds": [
+    "5.5"
+  ],
+  "excluded_versions": [
+    "Lightning"
+  ],
+  "report_title": "Ford F-150 2008–2026 SuperCrew Cab Short Bed 定制分析",
+  "review_models": [
+    "F-150"
+  ],
+  "analysis_notes": [
+    "短斗按 A0 BED=5.5 ft；排除 Lightning，纳入 Raptor、Raptor R、Tremor，但性能版不自动与常规版共用成品。",
+    "A0 常规版缺少 2014、2019–2020 的 5.5 ft 独立记录；这些年份由 Raptor 记录覆盖时不能替代常规版依据。"
+  ],
+  "review_scope_note": "差评为 B0 车型级汇总，未按本报告驾驶室、货斗、版本和年份逐条确认；仅作背景风险，不能作为本范围差评数量或适配率。",
+  "sketchfab_searches": [
+    {
+      "generation": "候选轮廓线索（不指定首选）",
+      "query": "site:sketchfab.com/3d-models Ford F-150 2008–2026 SuperCrew Cab Short Bed",
+      "representative_url": "",
+      "models": [
+        {
+          "title": "2018 Ford F-150 Lariat Super Crew · 页面提供下载；货斗及比例待核",
+          "url": "https://sketchfab.com/3d-models/2018-ford-f-150-lariat-super-crew-014ebfab735341248431da3d6447bbb5"
+        },
+        {
+          "title": "2017 Ford F-150 Raptor · 页面提供下载；仅性能版轮廓对照",
+          "url": "https://sketchfab.com/3d-models/2017-ford-f-150-raptor-2be278ef4dc94d9fa00fae8b33da8273"
+        }
+      ],
+      "note": "2026-10-19 检索到的页面线索。未将模型精确绑定到尺寸记录，不能确认同代、同货斗或真实比例，故不设首选；其余代际及各 SKU 的上限参考仍待补。页面下载状态及许可需在实际使用时复核。"
+    }
+  ],
+  "sketchfab_generation_by_internal_generation": {
+    "gen11": "候选轮廓线索（不指定首选）",
+    "gen14": "候选轮廓线索（不指定首选）",
+    "gen12": "候选轮廓线索（不指定首选）",
+    "gen13": "候选轮廓线索（不指定首选）"
+  }
+}

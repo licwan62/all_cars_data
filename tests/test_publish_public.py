@@ -33,3 +33,22 @@ def test_common_deliverables_are_grouped_by_responsibility():
 def test_regional_and_customizing_paths_keep_priority_over_common_grouping():
     assert pp.target_for("尺寸库_EU.csv", "dimension-library") == Path("data/eu_data/尺寸库_EU.csv")
     assert pp.target_for("定制需求度评分.csv", "compression-scoring") == Path("customizing/定制需求度评分.csv")
+
+
+def test_pickup_node_keeps_its_sku_cluster_location():
+    assert pp.target_for("SKU发货数量.csv", "link-analysis-pickup") == Path("sku_cluster/皮卡/SKU发货数量.csv")
+    assert not any(Path(directory) == Path("sku_cluster") for directory in pp.OWNED_DIRS)
+
+
+def test_only_public_outputs_are_published():
+    node = {"id": "x", "path": "X", "public_outputs": ["a.csv"]}
+    manifest = {"deliverables": [{"file": "a.csv"}, {"file": "资料采用清单.csv"}]}
+    assert [item["file"] for item in pp.public_items(node, manifest)] == ["a.csv"]
+
+
+def test_public_output_must_be_released_first():
+    import pytest
+
+    node = {"id": "x", "path": "X", "public_outputs": ["新表.csv"]}
+    with pytest.raises(ValueError, match="未在 output/manifest.json 发布"):
+        pp.public_items(node, {"deliverables": []})

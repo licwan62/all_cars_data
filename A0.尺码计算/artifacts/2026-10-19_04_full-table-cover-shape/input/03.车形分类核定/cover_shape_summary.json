@@ -1,0 +1,66 @@
+{
+  "rows": 47361,
+  "representative_groups": 37046,
+  "rule_version": "representative-shape-v1",
+  "shape_counts": {
+    "SLOPED_CROSSOVER": 1128,
+    "LOW_NOTCHBACK": 3653,
+    "LOW_FASTBACK": 466,
+    "STANDARD_SEDAN": 12999,
+    "SPORT_LIFTBACK": 5205,
+    "BOXY_SUV": 5056,
+    "WAGON": 425,
+    "COMPACT_HATCH": 4707,
+    "TALL_BOX": 9500,
+    "PICKUP": 4196,
+    "OTHER": 26
+  },
+  "status_counts": {
+    "PROBABLE": 2767,
+    "INFERRED": 44594
+  },
+  "method_counts": {
+    "family_cache_sampled": 2767,
+    "family_cache_inherited": 1605,
+    "representative_evidence": 11,
+    "prototype_geometry_dimensions": 42978
+  },
+  "by_country": {
+    "US": 4383,
+    "EU": 29361,
+    "RU": 13617
+  },
+  "validation": {
+    "exact_source_order_and_coverage": true,
+    "unique_ids": true,
+    "all_have_class": true,
+    "valid_status": true,
+    "complete_metadata": true,
+    "source_unchanged": true
+  },
+  "fit_status": "NOT_TESTED",
+  "network_requests": 0,
+  "research_queue": {
+    "families": 11600,
+    "states_by_market": {
+      "US": {
+        "CACHED": 997
+      },
+      "EU": {
+        "PENDING": 4448,
+        "BLOCKED_INPUT": 8
+      },
+      "RU": {
+        "PENDING": 6147
+      }
+    },
+    "research_markets": [
+      "US"
+    ],
+    "open_tasks": 0,
+    "open_sample_years": 0,
+    "family_cache_rules": 1823,
+    "attempted_families": 0
+  },
+  "limitations": "原型几何先验与尺寸补齐是推断；20 条尺寸缺失/无效记录归 OTHER，未补猜尺寸"
+}

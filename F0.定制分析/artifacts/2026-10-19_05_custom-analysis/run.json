@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "batch": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis",
+  "version": "20261019_05",
+  "description": "custom-analysis",
+  "created_at": "2026-10-19T11:17:04+08:00",
+  "finished_at": "2026-10-19T11:17:04+08:00",
+  "command": [
+    "run.py",
+    "--case",
+    "silverado2500_crew_short_bed"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261019_10",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261019_07.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-19_07_full-table-cover-shape/output/US/全量/全量表-20261019_07.csv",
+      "sha256": "feb13a570f427f848cc5f3b06c3f4f5aafb04c3fba4350a8548fd6cba2c86ca4"
+    },
+    {
+      "node": "code-mapping",
+      "path": "02.代码映射",
+      "version": "20261019_02",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261019_02.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv",
+      "sha256": "cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "B0.差评分析",
+      "version": "20261009_04",
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261009_04.csv",
+      "artifact_file": "B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+    }
+  ],
+  "rules": {
+    "data_dir": "F0.定制分析/data",
+    "git_commit": "97ddb6d3c03a25809a37b1364c9748310ef6f353",
+    "copied": [
+      "data/ford_f150_supercrew_short_bed_custom_analysis.json",
+      "data/ford_f250_crew_short_bed_custom_analysis.json",
+      "data/ford_f350_crew_short_bed_custom_analysis.json",
+      "data/mini_cooper_custom_analysis.json",
+      "data/ram1500_crew_short_bed_custom_analysis.json",
+      "data/README.md",
+      "data/silverado2500_crew_short_bed_custom_analysis.json"
+    ],
+    "files": [
+      {
+        "file": "data/ford_f150_supercrew_short_bed_custom_analysis.json",
+        "sha256": "7d93e1fd42cba1288dbb6edadbefd7c10aff344ef035fe95e21c3141d7d20dc0",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/rules/data/ford_f150_supercrew_short_bed_custom_analysis.json"
+      },
+      {
+        "file": "data/ford_f250_crew_short_bed_custom_analysis.json",
+        "sha256": "c053983d595ab0f273c3b899fa05cc55cbe432c7086fc39da6dce7e95fa55002",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/rules/data/ford_f250_crew_short_bed_custom_analysis.json"
+      },
+      {
+        "file": "data/ford_f350_crew_short_bed_custom_analysis.json",
+        "sha256": "07651e7cb65226c50bd1c3713184bebd9db145a10255ec48313fc22e6aa706ab",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/rules/data/ford_f350_crew_short_bed_custom_analysis.json"
+      },
+      {
+        "file": "data/ford_mustang_custom_analysis.json",
+        "sha256": "c69ed520f5607be1d88ab188efd2df1f5d1df5970413e6ddb40751ebb2cb5dbc"
+      },
+      {
+        "file": "data/jeep_gladiator_custom_analysis.json",
+        "sha256": "81ffce2c3cf73891276aec9de95d724eb1600c67d327124798c4b57c12cf26ea"
+      },
+      {
+        "file": "data/kia_forte_custom_analysis.json",
+        "sha256": "6822fe8b41850aa6e5b9fab423194f61bf966e8067d3ec95a45ced66b6021af6"
+      },
+      {
+        "file": "data/kia_soul_custom_analysis.json",
+        "sha256": "02e12a4ed9184038077373d18f66e76192dd5d2f3cc43e6c428f66c853a236f0"
+      },
+      {
+        "file": "data/mercedes_e_class_custom_analysis.json",
+        "sha256": "189c80e78816a5b2f44d3789d12f6177b1fe597f030c4535c5ba9a517c699758"
+      },
+      {
+        "file": "data/mini_cooper_custom_analysis.json",
+        "sha256": "10bb3082559ee0ae50dacd06fd53a256d7c39ae96e40d321dfb3b6073faa3c8c",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/rules/data/mini_cooper_custom_analysis.json"
+      },
+      {
+        "file": "data/mini_countryman_custom_analysis.json",
+        "sha256": "b76a1018af9b8afdbe7b05db8c356be7de55cf2f0aef6a69a248be9e8deafa43"
+      },
+      {
+        "file": "data/prius_custom_analysis.json",
+        "sha256": "169f8bb8934b01dc745b7e58fc10b0c67bebd9e13dad2f8ba7c9f310619053e2"
+      },
+      {
+        "file": "data/ram1500_crew_short_bed_custom_analysis.json",
+        "sha256": "e8fe418f96dd2731643484cf14c4820d30e7c8ed8832a1bbc272aa48e50d6bd5",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/rules/data/ram1500_crew_short_bed_custom_analysis.json"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "e78efc31b8c1cd7f501ce03826de50c6f595c0e9bf5259b951c118be5c49dd59",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/rules/data/README.md"
+      },
+      {
+        "file": "data/silverado2500_crew_short_bed_custom_analysis.json",
+        "sha256": "764769343b3f89507239da569d7cd7f9692f6dead42535480934d94971a5b580",
+        "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/rules/data/silverado2500_crew_short_bed_custom_analysis.json"
+      },
+      {
+        "file": "data/subaru_forester_custom_analysis.json",
+        "sha256": "5ba3eed488b403805c67c9753c259059a8fe2a4238a39b0649f2bfdf8e64f8af"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "silverado2500_crew_short_bed/定制SKU聚簇报告.md",
+      "versioned_file": "silverado2500_crew_short_bed/定制SKU聚簇报告-20261019_05.md",
+      "artifact_file": "F0.定制分析/artifacts/2026-10-19_05_custom-analysis/output/silverado2500_crew_short_bed/定制SKU聚簇报告-20261019_05.md",
+      "sha256": "18f10ac41927d60128e464c1de022c1f2b83193e2f2022a285638d7533b34504",
+      "bytes": 7577,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "silverado2500_crew_short_bed",
+        "input_rows": 1
+      }
+    ],
+    "change": "按配置生成完整 Markdown；支持驾驶室、货斗、版本排除及年份交集筛选，保留来源年款和身份"
+  }
+}

@@ -11,6 +11,11 @@
 4. 全部校验通过后，原子写入节点 ``output/manifest.json``（``output/`` 的交付物本身就是发布内容）；
 5. ``REPORT.md`` 说明发布原因，并将交付物与上一版本比较，记录 CSV 的新增、删除、字段修改及示例。
 
+上游记录绑定真实输入：交付物与成功运行批次 ``run.json`` 登记的输出一致时，``upstream`` 取该运行实际读取的
+上游文件与版本（``basis: run``），不以发布时读取的最新上游 manifest 冒领新版本；没有运行记录可核实的上游才记
+发布时版本（``basis: publish-time``）。auto 节点发布前按 ``identity_coverage`` 核对身份承接，未承接时拒绝发布，
+``--accept-identity-gaps`` 显式接受并写入 manifest ``checks``。
+
 最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源，并重新生成 ``流水线状态.md``
 （该状态文件只由本脚本写入）。
 
@@ -40,6 +45,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
 
 from artifact_refs import RUN_RECORD, sha256, versioned_name
+from identity_coverage import check_node as identity_gaps
 from pipeline_status import is_on_demand, write_status
 from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # noqa: E402
 
@@ -50,6 +56,10 @@ REPORT_NAME = "REPORT.md"
 
 class ReleaseError(ValueError):
     pass
+
+
+class IdentityGapError(ReleaseError):
+    """身份未承接，本节点拒绝发布；其他节点照常发布，最后统一报错。"""
 
 
 def row_count(path: Path) -> int | None:
@@ -140,7 +150,7 @@ def _csv_change_summary(previous: Path, current: Path) -> list[str]:
     return summary
 
 
-def write_report(path: Path, node: dict, version: str, released_at: str, previous_manifest: dict | None, deliverables: list[dict], output_dir: Path, root: Path, rules: list[dict] | None = None, reasons: list[str] | None = None) -> None:
+def write_report(path: Path, node: dict, version: str, released_at: str, previous_manifest: dict | None, deliverables: list[dict], output_dir: Path, root: Path, rules: list[dict] | None = None, reasons: list[str] | None = None, manifest: dict | None = None) -> None:
     """Write an auditable, compact Markdown description of this artifact's changes."""
     lines = [
         "# 发布报告", "",
@@ -156,6 +166,27 @@ def write_report(path: Path, node: dict, version: str, released_at: str, previou
         else:
             changed = describe_changes(rules_changes(previous_manifest["rules"], rules))
             lines.append(f"- 相对上一版本：{changed}。" if changed else "- 与上一版本相同。")
+        lines.append("")
+    if manifest and manifest.get("upstream"):
+        lines.extend(["## 上游输入依据", ""])
+        for record in manifest["upstream"]:
+            basis = "运行批次实际读取" if record.get("basis") == "run" else "发布时上游版本（未经运行记录核实）"
+            lines.append(f"- `{record['node']}` `{record.get('version')}`：{basis}，{len(record.get('files', []))} 个文件。")
+        unverified = manifest.get("checks", {}).get("unverified_deliverables")
+        if unverified:
+            lines.append("- 无运行记录可核实的交付物：" + "、".join(f"`{name}`" for name in unverified) + "。")
+        lines.append("")
+    identity = (manifest or {}).get("checks", {}).get("identity_coverage")
+    if identity:
+        lines.extend(["## 身份承接", ""])
+        for item in identity:
+            if item.get("error"):
+                state = item["error"]
+            elif item["missing"] or item["residual"]:
+                state = f"缺 {item['missing']}，残留 {item['residual']}（已显式接受）"
+            else:
+                state = "通过"
+            lines.append(f"- `{item['output']}` ← `{item['upstream']}` `{item['file']}`（{item['mode']}）：{state}。")
         lines.append("")
     lines.extend(["## 交付物与变更", ""])
     previous = {item["file"]: item for item in (previous_manifest or {}).get("deliverables", [])}
@@ -184,13 +215,60 @@ def write_report(path: Path, node: dict, version: str, released_at: str, previou
     path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 
-def upstream_records(root: Path, node: dict, by_id: dict[str, dict]) -> list[dict]:
+def resolve_copied_inputs(root: Path, node: dict, by_id: dict[str, dict], run_inputs: list[dict]) -> list[dict]:
+    """运行时上游尚未发布而被复制进批次 input/ 的上游文件：现已发布且字节一致时改记为该发布版本的引用；
+    仍不一致则保留复制件作为来源（版本记 None，追踪会判为上游已变化）。"""
+    resolved = []
+    for item in run_inputs:
+        if item.get("node") or not item.get("copied_because"):
+            resolved.append(item)
+            continue
+        for upstream_id in node.get("upstream", []):
+            prefix = f"{by_id[upstream_id]['path']}/output/"
+            if not item["file"].startswith(prefix):
+                continue
+            name = item["file"][len(prefix):]
+            manifest_path = root / prefix / MANIFEST_NAME
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.is_file() else {}
+            published = next((entry for entry in manifest.get("deliverables", []) if entry["file"] == name), None)
+            if published and published["sha256"] == item["sha256"]:
+                resolved.append({"node": upstream_id, "version": manifest["version"], "file": name,
+                                 "versioned_file": published.get("versioned_file"),
+                                 "artifact_file": published.get("artifact_file"), "sha256": item["sha256"]})
+            else:
+                resolved.append({"node": upstream_id, "version": None, "file": name, "versioned_file": None,
+                                 "artifact_file": item.get("artifact_file"), "sha256": item["sha256"]})
+            break
+    return resolved
+
+
+def upstream_records(root: Path, node: dict, by_id: dict[str, dict], run_inputs: list[dict] | None = None) -> list[dict]:
+    """每个已声明上游一条记录。run_inputs（成功运行实际读取的已发布输入）登记了该上游时取其文件与版本
+    （basis=run）；否则取发布时上游 manifest（basis=publish-time，未经运行记录核实）。"""
     records = []
+    used: dict[str, list[dict]] = {}
+    for item in resolve_copied_inputs(root, node, by_id, run_inputs or []):
+        if item.get("node") in node.get("upstream", []):
+            used.setdefault(item["node"], []).append(item)
     for upstream_id in node.get("upstream", []):
         upstream = by_id[upstream_id]
+        if upstream_id in used:
+            files: dict[tuple[str, str], dict] = {}
+            for item in used[upstream_id]:
+                files.setdefault((item["file"], item["sha256"]), {
+                    "file": item["file"], "versioned_file": item.get("versioned_file"),
+                    "artifact_file": item.get("artifact_file"), "sha256": item["sha256"],
+                })
+            versions = sorted({item.get("version") for item in used[upstream_id] if item.get("version")})
+            record = {"node": upstream_id, "version": versions[-1] if versions else None, "basis": "run",
+                      "files": sorted(files.values(), key=lambda entry: (entry["file"], entry["sha256"]))}
+            if len(versions) > 1:
+                record["versions"] = versions
+            records.append(record)
+            continue
         manifest_path = root / upstream["path"] / "output" / MANIFEST_NAME
         if not manifest_path.is_file():
-            records.append({"node": upstream_id, "version": None, "files": []})
+            records.append({"node": upstream_id, "version": None, "basis": "publish-time", "files": []})
             continue
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         records.append(
@@ -198,6 +276,7 @@ def upstream_records(root: Path, node: dict, by_id: dict[str, dict]) -> list[dic
                 "node": upstream_id,
                 "version": manifest["version"],
                 "artifact": manifest["artifact"],
+                "basis": "publish-time",
                 "files": [
                     {
                         "file": item["file"],
@@ -245,19 +324,43 @@ def _reusable(root: Path, item: dict | None, digest: str) -> bool:
     return source.is_file() and sha256(source) == digest
 
 
-def run_batch_outputs(project: Path) -> dict[tuple[str, str], dict]:
-    """节点运行批次 run.json 登记的成功输出：(文件, sha256) → 记录；同内容取最早批次（字节最先存在那里）。"""
-    found: dict[tuple[str, str], dict] = {}
+def passed_runs(project: Path) -> list[dict]:
+    """节点运行批次中状态为 passed 的 run.json，按批次名（时间）排序。"""
+    records = []
     for record_path in sorted((project / "artifacts").glob(f"*/{RUN_RECORD}")):
         try:
             record = json.loads(record_path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             continue
-        if record.get("status", {}).get("status") != "passed":
-            continue
+        if record.get("status", {}).get("status") == "passed":
+            records.append(record)
+    return records
+
+
+def run_batch_outputs(project: Path, records: list[dict] | None = None) -> dict[tuple[str, str], dict]:
+    """节点运行批次 run.json 登记的成功输出：(文件, sha256) → 记录；同内容取最早批次（字节最先存在那里）。"""
+    found: dict[tuple[str, str], dict] = {}
+    for record in passed_runs(project) if records is None else records:
         for item in record.get("outputs", []):
             found.setdefault((item["file"], item["sha256"]), item)
     return found
+
+
+def run_inputs_for(current: list[dict], records: list[dict]) -> tuple[list[dict], list[str]]:
+    """产生当前交付物字节的成功运行（同内容取最晚一次）实际读取的输入，及没有运行记录可核实的交付物。"""
+    latest: dict[tuple[str, str], dict] = {}
+    for record in records:
+        for item in record.get("outputs", []):
+            latest[(item["file"], item["sha256"])] = record
+    used: dict[int, dict] = {}
+    unverified = []
+    for item in current:
+        record = latest.get((item["file"], item["sha256"]))
+        if record is None:
+            unverified.append(item["file"])
+        else:
+            used.setdefault(id(record), record)
+    return [entry for record in used.values() for entry in record.get("inputs", [])], unverified
 
 
 def release_reasons(previous: dict | None, deliverables: list[dict], upstream: list[dict], rules: list[dict], node: dict) -> list[str]:
@@ -280,7 +383,20 @@ def release_reasons(previous: dict | None, deliverables: list[dict], upstream: l
     return reasons
 
 
-def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, released_at: str, force: bool = False) -> dict | None:
+def identity_checks(root: Path, node: dict, by_id: dict[str, dict], enforce: bool, accept_gaps: bool) -> list[dict]:
+    """按 identity_coverage 核对身份承接；enforce 且未接受缺口时，未承接即拒绝发布。"""
+    gaps = identity_gaps(root, node, by_id)
+    failed = [gap for gap in gaps if not gap.ok]
+    if failed and enforce and not accept_gaps:
+        raise IdentityGapError(
+            f"{node['path']}: 身份未承接，拒绝发布（先按上游当前 output 重跑本节点；确需带缺口发布用 --accept-identity-gaps）：\n  "
+            + "\n  ".join(gap.describe() for gap in failed)
+        )
+    return [gap.to_record() for gap in gaps]
+
+
+def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, released_at: str, force: bool = False,
+                 enforce_identity: bool = False, accept_identity_gaps: bool = False) -> dict | None:
     """发布一个节点；交付物、上游、规则与说明均未变化且未 force 时返回 None，沿用当前版本。"""
     project = root / node["path"]
     output_dir = project / "output"
@@ -293,13 +409,16 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
     for name in node.get("outputs", []):
         published = output_dir / name
         current.append({"file": name, "sha256": sha256(published), "bytes": published.stat().st_size, "rows": row_count(published)})
-    upstream = upstream_records(root, node, by_id)
+    runs = passed_runs(project)
+    run_inputs, unverified = run_inputs_for(current, runs)
+    upstream = upstream_records(root, node, by_id, run_inputs)
     rules = rules_snapshot(project)
     reasons = release_reasons(previous_manifest, current, upstream, rules, node)
     if not reasons:
         if not force:
             return None
         reasons = ["--force 强制发布（内容未变化）"]
+    identity = identity_checks(root, node, by_id, enforce_identity, accept_identity_gaps)
 
     artifacts_dir.mkdir(exist_ok=True)
     batch_name, version = next_batch(artifacts_dir, today, artifact_slug(node))
@@ -309,7 +428,7 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
         shutil.rmtree(staging)
     staging.mkdir(parents=True)
 
-    run_outputs = run_batch_outputs(project)
+    run_outputs = run_batch_outputs(project, runs)
     deliverables = []
     copied = []
     for item in current:
@@ -345,7 +464,14 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
         "pending": node.get("pending", []),
         "notes": node.get("release_notes", []),
     }
-    write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root, rules, reasons)
+    checks = {}
+    if identity:
+        checks["identity_coverage"] = identity
+    if unverified and node.get("upstream"):
+        checks["unverified_deliverables"] = unverified
+    if checks:
+        manifest["checks"] = checks
+    write_report(staging / REPORT_NAME, node, version, released_at, previous_manifest, deliverables, output_dir, root, rules, reasons, manifest)
     write_json_atomic(staging / MANIFEST_NAME, manifest)
     replace_with_retry(staging, batch_dir)
 
@@ -373,7 +499,7 @@ def select_nodes(payload: dict, nodes: list[dict], only: set[str] | None, lines:
     return [node for node in nodes if include_on_demand or not is_on_demand(payload, node)]
 
 
-def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False, lines: set[str] | None = None, include_on_demand: bool = False, force: bool = False) -> dict:
+def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False, lines: set[str] | None = None, include_on_demand: bool = False, force: bool = False, accept_identity_gaps: bool = False) -> dict:
     payload = json.loads((root / "pipeline.json").read_text(encoding="utf-8"))
     nodes = topological_order(payload["nodes"])
     by_id = {node["id"]: node for node in payload["nodes"]}
@@ -384,11 +510,20 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False,
         raise ReleaseError("\n".join(errors))
     now = datetime.now().astimezone()
     released: dict[str, dict] = {}
+    refused: list[str] = []
     for node in selected:
         if dry_run:
             print(f"[dry-run] {node['id']}: {len(node.get('outputs', []))} 个交付物")
             continue
-        result = release_node(root, node, by_id, date.today().isoformat(), now.isoformat(timespec="seconds"), force)
+        try:
+            result = release_node(
+                root, node, by_id, date.today().isoformat(), now.isoformat(timespec="seconds"), force,
+                enforce_identity=not is_on_demand(payload, node), accept_identity_gaps=accept_identity_gaps,
+            )
+        except IdentityGapError as error:
+            refused.append(str(error))
+            print(f"{node['path']}: 拒绝发布（身份未承接），沿用当前版本")
+            continue
         if result is None:
             print(f"{node['path']}: 未变化，沿用当前版本")
             continue
@@ -421,6 +556,8 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False,
             {"schema_version": 1, "released_at": now.isoformat(timespec="seconds"), "nodes": previous},
         )
         write_status(root)
+    if refused:
+        raise IdentityGapError("\n".join(refused))
     return released
 
 
@@ -430,6 +567,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--lines", help="发布这些产线的全部节点（逗号分隔，如 B,C），可与 --nodes 合用")
     parser.add_argument("--all", action="store_true", help="默认发布时同时包括按需节点")
     parser.add_argument("--force", action="store_true", help="交付物、上游、规则均未变化也新建发布批次（交付物仍只引用不复制）")
+    parser.add_argument("--accept-identity-gaps", action="store_true", help="auto 节点身份未承接时仍发布，缺口写入 manifest checks")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--status-only", action="store_true", help="不发布，只按当前各节点 manifest 重建 流水线状态.md")
     args = parser.parse_args(argv)
@@ -444,6 +582,7 @@ def main(argv: list[str] | None = None) -> int:
             set(args.lines.split(",")) if args.lines else None,
             args.all,
             args.force,
+            args.accept_identity_gaps,
         )
     except ReleaseError as error:
         print(f"发布失败：{error}", file=sys.stderr)

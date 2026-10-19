@@ -14,6 +14,8 @@ public/ 只是仓库外发布或人工交换区，不是 agent 间数据总线�
   data/代表车型/                    代表车型表及其报告
   customizing/                      定制需求度评分等"定制"类落盘文件
 
+发布范围只取 pipeline.json 各节点 ``public_outputs`` 明确列出的交付物（publication_contract），不按文件类型遍历
+manifest：资料采用清单、结果依据、待处理清单等内部追溯接口即使是 CSV 也不会公开。
 发布目录只保存可直接使用的 CSV 数据表；JSON、TSV、XLSX 等辅助小文件不发布。
 节点 output/ 中的 md 交付物（如 A0 尺码匹配报告）原样发布，JSON 交付物转成同名 .md 说明文档，
 与 CSV 放在同一目录，说明该目录文件的生成情况。
@@ -53,6 +55,8 @@ COMMON_NODE_DIRS = {
     "negative-review-analysis": "差评分析",
     "representative-model": "代表车型",
 }
+# 发布到 data/ 以外固定目录的节点（目录不在 OWNED_DIRS，只覆盖本节点文件，不归档目录中其他人工资料）。
+NODE_TARGET_DIRS = {"link-analysis-pickup": "sku_cluster/皮卡"}
 # A0 的店铺全量表与国别全量表同放 全量/。
 REGION_SUBDIR_ALIASES = {("US", "店铺"): "全量"}
 # A1.压缩尺寸信息 压缩尺码表按产线分目录（<产线>/压缩尺码表[_皮卡].csv），产线的区域见 A1 data/产线.yaml；
@@ -79,6 +83,8 @@ def target_for(name: str, node_id: str = "", lines: dict[str, str] | None = None
     """返回发布目标相对 PUBLIC_ROOT 的路径。"""
     if name in CUSTOMIZING_FILES:
         return Path("customizing") / name
+    if node_id in NODE_TARGET_DIRS:
+        return Path(NODE_TARGET_DIRS[node_id]) / name
     if node_id == COMPRESSION_NODE:
         line, _, rest = name.partition("/")
         region = (compression_lines() if lines is None else lines).get(line)
@@ -139,6 +145,15 @@ def json_to_markdown(source: Path, item: dict, node: dict, version: str) -> str:
     return "\n".join(lines) + "\n"
 
 
+def public_items(node: dict, manifest: dict) -> list[dict]:
+    """节点 public_outputs 对应的 manifest 交付物；点名但未发布到 manifest 的视为错误。"""
+    deliverables = {item["file"]: item for item in manifest["deliverables"]}
+    missing = [name for name in node.get("public_outputs", []) if name not in deliverables]
+    if missing:
+        raise ValueError(f"{node['path']}: public_outputs 中 {'、'.join(missing)} 未在 output/manifest.json 发布，请先发布该节点")
+    return [deliverables[name] for name in node.get("public_outputs", [])]
+
+
 def collect_docs() -> dict[Path, str]:
     payload = json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))
     docs: dict[Path, str] = {}
@@ -147,7 +162,7 @@ def collect_docs() -> dict[Path, str]:
         if not manifest_path.is_file():
             continue
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        for item in manifest["deliverables"]:
+        for item in public_items(node, manifest):
             name = item["file"]
             suffix = Path(name).suffix.lower()
             if suffix not in {".json", ".md"} or name == "manifest.json":
@@ -171,7 +186,7 @@ def collect() -> dict[Path, dict]:
         if not manifest_path.is_file():
             continue
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        for item in manifest["deliverables"]:
+        for item in public_items(node, manifest):
             name = item["file"]
             if Path(name).suffix.lower() not in PUBLISH_SUFFIXES:
                 continue
@@ -235,7 +250,7 @@ def main() -> int:
         "",
         "仅发布 CSV 数据表；JSON 交付物（如尺码匹配报告）转换为同名 `.md` 说明文档，放在对应区域目录中，说明该目录文件的生成情况；原始 JSON 和其他辅助小文件保留在仓库的 `output/` 与 `artifacts/`，不存入本目录。",
         "",
-        "`data/` 和 `customizing/` 是本脚本管理的正式发布地址（本文件与来源清单描述的即是这两个目录的当前内容）。`data/` 下按国别或数据职责分目录，不在根目录堆放数据文件；`customizing/` 存放定制类产物（如定制需求度评分）。被替换的旧命名文件与历史批次统一归档到本目录的 `backup/`，不散落在其他位置；`car_code/`、`reference/`、`reports/`、`sku_cluster/` 为人工维护的参考资料，不受本脚本管理。",
+        "`data/` 和 `customizing/` 是本脚本管理的正式发布地址（本文件与来源清单描述的即是这两个目录的当前内容）。`data/` 下按国别或数据职责分目录，不在根目录堆放数据文件；`customizing/` 存放定制类产物（如定制需求度评分）。被替换的旧命名文件与历史批次统一归档到本目录的 `backup/`，不散落在其他位置；`car_code/`、`reference/`、`reports/`、`sku_cluster/` 为人工维护的参考资料，不受本脚本管理；其中 `sku_cluster/皮卡/` 的四张 CSV 由节点 `link-analysis-pickup` 发布（见下表），只覆盖这些文件。",
         "",
         "## 文件与来源",
         "",

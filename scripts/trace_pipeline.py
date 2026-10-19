@@ -8,6 +8,9 @@
 3. 上游节点当前版本与 manifest 记录的输入版本对比（仅提示）。
 4. 本节点 data/ 规则：与 manifest 的 ``rules`` 快照比对；规则已改而输出未重新发布即过期。
    旧 manifest 没有 ``rules`` 时显示“未记录”，下次发布后生效。
+5. 身份承接（``pipeline.json`` 节点的 ``identity_coverage``，见 ``identity_coverage.py``）：交付物的业务主键是否
+   完整承接上游当前 output/ 的身份。manifest 的 sha256 只能证明文件一致，不能证明上游新身份已进入本节点结果；
+   未承接即过期（按需节点记为按需待刷新）。
 
 按需节点（``pipeline.json`` 的 ``line_triggers`` 为 on_demand，如 B/C/D/E/F/X 线）不随上游刷新：上游变化只记为
 “按需待刷新”（ON-DEMAND）提示，不算过期；其自身规则变化仍算过期。
@@ -24,6 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
 
 from artifact_refs import check_deliverable_source, sha256
+from identity_coverage import check_node as identity_gaps
 from pipeline_status import is_on_demand
 from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # noqa: E402
 
@@ -73,6 +77,11 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False) -> t
         changed = describe_changes(rules_changes(manifest["rules"], rules_snapshot(ROOT / node["path"])))
         if changed:
             stale.append(f"{node['path']}: 本节点规则在 {manifest['version']} 发布后已变化：{changed}")
+    for gap in identity_gaps(ROOT, node, by_id):
+        if gap.error:
+            errors.append(f"{node['path']}: {gap.describe()}")
+        elif not gap.ok:
+            (deferred if on_demand else stale).append(f"{node['path']}: 身份未承接：{gap.describe()}")
     return errors, stale, deferred
 
 

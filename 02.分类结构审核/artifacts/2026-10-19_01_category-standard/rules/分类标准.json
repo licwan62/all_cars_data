@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "_说明": "US/EU/RU 三国通用的 结构→车衣分类 标准。结构先去掉门数后缀（如 ' 2dr'）再查表。fixed 为确定映射；research_required 的结构必须按车型联网判定（写入 分类联网判定.csv），未判定前保留上游值并进入待联网队列；excluded 为非乘用车，不做车衣，分类留空。规则依据见 doc/车衣分类业务规则.md。",
+  "allowed": ["两厢车", "三厢车", "越野车", "跑车", "皮卡"],
+  "door_suffix_pattern": "\\s+\\d+dr$",
+  "fixed": {
+    "Sedan": "三厢车",
+    "Fastback Sedan": "三厢车",
+    "Hatchback": "两厢车",
+    "Wagon": "两厢车",
+    "Van": "两厢车",
+    "MPV": "两厢车",
+    "Minivan": "两厢车",
+    "Bus": "两厢车",
+    "Quadricycle": "两厢车",
+    "SUV": "越野车",
+    "Crossover": "越野车",
+    "SUV Convertible": "越野车",
+    "Pickup": "皮卡",
+    "Chassis Cab": "皮卡",
+    "Pritsche/Fahrgestell": "皮卡",
+    "Coupe": "跑车",
+    "Convertible": "跑车",
+    "Roadster": "跑车",
+    "Targa": "跑车",
+    "Hardtop": "跑车",
+    "Phaeton": "跑车",
+    "Speedster": "跑车"
+  },
+  "research_required": {
+    "Liftback": ["三厢车", "两厢车", "跑车"],
+    "Fastback": ["三厢车", "两厢车", "跑车"]
+  },
+  "excluded": {
+    "Sattelschlepper": "半挂牵引车，非车衣适用车型",
+    "Triebkopf": "牵引车头，非车衣适用车型",
+    "Kommunalfahrzeug": "市政作业车，非车衣适用车型"
+  }
+}

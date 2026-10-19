@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "node": "link-analysis",
+  "path": "D2.链接分析",
+  "version": "20261014_01",
+  "artifact": "D2.链接分析/artifacts/2026-10-14_01_link-analysis-release",
+  "published_at": "2026-10-14T09:59:33+08:00",
+  "deliverables": [],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261013_28",
+      "artifact": "A0.尺码计算/artifacts/2026-10-13_28_size-calculation-release",
+      "files": [
+        {
+          "file": "US/尺码匹配报告.md",
+          "versioned_file": "US/尺码匹配报告-20261013_27.md",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_27_match-report-shape/output/US/尺码匹配报告-20261013_27.md",
+          "sha256": "7222879a0f507c917b86848ad5bc8ac4caeb30265c88d3c55dfe3850a27e9138"
+        },
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261013_16.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/全量/全量表-20261013_16.csv",
+          "sha256": "f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4"
+        },
+        {
+          "file": "US/店铺/店铺全量_HNT.csv",
+          "versioned_file": "US/店铺/店铺全量_HNT-20261013_16.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/店铺/店铺全量_HNT-20261013_16.csv",
+          "sha256": "a7cd13d3808b1721fb016d697faf16548f9ed066237d7d17072a9385cc5382b9"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM.csv",
+          "versioned_file": "US/店铺/店铺全量_TM-20261013_16.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/店铺/店铺全量_TM-20261013_16.csv",
+          "sha256": "dde471bb65efda7d23d58e3cbdf9fbb5275a9abee57afa3b9ac8638239b9d399"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM_拆分.csv",
+          "versioned_file": "US/店铺/店铺全量_TM_拆分-20261013_16.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/店铺/店铺全量_TM_拆分-20261013_16.csv",
+          "sha256": "363b33d2cb685a230c3b066f0a8d2c0c8e9288581920170e0abd2a52b582392c"
+        },
+        {
+          "file": "US/TRIM/TRIM适配器.csv",
+          "versioned_file": "US/TRIM/TRIM适配器-20261013_25.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_25_us-size-trim-shape/output/US/TRIM/TRIM适配器-20261013_25.csv",
+          "sha256": "62a8806a7c2050d58a0cacd1af2ea75ca7accf1aa6cd0e9fc858bb27353d0deb"
+        },
+        {
+          "file": "EU/尺码匹配报告.md",
+          "versioned_file": "EU/尺码匹配报告-20261013_18.md",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_18_size-calculation-release/output/EU/尺码匹配报告-20261013_18.md",
+          "sha256": "472664564f132933ec0f838863c3cbf29c666189458f70d6f6c49c15a7daf522"
+        },
+        {
+          "file": "EU/全量/全量表.csv",
+          "versioned_file": "EU/全量/全量表-20261013_16.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/EU/全量/全量表-20261013_16.csv",
+          "sha256": "43250bf7748fcff6651aa5ae2e7f47fe22d1945731f99fc9a4dae41a04b3406d"
+        },
+        {
+          "file": "RU/尺码匹配报告.md",
+          "versioned_file": "RU/尺码匹配报告-20261013_18.md",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_18_size-calculation-release/output/RU/尺码匹配报告-20261013_18.md",
+          "sha256": "a2fa1f2db40098e7677e8b6ba9e41b3c6f685101359043ccb2a3f605c59d3d0d"
+        },
+        {
+          "file": "RU/全量/全量表.csv",
+          "versioned_file": "RU/全量/全量表-20261013_16.csv",
+          "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/RU/全量/全量表-20261013_16.csv",
+          "sha256": "f590acf28068183915807153b490a16728c1b553ceaa793d8bc22954d9872217"
+        }
+      ]
+    },
+    {
+      "node": "sku-clustering",
+      "version": "20261009_04",
+      "artifact": "D1.聚类SKU/artifacts/2026-10-09_04_sku-clustering-release",
+      "files": []
+    },
+    {
+      "node": "sales-estimation",
+      "version": "20261010_01",
+      "artifact": "02.销量评估/artifacts/2026-10-10_01_sales-estimation-release",
+      "files": [
+        {
+          "file": "原子销量.csv",
+          "versioned_file": "原子销量-20261009_04.csv",
+          "artifact_file": "02.销量评估/artifacts/2026-10-09_04_sales-estimation-release/output/原子销量-20261009_04.csv",
+          "sha256": "b1b50200dce7529f62149e6335fbb401b08eb5a78df21335604014664b401611"
+        },
+        {
+          "file": "RU代理销量.csv",
+          "versioned_file": "RU代理销量-20261009_04.csv",
+          "artifact_file": "02.销量评估/artifacts/2026-10-09_04_sales-estimation-release/output/RU代理销量-20261009_04.csv",
+          "sha256": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/README.md",
+      "sha256": "39297d447af84d0f069fdabde110e7b5a4960339ee77ac476a8726b9c6ce8ac4"
+    },
+    {
+      "file": "data/发货单明细.xlsx",
+      "sha256": "b67b6a74859e6b564d99ee4ace808a454ee7e01a909421b4c6f83609ad60d662"
+    }
+  ],
+  "pending": [
+    "发货单.csv"
+  ],
+  "notes": [
+    "2026-09-27 W型车/run.py 改为只读 D1.聚类SKU/output/W型车，不再调用 D1 代码或写入 D1 artifacts；皮卡/run.py（依赖从未入库的 D1 皮卡代码并读 NAS）归档至 archive/皮卡/",
+    "2026-10-11 皮卡/run.py 改为审核 data/发货单明细.xlsx 的既成发货事实：逐行验证 CUSUMER_NAME、SIZE_NAME、适配车型并反查工作簿内嵌 ref_cluster_detail；输出字段审核、发货分配核对和报告。",
+    "2026-10-11 链接字段规则改为适配车型不含年份，年份单独写入适配年份；皮卡新增上架链接明细.csv，共享引擎 listing_detail.csv 同步拆分。",
+    "2026-10-11 皮卡作为 D2 下的独立业务子项目：运行批次、规则和稳定输出分别归入 皮卡/artifacts、皮卡/data、皮卡/output；CSV 发布到 NAS public/sku_cluster/皮卡。",
+    "2026-10-11 新增 SKU发货数量.csv：以 CLUSTER_ID 为既成发货 SKU 唯一键，保留 102 条正向分配及合计 801，不向 108 条展示链接重新摊分。",
+    "2026-10-14 皮卡应用用户字段改动：上架标题输出为 TITLE_NAME；SKU发货数量仅保留 SKU_NAME、发货数量、发货日期。108 条确认发货日期为 2026-08-21，按 SKU+日期唯一保留后续发货记录；规则与事实固化到皮卡/data，批次登记 manifest。"
+  ]
+}

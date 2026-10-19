@@ -94,3 +94,16 @@ def test_2027_gle_shape_overrides_cover_both_body_styles():
     overrides = module.read_generic_shape_overrides(module.GENERIC_SHAPE_OVERRIDES, RULES)
     assert overrides[("mercedes-benz", "gle-class", "gen2", "coupe")] == "SU1"
     assert overrides[("mercedes-benz", "gle-class", "gen2", "suv")] == "SU1"
+
+
+def test_us_new_record_uses_shape_decision_and_conflict_fails():
+    source = [lib_row("A B Coupe 2010-2012 US", "Coupe", "跑车"), lib_row("A B Coupe 2013 US", "Coupe", "跑车", year="2013")]
+    prior = [shape_row("A B Coupe 2010-2012 US", "SD2", "US核定")]
+    out = module.build(source, prior, [], RULES, us_decisions={"A B Coupe 2013 US": "SD2"})["output"]
+    assert [(row["车形"], row["处理状态"]) for row in out] == [("SD2", "US核定"), ("SD2", "US核定")]
+    with pytest.raises(ValueError, match="冲突"):
+        module.build(source, prior, [], RULES, us_decisions={"A B Coupe 2010-2012 US": "SD0"})
+
+
+def test_current_us_shape_decisions_are_valid():
+    assert module.read_us_shape_decisions(module.US_SHAPE_DECISIONS)

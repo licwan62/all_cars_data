@@ -9,11 +9,15 @@
 4. 代码：code_dir 下所有 .py 能编译；run 命令引用的脚本存在。
 5. 测试：运行每个节点登记的 tests 目录与仓库根 tests/。
 6. 重建（可选 ``--rebuild``）：把节点目录（不含 artifacts）、上游节点的 output/ 与 lib/ 复制到临时沙箱，
-   在沙箱中执行 run 命令，比较产出的交付物与当前 output/ 是否逐字节一致。
+   在沙箱中执行 run 命令，比较产出的交付物与当前 output/ 是否逐字节一致。默认是沿用本节点旧 output/ 的兼容重建；
+   ``--fresh`` 先清空沙箱中本节点 output/ 再运行（首次构建），识别依赖旧结果才能运行的问题。
+7. 交付范围：没有登记 outputs 的节点显示 EMPTY（无登记交付，不算已验证）；节点目录下有独立 output/manifest.json
+   但未在 pipeline.json 登记的子项目给出提示；manifest 上游记录未经运行记录核实（basis=publish-time）时列为说明。
 
     python scripts/verify_pipeline.py                       # 1-5
     python scripts/verify_pipeline.py --skip-tests          # 只做静态检查
     python scripts/verify_pipeline.py --rebuild size-compression,compression-scoring
+    python scripts/verify_pipeline.py --rebuild size-compression --fresh   # 不预置旧 output 的首次构建
     python scripts/verify_pipeline.py --report 验证报告.md   # 另存 Markdown 报告
 """
 
@@ -53,7 +57,11 @@ class NodeResult:
 
     @property
     def state(self) -> str:
-        return "FAIL" if self.errors else ("WARN" if self.warnings else "OK")
+        if self.errors:
+            return "FAIL"
+        if self.warnings:
+            return "WARN"
+        return "OK" if self.node.get("outputs") else "EMPTY"
 
 
 def as_list(value: str | list[str] | None) -> list[str]:
@@ -147,6 +155,34 @@ def check_dependencies(node: dict, nodes: list[dict]) -> tuple[list[str], list[s
     return errors, warnings
 
 
+def unregistered_subprojects(node: dict, nodes: list[dict]) -> list[str]:
+    """节点目录下拥有独立 output/manifest.json、但未作为节点登记的子项目（其交付不在总登记与验证范围内）。"""
+    base = ROOT / node["path"]
+    registered = {(ROOT / other["path"]).resolve() for other in nodes}
+    found = []
+    for manifest in sorted(base.glob("*/output/manifest.json")):
+        project = manifest.parent.parent
+        if project.resolve() in registered:
+            continue
+        try:
+            count = len(json.loads(manifest.read_text(encoding="utf-8")).get("deliverables", []))
+        except (OSError, ValueError):
+            count = "?"
+        found.append(f"子项目 {project.name}/ 有独立 output/manifest.json（{count} 项交付），未在 pipeline.json 登记为节点，"
+                     "其交付不在总登记、追踪与验证范围内")
+    return found
+
+
+def unverified_upstream(node: dict) -> list[str]:
+    """manifest 中只按发布时上游版本记录、未经运行记录核实的上游。"""
+    path = ROOT / node["path"] / "output" / "manifest.json"
+    if not path.is_file():
+        return []
+    manifest = json.loads(path.read_text(encoding="utf-8"))
+    names = [record["node"] for record in manifest.get("upstream", []) if record.get("basis") != "run"]
+    return [f"上游 {'、'.join(names)} 的使用版本未经运行记录核实（发布时版本）"] if names else []
+
+
 def check_compile(node: dict) -> list[str]:
     errors = []
     for path in code_files(node):
@@ -174,11 +210,11 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def rebuild_node(node: dict, by_id: dict[str, dict], keep: bool = False, loose: bool = False) -> tuple[bool, str]:
+def rebuild_node(node: dict, by_id: dict[str, dict], keep: bool = False, loose: bool = False, fresh: bool = False) -> tuple[bool, str]:
     """在沙箱里执行 run 命令，返回 (是否与当前 output 一致, 说明)。
 
     默认沙箱只提供上游 output/（严格按约定）；loose=True 时复制完整上游节点目录，用于区分
-    “违反只读 output/ 约定”与“代码/数据本身不通”。
+    “违反只读 output/ 约定”与“代码/数据本身不通”。fresh=True 时清空沙箱中本节点 output/（首次构建）。
     """
     commands = [command for command in node.get("run") or [] if command.startswith("python ")]
     if not commands:
@@ -191,6 +227,9 @@ def rebuild_node(node: dict, by_id: dict[str, dict], keep: bool = False, loose: 
         source = ROOT / node["path"]
         shutil.copytree(source, sandbox / node["path"], ignore=lambda d, names: [n for n in names if n == "__pycache__" or (Path(d) == source and n == "artifacts")])
         (sandbox / node["path"] / "artifacts").mkdir(exist_ok=True)
+        if fresh:
+            shutil.rmtree(sandbox / node["path"] / "output", ignore_errors=True)
+            (sandbox / node["path"] / "output").mkdir()
         for upstream_id in node.get("upstream", []):
             upstream = by_id[upstream_id]
             if loose:
@@ -208,9 +247,10 @@ def rebuild_node(node: dict, by_id: dict[str, dict], keep: bool = False, loose: 
                 return False, f"`{command}` 失败（退出码 {completed.returncode}）：{tail[0][:200]}"
         after_dir = sandbox / node["path"] / "output"
         changed = [name for name, digest in before.items() if not (after_dir / name).is_file() or sha256(after_dir / name) != digest]
+        mode = "首次构建" if fresh else "重建"
         if changed:
-            return False, f"重建成功，但与当前 output 不一致：{'、'.join(changed)}"
-        return True, f"重建成功，{len(before)} 个交付物与当前 output 逐字节一致"
+            return False, f"{mode}成功，但与当前 output 不一致：{'、'.join(changed)}"
+        return True, f"{mode}成功，{len(before)} 个交付物与当前 output 逐字节一致"
     finally:
         if keep:
             print(f"  沙箱保留在 {sandbox}")
@@ -232,7 +272,7 @@ def render_report(results: list[NodeResult], global_errors: list[str], root_test
             lines.append(f"### {result.node['path']}")
             lines.extend(f"- 错误：{error}" for error in result.errors)
             lines.extend(f"- 提示：{warning}" for warning in result.warnings)
-            lines.extend(f"- 按需待刷新：{note}" for note in result.notes)
+            lines.extend(f"- 说明：{note}" for note in result.notes)
             lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 
@@ -243,6 +283,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--rebuild", default="", help="在沙箱中重建并比对的节点 id（逗号分隔，all 表示全部登记了 run 的节点）")
     parser.add_argument("--keep-sandbox", action="store_true", help="保留重建沙箱以便排查")
     parser.add_argument("--loose", action="store_true", help="重建时复制完整上游节点目录（默认只复制上游 output/）")
+    parser.add_argument("--fresh", action="store_true", help="重建时不预置本节点旧 output/（首次构建）")
     parser.add_argument("--report", type=Path, help="另存 Markdown 报告（不得指向 流水线状态.md）")
     args = parser.parse_args(argv)
 
@@ -270,11 +311,16 @@ def main(argv: list[str] | None = None) -> int:
         errors, stale, deferred = trace_pipeline.trace_node(node, by_id, is_on_demand(payload, node))
         result.errors += errors
         result.warnings += [line.split(": ", 1)[-1] for line in stale]
-        result.notes += [line.split(": ", 1)[-1] for line in deferred]
+        result.notes += ["按需待刷新：" + line.split(": ", 1)[-1] for line in deferred]
         dep_errors, dep_warnings = check_dependencies(node, nodes)
         result.errors += dep_errors
         result.warnings += dep_warnings
         result.errors += check_compile(node)
+        result.warnings += unregistered_subprojects(node, nodes)
+        result.notes += unverified_upstream(node)
+        if not node.get("outputs"):
+            pending = "、".join(node.get("pending", [])) or "无"
+            result.notes.append(f"无登记交付（pending：{pending}），不代表交付已验证")
         if not args.skip_tests:
             outcomes = [(target, *run_pytest(ROOT / node["path"], target)) for target in as_list(node.get("tests"))]
             if outcomes:
@@ -282,7 +328,7 @@ def main(argv: list[str] | None = None) -> int:
                 result.errors += [f"测试失败 {target}: {summary}" for target, ok, summary in outcomes if not ok]
         if node["id"] in rebuild_ids:
             print(f"重建 {node['path']} …", flush=True)
-            ok, message = rebuild_node(node, by_id, keep=args.keep_sandbox, loose=args.loose)
+            ok, message = rebuild_node(node, by_id, keep=args.keep_sandbox, loose=args.loose, fresh=args.fresh)
             result.rebuild = "一致" if ok else "失败"
             if not ok:
                 result.errors.append(f"重建：{message}")
@@ -293,7 +339,7 @@ def main(argv: list[str] | None = None) -> int:
         for warning in result.warnings:
             print(f"    · {warning}")
         for note in result.notes:
-            print(f"    ○ 按需待刷新：{note}")
+            print(f"    ○ {note}")
 
     root_tests = "未运行"
     if not args.skip_tests:
@@ -309,7 +355,8 @@ def main(argv: list[str] | None = None) -> int:
         args.report.write_text(render_report(results, global_errors, root_tests), encoding="utf-8")
         print(f"报告已写入 {args.report}")
     failed = bool(global_errors) or any(result.errors for result in results)
-    print("结论：" + ("存在未打通的节点" if failed else "全部节点打通"))
+    warned = [result.node["path"] for result in results if result.warnings]
+    print("结论：" + ("存在未打通的节点" if failed else f"无阻断错误；{len(warned)} 个节点有过期或待处理提示（{'、'.join(warned)}）" if warned else "全部节点打通"))
     return 1 if failed else 0
 
 

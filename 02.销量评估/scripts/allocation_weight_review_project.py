@@ -328,6 +328,72 @@ def batch_update(path: Path, worker: str) -> None:
     print(f"allocation-weight batch applied: {allocated} allocated, {retained} retained equal; remaining {total} groups; tiers={tiers}")
 
 
+def partial_override_groups(atom_keys: set[str], overrides_by_key: dict[str, dict[str, str]]) -> dict[str, list[str]]:
+    """覆盖表只覆盖了组内部分原子的 MAKE|MODEL|YEAR 组（merge_results 会拒绝）：组键 -> 组内全部原子键。"""
+    groups: dict[str, list[str]] = defaultdict(list)
+    for key in atom_keys:
+        parts = key.split("|")
+        groups["|".join((parts[0], parts[1], parts[-1]))].append(key)
+    return {
+        group: sorted(keys) for group, keys in sorted(groups.items())
+        if any(key in overrides_by_key for key in keys) and not all(key in overrides_by_key for key in keys)
+    }
+
+
+def rebalance_modeled(config_path: str = "data/config.json", dry_run: bool = False) -> int:
+    """上游身份变化使组内出现无权重的新原子时，按既定 modeled_config_share_policy 重新归一。
+
+    只处理组内已有权重全部来自该 policy（ALLOCATION_METHOD 相同）的组：新原子按同一先验加入、整组重新归一，
+    并在审核记录中写明原因。已有来源依据（ESTIMATED_SHARE 等）的组不自动改，列出后返回 1，需人工研究。
+    先运行 run_pipeline.py 生成最新 work/ 原子表（在分配步骤中止也可）。
+    """
+    from generate_modeled_config_batch import atom_prior
+
+    config = load_config(config_path)
+    _, atoms = read_csv(config["atoms_csv"])
+    policy = json.loads((ROOT / "data" / "modeled_config_share_policy.json").read_text(encoding="utf-8"))
+    with project_lock():
+        override_path = ROOT / config["allocation_overrides_csv"]
+        overrides = load_rows(override_path)
+        overrides_by_key = {row["SALES_ATOM_KEY"]: row for row in overrides}
+        partial = partial_override_groups({row["SALES_ATOM_KEY"] for row in atoms}, overrides_by_key)
+        reviews = load_rows(REVIEWS)
+        reviewed_at = now()
+        manual = []
+        for group, keys in partial.items():
+            existing = [overrides_by_key[key] for key in keys if key in overrides_by_key]
+            added = [key for key in keys if key not in overrides_by_key]
+            if any(row["ALLOCATION_METHOD"] != policy["method"] for row in existing):
+                manual.append(f"{group}：已有 {sorted({row['ALLOCATION_METHOD'] for row in existing})} 权重，缺 {added}")
+                continue
+            priors = {key: atom_prior(key, policy) for key in keys}
+            total = sum(priors.values())
+            note = (f"{policy['notes']} Rebalanced after upstream identity change added {', '.join(added)}; "
+                    f"group renormalized with the same policy.")
+            make, model, year = group.split("|")
+            print(f"{group}: 新增 {added}，按 {policy['method']} 重新归一 {len(keys)} 个原子")
+            for key in keys:
+                weight = priors[key] / total
+                overrides_by_key[key] = {
+                    "SALES_ATOM_KEY": key, "ALLOCATION_WEIGHT": str(weight), "ALLOCATION_METHOD": policy["method"],
+                    "SALES_CONFIDENCE": policy["confidence"], "NOTES": f"{note} | {policy['source_url']}",
+                }
+                reviews.append({
+                    "queue_key": queue_key(make, model, year), "MAKE": make, "MODEL": model, "YEAR": year,
+                    "outcome": "allocated", "SALES_ATOM_KEY": key, "ALLOCATION_WEIGHT": str(weight),
+                    "ALLOCATION_METHOD": policy["method"], "SALES_CONFIDENCE": policy["confidence"],
+                    "SOURCE_URL": policy["source_url"], "review_note": note, "reviewed_at": reviewed_at,
+                })
+        if not dry_run and len(partial) > len(manual):
+            write_csv(override_path, OVERRIDE_FIELDS, list(overrides_by_key.values()))
+            reviews.sort(key=lambda row: (norm(row["MAKE"]), norm(row["MODEL"]), row["YEAR"]))
+            write_csv(REVIEWS, REVIEW_FIELDS, reviews)
+    for line in manual:
+        print(f"需人工研究：{line}")
+    print(f"partial groups: {len(partial)}; rebalanced: {len(partial) - len(manual)}; manual: {len(manual)}{'（dry-run 未写入）' if dry_run else ''}")
+    return 1 if manual else 0
+
+
 def status() -> None:
     rows = load_rows(QUEUE)
     reviews = load_rows(REVIEWS)
@@ -356,12 +422,14 @@ def main() -> None:
     p = sub.add_parser("compact-records"); p.add_argument("--worker", required=True)
     p = sub.add_parser("release"); p.add_argument("--worker", required=True)
     p = sub.add_parser("batch-update"); p.add_argument("--file", type=Path, required=True); p.add_argument("--worker", required=True)
+    p = sub.add_parser("rebalance-modeled"); p.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     if args.command == "init": init(args.config)
     elif args.command == "status": status()
     elif args.command == "claim": claim(args.limit, args.worker)
     elif args.command == "compact-records": compact_records(args.worker, args.config)
     elif args.command == "release": release(args.worker)
+    elif args.command == "rebalance-modeled": raise SystemExit(rebalance_modeled(args.config, args.dry_run))
     else: batch_update(args.file, args.worker)
 
 

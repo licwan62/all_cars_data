@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "batch": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape",
+  "version": "20261019_02",
+  "description": "representative-cover-shape",
+  "created_at": "2026-10-19T01:59:44+08:00",
+  "finished_at": "2026-10-19T01:59:51+08:00",
+  "command": [
+    "build_cover_shape_output.py"
+  ],
+  "inputs": [
+    {
+      "file": "02.分类结构审核/output/车型结构.csv",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/input/车型结构.csv",
+      "sha256": "e3db1db22782338b4196aa187347a8c44b5fd579bbe89340da4d61b96e7d2562",
+      "copied_because": "02.分类结构审核/output/车型结构.csv 与其 manifest 版本 20261010_01 不一致（上游改动后未发布）"
+    },
+    {
+      "file": "03.车形分类核定/output/车形分类.csv",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/input/车形分类.csv",
+      "sha256": "c5b9e869f0d26f308081dff625c8c23d117d2d17e2f930a947b5f349bdd915f1",
+      "copied_because": "03.车形分类核定/output/车形分类.csv 与其 manifest 版本 20261013_04 不一致（上游改动后未发布）"
+    },
+    {
+      "node": "shape-classification",
+      "path": "03.车形分类核定",
+      "version": "20261013_04",
+      "file": "shape_research_queue.jsonl",
+      "versioned_file": "shape_research_queue-20261013_03.jsonl",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-13_03_representative-cover-shape/output/shape_research_queue-20261013_03.jsonl",
+      "sha256": "789444d4a26afd6ef286c605a437996fc3fe95b0ff47334dca8d54c51e60121a"
+    }
+  ],
+  "rules": {
+    "data_dir": "03.车形分类核定/data",
+    "git_commit": "97ddb6d3c03a25809a37b1364c9748310ef6f353",
+    "copied": [
+      "data/US车形ID迁移.csv",
+      "data/US车形补充核定.csv"
+    ],
+    "files": [
+      {
+        "file": "data/2026-09-18_us_shape_supplement.csv",
+        "sha256": "db65907df489b3b82ddd6ba279cf441e292b6bdff48fd905ecd1b147f341d5cf"
+      },
+      {
+        "file": "data/cover_shape/automatic.yaml",
+        "sha256": "062b971c2fe4b624eb9f84c618f5e383aaa466649ca991c4841c4ca1555d25ca"
+      },
+      {
+        "file": "data/cover_shape/column_map.yaml",
+        "sha256": "e1caebee33dfe144250d52be70dfae39abf1d5d300918a6f0abb275479a7bb06"
+      },
+      {
+        "file": "data/cover_shape/evidence.jsonl",
+        "sha256": "f5b541c2f426d6dd3ad3b7ef9b9ae59e6be8edf90f6a01bbda366056211117e7"
+      },
+      {
+        "file": "data/cover_shape/family_cache.csv",
+        "sha256": "9971ba5b2e6041ef58d7497e7f50495ce7530a7ccc4b800a4a42510bd5a52dc9"
+      },
+      {
+        "file": "data/cover_shape/family_evidence.jsonl",
+        "sha256": "b529f7c3d724f85a0800ce2c6ca89a8e6a3fd7d9bdbb2f3c9e0e6fe9de609c9e"
+      },
+      {
+        "file": "data/cover_shape/full_table.yaml",
+        "sha256": "21b6b7118ad10ba1cd0add7132c5d1111f771a7d0074dbb779f3d04997ed3957"
+      },
+      {
+        "file": "data/cover_shape/pilot_cases.csv",
+        "sha256": "da4083f0fe622d6a6b5e8eb89fddb8ac00705713f90ff2acee6983c29ae7ec7c"
+      },
+      {
+        "file": "data/cover_shape/pipeline.yaml",
+        "sha256": "9eb33e062026f57074909156f6e123ebed73e3b8249b2b59050d7628fb20b6c0"
+      },
+      {
+        "file": "data/cover_shape/README.md",
+        "sha256": "21458ef81fd4797047cbdc64d7d1175eac4d0d17d697172957c5d19b04dd9601"
+      },
+      {
+        "file": "data/cover_shape/research_queue.yaml",
+        "sha256": "0940eefe122f3052793becbbacd63cfb39a6c2efe9b96451c652969353060c30"
+      },
+      {
+        "file": "data/cover_shape/sources.yaml",
+        "sha256": "c3a8521a3a81aa9bdbc6b757ee734ae115e669b2fe8456853212593c60005078"
+      },
+      {
+        "file": "data/cover_shape/taxonomy_v1.yaml",
+        "sha256": "1dbb925ca875641660ca3c3ca8de655957c4427f3b967fab55045cf72d48947e"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "7961a54403e9b2454dfe18c57231c952325ba7d842846b0511adf215a4cb0b1a"
+      },
+      {
+        "file": "data/US车形ID迁移.csv",
+        "sha256": "20f56f84dbd48c0391733b6ffa30a3c11c192e27232084fdf4f23da685a7ab95",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/rules/data/US车形ID迁移.csv"
+      },
+      {
+        "file": "data/US车形补充核定.csv",
+        "sha256": "4ab48c3351d873d937c4d342b84a7466337b7a9b1a9d4ed7fc3923b268ab53e6",
+        "artifact_file": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/rules/data/US车形补充核定.csv"
+      },
+      {
+        "file": "data/区域车形代理规则.json",
+        "sha256": "39796b24d9fa68fc2f8afb4ead1fda7b4dd1b32506e1b790d97e7158872e17fd"
+      },
+      {
+        "file": "data/参考尺寸计算.csv",
+        "sha256": "40ff78b8c39ab715b34fa1bf4aeaccaed844f16b565f05139995b9e3c85c668c"
+      },
+      {
+        "file": "data/通用车身号覆盖.csv",
+        "sha256": "ca46fb02cfc3f457d109c9f700e077ce5c7da2aa072953beeac20f49bb3abd01"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "shape_research_queue.jsonl",
+      "versioned_file": "shape_research_queue-20261019_02.jsonl",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/output/shape_research_queue-20261019_02.jsonl",
+      "sha256": "c398953d59af0539e82377827dd85ce62e28a09446ae70eaf93d22f46ea98731",
+      "bytes": 9169892,
+      "rows": null
+    },
+    {
+      "file": "COVER_SHAPE.csv",
+      "versioned_file": "COVER_SHAPE-20261019_02.csv",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/output/COVER_SHAPE-20261019_02.csv",
+      "sha256": "aedbcf3f44394f61f1800a85c5f50846c9dc1f37ea66aaba62c405eb3be77bec",
+      "bytes": 6786332,
+      "rows": 47361
+    },
+    {
+      "file": "cover_shape_summary.json",
+      "versioned_file": "cover_shape_summary-20261019_02.json",
+      "artifact_file": "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/output/cover_shape_summary-20261019_02.json",
+      "sha256": "53242917ccd6583ca1f198d866e8b86f7507d5adb6ae598f4fe16cbdb88ba574",
+      "bytes": 1557,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/extra/representative_audit.json.gz",
+    "03.车形分类核定/artifacts/2026-10-19_02_representative-cover-shape/extra/REPORT.md"
+  ],
+  "status": {
+    "status": "passed",
+    "rows": 47361,
+    "representative_groups": 37046,
+    "rule_version": "representative-shape-v1",
+    "shape_counts": {
+      "SLOPED_CROSSOVER": 1128,
+      "LOW_NOTCHBACK": 3653,
+      "LOW_FASTBACK": 466,
+      "STANDARD_SEDAN": 12999,
+      "SPORT_LIFTBACK": 5205,
+      "BOXY_SUV": 5056,
+      "WAGON": 425,
+      "COMPACT_HATCH": 4707,
+      "TALL_BOX": 9500,
+      "PICKUP": 4196,
+      "OTHER": 26
+    },
+    "status_counts": {
+      "PROBABLE": 2767,
+      "INFERRED": 44594
+    },
+    "method_counts": {
+      "family_cache_sampled": 2767,
+      "family_cache_inherited": 1605,
+      "representative_evidence": 11,
+      "prototype_geometry_dimensions": 42978
+    },
+    "by_country": {
+      "US": 4383,
+      "EU": 29361,
+      "RU": 13617
+    },
+    "validation": {
+      "exact_source_order_and_coverage": true,
+      "unique_ids": true,
+      "all_have_class": true,
+      "valid_status": true,
+      "complete_metadata": true,
+      "source_unchanged": true
+    },
+    "fit_status": "NOT_TESTED",
+    "network_requests": 0,
+    "research_queue": {
+      "families": 11600,
+      "states_by_market": {
+        "US": {
+          "CACHED": 997
+        },
+        "EU": {
+          "PENDING": 4448,
+          "BLOCKED_INPUT": 8
+        },
+        "RU": {
+          "PENDING": 6147
+        }
+      },
+      "research_markets": [
+        "US"
+      ],
+      "open_tasks": 0,
+      "open_sample_years": 0,
+      "family_cache_rules": 1823,
+      "attempted_families": 0
+    },
+    "limitations": "原型几何先验与尺寸补齐是推断；20 条尺寸缺失/无效记录归 OTHER，未补猜尺寸"
+  }
+}

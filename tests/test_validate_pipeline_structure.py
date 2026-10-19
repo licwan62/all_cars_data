@@ -65,3 +65,17 @@ def test_code_layout_rejects_loose_scripts_and_missing_entries(tmp_path, monkeyp
     assert any("src/missing.py" in error for error in errors)
     assert any("tests_py" in error for error in errors)
     assert any("缺少 code_dir" in error for error in validator.check_code_layout([{"id": "x", "path": "A1.demo"}]))
+
+
+def test_public_outputs_must_be_explicit_registered_and_publishable():
+    nodes = [
+        {"id": "a", "outputs": ["表.csv", "图.xlsx", "资料采用清单.csv"], "public_outputs": ["表.csv"]},
+        {"id": "b", "outputs": ["表.csv"]},
+        {"id": "c", "outputs": ["图.xlsx"], "public_outputs": ["图.xlsx", "未登记.csv"]},
+    ]
+    errors = validator.check_public_outputs(nodes)
+    assert errors == [
+        "b: pipeline.json 缺少 public_outputs（不对外发布写 []）",
+        "c: public_outputs 的 图.xlsx 不是可发布类型（.csv/.json/.md）",
+        "c: public_outputs 的 未登记.csv 不在 outputs",
+    ]

@@ -8,7 +8,11 @@
 
 ## 差评依据
 
-B0 当前输出未命中本范围的差评记录；不推定没有适配问题，也不计算差评比例。
+| 结构 | 记录尺码 | 差评数量 | 主要原因 | 严重度 | 评价总数 | 差评占比 | 年份 | 更新时间 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Sedan | 3XXL | 1 | 尺寸不合适(1)；偏大(1)；没有后视镜口袋(1) | 低 | 未提供 | 未提供 | 未提供 | 2026-09-22 |
+
+同一评价可能涉及多个原因，原因次数不能相加当作独立差评数。缺少年款和偏差方向时，不能直接归因至具体 SKU，也不能决定整体加大或缩小。
 
 ## 方法与尺寸候选 SKU
 
@@ -127,6 +131,6 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 
 | 节点 | 输入 | 上游版本 | sha256 | 来源 artifact |
 | --- | --- | --- | --- | --- |
-| size-calculation | US/全量/全量表.csv | 20261010_01 | d6472a71893a8ee6a70b53fc1a5eda25e3d158ae3ddd95094c0e863251724965 | A0.尺码计算/artifacts/2026-10-09_04_size-calculation-release/output/US/全量/全量表-20261009_04.csv |
+| size-calculation | US/全量/全量表.csv | 20261015_02 | f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4 | A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/全量/全量表-20261013_16.csv |
 | code-mapping | 尺寸编码映射.csv | 20261010_01 | e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445 | 02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv |
 | negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |

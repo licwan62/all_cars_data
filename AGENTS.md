@@ -22,13 +22,14 @@
 6. `cache/`、`work/`、日志和临时文件可重建，不属于流水线接口。
 7. 根目录 `流水线状态.md` 反映当前发布状态，只由 `scripts/publish_release.py` 在每次发布后生成；临时工作、实验和手工编辑不得修改它（结构校验会比对，不一致即失败）。
 8. 触发方式按产线区分（`pipeline.json` 的 `line_triggers`）：上游 00–03 与 A 线为自动，默认 `python scripts/publish_release.py` 只发布自动节点；B/C/D/E/F/X 为按需分析，上游更新不触发，只标为“按需待刷新”，需要时运行节点 `run` 后用 `--nodes <id>`/`--lines <线>` 点名发布。自动节点不得依赖按需节点。
-9. 对外发布目录固定为 `\\NAS8824B4\Public\PQData\pub_all_cars_data`，不纳入 Git，也不是 agent 间数据总线；仅发布 CSV 数据表，JSON 等辅助小文件留在节点 `output/` 和 `artifacts/`。发布说明写入该目录的 `README.md`。
+9. 对外发布目录固定为 `\\NAS8824B4\Public\PQData\pub_all_cars_data`，不纳入 Git，也不是 agent 间数据总线；仅发布 CSV 数据表，JSON 等辅助小文件留在节点 `output/` 和 `artifacts/`。发布说明写入该目录的 `README.md`。发布范围只取各节点 `pipeline.json` 中显式登记的 `public_outputs`（`outputs` 的子集）；资料采用清单、结果依据、待处理清单等内部追溯接口即使是 CSV 也不列入，新增交付物默认不公开。
+10. 身份承接：节点在 `pipeline.json` 的 `identity_coverage` 声明交付物必须承接的上游身份（默认 `DIMENSION-ID`）。追踪按上游当前 output 核对，auto 节点未承接即过期；`publish_release.py` 对未承接的 auto 节点拒绝发布（其他节点照常发布），确需带缺口发布用 `--accept-identity-gaps`，缺口写入 manifest `checks`。
 
 `pipeline.json` 由流水线最后节点 `D2.链接分析` 维护。
 
 发布：`python scripts/publish_release.py` 自上游到下游生成带后缀的 artifact，再去掉后缀发布到 `output/`。目录命名规则见 `pipeline.json` 的 `naming_contract`（00–03 数字层号；A0 起按最终产物分线 A/B/C/D/E/F/X），触发方式见 `trigger_contract`。
 
-追踪：每个节点的 `output/manifest.json` 是当前输出的输入输出点信息。交付物记录 `artifact_file`（保存这份字节的 artifact 文件：内容与上一版相同则沿用上一版的文件，或引用运行批次 `run.json` 登记的输出，因此后缀版本可早于 manifest 版本；主干名与 output 文件一致，只差 `-YYYYMMDD_NN`）和 sha256；发布时交付物、上游、规则、说明都未变化的节点不新建批次；`upstream` 记录所用上游版本、文件、来源 artifact 和 sha256；`rules` 记录发布时本节点 `data/` 全部文件的 sha256（CRLF→LF 归一），由 `scripts/rules_snapshot.py` 生成。检查来源是否一致、上游或本节点规则是否已变化（节点过期）：
+追踪：每个节点的 `output/manifest.json` 是当前输出的输入输出点信息。交付物记录 `artifact_file`（保存这份字节的 artifact 文件：内容与上一版相同则沿用上一版的文件，或引用运行批次 `run.json` 登记的输出，因此后缀版本可早于 manifest 版本；主干名与 output 文件一致，只差 `-YYYYMMDD_NN`）和 sha256；发布时交付物、上游、规则、说明都未变化的节点不新建批次；`upstream` 记录所用上游版本、文件、来源 artifact 和 sha256；`upstream` 优先取产生当前交付物字节的成功运行（`run.json`）实际读取的输入（`basis: run`），没有运行记录可核实时才记发布时上游版本（`basis: publish-time`，`checks.unverified_deliverables` 列出无运行记录的交付物），不得以发布时最新上游冒领使用版本；`rules` 记录发布时本节点 `data/` 全部文件的 sha256（CRLF→LF 归一），由 `scripts/rules_snapshot.py` 生成。检查来源是否一致、上游或本节点规则是否已变化（节点过期）：
 
 ```powershell
 python scripts/trace_pipeline.py
@@ -47,4 +48,13 @@ python scripts/validate_pipeline_structure.py
 ```powershell
 python scripts/verify_pipeline.py
 python scripts/verify_pipeline.py --rebuild all
+python scripts/verify_pipeline.py --rebuild <id> --fresh   # 不预置本节点旧 output 的首次构建
+```
+
+没有登记 `outputs` 的节点显示 EMPTY（无登记交付，不代表已验证）；节点目录下有独立 `output/manifest.json` 却未登记为节点的子项目会给出提示。
+
+资料与责任登记草案（只读，写到 `reports/资料登记草案/`，不改任何节点 `data/`）：
+
+```powershell
+python scripts/material_catalog.py
 ```

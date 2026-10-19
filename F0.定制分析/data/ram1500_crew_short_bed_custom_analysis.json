@@ -1,0 +1,71 @@
+{
+  "region": "US",
+  "structure": "Pickup",
+  "dimension_tolerances_mm": {
+    "L-MM": 250,
+    "W-MM": 150,
+    "H-MM": 100
+  },
+  "search_date": "2026-10-19",
+  "universal_size_risk": true,
+  "universal_size_risk_by_sku": true,
+  "analyze_cluster_centers": true,
+  "universal_size_risk_notes": [
+    "- 同尺寸聚簇不代表驾驶室—货斗分界、镜耳、轮眉、天线和绑带挂点可以共版；特殊版本须独立实车核验。"
+  ],
+  "acceptance_notes": [
+    "实测前杠至镜耳中心、驾驶室末端、货斗上沿及尾门坐标，核验含镜宽、天线孔、侧面下垂和绑带有效长度。",
+    "每组优先打样 L/W/H 极值与最小自动长度余量车型；跨代际或性能版轮廓验证失败时拆版，不根据尺寸聚簇直接下单。"
+  ],
+  "make": "Ram",
+  "model": "1500",
+  "year_range": [
+    2009,
+    2026
+  ],
+  "cabs": [
+    "Crew"
+  ],
+  "beds": [
+    "5.6"
+  ],
+  "excluded_versions": [],
+  "report_title": "Dodge Ram 1500 2009–2026 Crew Cab SB 定制分析",
+  "review_models": [
+    "1500",
+    "15-Crew"
+  ],
+  "analysis_notes": [
+    "用户 Dodge Ram 1500 对应 A0 MAKE=Ram、MODEL=1500；短斗按 BED=5.6 ft，纳入 TRX/RHO。",
+    "1500 Classic 为并行销售的独立 MODEL，纳入 Classic Crew 5.6 ft，单独保留车系身份；与新代不能仅凭年份共版。",
+    "当前 A0 缺少 2009–2010、2013 年 Crew 5.6 ft 记录；不以 Crew 6.4 ft 或 Quad 记录补齐。"
+  ],
+  "review_scope_note": "差评为 B0 车型级汇总，未按本报告驾驶室、货斗、版本和年份逐条确认；仅作背景风险，不能作为本范围差评数量或适配率。 “15-Crew”为 B0 最佳猜测映射，2 条记录仅作待核线索；Regular/Quad 反馈不纳入。",
+  "models": [
+    "1500",
+    "1500 Classic"
+  ],
+  "sku_family_code": "RAM1500-",
+  "sketchfab_searches": [
+    {
+      "generation": "候选轮廓线索（不指定首选）",
+      "query": "site:sketchfab.com/3d-models Dodge Ram 1500 2009–2026 Crew Cab SB",
+      "representative_url": "",
+      "models": [
+        {
+          "title": "Dodge Ram 1500 · 页面提供下载；代际/驾驶室/货斗待核",
+          "url": "https://sketchfab.com/3d-models/dodge-ram-1500-5b3898052ca64641ab1857a638551039"
+        },
+        {
+          "title": "RAM 1500 Rebel Crew Cab 2019 · 下载条目存在；货斗及版本尺寸待核",
+          "url": "https://sketchfab.com/3d-models/ram-1500-rebel-crew-cab-2019-1d0057b4f1c74dbdac2b78e5db7eb6ce"
+        }
+      ],
+      "note": "2026-10-19 检索到的页面线索。未将模型精确绑定到尺寸记录，不能确认同代、同货斗或真实比例，故不设首选；其余代际及各 SKU 的上限参考仍待补。页面下载状态及许可需在实际使用时复核。"
+    }
+  ],
+  "sketchfab_generation_by_internal_generation": {
+    "gen4": "候选轮廓线索（不指定首选）",
+    "gen5": "候选轮廓线索（不指定首选）"
+  }
+}

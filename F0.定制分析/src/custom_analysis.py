@@ -63,6 +63,8 @@ def sku_code(rows: tuple[dict[str, str], ...], codes: dict[str, str], family_cod
 def active_rows(
     path: Path, make: str, model: str = "", structure: str = "",
     *, models: list[str] | None = None, structures: list[str] | None = None,
+    cabs: list[str] | None = None, beds: list[str] | None = None,
+    year_range: list[int] | None = None, excluded_versions: list[str] | None = None,
 ) -> list[dict[str, str]]:
     with path.open(encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
@@ -72,8 +74,21 @@ def active_rows(
         row for row in rows
         if row.get("MAKE") == make and (not selected_models or row.get("MODEL") in selected_models)
         and (not selected_structures or row.get("结构") in selected_structures)
+        and (cabs is None or row.get("CAB") in cabs)
+        and (beds is None or row.get("BED") in beds)
+        and row.get("版本", "") not in (excluded_versions or [])
         and all(row.get(field, "").isdigit() for field in ("L-MM", "W-MM", "H-MM"))
     ]
+    if year_range is not None:
+        if len(year_range) != 2 or year_range[0] > year_range[1]:
+            raise ValueError("year_range 必须为起止年份")
+        clipped = []
+        for row in selected:
+            start, end = year_bounds(row["YEAR"])
+            start, end = max(start, year_range[0]), min(end, year_range[1])
+            if start <= end:
+                clipped.append(dict(row, SOURCE_YEAR=row["YEAR"], YEAR=str(start) if start == end else f"{start}-{end}"))
+        selected = clipped
     return sorted(selected, key=lambda row: (int(row["L-MM"]), int(row["W-MM"]), int(row["H-MM"]), row["DIMENSION-ID"]))
 
 

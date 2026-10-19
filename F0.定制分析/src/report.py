@@ -225,10 +225,20 @@ def render_report(config, rows, codes, reviews, provenance, tasks_builder):
               '## 结论与范围', '', f"区域：{config['region']}；车系范围：{config['make']} {model_scope}；结构：{structure_scope}。",
               f'{len(rows)} 条尺寸记录形成 {len(clusters)} 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。', '']
     report.extend(config.get('analysis_notes', []))
+    if config.get('year_range'):
+        start, end = config['year_range']
+        covered = {y for r in rows for y in range(year_bounds(r['YEAR'])[0], year_bounds(r['YEAR'])[1] + 1)}
+        missing = sorted(set(range(start, end + 1)) - covered)
+        report.extend(['', f"请求年款：{start}–{end}；CAB：{' / '.join(config.get('cabs', []))}；BED/ft：{' / '.join(config.get('beds', []))}。",
+                       '未被当前尺寸记录覆盖的年份：' + ('、'.join(map(str, missing)) if missing else '无') + '。覆盖仅表示存在记录，不保证每年各版本齐全。',
+                       '分析年款取来源年款与请求范围的交集；DIMENSION-ID 保留上游身份，原始年款见下表，不修改上游数据。', '',
+                       *table(['DIMENSION-ID', '来源年款', '分析年款', 'CAB', 'BED/ft'], [[r['DIMENSION-ID'], r.get('SOURCE_YEAR', r['YEAR']), r['YEAR'], r.get('CAB', ''), r.get('BED', '')] for r in rows])])
+    if config.get('review_scope_note'):
+        report.extend(['', config['review_scope_note']])
     report.extend(['', '## 差评依据', ''])
     review_models = set(config.get('review_models', config.get('models', [config.get('model', '')])))
     review_structures = set(config.get('review_structures', config.get('structures', [config.get('structure', '')]))) - {''}
-    selected = [r for r in reviews if r['品牌'] == config['make'] and r['车型'] in review_models and (not review_structures or r.get('结构') in review_structures)]
+    selected = [r for r in reviews if r['品牌'].casefold() == config['make'].casefold() and r['车型'] in review_models and (not review_structures or r.get('结构') in review_structures)]
     if selected:
         report.extend(table(['结构', '记录尺码', '差评数量', '主要原因', '严重度', '评价总数', '差评占比', '年份', '更新时间'],
                             [[r.get(k) or '未提供' for k in ('结构', '尺码', '差评数量', '主要差评原因', '严重度评级', '评价总数', '差评占比', '年份', '更新时间')] for r in selected]))

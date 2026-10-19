@@ -85,11 +85,13 @@ def main() -> None:
             rows = active_rows(
                 details, config["make"], config.get("model", ""), config.get("structure", ""),
                 models=config.get("models"), structures=config.get("structures"),
+                cabs=config.get("cabs"), beds=config.get("beds"),
+                year_range=config.get("year_range"), excluded_versions=config.get("excluded_versions"),
             )
             report = render_report(config, rows, codes, reviews, batch.inputs, reference_tasks)
             batch.output(f"{case}/{REPORT_NAME}").write_text(report, encoding="utf-8")
             cases.append({"case": case, "input_rows": len(rows)})
-        batch.finish({"cases": cases, "change": "仅交付完整 Markdown，新增 Prius 和差评依据；历史批次保留"}, publish_to=PROJECT / "output")
+        batch.finish({"cases": cases, "change": "按配置生成完整 Markdown；支持驾驶室、货斗、版本排除及年份交集筛选，保留来源年款和身份"}, publish_to=PROJECT / "output")
         print(f"batch={batch.directory} cases={len(cases)}")
 
 

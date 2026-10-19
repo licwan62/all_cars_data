@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 
-MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "gray_zone_research.py"
+MODULE_PATH = Path(__file__).resolve().parents[1] / "research" / "gray_zone_research.py"
 SPEC = importlib.util.spec_from_file_location("pickup_gray_zone", MODULE_PATH)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None

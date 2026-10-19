@@ -2,9 +2,9 @@
   "schema_version": 1,
   "node": "code-mapping",
   "path": "02.代码映射",
-  "version": "20261010_01",
-  "artifact": "02.代码映射/artifacts/2026-10-10_01_code-mapping-release",
-  "published_at": "2026-10-10T13:35:28+08:00",
+  "version": "20261019_02",
+  "artifact": "02.代码映射/artifacts/2026-10-19_02_code-mapping-release",
+  "published_at": "2026-10-19T02:04:36+08:00",
   "deliverables": [
     {
       "file": "车型编码映射.csv",
@@ -16,11 +16,11 @@
     },
     {
       "file": "尺寸编码映射.csv",
-      "versioned_file": "尺寸编码映射-20261009_04.csv",
-      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv",
-      "sha256": "e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445",
-      "bytes": 201567,
-      "rows": 4378
+      "versioned_file": "尺寸编码映射-20261019_02.csv",
+      "artifact_file": "02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv",
+      "sha256": "cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8",
+      "bytes": 201796,
+      "rows": 4383
     }
   ],
   "upstream": [
@@ -28,6 +28,7 @@
       "node": "dimension-library",
       "version": "20261009_08",
       "artifact": "01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release",
+      "basis": "publish-time",
       "files": [
         {
           "file": "尺寸库.csv",
@@ -153,5 +154,23 @@
     }
   ],
   "pending": [],
-  "notes": []
+  "notes": [],
+  "checks": {
+    "identity_coverage": [
+      {
+        "output": "尺寸编码映射.csv",
+        "upstream": "dimension-library",
+        "file": "尺寸库_US.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      }
+    ],
+    "unverified_deliverables": [
+      "车型编码映射.csv",
+      "尺寸编码映射.csv"
+    ]
+  }
 }

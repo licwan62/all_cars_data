@@ -1,6 +1,7 @@
 """按 02.分类结构审核/output/车型结构.csv 刷新三国车形接口 output/车形分类.csv。
 
-- US：沿用既有 US核定 车形（按基础 ID）。
+- US：沿用既有 US核定 车形（按基础 ID）；01 改 ID 时按 data/US车形ID迁移.csv 承接；01 新增、无既有核定的
+  US 记录读 data/US车形补充核定.csv（逐条登记车形与依据），与既有核定冲突即失败。
 - EU/RU：同基础 ID 有 US 车形时参考 US；否则继承上一版研究/缓存车形（上游 ID 改名时按
   区域+MAKE+MODEL+结构族+代际+YEAR+长宽高 迁移），但必须与该行分类兼容；其余用
   data/区域车形代理规则.json 的代理车形，并进入质量复核队列。
@@ -26,6 +27,7 @@ QUEUE = PROJECT / "research_queue" / "regional_queue.csv"
 RULES = PROJECT / "data" / "区域车形代理规则.json"
 US_ID_MIGRATION = PROJECT / "data" / "US车形ID迁移.csv"
 GENERIC_SHAPE_OVERRIDES = PROJECT / "data" / "通用车身号覆盖.csv"
+US_SHAPE_DECISIONS = PROJECT / "data" / "US车形补充核定.csv"
 REFERENCE = PROJECT / "data" / "参考尺寸计算.csv"
 REFERENCE_OUTPUT = PROJECT / "output" / "参考尺寸计算.csv"
 REFERENCE_COEFFICIENTS = ("前宽系数", "后宽系数", "弧长系数", "周长系数")
@@ -98,6 +100,21 @@ def compatible(shape: str, row: dict[str, str], rules: dict) -> bool:
     return allowed is None or shape in allowed
 
 
+def read_us_shape_decisions(path: Path) -> dict[str, str]:
+    """US 新增记录的车形决定：DIMENSION-ID -> 车形；每条必须有合法车形与依据。"""
+    if not path.is_file():
+        return {}
+    decisions: dict[str, str] = {}
+    for row in read_rows(path):
+        record_id, shape = row.get("DIMENSION-ID", ""), row.get("车形", "")
+        if not record_id.endswith(" US") or shape not in ALLOWED or not row.get("依据"):
+            raise ValueError(f"US车形补充核定无效: {row}")
+        if record_id in decisions:
+            raise ValueError(f"US车形补充核定重复: {record_id}")
+        decisions[record_id] = shape
+    return decisions
+
+
 def proxy_shape(row: dict[str, str], rules: dict) -> str:
     fam = family(row["结构"], rules)
     if fam in rules["proxy_by_structure"]:
@@ -122,6 +139,7 @@ def previous_library() -> list[dict[str, str]]:
 def build(
     source: list[dict[str, str]], prior: list[dict[str, str]], prior_library: list[dict[str, str]], rules: dict,
     us_id_migration: dict[str, str] | None = None, generic_overrides: dict[tuple[str, str, str, str], str] | None = None,
+    us_decisions: dict[str, str] | None = None,
 ) -> dict:
     us_shapes: dict[str, str] = {}
     prior_by_id = {row["DIMENSION-ID"]: row for row in prior}
@@ -132,6 +150,11 @@ def build(
             if us_shapes.get(base_id, row["车形"]) != row["车形"]:
                 raise ValueError(f"US 基础 ID 存在多个车形：{base_id}")
             us_shapes[base_id] = row["车形"]
+    for record_id, shape in (us_decisions or {}).items():
+        base_id, _ = split_region(record_id)
+        if us_shapes.get(base_id, shape) != shape:
+            raise ValueError(f"US车形补充核定与既有核定冲突：{record_id} {us_shapes[base_id]} != {shape}")
+        us_shapes[base_id] = shape
 
     migrated: dict[tuple, set[tuple[str, str]]] = defaultdict(set)
     for row in prior_library:
@@ -230,7 +253,7 @@ def run() -> dict:
     source = read_rows(SOURCE)
     migration = {row["旧DIMENSION-ID"]: row["新DIMENSION-ID"] for row in read_rows(US_ID_MIGRATION)} if US_ID_MIGRATION.is_file() else {}
     overrides = read_generic_shape_overrides(GENERIC_SHAPE_OVERRIDES, rules)
-    result = build(source, read_rows(OUTPUT), previous_library(), rules, migration, overrides)
+    result = build(source, read_rows(OUTPUT), previous_library(), rules, migration, overrides, read_us_shape_decisions(US_SHAPE_DECISIONS))
     validation = validate(source, result, rules)
     reference_checks = validate_reference(read_rows(REFERENCE))
     validation["checks"].update(reference_checks)
