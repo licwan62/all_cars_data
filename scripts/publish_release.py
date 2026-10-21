@@ -45,6 +45,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
 
 from artifact_refs import RUN_RECORD, sha256, versioned_name
+from node_paths import load_record  # noqa: E402
 from identity_coverage import check_node as identity_gaps
 from pipeline_status import is_on_demand, write_status
 from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # noqa: E402
@@ -229,7 +230,7 @@ def resolve_copied_inputs(root: Path, node: dict, by_id: dict[str, dict], run_in
                 continue
             name = item["file"][len(prefix):]
             manifest_path = root / prefix / MANIFEST_NAME
-            manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.is_file() else {}
+            manifest = load_record(manifest_path, root) if manifest_path.is_file() else {}
             published = next((entry for entry in manifest.get("deliverables", []) if entry["file"] == name), None)
             if published and published["sha256"] == item["sha256"]:
                 resolved.append({"node": upstream_id, "version": manifest["version"], "file": name,
@@ -270,7 +271,7 @@ def upstream_records(root: Path, node: dict, by_id: dict[str, dict], run_inputs:
         if not manifest_path.is_file():
             records.append({"node": upstream_id, "version": None, "basis": "publish-time", "files": []})
             continue
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest = load_record(manifest_path, root)
         records.append(
             {
                 "node": upstream_id,
@@ -329,7 +330,7 @@ def passed_runs(project: Path) -> list[dict]:
     records = []
     for record_path in sorted((project / "artifacts").glob(f"*/{RUN_RECORD}")):
         try:
-            record = json.loads(record_path.read_text(encoding="utf-8"))
+            record = load_record(record_path)
         except (OSError, ValueError):
             continue
         if record.get("status", {}).get("status") == "passed":
@@ -402,7 +403,7 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
     output_dir = project / "output"
     artifacts_dir = project / "artifacts"
     previous_manifest_path = output_dir / MANIFEST_NAME
-    previous_manifest = json.loads(previous_manifest_path.read_text(encoding="utf-8")) if previous_manifest_path.is_file() else None
+    previous_manifest = load_record(previous_manifest_path, root) if previous_manifest_path.is_file() else None
     previous = {item["file"]: item for item in (previous_manifest or {}).get("deliverables", [])}
 
     current = []
@@ -537,7 +538,7 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False,
         print("按需节点未发布（需要时用 --nodes/--lines/--all）：" + "、".join(node["path"] for node in skipped))
     if not dry_run and released:
         summary_path = root / "release.json"
-        previous = json.loads(summary_path.read_text(encoding="utf-8-sig"))["nodes"] if summary_path.is_file() else {}
+        previous = load_record(summary_path, root)["nodes"] if summary_path.is_file() else {}
         previous = {node_id: entry for node_id, entry in previous.items() if node_id in by_id}
         previous.update(
             {

@@ -2,13 +2,14 @@
   "schema_version": 3,
   "governance": {
     "manifest_owner": "link-analysis",
-    "manifest_owner_path": "D2.链接分析",
-    "policy": "根目录 pipeline.json 由流水线最后节点 D2.链接分析维护。"
+    "manifest_owner_path": "nodes/D2.链接分析",
+    "policy": "根目录 pipeline.json 由流水线最后节点 D2.链接分析（nodes/D2.链接分析）维护。"
   },
   "directory_contract": {
     "data": "agent-maintained rules and reference material",
     "output": "current validated handoff for downstream agents (stable names, no version suffix) plus manifest.json",
     "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext, each byte stored once: published upstream inputs and committed data/ rules are referenced (sha256 / git commit) not copied; run batches via lib/artifact_batch.py write run.json",
+    "nodes": "所有节点目录位于仓库 nodes/ 下，path 以 nodes/ 开头；迁移（2026-10-21）前写入的 manifest/run.json 记录旧路径，不回写，由 lib/node_paths.py 读取时规范为 nodes/ 路径。",
     "code": "节点代码集中在 code_dir 声明的目录（src/、code/ 或 scripts/）；节点根目录不放 .py 脚本。run 为在节点目录下执行的正式生成命令，tests 为自动测试目录。仓库级共享模块在根目录 lib/，仓库级工具在 scripts/。"
   },
   "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表与压缩尺码表、B 定制评分、C 代表车型、D 发货单、E 尺寸分析、F 独立定制分析、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账、E0 尺寸分析与 F0 定制分析直接读 A0 全量表），序号规则同样适用（线内后续序号必须大于它）。",
@@ -29,7 +30,7 @@
   "nodes": [
     {
       "id": "dimension-crawler",
-      "path": "00.自动化尺寸抓取器",
+      "path": "nodes/00.自动化尺寸抓取器",
       "code_dir": "src",
       "run": [
         "pwsh -File run_from_config.ps1 -ConfigPath configs/<区域>.yaml"
@@ -50,7 +51,7 @@
     },
     {
       "id": "dimension-library",
-      "path": "01.整理尺寸库",
+      "path": "nodes/01.整理尺寸库",
       "code_dir": "code",
       "run": [
         "python code/build_dimension_library.py --region eu",
@@ -90,7 +91,7 @@
     },
     {
       "id": "structure-review",
-      "path": "02.分类结构审核",
+      "path": "nodes/02.分类结构审核",
       "code_dir": "code",
       "run": [
         "python code/build_structure_review.py"
@@ -144,7 +145,7 @@
     },
     {
       "id": "sales-estimation",
-      "path": "02.销量评估",
+      "path": "nodes/02.销量评估",
       "code_dir": "scripts",
       "run": [
         "python scripts/run_pipeline.py",
@@ -187,7 +188,7 @@
     },
     {
       "id": "code-mapping",
-      "path": "02.代码映射",
+      "path": "nodes/02.代码映射",
       "code_dir": "src",
       "run": [
         "python src/main.py"
@@ -218,7 +219,7 @@
     },
     {
       "id": "shape-classification",
-      "path": "03.车形分类核定",
+      "path": "nodes/03.车形分类核定",
       "code_dir": "code",
       "run": [
         "python code/build_regional_shape_output.py",
@@ -266,7 +267,7 @@
     },
     {
       "id": "size-calculation",
-      "path": "A0.尺码计算",
+      "path": "nodes/A0.尺码计算",
       "code_dir": "src",
       "run": [
         "python src/generate_store_outputs.py",
@@ -353,7 +354,7 @@
     },
     {
       "id": "size-compression",
-      "path": "A1.压缩尺寸信息",
+      "path": "nodes/A1.压缩尺寸信息",
       "code_dir": "src",
       "run": [
         "python src/run.py"
@@ -450,7 +451,7 @@
     },
     {
       "id": "negative-review-analysis",
-      "path": "B0.差评分析",
+      "path": "nodes/B0.差评分析",
       "code_dir": "src",
       "run": [
         "python src/run.py"
@@ -479,7 +480,7 @@
     },
     {
       "id": "compression-scoring",
-      "path": "B1.压缩定制评分",
+      "path": "nodes/B1.压缩定制评分",
       "code_dir": "src",
       "run": [
         "python src/run.py"
@@ -508,7 +509,7 @@
     },
     {
       "id": "custom-analysis",
-      "path": "F0.定制分析",
+      "path": "nodes/F0.定制分析",
       "code_dir": "src",
       "run": [
         "python src/run.py"
@@ -559,7 +560,7 @@
     },
     {
       "id": "representative-model",
-      "path": "C1.车型代表分析",
+      "path": "nodes/C1.车型代表分析",
       "code_dir": "src",
       "run": [
         "python src/build_size_representatives.py"
@@ -592,7 +593,7 @@
     },
     {
       "id": "sku-clustering",
-      "path": "D1.聚类SKU",
+      "path": "nodes/D1.聚类SKU",
       "code_dir": "src",
       "run": [],
       "tests": null,
@@ -616,7 +617,7 @@
     },
     {
       "id": "link-analysis-pickup",
-      "path": "D2.链接分析/皮卡",
+      "path": "nodes/D2.链接分析/皮卡",
       "code_dir": "scripts",
       "run": [
         "python scripts/run.py"
@@ -651,7 +652,7 @@
     },
     {
       "id": "link-analysis",
-      "path": "D2.链接分析",
+      "path": "nodes/D2.链接分析",
       "code_dir": [
         "W型车",
         "sku_shipment_analysis"
@@ -681,12 +682,13 @@
         "2026-10-11 链接字段规则改为适配车型不含年份，年份单独写入适配年份；皮卡新增上架链接明细.csv，共享引擎 listing_detail.csv 同步拆分。",
         "2026-10-11 皮卡作为 D2 下的独立业务子项目：运行批次、规则和稳定输出分别归入 皮卡/artifacts、皮卡/data、皮卡/output；CSV 发布到 NAS public/sku_cluster/皮卡。",
         "2026-10-11 新增 SKU发货数量.csv：以 CLUSTER_ID 为既成发货 SKU 唯一键，保留 102 条正向分配及合计 801，不向 108 条展示链接重新摊分。",
-        "2026-10-19 皮卡子项目登记为独立节点 link-analysis-pickup（目录 D2.链接分析/皮卡）：其运行、测试、交付与对外发布不再由本节点承载；发货单明细.xlsx 移入 皮卡/data/。本节点作为 D2 业务容器保留 W型车、通用发货分析（sku_shipment_analysis）及待接入的 发货单.csv，并继续维护 pipeline.json"
+        "2026-10-19 皮卡子项目登记为独立节点 link-analysis-pickup（目录 D2.链接分析/皮卡）：其运行、测试、交付与对外发布不再由本节点承载；发货单明细.xlsx 移入 皮卡/data/。本节点作为 D2 业务容器保留 W型车、通用发货分析（sku_shipment_analysis）及待接入的 发货单.csv，并继续维护 pipeline.json",
+        "2026-10-21 全部节点目录迁入仓库 nodes/（含历史目录 B2.定制分析）：pipeline.json 各节点 path 改为 nodes/<节点>；节点代码的仓库根改为 nodes/ 上一级，引用兄弟节点经 nodes/；历史 manifest/run.json 旧路径由 lib/node_paths.py 读取时规范，不回写"
       ]
     },
     {
       "id": "size-analysis",
-      "path": "E0.尺寸分析",
+      "path": "nodes/E0.尺寸分析",
       "code_dir": "src",
       "run": [
         "python src/build_dimension_statistics.py"
@@ -722,7 +724,7 @@
     },
     {
       "id": "dimension-iteration",
-      "path": "X1.尺寸迭代",
+      "path": "nodes/X1.尺寸迭代",
       "code_dir": "src",
       "run": [],
       "tests": "tests",
@@ -743,7 +745,7 @@
     },
     {
       "id": "size-cluster-analysis",
-      "path": "X2.尺码簇分析",
+      "path": "nodes/X2.尺码簇分析",
       "code_dir": "src",
       "run": [],
       "tests": null,

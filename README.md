@@ -69,9 +69,10 @@ python scripts/verify_pipeline.py --rebuild all  # 沙箱重跑节点并比对 o
 
 | 位置 | 内容 |
 | --- | --- |
+| `nodes/<节点>/` | 全部节点目录（含历史目录 `B2.定制分析`）；`pipeline.json` 的 `path` 为 `nodes/<节点>` |
 | `<节点>/<code_dir>/` | 节点代码，`code_dir` 为 `src`、`code` 或 `scripts`，登记在 `pipeline.json`；节点根目录不放 `.py` 脚本 |
 | `<节点>/tests/` | 节点测试（`pipeline.json` 的 `tests`） |
-| `lib/` | 跨节点共享模块：`id_scheme.py`、`full_table_schema.py`、`regional_size_common.py` |
+| `lib/` | 跨节点共享模块：`id_scheme.py`、`full_table_schema.py`、`regional_size_common.py`；`node_paths.py` 把迁移前记录的旧路径规范为 `nodes/...` |
 | `scripts/` | 仓库级工具：发布、追踪、结构校验、打通验证 |
 | `tests/` | 仓库级测试 |
 

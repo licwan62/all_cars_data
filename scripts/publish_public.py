@@ -62,7 +62,7 @@ REGION_SUBDIR_ALIASES = {("US", "店铺"): "全量"}
 # A1.压缩尺寸信息 压缩尺码表按产线分目录（<产线>/压缩尺码表[_皮卡].csv），产线的区域见 A1 data/产线.yaml；
 # 发布到 data/<区域>_data/压缩/<产线>/。
 COMPRESSION_NODE = "size-compression"
-COMPRESSION_LINES_FILE = ROOT / "A1.压缩尺寸信息" / "data" / "产线.yaml"
+COMPRESSION_LINES_FILE = ROOT / "nodes" / "A1.压缩尺寸信息" / "data" / "产线.yaml"
 COMPRESSION_REGIONS = {"US"}
 PUBLISH_SUFFIXES = {".csv"}
 

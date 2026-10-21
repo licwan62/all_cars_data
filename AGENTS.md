@@ -10,6 +10,8 @@
 - `src/`、`code/`、`scripts/`：实现代码；项目可按现状选择其一，并在 `pipeline.json` 的 `code_dir` 登记。节点根目录不放 `.py` 脚本；正式生成命令登记在 `run`（在节点目录下执行），测试目录登记在 `tests`。
 - `tests/`：本 agent 的自动测试。
 
+所有节点目录位于仓库 `nodes/` 下（`pipeline.json` 的 `path` 以 `nodes/` 开头），下文 `<节点>` 均指 `nodes/<节点>`。节点代码以 `nodes/` 的上一级为仓库根，读上游写 `<仓库>/nodes/<上游>/output/`（或 `<本节点>.parent / "<上游>"`）。2026-10-21 迁移前写入的 manifest/run.json 记录旧路径（如 `A0.尺码计算/artifacts/...`），不回写，由 `lib/node_paths.py` 读取时规范为 `nodes/...`；仓库级脚本读这些记录须经 `load_record`。
+
 仓库根目录：`lib/` 放跨节点共享模块（`id_scheme`、`full_table_schema`、`regional_size_common`，使用方把 `<仓库>/lib` 加入 `sys.path`）；`scripts/` 放仓库级工具；`tests/` 放仓库级测试。
 
 ## 运行与发布规则

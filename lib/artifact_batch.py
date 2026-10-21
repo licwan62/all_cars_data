@@ -39,6 +39,7 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 
+from node_paths import load_record
 from rules_snapshot import rules_snapshot
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -86,7 +87,7 @@ def published_reference(path: Path, digest: str) -> tuple[dict | None, str]:
         manifest_path = output_dir / MANIFEST
         if output_dir.name != "output" or not manifest_path.is_file():
             continue
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest = load_record(manifest_path)
         name = resolved.relative_to(output_dir).as_posix()
         item = next((entry for entry in manifest.get("deliverables", []) if entry["file"] == name), None)
         if item is None:

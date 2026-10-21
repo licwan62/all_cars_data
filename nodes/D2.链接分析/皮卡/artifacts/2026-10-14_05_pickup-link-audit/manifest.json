@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "node": "link-analysis-pickup",
+  "version": "20261014_05",
+  "deliverables": [
+    {
+      "file": "链接字段审核.csv",
+      "versioned_file": "链接字段审核-20261014_05.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/output/链接字段审核-20261014_05.csv",
+      "sha256": "25e2fe1948ca85cd77b34befa6a820b730697faf6b2edb1e2fa6d73c3c2fd3d2",
+      "bytes": 28164,
+      "rows": 108
+    },
+    {
+      "file": "上架链接明细.csv",
+      "versioned_file": "上架链接明细-20261014_05.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/output/上架链接明细-20261014_05.csv",
+      "sha256": "e84930e82a59070da7e382202d17d2a084f80b5b8a287b13957703dabf3f3b6e",
+      "bytes": 22473,
+      "rows": 108
+    },
+    {
+      "file": "发货分配核对.csv",
+      "versioned_file": "发货分配核对-20261014_05.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/output/发货分配核对-20261014_05.csv",
+      "sha256": "f697c4e41182ec36774bdd93b098281fe1142254557880738f5a5a8c02ac6e60",
+      "bytes": 128,
+      "rows": 6
+    },
+    {
+      "file": "SKU发货数量.csv",
+      "versioned_file": "SKU发货数量-20261014_05.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/output/SKU发货数量-20261014_05.csv",
+      "sha256": "e072e7e85d763bb853ea79373bc0f0ec26c5168670e6506f0adaf80d34773709",
+      "bytes": 5502,
+      "rows": 108
+    },
+    {
+      "file": "链接分析报告.md",
+      "versioned_file": "链接分析报告-20261014_05.md",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/output/链接分析报告-20261014_05.md",
+      "sha256": "68bb5f92309c368ee4b2fc35d122e2445163c61d8cb1aed7e5cc677cbb75eb17",
+      "bytes": 2177,
+      "rows": null
+    }
+  ],
+  "upstream": [
+    {
+      "file": "D2.链接分析/data/发货单明细.xlsx",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/input/发货单明细.xlsx",
+      "sha256": "14f0f6c0309a51ccb46d3a4038f8650d663605c9705ff995f8015cb0fca43988",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261013_28",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261013_16.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/全量/全量表-20261013_16.csv",
+      "sha256": "f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4"
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/PHYSICAL_SKU映射.json",
+      "sha256": "c695bd433b478f04064c04c6f764c67a97e444b111dd8e4460f415bbd8e5553e"
+    },
+    {
+      "file": "data/README.md",
+      "sha256": "7aca05c100534b7a0a69353a907a36027498c8a63223c088aa2722e2a39368f2",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/rules/data/README.md"
+    },
+    {
+      "file": "data/SKU上架映射.csv",
+      "sha256": "172f0e828c2e428d3fc372b98d53f8946863dcf52c0f06aa8c050bec934e4bd4"
+    },
+    {
+      "file": "data/发货事实.csv",
+      "sha256": "1560c72a0a80dce9f415562593a170d674bbe5329b639a628539651b36288388",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/rules/data/发货事实.csv"
+    },
+    {
+      "file": "data/链接字段规则.json",
+      "sha256": "67a3070c449f771f5a5a49962a6d22bf2673b3fdde4beeba6ff81b6d28fa8a8c",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_05_pickup-link-audit/rules/data/链接字段规则.json"
+    }
+  ],
+  "pending": []
+}

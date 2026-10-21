@@ -37,6 +37,7 @@ from pathlib import Path
 
 import trace_pipeline
 import validate_pipeline_structure
+from node_paths import node_dir_name
 from pipeline_status import is_on_demand
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -117,7 +118,7 @@ def check_dependencies(node: dict, nodes: list[dict]) -> tuple[list[str], list[s
     """返回 (错误, 提示)。代码引用的其他节点必须是已声明上游；不得读取其他节点 artifacts/。"""
     errors: list[str] = []
     warnings: list[str] = []
-    others = {other["path"]: other for other in nodes if other["id"] != node["id"]}
+    others = {node_dir_name(other["path"]): other for other in nodes if other["id"] != node["id"]}
     declared = set(node.get("upstream", []))
     referenced: dict[str, set[str]] = {}
     missing: set[str] = set()
@@ -139,7 +140,7 @@ def check_dependencies(node: dict, nodes: list[dict]) -> tuple[list[str], list[s
                         warnings.append(f"{relative} 读取了上游 {other_path}/{second}（正式输入应只来自上游 output/）")
         for literal in roots:
             first = literal.replace("\\", "/").split("/")[0]
-            if first in RUNTIME_DIRS or first in others or first == node["path"]:
+            if first in RUNTIME_DIRS or first in others or first == node_dir_name(node["path"]):
                 continue
             candidates = (ROOT / first, base / first, path.parent / first, path.parent / "artifacts" / first)
             if not any(candidate.exists() for candidate in candidates):

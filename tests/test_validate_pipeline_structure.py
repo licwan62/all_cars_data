@@ -46,7 +46,7 @@ def test_repository_pipeline_is_valid():
 def test_pipeline_manifest_is_owned_by_last_node():
     payload = __import__("json").loads(validator.MANIFEST.read_text(encoding="utf-8"))
     assert payload["governance"]["manifest_owner"] == "link-analysis"
-    assert payload["governance"]["manifest_owner_path"] == "D2.链接分析"
+    assert payload["governance"]["manifest_owner_path"] == "nodes/D2.链接分析"
 
 
 def test_code_layout_rejects_loose_scripts_and_missing_entries(tmp_path, monkeypatch):

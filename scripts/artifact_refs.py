@@ -9,9 +9,13 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块在 lib/
+
+from node_paths import load_record  # noqa: E402
 
 VERSION = re.compile(r"^\d{8}_\d{2}$")
 RUN_RECORD = "run.json"
@@ -59,9 +63,12 @@ def check_deliverable_source(root: Path, manifest: dict, item: dict) -> str | No
 
 
 def batch_of(artifact_file: str) -> str | None:
-    """``<节点>/artifacts/<批次>/...`` → ``<节点>/artifacts/<批次>``。"""
+    """``nodes/<节点>/artifacts/<批次>/...`` → ``nodes/<节点>/artifacts/<批次>``（节点可嵌套，如 D2.链接分析/皮卡）。"""
     parts = artifact_file.split("/")
-    return "/".join(parts[:3]) if len(parts) >= 3 and parts[1] == "artifacts" else None
+    if "artifacts" not in parts[1:]:
+        return None
+    index = parts.index("artifacts", 1)
+    return "/".join(parts[:index + 2]) if len(parts) > index + 1 else None
 
 
 def record_references(record: dict) -> set[str]:
@@ -80,9 +87,9 @@ def record_references(record: dict) -> set[str]:
     return refs
 
 
-def _load(path: Path) -> dict | None:
+def _load(path: Path, root: Path) -> dict | None:
     try:
-        return json.loads(path.read_text(encoding="utf-8-sig"))
+        return load_record(path, root)
     except (OSError, ValueError):
         return None
 
@@ -91,7 +98,7 @@ def referenced_batches(root: Path, nodes: list[dict], keep_batches: set[str] = f
     """当前各节点 output/manifest.json 与 keep_batches 直接或间接引用的全部批次（相对仓库的 posix 路径）。"""
     pending: list[str] = list(keep_batches)
     for node in nodes:
-        manifest = _load(root / node["path"] / "output" / MANIFEST)
+        manifest = _load(root / node["path"] / "output" / MANIFEST, root)
         if manifest:
             pending.extend(record_references(manifest))
     seen: set[str] = set()
@@ -101,7 +108,7 @@ def referenced_batches(root: Path, nodes: list[dict], keep_batches: set[str] = f
             continue
         seen.add(batch)
         for name in (MANIFEST, RUN_RECORD):
-            record = _load(root / batch / name)
+            record = _load(root / batch / name, root)
             if record:
                 pending.extend(record_references(record) - seen)
     return seen

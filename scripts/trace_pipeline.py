@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享�
 from artifact_refs import check_deliverable_source, sha256
 from identity_coverage import check_node as identity_gaps
 from pipeline_status import is_on_demand
+from node_paths import load_record  # noqa: E402
 from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,7 +37,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load_manifest(node: dict) -> dict | None:
     path = ROOT / node["path"] / "output" / "manifest.json"
-    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
+    return load_record(path, ROOT) if path.is_file() else None
 
 
 def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False) -> tuple[list[str], list[str], list[str]]:

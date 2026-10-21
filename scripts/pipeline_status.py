@@ -18,6 +18,10 @@ import json
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块在 lib/
+
+from node_paths import load_record, node_dir_name  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 STATUS_NAME = "流水线状态.md"
 LINE_NAMES = {"U": "上游", "A": "A 全量表", "B": "B 定制评分", "C": "C 代表车型", "D": "D 发货单", "E": "E 尺寸分析", "F": "F 定制分析", "X": "X 旁路"}
@@ -35,12 +39,17 @@ def is_on_demand(payload: dict, node: dict) -> bool:
     return node_trigger(payload, node) == "on_demand"
 
 
-def _load_json(path: Path) -> dict | None:
-    return json.loads(path.read_text(encoding="utf-8-sig")) if path.is_file() else None
+def _load_json(path: Path, root: Path = ROOT) -> dict | None:
+    return load_record(path, root) if path.is_file() else None
 
 
 def _manifest(root: Path, node: dict) -> dict | None:
-    return _load_json(root / node["path"] / "output" / "manifest.json")
+    return _load_json(root / node["path"] / "output" / "manifest.json", root)
+
+
+def _name(path: str) -> str:
+    """展示用节点目录名（不含 nodes/ 前缀）。"""
+    return node_dir_name(path)
 
 
 def node_state(root: Path, node: dict, by_id: dict[str, dict], on_demand: bool = False) -> tuple[str, list[str]]:
@@ -59,12 +68,12 @@ def node_state(root: Path, node: dict, by_id: dict[str, dict], on_demand: bool =
         current_sha = {item["file"]: item["sha256"] for item in current.get("deliverables", [])}
         used = recorded.get(upstream_id)
         if used is None:
-            notes.append(f"未记录上游 {upstream['path']} 的输入版本")
+            notes.append(f"未记录上游 {_name(upstream['path'])} 的输入版本")
             continue
         changed = [item["file"] for item in used.get("files", []) if current_sha.get(item["file"]) != item["sha256"]]
         if changed:
             notes.append(
-                f"上游 {upstream['path']} 已更新（使用 {used.get('version')}，当前 {current.get('version')}）：{'、'.join(changed)}"
+                f"上游 {_name(upstream['path'])} 已更新（使用 {used.get('version')}，当前 {current.get('version')}）：{'、'.join(changed)}"
             )
     if notes:
         return (ON_DEMAND_STATE if on_demand else "过期"), notes
@@ -77,7 +86,7 @@ def render_status(root: Path = ROOT) -> str:
     payload = json.loads((root / "pipeline.json").read_text(encoding="utf-8"))
     nodes = payload["nodes"]
     by_id = {node["id"]: node for node in nodes}
-    release = _load_json(root / "release.json") or {}
+    release = _load_json(root / "release.json", root) or {}
     states = {node["id"]: node_state(root, node, by_id, is_on_demand(payload, node)) for node in nodes}
 
     counts: dict[str, int] = {}
@@ -99,11 +108,11 @@ def render_status(root: Path = ROOT) -> str:
     ]
     for node in nodes:
         manifest = _manifest(root, node) or {}
-        upstream = "、".join(by_id[up]["path"] for up in node.get("upstream", [])) or "—"
+        upstream = "、".join(_name(by_id[up]["path"]) for up in node.get("upstream", [])) or "—"
         pending = "、".join(node.get("pending", [])) or "—"
         state, _ = states[node["id"]]
         lines.append(
-            f"| {node['path']} | {LINE_NAMES.get(node.get('line', 'U'), node.get('line', ''))} | "
+            f"| {_name(node['path'])} | {LINE_NAMES.get(node.get('line', 'U'), node.get('line', ''))} | "
             f"{TRIGGERS.get(node_trigger(payload, node), node_trigger(payload, node))} | `{manifest.get('version', '-')}` | {len(manifest.get('deliverables', []))} | {upstream} | {pending} | {state} |"
         )
 
@@ -111,7 +120,7 @@ def render_status(root: Path = ROOT) -> str:
     lines += ["", "## 需要处理", ""]
     if problems:
         for node, notes in problems:
-            lines.extend(f"- {node['path']}：{note}" for note in notes)
+            lines.extend(f"- {_name(node['path'])}：{note}" for note in notes)
     else:
         lines.append("- 无：所有自动发布节点使用的都是上游当前版本。")
 
@@ -125,21 +134,21 @@ def render_status(root: Path = ROOT) -> str:
             "",
         ]
         for node, notes in deferred:
-            lines.extend(f"- {node['path']}（`{node['id']}`）：{note}" for note in notes)
+            lines.extend(f"- {_name(node['path'])}（`{node['id']}`）：{note}" for note in notes)
 
     lines += ["", "## 最终产物", "", "| 产物 | 节点 | 文件 | 待产出 |", "| --- | --- | --- | --- |"]
     for product in payload.get("final_products", []):
         node = by_id.get(product.get("node"), {})
         files = "、".join(f"`{name}`" for name in product.get("files", [])) or "—"
         pending = "、".join(product.get("pending", [])) or "—"
-        lines.append(f"| {product['name']} | {node.get('path', product.get('node'))} | {files} | {pending} |")
+        lines.append(f"| {product['name']} | {_name(node.get('path', product.get('node')))} | {files} | {pending} |")
 
     lines += ["", "## 交付物来源", ""]
     for node in nodes:
         manifest = _manifest(root, node)
         if not manifest or not manifest.get("deliverables"):
             continue
-        lines += [f"### {node['path']} `{manifest['version']}`", "", f"来源批次：`{manifest['artifact']}`", ""]
+        lines += [f"### {_name(node['path'])} `{manifest['version']}`", "", f"来源批次：`{_name(manifest['artifact'])}`", ""]
         lines += ["| 文件 | 行数 | sha256 |", "| --- | ---: | --- |"]
         for item in manifest["deliverables"]:
             rows = item.get("rows")

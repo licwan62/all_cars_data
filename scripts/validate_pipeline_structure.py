@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from artifact_refs import check_deliverable_source, sha256
+from node_paths import NODES_DIR, load_record, node_dir_name
 from identity_coverage import validate_rules as check_identity_rules
 from pipeline_status import check_status, node_trigger
 
@@ -39,7 +40,7 @@ def check_layers(nodes: list[dict]) -> list[str]:
         node_id, layer = node["id"], node.get("layer")
         if layer != depth[node_id]:
             errors.append(f"{node_id}: layer={layer}，按上游计算应为 {depth[node_id]}")
-        prefix = node["path"].split(".", 1)[0]
+        prefix = node_dir_name(node["path"]).split(".", 1)[0]
         line = node.get("line", "U")
         if line == "U":
             if not (prefix.isdigit() and len(prefix) == 2 and int(prefix) == depth[node_id]):
@@ -129,7 +130,7 @@ def check_release_naming(nodes: list[dict]) -> list[str]:
         manifest_path = base / "output" / "manifest.json"
         if not manifest_path.is_file():
             continue
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest = load_record(manifest_path, ROOT)
         if not (ROOT / manifest.get("artifact", "") / "manifest.json").is_file():
             errors.append(f"{node['id']}: 发布批次 {manifest.get('artifact')} 缺少 manifest.json")
         for item in manifest.get("deliverables", []):
@@ -204,16 +205,16 @@ def main() -> int:
     governance = payload.get("governance", {})
     owner_id = governance.get("manifest_owner")
     owner_path = governance.get("manifest_owner_path")
-    if owner_id != "link-analysis" or owner_path != "D2.链接分析":
-        errors.append("pipeline.json 必须登记由最后节点 D2.链接分析（link-analysis）维护")
+    if owner_id != "link-analysis" or owner_path != f"{NODES_DIR}/D2.链接分析":
+        errors.append(f"pipeline.json 必须登记由最后节点 {NODES_DIR}/D2.链接分析（link-analysis）维护")
 
     for node in nodes:
         node_id = node["id"]
         project = (ROOT / node["path"]).resolve()
         try:
-            project.relative_to(ROOT)
+            project.relative_to(ROOT / NODES_DIR)
         except ValueError:
-            errors.append(f"{node_id}: path 越出仓库")
+            errors.append(f"{node_id}: 节点目录必须位于 {NODES_DIR}/ 下：{node['path']}")
             continue
         if not project.is_dir():
             errors.append(f"{node_id}: 项目目录不存在: {node['path']}")

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "batch": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit",
+  "version": "20261014_01",
+  "description": "pickup-link-audit",
+  "created_at": "2026-10-14T09:59:32+08:00",
+  "finished_at": "2026-10-14T09:59:33+08:00",
+  "command": [
+    "-"
+  ],
+  "inputs": [
+    {
+      "file": "D2.链接分析/data/发货单明细.xlsx",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/input/发货单明细.xlsx",
+      "sha256": "14f0f6c0309a51ccb46d3a4038f8650d663605c9705ff995f8015cb0fca43988",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261013_28",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261013_16.csv",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/全量/全量表-20261013_16.csv",
+      "sha256": "f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4"
+    }
+  ],
+  "rules": {
+    "data_dir": "D2.链接分析/皮卡/data",
+    "git_commit": "6cb779998efc73cd4394e2d24116500a752c64ab",
+    "copied": [
+      "data/README.md",
+      "data/发货事实.csv",
+      "data/链接字段规则.json"
+    ],
+    "files": [
+      {
+        "file": "data/PHYSICAL_SKU映射.json",
+        "sha256": "c695bd433b478f04064c04c6f764c67a97e444b111dd8e4460f415bbd8e5553e"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "da67cf7f709a9383bf0d1b96fdab4e4b3dd4c1625e041d4cdeceef6cc8e97431",
+        "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/rules/data/README.md"
+      },
+      {
+        "file": "data/SKU上架映射.csv",
+        "sha256": "172f0e828c2e428d3fc372b98d53f8946863dcf52c0f06aa8c050bec934e4bd4"
+      },
+      {
+        "file": "data/发货事实.csv",
+        "sha256": "1560c72a0a80dce9f415562593a170d674bbe5329b639a628539651b36288388",
+        "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/rules/data/发货事实.csv"
+      },
+      {
+        "file": "data/链接字段规则.json",
+        "sha256": "8ee3c51cc46fda1bd7db9540bfac710571d59f39a80facd1c7737036aa51baaf",
+        "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/rules/data/链接字段规则.json"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "链接字段审核.csv",
+      "versioned_file": "链接字段审核-20261014_01.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/output/链接字段审核-20261014_01.csv",
+      "sha256": "d71286862eefa048bee7605fddea9b5f7174fa0e52ff40355322cfc5e2242892",
+      "bytes": 28084,
+      "rows": 108
+    },
+    {
+      "file": "上架链接明细.csv",
+      "versioned_file": "上架链接明细-20261014_01.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/output/上架链接明细-20261014_01.csv",
+      "sha256": "66bdb63e30c50e1f3d7b244605e1fbb990ea10aea55f78c50fe1d1506e00bd9a",
+      "bytes": 19335,
+      "rows": 108
+    },
+    {
+      "file": "发货分配核对.csv",
+      "versioned_file": "发货分配核对-20261014_01.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/output/发货分配核对-20261014_01.csv",
+      "sha256": "f697c4e41182ec36774bdd93b098281fe1142254557880738f5a5a8c02ac6e60",
+      "bytes": 128,
+      "rows": 6
+    },
+    {
+      "file": "SKU发货数量.csv",
+      "versioned_file": "SKU发货数量-20261014_01.csv",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/output/SKU发货数量-20261014_01.csv",
+      "sha256": "e072e7e85d763bb853ea79373bc0f0ec26c5168670e6506f0adaf80d34773709",
+      "bytes": 5502,
+      "rows": 108
+    },
+    {
+      "file": "链接分析报告.md",
+      "versioned_file": "链接分析报告-20261014_01.md",
+      "artifact_file": "D2.链接分析/皮卡/artifacts/2026-10-14_01_pickup-link-audit/output/链接分析报告-20261014_01.md",
+      "sha256": "c69db219c02c458b0650b3926840d1f5fd83291c66a2b474bcf9b923d4613374",
+      "bytes": 1700,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "rows": 108,
+    "field_validation_failed": 0,
+    "shipment_input_total": 801,
+    "allocated_total": 801,
+    "allocation_difference": 0
+  }
+}

@@ -47,7 +47,7 @@ def one_shape(value: str) -> str:
 
 
 def advance_shapes() -> dict[str, object]:
-    project = ROOT / "03.车形分类核定"
+    project = ROOT / "nodes" / "03.车形分类核定"
     queue_path = project / "research_queue" / "regional_queue.csv"
     fields, rows = read_csv(queue_path)
     before = [dict(row) for row in rows]
@@ -83,7 +83,7 @@ def advance_shapes() -> dict[str, object]:
 
 
 def advance_sales() -> dict[str, object]:
-    project = ROOT / "02.销量评估"
+    project = ROOT / "nodes" / "02.销量评估"
     queue_path = project / "research_queue" / "regional_sales_queue.csv"
     fields, rows = read_csv(queue_path)
     before = [dict(row) for row in rows]
@@ -147,8 +147,8 @@ def loose_shape(row: dict[str, str]) -> tuple[str, str, str]:
 
 
 def build_coverage_candidates() -> dict[str, object]:
-    shape_project = ROOT / "03.车形分类核定"
-    sales_project = ROOT / "02.销量评估"
+    shape_project = ROOT / "nodes" / "03.车形分类核定"
+    sales_project = ROOT / "nodes" / "02.销量评估"
     shape_queue_fields, shape_queue = read_csv(shape_project / "research_queue" / "regional_queue.csv")
     by_model = {(row["地区"], row["MAKE"].casefold(), row["MODEL"].casefold()): row for row in shape_queue}
     shape_batch = next_batch(shape_project / "artifacts", "regional-coverage-candidates")
@@ -157,7 +157,7 @@ def build_coverage_candidates() -> dict[str, object]:
     sales_batch.mkdir(parents=True)
     shape_rows: list[dict[str, str]] = []
     for region in ("EU", "RU"):
-        _, dimensions = read_csv(ROOT / "01.整理尺寸库" / "output" / f"尺寸库_{region}.csv")
+        _, dimensions = read_csv(ROOT / "nodes" / "01.整理尺寸库" / "output" / f"尺寸库_{region}.csv")
         for row in dimensions:
             key = (region, row["MAKE"].casefold(), row["MODEL"].casefold())
             queue = by_model.get(key)
