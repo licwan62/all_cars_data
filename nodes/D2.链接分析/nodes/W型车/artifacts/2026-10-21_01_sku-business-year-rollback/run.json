@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "batch": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback",
+  "version": "20261021_03",
+  "description": "sku-business-year-rollback",
+  "created_at": "2026-10-21T14:44:00+08:00",
+  "finished_at": "2026-10-21T14:44:00+08:00",
+  "command": [
+    "audit_year_names.py",
+    "--source",
+    "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录"
+  ],
+  "inputs": [
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/SKU汇总表.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/SKU汇总表.csv",
+      "sha256": "f40d23c59664369ea2c55a9020ecfdd56d7c939c6780ae44c4d42c6ad267badd",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/3_调整记录/年份调整.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/3_调整记录/年份调整.csv",
+      "sha256": "f4a6620f7e313e1cc8ac8629fafce8113686ea85851172e6eae925a6b81f60ea",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/4_底层明细/车型适配明细.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/4_底层明细/车型适配明细.csv",
+      "sha256": "e793c53b63caebf1a80bb8fc9e8bdca6ea8fd14f09cb14c656985148c0379870",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/1_发货量/未发货车型.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/1_发货量/未发货车型.csv",
+      "sha256": "43e96d944c856dddcd26db64088f0d04a3c395b40a95a56de01085e3f4e3582e",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/3_调整记录/SKU编码调整.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/3_调整记录/SKU编码调整.csv",
+      "sha256": "6abd2a6795a59dcf7e3d038905e39dc96481f5664b3aaf20db1c1d11bd65831e",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/2_质量检测/年份合并检测.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/2_质量检测/年份合并检测.csv",
+      "sha256": "0b9d17ca7ca9c367251b5ddb69c56d3c7cecada814a4737c640a5887a36cc51a",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/1_发货量/SKU发货量.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/1_发货量/SKU发货量.csv",
+      "sha256": "1c751e6fe5023dd6024235ab6dbd209531e1b4f168cbc433185b482fadb82806",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/1_发货量/尺码发货汇总.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/1_发货量/尺码发货汇总.csv",
+      "sha256": "2cf7d5a5e047ccd88a66468a0097798800b6edccd9397cf323985daaa6b8b94e",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/2_质量检测/SKU尺寸检测.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/2_质量检测/SKU尺寸检测.csv",
+      "sha256": "eacee7b87aec768b64adbd249d3a7ea81d911c2685b39910431b63b734363bb3",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/2_质量检测/兄弟链接分开原因.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/2_质量检测/兄弟链接分开原因.csv",
+      "sha256": "2e75661de697384d06c16d7e4d3fd82d5be164d33e511fc68c968a74b4948b99",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/2_质量检测/聚类合并检测.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/2_质量检测/聚类合并检测.csv",
+      "sha256": "f466a43db789a33257d06d9803b789ad1271b81ba60e4d6dee41e2897bf711ad",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/3_调整记录/尺码名称调整.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/3_调整记录/尺码名称调整.csv",
+      "sha256": "f8075fad7252e7226af04c449565f5f91e6307530a5ada1ed9fec85bb8ba30a8",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/W型车/artifacts/0915.6-SKU编码-业务目录/说明.md",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/input/说明.md",
+      "sha256": "be85e145c8f4db5013bc24385df64fd7bf35d156fd74d4a214a9a3694e32d84d",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/D2.链接分析/nodes/W型车/data",
+    "git_commit": "52f0d3c211af5b53ae28fdf44aaf1168ab99a253",
+    "copied": [
+      "data/SKU修改.csv",
+      "data/年份命名规则.json"
+    ],
+    "files": [
+      {
+        "file": "data/SKU修改.csv",
+        "sha256": "80b882545593d5cc69fa3d007b32e7ddb44357bfb359d8edb12a77c7887a0000",
+        "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/rules/data/SKU修改.csv"
+      },
+      {
+        "file": "data/年份命名规则.json",
+        "sha256": "822952c45129d65e8adb855bd7e059a3b8d8631e65b0563edacfd092554a14bb",
+        "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/rules/data/年份命名规则.json"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "1_发货量/SKU发货量.csv",
+      "versioned_file": "1_发货量/SKU发货量-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/1_发货量/SKU发货量-20261021_03.csv",
+      "sha256": "1c751e6fe5023dd6024235ab6dbd209531e1b4f168cbc433185b482fadb82806",
+      "bytes": 5160,
+      "rows": 66
+    },
+    {
+      "file": "1_发货量/尺码发货汇总.csv",
+      "versioned_file": "1_发货量/尺码发货汇总-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/1_发货量/尺码发货汇总-20261021_03.csv",
+      "sha256": "2cf7d5a5e047ccd88a66468a0097798800b6edccd9397cf323985daaa6b8b94e",
+      "bytes": 625,
+      "rows": 9
+    },
+    {
+      "file": "1_发货量/未发货车型.csv",
+      "versioned_file": "1_发货量/未发货车型-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/1_发货量/未发货车型-20261021_03.csv",
+      "sha256": "43e96d944c856dddcd26db64088f0d04a3c395b40a95a56de01085e3f4e3582e",
+      "bytes": 1724,
+      "rows": 19
+    },
+    {
+      "file": "2_质量检测/SKU尺寸检测.csv",
+      "versioned_file": "2_质量检测/SKU尺寸检测-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/2_质量检测/SKU尺寸检测-20261021_03.csv",
+      "sha256": "eacee7b87aec768b64adbd249d3a7ea81d911c2685b39910431b63b734363bb3",
+      "bytes": 4473,
+      "rows": 66
+    },
+    {
+      "file": "2_质量检测/兄弟链接分开原因.csv",
+      "versioned_file": "2_质量检测/兄弟链接分开原因-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/2_质量检测/兄弟链接分开原因-20261021_03.csv",
+      "sha256": "26aeed3daef8bc5d0ce0c568f43221d9943aa7165662f09c94ba856882c5d7b0",
+      "bytes": 14905,
+      "rows": 61
+    },
+    {
+      "file": "2_质量检测/年份合并检测.csv",
+      "versioned_file": "2_质量检测/年份合并检测-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/2_质量检测/年份合并检测-20261021_03.csv",
+      "sha256": "b7a6610b8dbd2a40f69d039f89391b9578b3e451c4a8f2161ee944668c4f7816",
+      "bytes": 11033,
+      "rows": 37
+    },
+    {
+      "file": "2_质量检测/聚类合并检测.csv",
+      "versioned_file": "2_质量检测/聚类合并检测-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/2_质量检测/聚类合并检测-20261021_03.csv",
+      "sha256": "f466a43db789a33257d06d9803b789ad1271b81ba60e4d6dee41e2897bf711ad",
+      "bytes": 18415,
+      "rows": 96
+    },
+    {
+      "file": "3_调整记录/SKU编码调整.csv",
+      "versioned_file": "3_调整记录/SKU编码调整-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/3_调整记录/SKU编码调整-20261021_03.csv",
+      "sha256": "6abd2a6795a59dcf7e3d038905e39dc96481f5664b3aaf20db1c1d11bd65831e",
+      "bytes": 6793,
+      "rows": 66
+    },
+    {
+      "file": "3_调整记录/尺码名称调整.csv",
+      "versioned_file": "3_调整记录/尺码名称调整-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/3_调整记录/尺码名称调整-20261021_03.csv",
+      "sha256": "f8075fad7252e7226af04c449565f5f91e6307530a5ada1ed9fec85bb8ba30a8",
+      "bytes": 100,
+      "rows": 5
+    },
+    {
+      "file": "3_调整记录/年份调整.csv",
+      "versioned_file": "3_调整记录/年份调整-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/3_调整记录/年份调整-20261021_03.csv",
+      "sha256": "b310f9eeeb6352421c7d42dca06c7ffed535f32a28c3cd2097ebfbd18a7a2751",
+      "bytes": 9184,
+      "rows": 66
+    },
+    {
+      "file": "4_底层明细/车型适配明细.csv",
+      "versioned_file": "4_底层明细/车型适配明细-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/4_底层明细/车型适配明细-20261021_03.csv",
+      "sha256": "e793c53b63caebf1a80bb8fc9e8bdca6ea8fd14f09cb14c656985148c0379870",
+      "bytes": 150362,
+      "rows": 818
+    },
+    {
+      "file": "SKU汇总表.csv",
+      "versioned_file": "SKU汇总表-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/SKU汇总表-20261021_03.csv",
+      "sha256": "ab1b6446d7b754fe910fd251e693e094ba67493fc7dfe2973c2c9e4cc0463b86",
+      "bytes": 16766,
+      "rows": 66
+    },
+    {
+      "file": "2_质量检测/命名标题回退表.csv",
+      "versioned_file": "2_质量检测/命名标题回退表-20261021_03.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/2_质量检测/命名标题回退表-20261021_03.csv",
+      "sha256": "4c8a67b5e3179e84b236898d2e25e5b7d0d64b0e8489a2087890a37d0cc65a38",
+      "bytes": 8887,
+      "rows": 35
+    },
+    {
+      "file": "说明.md",
+      "versioned_file": "说明-20261021_03.md",
+      "artifact_file": "nodes/D2.链接分析/nodes/W型车/artifacts/2026-10-21_03_sku-business-year-rollback/output/说明-20261021_03.md",
+      "sha256": "8295ec5b16f5c31e1459498b3aaaed3cb526dd200cae70eccf7f4285416de650",
+      "bytes": 2484,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "SKU数": 66,
+    "全部聚类数": 85,
+    "原子记录数": 818,
+    "标题交叉对数": 22,
+    "命名交叉对数": 2,
+    "修改SKU数": 35,
+    "事实交叉对数": 0,
+    "修正后交叉对数": 0
+  }
+}

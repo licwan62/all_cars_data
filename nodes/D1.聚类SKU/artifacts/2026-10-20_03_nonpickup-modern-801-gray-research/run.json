@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "batch": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research",
+  "version": "20261020_03",
+  "description": "nonpickup-modern-801-gray-research",
+  "created_at": "2026-10-20T09:30:10+08:00",
+  "finished_at": "2026-10-20T09:30:11+08:00",
+  "command": [
+    "nonpickup_modern_801_analysis.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-compression",
+      "path": "A1.压缩尺寸信息",
+      "version": "20261019_03",
+      "file": "US/压缩尺码表.csv",
+      "versioned_file": "US/压缩尺码表-20261019_01.csv",
+      "artifact_file": "A1.压缩尺寸信息/artifacts/2026-10-19_01_compress-by-line/output/US/压缩尺码表-20261019_01.csv",
+      "sha256": "4537b2bb6225cf3a66d736dde4c28d775e89df5c2b41143872252dc32a94d47d"
+    },
+    {
+      "node": "size-calculation",
+      "path": "A0.尺码计算",
+      "version": "20261019_10",
+      "file": "US/尺码规则.json",
+      "versioned_file": "US/尺码规则-20261015_01.json",
+      "artifact_file": "A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+      "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+    }
+  ],
+  "rules": {
+    "data_dir": "D1.聚类SKU/data",
+    "git_commit": "87b3a6c1c5d24381c3005c2241780108ce2a553b",
+    "copied": [
+      "data/README.md",
+      "data/非皮卡非老车801上架分析.json"
+    ],
+    "files": [
+      {
+        "file": "data/README.md",
+        "sha256": "33e87ddc8ed37a2644d2f090cfc829e20b0d8c350030beaadae0f8347ed03a6c",
+        "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/rules/data/README.md"
+      },
+      {
+        "file": "data/W型车目标尺码.json",
+        "sha256": "b045c86d2b880ca0fa29378486a0c28324515b45634ea786a4ead30b69312766"
+      },
+      {
+        "file": "data/指定车型追加900.json",
+        "sha256": "ecbb9aeec59470057d302d90a4362f99d391a151284ac8c522b8729cf3274056"
+      },
+      {
+        "file": "data/非皮卡非W上架分析.json",
+        "sha256": "c43091d549ea11fe5cace98dea33257576ce14c587c4faa8f40623ebce88c4bb"
+      },
+      {
+        "file": "data/非皮卡非老车801上架分析.json",
+        "sha256": "bc4c0d656ee9663205fb26e990a1aacb15465349c6d0b3bcb64ef56b85bc2bb1",
+        "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/rules/data/非皮卡非老车801上架分析.json"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "推荐上架与801件分配.csv",
+      "versioned_file": "推荐上架与801件分配-20261020_03.csv",
+      "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/output/推荐上架与801件分配-20261020_03.csv",
+      "sha256": "0eb585312d5a9f054a583c62ee585ff8604f2401d0504a319166c74d67999b11",
+      "bytes": 2083,
+      "rows": 24
+    },
+    {
+      "file": "物理尺码备货汇总.csv",
+      "versioned_file": "物理尺码备货汇总-20261020_03.csv",
+      "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/output/物理尺码备货汇总-20261020_03.csv",
+      "sha256": "b7807833fe7df743025806594fe6532a0d03b9c0aa721bfbed8375802f520f1a",
+      "bytes": 163,
+      "rows": 10
+    },
+    {
+      "file": "全部候选聚类.csv",
+      "versioned_file": "全部候选聚类-20261020_03.csv",
+      "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/output/全部候选聚类-20261020_03.csv",
+      "sha256": "58f66df2f17eebc1a112ba9822854018218a62c93b836cbb43e6ea373af814bf",
+      "bytes": 50002,
+      "rows": 650
+    },
+    {
+      "file": "灰度匹配审核.csv",
+      "versioned_file": "灰度匹配审核-20261020_03.csv",
+      "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/output/灰度匹配审核-20261020_03.csv",
+      "sha256": "b348d5c455ae3b892477ac5eef3c42a3a36c6a2de87d03318c262834137798f8",
+      "bytes": 6242,
+      "rows": 52
+    },
+    {
+      "file": "指定车型排除核对.csv",
+      "versioned_file": "指定车型排除核对-20261020_03.csv",
+      "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/output/指定车型排除核对-20261020_03.csv",
+      "sha256": "ebc6d2036347aa5860859216bcdd74509191396ccbf47075c692be8a789e8806",
+      "bytes": 633,
+      "rows": 20
+    },
+    {
+      "file": "REPORT.md",
+      "versioned_file": "REPORT-20261020_03.md",
+      "artifact_file": "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/output/REPORT-20261020_03.md",
+      "sha256": "bf6a29a2e4a7d48020482b4da6b03abd583b62a90873edc5ac8bcbfd3466c7de",
+      "bytes": 3275,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "D1.聚类SKU/artifacts/2026-10-20_03_nonpickup-modern-801-gray-research/extra/压缩源范围与灰度归属.csv.gz"
+  ],
+  "status": {
+    "status": "passed",
+    "budget": 801,
+    "selected_clusters": 24,
+    "candidate_clusters": 650,
+    "source_rows": 1370,
+    "scope_counts": {
+      "范围内": 659,
+      "排除老车": 459,
+      "排除老车尺码系列": 159,
+      "排除指定车型": 56,
+      "排除未知尺码": 37
+    },
+    "gray_groups_passed": 4,
+    "gray_adjusted_rows": 4,
+    "allocated_units": 801,
+    "excluded_entries_verified": 20,
+    "code_sha256": "febbfe3cdb65d2b7536a306fc473a198f9dd174bab5b554d91ea7233888e2508",
+    "effective_config": {
+      "schema_version": 1,
+      "status": "research",
+      "region": "US",
+      "shipment_budget": 801,
+      "portfolio_cluster_count": 24,
+      "min_fitment_year": 2010,
+      "max_fitment_year": 2026,
+      "exclude_size_prefixes": [
+        "4"
+      ],
+      "excluded_models": [
+        {
+          "MAKE": "Ford",
+          "MODEL": "Bronco",
+          "VERSION_CONTAINS": "4dr",
+          "label": "Ford Bronco 4 Door"
+        },
+        {
+          "MAKE": "Ford",
+          "MODEL": "Bronco",
+          "VERSION_CONTAINS": "2dr",
+          "label": "Ford Bronco 2 Door"
+        },
+        {
+          "MAKE": "Dodge",
+          "MODEL": "Challenger",
+          "label": "Dodge Challenger"
+        },
+        {
+          "MAKE": "Tesla",
+          "MODEL": "Model X",
+          "label": "Tesla Model X"
+        },
+        {
+          "MAKE": "Tesla",
+          "MODEL": "Model S",
+          "label": "Tesla Model S"
+        },
+        {
+          "MAKE": "Tesla",
+          "MODEL": "Model Y",
+          "label": "Tesla Model Y"
+        },
+        {
+          "MAKE": "Tesla",
+          "MODEL": "Model 3",
+          "label": "Tesla Model 3"
+        },
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Wrangler",
+          "VERSION_CONTAINS": "2dr",
+          "label": "Jeep Wrangler 2dr"
+        },
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Wrangler",
+          "VERSION_CONTAINS": "4dr",
+          "label": "Jeep Wrangler 4dr"
+        },
+        {
+          "MAKE": "Dodge",
+          "MODEL": "Charger",
+          "label": "Dodge Charger"
+        },
+        {
+          "MAKE": "Subaru",
+          "MODEL": "Crosstrek",
+          "label": "Subaru Crosstrek"
+        },
+        {
+          "MAKE": "Subaru",
+          "MODEL": "Outback",
+          "label": "Subaru Outback"
+        },
+        {
+          "MAKE": "Land Rover",
+          "MODEL": "Range Rover Sport",
+          "label": "Land Rover Range Rover Sport"
+        },
+        {
+          "MAKE": "Chevrolet",
+          "MODEL": "Corvette",
+          "label": "Chevrolet Corvette C3-C8"
+        },
+        {
+          "MAKE": "Porsche",
+          "MODEL": "911",
+          "label": "Porsche 911"
+        },
+        {
+          "MAKE": "MINI",
+          "MODEL": "Countryman",
+          "label": "MINI Countryman"
+        },
+        {
+          "MAKE": "Toyota",
+          "MODEL": "Prius",
+          "label": "Toyota Prius"
+        },
+        {
+          "MAKE": "Kia",
+          "MODEL": "Soul",
+          "label": "Kia Soul"
+        },
+        {
+          "MAKE": "Ford",
+          "MODEL": "Mustang",
+          "label": "Ford Mustang"
+        },
+        {
+          "MAKE": "MINI",
+          "MODEL": "Cooper",
+          "label": "MINI Cooper"
+        }
+      ],
+      "gray_match": {
+        "enabled": true,
+        "identity_keys": [
+          "MAKE",
+          "MODEL",
+          "VERSION",
+          "CONST"
+        ],
+        "max_year_gap": 1,
+        "max_group_spread_mm": {
+          "length": 50,
+          "width": 50,
+          "height": 50
+        },
+        "adjacent_sizes_only": true,
+        "target_strategy": "larger",
+        "target_length_margin_mm": {
+          "min": 50,
+          "max_exclusive": 500
+        }
+      },
+      "scope_note": "非老车按建议适配年份不早于2010且不属于4*老车/W尺码系列定义；跨越2010的压缩记录只采用2010年及以后部分。灰度只在同车型、同版本、同结构的连续年代中执行，整组长宽高跨度均不超过50mm，且目标大号重新通过长度上限及余量校验。"
+    },
+    "publication": "research_only_not_published"
+  }
+}
