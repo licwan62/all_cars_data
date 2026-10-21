@@ -3,11 +3,10 @@ Find vehicles that NEED 2XXL-545 but don't fit in 2XXL-525.
 2XXL-545: 5450×2260×2380  vs  2XXL-525: 5250×2170×2060
 """
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 
 rows = []
-with open('A0.尺码计算/output/全量表_RU.csv', 'r', encoding='utf-8') as f:
-    next(f)
-    for row in csv.reader(f): rows.append(row)
+rows.extend(legacy_ru_rows())
 
 # 2XXL-525 limits
 XL525 = {'L':5250, 'W':2170, 'H':2060}

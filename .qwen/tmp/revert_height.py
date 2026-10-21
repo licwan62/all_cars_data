@@ -2,6 +2,7 @@
 两厢车高度恢复原始值（2S=1575, 2M=1448, 2L=1499），其余保持 0921.1 改动
 """
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 from collections import defaultdict
 
 params = {'长容差':0, '宽容差':270, '高容差':280, '余量长容差':635}
@@ -9,7 +10,7 @@ tL, tW, tH, tRem = 0, 270, 280, 635
 
 # 读取 0921.1 规则
 rules_by_cat = {}
-with open('A0.尺码计算/data/ru/尺寸/0921.1-微调&高mpv.csv', 'r', encoding='utf-8-sig') as f:
+with open(ru_rule('0921.1-微调&高mpv.csv'), 'r', encoding='utf-8-sig') as f:
     reader = csv.DictReader(f)
     for row in reader:
         cat = row['分类']
@@ -32,9 +33,7 @@ for r in sorted(rules_by_cat['两厢车'], key=lambda x: int(x['高_mm'])):
 
 # 读取全量数据
 rows = []
-with open('A0.尺码计算/output/全量表_RU.csv', 'r', encoding='utf-8') as f:
-    next(f)
-    for row in csv.reader(f): rows.append(row)
+rows.extend(legacy_ru_rows())
 
 def match(L, W, H, rules):
     rules_typed = []

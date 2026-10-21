@@ -1,10 +1,9 @@
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 from collections import defaultdict
 
 rows = []
-with open('A0.尺码计算/output/全量表_RU.csv', 'r', encoding='utf-8') as f:
-    next(f)
-    for row in csv.reader(f): rows.append(row)
+rows.extend(legacy_ru_rows())
 
 tiers = [
     {'code':'2L-192', 'name':'紧凑高顶', 'H':1920, 'below_H':1780},

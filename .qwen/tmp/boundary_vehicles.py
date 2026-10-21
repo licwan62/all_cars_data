@@ -1,9 +1,8 @@
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 
 rows = []
-with open('A0.尺码计算/output/全量表_RU.csv', 'r', encoding='utf-8') as f:
-    next(f)
-    for row in csv.reader(f): rows.append(row)
+rows.extend(legacy_ru_rows())
 
 tiers = {
     '2L-192 (\u7d27\u51d1\u9ad8\u9876)':  {'L':4520, 'W':2100, 'H':1920, 'margin':150},

@@ -3,10 +3,11 @@ Analyze RU market: find remaining 无可用尺码 vehicles and cluster anchor ve
 Uses new rule file: 0921.0-y380&y410.csv
 """
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 from collections import defaultdict
 
-RULE_PATH = r'A0.尺码计算\data\ru\尺寸\0921.0-y380&y410.csv'
-FULL_PATH = r'A0.尺码计算\output\全量表_RU.csv'
+RULE_PATH = ru_rule('0921.0-y380&y410.csv')
+FULL_PATH = RU_FULL_TABLE
 
 # --- Read rules ---
 rules = []
@@ -29,11 +30,8 @@ for r in rules:
 
 # --- Read full table ---
 rows = []
-with open(FULL_PATH, 'r', encoding='utf-8') as f:
-    reader = csv.reader(f)
-    header = next(reader)
-    for row in reader:
-        rows.append(row)
+header = LEGACY_RU_HEADER
+rows.extend(legacy_ru_rows())
 
 # Column index: 0=MAKE 1=MODEL 4=结构 9=分类 10=L 11=W 12=H 13=销量 20=自动尺码 24=候选 25=原因
 # We need to simulate matching with new rules

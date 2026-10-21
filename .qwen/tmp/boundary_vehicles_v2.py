@@ -1,9 +1,8 @@
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 
 rows = []
-with open('A0.尺码计算/output/全量表_RU.csv', 'r', encoding='utf-8') as f:
-    next(f)
-    for row in csv.reader(f): rows.append(row)
+rows.extend(legacy_ru_rows())
 
 # 0921.2 真实上限：各现有尺码高度上限
 existing_H = {

@@ -2,11 +2,11 @@
 """Quick data probe for representative-car analysis."""
 import pandas as pd
 
-SRC = r"d:\Licheng\Workflow\all_cars_data\source"
+from _legacy_paths import ATOM_SALES, DIMENSION_LIBRARY, SHAPE_TABLE
 
-dims = pd.read_csv(f"{SRC}\\车型尺寸库.csv", encoding="utf-8-sig", dtype={"DIMENSION-ID": str})
-shapes = pd.read_csv(f"{SRC}\\车型形状分类.csv", encoding="utf-8-sig", dtype={"DIMENSION-ID": str})
-sales = pd.read_csv(f"{SRC}\\atom_sales.csv", encoding="utf-8-sig", dtype={"atom_record_id": str})
+dims = pd.read_csv(DIMENSION_LIBRARY, encoding="utf-8-sig", dtype={"DIMENSION-ID": str})
+shapes = pd.read_csv(SHAPE_TABLE, encoding="utf-8-sig", dtype={"DIMENSION-ID": str})
+sales = pd.read_csv(ATOM_SALES, encoding="utf-8-sig", dtype={"atom_record_id": str})
 
 print("dims rows:", len(dims), "unique ID:", dims["DIMENSION-ID"].nunique())
 print("shapes rows:", len(shapes), "unique ID:", shapes["DIMENSION-ID"].nunique())

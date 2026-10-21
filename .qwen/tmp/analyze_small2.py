@@ -1,11 +1,12 @@
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 from collections import defaultdict
 
 params = {'长容差':0, '宽容差':270, '高容差':280, '余量长容差':635}
 tL, tW, tH, tRem = 0, 270, 280, 635
 
 rules_by_cat = {}
-with open('A0.尺码计算/data/ru/尺寸/0921.0-y380&y410.csv', 'r', encoding='utf-8-sig') as f:
+with open(ru_rule('0921.0-y380&y410.csv'), 'r', encoding='utf-8-sig') as f:
     for row in csv.DictReader(f):
         cat = row['分类']
         if cat not in rules_by_cat: rules_by_cat[cat] = []
@@ -15,9 +16,7 @@ with open('A0.尺码计算/data/ru/尺寸/0921.0-y380&y410.csv', 'r', encoding='
         })
 
 rows = []
-with open('A0.尺码计算/output/全量表_RU.csv', 'r', encoding='utf-8') as f:
-    next(f)
-    for row in csv.reader(f): rows.append(row)
+rows.extend(legacy_ru_rows())
 
 # Collect unmatched small vehicles (L < 3800)
 small_unmatched = []

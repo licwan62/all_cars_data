@@ -1,11 +1,9 @@
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 
 rows = []
-with open('A0.尺码计算\\output\\全量表_RU.csv', 'r', encoding='utf-8') as f:
-    reader = csv.reader(f)
-    header = next(reader)
-    for row in reader:
-        rows.append(row)
+header = LEGACY_RU_HEADER
+rows.extend(legacy_ru_rows())
 
 # 0:MAKE 1:MODEL 9:分类 10:L-MM 11:W-MM 12:H-MM 13:销量合计
 # 20:自动尺码 24:候选 25:原因

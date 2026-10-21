@@ -3,13 +3,14 @@ Analyze 2XXL-545 (5450×2260×2380) anchor vehicles.
 Rules: 0921.2-真实上限.csv - dimensions ARE the real upper limits (tolerances baked in).
 """
 import csv
+from _legacy_paths import A0, LEGACY_RU_HEADER, RU_FULL_TABLE, legacy_ru_rows, ru_param, ru_rule
 from collections import defaultdict
 
 # With real upper limits (no tolerances, values ARE matching limits)
 tL, tW, tH, tRem = 0, 0, 0, 0
 
 rules_by_cat = {}
-with open('A0.尺码计算/data/ru/尺寸/0921.2-真实上限.csv', 'r', encoding='utf-8-sig') as f:
+with open(ru_rule('0921.2-真实上限.csv'), 'r', encoding='utf-8-sig') as f:
     for row in csv.DictReader(f):
         cat = row['分类']
         if cat not in rules_by_cat: rules_by_cat[cat] = []
@@ -24,9 +25,7 @@ print(f"2XXL-545: L≤{tw['L']:.0f} W≤{tw['W']:.0f} H≤{tw['H']:.0f}")
 print()
 
 rows = []
-with open('A0.尺码计算/output/全量表_RU.csv', 'r', encoding='utf-8') as f:
-    next(f)
-    for row in csv.reader(f): rows.append(row)
+rows.extend(legacy_ru_rows())
 
 def match(L, W, H, rules):
     for r in sorted(rules, key=lambda x: (x['L'], x['W'], x['H'])):
@@ -132,14 +131,21 @@ for cluster, items in sorted(clusters.items(), key=lambda x: -sum(v[3] for v in 
 Ls = [x[0] for x in candidates]
 Ws = [x[1] for x in candidates]
 Hs = [x[2] for x in candidates]
-print(f"\n维度范围: L={min(Ls):.0f}-{max(Ls):.0f}  W={min(Ws):.0f}-{max(Ws):.0f}  H={min(Hs):.0f}-{max(Hs):.0f}")
+if candidates:
+    print(f"\n维度范围: L={min(Ls):.0f}-{max(Ls):.0f}  W={min(Ws):.0f}-{max(Ws):.0f}  H={min(Hs):.0f}-{max(Hs):.0f}")
+else:
+    print("\n维度范围: 无新覆盖车辆")
 
 # Sales-weighted midpoint (以销量为中点的"典型车")
 # Find the vehicle closest to the weighted average dimensions
-avg_L = sum(x[0]*x[3] for x in candidates) / sum(x[3] for x in candidates)
-avg_W = sum(x[1]*x[3] for x in candidates) / sum(x[3] for x in candidates)
-avg_H = sum(x[2]*x[3] for x in candidates) / sum(x[3] for x in candidates)
-print(f"\n销量加权平均: L={avg_L:.0f} W={avg_W:.0f} H={avg_H:.0f}")
+total_sales = sum(x[3] for x in candidates)
+if total_sales:
+    avg_L = sum(x[0]*x[3] for x in candidates) / total_sales
+    avg_W = sum(x[1]*x[3] for x in candidates) / total_sales
+    avg_H = sum(x[2]*x[3] for x in candidates) / total_sales
+    print(f"\n销量加权平均: L={avg_L:.0f} W={avg_W:.0f} H={avg_H:.0f}")
+else:
+    print("\n销量加权平均: 无销量")
 
 # Find top anchors by sales within dimensions that represent the tier
 print()
