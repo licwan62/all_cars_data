@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "research",
+  "region": "US",
+  "shipment_budget": 800,
+  "portfolio_cluster_count": 24,
+  "comparison_cluster_counts": [12, 24, 36],
+  "ranking_years": [2020, 2025],
+  "reference_years": [2010, 2025],
+  "fitment_max_year": 2026,
+  "exclude_size_prefixes": ["4"],
+  "exclude_models": [
+    {"MAKE": "Dodge", "MODEL": "Challenger"},
+    {"MAKE": "Tesla", "MODEL": "Model X"}
+  ],
+  "scope_note": "W范围保守解释为当前4*尺码系列、W型车目标配置中的旧专用车型及Bel Air专用年份；并非仅按已失效的旧target_sizes精确排除。800为本组合合计件数，不是每款800，也不代表真实需求预测。",
+  "cluster_keys": ["MAKE", "MODEL", "版本", "结构", "SHAPE", "自动尺码"],
+  "fit_review_length_margin_below_mm": 50,
+  "spread_review_mm": {"L-MM": 250, "W-MM": 100, "H-MM": 100},
+  "dimension_holds": [
+    {
+      "MAKE": "Nissan",
+      "MODEL": "Rogue",
+      "版本": "PHEV",
+      "reason": "库内2021-2026 PHEV记录承接了大量2021-2025销量，官方将Rogue PHEV列为2026年首次推出车型；年份、版本与销量归属须在上游复核，本轮整组暂缓，不能改名冒充普通Rogue。",
+      "source_url": "https://www.nissanusa.com/vehicles/crossovers-suvs/rogue-plug-in-hybrid.html"
+    },
+    {
+      "MAKE": "Subaru",
+      "MODEL": "Outback",
+      "版本": "Wilderness",
+      "reason": "官方2021-03-31发布2022年款Outback Wilderness；库内记录起于2020且近期车型销量全部归入该版本，版本覆盖和销量归属未经核实，本轮整组暂缓。",
+      "source_url": "https://www.subaru.co.jp/press/news-en/2021_03_31_9661/"
+    },
+    {
+      "MAKE": "Subaru",
+      "MODEL": "Forester",
+      "版本": "Wilderness",
+      "reason": "库内2022-2024 Forester记录仅有Wilderness版本，缺少同期普通版本的独立尺寸/销量依据；不能将全部车型销量作为Wilderness销量，本轮保守暂缓该版本，普通版本可独立参选。",
+      "source_url": ""
+    }
+  ],
+  "allocation_review_models": [
+    {
+      "MAKE": "Toyota",
+      "MODEL": "Corolla",
+      "reason": "当前年度销量在Sedan/Hatchback等记录间分配，部分TRIM混有Corolla Cross；分结构配额依赖上游分配估值，须复核，TRIM原文不得直接用作上架适配声明。"
+    },
+    {
+      "MAKE": "Honda",
+      "MODEL": "Civic",
+      "reason": "同年存在Sedan/Hatchback/Coupe/Type R等结构版本，分结构配额依赖上游分配估值；保留结构版本，不合成全车型通配链接。"
+    },
+    {
+      "MAKE": "Tesla",
+      "MODEL": "Model Y",
+      "reason": "库内2025-2026仅登记Performance SUV，与2020-2024 Crossover普通记录分开；不得将普通版本推荐年份延伸到2025-2026，也不得把该版本估值宣称为Performance实测需求。"
+    }
+  ],
+  "method_note": "按库内2020-2025年度原子销量估值排序，取可参与的前24个车型/版本/结构/SHAPE/物理尺码簇；800件按入选簇销量比例采用最大余数法分配。保留以全部范围为分母的800件配额，披露入选后归一化倍数。未使用保有率、车罩转化率、价格或广告数据。",
+  "external_validation": [
+    {
+      "url": "https://pressroom.toyota.com/toyota-motor-north-america-reports-2025-u-s-sales-results/",
+      "use": "车型销量方向参考；不替换库内年度原子销量或计算分母"
+    },
+    {
+      "url": "https://hondanews.com/en-US/releases/release-ce25b2bdc6167d48c9de61f4f909d0a1-digital-factbook-north-america-sales",
+      "use": "车型销量方向参考；不据此推断车罩购买率或版本份额"
+    }
+  ]
+}

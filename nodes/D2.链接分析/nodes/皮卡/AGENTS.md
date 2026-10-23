@@ -12,4 +12,4 @@ D2 根目录作为业务容器，同时维护仓库根 `pipeline.json`（见 `..
 - 发布：`python scripts/publish_release.py --nodes link-analysis-pickup`（仓库根执行）生成 manifest；
   四张 CSV 由 `python scripts/publish_public.py` 发布到 NAS `sku_cluster/皮卡/`，Markdown 报告只留在仓库。
 - `research/`：研究重放脚本与结果，不属于正式运行。`gray_zone_research.py` 仍读取
-  `D1.聚类SKU/artifacts/皮卡` 的历史聚类引擎，待 D1 发布“皮卡 SKU聚类结果”后改读其 `output/`。
+  `D1.发货评估/artifacts/皮卡` 内的历史聚类引擎；这只是旧研究重放，不是当前 D1 正式发货评估接口。

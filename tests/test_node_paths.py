@@ -10,6 +10,7 @@ from node_paths import canonical_path, canonical_record, node_dir_name  # noqa: 
 
 def make_repo(tmp_path: Path) -> Path:
     (tmp_path / "nodes" / "A0.尺码计算").mkdir(parents=True)
+    (tmp_path / "nodes" / "D1.发货评估").mkdir(parents=True)
     (tmp_path / "nodes" / "D2.链接分析" / "皮卡").mkdir(parents=True)
     (tmp_path / "lib").mkdir()
     return tmp_path
@@ -23,6 +24,14 @@ def test_legacy_recorded_paths_are_read_as_nodes_paths(tmp_path):
     # 节点内相对路径、仓库级目录和普通文本不受影响
     for value in ("US/全量/全量表.csv", "data/规则.csv", "lib/x.py", "尺寸库.csv", "A0.尺码计算 已变化"):
         assert canonical_path(value, repo) == value
+
+
+def test_renamed_d1_recorded_paths_are_read_as_delivery_evaluation(tmp_path):
+    repo = make_repo(tmp_path)
+    assert canonical_path("D1.聚类SKU/artifacts/b/output/x.csv", repo) == "nodes/D1.发货评估/artifacts/b/output/x.csv"
+    assert canonical_path("nodes/D1.聚类SKU/artifacts/b/output/x.csv", repo) == "nodes/D1.发货评估/artifacts/b/output/x.csv"
+    assert canonical_path("D1.聚类SKU", repo) == "nodes/D1.发货评估"
+    assert canonical_path("D1.聚类SKU 已变化", repo) == "D1.聚类SKU 已变化"
 
 
 def test_canonical_record_rewrites_nested_manifest_fields(tmp_path):

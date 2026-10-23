@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "batch": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation",
+  "version": "20261023_07",
+  "description": "delivery-evaluation",
+  "created_at": "2026-10-23T11:37:37+08:00",
+  "finished_at": "2026-10-23T11:37:45+08:00",
+  "command": [
+    "build_delivery_evaluation.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261019_10",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261019_07.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-19_07_full-table-cover-shape/output/US/全量/全量表-20261019_07.csv",
+      "sha256": "feb13a570f427f848cc5f3b06c3f4f5aafb04c3fba4350a8548fd6cba2c86ca4"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261019_10",
+      "file": "US/尺码规则.json",
+      "versioned_file": "US/尺码规则-20261015_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+      "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "nodes/B0.差评分析",
+      "version": "20261009_04",
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261009_04.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/D1.发货评估/data",
+    "git_commit": "0f99876b5d0cb7edfee40acdb1c1634e24c4dc43",
+    "copied": [
+      "data/README.md",
+      "data/W型车目标尺码.json",
+      "data/发货评估.json",
+      "data/定制预定车型.csv",
+      "data/指定车型追加900.json",
+      "data/普通车2000件150SKU灰度聚类.json",
+      "data/非皮卡非W上架分析.json",
+      "data/非皮卡非老车801上架分析.json"
+    ],
+    "files": [
+      {
+        "file": "data/README.md",
+        "sha256": "acf5d3569775d89536020e35d489a1b5d1552a9e60922bce590aefd4bbf65dd8",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/README.md"
+      },
+      {
+        "file": "data/W型车目标尺码.json",
+        "sha256": "b045c86d2b880ca0fa29378486a0c28324515b45634ea786a4ead30b69312766",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/W型车目标尺码.json"
+      },
+      {
+        "file": "data/发货评估.json",
+        "sha256": "fe7b2d31a9b64b3402893f038983dd631a8df995801b35f4327c01720cc19cee",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/发货评估.json"
+      },
+      {
+        "file": "data/定制预定车型.csv",
+        "sha256": "03e0970ca3cd52b1a049d83a5e5c530410239d9a89d4925e12c226cf00f87eaf",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/定制预定车型.csv"
+      },
+      {
+        "file": "data/指定车型追加900.json",
+        "sha256": "ecbb9aeec59470057d302d90a4362f99d391a151284ac8c522b8729cf3274056",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/指定车型追加900.json"
+      },
+      {
+        "file": "data/普通车2000件150SKU灰度聚类.json",
+        "sha256": "ffab15ec3c34df5d8c75d09d87acf14c10a2685710c3897df887b7aa87136486",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/普通车2000件150SKU灰度聚类.json"
+      },
+      {
+        "file": "data/非皮卡非W上架分析.json",
+        "sha256": "c43091d549ea11fe5cace98dea33257576ce14c587c4faa8f40623ebce88c4bb",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/非皮卡非W上架分析.json"
+      },
+      {
+        "file": "data/非皮卡非老车801上架分析.json",
+        "sha256": "bc4c0d656ee9663205fb26e990a1aacb15465349c6d0b3bcb64ef56b85bc2bb1",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/rules/data/非皮卡非老车801上架分析.json"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "全量车型发货评估明细.csv",
+      "versioned_file": "全量车型发货评估明细-20261023_07.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/output/全量车型发货评估明细-20261023_07.csv",
+      "sha256": "2b49b4ca3022ac5e21eddfc86652d7da387f9dde2a5a7e20292d33180f353a7a",
+      "bytes": 1564093,
+      "rows": 4383
+    },
+    {
+      "file": "W型车发货评估.csv",
+      "versioned_file": "W型车发货评估-20261023_07.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/output/W型车发货评估-20261023_07.csv",
+      "sha256": "6935801d762ddb14f73859d89d7c389f81119996b792a462e742b8b8d89a0860",
+      "bytes": 115756,
+      "rows": 313
+    },
+    {
+      "file": "皮卡发货评估.csv",
+      "versioned_file": "皮卡发货评估-20261023_07.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/output/皮卡发货评估-20261023_07.csv",
+      "sha256": "8110e73cb38c0fab07a2e84034a735a8cd962ab920e1742b0cab647c6b30c033",
+      "bytes": 101405,
+      "rows": 235
+    },
+    {
+      "file": "普通车发货评估.csv",
+      "versioned_file": "普通车发货评估-20261023_07.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/output/普通车发货评估-20261023_07.csv",
+      "sha256": "0616b66dfbe862d7857767ce2841a561ff44db33149aa5de2276ead6a3286f51",
+      "bytes": 596111,
+      "rows": 1716
+    },
+    {
+      "file": "灰度匹配审核.csv",
+      "versioned_file": "灰度匹配审核-20261023_07.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_07_delivery-evaluation/output/灰度匹配审核-20261023_07.csv",
+      "sha256": "12fa827c14d11989537e24b23f715473cad535afdcde52926264839d68b6be5a",
+      "bytes": 108767,
+      "rows": 275
+    }
+  ],
+  "extras": [],
+  "status": {
+    "status": "passed",
+    "source_rows": 4383,
+    "source_models": 704,
+    "evaluation_rows": 2264,
+    "category_rows": {
+      "W型车": 313,
+      "皮卡": 235,
+      "普通车": 1716
+    },
+    "review_exact_rows": 12,
+    "review_fuzzy_rows": 714,
+    "review_inferred_rows": 11,
+    "review_inferred_detail_rows": 16,
+    "review_inference_keys": 10,
+    "gray_groups_passed": 8,
+    "gray_adjusted_rows": 11,
+    "code_sha256": "52f3268071caf586810d0c366f7c18cf18c48cd510dda4edfeff5da435f84b02",
+    "effective_config": {
+      "schema_version": 1,
+      "status": "active",
+      "region": "US",
+      "market_potential": {
+        "evaluation_year": 2026,
+        "full_weight_years": 5,
+        "half_life_years": 10
+      },
+      "classification": {
+        "w_size_prefix": "4",
+        "pickup_category": "皮卡"
+      },
+      "gray_match": {
+        "enabled": true,
+        "identity_keys": [
+          "评估类别",
+          "MAKE",
+          "MODEL",
+          "版本",
+          "结构",
+          "CAB",
+          "BED"
+        ],
+        "max_year_gap": 1,
+        "boundary_band_mm": 25,
+        "max_group_spread_mm": {
+          "length": 50,
+          "width": 50,
+          "height": 50
+        },
+        "adjacent_sizes_only": true,
+        "target_strategy": "larger",
+        "target_length_margin_mm": {
+          "min": 50,
+          "max_exclusive": 500
+        }
+      },
+      "review_inference": {
+        "enabled": true,
+        "key_fields": [
+          "MODEL",
+          "L-MM",
+          "W-MM",
+          "H-MM"
+        ],
+        "seed_match_methods": [
+          "精确匹配"
+        ],
+        "protected_match_methods": [
+          "精确匹配"
+        ],
+        "target_match_method": "推理匹配"
+      },
+      "scope_note": "覆盖 A0 US 全量表全部 DIMENSION-ID。W型车按自动尺码以4开头识别；剩余皮卡按分类=皮卡识别；其余为普通车。市场潜力只用于相对排序，不计算发货量。差评只有品牌车型、结构、年代和尺码均可核实时标记精确匹配，否则先标记模糊匹配；再以全量表 MODEL+L-MM+W-MM+H-MM 为键，把精确匹配记录的差评传播到非精确命中的相同尺寸记录，并标记推理匹配。"
+    }
+  }
+}

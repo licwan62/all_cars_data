@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "node": "sku-clustering",
+  "path": "nodes/D1.发货评估",
+  "version": "20261023_28",
+  "artifact": "nodes/D1.发货评估/artifacts/2026-10-23_28_sku-clustering-release",
+  "published_at": "2026-10-23T16:02:38+08:00",
+  "deliverables": [
+    {
+      "file": "全量车型发货评估明细.csv",
+      "versioned_file": "全量车型发货评估明细-20261023_27.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_27_delivery-evaluation/output/全量车型发货评估明细-20261023_27.csv",
+      "sha256": "3657b3666efc422eaced1f031cf54c29d5a2a8df0314cdd19d13349ab3ea31d4",
+      "bytes": 383925,
+      "rows": 1529
+    },
+    {
+      "file": "发货评估身份映射.csv",
+      "versioned_file": "发货评估身份映射-20261023_20.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_20_delivery-evaluation/output/发货评估身份映射-20261023_20.csv",
+      "sha256": "3eb464775603b674245762dde716e4e633889af8407ea5d57092638227c39776",
+      "bytes": 368766,
+      "rows": 4383
+    },
+    {
+      "file": "W型车发货评估.csv",
+      "versioned_file": "W型车发货评估-20261023_25.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_25_delivery-evaluation/output/W型车发货评估-20261023_25.csv",
+      "sha256": "7f9544218d9f64a6d0052f8de67bb3fcab2ec712f20268ee800e3c8f0ecca5aa",
+      "bytes": 40605,
+      "rows": 158
+    },
+    {
+      "file": "皮卡发货评估.csv",
+      "versioned_file": "皮卡发货评估-20261023_25.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_25_delivery-evaluation/output/皮卡发货评估-20261023_25.csv",
+      "sha256": "b0b9503a8c20eaae812980d65bbea0bb59b25c43faa01404ddc9a974d0127d5c",
+      "bytes": 30647,
+      "rows": 98
+    },
+    {
+      "file": "普通车发货评估.csv",
+      "versioned_file": "普通车发货评估-20261023_27.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_27_delivery-evaluation/output/普通车发货评估-20261023_27.csv",
+      "sha256": "f3558978ea6c3b11bbe6f3710ebe6be078e9024080ca9b9688c4b24b0753996d",
+      "bytes": 310805,
+      "rows": 1273
+    },
+    {
+      "file": "灰度匹配审核.csv",
+      "versioned_file": "灰度匹配审核-20261023_08.csv",
+      "artifact_file": "nodes/D1.发货评估/artifacts/2026-10-23_08_delivery-evaluation/output/灰度匹配审核-20261023_08.csv",
+      "sha256": "23e83d8fcf10ba8d6a2ebf048b4395898f4dfd38b0be7d4071a622bdcd2efb9b",
+      "bytes": 48650,
+      "rows": 275
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261019_10",
+      "basis": "run",
+      "files": [
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261019_07.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-19_07_full-table-cover-shape/output/US/全量/全量表-20261019_07.csv",
+          "sha256": "feb13a570f427f848cc5f3b06c3f4f5aafb04c3fba4350a8548fd6cba2c86ca4"
+        },
+        {
+          "file": "US/尺码规则.json",
+          "versioned_file": "US/尺码规则-20261015_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+          "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+        }
+      ]
+    },
+    {
+      "node": "negative-review-analysis",
+      "version": "20261009_04",
+      "basis": "run",
+      "files": [
+        {
+          "file": "差评分析表.csv",
+          "versioned_file": "差评分析表-20261009_04.csv",
+          "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+          "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/README.md",
+      "sha256": "6a9ff510fafd540b0a4ae1dcf670a2cd6cc5a3b661bd3747801b672025e9f6c6"
+    },
+    {
+      "file": "data/W型车目标尺码.json",
+      "sha256": "b045c86d2b880ca0fa29378486a0c28324515b45634ea786a4ead30b69312766"
+    },
+    {
+      "file": "data/发货评估.json",
+      "sha256": "0c89118a14e907b8da18985c763a2b1981ce3a086d90f2c14aa471cf27cd8cb1"
+    },
+    {
+      "file": "data/定制预定车型.csv",
+      "sha256": "03e0970ca3cd52b1a049d83a5e5c530410239d9a89d4925e12c226cf00f87eaf"
+    },
+    {
+      "file": "data/指定车型追加900.json",
+      "sha256": "ecbb9aeec59470057d302d90a4362f99d391a151284ac8c522b8729cf3274056"
+    },
+    {
+      "file": "data/普通车2000件150SKU灰度聚类.json",
+      "sha256": "ffab15ec3c34df5d8c75d09d87acf14c10a2685710c3897df887b7aa87136486"
+    },
+    {
+      "file": "data/积加销量.csv",
+      "sha256": "f8d632c06f1819de4ee0269aa2515e68a1da144142151be8a874f8a8dca6b4c6"
+    },
+    {
+      "file": "data/非皮卡非W上架分析.json",
+      "sha256": "c43091d549ea11fe5cace98dea33257576ce14c587c4faa8f40623ebce88c4bb"
+    },
+    {
+      "file": "data/非皮卡非老车801上架分析.json",
+      "sha256": "bc4c0d656ee9663205fb26e990a1aacb15465349c6d0b3bcb64ef56b85bc2bb1"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-27 W型车 聚类代码由 artifacts/W型车/run_cluster.py 移至 src/w_cluster.py，读 A0 US 全量表、写本节点 artifacts；目标尺码移至 data/W型车目标尺码.json。现值为旧尺码命名，按现行 A0 新命名命中 0 行（仅 Bel Air 专用规则命中），待确认新旧尺码对应后登记 run 与 output/W型车",
+    "2026-10-23 节点标题由 D1.聚类SKU 改为 D1.发货评估；正式运行覆盖 A0 US 全量表全部 DIMENSION-ID，按自动尺码 4* 的 W型车、皮卡、普通车分别灰度聚合并做市场潜力排序，不计算发货量；接入 B0 差评分析，输出精确/模糊匹配、差评数、原因和备注",
+    "2026-10-23 精简业务输出字段：移除 DIMENSION-ID，差评模糊与推理依据合并进差评备注，非皮卡分类表移除 CAB/BED；新增内部身份映射表承接上游身份",
+    "2026-10-23 正式业务输出改为 SKU 粒度：以 MAKE+MODEL+连续 YEAR 年份区间+供货尺码为组合主键，版本、结构、CAB、BED仅作汇总核对字段；全量车型发货评估明细改为全类别 SKU 主表",
+    "2026-10-23 参考 global/定制预定车型.csv 在本节点 data/ 维护正式清单，按规范化 MAKE+MODEL 为 SKU 增加定制标记；清单尾部的门数、代际等作为细分说明",
+    "2026-10-23 精简差评备注：移除上游匹配与语义归并流水账，保留业务分析；模糊原因改为短标签，推理只保留结论与来源 SKU",
+    "2026-10-23 按业务查看顺序重排 SKU 输出字段，并移除未列入交付口径的 SHAPE；非皮卡分类表继续省略 CAB/BED",
+    "2026-10-23 移除业务表和身份映射中的自生成哈希 SKU 字段，改用 MAKE+MODEL+YEAR+供货尺码自然主键；差评标记改为尺寸、质量、无三类，尺寸类原因优先",
+    "2026-10-23 调整业务表前置字段顺序为 MAKE、MODEL、版本、CAB、BED、YEAR、结构、评估类别、定制标记"
+  ],
+  "checks": {
+    "identity_coverage": [
+      {
+        "output": "发货评估身份映射.csv",
+        "upstream": "size-calculation",
+        "file": "US/全量/全量表.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      }
+    ]
+  }
+}

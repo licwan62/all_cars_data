@@ -12,6 +12,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 NODES_DIR = "nodes"
+NODE_PATH_ALIASES = {"D1.聚类SKU": "D1.发货评估"}
 
 
 def node_dir_name(path: str) -> str:
@@ -22,6 +23,11 @@ def node_dir_name(path: str) -> str:
 
 def canonical_path(value: str, root: Path = REPO_ROOT) -> str:
     """把迁移前记录的旧仓库相对路径规范为 ``nodes/...``；其他字符串原样返回。"""
+    for old, new in NODE_PATH_ALIASES.items():
+        for prefix in (old, f"{NODES_DIR}/{old}"):
+            if value == prefix or value.startswith(prefix + "/"):
+                suffix = value[len(prefix):]
+                return f"{NODES_DIR}/{new}{suffix}"
     head = value.split("/", 1)[0]
     if head and head != NODES_DIR and (root / NODES_DIR / head).is_dir() and not (root / head).exists():
         return f"{NODES_DIR}/{value}"

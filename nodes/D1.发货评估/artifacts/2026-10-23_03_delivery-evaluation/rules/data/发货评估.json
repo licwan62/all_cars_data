@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "active",
+  "region": "US",
+  "market_potential": {
+    "evaluation_year": 2026,
+    "full_weight_years": 5,
+    "half_life_years": 10
+  },
+  "classification": {
+    "w_size_prefix": "4",
+    "pickup_category": "皮卡"
+  },
+  "gray_match": {
+    "enabled": true,
+    "identity_keys": ["评估类别", "MAKE", "MODEL", "版本", "结构", "CAB", "BED"],
+    "max_year_gap": 1,
+    "boundary_band_mm": 25,
+    "max_group_spread_mm": {
+      "length": 50,
+      "width": 50,
+      "height": 50
+    },
+    "adjacent_sizes_only": true,
+    "target_strategy": "larger",
+    "target_length_margin_mm": {
+      "min": 50,
+      "max_exclusive": 500
+    }
+  },
+  "scope_note": "覆盖 A0 US 全量表全部 DIMENSION-ID。W型车按自动尺码以4开头识别；剩余皮卡按分类=皮卡识别；其余为普通车。市场潜力只用于相对排序，不计算发货量。差评只有品牌车型、结构、年代和尺码均可核实时标记精确匹配，否则标记模糊匹配并说明原因。"
+}

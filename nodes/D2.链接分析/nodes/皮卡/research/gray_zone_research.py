@@ -1,7 +1,7 @@
 """在隔离副本中重放皮卡聚类，比较 50 mm 灰区政策的影响。
 
 研究脚本不修改 A0/D1/D2 的正式规则、registry 或 output，也不属于本节点正式运行：
-聚类引擎仍取自 D1.聚类SKU/artifacts/皮卡 的历史快照，待 D1 发布“皮卡 SKU聚类结果”后改读其 output/。
+聚类引擎仍取自 D1.发货评估/artifacts/皮卡 的历史快照，仅用于旧研究重放。
 """
 
 from __future__ import annotations
@@ -20,7 +20,7 @@ import pandas as pd
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 REPO_ROOT = PROJECT_DIR.parents[2]
-ENGINE_DIR = REPO_ROOT / "nodes" / "D1.聚类SKU" / "artifacts" / "皮卡"
+ENGINE_DIR = REPO_ROOT / "nodes" / "D1.发货评估" / "artifacts" / "皮卡"
 SOURCE_DETAIL = ENGINE_DIR / "output" / "pickup_cluster_detail.csv"
 SHIPMENT_WORKBOOK = PROJECT_DIR / "data" / "发货单明细.xlsx"
 
