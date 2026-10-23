@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "released_at": "2026-10-23T16:15:39+08:00",
+  "released_at": "2026-10-23T18:04:47+08:00",
   "nodes": {
     "dimension-crawler": {
       "path": "nodes/00.自动化尺寸抓取器",
@@ -235,6 +235,19 @@
         "上架链接明细.csv",
         "发货分配核对.csv",
         "SKU发货数量.csv",
+        "链接分析报告.md"
+      ],
+      "pending": []
+    },
+    "link-analysis-regular": {
+      "path": "nodes/D2.链接分析/nodes/普通",
+      "version": "20261023_03",
+      "artifact": "nodes/D2.链接分析/nodes/普通/artifacts/2026-10-23_03_link-analysis-regular-release",
+      "deliverables": [
+        "上架链接明细.csv",
+        "链接适配依据.csv",
+        "尺码发货核对.csv",
+        "待确认清单.csv",
         "链接分析报告.md"
       ],
       "pending": []

@@ -786,6 +786,35 @@
       "release_notes": [
         "2026-09-27 撤下正式 run：analyze_size_clusters.py 基于旧规则表结构（逻辑尺码/内部尺码/档位序号/参考插片上限），原默认输入 source/尺码分析.csv 与 尺码计算/input/尺码匹配规则.csv 早已不存在；数据默认改读 A0 US 全量表，规则须 --rules 显式指定旧结构表。待移植到现行 A0 规则结构后恢复 run"
       ]
+    },
+    {
+      "id": "link-analysis-regular",
+      "path": "nodes/D2.链接分析/nodes/普通",
+      "code_dir": "scripts",
+      "run": [
+        "python scripts/run.py"
+      ],
+      "tests": "tests",
+      "layer": 6,
+      "line": "D",
+      "index": 2,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "sku-clustering"
+      ],
+      "outputs": [
+        "上架链接明细.csv",
+        "链接适配依据.csv",
+        "尺码发货核对.csv",
+        "待确认清单.csv",
+        "链接分析报告.md"
+      ],
+      "pending": [],
+      "public_outputs": [],
+      "release_notes": [
+        "2026-10-23 普通车第一批既成发货分析，保留1000件配额，按D1身份映射核对A0，定制尺码缺失列为待确认，未对外发布。"
+      ]
     }
   ],
   "final_products": [

@@ -2,16 +2,16 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 from pathlib import Path
-import subprocess
 import sys
 
 PROJECT = Path(__file__).resolve().parents[1]
 REPO = PROJECT.parents[1]
+sys.path.insert(0, str(PROJECT / 'code'))
 sys.path.insert(0, str(REPO / "lib"))
 from artifact_batch import RunBatch, sha256
+from shipment_evidence import normalized, unavailable_models, version_labels, unique_labels
 
 
 def allocate(weights, units, capacities):
@@ -45,11 +45,13 @@ def allocate(weights, units, capacities):
     return result
 
 
-def plan(rows, config):
+def plan(rows, config, blocked_models=None):
     import math
     keys = ["MAKE", "MODEL", "YEAR", "供货尺码"]
     pool = [dict(r) for r in rows if r["评估类别"] == config["category"]]
     identities = [tuple(r[k] for k in keys) for r in pool]
+    if any(not r["YEAR"].strip() for r in pool):
+        raise ValueError("源YEAR年份不能为空")
     if len(identities) != len(set(identities)):
         raise ValueError("源SKU自然键重复")
     for r in pool:
@@ -59,28 +61,59 @@ def plan(rows, config):
     pool = [r for r in pool if float(r[config["weight"]]) > 0]
     pool.sort(key=lambda r: (-float(r[config["weight"]]), *(r[k] for k in keys)))
     b1, b2 = config["batch_units"]
-    if len(pool) <= b1 or len(pool) > b1 + b2:
-        raise ValueError("当前覆盖政策要求首批留有新SKU且两批能覆盖全部正权重SKU")
-    first = [int(i < b1) for i in range(len(pool))]
-    second = [1 - n for n in first]
     cap = config["max_total_per_sku"]
-    extra = allocate([float(r[config["weight"]]) for r in pool], b2 - sum(second),
-                     [cap - a - b for a, b in zip(first, second)])
-    total_weight = sum(float(r[config["weight"]]) for r in pool)
+    limit = config["max_skus_per_batch"]
+    new_target = config["batch2_new_sku_target"]
+    if not 0 < new_target < limit or cap < 1:
+        raise ValueError("批次SKU上限或第二批新增目标不合法")
+    weights = [float(r[config["weight"]]) for r in pool]
+
+    def assign(indices, units, capacities):
+        if not indices or len(indices) > units or any(capacities[i] < 1 for i in indices):
+            raise ValueError("批次入选SKU与发货量不匹配")
+        extra = allocate([weights[i] for i in indices], units - len(indices),
+                         [capacities[i] - 1 for i in indices])
+        quantities = [0] * len(pool)
+        for i, n in zip(indices, extra):
+            quantities[i] = n + 1
+        return quantities
+
+    blocked_models = blocked_models or set()
+    eligible_first = [i for i, r in enumerate(pool)
+                      if normalized(f"{r['MAKE']} {r['MODEL']}") not in blocked_models]
+    first_indices = eligible_first[:min(limit, b1)]
+    first = assign(first_indices, b1, [cap] * len(pool))
+    remaining = [cap - n for n in first]
+    old = [i for i in first_indices if remaining[i] > 0]
+    new = [i for i in range(len(pool)) if first[i] == 0]
+    selected = new[:new_target] + old[:limit - new_target]
+    for i in sorted(set(old + new) - set(selected)):
+        if len(selected) >= min(limit, b2):
+            break
+        selected.append(i)
+    second = assign(sorted(selected), b2, remaining)
     output = []
     for i, r in enumerate(pool):
-        sku = "SKU-" + hashlib.sha256("|".join(r[k] for k in keys).encode()).hexdigest()[:12].upper()
-        record = {"SKU": sku, "权重顺序": i + 1, "第一批发货量": first[i],
-                  "第二批发货量": second[i] + extra[i], "总发货量": first[i] + second[i] + extra[i],
-                  "第二批类型": "补货" if first[i] else "新增SKU",
-                  "分配权重占比": float(r[config["weight"]]) / total_weight, **r}
+        record = {"第一批发货量": first[i],
+                  "第二批发货量": second[i], "总发货量": first[i] + second[i],
+                  **r}
         if r["定制标记"] == "是" and config["custom_size_blank"]:
             record["供货尺码"] = ""
-        output.append(record)
+        if record["总发货量"]:
+            output.append(record)
     assert sum(r["第一批发货量"] for r in output) == b1
     assert sum(r["第二批发货量"] for r in output) == b2
     assert max(r["总发货量"] for r in output) <= cap
+    assert sum(r["第一批发货量"] > 0 for r in output) <= limit
+    assert sum(r["第二批发货量"] > 0 for r in output) <= limit
     return output
+
+
+def business_rows(records, quantity_column):
+    return [{"MAKE": r["MAKE"], "MODEL": r["MODEL"], "版本": r.get('发货版本', ''),
+             "结构": '；'.join(unique_labels(r.get('结构', ''))), "YEAR": r["YEAR"], "尺码": r["供货尺码"],
+             "定制标记": r["定制标记"], "差评标记": r["差评标记"], "发货量": r[quantity_column]}
+            for r in records if r[quantity_column] > 0]
 
 
 def run():
@@ -88,12 +121,32 @@ def run():
     with RunBatch.create(PROJECT / "artifacts", "regular-two-batch-shipment", data_dir=PROJECT / "data") as batch:
         source = batch.input(PROJECT / "output" / config["source"])
         with source.open(encoding="utf-8-sig", newline="") as f:
-            records = plan(list(csv.DictReader(f)), config)
-        for name, selected in [("普通车两批发货单.csv", records),
-                               ("普通车第一批发货单.csv", [r for r in records if r["第一批发货量"]]),
-                               ("普通车第二批发货单.csv", [r for r in records if r["第二批发货量"]])]:
+            evaluations = list(csv.DictReader(f))
+        def read(path):
+            with batch.input(path).open(encoding='utf-8-sig', newline='') as f:
+                return list(csv.DictReader(f))
+        availability = read(PROJECT / 'data' / config['availability_file'])
+        blocked, availability_audit = unavailable_models(evaluations, availability)
+        atoms = read(REPO / 'nodes/A0.尺码计算/output/US/全量/全量表.csv')
+        identity = read(PROJECT / 'output/发货评估身份映射.csv')
+        labels, evidence = version_labels(evaluations, atoms, identity, config['version_evidence'])
+        for row in evaluations:
+            row['发货版本'] = labels[tuple(row[c] for c in ['MAKE', 'MODEL', 'YEAR', '供货尺码'])]
+        records = plan(evaluations, config, blocked)
+        assert not any(normalized(f"{r['MAKE']} {r['MODEL']}") in blocked for r in records if r['第一批发货量'])
+        import gzip
+        for name, rows in [('版本尺寸证据.csv', evidence), ('首批可用性核对.csv', availability_audit)]:
+            if rows:
+                with gzip.open(batch.extra(name), 'wt', encoding='utf-8-sig', newline='') as f:
+                    writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+                    writer.writeheader()
+                    writer.writerows(rows)
+        for name, quantity_column in [("普通车两批发货单.csv", "总发货量"),
+                                      ("普通车第一批发货单.csv", "第一批发货量"),
+                                      ("普通车第二批发货单.csv", "第二批发货量")]:
+            selected = business_rows(records, quantity_column)
             with batch.output(name).open("w", encoding="utf-8-sig", newline="") as f:
-                writer = csv.DictWriter(f, fieldnames=list(records[0]))
+                writer = csv.DictWriter(f, fieldnames=config["export_columns"])
                 writer.writeheader()
                 writer.writerows(selected)
         stats = {"total_units": sum(r["总发货量"] for r in records), "total_skus": len(records),
@@ -101,13 +154,15 @@ def run():
                  "batch2_skus": sum(r["第二批发货量"] > 0 for r in records),
                  "new_skus_batch2": sum(r["第一批发货量"] == 0 for r in records),
                  "batch2_new_units": sum(r["第二批发货量"] for r in records if not r["第一批发货量"]),
+                 "batch2_replenishment_skus": sum(r["第一批发货量"] > 0 and r["第二批发货量"] > 0 for r in records),
+                 "batch2_replenishment_units": sum(r["第二批发货量"] for r in records if r["第一批发货量"]),
                  "custom_skus": sum(r["定制标记"] == "是" for r in records),
                  "max_units_per_sku": max(r["总发货量"] for r in records),
+                 "first_batch_blocked_models": sorted(blocked),
+                 "dimension_evidence_pairs": len(evidence),
+                 "version_labeled_rows": sum(bool(r['发货版本']) for r in records),
+                 "evidence_code_sha256": sha256(PROJECT / 'code/shipment_evidence.py'),
                  "code_sha256": sha256(Path(__file__)), "config": config}
-        payload = batch.extra("workbook.json", compress=False)
-        payload.write_text(json.dumps({"records": records, "stats": stats}, ensure_ascii=False), encoding="utf-8")
-        workbook = batch.output("普通车两批发货单.xlsx")
-        subprocess.run(["node", str(PROJECT / "code/export_shipment_workbook.mjs"), str(payload), str(workbook)], check=True)
         report = batch.directory / "REPORT.md"
         report.write_text("# 普通车两批发货单\n\n" + config["policy"] + "\n\n" + json.dumps(stats, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         batch.finish(stats)
