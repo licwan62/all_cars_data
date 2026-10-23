@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "batch": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research",
+  "version": "20261022_01",
+  "description": "mainstream-2000-150sku-gray-research",
+  "created_at": "2026-10-22T16:54:02+08:00",
+  "finished_at": "2026-10-22T16:54:03+08:00",
+  "command": [
+    "mainstream_2000_150_gray_analysis.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261019_03",
+      "file": "US/压缩尺码表.csv",
+      "versioned_file": "US/压缩尺码表-20261019_01.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-19_01_compress-by-line/output/US/压缩尺码表-20261019_01.csv",
+      "sha256": "4537b2bb6225cf3a66d736dde4c28d775e89df5c2b41143872252dc32a94d47d"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261019_10",
+      "file": "US/尺码规则.json",
+      "versioned_file": "US/尺码规则-20261015_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+      "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/D1.聚类SKU/data",
+    "git_commit": "94206e61fb40b6e8337e956d3a3fdee07e05ad00",
+    "copied": [
+      "data/README.md",
+      "data/普通车2000件150SKU灰度聚类.json"
+    ],
+    "files": [
+      {
+        "file": "data/README.md",
+        "sha256": "2ad2d819b6d12cf07710765ef9e1f7fa9212f199a50bfbd63bf394c8bfe8d4d2",
+        "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/rules/data/README.md"
+      },
+      {
+        "file": "data/W型车目标尺码.json",
+        "sha256": "b045c86d2b880ca0fa29378486a0c28324515b45634ea786a4ead30b69312766"
+      },
+      {
+        "file": "data/指定车型追加900.json",
+        "sha256": "ecbb9aeec59470057d302d90a4362f99d391a151284ac8c522b8729cf3274056"
+      },
+      {
+        "file": "data/普通车2000件150SKU灰度聚类.json",
+        "sha256": "ff5c81beaf0de02df58751fad3bff039e7a0db77a302684e517a0ede0a93741e",
+        "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/rules/data/普通车2000件150SKU灰度聚类.json"
+      },
+      {
+        "file": "data/非皮卡非W上架分析.json",
+        "sha256": "c43091d549ea11fe5cace98dea33257576ce14c587c4faa8f40623ebce88c4bb"
+      },
+      {
+        "file": "data/非皮卡非老车801上架分析.json",
+        "sha256": "bc4c0d656ee9663205fb26e990a1aacb15465349c6d0b3bcb64ef56b85bc2bb1"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "推荐SKU与2000件分配.csv",
+      "versioned_file": "推荐SKU与2000件分配-20261022_01.csv",
+      "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/output/推荐SKU与2000件分配-20261022_01.csv",
+      "sha256": "a0afe0bed5167a48a713c575fee9c3719bfc45c65913ba207986d2650aec3ab4",
+      "bytes": 12959,
+      "rows": 150
+    },
+    {
+      "file": "物理尺码备货汇总.csv",
+      "versioned_file": "物理尺码备货汇总-20261022_01.csv",
+      "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/output/物理尺码备货汇总-20261022_01.csv",
+      "sha256": "755ee66ec5d0582d733b44bca4d682f4e2077d80283bce99755320b3b68ef1c6",
+      "bytes": 483,
+      "rows": 19
+    },
+    {
+      "file": "全部候选SKU.csv",
+      "versioned_file": "全部候选SKU-20261022_01.csv",
+      "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/output/全部候选SKU-20261022_01.csv",
+      "sha256": "fcf661ba55f5e141730ac43f52720c104a9f5e53d7fab7631d8721a3b2ee1093",
+      "bytes": 90662,
+      "rows": 1169
+    },
+    {
+      "file": "灰度匹配审核.csv",
+      "versioned_file": "灰度匹配审核-20261022_01.csv",
+      "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/output/灰度匹配审核-20261022_01.csv",
+      "sha256": "83b55d7a867ca2d6b559de517f071f522ee2a5f0efd5bd11b325da5da165934e",
+      "bytes": 16986,
+      "rows": 141
+    },
+    {
+      "file": "W型车排除核对.csv",
+      "versioned_file": "W型车排除核对-20261022_01.csv",
+      "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/output/W型车排除核对-20261022_01.csv",
+      "sha256": "068c0b2318ceae8b61be0825a1ebed068e9f6ee9cfc4e075d9073bc07e83cbee",
+      "bytes": 161,
+      "rows": 3
+    },
+    {
+      "file": "REPORT.md",
+      "versioned_file": "REPORT-20261022_01.md",
+      "artifact_file": "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/output/REPORT-20261022_01.md",
+      "sha256": "271578b3613d3fa32b4d5a955c488e0f23002932017ff902b2e3ddeba33b13f5",
+      "bytes": 874,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "nodes/D1.聚类SKU/artifacts/2026-10-22_01_mainstream-2000-150sku-gray-research/extra/压缩源范围与灰度归属.csv.gz"
+  ],
+  "status": {
+    "status": "passed",
+    "budget": 2000,
+    "selected_skus": 150,
+    "candidate_skus": 1169,
+    "allocated_units": 2000,
+    "physical_skus": 19,
+    "scope_counts": {
+      "范围内": 1169,
+      "排除W型车": 164,
+      "排除未知尺码": 37
+    },
+    "gray_groups_passed": 6,
+    "gray_adjusted_rows": 6,
+    "code_sha256": "e6925aa645789124fde2aec0a0229533a1c5df0ff9b6307dc95a84f5f89366c0",
+    "effective_config": {
+      "schema_version": 1,
+      "status": "research",
+      "region": "US",
+      "shipment_budget": 2000,
+      "portfolio_sku_count": 150,
+      "min_fitment_year": 0,
+      "max_fitment_year": 9999,
+      "w_size_prefixes": [
+        "4"
+      ],
+      "w_models": [
+        {
+          "MAKE": "Dodge",
+          "MODEL": "Challenger",
+          "label": "Dodge Challenger"
+        },
+        {
+          "MAKE": "Tesla",
+          "MODEL": "Model X",
+          "label": "Tesla Model X"
+        }
+      ],
+      "bel_air_dedicated_max_year": 1957,
+      "sku_keys": [
+        "MAKE",
+        "MODEL",
+        "YEAR",
+        "供货尺码"
+      ],
+      "gray_match": {
+        "enabled": true,
+        "identity_keys": [
+          "MAKE",
+          "MODEL",
+          "VERSION",
+          "CONST"
+        ],
+        "max_year_gap": 1,
+        "max_group_spread_mm": {
+          "length": 50,
+          "width": 50,
+          "height": 50
+        },
+        "adjacent_sizes_only": true,
+        "target_strategy": "larger",
+        "target_length_margin_mm": {
+          "min": 50,
+          "max_exclusive": 500
+        }
+      },
+      "scope_note": "普通车池排除皮卡和W型车范围；SKU严格按MAKE+MODEL+原YEAR年份区间+灰度后供货尺码聚类。取销量权重前150个SKU，2000件按入选SKU销量用最大余数法分配。"
+    },
+    "publication": "research_only_not_published"
+  }
+}
