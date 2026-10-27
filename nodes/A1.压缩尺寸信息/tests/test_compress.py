@@ -229,14 +229,38 @@ def test_ru_format_renames_size_and_fills_ozon_and_shipping_sizes():
     assert set(zip(high["亚马逊尺码"], high["OZON尺码"], high["发货尺码"])) == {("3M", "3M", "L"), ("YS-410", "S", "YM")}
 
 
-def test_ru_format_rejects_ambiguous_extra_sizes():
+def test_ru_format_keeps_different_extra_size_combinations_separate():
     rows = [
         {**row(model="Vesta", year="2018", size="3M", region="RU"), "OZON尺码": "3M", "发货尺码": "L"},
         {**row(model="Vesta", year="2019", size="3M", region="RU"), "OZON尺码": "3L", "发货尺码": "L"},
     ]
     frame = pd.DataFrame(rows).astype(str)
-    with pytest.raises(run_mod.CompressionError):
-        run_mod.compress_line("RU", frame, profile(), "RU", size_format=run_mod.load_size_formats(PROJECT_DIR / "data")["RU"])
+    result = run_mod.compress_line("RU", frame, profile(), "RU", size_format=run_mod.load_size_formats(PROJECT_DIR / "data")["RU"])
+    high = result["tables"]["non_pickup_high"]
+    assert len(high) == 2
+    assert set(zip(high["YEAR"], high["亚马逊尺码"], high["OZON尺码"], high["发货尺码"])) == {("2018", "3M", "3M", "L"), ("2019", "3M", "3L", "L")}
+    assert len(result["tables"]["sources"]) == 2
+    for table in [*result["tables"].values(), result["atoms"], result["log"], *result["checks"].values()]:
+        assert all("[A1:" not in str(value) for value in table.to_numpy().flat)
+
+
+@pytest.mark.parametrize("pickup", [False, True])
+def test_ru_extra_sizes_keep_source_sales_and_dimensions(pickup):
+    common = {"model": "Test", "size": "4XL-0", "region": "RU", "year": "2025"}
+    if pickup:
+        common.update(structure="Pickup", cab="Crew", bed="5.5", category="皮卡")
+    rows = [
+        {**row(**common, sales=30, length=5100), "OZON尺码": "4XL", "发货尺码": ""},
+        {**row(**common, version="Sport", sales=60, length=5300), "OZON尺码": "YL", "发货尺码": ""},
+    ]
+    result = run_mod.compress_line("RU", pd.DataFrame(rows).astype(str), profile(), "RU", size_format=run_mod.load_size_formats(PROJECT_DIR / "data")["RU"])
+    high = result["tables"]["pickup_high" if pickup else "non_pickup_high"]
+    assert set(zip(high["OZON尺码"], high["尺码销量总和"], high["最大长-MM"])) == {("4XL", 30, "5100"), ("YL", 60, "5300")}
+    sources = result["tables"]["sources"]
+    for _, source in sources.iterrows():
+        target = high.iloc[int(source["记录序号"]) - 1]
+        assert target["VERSION"] == source["版本"]
+        assert target["最大长-MM"] == source["L-MM"]
 
 
 def test_pickups_are_split_into_pickup_tables():

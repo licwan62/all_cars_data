@@ -70,24 +70,24 @@ def test_ru_matching_prefers_smaller_cover_volume_over_shorter_length():
 def test_ru_rule_ozon_mapping_matches_the_approved_size_labels():
     rules = module.read_rules(module.RULES_PATH)
     expected = {
-        "2M": ("2L+", "L"), "2XL": ("2XL+", "XL"),
-        "6L": ("3XL+0", "XL"), "A": ("PK-M", ""),
-        "3XXL": ("3XXL", "XLL"), "S": ("YM+", "YM"),
-        "XL": ("YXXL", "YXL"),
+        "2M": ("2XL", "L"), "2XL": ("5L", "XL"),
+        "6L": ("3XXL-520-0", "XL"), "A": ("PK-S", ""),
+        "3XXL": ("3XXL-550", "XLL"), "S": ("YM", "YM"),
+        "XL": ("YXXL-525", "YXL"),
     }
     for ozon, (amazon, ship) in expected.items():
         row = rules.loc[rules["OZON尺码"].eq(ozon) & rules["亚马逊尺码"].eq(amazon)].iloc[0]
         assert row["发货尺码"] == ship
 
-    # 0928-1：YS-380/YS-410 挂上 OZON 与发货尺码；OZON S 同时对应 YM+ 与 YS-410
-    for amazon, (ozon, ship) in {"YS-380": ("XS", "S"), "YS-410": ("S", "YM")}.items():
+    # 1023：RU 独有 YS 尺码保留其 OZON 与发货尺码。
+    for amazon, (ozon, ship) in {"YS-380": ("XS", "S"), "YS": ("S", "YM")}.items():
         row = rules.loc[rules["亚马逊尺码"].eq(amazon)].iloc[0]
         assert (row["OZON尺码"], row["发货尺码"]) == (ozon, ship)
 
-    for ozon, amazon in {"5S": "2L-200", "5M": "2XL-200"}.items():
+    for ozon, amazon in {"5S": "5S", "5M": "5M"}.items():
         row = rules.loc[rules["OZON尺码"].eq(ozon)].iloc[0]
         assert (row["亚马逊尺码"], row["发货尺码"]) == (amazon, "")
 
     blank_ozon = rules.loc[rules["OZON尺码"].eq("")]
-    assert set(blank_ozon["亚马逊尺码"]) == {"2S-280", "2XXL-545"}
+    assert set(blank_ozon["亚马逊尺码"]) == {"2S", "5XXL"}
     assert blank_ozon["发货尺码"].eq("").all()

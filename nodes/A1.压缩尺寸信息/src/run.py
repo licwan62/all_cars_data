@@ -19,6 +19,7 @@ data/ 规则快照（sha256 + git commit）与输出 sha256；extra/ 保存压�
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 from concurrent.futures import ProcessPoolExecutor
@@ -132,6 +133,46 @@ def apply_size_format(tables: dict[str, pd.DataFrame], frame: pd.DataFrame, fiel
         for offset, column in enumerate(extra):
             table.insert(position + offset, column, table["BACKSIZE"].map(engine.normalize_text).map(mapping[column]).fillna(""))
         tables[key] = table.rename(columns={"BACKSIZE": size_name})
+
+
+def scope_extra_sizes(frame: pd.DataFrame, field_profile: dict, size_format: dict | None) -> tuple[pd.DataFrame, dict[str, str]]:
+    """Keep distinct downstream size combinations apart throughout compression and source allocation.
+
+    Only ambiguous sizes receive private keys; ordinary lines keep their existing bytes.
+    The private keys are removed from every returned table and diagnostic after allocation.
+    """
+    extra = (size_format or {}).get("附加尺码列") or []
+    if not extra:
+        return frame, {}
+    missing = [column for column in extra if column not in frame.columns]
+    if missing:
+        raise CompressionError(f"全量表缺少附加尺码列：{missing}")
+    normalized = engine.normalize_input_schema(frame, field_profile=field_profile)
+    sizes = normalized[engine.BACKSIZE_SOURCE_COLUMN].map(engine.normalize_text)
+    combinations = {}
+    for size, values in zip(sizes, frame[extra].itertuples(index=False, name=None)):
+        if size:
+            combinations.setdefault(size, set()).add(tuple(engine.normalize_text(value) for value in values))
+    ambiguous = {size for size, values in combinations.items() if len(values) > 1}
+    if not ambiguous:
+        return frame, {}
+    # Special no-size values have separate gap/eligibility semantics in the engine.
+    if "无可用尺码" in ambiguous:
+        raise CompressionError("无可用尺码对应多个附加尺码组合")
+    mapping, originals = {}, {}
+    for size in sorted(ambiguous):
+        for values in sorted(combinations[size]):
+            digest = hashlib.sha256(json.dumps([size, *values], ensure_ascii=False).encode()).hexdigest()[:20]
+            key = f"{size} [A1:{digest}]"
+            if key in combinations or key in originals:
+                raise CompressionError("附加尺码内部身份冲突")
+            mapping[(size, values)] = key
+            originals[key] = size
+    normalized[engine.BACKSIZE_SOURCE_COLUMN] = [
+        mapping.get((size, tuple(engine.normalize_text(value) for value in values)), size)
+        for size, values in zip(sizes, frame[extra].itertuples(index=False, name=None))
+    ]
+    return normalized, originals
 
 
 def load_code_regions(data_dir: Path = DATA_DIR) -> set[str]:
@@ -389,6 +430,7 @@ def compress_line(
         wrong_region = set(frame["DIMENSION-ID"].map(region_of)) - {region}
         if wrong_region:
             raise CompressionError(f"{upstream_file(line, region)} 含非 {region} 的 DIMENSION-ID：{sorted(wrong_region)}")
+    frame, original_sizes = scope_extra_sizes(frame, field_profile, size_format)
     reporter = engine.ProgressReporter(interval_seconds=10.0, enabled=progress)
     non_lossless, _, non_high, pick_lossless, pick_high, log_df, atom_df = engine.transform_all_outputs(
         frame, progress=reporter, field_profile=field_profile, merge_rules=merge_rules or load_merge_rules()
@@ -437,7 +479,17 @@ def compress_line(
         sources.append(record_sources(hits, frame, kind))
     tables["sources"] = pd.concat(sources, ignore_index=True)
     apply_size_format(tables, frame, field_profile, size_format)
-    return {"names": names, "tables": tables, "log": engine.export_table(log_df), "atoms": atom_export, "checks": checks, "sales": sales_audit}
+    exported_log = engine.export_table(log_df)
+    if original_sizes:
+        def restore(value):
+            if isinstance(value, str):
+                for key, original in original_sizes.items():
+                    value = value.replace(key, original)
+            return value
+        for table in [*tables.values(), atom_export, *checks.values(), exported_log]:
+            for column in table.select_dtypes(include=["object", "string"]).columns:
+                table[column] = table[column].map(restore)
+    return {"names": names, "tables": tables, "log": exported_log, "atoms": atom_export, "checks": checks, "sales": sales_audit}
 
 
 FALLBACK_REASONS = ("原子事实对应多条候选记录", "无原子空档", "原子事实未被候选记录覆盖", "命中尺码", "原子事实命中不同尺码候选记录", "候选合并范围内没有可验证原子事实", "候选年份区间内存在同BED不同尺码事实")
