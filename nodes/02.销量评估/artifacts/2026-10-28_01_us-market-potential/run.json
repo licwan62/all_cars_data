@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "batch": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential",
+  "version": "20261028_01",
+  "description": "us-market-potential",
+  "created_at": "2026-10-28T15:36:29+08:00",
+  "finished_at": "2026-10-28T15:36:33+08:00",
+  "command": [
+    "build_market_potential.py"
+  ],
+  "inputs": [
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261009_08",
+      "file": "尺寸库_US.csv",
+      "versioned_file": "尺寸库_US-20261009_08.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库_US-20261009_08.csv",
+      "sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db"
+    },
+    {
+      "node": "sales-estimation",
+      "path": "nodes/02.销量评估",
+      "version": "20261019_02",
+      "file": "原子销量.csv",
+      "versioned_file": "原子销量-20261019_02.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-10-19_02_sales-estimation-release/output/原子销量-20261019_02.csv",
+      "sha256": "9f410ec1f3b2f19de1052c7c91353177696977fe03fc79fa07c4f8a19af7c83c"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/02.销量评估/data",
+    "git_commit": "d84f0f1a3df92922096dce334de4c19ff38672ea",
+    "copied": [
+      "data/商业潜力调整/README.md",
+      "data/商业潜力调整/参数.json",
+      "data/商业潜力调整/来源.json",
+      "data/商业潜力调整/积加销量.csv",
+      "data/商业潜力调整/竞品车罩销量统计表.csv"
+    ],
+    "files": [
+      {
+        "file": "data/config.json",
+        "sha256": "8173ce8ba67e43beb203174912bcf1b5993e396e241f8185c4a1dd0c1d21f46b"
+      },
+      {
+        "file": "data/modeled_config_share_policy.json",
+        "sha256": "9f08cb720c87d13bd1511b01465a004639f75922f86d9885ab53a1bc7af7c69d"
+      },
+      {
+        "file": "data/modeled_historic_us_sales.csv",
+        "sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef"
+      },
+      {
+        "file": "data/ru/auto_ru_model_sales_with_match_key.csv",
+        "sha256": "bb1b354b039b1eb1a12693b181bf1cef407ab34366c74164ef9fbfd21eda4208"
+      },
+      {
+        "file": "data/商业潜力调整/README.md",
+        "sha256": "64f74b2fd8c7d47e1cea5afbc71575703fad94c3c31888f2912ad898c98fab26",
+        "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/rules/data/商业潜力调整/README.md"
+      },
+      {
+        "file": "data/商业潜力调整/参数.json",
+        "sha256": "634ae1c893b1d9cc778643a68e01673acfe2953f94e44486028074bfbe64ea8e",
+        "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/rules/data/商业潜力调整/参数.json"
+      },
+      {
+        "file": "data/商业潜力调整/来源.json",
+        "sha256": "270c4a35a5e15d3ef76277648c4487d5c0aea9469f2f0c78072fa026c7c78142",
+        "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/rules/data/商业潜力调整/来源.json"
+      },
+      {
+        "file": "data/商业潜力调整/积加销量.csv",
+        "sha256": "f8d632c06f1819de4ee0269aa2515e68a1da144142151be8a874f8a8dca6b4c6",
+        "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/rules/data/商业潜力调整/积加销量.csv"
+      },
+      {
+        "file": "data/商业潜力调整/竞品车罩销量统计表.csv",
+        "sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a",
+        "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/rules/data/商业潜力调整/竞品车罩销量统计表.csv"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "市场潜力.csv",
+      "versioned_file": "市场潜力-20261028_01.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/output/市场潜力-20261028_01.csv",
+      "sha256": "06b31462255d452575d23fdc51b2198ff7cfef516072cd1e78ee38488f39ae30",
+      "bytes": 241343,
+      "rows": 4383
+    }
+  ],
+  "extras": [
+    "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/extra/市场潜力计算明细.csv.gz",
+    "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/extra/销售匹配依据.csv.gz",
+    "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/extra/REPORT.md"
+  ],
+  "status": {
+    "status": "passed",
+    "rows": 4383,
+    "boosted_rows": 970,
+    "base_total": 310821.5677032259,
+    "potential_total": 396126.1496965334,
+    "missing_atom_sales": 2,
+    "match_counts": {
+      "积加 / 未匹配，待审核": 44,
+      "积加 / 车型匹配，按潜力分摊": 299,
+      "积加 / 车型歧义，待审核": 1,
+      "积加 / 通用或多车型，待审核": 218,
+      "竞品 / 未匹配，待审核": 288,
+      "竞品 / 车型匹配，按潜力分摊": 3497,
+      "竞品 / 车型歧义，待审核": 5,
+      "竞品 / 通用或多车型，待审核": 1090,
+      "竞品 / 非纳入车罩类别，待审核": 462
+    }
+  }
+}

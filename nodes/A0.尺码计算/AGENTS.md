@@ -18,7 +18,6 @@ data/
 │  └─ TRIM/  TrimList、TrimList_audit、trim_values、TrimList_ID迁移、联网证据与研究产物
 ├─ EU/  规则/尺码匹配规则.csv、参数/尺码匹配参数.csv、研究/当前已审核全量.csv
 ├─ RU/  规则/、参数/（各版本）、参考/ozon映射.csv
-├─ 商业潜力调整/ 参数.json、积加销量.csv、竞品车罩销量统计表.csv、来源.json
 └─ 参考/ powerquery.md、插片必要性.md、新旧尺码对应/、车衣数据/（us/ru 车衣尺寸，供半周长分析）
 ```
 
@@ -46,7 +45,7 @@ output/
 2. `python src/generate_ru_full_table.py`：RU 全量表。
 3. `python src/build_regional_coverage_full.py`：EU 覆盖版全量表，RU 车形候选回填。
 4. `python src/add_cover_shape.py`：只读 03 `output/COVER_SHAPE.csv`，按精确地区 DIMENSION-ID 仅回填国别与 US 店铺全量表的 SHAPE。状态/代表年/方法/备选/来源由 03 节点维护，不带入全量表。配置在 `data/全量SHAPE.yaml`；字段紧跟旧车形，本回填步骤保持其他原列值及行序不变。US生成阶段单独消费SHAPE与状态执行调整；EU/RU未启用。
-5. `python src/add_market_potential.py`：按本节点 `data/商业潜力调整/` 参数与销售快照，计算 US 全量表市场潜力，再按 DIMENSION-ID 回填三个店铺表；列紧接车型销量。以原始销量重算，不叠加已有市场潜力，匹配与计算依据写入批次 extra/。
+5. `python src/add_market_potential.py`：只读并校验 `02.销量评估/output/市场潜力.csv` 发布物，按 DIMENSION-ID 回填 US 与三个店铺表的 `市场潜力`、`销量潜力调整`；两列紧接车型销量。潜力算法、参数和销售 CSV 统一由02维护，不在本节点计算。
 6. `python src/build_match_report.py`：读取上述结果与 data/ 规则，生成三份 `尺码匹配报告.md` 及机器接口 `<国别>/尺码规则.json`、`US/店铺货架.json`、`US/新旧尺码对应.csv`；US报告包含SHAPE调整条件、证据提醒、基础→调整尺码与跳过原因，重算核对最终尺码。
 
 只有 US 有 TRIM 环节；EU/RU 全量表不带 `TRIM` 列。TRIM 资料维护与离线工具见 [src/trim/README.md](src/trim/README.md)。

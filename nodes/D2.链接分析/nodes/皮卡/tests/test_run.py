@@ -17,6 +17,7 @@ SPEC.loader.exec_module(MODULE)
 
 def test_year_parser_handles_discontinuous_ranges() -> None:
     assert MODULE.expand_years("Ford F-150 2001-2002/2004-2005") == {2001, 2002, 2004, 2005}
+    assert MODULE.compact_years({2001, 2002, 2004, 2005}) == "2001-2002/2004-2005"
 
 
 def test_current_workbook_fields_are_supported_by_source_facts() -> None:
@@ -41,7 +42,7 @@ def test_sku_shipment_report_uses_confirmed_sku_facts_without_cluster() -> None:
     workbook = MODULE.WORKBOOK
     project = Path(__file__).resolve().parents[1]
     listing = pd.read_excel(workbook, sheet_name="上架明细").fillna("")
-    facts = pd.read_csv(project / "data" / "发货事实.csv", encoding="utf-8-sig")
+    facts = pd.read_csv(project / "review" / "发货事实.csv", encoding="utf-8-sig")
     mapping = pd.read_csv(project / "data" / "SKU上架映射.csv", encoding="utf-8-sig")
     report = MODULE.sku_shipment_report(facts, listing, mapping)
     assert len(report) == 108
@@ -55,7 +56,7 @@ def test_sku_shipment_report_uses_confirmed_sku_facts_without_cluster() -> None:
     model_part = report["适配车型"].str.split("|").str[0]
     assert not model_part.str.contains(r"(?<!\d)(?:19|20)\d{2}", regex=True).any()
     assert report["适配年份"].str.match(r"^(?:19|20)\d{2}").all()
-    assert report["发货日期"].eq("2026-08-21").all()
+    assert report["发货日期"].eq("2026-08-20").all()
 
 
 def shipment_fixture():
@@ -91,6 +92,8 @@ def test_listing_rules_preserve_drw_exclusions_and_output_contract():
     listing = pd.read_excel(MODULE.WORKBOOK, sheet_name="上架明细").fillna("")
     result = MODULE.apply_listing_overrides(listing, rules).set_index("SKU_NAME")
     assert rules["listing_title_field"] == "TITLE_NAME"
+    assert rules["listing_title_year_field"] == "TITLE_YEAR"
+    assert rules["listing_title_max_gap_years"] == 3
     assert rules["listing_size_name_prefix"] == "Custom Fit "
     assert rules["shipment_output_fields"] == ["SKU_NAME", "发货数量", "发货日期"]
     assert len(rules["listing_overrides"]) == 2
@@ -137,18 +140,44 @@ def test_listing_title_format(source, expected):
     assert MODULE.listing_title(source, rules) == expected
 
 
-def test_all_listing_titles_preserve_fitment_and_qualifiers():
+def test_all_listing_titles_use_reasonable_title_years_and_preserve_qualifiers():
     rules = json.loads((MODULE.PROJECT_DIR / "data/链接字段规则.json").read_text(encoding="utf-8"))
     source = pd.read_excel(MODULE.WORKBOOK, sheet_name="上架明细").fillna("")
+    detail = pd.read_excel(MODULE.WORKBOOK, sheet_name="ref_cluster_detail").fillna("")
     source = MODULE.apply_listing_overrides(source, rules)
-    for value in source["CUSUMER_NAME"]:
+    audit = pd.DataFrame([MODULE.audit_row(row, detail, rules) for _, row in source.iterrows()])
+    for (_, row), (_, audited) in zip(source.iterrows(), audit.iterrows()):
+        years, _ = MODULE.title_year(audited, detail)
+        value = MODULE.replace_year(row["CUSUMER_NAME"], years)
         title = MODULE.listing_title(value, rules)
         assert "|" not in title
-        assert MODULE.expand_years(title) == MODULE.expand_years(value)
+        assert MODULE.expand_years(audited["适配年份"]).issubset(MODULE.expand_years(title))
+        assert MODULE.expand_years(title) == MODULE.expand_years(years)
         assert MODULE.bed_lengths(title) == MODULE.bed_lengths(value)
         assert MODULE.cab_terms(title) == MODULE.cab_terms(value)
         for qualifier in value.split("|")[3:]:
             assert qualifier.strip() in title
+
+
+def test_title_year_closes_unowned_gap_but_keeps_occupied_gap():
+    row = pd.Series({
+        "适配车型": "Chevrolet Silverado 1500HD",
+        "适配年份": "2001-2003/2005-2007",
+        "CUSUMER_NAME": "Chevrolet Silverado 1500HD 2001-2003/2005-2007 | Crew | 6.6' Standard Bed",
+    })
+    detail = pd.DataFrame({
+        "MAKE_MODEL": ["Chevrolet Silverado 1500HD"],
+        "CAB": ["Crew"], "BED_LENGTH": [6.6], "YEAR_START": [2001], "YEAR_END": [2003],
+    })
+    assert MODULE.title_year(row, detail) == ("2001-2007", "2004")
+    occupied = pd.concat([detail, pd.DataFrame({
+        "MAKE_MODEL": ["Chevrolet Silverado 1500HD"],
+        "CAB": ["Crew"], "BED_LENGTH": [6.6], "YEAR_START": [2004], "YEAR_END": [2004],
+    })], ignore_index=True)
+    assert MODULE.title_year(row, occupied) == ("2001-2003/2005-2007", "")
+    long_gap = row.copy()
+    long_gap["适配年份"] = "2001/2005"
+    assert MODULE.title_year(long_gap, detail) == ("2001/2005", "")
 
 
 def test_title_omission_is_specific_and_preserves_source_facts():

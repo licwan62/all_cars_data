@@ -1,194 +1,35 @@
-"""US 全量表市场潜力：D1 基础潜力与逐 ASIN 销售目标分只补不减。"""
+"""承接 02 已发布的 US 市场潜力；本节点不计算潜力或读取销售来源。"""
 from __future__ import annotations
-
-import csv
-from functools import lru_cache
 import json
-import re
 import sys
 from pathlib import Path
-
 import numpy as np
 import pandas as pd
-
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parents[1]
 sys.path.insert(0, str(ROOT / "lib"))
 from artifact_batch import RunBatch, published_reference, sha256
 from node_paths import load_record
-
 COLUMN = "市场潜力"
+ADJUSTMENT = "销量潜力调整"
 BASE_TABLE = "US/全量/全量表.csv"
 TABLES = [BASE_TABLE, *[f"US/店铺/店铺全量_{shop}.csv" for shop in ("HNT", "TM", "TM_拆分")]]
-SALES_DIR = "商业潜力调整"
-
-
 def read(path: Path) -> pd.DataFrame:
     return pd.read_csv(path, encoding="utf-8-sig", dtype=str, keep_default_na=False)
 
-
-def read_jijia_export(path: Path) -> tuple[pd.DataFrame, list[int]]:
-    """一次性导入助手：以唯一 ASIN 定位，恢复车型中未转义的逗号。"""
-    with path.open(encoding="utf-8-sig", newline="") as stream:
-        header, *rows = list(csv.reader(stream))
-    if len(header) != 8 or header[2] != "ASIN":
-        raise ValueError("积加导出列结构不符")
-    recovered, repaired = [], []
-    for number, row in enumerate(rows, 2):
-        positions = [i for i, value in enumerate(row) if re.fullmatch(r"[A-Z0-9]{10}", value)
-                     and len(row) - i == len(header) - 2]
-        if len(positions) != 1 or positions[0] < 2:
-            raise ValueError(f"积加第 {number} 行无法定位唯一 ASIN")
-        position = positions[0]
-        restored = [row[0], ",".join(row[1:position]), *row[position:]]
-        if len(restored) != len(header):
-            raise ValueError(f"积加第 {number} 行无法恢复字段")
-        recovered.append(restored)
-        if len(row) != len(header):
-            repaired.append(number)
-    return pd.DataFrame(recovered, columns=header), repaired
-
-
-def load_config(project: Path) -> dict:
-    policy = json.loads((project / "data" / SALES_DIR / "参数.json").read_text(encoding="utf-8"))
-    numbers = [policy[key] for key in ("evaluation_year", "full_weight_years", "half_life_years",
-                                      "divisor", "confidence_units", "score_per_monthly_unit")]
-    if not np.isfinite(numbers).all() or any(value < 0 for value in numbers):
-        raise ValueError("市场潜力参数必须为有限非负数")
-    if any(policy[key] <= 0 for key in ("half_life_years", "divisor", "confidence_units")):
-        raise ValueError("半衰期、除数、可信度参数必须为正")
-    weights = policy["monthly_weights"]
-    if len(weights) != 3 or not np.isfinite(weights).all() or min(weights) < 0 or not np.isclose(sum(weights), 1):
-        raise ValueError("月销量权重必须为三个非负数且合计为1")
-    return policy
-
-
-def interval_retention(value: str, policy: dict) -> float:
-    match = re.fullmatch(r"(\d{4})(?:-(\d{4}))?", str(value).strip())
-    if not match:
-        raise ValueError(f"无法解析年份: {value!r}")
-    start, end = int(match[1]), int(match[2] or match[1])
-    if end < start:
-        raise ValueError(f"年份倒序: {value!r}")
-    ages = np.maximum(0, policy["evaluation_year"] - np.arange(start, end + 1))
-    return float(np.power(2.0, -np.maximum(0, ages - policy["full_weight_years"]) /
-                          policy["half_life_years"]).mean())
-
-
-def nonnegative(values: pd.DataFrame) -> pd.DataFrame:
-    result = values.apply(pd.to_numeric, errors="raise")
-    if not np.isfinite(result.to_numpy()).all() or (result < 0).any(axis=None):
-        raise ValueError("销量必须为有限非负数")
-    return result
-
-
-def load_sales(project: Path, policy: dict) -> pd.DataFrame:
-    directory = project / "data" / SALES_DIR
-    own, competitor = read(directory / "积加销量.csv"), read(directory / "竞品车罩销量统计表.csv")
-    windows = ["7天销量", "15天销量", "30天销量"]
-    values = nonnegative(own[windows])
-    if ((values[windows[0]] > values[windows[1]]) | (values[windows[1]] > values[windows[2]])).any():
-        raise ValueError("积加累计窗口销量倒序")
-    own["月销量估计"] = values.mul([30 / 7, 2, 1]).mul(policy["monthly_weights"]).sum(axis=1)
-    own["30天销量依据"] = values["30天销量"]
-    own["来源"] = "积加"
-    competitor["月销量估计"] = nonnegative(competitor[["销量"]])["销量"]
-    competitor["30天销量依据"] = competitor["月销量估计"]
-    competitor["来源"] = "竞品"
-    sales = pd.concat([own, competitor], ignore_index=True).fillna("")
-    sales["ASIN"] = sales["ASIN"].str.strip().str.upper()
-    if sales["ASIN"].eq("").any() or sales["ASIN"].duplicated().any():
-        raise ValueError("ASIN 为空或重复（含跨来源），需核对后计算")
-    sales["可信度"] = sales["30天销量依据"] / (sales["30天销量依据"] + policy["confidence_units"])
-    sales["销量目标分"] = sales["月销量估计"] * sales["可信度"] * policy["score_per_monthly_unit"]
-    if not np.isfinite(sales[["月销量估计", "销量目标分"]].to_numpy(dtype=float)).all():
-        raise ValueError("销量目标分溢出")
-    return sales
-
-
-@lru_cache(maxsize=16384)
-def normalize(value: str) -> str:
-    return re.sub(r"[^a-z0-9]", "", str(value).casefold())
-
-
-def match_model(name: str, models: list[tuple[str, str]]) -> tuple[list[tuple[str, str]], str]:
-    if re.search(r"[,，/;；]|\band\b|未匹配|通用", name, flags=re.I):
-        return [], "通用或多车型，待审核"
-    # 只移除独立年份区间，S2000 等车型名称不作为年份删除。
-    cleaned = re.sub(r"(?<![a-zA-Z0-9])(?:19|20)\d{2}\s*[-–]\s*\d{2,4}(?!\d)", "", name)
-    text = normalize(cleaned)
-    candidates = []
-    for make, model in models:
-        token = normalize(model)
-        if not token or token not in text:
-            continue
-        if len(token) <= 3:
-            boundary = r"(?<![a-z0-9])" + r"[\s-]*".join(map(re.escape, token)) + r"(?![a-z0-9])"
-            if not re.search(boundary, cleaned.casefold()):
-                continue
-        candidates.append((make, model))
-    if not candidates:
-        return [], "未匹配，待审核"
-    longest = max(len(normalize(model)) for _, model in candidates)
-    candidates = [(make, model) for make, model in candidates if len(normalize(model)) == longest]
-    branded = [(make, model) for make, model in candidates if normalize(make) in text]
-    candidates = branded or candidates
-    return candidates, "车型匹配，按潜力分摊" if len(candidates) == 1 else "车型歧义，待审核"
-
-
-def calculate(frame: pd.DataFrame, sales: pd.DataFrame, policy: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
-    required = ["DIMENSION-ID", "MAKE", "MODEL", "YEAR", "尺寸组销量", "车型销量"]
-    if missing := set(required) - set(frame):
-        raise ValueError(f"全量表缺字段: {sorted(missing)}")
-    if frame["DIMENSION-ID"].str.strip().eq("").any() or frame["DIMENSION-ID"].duplicated().any():
-        raise ValueError("全量表 DIMENSION-ID 必须非空且唯一")
-    detail = frame[required].copy()
-    detail["年份留存系数"] = frame["YEAR"].map(lambda value: interval_retention(value, policy))
-    detail["基础潜力"] = nonnegative(frame[["尺寸组销量"]])["尺寸组销量"] * detail["年份留存系数"] / policy["divisor"]
-    for source in ("积加", "竞品"):
-        detail[f"{source}月销量分摊"] = 0.0
-        detail[f"{source}目标分分摊"] = 0.0
-    models = list(frame[["MAKE", "MODEL"]].drop_duplicates().itertuples(index=False, name=None))
-    allocations = {}
-    for model, group in detail.groupby(["MAKE", "MODEL"], sort=False):
-        base = group["基础潜力"]
-        allocations[model] = base / base.sum() if base.sum() else pd.Series(1 / len(group), index=group.index)
-    audit = []
-    for sale in sales.to_dict("records"):
-        candidates, status = match_model(str(sale["车型"]), models)
-        if sale["来源"] == "竞品" and sale["类别"] not in policy["competitor_categories"]:
-            status = "非纳入车罩类别，待审核"
-        matched = status == "车型匹配，按潜力分摊"
-        if matched:
-            weights = allocations[candidates[0]]
-            for suffix, value in [("月销量分摊", sale["月销量估计"]), ("目标分分摊", sale["销量目标分"])]:
-                detail.loc[weights.index, sale["来源"] + suffix] += value * weights
-        audit.append({**sale, "匹配状态": status, "匹配车型": json.dumps(candidates, ensure_ascii=False),
-                      "已分摊目标分": sale["销量目标分"] if matched else 0.0})
-    detail["销售目标分合计"] = detail["积加目标分分摊"] + detail["竞品目标分分摊"]
-    detail[COLUMN] = detail[["基础潜力", "销售目标分合计"]].max(axis=1)
-    detail["补差值"] = detail[COLUMN] - detail["基础潜力"]
-    if not np.isfinite(detail[["基础潜力", COLUMN]].to_numpy()).all():
-        raise ValueError("市场潜力出现非有限值")
-    audit = pd.DataFrame(audit)
-    if not np.isclose(detail["销售目标分合计"].sum(), audit["已分摊目标分"].sum(), rtol=1e-12, atol=1e-8):
-        raise ValueError("分摊目标分不守恒")
-    return detail, audit
-
-
 def attach(frame: pd.DataFrame, detail: pd.DataFrame) -> pd.DataFrame:
     ids = frame["DIMENSION-ID"]
+    columns = [COLUMN, ADJUSTMENT]
     if ids.duplicated().any() or set(ids) != set(detail["DIMENSION-ID"]):
-        raise ValueError("US 店铺与全量表 DIMENSION-ID 不一致")
-    result = frame.drop(columns=[COLUMN], errors="ignore").copy()
-    # 向上取至六位小数，避免舍入后比基础潜力略低；所有表复用同一映射。
-    potential = detail.set_index("DIMENSION-ID")[COLUMN].map(lambda value: f"{np.ceil(value * 1e6) / 1e6:.6f}")
-    result.insert(result.columns.get_loc("车型销量") + 1, COLUMN, ids.map(potential))
-    previous = frame.drop(columns=[COLUMN], errors="ignore")
+        raise ValueError("US 店铺与潜力表 DIMENSION-ID 不一致")
+    result = frame.drop(columns=columns, errors="ignore").copy()
+    for offset, column in enumerate(columns, 1):
+        values = detail.set_index("DIMENSION-ID")[column]
+        result.insert(result.columns.get_loc("车型销量") + offset, column, ids.map(values))
+    previous = frame.drop(columns=columns, errors="ignore")
     if not result[previous.columns].equals(previous):
         raise ValueError("市场潜力回填改变原字段")
     return result
-
 
 def register_base(batch: RunBatch, path: Path, project: Path) -> str:
     """承接基表实际来源；不把当前最新上游冒记为旧基表的输入。"""
@@ -217,39 +58,33 @@ def register_base(batch: RunBatch, path: Path, project: Path) -> str:
     return digest
 
 
-def run(project: Path = PROJECT) -> dict:
-    policy = load_config(project)
+
+def run(project: Path = PROJECT, source_dir: Path | None = None) -> dict:
+    source_dir = source_dir or project.parent / "02.销量评估/output"
+    path = source_dir / "市场潜力.csv"
+    manifest = load_record(source_dir / "manifest.json")
+    expected = next((i["sha256"] for i in manifest["deliverables"] if i["file"] == path.name), None)
+    if expected != sha256(path):
+        raise ValueError("市场潜力与02 manifest sha256不一致，请先发布02")
     with RunBatch.create(project / "artifacts", "us-market-potential", data_dir=project / "data") as batch:
+        detail = read(path)
+        columns = [COLUMN, ADJUSTMENT]
+        if set(["DIMENSION-ID", *columns]) - set(detail) or detail["DIMENSION-ID"].eq("").any() or detail["DIMENSION-ID"].duplicated().any():
+            raise ValueError("市场潜力字段或 DIMENSION-ID 非法")
+        numbers = detail[columns].apply(pd.to_numeric, errors="raise")
+        if not np.isfinite(numbers.to_numpy()).all() or (numbers < 0).any(axis=None) or (numbers[ADJUSTMENT] > numbers[COLUMN]).any():
+            raise ValueError("市场潜力数值或调整值非法")
         frames = {name: read(project / "output" / name) for name in TABLES}
-        hashes = {name: register_base(batch, project / "output" / name, project) for name in TABLES}
-        # 同一上游证据可能由四张表承接，仅登记一次。
+        for name in TABLES:
+            register_base(batch, project / "output" / name, project)
+        batch.input(path)
         batch.inputs = list({json.dumps(item, sort_keys=True): item for item in batch.inputs}.values())
-        sales = load_sales(project, policy)
-        detail, audit = calculate(frames[BASE_TABLE], sales, policy)
         enriched = {name: attach(frame, detail) for name, frame in frames.items()}
         for name, frame in enriched.items():
             frame.to_csv(batch.output(name), index=False, encoding="utf-8-sig", lineterminator="\n")
-        detail.to_csv(batch.extra("市场潜力计算明细.csv"), index=False, encoding="utf-8-sig", lineterminator="\n")
-        audit.to_csv(batch.extra("销售匹配依据.csv"), index=False, encoding="utf-8-sig", lineterminator="\n")
-        summary = {
-            "rows": len(detail), "tables": TABLES, "base_table_sha256": hashes,
-            "source_rows": sales.groupby("来源").size().to_dict(),
-            "match_counts": audit.groupby(["来源", "匹配状态"]).size().to_dict(),
-            "boosted_rows": int(detail["补差值"].gt(0).sum()),
-            "base_total": float(detail["基础潜力"].sum()),
-            "allocated_target_total": float(detail["销售目标分合计"].sum()),
-            "potential_total": float(detail[COLUMN].sum()),
-        }
-        summary["match_counts"] = {" / ".join(key): value for key, value in summary["match_counts"].items()}
-        batch.extra("REPORT.md", compress=False).write_text(
-            "# US 市场潜力\n\n规则差异：新增市场潜力列，紧接车型销量；2026评估年，5年全权重，10年半衰期，"
-            "基础潜力除1000；积加与竞品逐ASIN目标分合计，按车型原潜力分摊，只补不减。"
-            "竞品为近30天，仅全车罩/车型款；不细分年份配置。业务值向上保留6位小数。"
-            "\n\n来源及导入修复见 data/商业潜力调整/来源.json；匹配依据与逐行计算明细见本批次extra。\n\n"
-            + json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        summary = {"rows": len(detail), "tables": TABLES, "source_version": manifest["version"]}
         batch.finish(summary, publish_to=project / "output")
         return {"batch": str(batch.directory), **summary}
-
 
 if __name__ == "__main__":
     print(json.dumps(run(), ensure_ascii=False, indent=2))

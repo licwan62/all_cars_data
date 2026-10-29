@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "node": "link-analysis-pickup",
+  "path": "nodes/D2.链接分析/nodes/皮卡",
+  "version": "20261028_10",
+  "artifact": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_10_link-analysis-pickup-release",
+  "published_at": "2026-10-28T14:24:57+08:00",
+  "deliverables": [
+    {
+      "file": "链接字段审核.csv",
+      "versioned_file": "链接字段审核-20261028_09.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/output/链接字段审核-20261028_09.csv",
+      "sha256": "3375f660be4a082ee2d37466e69738667dcacc8a1809c86b512836c52c6fad00",
+      "bytes": 31295,
+      "rows": 108
+    },
+    {
+      "file": "上架链接明细.csv",
+      "versioned_file": "上架链接明细-20261028_09.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/output/上架链接明细-20261028_09.csv",
+      "sha256": "e3f9660e2a19a19a7bac93c3168ba2d4256aaf987d91a8fa40f27d6dd0e10ec2",
+      "bytes": 23734,
+      "rows": 108
+    },
+    {
+      "file": "发货分配核对.csv",
+      "versioned_file": "发货分配核对-20261028_10.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_10_link-analysis-pickup-release/output/发货分配核对-20261028_10.csv",
+      "sha256": "f697c4e41182ec36774bdd93b098281fe1142254557880738f5a5a8c02ac6e60",
+      "bytes": 128,
+      "rows": 6
+    },
+    {
+      "file": "SKU发货数量.csv",
+      "versioned_file": "SKU发货数量-20261028_09.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/output/SKU发货数量-20261028_09.csv",
+      "sha256": "4e5664de6dcc5bc0cd754ab0bf5aea3d89a8adb8302610aaaad4f64302217b85",
+      "bytes": 5502,
+      "rows": 108
+    },
+    {
+      "file": "链接分析报告.md",
+      "versioned_file": "链接分析报告-20261028_09.md",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/output/链接分析报告-20261028_09.md",
+      "sha256": "7ee4787e17d393aee59cb58b4a116df245a7758e4a725c913190026ca40810dc",
+      "bytes": 2562,
+      "rows": null
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261027_02",
+      "basis": "run",
+      "files": [
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261027_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-27_01_us-market-potential/output/US/全量/全量表-20261027_01.csv",
+          "sha256": "dedcefb4257f2b00c21c674254617ae77286c6c1621a6bf00d7581db35964771"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/PHYSICAL_SKU映射.json",
+      "sha256": "c695bd433b478f04064c04c6f764c67a97e444b111dd8e4460f415bbd8e5553e"
+    },
+    {
+      "file": "data/README.md",
+      "sha256": "8fa96c0e45dd2c9d6b00281c41b9560b2a9823e952b3a7e31102f4d3022292c7"
+    },
+    {
+      "file": "data/SKU上架映射.csv",
+      "sha256": "172f0e828c2e428d3fc372b98d53f8946863dcf52c0f06aa8c050bec934e4bd4"
+    },
+    {
+      "file": "data/发货单明细.xlsx",
+      "sha256": "b67b6a74859e6b564d99ee4ace808a454ee7e01a909421b4c6f83609ad60d662"
+    },
+    {
+      "file": "data/链接字段规则.json",
+      "sha256": "e5223b7d64cfbee5f4a5cd2cc98c8ae62ac2a6d181f36de52ed1839e3ec5aed8"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-10-11 皮卡作为 D2 下的独立业务子项目：审核 发货单明细.xlsx 的既成发货事实，逐行验证 CUSUMER_NAME、SIZE_NAME、适配车型并反查工作簿内嵌 ref_cluster_detail；输出字段审核、上架链接明细、发货分配核对和报告",
+    "2026-10-11 SKU发货数量.csv 以确认 SKU 为既成发货唯一键，合计 801，不向 108 条展示链接重新摊分",
+    "2026-10-19 在 pipeline.json 正式登记为节点（原 D2.链接分析 根节点 0 交付、子项目自带 manifest 不在总登记内）：run.py 移入 scripts/，发货单明细.xlsx 由 D2.链接分析/data/ 移入本节点 data/；manifest 改由 publish_release.py 生成，NAS sku_cluster/皮卡 改由 publish_public.py 按 public_outputs 发布；灰区研究脚本移入 research/（读取 D1 历史 artifacts，不属于正式运行）",
+    "2026-10-28 同步实际子项目目录为 nodes/D2.链接分析/nodes/皮卡；标题年份与事实年份分离，TITLE_YEAR 对不超过 3 年且无同车型/CAB/货斗事实占用的空档做合理扩张"
+  ]
+}

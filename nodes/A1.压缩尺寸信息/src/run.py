@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import math
 import json
 import os
 from concurrent.futures import ProcessPoolExecutor
@@ -294,13 +295,17 @@ def source_atoms(frame: pd.DataFrame, field_profile: dict) -> pd.DataFrame:
     return pd.DataFrame(atoms, columns=[*ATOM_KEY, "行号", "份数"])
 
 
-def source_atom_sales(frame: pd.DataFrame, atoms: pd.DataFrame) -> pd.DataFrame:
+def source_atom_sales(frame: pd.DataFrame, atoms: pd.DataFrame, column: str = SALES_SOURCE_COLUMN) -> pd.DataFrame:
     """把全量表每行的尺寸组销量均摊到它展开出的原子事实；返回按原子键（ATOM_KEY）汇总的 销量 列。"""
-    if SALES_SOURCE_COLUMN not in frame.columns:
-        raise CompressionError(f"全量表缺少 {SALES_SOURCE_COLUMN} 列")
-    sales = pd.to_numeric(frame[SALES_SOURCE_COLUMN].replace("", "0"), errors="coerce")
-    if sales.isna().any():
-        raise CompressionError(f"全量表 {SALES_SOURCE_COLUMN} 存在非数值")
+    if column not in frame.columns:
+        raise CompressionError(f"全量表缺少 {column} 列")
+    sales = pd.to_numeric(frame[column].replace("", "0"), errors="coerce")
+    if sales.isna().any() or not sales.map(math.isfinite).all() or sales.lt(0).any():
+        raise CompressionError(f"全量表 {column} 存在非数值")
+    if column == "市场潜力":
+        missing = sales.index.difference(atoms["行号"].unique())
+        if sales.loc[missing].gt(0).any():
+            raise CompressionError("非零市场潜力存在无法展开原子的记录，须先修复尺寸来源")
     result = atoms[ATOM_KEY].copy()
     result["销量"] = [float(sales[index]) / count for index, count in zip(atoms["行号"], atoms["份数"])]
     return result.groupby(ATOM_KEY, as_index=False, sort=False)["销量"].sum()
@@ -332,13 +337,18 @@ def atom_export_keys(atom_export: pd.DataFrame) -> pd.DataFrame:
     return atom_export[ATOM_KEY].astype(str).map(engine.normalize_text) if not atom_export.empty else atom_export[ATOM_KEY]
 
 
-def allocate_record_sales(atom_export: pd.DataFrame, atom_sales: pd.DataFrame, table: pd.DataFrame, check: pd.DataFrame) -> tuple[pd.Series, dict]:
+def allocate_record_sales(atom_export: pd.DataFrame, atom_sales: pd.DataFrame, table: pd.DataFrame, check: pd.DataFrame, precision: int | None = None) -> tuple[pd.Series, dict]:
     """按原子检查的命中关系把原子销量汇总到压缩记录；原子命中多条同尺码记录时均分。"""
     keys = atom_export_keys(atom_export)
     sales_by_key = atom_sales.set_index(ATOM_KEY)["销量"]
     atom_values = pd.Series(
         [float(sales_by_key.get(tuple(key), 0.0)) for key in keys.itertuples(index=False)], index=atom_export.index
     )
+    if precision is not None:
+        # 引擎可重复导出同一个原子键；分摊该键的总潜力，不能再次计入。
+        tuples = list(keys.itertuples(index=False, name=None))
+        occurrences = Counter(tuples)
+        atom_values = pd.Series([value / occurrences[key] for key, value in zip(tuples, atom_values)], index=atom_export.index)
     totals = pd.Series(0.0, index=table.index)
     unallocated = 0.0
     for atom, targets in same_size_hits(table, check):
@@ -348,6 +358,21 @@ def allocate_record_sales(atom_export: pd.DataFrame, atom_sales: pd.DataFrame, t
             continue
         for target in targets:
             totals[target] += value / len(targets)
+    if precision is not None:
+        if not math.isclose(float(totals.sum()) + unallocated, float(atom_values.sum()), rel_tol=1e-12, abs_tol=1e-7):
+            raise CompressionError("潜力原子分配不守恒")
+        # 最大余数分配至百万分之一，含未分配桶，保证导出的6位小数总量守恒。
+        scale = 10 ** precision
+        values = [*totals.tolist(), unallocated]
+        units = [math.floor(value * scale) for value in values]
+        remainder = round(float(atom_values.sum()) * scale) - sum(units)
+        order = sorted(range(len(values)), key=lambda i: (-(values[i] * scale - units[i]), i))
+        if not 0 <= remainder <= len(values):
+            raise CompressionError("潜力精度分配异常")
+        for i in order[:remainder]: units[i] += 1
+        result = pd.Series([unit / scale for unit in units[:-1]], index=table.index)
+        audit = {"原子潜力": round(float(atom_values.sum()), precision), "已分配": round(float(result.sum()), precision), "未命中同尺码记录": units[-1] / scale}
+        return result.map(lambda value: f"{value:.{precision}f}"), audit
     audit = {"原子销量": round(float(atom_values.sum())), "已分配": round(float(totals.sum())), "未命中同尺码记录": round(unallocated)}
     return totals.round().astype("Int64"), audit
 
@@ -456,6 +481,7 @@ def compress_line(
     # 尺码销量总和：压缩记录所覆盖原子事实的尺寸组销量之和（行销量按原子均摊）；来源尺寸：所覆盖原子的长宽高最大/最小值及年份
     atoms = source_atoms(frame, field_profile)
     atom_sales = source_atom_sales(frame, atoms)
+    atom_potential = source_atom_sales(frame, atoms, "市场潜力") if "市场潜力" in frame else None
     dimensions = source_dimensions(frame)
     export_keys = set(atom_export[ATOM_KEY].astype(str).map(engine.normalize_text).itertuples(index=False, name=None))
     sales_keys = set(atom_sales[ATOM_KEY].itertuples(index=False, name=None))
@@ -469,9 +495,13 @@ def compress_line(
         table = tables[key]
         if kind in checks:
             table[SALES_COLUMN], sales_audit[kind] = allocate_record_sales(atom_export[kinds == kind], atom_sales, table, checks[kind])
+            if atom_potential is not None:
+                table["市场潜力"], potential_audit = allocate_record_sales(atom_export[kinds == kind], atom_potential, table, checks[kind], precision=6)
+                sales_audit[kind]["市场潜力"] = potential_audit
             hits = record_source_hits(atom_export[kinds == kind], atoms, table, checks[kind])
         else:
             table[SALES_COLUMN] = pd.Series(dtype="Int64")
+            if atom_potential is not None: table["市场潜力"] = pd.Series(dtype=str)
             hits = pd.DataFrame(columns=["记录", "行号", "年份"])
         record_dims = record_dimensions(hits, dimensions, table)
         for column in DIMENSION_COLUMNS:

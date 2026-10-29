@@ -1,5 +1,11 @@
 # 车型数据 Agent 流水线
 
+## 本机管理入口
+
+在本仓库运行 `python scripts/pipeline_portal.py`，浏览器会打开终端显示的本机地址（默认 `http://127.0.0.1:8765/`，端口占用时自动换用空闲端口）。这一个页面串联本仓库节点与网站发布流水线，可查看流向、状态、维护资料、运行及发布批次，并记录人工处理。页面每 15 秒同步现有记录；点击资料可预览或用本机默认程序打开。若网站仓库不在同级目录，传入 `--web-repo <路径>`。
+
+人工记录保存在 `portal/data/journal.sqlite3`，首次写入当天会在 `portal/data/backups/` 留下备份；这两个目录不纳入 Git，请随本机数据备份保存。页面不执行节点或发布命令；现有 `pipeline.json`、`manifest.json`、`release.json` 和自动生成的 `流水线状态.md` 仍是流水线接口与校验依据。
+
 本仓库把每个业务子项目视为独立 agent。节点、层号、产线与交付物登记在 [`pipeline.json`](pipeline.json)，通用执行规则见 [`AGENTS.md`](AGENTS.md)，当前发布状态见 [`release.json`](release.json)，依赖分析见 [`reports/流水线上下游关系报告.md`](reports/流水线上下游关系报告.md)。
 
 ## 命名：上游数字层号，下游按最终产物分线

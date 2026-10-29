@@ -19,9 +19,13 @@ from pathlib import Path
 import pandas as pd
 
 
-PROJECT_DIR = Path(__file__).resolve().parents[1]
-REPO_ROOT = PROJECT_DIR.parents[2]
+PROJECT_DIR = Path(__file__).absolute().parents[1]
+REPO_ROOT = next(
+    parent for parent in (PROJECT_DIR, *PROJECT_DIR.parents)
+    if (parent / "pipeline.json").is_file()
+)
 WORKBOOK = PROJECT_DIR / "data" / "发货单明细.xlsx"
+SHIPMENT_FACTS = PROJECT_DIR / "review" / "发货事实.csv"
 US_FULL_TABLE = REPO_ROOT / "nodes" / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
 sys.path.insert(0, str(REPO_ROOT / "lib"))
 
@@ -99,6 +103,23 @@ def expand_years(value: object) -> set[int]:
     return years
 
 
+def compact_years(years: set[int]) -> str:
+    """把逐年集合压缩为稳定的连续区间文本。"""
+    ordered = sorted(years)
+    if not ordered:
+        return ""
+    ranges: list[str] = []
+    start = previous = ordered[0]
+    for year in ordered[1:]:
+        if year == previous + 1:
+            previous = year
+            continue
+        ranges.append(str(start) if start == previous else f"{start}-{previous}")
+        start = previous = year
+    ranges.append(str(start) if start == previous else f"{start}-{previous}")
+    return "/".join(ranges)
+
+
 def model_text(value: object) -> str:
     text = str(value or "")
     match = YEAR_RE.search(text)
@@ -149,6 +170,51 @@ def candidate_years(candidates: pd.DataFrame) -> set[int]:
     return years
 
 
+def title_year(row: pd.Series, detail: pd.DataFrame, max_gap_years: int = 3) -> tuple[str, str]:
+    """闭合没有同车型、驾驶室、货斗来源事实占用的标题年份空档。"""
+    source_years = expand_years(row.get("适配年份", ""))
+    if not source_years:
+        return "", ""
+    candidate_years_set = set(range(min(source_years), max(source_years) + 1))
+    gaps = candidate_years_set - source_years
+    if not gaps:
+        return compact_years(source_years), ""
+
+    parts = [part.strip() for part in str(row.get("CUSUMER_NAME", "")).split("|")]
+    consumer_cabs = cab_terms(parts[1] if len(parts) > 1 else "")
+    consumer_beds = bed_lengths(parts[2] if len(parts) > 2 else "")
+    related = detail[
+        detail["MAKE_MODEL"].astype(str).eq(str(row.get("适配车型", "")).strip())
+    ].copy()
+    if consumer_cabs:
+        related = related[
+            related["CAB"].astype(str).map(lambda value: bool(cab_terms(value) & consumer_cabs))
+        ]
+    if consumer_beds:
+        lengths = pd.to_numeric(related["BED_LENGTH"], errors="coerce")
+        related = related[
+            lengths.map(lambda value: any(abs(value - target) < 0.011 for target in consumer_beds))
+        ]
+    occupied_gaps = gaps & candidate_years(related)
+    expanded: set[int] = set()
+    group: list[int] = []
+    for year in sorted(gaps):
+        if group and year != group[-1] + 1:
+            if len(group) <= max_gap_years and not set(group) & occupied_gaps:
+                expanded.update(group)
+            group = []
+        group.append(year)
+    if group and len(group) <= max_gap_years and not set(group) & occupied_gaps:
+        expanded.update(group)
+    return compact_years(source_years | expanded), compact_years(expanded)
+
+
+def replace_year(value: object, years: str) -> str:
+    """只替换名称中的首个年份表达，不改变车型与限定条件。"""
+    text = str(value or "")
+    return YEAR_RE.sub(years, text, count=1) if years else text
+
+
 def consumer_fitment(value: object) -> tuple[str, str]:
     """把消费者名称拆成带 CAB/BED 的适配车型与独立年份。"""
     parts = [part.strip() for part in str(value or "").split("|") if part.strip()]
@@ -162,7 +228,7 @@ def sku_shipment_report(
     sku_mapping: pd.DataFrame,
 ) -> pd.DataFrame:
     """按已确认 SKU 发货事实输出，不读取或分摊 Cluster 数量。"""
-    required_facts = {"SKU_NAME", "PHYSICAL_SKU", "发货数量", "发货日期"}
+    required_facts = {"SKU_NAME", "发货数量", "发货日期"}
     missing = sorted(required_facts - set(facts.columns))
     if missing:
         raise ValueError(f"发货事实缺少字段：{missing}")
@@ -183,9 +249,12 @@ def sku_shipment_report(
     report = report.merge(listing_fields, on="workbook_sku", how="left", validate="many_to_one")
     if report[["workbook_sku", "CUSUMER_NAME"]].isna().any().any():
         raise ValueError("发货事实存在未映射的 SKU_NAME")
-    mismatched = report[report["PHYSICAL_SKU"].astype(str) != report["listing_size"].astype(str)]
-    if not mismatched.empty:
-        raise ValueError("发货事实尺码与上架明细不一致：" + ", ".join(mismatched["SKU_NAME"].astype(str)))
+    if "PHYSICAL_SKU" in report.columns:
+        mismatched = report[report["PHYSICAL_SKU"].astype(str) != report["listing_size"].astype(str)]
+        if not mismatched.empty:
+            raise ValueError("发货事实尺码与上架明细不一致：" + ", ".join(mismatched["SKU_NAME"].astype(str)))
+    else:
+        report["PHYSICAL_SKU"] = report["listing_size"]
     split = report["CUSUMER_NAME"].map(consumer_fitment)
     report["适配车型"] = split.map(lambda item: item[0])
     report["适配年份"] = split.map(lambda item: item[1])
@@ -367,7 +436,8 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
         detail = pd.read_excel(workbook, sheet_name="ref_cluster_detail").fillna("")
         clusters = pd.read_excel(workbook, sheet_name="ref_cluster").fillna("")
         us_full_table = pd.read_csv(us_full_table_path, encoding="utf-8-sig")
-        shipment_facts = pd.read_csv(PROJECT_DIR / "data" / "发货事实.csv", encoding="utf-8-sig")
+        shipment_facts_path = batch.input(SHIPMENT_FACTS)
+        shipment_facts = pd.read_csv(shipment_facts_path, encoding="utf-8-sig")
         sku_mapping = pd.read_csv(PROJECT_DIR / "data" / "SKU上架映射.csv", encoding="utf-8-sig")
         rules = json.loads((PROJECT_DIR / "data" / "链接字段规则.json").read_text(encoding="utf-8"))
         physical_sku_mapping = load_physical_sku_mapping()
@@ -391,15 +461,14 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
         exact_fitments = final["适配车型"].astype(str).isin(clusters["FITMENT_SUMMARY"].astype(str))
         audit["聚类汇总适配车型精确命中"] = exact_fitments.map({True: "是", False: "否"})
 
-        reconciliation = shipment_facts.groupby("PHYSICAL_SKU", as_index=False).agg(
-            SKU数量=("SKU_NAME", "nunique"),
-            发货数量=("发货数量", "sum"),
-        )
-
         listing = audit[[
             "SKU_NAME", "PHYSICAL_SKU", "CUSUMER_NAME", "SIZE_NAME", "适配车型", "适配年份",
         ]].copy()
         sku_shipments = sku_shipment_report(shipment_facts, final, sku_mapping)
+        reconciliation = sku_shipments.groupby("PHYSICAL_SKU", as_index=False).agg(
+            SKU数量=("SKU_NAME", "nunique"),
+            发货数量=("发货数量", "sum"),
+        )
         # 工作簿保留既成聚类与发货事实；四张交付表只统一更新尺码命名。
         audit = update_physical_sku(audit, physical_sku_mapping)
         audit = add_us_size_extremes(audit, us_full_table)
@@ -409,6 +478,16 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
         audit["兼容调整说明"] = audit["SKU_NAME"].map(
             lambda sku: rules.get("gray_compatibility", {}).get(sku, {}).get("reason", "")
         )
+        max_title_gap = int(rules["listing_title_max_gap_years"])
+        title_year_results = [title_year(row, detail, max_title_gap) for _, row in listing.iterrows()]
+        title_year_field = rules["listing_title_year_field"]
+        listing[title_year_field] = [item[0] for item in title_year_results]
+        audit["标题年份"] = listing[title_year_field]
+        audit["标题扩张年份"] = [item[1] for item in title_year_results]
+        listing["CUSUMER_NAME"] = [
+            replace_year(value, years)
+            for value, years in zip(listing["CUSUMER_NAME"], listing[title_year_field])
+        ]
         listing = listing.rename(columns={"CUSUMER_NAME": rules["listing_title_field"]})
         unknown_omissions = set(rules.get("listing_title_omissions", {})) - set(listing["SKU_NAME"])
         if unknown_omissions:
@@ -418,6 +497,10 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
             for value, sku in zip(listing[rules["listing_title_field"]], listing["SKU_NAME"])
         ]
         listing["SIZE_NAME"] = rules["listing_size_name_prefix"] + listing[rules["listing_title_field"]]
+        listing = listing[[
+            "SKU_NAME", "PHYSICAL_SKU", rules["listing_title_field"], title_year_field,
+            "SIZE_NAME", "适配车型", "适配年份",
+        ]]
         reconciliation = update_physical_sku(reconciliation, physical_sku_mapping)
         sku_shipments = update_physical_sku(sku_shipments, physical_sku_mapping)
         sku_shipments = sku_shipments[rules["shipment_output_fields"]]
@@ -434,6 +517,7 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
         failed = int((audit["校验结论"] != "通过").sum())
         exact_count = int(exact_fitments.sum())
         split_count = len(final) - exact_count
+        title_expanded = audit[audit["标题扩张年份"].astype(str).ne("")]
         input_total = int(pd.to_numeric(reconciliation["发货数量"], errors="coerce").fillna(0).sum())
         allocated_total = input_total
         diff_lines = ["| 尺码 | SKU 数量 | 发货数量 |", "|---|---:|---:|"]
@@ -447,6 +531,7 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
             f"- 上架明细：{len(final)} 行；唯一 SKU：{final['SKU_NAME'].nunique()} 个。",
             f"- 三字段全部通过：{len(final) - failed} 行；不通过：{failed} 行。",
             "- `适配车型` 已移除年份；原年份完整写入独立的 `适配年份` 字段。",
+            f"- 标题合理扩张：{len(title_expanded)} 行；`TITLE_YEAR` 只闭合没有同车型、驾驶室、货斗来源事实占用且连续不超过 {max_title_gap} 年的年份空档，原事实年份保持不变。",
             "- `最长-MM`、`最宽-MM`、`最高-MM` 取 US 全量表中当前 `PHYSICAL_SKU` 匹配车型集合各维度的最大值。",
             f"- `适配车型` 精确命中聚类汇总：{exact_count} 行；其余 {split_count} 行已按同尺码、车型、驾驶舱、货斗和年份反查原子事实。",
             f"- SKU 发货数量：{len(sku_shipments)} 个确认 SKU，合计 {int(sku_shipments['发货数量'].sum())}；与 Cluster 无关。",
@@ -455,7 +540,7 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
             "- `SIZE_NAME`：使用 `Custom Fit ` 加完整 `TITLE_NAME`，保留年份、驾驶室、货斗与限定条件。",
             "- 标题省略例外：普通 Silverado 1500 标题与展示名省略 Trail Boss 排除短语；原始审核事实和既成 SKU 保留，Trail Boss 专用 SKU 仍单独展示。",
             "- 灰色兼容：按 gray_compatibility 逐条校验当前尺寸事实、来源尺码和长度余量后补充上架年份；审核表保留原适配年份，并列出调整后适配年份与说明。",
-            "- 发货日期来自 data/发货事实.csv，按 SKU 与日期唯一；同 SKU 可追加不同日期，禁止缺失或无效日期。",
+            "- 发货日期来自 review/发货事实.csv，按 SKU 与日期唯一；同 SKU 可追加不同日期，禁止缺失或无效日期。",
             "", "## 校验口径", "",
             "- `CUSUMER_NAME`：结构完整；年份覆盖适配事实，且首尾年份与适配事实一致。允许仅填补中间年份缺口。",
             "- `SIZE_NAME`：年份、驾驶舱、货斗长度和包含/排除限定与 `CUSUMER_NAME` 一致。",
@@ -474,7 +559,7 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
             "本批次按用户确认的 gray_compatibility 补齐 Silverado HD 的2015-2019年份，478mm余量小于500mm；自动尺码事实不变。"
             "发货表仅保留 SKU_NAME、发货数量、发货日期。\n"
             "两条上架链接的 DRW 排除说明由 listing_overrides 保留，应用后再校验。\n"
-            "发货日期按 data/发货事实.csv 原值保留，不使用运行日期；"
+            "发货日期按 review/发货事实.csv 原值保留，不使用运行日期；"
             "同 SKU 不同日期分行保留，同日重复记录拒绝发布。\n\n"
             f"详细审核报告见 output/{report_path.name}；规则快照与来源见 run.json。\n",
             encoding="utf-8",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "released_at": "2026-10-27T12:06:43+08:00",
+  "released_at": "2026-10-28T15:44:47+08:00",
   "nodes": {
     "dimension-crawler": {
       "path": "nodes/00.自动化尺寸抓取器",
@@ -40,11 +40,12 @@
     },
     "sales-estimation": {
       "path": "nodes/02.销量评估",
-      "version": "20261019_02",
-      "artifact": "nodes/02.销量评估/artifacts/2026-10-19_02_sales-estimation-release",
+      "version": "20261028_02",
+      "artifact": "nodes/02.销量评估/artifacts/2026-10-28_02_sales-estimation-release",
       "deliverables": [
         "原子销量.csv",
-        "RU代理销量.csv"
+        "RU代理销量.csv",
+        "市场潜力.csv"
       ],
       "pending": []
     },
@@ -73,8 +74,8 @@
     },
     "size-calculation": {
       "path": "nodes/A0.尺码计算",
-      "version": "20261027_02",
-      "artifact": "nodes/A0.尺码计算/artifacts/2026-10-27_02_size-calculation-release",
+      "version": "20261028_03",
+      "artifact": "nodes/A0.尺码计算/artifacts/2026-10-28_03_size-calculation-release",
       "deliverables": [
         "US/尺码匹配报告.md",
         "US/全量/全量表.csv",
@@ -158,8 +159,8 @@
     },
     "size-compression": {
       "path": "nodes/A1.压缩尺寸信息",
-      "version": "20261026_02",
-      "artifact": "nodes/A1.压缩尺寸信息/artifacts/2026-10-26_02_size-compression-release",
+      "version": "20261028_04",
+      "artifact": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_04_size-compression-release",
       "deliverables": [
         "US/压缩尺码表.csv",
         "US/压缩尺码表_皮卡.csv",
@@ -227,9 +228,9 @@
       "pending": []
     },
     "link-analysis-pickup": {
-      "path": "nodes/D2.链接分析/皮卡",
-      "version": "20261019_02",
-      "artifact": "nodes/D2.链接分析/皮卡/artifacts/2026-10-19_02_link-analysis-pickup-release",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "version": "20261028_10",
+      "artifact": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_10_link-analysis-pickup-release",
       "deliverables": [
         "链接字段审核.csv",
         "上架链接明细.csv",

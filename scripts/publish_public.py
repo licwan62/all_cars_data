@@ -3,10 +3,10 @@
 
 public/ 只是仓库外发布或人工交换区，不是 agent 间数据总线。本脚本只读各节点 output/manifest.json，
 校验 sha256 后复制；目标路径（均相对 PUBLIC_ROOT）按类别分组：
-  data/us_data|eu_data|ru_data/    区域数据表
-    data/us_data/全量/              US 全量表与各店铺全量表（A0 US/店铺/ 也归到这里）
-    data/us_data/压缩/<产线>/       A1.压缩尺寸信息 中区域为 US 的产线（US 及各店铺）压缩尺码表
-  data/基础数据/                    跨区域尺寸库与销量基础表
+  data/基础数据/us_data|eu_data|ru_data/  区域数据表
+    data/基础数据/us_data/全量/            US 全量表与各店铺全量表（A0 US/店铺/ 也归到这里）
+    data/基础数据/us_data/压缩/<产线>/     A1.压缩尺寸信息 中区域为 US 的产线（US 及各店铺）压缩尺码表
+  data/基础数据/                          跨区域尺寸库与销量基础表
   data/编码映射/                    ID、车型与尺寸编码映射
   data/车型分类/                    车型结构、车形分类与参考尺寸
   data/质量分析/                    尺码统计、极值与异常分析
@@ -89,7 +89,7 @@ def target_for(name: str, node_id: str = "", lines: dict[str, str] | None = None
         line, _, rest = name.partition("/")
         region = (compression_lines() if lines is None else lines).get(line)
         if rest and region in COMPRESSION_REGIONS:
-            return Path(f"data/{region.lower()}_data") / "压缩" / line / rest
+            return Path("data/基础数据") / f"{region.lower()}_data" / "压缩" / line / rest
     nested = REGION_DIR.match(name)
     if nested:
         region, rest = nested.groups()
@@ -97,10 +97,10 @@ def target_for(name: str, node_id: str = "", lines: dict[str, str] | None = None
         alias = REGION_SUBDIR_ALIASES.get((region, head))
         if alias and tail:
             rest = f"{alias}/{tail}"
-        return Path(f"data/{region.lower()}_data") / rest
+        return Path("data/基础数据") / f"{region.lower()}_data" / rest
     region = re.search(r"_(US|EU|RU)\.[^.]+$", name)
     if region:
-        return Path(f"data/{region.group(1).lower()}_data") / name
+        return Path("data/基础数据") / f"{region.group(1).lower()}_data" / name
     common_dir = COMMON_NODE_DIRS.get(node_id)
     if common_dir:
         return Path("data") / common_dir / name

@@ -35,17 +35,19 @@ from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # no
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load_manifest(node: dict) -> dict | None:
-    path = ROOT / node["path"] / "output" / "manifest.json"
-    return load_record(path, ROOT) if path.is_file() else None
+def load_manifest(node: dict, root: Path | None = None) -> dict | None:
+    root = root or ROOT
+    path = root / node["path"] / "output" / "manifest.json"
+    return load_record(path, root) if path.is_file() else None
 
 
-def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False) -> tuple[list[str], list[str], list[str]]:
+def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False, root: Path | None = None) -> tuple[list[str], list[str], list[str]]:
     """返回 (错误, 过期提示, 按需待刷新提示)。on_demand 节点的上游变化归入第三项。"""
     errors: list[str] = []
     stale: list[str] = []
     deferred: list[str] = []
-    manifest = load_manifest(node)
+    root = root or ROOT
+    manifest = load_manifest(node, root)
     if manifest is None:
         return [f"{node['path']}: 缺少 output/manifest.json"], stale, deferred
     for item in manifest.get("deliverables", []):
@@ -53,20 +55,20 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False) -> t
         if not item.get("artifact_file"):
             errors.append(f"{node['path']}: {name} 缺少 artifact_file 来源")
             continue
-        problem = check_deliverable_source(ROOT, manifest, item)
-        published = ROOT / node["path"] / "output" / name
+        problem = check_deliverable_source(root, manifest, item)
+        published = root / node["path"] / "output" / name
         if problem:
             errors.append(f"{node['path']}: {problem}")
         elif not published.is_file():
             errors.append(f"{node['path']}: output/{name} 不存在")
-        elif not sha256(ROOT / item["artifact_file"]) == sha256(published) == item["sha256"]:
+        elif not sha256(root / item["artifact_file"]) == sha256(published) == item["sha256"]:
             errors.append(f"{node['path']}: output/{name} 与来源 artifact 或记录的 sha256 不一致")
     for upstream in manifest.get("upstream", []):
-        missing = [f["artifact_file"] for f in upstream.get("files", []) if f.get("artifact_file") and not (ROOT / f["artifact_file"]).is_file()]
+        missing = [f["artifact_file"] for f in upstream.get("files", []) if f.get("artifact_file") and not (root / f["artifact_file"]).is_file()]
         if missing:
             errors.append(f"{node['path']}: 引用的上游 artifact 不存在（被移走或改名）：{', '.join(missing)}")
         up_node = by_id[upstream["node"]]
-        up_manifest = load_manifest(up_node)
+        up_manifest = load_manifest(up_node, root)
         current = {item["file"]: item["sha256"] for item in (up_manifest or {}).get("deliverables", [])}
         changed = [f["file"] for f in upstream.get("files", []) if current.get(f["file"]) != f["sha256"]]
         if changed:
@@ -75,10 +77,10 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False) -> t
                 f"当前 {(up_manifest or {}).get('version')}）：{', '.join(changed)}"
             )
     if "rules" in manifest:
-        changed = describe_changes(rules_changes(manifest["rules"], rules_snapshot(ROOT / node["path"])))
+        changed = describe_changes(rules_changes(manifest["rules"], rules_snapshot(root / node["path"])))
         if changed:
             stale.append(f"{node['path']}: 本节点规则在 {manifest['version']} 发布后已变化：{changed}")
-    for gap in identity_gaps(ROOT, node, by_id):
+    for gap in identity_gaps(root, node, by_id):
         if gap.error:
             errors.append(f"{node['path']}: {gap.describe()}")
         elif not gap.ok:

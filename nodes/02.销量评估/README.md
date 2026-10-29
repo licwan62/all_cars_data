@@ -63,3 +63,7 @@ python scripts/allocation_weight_review_project.py release --worker <worker>
 ```
 
 `batch-update` 的每个 JSON 条目需要 `queue_key`、`outcome`（`allocated` 或 `retained_equal`）、`review_note`；`allocated` 还需 `SOURCE_URL` 和覆盖该组全部 `SALES_ATOM_KEY`、权重和为 1 的 `allocations`。已分配权重写入 `cache/allocation_weights.csv`（`merge_results.py` 的覆盖表），决策记录写入 `cache/research/allocation_weight_reviews.csv`；应用后需重跑 `python scripts/run_pipeline.py` 才能把新的 trim/结构级占比反映到 `output/原子销量.csv`。
+
+## 商业潜力
+
+参见 [潜力算法与来源维护](data/商业潜力调整/README.md)。先生成原子销量，再运行 `python scripts/build_market_potential.py`；校验后发布 sales-estimation，A0 只承接 `output/市场潜力.csv`。

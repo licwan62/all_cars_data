@@ -149,7 +149,8 @@
       "code_dir": "scripts",
       "run": [
         "python scripts/run_pipeline.py",
-        "python scripts/build_ru_proxy_sales.py"
+        "python scripts/build_ru_proxy_sales.py",
+        "python scripts/build_market_potential.py"
       ],
       "tests": "tests",
       "layer": 2,
@@ -160,7 +161,8 @@
       ],
       "outputs": [
         "原子销量.csv",
-        "RU代理销量.csv"
+        "RU代理销量.csv",
+        "市场潜力.csv"
       ],
       "pending": [],
       "public_outputs": [
@@ -179,11 +181,17 @@
           "output": "RU代理销量.csv",
           "upstream": "dimension-library",
           "file": "尺寸库_RU.csv"
+        },
+        {
+          "output": "市场潜力.csv",
+          "upstream": "dimension-library",
+          "file": "尺寸库_US.csv"
         }
       ],
       "release_notes": [
         "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布",
-        "2026-09-27 新增 RU代理销量.csv：本节点 data/ru 的 Auto.ru 在售样本按 match_key 汇总，经 01 来源映射_RU.csv 落到 RU DIMENSION-ID（原由 A0 现场重跑 01 建库代码计算，结果逐 ID 一致）"
+        "2026-09-27 新增 RU代理销量.csv：本节点 data/ru 的 Auto.ru 在售样本按 match_key 汇总，经 01 来源映射_RU.csv 落到 RU DIMENSION-ID（原由 A0 现场重跑 01 建库代码计算，结果逐 ID 一致）",
+        "2026-10-28 商业潜力调整数据与算法从 A0 迁入本节点；读取01尺寸库与自身原子销量，内部输出市场潜力及销量潜力调整，公式参数不变。"
       ]
     },
     {
@@ -351,7 +359,8 @@
         "2026-10-08 全量表（US/EU/RU 全量表与 US 店铺全量）调整字段顺序：DIMENSION-ID 移至首列，US 表 TRIM 移至末列（EU/RU 无 TRIM，末列为 相差数值）；行、列集合与取值不变。下游 A1/A2/B1/C1 均按列名读取，重跑结果逐字节不变",
         "2026-10-12 三国与 US 店铺全量表紧跟旧车形仅插入 SHAPE；状态、代表年、方法、备选与来源由 03/COVER_SHAPE.csv 维护；按精确地区 ID 全覆盖关联，移除上一轮全量表的 SHAPE 辅助列，其他列值/行序/TRIM 不变，SHAPE 不参与尺码计算",
         "2026-10-13 全量表（US/EU/RU 全量表与 US 店铺全量）在 相差数值 之后新增 规则ID：命中规则的内容标识（规则行规范化内容的 SHA-256 前 10 位，不含备注；无可用尺码/数据不全为空），与 <国别>/尺码匹配报告.md 规则表末列 规则ID 对应；US 店铺全量表在 规则ID 之前新增 匹配尺码（换成发货尺码前的规则匹配尺码）。其他列值、行序与 TRIM 不变，A1 重跑逐字节不变；下游均按列名读取",
-        "2026-10-14 新增机器接口（build_match_report.py 产出）：<国别>/尺码规则.json（报告规则表与参数的结构化版本，含 规则ID、余量长容差 mm、规则/参数文件与 sha256）、US/店铺货架.json（data/US/店铺/货架.yaml 的结构化发布）、US/新旧尺码对应.csv（data/参考/新旧尺码对应/新旧尺码对应2.csv 原样、LF）；Markdown 报告不变，继续供人阅读。网站流水线改读这些文件，不再解析报告表格或读取 A0 data/。全量表与报告字节不变"
+        "2026-10-14 新增机器接口（build_match_report.py 产出）：<国别>/尺码规则.json（报告规则表与参数的结构化版本，含 规则ID、余量长容差 mm、规则/参数文件与 sha256）、US/店铺货架.json（data/US/店铺/货架.yaml 的结构化发布）、US/新旧尺码对应.csv（data/参考/新旧尺码对应/新旧尺码对应2.csv 原样、LF）；Markdown 报告不变，继续供人阅读。网站流水线改读这些文件，不再解析报告表格或读取 A0 data/。全量表与报告字节不变",
+        "2026-10-28 潜力计算归属02；US及三店铺表只承接02已发布市场潜力与销量潜力调整，紧接车型销量。"
       ]
     },
     {
@@ -448,7 +457,8 @@
         "2026-10-09 节点目录由 A2.压缩尺寸信息 改为 A1.压缩尺寸信息（原 A1.全量生成 移出 A 线为 E0.尺寸分析）；id、交付物与算法不变",
         "2026-10-09 运行批次改用 lib/artifact_batch.py：上游全量表/代码映射只记引用，data/ 规则记 sha256 + git commit，压缩 log、原子事实表、原子检查问题移入 extra/ 并 gzip，状态并入 run.json（取代 status.json）；批次约 31 MB → 2.6 MB，输出不变",
         "2026-10-10 压缩表 尺码销量总和 之后新增来源尺寸 12 列（最大长-MM、最大长年份、最小长-MM、最小长年份，宽、高同理）：取压缩记录命中的同尺码原子事实的 A0 L-MM/W-MM/H-MM 最大/最小值及取到该值的年份（连续区间以 / 分隔，如 2019-2021/2024）；合理扩张出的无原子年份不参与；其余列与行不变",
-        "2026-10-10 新增交付物 <产线>/压缩来源.csv：两张压缩表每条记录（压缩类型 + 记录序号，序号为压缩表数据行序号）覆盖的 A0 全量表行（DIMENSION-ID、MAKE、MODEL、版本、结构、CAB、BED）、被覆盖年份与 L-MM/W-MM/H-MM，供网站「压缩代号」页点击展开各年份长宽高"
+        "2026-10-10 新增交付物 <产线>/压缩来源.csv：两张压缩表每条记录（压缩类型 + 记录序号，序号为压缩表数据行序号）覆盖的 A0 全量表行（DIMENSION-ID、MAKE、MODEL、版本、结构、CAB、BED）、被覆盖年份与 L-MM/W-MM/H-MM，供网站「压缩代号」页点击展开各年份长宽高",
+        "2026-10-28 US与店铺压缩表新增市场潜力，沿用销量原子均摊及多重同尺码命中均分；保留6位小数并审计未分配潜力。"
       ]
     },
     {
@@ -640,7 +650,7 @@
     },
     {
       "id": "link-analysis-pickup",
-      "path": "nodes/D2.链接分析/皮卡",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
       "code_dir": "scripts",
       "run": [
         "python scripts/run.py"
@@ -670,7 +680,8 @@
       "release_notes": [
         "2026-10-11 皮卡作为 D2 下的独立业务子项目：审核 发货单明细.xlsx 的既成发货事实，逐行验证 CUSUMER_NAME、SIZE_NAME、适配车型并反查工作簿内嵌 ref_cluster_detail；输出字段审核、上架链接明细、发货分配核对和报告",
         "2026-10-11 SKU发货数量.csv 以确认 SKU 为既成发货唯一键，合计 801，不向 108 条展示链接重新摊分",
-        "2026-10-19 在 pipeline.json 正式登记为节点（原 D2.链接分析 根节点 0 交付、子项目自带 manifest 不在总登记内）：run.py 移入 scripts/，发货单明细.xlsx 由 D2.链接分析/data/ 移入本节点 data/；manifest 改由 publish_release.py 生成，NAS sku_cluster/皮卡 改由 publish_public.py 按 public_outputs 发布；灰区研究脚本移入 research/（读取 D1 历史 artifacts，不属于正式运行）"
+        "2026-10-19 在 pipeline.json 正式登记为节点（原 D2.链接分析 根节点 0 交付、子项目自带 manifest 不在总登记内）：run.py 移入 scripts/，发货单明细.xlsx 由 D2.链接分析/data/ 移入本节点 data/；manifest 改由 publish_release.py 生成，NAS sku_cluster/皮卡 改由 publish_public.py 按 public_outputs 发布；灰区研究脚本移入 research/（读取 D1 历史 artifacts，不属于正式运行）",
+        "2026-10-28 同步实际子项目目录为 nodes/D2.链接分析/nodes/皮卡；标题年份与事实年份分离，TITLE_YEAR 对不超过 3 年且无同车型/CAB/货斗事实占用的空档做合理扩张"
       ]
     },
     {

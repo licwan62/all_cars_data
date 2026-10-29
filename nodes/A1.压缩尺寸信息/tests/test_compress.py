@@ -411,3 +411,53 @@ def test_run_adds_codes_only_to_code_regions(tmp_path: Path):
         else:
             assert "CODE" not in table.columns
     assert (Path(result["artifact"]) / "input" / "map.csv").is_file()
+
+
+def test_potential_partial_year_allocation_keeps_six_decimals_and_sales():
+    rows = [row(version="Base", year="2018-2021", size="M", sales=80),
+            row(version="Sport", year="2018-2019", size="M", sales=0),
+            row(version="Sport", year="2020-2021", size="L", sales=0)]
+    base = pd.DataFrame(rows).astype(str)
+    original = run_mod.compress_line("US", base, profile(), "US")["tables"]
+    base["市场潜力"] = ["0.000007", "0.000000", "0.000000"]
+    result = run_mod.compress_line("US", base, profile(), "US")
+    for kind in ["non_pickup_high", "pickup_high"]:
+        frame=result["tables"][kind]
+        pd.testing.assert_frame_equal(frame.drop(columns="市场潜力"), original[kind])
+        assert frame["市场潜力"].str.fullmatch(r"\d+\.\d{6}").all()
+    high=result["tables"]["non_pickup_high"]
+    audit=result["sales"]["非皮卡"]["市场潜力"]
+    assert pd.to_numeric(high["市场潜力"]).sum()+audit["未命中同尺码记录"] == pytest.approx(.000007)
+
+
+def test_potential_multiple_hits_and_unallocated_conserve():
+    key=["非皮卡","Ford","Focus","2020","","Sedan","","","M"]
+    atoms=pd.DataFrame([key],columns=run_mod.ATOM_KEY)
+    values=atoms.copy(); values["销量"] = [.000005]
+    table=pd.DataFrame({"BACKSIZE":["M","M"]})
+    checks=pd.DataFrame({"原子行号":[2],"压缩行号":["2/3"],"BACKSIZE":["M"]})
+    result,audit=run_mod.allocate_record_sales(atoms,values,table,checks,precision=6)
+    assert result.tolist()==["0.000003","0.000002"]
+    checks["压缩行号"]=""
+    result,audit=run_mod.allocate_record_sales(atoms,values,table,checks,precision=6)
+    assert result.tolist()==["0.000000","0.000000"]
+    assert audit["未命中同尺码记录"]==.000005
+
+
+def test_potential_deduplicates_exported_atom_keys():
+    key=["非皮卡","Ford","Focus","2020","","Sedan","","","M"]
+    atoms=pd.DataFrame([key,key],columns=run_mod.ATOM_KEY)
+    values=atoms.iloc[:1].copy(); values["销量"] = [1.234567]
+    table=pd.DataFrame({"BACKSIZE":["M"]})
+    checks=pd.DataFrame({"原子行号":[2,3],"压缩行号":["2","2"],"BACKSIZE":["M","M"]})
+    result,audit=run_mod.allocate_record_sales(atoms,values,table,checks,precision=6)
+    assert result.tolist()==["1.234567"]
+    assert audit["原子潜力"]==1.234567
+
+
+def test_nonzero_potential_without_atoms_fails_instead_of_disappearing():
+    frame=pd.DataFrame([row(size="")]).astype(str)
+    frame["市场潜力"]="1.000001"
+    atoms=run_mod.source_atoms(frame,profile())
+    with pytest.raises(run_mod.CompressionError,match="无法展开原子"):
+        run_mod.source_atom_sales(frame,atoms,"市场潜力")
