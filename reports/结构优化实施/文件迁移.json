@@ -1,0 +1,212 @@
+[
+  {
+    "from": "nodes/01.整理尺寸库/data/eu/0916/Ktype.csv",
+    "to": "nodes/00.自动化尺寸抓取器/data/历史导入/eu/Ktype.csv",
+    "sha256": "8686a268563b3fdb60338cf93310f808b83b69f5dbc8d80acfd0e809891192d7",
+    "reason": "历史导入归00交付"
+  },
+  {
+    "from": "nodes/01.整理尺寸库/data/eu/0916/KtypeMatched.csv",
+    "to": "nodes/00.自动化尺寸抓取器/data/历史导入/eu/KtypeMatched.csv",
+    "sha256": "d36d4dfbb91429ab2cf9da9328c188acdc6d1109d88e5340189c4c45dd55da1a",
+    "reason": "历史导入归00交付"
+  },
+  {
+    "from": "nodes/01.整理尺寸库/data/eu/0916/DimensionGroup尺寸.csv",
+    "to": "nodes/00.自动化尺寸抓取器/data/历史导入/eu/DimensionGroup尺寸.csv",
+    "sha256": "3baed038166582e3d0792b024aa30a51f3d94cbe43a3d88da4b7a69471d1af00",
+    "reason": "历史导入归00交付"
+  },
+  {
+    "from": "nodes/01.整理尺寸库/data/ru/0916/auto_ru_catalog_rank.csv",
+    "to": "nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_catalog_rank.csv",
+    "sha256": "4bac50ed223cf80f3d3d18632f66d41ec9967838d9e24d99dcbc715b0f756ac6",
+    "reason": "历史导入归00交付"
+  },
+  {
+    "from": "nodes/01.整理尺寸库/data/ru/0916/auto_ru_dimensions_with_match_key.csv",
+    "to": "nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_dimensions_with_match_key.csv",
+    "sha256": "d346a1f83142891469445f0f77928f400777e68bc4b373874154735da93eeee9",
+    "reason": "历史导入归00交付"
+  },
+  {
+    "from": "nodes/01.整理尺寸库/data/ru/0916/auto_ru_model_sales_with_match_key.csv",
+    "to": "nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_model_sales_with_match_key.csv",
+    "sha256": "804bb3c40f7979fbd469c6786a67b2d192bb0d80aa105f9a38725304f589dcea",
+    "reason": "历史导入归00交付"
+  },
+  {
+    "from": "nodes/01.整理尺寸库/data/us/0916/00_US尺寸库.csv",
+    "to": "nodes/00.自动化尺寸抓取器/data/历史导入/us/00_US尺寸库.csv",
+    "sha256": "5f351ca5ad8ecb82266c4612b327a4516dbb446fc476229cc8f3de07d41b7a73",
+    "reason": "历史导入归00交付"
+  },
+  {
+    "from": "nodes/D1.发货评估/data/积加销量.csv",
+    "to": "nodes/02.销量评估/output/积加销量.csv",
+    "raw_sha256": "713ba3cab9a407edf79a683a6b8a4c3b6c577a0e8ff65eb371bb3383e93f7996",
+    "reason": "内容换行归一一致，改读销量节点正式交付"
+  },
+  {
+    "from": "nodes/D2.链接分析/nodes/W型车/add_custom_skus_to_compact_release.py",
+    "to": "nodes/D2.链接分析/nodes/W型车/src/add_custom_skus_to_compact_release.py",
+    "sha256": "4620cd195c71de9b5cb0aebc81a9fe82a7ab0fb866c2c7cfdd2b2915cc2d6c8d",
+    "reason": "待接入W型车代码集中至src"
+  },
+  {
+    "from": "nodes/D2.链接分析/nodes/W型车/build_slim_release.py",
+    "to": "nodes/D2.链接分析/nodes/W型车/src/build_slim_release.py",
+    "sha256": "9e4248d6850c081e59ec079f89c001e971e4010b1b64bf2a7e9cc78bc0fff9ef",
+    "reason": "待接入W型车代码集中至src"
+  },
+  {
+    "from": "nodes/D2.链接分析/nodes/W型车/business_release.py",
+    "to": "nodes/D2.链接分析/nodes/W型车/src/business_release.py",
+    "sha256": "0d5f89553b265360ff3525d02dad1e6e0528706fb547bb876afbba6bfa9f3e6f",
+    "reason": "待接入W型车代码集中至src"
+  },
+  {
+    "from": "nodes/D2.链接分析/nodes/W型车/rename_to_new_size_codes.py",
+    "to": "nodes/D2.链接分析/nodes/W型车/src/rename_to_new_size_codes.py",
+    "sha256": "6948b253aae353804f07ac326759fc8e2a6b65aeb9543b63cb13f666cc576089",
+    "reason": "待接入W型车代码集中至src"
+  },
+  {
+    "from": "nodes/D2.链接分析/nodes/W型车/restore_previous_shrink_current_sizes.py",
+    "to": "nodes/D2.链接分析/nodes/W型车/src/restore_previous_shrink_current_sizes.py",
+    "sha256": "530f7ed11ac7b6361b8f9ad57fbd5098d8bf57e90b23badd14734a6c86037785",
+    "reason": "待接入W型车代码集中至src"
+  },
+  {
+    "from": "nodes/D2.链接分析/nodes/W型车/run.py",
+    "to": "nodes/D2.链接分析/nodes/W型车/src/run.py",
+    "sha256": "d22a9655b5dc698a99617eb1c24433435e1854eca6abb2f6fb34519b689533c4",
+    "reason": "待接入W型车代码集中至src"
+  },
+  {
+    "from": "nodes/00.自动化尺寸抓取器/configs/eu_autodata.yaml",
+    "to": "nodes/00.自动化尺寸抓取器/data/configs/eu_autodata.yaml",
+    "sha256": "3a3208df302c71a4b2444986c794e775419011dac420cf19fd50334aaa80f3d9",
+    "reason": "抓取配置归入data"
+  },
+  {
+    "from": "nodes/00.自动化尺寸抓取器/configs/moto.yaml",
+    "to": "nodes/00.自动化尺寸抓取器/data/configs/moto.yaml",
+    "sha256": "e839ef294b5c74c6d1cb6e2e5b1efa9406ffb73bf01d337fef618c2b32f1cdf6",
+    "reason": "抓取配置归入data"
+  },
+  {
+    "from": "nodes/00.自动化尺寸抓取器/configs/us_edmund.yaml",
+    "to": "nodes/00.自动化尺寸抓取器/data/configs/us_edmund.yaml",
+    "sha256": "1753fe6ca8701ed1b3663b3632bfdf01219edfd958e4796844b9a4cef8437dfb",
+    "reason": "抓取配置归入data"
+  },
+  {
+    "from": "global/定制预定车型.csv",
+    "to": "nodes/D1.发货评估/data/参考/历史定制预定车型.csv",
+    "sha256": "e2d69fafba9a7258ea97d35d5a954a5740f4ec99850f69d1bb7132a1aaa24a81",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/新旧尺码对应.csv",
+    "to": "nodes/A0.尺码计算/data/参考/历史全域新旧尺码对应.csv",
+    "sha256": "183b20719768aff105a2a287695599f065ce6a431690299d88a29b8752604995",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/商业潜力调整/10-23-积加销量.csv",
+    "to": "nodes/02.销量评估/data/参考/历史商业潜力调整/10-23-积加销量.csv",
+    "sha256": "b52a89980227047d09e822cbf95af77186b0fdbdd4d09db3a77f95e82948bcf4",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/商业潜力调整/竞品车罩销量统计表.csv",
+    "to": "nodes/02.销量评估/data/参考/历史商业潜力调整/竞品车罩销量统计表.csv",
+    "sha256": "2c55c49598758a99807fdaaa6e0c8537c4c69610e5340465c66f67c2b6ae8173",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/BRONCO-2DR&4DR.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/BRONCO-2DR&4DR.pdf",
+    "sha256": "5afe52da6c84e8b946d1697e1c6b7fb9864ad71f80fcfb0683e5b4b360f19630",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/CHARGER.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/CHARGER.pdf",
+    "sha256": "a7c9b026e2b9c3cfbfa63338c367a3f59ebfdb6b5d638a994ebd0243ec8a400b",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/COOPER.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/COOPER.pdf",
+    "sha256": "69cb0546e190536bfaaa42b959e40db3a583f4ad969180ef1b2a331388928a3c",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/CORVETTE.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/CORVETTE.pdf",
+    "sha256": "a9ec8f24b884e60637ed626071138838d6376d86fca9aa90f2ce302c0705ce40",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/COUNTRYMAN.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/COUNTRYMAN.pdf",
+    "sha256": "cd2c7a6096c24c628b4850e9c782d6b4c0d9dd3e0112b17fcdf1811f48f57e0b",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/CROSSTREK&OUTBACK-SP.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/CROSSTREK&OUTBACK-SP.pdf",
+    "sha256": "5a81b69f23f053c740c09dc7ecefdd72d788ec426c608eb11d6783a720baa140",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/DODGE-CHALLENGER.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/DODGE-CHALLENGER.pdf",
+    "sha256": "477e59287e284df7a305ff5cfde358bbbf0cb1ee2ccf2695d56cd9e1e89cdd88",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/Land Rover Range Rover Sport.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/Land Rover Range Rover Sport.pdf",
+    "sha256": "710609e6f540baed157cac1345b912cb1b859e3747d9cf2115416a2cd9b75998",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/MUSTANG.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/MUSTANG.pdf",
+    "sha256": "54996e912dc08577cc026858481a03ae6c1cae9a63accf31d73f220fcab722f4",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/POSCHE-911.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/POSCHE-911.pdf",
+    "sha256": "cefd51a3e98ef9589f979f27908d48ccfc5238eadc43e57f46995287f5b4b0a0",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/PRIUS(C&V).pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/PRIUS(C&V).pdf",
+    "sha256": "a9bbe2a5ddca413a14cd037a21dd2bc5a107043190b4a45a78cd8c86b9e4e6a7",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/SOUL.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/SOUL.pdf",
+    "sha256": "fcedaac5e0be7975054af91408d8b667cffbd9cdfd31c3c81b220985c4bb44bc",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/TESLA-XY3S.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/TESLA-XY3S.pdf",
+    "sha256": "a79b5aa74b0bd21edc24a1c031ae1b5f38783c259b4e365b27eef2589d1904cf",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  },
+  {
+    "from": "global/定制车衣/combined/WRANGLER-2&4DR.pdf",
+    "to": "nodes/F0.定制分析/data/参考/定制车衣/combined/WRANGLER-2&4DR.pdf",
+    "sha256": "fe8a3908c356437f347f80615799d8631c5913f4ee8ad99dc1e0ee4692d51edd",
+    "reason": "历史参考资料归责任节点data，不替代现行规则"
+  }
+]

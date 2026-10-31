@@ -1,7 +1,7 @@
 import csv
 from collections import Counter
 
-cache = list(csv.DictReader(open('cache/sales_model_year_cache.csv', encoding='utf-8-sig')))
+cache = list(csv.DictReader(open('data/销量依据/sales_model_year_cache.csv', encoding='utf-8-sig')))
 queue = list(csv.DictReader(open('research_queue/model_year_research_queue.csv', encoding='utf-8-sig')))
 
 # Check what cache data exists for older years

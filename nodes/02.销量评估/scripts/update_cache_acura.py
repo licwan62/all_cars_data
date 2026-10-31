@@ -2,7 +2,7 @@
 import csv
 import os
 
-CACHE_CSV = r"cache/sales_model_year_cache.csv"
+CACHE_CSV = r"data/销量依据/sales_model_year_cache.csv"
 
 # Data found from research:
 # Sources: Wikipedia (Honda_NSX, Honda_Integra), best-selling-cars.com, hondanews.com

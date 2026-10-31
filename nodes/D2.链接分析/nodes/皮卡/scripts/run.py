@@ -25,7 +25,7 @@ REPO_ROOT = next(
     if (parent / "pipeline.json").is_file()
 )
 WORKBOOK = PROJECT_DIR / "data" / "发货单明细.xlsx"
-SHIPMENT_FACTS = PROJECT_DIR / "review" / "发货事实.csv"
+SHIPMENT_FACTS = PROJECT_DIR / "data" / "发货事实.csv"
 US_FULL_TABLE = REPO_ROOT / "nodes" / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
 sys.path.insert(0, str(REPO_ROOT / "lib"))
 
@@ -540,7 +540,7 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
             "- `SIZE_NAME`：使用 `Custom Fit ` 加完整 `TITLE_NAME`，保留年份、驾驶室、货斗与限定条件。",
             "- 标题省略例外：普通 Silverado 1500 标题与展示名省略 Trail Boss 排除短语；原始审核事实和既成 SKU 保留，Trail Boss 专用 SKU 仍单独展示。",
             "- 灰色兼容：按 gray_compatibility 逐条校验当前尺寸事实、来源尺码和长度余量后补充上架年份；审核表保留原适配年份，并列出调整后适配年份与说明。",
-            "- 发货日期来自 review/发货事实.csv，按 SKU 与日期唯一；同 SKU 可追加不同日期，禁止缺失或无效日期。",
+            "- 发货日期来自 data/发货事实.csv，按 SKU 与日期唯一；同 SKU 可追加不同日期，禁止缺失或无效日期。",
             "", "## 校验口径", "",
             "- `CUSUMER_NAME`：结构完整；年份覆盖适配事实，且首尾年份与适配事实一致。允许仅填补中间年份缺口。",
             "- `SIZE_NAME`：年份、驾驶舱、货斗长度和包含/排除限定与 `CUSUMER_NAME` 一致。",
@@ -559,7 +559,7 @@ def run(workbook: Path, *, publish: bool = True) -> tuple[Path, dict[str, object
             "本批次按用户确认的 gray_compatibility 补齐 Silverado HD 的2015-2019年份，478mm余量小于500mm；自动尺码事实不变。"
             "发货表仅保留 SKU_NAME、发货数量、发货日期。\n"
             "两条上架链接的 DRW 排除说明由 listing_overrides 保留，应用后再校验。\n"
-            "发货日期按 review/发货事实.csv 原值保留，不使用运行日期；"
+            "发货日期按 data/发货事实.csv 原值保留，不使用运行日期；"
             "同 SKU 不同日期分行保留，同日重复记录拒绝发布。\n\n"
             f"详细审核报告见 output/{report_path.name}；规则快照与来源见 run.json。\n",
             encoding="utf-8",

@@ -1,111 +1,61 @@
-# 车型数据 Agent 流水线
+# 车型数据流水线
 
-## 本机管理入口
+节点、职责与接口以 `pipeline.json` 为准。维护规则见 `AGENTS.md`，当前发布状态见自动生成的 `流水线状态.md`。
 
-在本仓库运行 `python scripts/pipeline_portal.py`，浏览器会打开终端显示的本机地址（默认 `http://127.0.0.1:8765/`，端口占用时自动换用空闲端口）。这一个页面串联本仓库节点与网站发布流水线，可查看流向、状态、维护资料、运行及发布批次，并记录人工处理。页面每 15 秒同步现有记录；点击资料可预览或用本机默认程序打开。若网站仓库不在同级目录，传入 `--web-repo <路径>`。
-
-人工记录保存在 `portal/data/journal.sqlite3`，首次写入当天会在 `portal/data/backups/` 留下备份；这两个目录不纳入 Git，请随本机数据备份保存。页面不执行节点或发布命令；现有 `pipeline.json`、`manifest.json`、`release.json` 和自动生成的 `流水线状态.md` 仍是流水线接口与校验依据。
-
-本仓库把每个业务子项目视为独立 agent。节点、层号、产线与交付物登记在 [`pipeline.json`](pipeline.json)，通用执行规则见 [`AGENTS.md`](AGENTS.md)，当前发布状态见 [`release.json`](release.json)，依赖分析见 [`reports/流水线上下游关系报告.md`](reports/流水线上下游关系报告.md)。
-
-## 命名：上游数字层号，下游按最终产物分线
-
-- **00–03 上游**：目录前缀 `NN.` = 层号（最长上游链长度），同层互不依赖。
-- **A0 尺码计算**：各产线共用的枢纽。从它开始按最终产物分线，线内序号自 1 递增：
-
-| 产线 | 触发 | 最终产物 | 节点 |
-| --- | --- | --- | --- |
-| A 全量表 + 压缩尺码表 | 自动 | 全量表 US（含 TRIM）/EU/RU、店铺全量表、TRIM适配器、尺码匹配报告（A0）；压缩尺码表（A1） | A0.尺码计算 → A1.压缩尺寸信息 |
-| B 定制评分 | 按需 | 差评分析表、定制需求度评分 | B0.差评分析 → B1.压缩定制评分 |
-| C 代表车型 | 按需 | 代表车型报告 | C1.车型代表分析 |
-| D 发货单 | 按需 | 全量车型发货评估、发货单 | D1.发货评估 → D2.链接分析 |
-| E 尺寸分析 | 按需 | 尺码宽高统计、极值车型、尺寸异常 | E0.尺寸分析 |
-| X 旁路 | 按需 | 不进入最终产物 | X1.尺寸迭代、X2.尺码簇分析 |
-
-**触发方式**（`pipeline.json` 的 `line_triggers`）：上游 00–03 与 A 线为自动，默认发布自上游到下游刷新；B/C/D/E/F/X 为按需分析，上游更新不会触发它们，只在状态中标为“按需待刷新”，需要时再运行该节点并点名发布。自动节点不得依赖按需节点。
-
-```mermaid
-flowchart LR
-  n00["00 自动化尺寸抓取器"] --> n01["01 整理尺寸库<br/>us / eu / ru"]
-  n01 --> n02a["02 分类结构审核"]
-  n01 --> n02b["02 销量评估"]
-  n01 --> n02c["02 代码映射"]
-  n02a --> n03["03 车形分类核定"]
-  n01 --> n03
-  n03 --> A0["A0 尺码计算"]
-  n02b --> A0
-  n02c --> A0
-  n01 --> A0
-  A0 --> fa(["全量表 / TRIM适配器"])
-  A0 --> A1["A1 压缩尺寸信息"] --> fz(["压缩尺码表"])
-  n02c --> A1
-  A0 -.-> B1["B1 压缩定制评分"] --> fs(["定制需求度评分"])
-  B0["B0 差评分析"] -.-> B1
-  A0 -.-> C1["C1 车型代表分析"] --> fc(["代表车型报告"])
-  A1 -.-> C1
-  A0 -.-> D1["D1 聚类SKU"] --> D2["D2 链接分析"] --> fd(["发货单"])
-  n02b -.-> D1
-  A0 -.-> E0["E0 尺寸分析"] --> fe(["尺码宽高统计"])
-  A0 -.-> X1["X1 尺寸迭代"]
-  A0 -.-> X2["X2 尺码簇分析"]
-```
-
-## 交付物命名与发布
-
-稳定交付物用中文语义名（`车型结构`、`车形分类`、`原子销量`、`尺寸库_US`、`全量表_US`、`TRIM适配器`、`代表车型报告`…）。
-
-- **artifacts 内**：带批次版本后缀，`车型结构-20260921_01.csv`（`YYYYMMDD_NN` 与批次目录 `YYYY-MM-DD_NN_*` 一致）。每份字节只存一次：未变化的交付物引用旧批次文件，上游输入与已提交规则只记引用（见 `lib/artifact_batch.py`），内容未变化的节点发布时不新建批次。
-- **发布到 `output/`**：去掉后缀，文件名稳定（`车型结构.csv`），并写 `output/manifest.json`：交付物、sha256、行数、来源 artifact、上游节点及其版本、pending 项。
-- 根目录 `release.json` 汇总每个节点当前版本与 artifact。
+## 本机维护看板
 
 ```powershell
-python scripts/publish_release.py            # 自上游到下游发布全部自动节点（U、A 线；同时刷新 流水线状态.md）
-python scripts/publish_release.py --nodes representative-model   # 按需节点：运行节点 run 后点名发布
-python scripts/publish_release.py --lines B,C # 按线发布按需节点；--all 包括全部按需节点
-python scripts/publish_release.py --dry-run
-python scripts/publish_release.py --status-only  # 不发布，只按当前 manifest 重建 流水线状态.md
-python scripts/validate_pipeline_structure.py
-python scripts/verify_pipeline.py            # 打通验证：依赖、编译、测试
-python scripts/verify_pipeline.py --rebuild all  # 沙箱重跑节点并比对 output
+python scripts/pipeline_portal.py
 ```
 
-当前流水线状态见 [`流水线状态.md`](流水线状态.md)：节点版本、触发方式、是否过期/按需待刷新、待产出项与交付物来源。该文件只由发布脚本生成，请勿手工修改。
+默认打开 `http://127.0.0.1:8765/`，端口占用会自动换用空闲端口。无需网站仓库；如需同时查看网站，可用 `--web-repo <路径>`。上传上限默认200 MiB，可用 `--upload-limit-mib` 调整。
 
-## 代码布局
+- 流水线：节点、生命周期、命名依据、输入输出来源与运行记录；容器归属和数据依赖分别展示。
+- 维护工作台：仅编辑已登记节点的 `data/`。CSV/TSV分页行编辑（50 MiB以内），文本编辑（2 MiB以内），其他文件上传替换和下载。
+- 修改前预览差异，填写原因；修改后运行登记命令并验证发布。外部编辑导致SHA变化时返回冲突，不能覆盖。
+- 历史与恢复：按原始SHA保存恢复内容，重命名保持资料ID，相同内容不同资料保留独立身份。
+- 存储与追踪：完整SHA查询、当前及历史位置、消费记录、归档清理预演。
 
-| 位置 | 内容 |
-| --- | --- |
-| `nodes/<节点>/` | 全部节点目录（含历史目录 `B2.定制分析`）；`pipeline.json` 的 `path` 为 `nodes/<节点>` |
-| `<节点>/<code_dir>/` | 节点代码，`code_dir` 为 `src`、`code` 或 `scripts`，登记在 `pipeline.json`；节点根目录不放 `.py` 脚本 |
-| `<节点>/tests/` | 节点测试（`pipeline.json` 的 `tests`） |
-| `lib/` | 跨节点共享模块：`id_scheme.py`、`full_table_schema.py`、`regional_size_common.py`；`node_paths.py` 把迁移前记录的旧路径规范为 `nodes/...` |
-| `scripts/` | 仓库级工具：发布、追踪、结构校验、打通验证 |
-| `tests/` | 仓库级测试 |
+SHA查询扫描全部维护文件，不受列表分页限制；消费记录优先使用原始字节SHA。保存后按提示在仓库根目录运行 `run_nodes.py --nodes <id>` 正式生成并本地发布，再做首次构建验证；沙箱验证本身不会更新正式产物。下游节点需要另行点名刷新，容器及待接入/历史节点不提供生产命令。
 
-每个节点的正式生成命令登记在 `pipeline.json` 的 `run`，在节点目录下执行，例如 `A1.压缩尺寸信息` 为 `python src/run.py`。
+**请备份整个 `portal/data/`**：包括 `journal.sqlite3`、每日数据库备份及 `objects/` 恢复内容；它们是本机持久资料，不属于可重建缓存，不纳入Git。首次写入当天自动备份数据库。网站与节点产物保持只读，网页不执行生成或发布命令。
 
-`pipeline.json` 的 `outputs` 只列已存在的稳定交付物，尚未产出的放 `pending`（当前：区域抓取候选、原子销量、全量表_EU、全量表_汇总、SKU聚类结果、发货单、尺寸迭代候选）。
+## 节点命名与生命周期
 
-## DIMENSION-CODE
+00–03 的数字前缀表示最长上游链层数。A 全量与压缩、B 定制评分、C 代表车型、D 发货链接、E 尺寸分析、F 定制分析、X 旁路分析，线内序号大于同线上游；0号允许为独立枢纽。
 
-`02.代码映射` 读取 `01.整理尺寸库/output/尺寸库.csv`，按区域独立编码，输出 `尺寸编码映射.csv`（`DIMENSION-ID` → `DIMENSION-CODE`）。全量表带 `DIMENSION-CODE` 列（在 `DIMENSION-ID` 之前）。
+节点英文ID稳定。`kind=container` 表示业务容器，组织关系使用 `parent`，不隐含数据依赖。D2维护总登记，普通和皮卡各自运行。`lifecycle=planned/legacy` 明示待接入或历史保留，不参加生产发布；W型车缺少正式聚类接口，X1尚无交付，X2保留旧分析。
 
-`DIMENSION-CODE = 区域前缀 + MAKECODE + MODELCODE + YEARCODE`
+输入契约使用 `inputs` 明确上游文件；`run.json` 记录实际生成来源，`basis=publish-time` 表示尚未由运行记录核实，不冒充运行依据。
 
-| 区域 | 前缀 | MAKE / MODEL 码宽 | 示例 |
-| --- | --- | --- | --- |
-| US | 无 | 2 位 | `25029501` |
-| EU | `E` | 3 位 | `E0160130912` |
-| RU | `R` | 3 位 | `R0000002626` |
+## 输入、运行与发布
 
-`YEARCODE` 为年份区间两端后两位拼接：`1956-2012 → 5612`，单年 `1994 → 9494`。同车型同年份的不同结构会共码，`DIMENSION-ID` 才是唯一主键。
+正式输入仅来自自身data和上游output。00离线入口发布标明“历史导入、原始来源未重新核实”的区域候选；联网抓取命令单列在 `online_run`。01从这些稳定候选重建，生成中间表进入临时工作区。US历史库仍保留未核实来源说明。
 
-## 三层数据边界
+```powershell
+python scripts/run_nodes.py --nodes dimension-library,size-calculation,size-compression
+python scripts/publish_release.py                 # 仅发布自动节点现有已校验交付
+python scripts/publish_release.py --nodes size-analysis
+python scripts/trace_pipeline.py
+python scripts/validate_pipeline_structure.py
+python scripts/verify_pipeline.py
+python scripts/verify_pipeline.py --rebuild all --fresh
+```
 
-| 目录 | 含义 | 是否供下游读取 |
-| --- | --- | --- |
-| `data/` | agent 自己维护的规则、映射、例外和参考资料 | 仅本 agent |
-| `output/` | 当前已校验的稳定交付物 + manifest.json | 是，唯一正式接口 |
-| `artifacts/` | 每次运行的输入引用、规则快照（sha256 + git commit）、带版本后缀的输出、gzip 中间表、报告 | 否，仅审计与回溯 |
+编码映射默认只使用已维护的持久编码；发现未登记变化会失败。显式维护可运行该节点 `python src/main.py --update-registry`，审核data变化并更新测试后再按正常流程发布。
 
-对外发布目录为 `\\NAS8824B4\Public\PQData\pub_all_cars_data`，不纳入 Git，也不是 agent 间的数据源。仅发布 CSV 数据表；JSON 等辅助小文件保留在节点 `output/` 和 `artifacts/`，发布内容和来源由该目录的 `README.md` 说明。根目录 `pipeline.json` 由流水线最后节点 `D2.链接分析` 维护。
+`run_nodes.py` 只运行明确点名节点，按依赖排序，运行后本地发布；失败恢复该节点原output。它不自动补跑未点名上游。按需节点不随上游更新自动生成，只提示待刷新。
+
+## 字节与历史
+
+`data/` 是可维护工作资料，`output/` 是稳定交付工作副本，`artifacts/` 是不可变历史。新批次采用RunBatch；相同原始SHA的内容复用已有成功记录，跨名称、跨节点复用不改变本次运行的输入依据。
+
+新版内容引用以 `content_reference=true` 明示，逻辑版本名与实际字节位置可以不同；旧版记录继续按旧命名约束读取。文本规则的归一SHA用于变化判定，原始SHA用于字节身份；二进制不做换行归一。归档引用统一经来源解析，历史JSON不回写。
+
+```powershell
+python scripts/archive_old_artifacts.py --keep 5 --dest "\\NAS8824B4\Public\PQData\bak\all_cars_data\artifacts" --dry-run
+```
+
+归档保护当前及传递引用、最近5批与未提交批次。复制、逐文件校验、登记恢复位置完成后才删除本地。外部public不是节点输入，只有 `public_outputs` 点名的CSV可公开，辅助文件留在内部；NAS README说明来源。
+
+本轮实施、验证、迁移与清理记录见 `reports/结构优化实施/`。

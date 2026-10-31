@@ -1,15 +1,16 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "node": "link-analysis-regular",
   "path": "nodes/D2.链接分析/nodes/普通",
-  "version": "20261023_03",
-  "artifact": "nodes/D2.链接分析/nodes/普通/artifacts/2026-10-23_03_link-analysis-regular-release",
-  "published_at": "2026-10-23T18:04:47+08:00",
+  "version": "20261101_02",
+  "artifact": "nodes/D2.链接分析/nodes/普通/artifacts/2026-11-01_02_link-analysis-regular-release",
+  "published_at": "2026-11-01T02:37:41+08:00",
   "deliverables": [
     {
       "file": "上架链接明细.csv",
       "versioned_file": "上架链接明细-20261023_02.csv",
       "artifact_file": "nodes/D2.链接分析/nodes/普通/artifacts/2026-10-23_02_regular-first-shipment-analysis/output/上架链接明细-20261023_02.csv",
+      "content_reference": false,
       "sha256": "a806af267ebf125aaf948b79d01c5ec8d4fd6a40d5a73af5ad0476d65872346f",
       "bytes": 18365,
       "rows": 100
@@ -18,6 +19,7 @@
       "file": "链接适配依据.csv",
       "versioned_file": "链接适配依据-20261023_02.csv",
       "artifact_file": "nodes/D2.链接分析/nodes/普通/artifacts/2026-10-23_02_regular-first-shipment-analysis/output/链接适配依据-20261023_02.csv",
+      "content_reference": false,
       "sha256": "bb82e75608d10048117a9c67be9efd65e94107919fd971bb725c19727cc6f7d6",
       "bytes": 56146,
       "rows": 410
@@ -26,6 +28,7 @@
       "file": "尺码发货核对.csv",
       "versioned_file": "尺码发货核对-20261023_02.csv",
       "artifact_file": "nodes/D2.链接分析/nodes/普通/artifacts/2026-10-23_02_regular-first-shipment-analysis/output/尺码发货核对-20261023_02.csv",
+      "content_reference": false,
       "sha256": "6c010807c81b5ae188d4517497a73a819d427d733dd8c99ea118d4adde803e4b",
       "bytes": 332,
       "rows": 15
@@ -34,6 +37,7 @@
       "file": "待确认清单.csv",
       "versioned_file": "待确认清单-20261023_02.csv",
       "artifact_file": "nodes/D2.链接分析/nodes/普通/artifacts/2026-10-23_02_regular-first-shipment-analysis/output/待确认清单-20261023_02.csv",
+      "content_reference": false,
       "sha256": "ac17961dcd1f076d39bc81314c4cfb6635429314b87fb66398188de57149fe1d",
       "bytes": 2185,
       "rows": 8
@@ -42,6 +46,7 @@
       "file": "链接分析报告.md",
       "versioned_file": "链接分析报告-20261023_02.md",
       "artifact_file": "nodes/D2.链接分析/nodes/普通/artifacts/2026-10-23_02_regular-first-shipment-analysis/output/链接分析报告-20261023_02.md",
+      "content_reference": false,
       "sha256": "b31a0ecb936117e46b63705b948aad58b6c8de42b89296016b09fb21eb5ec3b2",
       "bytes": 576,
       "rows": null
@@ -50,20 +55,20 @@
   "upstream": [
     {
       "node": "size-calculation",
-      "version": "20261019_10",
+      "version": "20261101_07",
       "basis": "run",
       "files": [
         {
           "file": "US/全量/全量表.csv",
-          "versioned_file": "US/全量/全量表-20261019_07.csv",
-          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-19_07_full-table-cover-shape/output/US/全量/全量表-20261019_07.csv",
-          "sha256": "feb13a570f427f848cc5f3b06c3f4f5aafb04c3fba4350a8548fd6cba2c86ca4"
+          "versioned_file": "US/全量/全量表-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv",
+          "sha256": "563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4"
         }
       ]
     },
     {
       "node": "sku-clustering",
-      "version": "20261023_30",
+      "version": "20261101_04",
       "basis": "run",
       "files": [
         {

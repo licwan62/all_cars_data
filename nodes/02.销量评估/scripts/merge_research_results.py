@@ -2,7 +2,7 @@
 Merge batch research results into the sales_model_year_cache.csv.
 
 Reads all batch*_results.csv files from cache/research/,
-deduplicates, and writes to cache/sales_model_year_cache.csv.
+deduplicates, and writes to data/销量依据/sales_model_year_cache.csv.
 Also updates the CACHE_STATUS in model_year_research_queue.csv.
 """
 
@@ -13,8 +13,8 @@ from collections import defaultdict
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESEARCH_DIR = os.path.join(BASE_DIR, "cache", "research")
-CACHE_FILE = os.path.join(BASE_DIR, "output", "sales_model_year_cache.csv")
-QUEUE_FILE = os.path.join(BASE_DIR, "output", "model_year_research_queue.csv")
+CACHE_FILE = os.path.join(BASE_DIR, "data", "销量依据", "sales_model_year_cache.csv")
+QUEUE_FILE = os.path.join(BASE_DIR, "research_queue", "model_year_research_queue.csv")
 
 CACHE_COLUMNS = [
     "MAKE", "MODEL", "YEAR",

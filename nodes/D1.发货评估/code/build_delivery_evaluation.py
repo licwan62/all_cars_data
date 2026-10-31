@@ -695,7 +695,7 @@ def run(config_path: Path = CONFIG):
         prepared = prepare(full_table, config, json.loads(rules_path.read_text(encoding="utf-8")))
         prepared, gray_audit = apply_gray_matching(prepared, config)
         evaluations, detail = build_evaluations(prepared, config["sku"])
-        sales_path = batch.input(PROJECT / "data" / config["sales_adjustment"]["source_file"])
+        sales_path = batch.input(REPO / "nodes" / "02.销量评估" / "output" / config["sales_adjustment"]["source_file"])
         evaluations, sales_audit = adjust_market(evaluations, read_csv(sales_path), config["sales_adjustment"])
         sales_audit.to_csv(batch.extra("积加销量匹配依据.csv"), index=False, encoding="utf-8-sig")
         evaluations = add_custom_flag(evaluations, read_csv(CUSTOM_MODELS))

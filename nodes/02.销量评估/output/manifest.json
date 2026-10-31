@@ -1,0 +1,186 @@
+{
+  "schema_version": 2,
+  "node": "sales-estimation",
+  "path": "nodes/02.销量评估",
+  "version": "20261101_12",
+  "artifact": "nodes/02.销量评估/artifacts/2026-11-01_12_sales-estimation-release",
+  "published_at": "2026-11-01T02:46:44+08:00",
+  "deliverables": [
+    {
+      "file": "原子销量.csv",
+      "versioned_file": "原子销量-20261019_02.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-10-19_02_sales-estimation-release/output/原子销量-20261019_02.csv",
+      "content_reference": false,
+      "sha256": "9f410ec1f3b2f19de1052c7c91353177696977fe03fc79fa07c4f8a19af7c83c",
+      "bytes": 881807,
+      "rows": 15223
+    },
+    {
+      "file": "RU代理销量.csv",
+      "versioned_file": "RU代理销量-20261009_04.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-10-09_04_sales-estimation-release/output/RU代理销量-20261009_04.csv",
+      "content_reference": false,
+      "sha256": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd",
+      "bytes": 520302,
+      "rows": 13617
+    },
+    {
+      "file": "市场潜力.csv",
+      "versioned_file": "市场潜力-20261028_01.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/output/市场潜力-20261028_01.csv",
+      "content_reference": false,
+      "sha256": "06b31462255d452575d23fdc51b2198ff7cfef516072cd1e78ee38488f39ae30",
+      "bytes": 241343,
+      "rows": 4383
+    },
+    {
+      "file": "积加销量.csv",
+      "versioned_file": "积加销量-20261101_03.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-10-28_01_us-market-potential/rules/data/商业潜力调整/积加销量.csv",
+      "content_reference": true,
+      "sha256": "f8d632c06f1819de4ee0269aa2515e68a1da144142151be8a874f8a8dca6b4c6",
+      "bytes": 34035,
+      "rows": 562
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-library",
+      "version": "20261101_02",
+      "basis": "run",
+      "files": [
+        {
+          "file": "尺寸库.csv",
+          "versioned_file": "尺寸库-20261009_08.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库-20261009_08.csv",
+          "sha256": "5b3fccb71c6e69fa9fde07f62cd6d99584582ccbe278f871c6c60ec2422e1f69"
+        },
+        {
+          "file": "尺寸库_RU.csv",
+          "versioned_file": "尺寸库_RU-20261009_06.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_RU-20261009_06.csv",
+          "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+        },
+        {
+          "file": "尺寸库_US.csv",
+          "versioned_file": "尺寸库_US-20261009_08.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库_US-20261009_08.csv",
+          "sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db"
+        },
+        {
+          "file": "来源映射_RU.csv",
+          "versioned_file": "来源映射_RU-20261009_06.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
+          "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
+        }
+      ]
+    },
+    {
+      "node": "dimension-crawler",
+      "version": "20261101_03",
+      "basis": "run",
+      "files": [
+        {
+          "file": "RU/auto_ru_model_sales_with_match_key.csv",
+          "versioned_file": "RU/auto_ru_model_sales_with_match_key-20261101_02.csv",
+          "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/ru/auto_ru_model_sales_with_match_key.csv",
+          "sha256": "804bb3c40f7979fbd469c6786a67b2d192bb0d80aa105f9a38725304f589dcea"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/config.json",
+      "sha256": "7ca271781042b412a9cab67983152a34cc8fd83162fd1d588c173c76dca45eb8"
+    },
+    {
+      "file": "data/modeled_config_share_policy.json",
+      "sha256": "9f08cb720c87d13bd1511b01465a004639f75922f86d9885ab53a1bc7af7c69d"
+    },
+    {
+      "file": "data/modeled_historic_us_sales.csv",
+      "sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f"
+    },
+    {
+      "file": "data/README.md",
+      "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef"
+    },
+    {
+      "file": "data/参考/历史商业潜力调整/10-23-积加销量.csv",
+      "sha256": "0168f61c7bd788f1bc8cf8c93c9c7a639836d8c1ea76b82de57f707e46869f81"
+    },
+    {
+      "file": "data/参考/历史商业潜力调整/竞品车罩销量统计表.csv",
+      "sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a"
+    },
+    {
+      "file": "data/商业潜力调整/README.md",
+      "sha256": "64f74b2fd8c7d47e1cea5afbc71575703fad94c3c31888f2912ad898c98fab26"
+    },
+    {
+      "file": "data/商业潜力调整/参数.json",
+      "sha256": "634ae1c893b1d9cc778643a68e01673acfe2953f94e44486028074bfbe64ea8e"
+    },
+    {
+      "file": "data/商业潜力调整/来源.json",
+      "sha256": "270c4a35a5e15d3ef76277648c4487d5c0aea9469f2f0c78072fa026c7c78142"
+    },
+    {
+      "file": "data/商业潜力调整/积加销量.csv",
+      "sha256": "f8d632c06f1819de4ee0269aa2515e68a1da144142151be8a874f8a8dca6b4c6"
+    },
+    {
+      "file": "data/商业潜力调整/竞品车罩销量统计表.csv",
+      "sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a"
+    },
+    {
+      "file": "data/销量依据/allocation_weights.csv",
+      "sha256": "cfd95e87b74485d2f66ad7833db4bf6f0d7e5d234a5eba883fed75b998d59a26"
+    },
+    {
+      "file": "data/销量依据/sales_model_year_cache.csv",
+      "sha256": "4298fcd9299807fe331803b164070b67e5b4fae83a30e91f941397b3dc35fb0f"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布",
+    "2026-09-27 新增 RU代理销量.csv：本节点 data/ru 的 Auto.ru 在售样本按 match_key 汇总，经 01 来源映射_RU.csv 落到 RU DIMENSION-ID（原由 A0 现场重跑 01 建库代码计算，结果逐 ID 一致）",
+    "2026-10-28 商业潜力调整数据与算法从 A0 迁入本节点；读取01尺寸库与自身原子销量，内部输出市场潜力及销量潜力调整，公式参数不变。"
+  ],
+  "checks": {
+    "identity_coverage": [
+      {
+        "output": "原子销量.csv",
+        "upstream": "dimension-library",
+        "file": "尺寸库_US.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      },
+      {
+        "output": "RU代理销量.csv",
+        "upstream": "dimension-library",
+        "file": "尺寸库_RU.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      },
+      {
+        "output": "市场潜力.csv",
+        "upstream": "dimension-library",
+        "file": "尺寸库_US.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      }
+    ]
+  }
+}

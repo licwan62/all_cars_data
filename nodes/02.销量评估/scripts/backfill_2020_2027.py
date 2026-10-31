@@ -1,7 +1,7 @@
 """Backfill 2020-2027 estimates using existing 2024/2025 cache data with name mapping."""
 import csv
 
-CACHE_CSV = r"cache/sales_model_year_cache.csv"
+CACHE_CSV = r"data/销量依据/sales_model_year_cache.csv"
 QUEUE_CSV = r"research_queue/model_year_research_queue.csv"
 
 # Name mapping: queue model name -> cache model name

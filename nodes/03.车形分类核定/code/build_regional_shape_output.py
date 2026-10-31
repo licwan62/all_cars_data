@@ -21,6 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "lib"))
+from artifact_batch import RunBatch
 from node_paths import canonical_path  # noqa: E402
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -32,6 +33,7 @@ RULES = PROJECT / "data" / "区域车形代理规则.json"
 US_ID_MIGRATION = PROJECT / "data" / "US车形ID迁移.csv"
 GENERIC_SHAPE_OVERRIDES = PROJECT / "data" / "通用车身号覆盖.csv"
 US_SHAPE_DECISIONS = PROJECT / "data" / "US车形补充核定.csv"
+BASELINE = PROJECT / "data" / "核定车形基线.csv"
 REFERENCE = PROJECT / "data" / "参考尺寸计算.csv"
 REFERENCE_OUTPUT = PROJECT / "output" / "参考尺寸计算.csv"
 REFERENCE_COEFFICIENTS = ("前宽系数", "后宽系数", "弧长系数", "周长系数")
@@ -128,16 +130,8 @@ def proxy_shape(row: dict[str, str], rules: dict) -> str:
 
 def previous_library() -> list[dict[str, str]]:
     """上一版车形所依据的尺寸库（取自本节点 manifest 记录的上游 artifact），用于 ID 迁移。"""
-    if not MANIFEST.is_file():
-        return []
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    for upstream in manifest.get("upstream", []):
-        for item in upstream.get("files", []):
-            if item.get("file") in ("尺寸库.csv", "车型结构.csv"):
-                path = ROOT / canonical_path(item["artifact_file"], ROOT)
-                if path.is_file():
-                    return read_rows(path)
-    return []
+    return read_rows(BASELINE)
+
 
 
 def build(
@@ -257,7 +251,7 @@ def run() -> dict:
     source = read_rows(SOURCE)
     migration = {row["旧DIMENSION-ID"]: row["新DIMENSION-ID"] for row in read_rows(US_ID_MIGRATION)} if US_ID_MIGRATION.is_file() else {}
     overrides = read_generic_shape_overrides(GENERIC_SHAPE_OVERRIDES, rules)
-    result = build(source, read_rows(OUTPUT), previous_library(), rules, migration, overrides, read_us_shape_decisions(US_SHAPE_DECISIONS))
+    result = build(source, read_rows(BASELINE), previous_library(), rules, migration, overrides, read_us_shape_decisions(US_SHAPE_DECISIONS))
     validation = validate(source, result, rules)
     reference_checks = validate_reference(read_rows(REFERENCE))
     validation["checks"].update(reference_checks)
@@ -265,9 +259,12 @@ def run() -> dict:
         validation["status"] = "failed"
     if validation["status"] != "passed":
         raise SystemExit(f"车形接口校验失败：{validation['checks']}")
-    write_rows(OUTPUT, OUTPUT_FIELDS, result["output"])
+    with RunBatch.create(PROJECT / "artifacts", "regional-shapes", PROJECT / "data") as batch:
+        batch.input(SOURCE)
+        write_rows(batch.output("车形分类.csv"), OUTPUT_FIELDS, result["output"])
+        batch.output("参考尺寸计算.csv").write_bytes(REFERENCE.read_bytes())
+        batch.finish(validation, publish_to=PROJECT / "output")
     write_rows(QUEUE, QUEUE_FIELDS, result["queue"])
-    publish_reference()
     summary = {
         "source": len(source),
         "by_country": dict(Counter(row["COUNTRY"] for row in result["output"])),

@@ -1,0 +1,71 @@
+version: 1
+
+# 共享摩托车预设。运行时必须用 -ProjectPath 指向具体任务目录。
+mode: work
+
+workspace:
+  require_project_path: true
+  root: .
+  traversal:
+    strategy: explicit
+    projects:
+      - .
+
+project_layout:
+  input: input
+  output: output
+  reply: replies
+  tables: tables
+  log: log.csv
+  summary: summary.txt
+
+runtime:
+  max_rounds: 150
+  max_reply_wait_seconds: 9999
+  browser: playwright
+  conversation:
+    mode: new
+    archive_code: ""
+  input_sources:
+    directories:
+      - path: input
+        pattern: "*.tsv"
+        recursive: false
+    order: name_asc
+  processing:
+    mode: file
+    checkpoint_dir: checkpoints
+  continue_on_error: false
+  only_files: []
+  input_files:
+    skip_processed: true
+
+data_contract:
+  requirement: ../requirements/moto.md
+  dimension_representative:
+    enabled: true
+    key_columns:
+      - MAKE
+      - MODEL
+      - 代际
+      - 车辆类型
+      - 版本
+    year_column: YEAR
+    dimension_columns:
+      - L-MM
+      - W-MM
+      - H-MM
+    minimum_comparison_years: 2
+    outlier:
+      comparison_rule: absolute_or_relative
+      max_absolute_difference:
+        L-MM: 100.0
+        W-MM: 50.0
+        H-MM: 50.0
+      max_relative_difference_percent: 3.0
+    representative_year:
+      strategy: best_documented
+    audit_columns:
+      - 参考车型
+      - 来源URL
+      - 备注

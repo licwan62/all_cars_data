@@ -1,0 +1,176 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-01_01_pickup-link-audit",
+  "version": "20261101_01",
+  "description": "pickup-link-audit",
+  "created_at": "2026-11-01T02:28:18+08:00",
+  "finished_at": "2026-11-01T02:28:21+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261101_07",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261028_01.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv",
+      "sha256": "563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4"
+    },
+    {
+      "file": "nodes/D2.链接分析/nodes/皮卡/data/发货事实.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/input/发货事实.csv",
+      "sha256": "4e5664de6dcc5bc0cd754ab0bf5aea3d89a8adb8302610aaaad4f64302217b85",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/D2.链接分析/nodes/皮卡/data",
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "copied": [
+      "data/发货事实.csv"
+    ],
+    "files": [
+      {
+        "file": "data/PHYSICAL_SKU映射.json",
+        "sha256": "c695bd433b478f04064c04c6f764c67a97e444b111dd8e4460f415bbd8e5553e"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "8fa96c0e45dd2c9d6b00281c41b9560b2a9823e952b3a7e31102f4d3022292c7"
+      },
+      {
+        "file": "data/SKU上架映射.csv",
+        "sha256": "172f0e828c2e428d3fc372b98d53f8946863dcf52c0f06aa8c050bec934e4bd4"
+      },
+      {
+        "file": "data/发货事实.csv",
+        "sha256": "5260cf1fb2838f8f85e240e1e5fda4db433697baa9d5c55beaff414055c7d8b7",
+        "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/input/发货事实.csv",
+        "raw_sha256": "4e5664de6dcc5bc0cd754ab0bf5aea3d89a8adb8302610aaaad4f64302217b85"
+      },
+      {
+        "file": "data/发货单明细.xlsx",
+        "sha256": "14f0f6c0309a51ccb46d3a4038f8650d663605c9705ff995f8015cb0fca43988"
+      },
+      {
+        "file": "data/链接字段规则.json",
+        "sha256": "e5223b7d64cfbee5f4a5cd2cc98c8ae62ac2a6d181f36de52ed1839e3ec5aed8"
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "58f919d1e00f42521bb31e99b9e73fbce893f25fac8fdd21be87086c7754cc85",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "ce1ff7f55f053c75487c722514851ba2af1dcf0397d01fc66d2fe41243193b67",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "d7825cc3cb8e7f0ea752da9b32d36b7fcc356c49e0f58a44e319c6a178eeabd1",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/code/lib/materials.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "385cee565376ba7345019e39e8cf9b7d8dc464608de6a19f756e484e1c4dabdd",
+        "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-01_01_regional-shapes/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/rules_snapshot.py"
+      },
+      {
+        "file": "nodes/D2.链接分析/nodes/皮卡/scripts/run.py",
+        "sha256": "4b195cb4b4bd40265745c4adf0fe7532af583febc07b25fe647581e65b62f365",
+        "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-01_01_pickup-link-audit/code/nodes/D2.链接分析/nodes/皮卡/scripts/run.py"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "链接字段审核.csv",
+      "versioned_file": "链接字段审核-20261101_01.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/output/链接字段审核-20261028_09.csv",
+      "content_reference": true,
+      "sha256": "3375f660be4a082ee2d37466e69738667dcacc8a1809c86b512836c52c6fad00",
+      "bytes": 31295,
+      "rows": 108
+    },
+    {
+      "file": "上架链接明细.csv",
+      "versioned_file": "上架链接明细-20261101_01.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/output/上架链接明细-20261028_09.csv",
+      "content_reference": true,
+      "sha256": "e3f9660e2a19a19a7bac93c3168ba2d4256aaf987d91a8fa40f27d6dd0e10ec2",
+      "bytes": 23734,
+      "rows": 108
+    },
+    {
+      "file": "发货分配核对.csv",
+      "versioned_file": "发货分配核对-20261101_01.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-14_01_pickup-link-audit/output/发货分配核对-20261014_01.csv",
+      "content_reference": true,
+      "sha256": "f697c4e41182ec36774bdd93b098281fe1142254557880738f5a5a8c02ac6e60",
+      "bytes": 128,
+      "rows": 6
+    },
+    {
+      "file": "SKU发货数量.csv",
+      "versioned_file": "SKU发货数量-20261101_01.csv",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-10-28_09_pickup-link-audit/input/发货事实.csv",
+      "content_reference": true,
+      "sha256": "4e5664de6dcc5bc0cd754ab0bf5aea3d89a8adb8302610aaaad4f64302217b85",
+      "bytes": 5502,
+      "rows": 108
+    },
+    {
+      "file": "链接分析报告.md",
+      "versioned_file": "链接分析报告-20261101_01.md",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-01_01_pickup-link-audit/output/链接分析报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "60fc278e4fc3051ff64a6a265af0adb1c996f6bb2de452dd2747a692af2fd8c7",
+      "bytes": 2560,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "rows": 108,
+    "field_validation_failed": 0,
+    "shipment_input_total": 801,
+    "allocated_total": 801,
+    "allocation_difference": 0
+  }
+}

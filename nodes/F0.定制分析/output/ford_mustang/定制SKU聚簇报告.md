@@ -3,7 +3,7 @@
 ## 结论与范围
 
 区域：US；车系范围：Ford Mustang / Mustang Mach-E；结构：Convertible / Coupe / Fastback / Hatchback / SUV / Crossover。
-57 条尺寸记录形成 4 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。
+58 条尺寸记录形成 4 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。
 
 范围为 US Ford Mustang 与 Mustang Mach-E，覆盖 1965–2026 的跑车车身及 Mach-E SUV/Crossover 记录；单一车系候选使用数字尺寸编码（4 位车型码 + 起止年 YY），跨车系时才用家族代号；不会因名称相近而预设共版。
 范围横跨七代 Mustang、四种传统车身结构以及 Mach-E SUV/Crossover；算法候选仅反映 L/W/H 包络，不能把软顶/硬顶、Fastback/Hatchback 后部曲线或跨车系镜耳位置视为已共版。
@@ -28,7 +28,7 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 | SKU-01 | 01036504 | 19 | 4445–4663（跨度 218） | 1732–1857（跨度 125） | 1260–1354（跨度 94） | 4663 × 1857 × 1354 | Ford Mustang Coupe 1967-1968 US |
 | SKU-02 | 01222126 | 4 | 4714–4750（跨度 36） | 1882–1882（跨度 0） | 1608–1651（跨度 43） | 4750 × 1882 × 1651 | Ford Mustang Mach-E Rally Crossover 2024-2026 US |
 | SKU-03 | 01039426 | 22 | 4610–4818（跨度 208） | 1824–1918（跨度 94） | 1349–1425（跨度 76） | 4818 × 1918 × 1425 | Ford Mustang Dark Horse Coupe 2024-2026 US |
-| SKU-04 | 01036973 | 12 | 4760–4923（跨度 163） | 1826–1882（跨度 56） | 1270–1308（跨度 38） | 4923 × 1882 × 1308 | Ford Mustang Coupe 1973 US |
+| SKU-04 | 01036973 | 13 | 4760–4923（跨度 163） | 1826–1882（跨度 56） | 1270–1308（跨度 38） | 4923 × 1882 × 1308 | Ford Mustang Coupe 1973 US |
 
 ## 候选 SKU 分组原因
 
@@ -39,7 +39,7 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 | SKU-01 | Mustang | 19 | 4554.0（最短） | 1794.5（最窄） | 1307.0（次低） | 长度中心较短：小于 SKU-02/SKU-03/SKU-04（-178.0/-160.0/-287.5 mm） |
 | SKU-02 | Mustang Mach-E | 4 | 4732.0（次长） | 1882.0（最宽） | 1629.5（最高） | 高度中心较高：大于 SKU-01/SKU-03/SKU-04（+322.5/+242.5/+340.5 mm） |
 | SKU-03 | Mustang | 22 | 4714.0（次短） | 1871.0（次宽） | 1387.0（次高） | 高度中心居中：大于 SKU-01/SKU-04（+80.0/+98.0 mm），小于 SKU-02（-242.5 mm） |
-| SKU-04 | Mustang | 12 | 4841.5（最长） | 1854.0（次窄） | 1289.0（最低） | 长度中心较长：大于 SKU-01/SKU-03（+287.5/+127.5 mm）；高度中心较低：小于 SKU-02/SKU-03（-340.5/-98.0 mm） |
+| SKU-04 | Mustang | 13 | 4841.5（最长） | 1854.0（次窄） | 1289.0（最低） | 长度中心较长：大于 SKU-01/SKU-03（+287.5/+127.5 mm）；高度中心较低：小于 SKU-02/SKU-03（-340.5/-98.0 mm） |
 
 两两合并后的包络跨度（mm）与阈值对比；超阈维度即两组不能合并的直接原因：
 
@@ -67,7 +67,7 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 | SKU-01 | 01036504 | 19 | 3L-0×14；2XXL×2；3M-0×2；2XL×1 | 6–276（跨度 270） | 1206–1325（跨度 119） |
 | SKU-02 | 01222126 | 4 | YL×4 | 100–136（跨度 36） | 1315–1350（跨度 35） |
 | SKU-03 | 01039426 | 22 | 3XL-0×21；3L-0×1 | 130–285（跨度 155） | 1305–1398（跨度 93） |
-| SKU-04 | 01036973 | 12 | 3XL-0×12 | 127–290（跨度 163） | 1242–1294（跨度 52） |
+| SKU-04 | 01036973 | 13 | 3XL-0×13 | 127–290（跨度 163） | 1242–1294（跨度 52） |
 
 ### 风险解读
 
@@ -191,7 +191,7 @@ Mach-E 因高度中心显著更高形成独立候选。当前首选可下载 GT 
 
 检索式：`site:sketchfab.com/3d-models 2024 Ford Mustang Dark Horse downloadable`
 
-### SKU-04｜Mustang｜12 条｜车长 4760–4923 mm
+### SKU-04｜Mustang｜13 条｜车长 4760–4923 mm
 
 覆盖车型：
 
@@ -200,7 +200,7 @@ Mach-E 因高度中心显著更高形成独立候选。当前首选可下载 GT 
 | 1969 | Hardtop | Coupe | 4760 |
 | 1969 | SportsRoof | Coupe | 4760 |
 | 1969 | — | Convertible / Fastback | 4760 |
-| 1970 | — | Convertible / Fastback | 4760 |
+| 1970 | — | Convertible / Coupe / Fastback | 4760 |
 | 1971-1972 | — | Convertible / Coupe / Fastback | 4813 |
 | 1973 | — | Convertible / Coupe / Fastback | 4923 |
 
@@ -235,6 +235,6 @@ Mach-E 因高度中心显著更高形成独立候选。当前首选可下载 GT 
 
 | 节点 | 输入 | 上游版本 | sha256 | 来源 artifact |
 | --- | --- | --- | --- | --- |
-| size-calculation | US/全量/全量表.csv | 20261015_02 | f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4 | A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/全量/全量表-20261013_16.csv |
-| code-mapping | 尺寸编码映射.csv | 20261010_01 | e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445 | 02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv |
-| negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |
+| size-calculation | US/全量/全量表.csv | 20261101_07 | 563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4 | nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv |
+| code-mapping | 尺寸编码映射.csv | 20261019_02 | cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8 | nodes/02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv |
+| negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |

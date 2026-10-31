@@ -14,6 +14,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import sys
 import re
 import shutil
 from collections import defaultdict
@@ -21,8 +22,10 @@ from datetime import date
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT.parents[1] / "lib"))
+from artifact_batch import RunBatch
 UPSTREAM = PROJECT.parent / "01.整理尺寸库" / "output"
-SALES_PATH = PROJECT / "data" / "ru" / "auto_ru_model_sales_with_match_key.csv"
+SALES_PATH = PROJECT.parent / "00.自动化尺寸抓取器" / "output" / "RU" / "auto_ru_model_sales_with_match_key.csv"
 SOURCE_MAP_PATH = UPSTREAM / "来源映射_RU.csv"
 DIMENSIONS_PATH = UPSTREAM / "尺寸库_RU.csv"
 OUTPUT_NAME = "RU代理销量.csv"
@@ -81,24 +84,20 @@ def next_artifact_dir() -> Path:
 
 
 def main() -> int:
-    result, audit = build(read_rows(SALES_PATH), read_rows(SOURCE_MAP_PATH), read_rows(DIMENSIONS_PATH))
-    artifact = next_artifact_dir()
-    staging = artifact.with_name(f".{artifact.name}.tmp")
-    (staging / "output").mkdir(parents=True)
-    target = staging / "output" / OUTPUT_NAME
-    with target.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["DIMENSION-ID", "销量合计"], lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(result)
-    status = {"status": "passed", "inputs": [str(SALES_PATH), str(SOURCE_MAP_PATH), str(DIMENSIONS_PATH)], **audit}
-    (staging / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    os.replace(staging, artifact)
-    destination = PROJECT / "output" / OUTPUT_NAME
-    temporary = destination.with_name(f".{OUTPUT_NAME}.tmp")
-    shutil.copy2(artifact / "output" / OUTPUT_NAME, temporary)
-    os.replace(temporary, destination)
-    print(json.dumps({**audit, "artifact": str(artifact)}, ensure_ascii=False))
-    return 0
+    with RunBatch.create(PROJECT / "artifacts", "ru-proxy-sales", PROJECT / "data") as batch:
+        result, audit = build(read_rows(SALES_PATH), read_rows(SOURCE_MAP_PATH), read_rows(DIMENSIONS_PATH))
+        artifact = batch.directory
+        for path in (SALES_PATH, SOURCE_MAP_PATH, DIMENSIONS_PATH):
+            batch.input(path)
+        target = batch.output(OUTPUT_NAME)
+        with target.open("w", encoding="utf-8-sig", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["DIMENSION-ID", "销量合计"], lineterminator="\n")
+            writer.writeheader()
+            writer.writerows(result)
+        status = {"status": "passed", "inputs": [str(SALES_PATH), str(SOURCE_MAP_PATH), str(DIMENSIONS_PATH)], **audit}
+        batch.finish(audit, publish_to=PROJECT / "output")
+        print(json.dumps({**audit, "artifact": str(artifact)}, ensure_ascii=False))
+        return 0
 
 
 if __name__ == "__main__":

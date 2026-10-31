@@ -1,7 +1,7 @@
 """Clean Audi cache - keep only entries that match queue MODEL names exactly"""
 import csv
 
-CACHE_CSV = "cache/sales_model_year_cache.csv"
+CACHE_CSV = "data/销量依据/sales_model_year_cache.csv"
 
 # Correct Audi data with exact queue MODEL names
 AUDI_DATA = [

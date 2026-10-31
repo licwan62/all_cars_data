@@ -7,7 +7,7 @@ D2 根目录作为业务容器，同时维护仓库根 `pipeline.json`（见 `..
 按确认 SKU 输出发货数量。不重新决定既成发货 SKU，展示链接数量变化不重新摊分发货数量。
 
 - 正式输入：本目录 `data/`（`发货单明细.xlsx`、`SKU上架映射.csv`、`链接字段规则.json`、
-  `PHYSICAL_SKU映射.json`）、`review/发货事实.csv` 与上游 `A0.尺码计算/output/US/全量/全量表.csv`。
+  `PHYSICAL_SKU映射.json`）、`data/发货事实.csv` 与上游 `A0.尺码计算/output/US/全量/全量表.csv`。
 - 运行：`python scripts/run.py`（RunBatch 写 `artifacts/` 与 `run.json`，校验通过后原子更新 `output/`）。
 - 发布：`python scripts/publish_release.py --nodes link-analysis-pickup`（仓库根执行）生成 manifest；
   四张 CSV 由 `python scripts/publish_public.py` 发布到 NAS `sku_cluster/皮卡/`，Markdown 报告只留在仓库。

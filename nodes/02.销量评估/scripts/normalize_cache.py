@@ -8,7 +8,7 @@ from common import CACHE_FIELDS, load_config, read_csv, write_csv
 def run(config_path: str = "data/config.json") -> dict[str, int]:
     config = load_config(config_path)
     _, source_rows = read_csv(config["input_csv"])
-    _, cache_rows = read_csv(config["model_year_cache_csv"])
+    _, cache_rows = read_csv(config.get("model_year_cache_source_csv", config["model_year_cache_csv"]))
 
     source_names = {
         (row["MAKE"].casefold(), row["MODEL"].casefold()): (row["MAKE"], row["MODEL"])

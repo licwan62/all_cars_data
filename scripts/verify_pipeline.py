@@ -35,6 +35,9 @@ import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+
+from pipeline_contract import lifecycle_state, publishable
 import trace_pipeline
 import validate_pipeline_structure
 from node_paths import node_dir_name
@@ -60,9 +63,11 @@ class NodeResult:
     def state(self) -> str:
         if self.errors:
             return "FAIL"
+        if lifecycle_state(self.node):
+            return lifecycle_state(self.node)
         if self.warnings:
             return "WARN"
-        return "OK" if self.node.get("outputs") else "EMPTY"
+        return lifecycle_state(self.node) or ("OK" if self.node.get("outputs") else "EMPTY")
 
 
 def as_list(value: str | list[str] | None) -> list[str]:
@@ -153,6 +158,8 @@ def check_dependencies(node: dict, nodes: list[dict]) -> tuple[list[str], list[s
             (warnings if downstream else errors).append(message + ("；对方是本节点下游，存在反向依赖" if downstream else ""))
     for item in sorted(missing):
         warnings.append(f"引用的输入路径不存在：{item}")
+    if lifecycle_state(node):
+        return [], [*errors, *warnings]
     return errors, warnings
 
 
@@ -291,7 +298,7 @@ def main(argv: list[str] | None = None) -> int:
     payload = json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))
     nodes = payload["nodes"]
     by_id = {node["id"]: node for node in nodes}
-    rebuild_ids = {node["id"] for node in nodes if node.get("run")} if args.rebuild == "all" else {x for x in args.rebuild.split(",") if x}
+    rebuild_ids = {node["id"] for node in nodes if node.get("run") and publishable(node)} if args.rebuild == "all" else {x for x in args.rebuild.split(",") if x}
     unknown = rebuild_ids - by_id.keys()
     if unknown:
         parser.error(f"未知节点：{', '.join(sorted(unknown))}")

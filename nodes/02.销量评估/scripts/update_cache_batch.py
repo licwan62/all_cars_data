@@ -2,7 +2,7 @@
 import csv
 import os
 
-CACHE_CSV = "cache/sales_model_year_cache.csv"
+CACHE_CSV = "data/销量依据/sales_model_year_cache.csv"
 
 # 所有代理找到的数据
 # (MAKE, MODEL, YEAR, MODEL_YEAR_US_SALES, wiki_page_name)

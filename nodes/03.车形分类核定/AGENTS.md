@@ -10,3 +10,7 @@
 8. Work in small reviewable increments. For each phase, summarize changed files, executed commands, outcomes, limitations and next steps.
 9. Keep secrets in environment variables, never in source or logs. Respect copyright, website terms, API quotas, and robots policies.
 10. If the existing repository contains its own AGENTS.md, reconcile instructions instead of blindly overwriting it.
+
+## 首次构建
+
+核定车形基线.csv承接原已发布的非代理核定事实，附来源登记；不是重新研究结果。正式生成只读该维护基线、现行规则及上游output，不依赖旧output或其他节点artifact。

@@ -3,7 +3,7 @@ import csv
 
 
 PROJECT = Path(__file__).resolve().parents[1]
-SOURCE = PROJECT / "data" / "us" / "0916" / "00_US尺寸库.csv"
+SOURCE = PROJECT.parent / "00.自动化尺寸抓取器" / "output" / "US" / "00_US尺寸库.csv"
 
 
 def test_2018_countryman_jcw_is_a_single_year_us_record_with_official_dimensions() -> None:

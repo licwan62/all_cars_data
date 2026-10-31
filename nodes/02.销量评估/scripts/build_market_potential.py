@@ -211,6 +211,8 @@ def run(project: Path = PROJECT, dimensions_path: Path | None = None) -> dict:
         result = detail[["DIMENSION-ID", COLUMN, ADJUSTMENT]].copy()
         for column in (COLUMN, ADJUSTMENT):
             result[column] = result[column].map(lambda value: f"{np.ceil(value * 1e6) / 1e6:.6f}")
+        import shutil
+        shutil.copy2(project / "data/商业潜力调整/积加销量.csv", batch.output("积加销量.csv"))
         result.to_csv(batch.output(OUTPUT), index=False, encoding="utf-8-sig", lineterminator="\n")
         detail.to_csv(batch.extra("市场潜力计算明细.csv"), index=False, encoding="utf-8-sig", lineterminator="\n")
         audit.to_csv(batch.extra("销售匹配依据.csv"), index=False, encoding="utf-8-sig", lineterminator="\n")

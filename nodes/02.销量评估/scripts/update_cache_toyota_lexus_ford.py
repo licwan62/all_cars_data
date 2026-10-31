@@ -1,7 +1,7 @@
 """Update sales cache with Toyota, Lexus, and Ford research results."""
 import csv
 
-CACHE_CSV = r"cache/sales_model_year_cache.csv"
+CACHE_CSV = r"data/销量依据/sales_model_year_cache.csv"
 
 # (MAKE, MODEL, YEAR, SALES, SOURCE, URL, CONFIDENCE, SCOPE, PERIOD, PERIOD_END, NOTES)
 RESEARCH_DATA = [

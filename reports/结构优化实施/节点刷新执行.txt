@@ -1,0 +1,604 @@
+[shape-classification] python code/build_regional_shape_output.py
+{
+  "source": 47361,
+  "by_country": {
+    "US": 4383,
+    "EU": 29361,
+    "RU": 13617
+  },
+  "status_counts": {
+    "US核定": 4383,
+    "区域缓存-同车型单一车形": 15783,
+    "参考US-结构分类代理": 27055,
+    "参考US-同基础ID": 140
+  },
+  "inheritance": {
+    "继承-同ID": 15784
+  },
+  "quality_review": 27055,
+  "validation": {
+    "status": "passed",
+    "checks": {
+      "complete_source_coverage": true,
+      "output_ids_unique": true,
+      "allowed_shapes_only": true,
+      "no_blank_shape_or_status": true,
+      "all_us_rows_nuclear": true,
+      "regional_shapes_match_category": true,
+      "reference_shapes_unique": true,
+      "reference_covers_allowed_shapes": true,
+      "reference_coefficients_numeric": true
+    }
+  }
+}
+[shape-classification] python code/validate_regional_shape_output.py
+{
+  "status": "passed",
+  "checks": {
+    "source_ids_unique": true,
+    "output_ids_unique": true,
+    "complete_source_coverage": true,
+    "country_matches_id": true,
+    "allowed_shapes_only": true,
+    "no_blank_shape_or_status": true,
+    "queue_is_output_subset": true,
+    "all_us_rows_nuclear": true,
+    "reference_output_matches_data": true,
+    "reference_covers_output_shapes": true
+  },
+  "source_rows": 47361,
+  "output_rows": 47361,
+  "review_queue_rows": 27055,
+  "by_country": {
+    "US": 4383,
+    "EU": 29361,
+    "RU": 13617
+  },
+  "by_status": {
+    "US核定": 4383,
+    "区域缓存-同车型单一车形": 15783,
+    "参考US-结构分类代理": 27055,
+    "参考US-同基础ID": 140
+  }
+}
+[shape-classification] python code/build_cover_shape_output.py
+{
+  "batch": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\03.车形分类核定\\artifacts\\2026-11-01_02_representative-cover-shape",
+  "rows": 47361,
+  "representative_groups": 37046,
+  "rule_version": "representative-shape-v1",
+  "shape_counts": {
+    "SLOPED_CROSSOVER": 1128,
+    "LOW_NOTCHBACK": 3653,
+    "LOW_FASTBACK": 466,
+    "STANDARD_SEDAN": 12999,
+    "SPORT_LIFTBACK": 5205,
+    "BOXY_SUV": 5056,
+    "WAGON": 425,
+    "COMPACT_HATCH": 4707,
+    "TALL_BOX": 9500,
+    "PICKUP": 4196,
+    "OTHER": 26
+  },
+  "status_counts": {
+    "PROBABLE": 2767,
+    "INFERRED": 44594
+  },
+  "method_counts": {
+    "family_cache_sampled": 2767,
+    "family_cache_inherited": 1605,
+    "representative_evidence": 11,
+    "prototype_geometry_dimensions": 42978
+  },
+  "by_country": {
+    "US": 4383,
+    "EU": 29361,
+    "RU": 13617
+  },
+  "validation": {
+    "exact_source_order_and_coverage": true,
+    "unique_ids": true,
+    "all_have_class": true,
+    "valid_status": true,
+    "complete_metadata": true,
+    "source_unchanged": true
+  },
+  "fit_status": "NOT_TESTED",
+  "network_requests": 0,
+  "research_queue": {
+    "families": 11600,
+    "states_by_market": {
+      "US": {
+        "CACHED": 997
+      },
+      "EU": {
+        "PENDING": 4448,
+        "BLOCKED_INPUT": 8
+      },
+      "RU": {
+        "PENDING": 6147
+      }
+    },
+    "research_markets": [
+      "US"
+    ],
+    "open_tasks": 0,
+    "open_sample_years": 0,
+    "family_cache_rules": 1823,
+    "attempted_families": 0
+  },
+  "limitations": "原型几何先验与尺寸补齐是推断；20 条尺寸缺失/无效记录归 OTHER，未补猜尺寸"
+}
+nodes/03.车形分类核定: 20261101_03  5 个交付物（新存 0，其余引用），pending 0；规则变化（新增 data/核定车形基线.csv, data/核定车形基线来源.json）
+[size-calculation] python src/generate_store_outputs.py
+{
+  "rules_file": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\data\\US\\规则\\0924.2-老爷车插片下限.csv",
+  "rules_size_column": "尺码",
+  "parameters_file": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\data\\US\\参数\\尺码匹配参数.csv",
+  "shelf_config": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\data\\US\\店铺\\货架.yaml",
+  "source_dir": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.分类结构审核\\output",
+  "trim": {
+    "rows": 4383,
+    "maintained_trim_values_used": 4072,
+    "nonempty_trims": 4072,
+    "trim_rows": {
+      "TrimList.csv": {
+        "migrated": 108,
+        "dropped_by_rule": 2,
+        "excluded": 68
+      },
+      "TrimList_audit.csv": {
+        "migrated": 108,
+        "dropped_by_rule": 2,
+        "excluded": 68
+      }
+    },
+    "counts": {
+      "trim_assignment_rows": 23258,
+      "joined_assignment_rows": 23258,
+      "unique_year_make_model_keys": 12635,
+      "multi_dimension_keys": 5408,
+      "safe_multi_dimension_same_size_keys": 1715,
+      "status_assignment_rows": 352,
+      "status_only_no_publishable_size_keys": 64,
+      "mixed_status_and_publishable_size_keys": 249,
+      "publishable_assignment_rows": 22906,
+      "dimension_id_size_rows": 4237,
+      "dimension_id_trim_rows": 4383,
+      "dimension_id_trim_blank_rows": 311,
+      "adapter_size_rows": 22906,
+      "final_adapter_rows": 23258,
+      "final_adapter_status_rows_retained": 352,
+      "adapter_duplicate_rows_removed": 0,
+      "unique_keys_with_publishable_size": 12571,
+      "single_size_keys": 9067,
+      "multi_size_expansion_keys": 3504,
+      "multi_structure_expansion_keys": 2193,
+      "multi_size_detail_rows": 11575
+    },
+    "data_dir": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\data\\US\\TRIM",
+    "adapter": "US/TRIM/TRIM适配器.csv"
+  },
+  "outputs": {
+    "全尺码": {
+      "rows": 4383,
+      "unique_dimension_ids": 4383,
+      "matched_sizes": 4237,
+      "unavailable_sizes": 146,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "output": "US/全量/全量表.csv"
+    },
+    "HNT": {
+      "rows": 4383,
+      "unique_dimension_ids": 4383,
+      "matched_sizes": 3401,
+      "unavailable_sizes": 982,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "matching_sizes": 19,
+      "shipping_sizes": 18,
+      "output": "US/店铺/店铺全量_HNT.csv"
+    },
+    "TM": {
+      "rows": 4383,
+      "unique_dimension_ids": 4383,
+      "matched_sizes": 3709,
+      "unavailable_sizes": 674,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "matching_sizes": 23,
+      "shipping_sizes": 23,
+      "output": "US/店铺/店铺全量_TM.csv"
+    },
+    "TM_拆分": {
+      "rows": 4383,
+      "unique_dimension_ids": 4383,
+      "matched_sizes": 801,
+      "unavailable_sizes": 3582,
+      "incomplete_rows": 0,
+      "sales_total": 750288484,
+      "matching_sizes": 2,
+      "shipping_sizes": 1,
+      "output": "US/店铺/店铺全量_TM_拆分.csv"
+    }
+  },
+  "shape_adjustment_enabled": false
+}
+[size-calculation] python src/generate_ru_full_table.py
+{
+  "rows": 13617,
+  "unique_dimension_ids": 13617,
+  "matched_sizes": 13121,
+  "unavailable_sizes": 496,
+  "incomplete_rows": 0,
+  "sales_total": 297009,
+  "source": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.分类结构审核\\output",
+  "dimensions": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.分类结构审核\\output\\车型结构_RU.csv",
+  "sales_source": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.销量评估\\output\\RU代理销量.csv",
+  "rules": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\data\\RU\\规则\\1023-亚马逊尺码更新.csv",
+  "parameters": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\data\\RU\\参数\\0921.1-仅余量.csv",
+  "size_distribution": {
+    "YM": 1130,
+    "2XL": 1101,
+    "2L": 978,
+    "2XXL": 887,
+    "YL": 857,
+    "3XXL-550": 807,
+    "3M": 745,
+    "3XL": 702,
+    "3L": 681,
+    "3M-0": 630,
+    "YXL": 593,
+    "无可用尺码": 496,
+    "3L-0": 434,
+    "3S-0": 429,
+    "2M": 425,
+    "3XL-0": 322,
+    "5L": 292,
+    "PK-S": 291,
+    "4XL-0": 253,
+    "5XL": 250,
+    "3S": 189,
+    "YXXL-525": 131,
+    "3XXL-520-0": 127,
+    "PK-M": 123,
+    "5M": 112,
+    "5XXL": 101,
+    "4XXL-0": 73,
+    "5S": 70,
+    "PK-L": 63,
+    "3XXL-550-0": 62,
+    "YXXL-545": 57,
+    "YS-380": 57,
+    "YS": 47,
+    "PK-XL": 44,
+    "YXXL-585": 34,
+    "2S": 17,
+    "PK-XXL-645": 7
+  },
+  "sales_audit": {
+    "source": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.销量评估\\output\\RU代理销量.csv",
+    "dimension_rows": 13617,
+    "sales_total": 297009,
+    "dimension_rows_with_positive_proxy_sales": 4050
+  },
+  "sales_snapshot_fallback": false
+}
+[size-calculation] python src/build_regional_coverage_full.py
+[size-calculation] python src/add_cover_shape.py
+{
+  "batch": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\artifacts\\2026-11-01_04_full-table-cover-shape",
+  "tables": {
+    "US/全量/全量表.csv": {
+      "rows": 4383,
+      "shape_counts": {
+        "SLOPED_CROSSOVER": 408,
+        "LOW_NOTCHBACK": 814,
+        "LOW_FASTBACK": 367,
+        "STANDARD_SEDAN": 994,
+        "SPORT_LIFTBACK": 140,
+        "BOXY_SUV": 531,
+        "WAGON": 282,
+        "COMPACT_HATCH": 225,
+        "TALL_BOX": 151,
+        "PICKUP": 465,
+        "OTHER": 6
+      },
+      "all_shape_nonblank": true,
+      "existing_fields_unchanged": true
+    },
+    "EU/全量/全量表.csv": {
+      "rows": 29361,
+      "shape_counts": {
+        "LOW_NOTCHBACK": 1706,
+        "STANDARD_SEDAN": 7472,
+        "SPORT_LIFTBACK": 3845,
+        "TALL_BOX": 7221,
+        "COMPACT_HATCH": 3294,
+        "BOXY_SUV": 2251,
+        "PICKUP": 3103,
+        "SLOPED_CROSSOVER": 418,
+        "LOW_FASTBACK": 30,
+        "OTHER": 20,
+        "WAGON": 1
+      },
+      "all_shape_nonblank": true,
+      "existing_fields_unchanged": true
+    },
+    "RU/全量/全量表.csv": {
+      "rows": 13617,
+      "shape_counts": {
+        "PICKUP": 628,
+        "BOXY_SUV": 2274,
+        "LOW_NOTCHBACK": 1133,
+        "SPORT_LIFTBACK": 1220,
+        "STANDARD_SEDAN": 4533,
+        "LOW_FASTBACK": 69,
+        "COMPACT_HATCH": 1188,
+        "TALL_BOX": 2128,
+        "SLOPED_CROSSOVER": 302,
+        "WAGON": 142
+      },
+      "all_shape_nonblank": true,
+      "existing_fields_unchanged": true
+    },
+    "US/店铺/店铺全量_HNT.csv": {
+      "rows": 4383,
+      "shape_counts": {
+        "SLOPED_CROSSOVER": 408,
+        "LOW_NOTCHBACK": 814,
+        "LOW_FASTBACK": 367,
+        "STANDARD_SEDAN": 994,
+        "SPORT_LIFTBACK": 140,
+        "BOXY_SUV": 531,
+        "WAGON": 282,
+        "COMPACT_HATCH": 225,
+        "TALL_BOX": 151,
+        "PICKUP": 465,
+        "OTHER": 6
+      },
+      "all_shape_nonblank": true,
+      "existing_fields_unchanged": true
+    },
+    "US/店铺/店铺全量_TM.csv": {
+      "rows": 4383,
+      "shape_counts": {
+        "SLOPED_CROSSOVER": 408,
+        "LOW_NOTCHBACK": 814,
+        "LOW_FASTBACK": 367,
+        "STANDARD_SEDAN": 994,
+        "SPORT_LIFTBACK": 140,
+        "BOXY_SUV": 531,
+        "WAGON": 282,
+        "COMPACT_HATCH": 225,
+        "TALL_BOX": 151,
+        "PICKUP": 465,
+        "OTHER": 6
+      },
+      "all_shape_nonblank": true,
+      "existing_fields_unchanged": true
+    },
+    "US/店铺/店铺全量_TM_拆分.csv": {
+      "rows": 4383,
+      "shape_counts": {
+        "SLOPED_CROSSOVER": 408,
+        "LOW_NOTCHBACK": 814,
+        "LOW_FASTBACK": 367,
+        "STANDARD_SEDAN": 994,
+        "SPORT_LIFTBACK": 140,
+        "BOXY_SUV": 531,
+        "WAGON": 282,
+        "COMPACT_HATCH": 225,
+        "TALL_BOX": 151,
+        "PICKUP": 465,
+        "OTHER": 6
+      },
+      "all_shape_nonblank": true,
+      "existing_fields_unchanged": true
+    }
+  },
+  "base_table_sha256": {
+    "US/全量/全量表.csv": "4a18d65b5125cad664e358bb57d23fb3695530e67950385271faa5018ab35160",
+    "EU/全量/全量表.csv": "cfb1e2244c187801698ab3654fc5f0fe6b293bb68316ed8d349e6cdbd416a182",
+    "RU/全量/全量表.csv": "22156bfbb9609c7af401cf459acc4b0b30fce10519c6ee2914a1b20757edfbff",
+    "US/店铺/店铺全量_HNT.csv": "682f0457411ec71a0935f6733c6f0eecd0fd965e728607a8fe1b5fcdc32c7218",
+    "US/店铺/店铺全量_TM.csv": "6327ff0b38162b805a4d2bc39e83a07565b6435a21d528d429146faa1cf4cb94",
+    "US/店铺/店铺全量_TM_拆分.csv": "82d83506efa2ed8fd0cf8a935713d2f13e1a282f6e17628402d522a532808bf8"
+  },
+  "new_fields": [
+    "SHAPE"
+  ],
+  "shape_size_adjustment_rule": "US/规则/SHAPE调整.yaml",
+  "shape_size_adjustment_enabled": false
+}
+[size-calculation] python src/add_market_potential.py
+{
+  "batch": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\A0.尺码计算\\artifacts\\2026-11-01_05_us-market-potential",
+  "rows": 4383,
+  "tables": [
+    "US/全量/全量表.csv",
+    "US/店铺/店铺全量_HNT.csv",
+    "US/店铺/店铺全量_TM.csv",
+    "US/店铺/店铺全量_TM_拆分.csv"
+  ],
+  "source_version": "20261101_04"
+}
+[size-calculation] python src/build_match_report.py
+US/尺码匹配报告.md: 282 行
+EU/尺码匹配报告.md: 148 行
+RU/尺码匹配报告.md: 149 行
+nodes/A0.尺码计算: 20261101_07  15 个交付物（新存 0，其余引用），pending 0；交付物变化：RU/全量/全量表.csv、RU/尺码匹配报告.md；上游输入变化；规则变化（新增 data/参考/历史全域新旧尺码对应.csv）
+[custom-analysis] python src/run.py
+batch=D:\Licheng\Repo\all_cars_data\nodes\F0.定制分析\artifacts\2026-11-01_01_custom-analysis cases=14
+nodes/F0.定制分析: 20261101_02  14 个交付物（新存 0，其余引用），pending 0；交付物变化：ford_f150_supercrew_short_bed/定制SKU聚簇报告.md、ford_f250_crew_short_bed/定制SKU聚簇报告.md、ford_f350_crew_short_bed/定制SKU聚簇报告.md、ford_mustang/定制SKU聚簇报告.md、jeep_gladiator/定制SKU聚簇报告.md、kia_forte/定制SKU聚簇报告.md、kia_soul/定制SKU聚簇报告.md、mercedes_e_class/定制SKU聚簇报告.md、mini_cooper/定制SKU聚簇报告.md、mini_countryman/定制SKU聚簇报告.md、prius/定制SKU聚簇报告.md、ram1500_crew_short_bed/定制SKU聚簇报告.md、silverado2500_crew_short_bed/定制SKU聚簇报告.md、subaru_forester/定制SKU聚簇报告.md；上游输入变化；规则变化（新增 data/参考/定制车衣/combined/BRONCO-2DR&4DR.pdf, data/参考/定制车衣/combined/CHARGER.pdf, data/参考/定制车衣/combined/COOPER.pdf, data/参考/定制车衣/combined/CORVETTE.pdf, data/参考/定制车衣/combined/COUNTRYMAN.pdf, data/参考/定制车衣/combined/CROSSTREK&OUTBACK-SP.pdf, data/参考/定制车衣/combined/DODGE-CHALLENGER.pdf, data/参考/定制车衣/combined/Land Rover Range Rover Sport.pdf, data/参考/定制车衣/combined/MUSTANG.pdf, data/参考/定制车衣/combined/POSCHE-911.pdf, data/参考/定制车衣/combined/PRIUS(C&V).pdf, data/参考/定制车衣/combined/SOUL.pdf, data/参考/定制车衣/combined/TESLA-XY3S.pdf, data/参考/定制车衣/combined/WRANGLER-2&4DR.pdf）
+[sku-clustering] python code/build_delivery_evaluation.py
+D:\Licheng\Repo\all_cars_data\nodes\D1.发货评估\artifacts\2026-11-01_03_delivery-evaluation
+{
+  "status": "passed",
+  "source_rows": 4383,
+  "source_models": 704,
+  "evaluation_rows": 1529,
+  "category_rows": {
+    "W型车": 158,
+    "皮卡": 98,
+    "普通车": 1273
+  },
+  "custom_sku_rows": 52,
+  "review_exact_rows": 8,
+  "review_fuzzy_rows": 432,
+  "review_inferred_rows": 0,
+  "review_inferred_detail_rows": 0,
+  "review_inference_keys": 0,
+  "gray_groups_passed": 8,
+  "gray_adjusted_rows": 11,
+  "sales_matched_rows": 299,
+  "sales_boosted_skus": 19,
+  "code_sha256": "2c9f293a06c4f58103465455d697b6edcdd5f62217b378b8532124241dcfa357",
+  "effective_config": {
+    "schema_version": 1,
+    "status": "active",
+    "region": "US",
+    "market_potential": {
+      "evaluation_year": 2026,
+      "full_weight_years": 5,
+      "half_life_years": 10,
+      "divisor": 1000
+    },
+    "classification": {
+      "w_size_prefix": "4",
+      "pickup_category": "皮卡"
+    },
+    "gray_match": {
+      "enabled": true,
+      "identity_keys": [
+        "评估类别",
+        "MAKE",
+        "MODEL",
+        "版本",
+        "结构",
+        "CAB",
+        "BED"
+      ],
+      "max_year_gap": 1,
+      "boundary_band_mm": 25,
+      "max_group_spread_mm": {
+        "length": 50,
+        "width": 50,
+        "height": 50
+      },
+      "adjacent_sizes_only": true,
+      "target_strategy": "larger",
+      "target_length_margin_mm": {
+        "min": 50,
+        "max_exclusive": 500
+      }
+    },
+    "review_inference": {
+      "enabled": true,
+      "key_fields": [
+        "MODEL",
+        "L-MM",
+        "W-MM",
+        "H-MM"
+      ],
+      "seed_match_methods": [
+        "精确匹配"
+      ],
+      "protected_match_methods": [
+        "精确匹配"
+      ],
+      "target_match_method": "推理匹配"
+    },
+    "review_flag": {
+      "dimension_label": "尺寸",
+      "quality_label": "质量",
+      "none_label": "无",
+      "dimension_keywords": [
+        "尺寸",
+        "不合适",
+        "不匹配",
+        "太大",
+        "偏大",
+        "太小",
+        "偏小",
+        "太长",
+        "偏长",
+        "太短",
+        "偏短",
+        "过长",
+        "过短",
+        "短",
+        "长",
+        "太紧",
+        "偏紧",
+        "太松",
+        "偏松",
+        "紧",
+        "松",
+        "镜子口袋",
+        "后视镜位置",
+        "只适合"
+      ],
+      "empty_reason_tokens": [
+        "/",
+        "不知道在说什么"
+      ]
+    },
+    "sku": {
+      "group_keys": [
+        "MAKE",
+        "MODEL",
+        "供货尺码"
+      ],
+      "max_year_gap": 1,
+      "natural_key": [
+        "MAKE",
+        "MODEL",
+        "YEAR",
+        "供货尺码"
+      ]
+    },
+    "output_schema": {
+      "merge_review_fields_into_notes": {
+        "差评模糊原因": "模糊原因",
+        "差评推理原因": "推理原因",
+        "差评推理键": "推理键",
+        "差评推理来源": "推理来源"
+      },
+      "drop_from_business_outputs": [
+        "DIMENSION-ID",
+        "DIMENSION-ID数量"
+      ],
+      "drop_from_nonpickup_category_outputs": [
+        "CAB",
+        "BED"
+      ],
+      "blank_in_nonpickup_detail": [
+        "CAB",
+        "BED"
+      ],
+      "drop_from_gray_audit": [
+        "源DIMENSION-ID"
+      ]
+    },
+    "scope_note": "覆盖 A0 US 全量表全部 DIMENSION-ID，但业务交付以 SKU 为主键：MAKE+MODEL+连续YEAR年份区间+供货尺码；版本、结构、CAB、BED仅作汇总核对字段，不参与拆分SKU。W型车按自动尺码以4开头识别；剩余皮卡按分类=皮卡识别；其余为普通车。市场潜力只用于相对排序，不计算发货量。差评只有品牌车型、结构、年代和尺码均可核实时标记精确匹配，否则先标记模糊匹配；再以全量表 MODEL+L-MM+W-MM+H-MM 为键，把精确匹配记录的差评传播到非精确命中的相同尺寸记录，并标记推理匹配。",
+    "sales_adjustment": {
+      "source_file": "积加销量.csv",
+      "monthly_weights": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "confidence_units": 10,
+      "score_per_monthly_unit": 20,
+      "note": "月销量=0.2×7天销量×30/7+0.3×15天销量×2+0.5×30天销量；可信度=30天销量/(30天销量+10)；目标分=20×月销量×可信度。多SKU按原潜力分摊，不重复记销量；增加值=max(0,目标分-市场潜力值)。仅唯一品牌车型匹配，最长车型优先；多车型通用款待审核。"
+    }
+  }
+}
+nodes/D1.发货评估: 20261101_04  6 个交付物（新存 0，其余引用），pending 0；规则变化（新增 data/参考/历史定制预定车型.csv）
+[link-analysis-pickup] python scripts/run.py
+artifact=D:\Licheng\Repo\all_cars_data\nodes\D2.链接分析\nodes\皮卡\artifacts\2026-11-01_01_pickup-link-audit
+rows=108 failed=0
+shipment=801 allocated=801 difference=0
+nodes/D2.链接分析/nodes/皮卡: 20261101_02  5 个交付物（新存 0，其余引用），pending 0；交付物变化：链接分析报告.md；上游输入变化；规则变化（修改 data/发货单明细.xlsx；新增 data/发货事实.csv）

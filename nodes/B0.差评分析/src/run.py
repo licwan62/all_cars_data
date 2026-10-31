@@ -33,6 +33,8 @@ from src import build_ear_position_summary as ear_mod
 from src import build_pickup_cab_bed_summary as cab_bed_mod
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_DIR.parents[1] / "lib"))
+from artifact_batch import RunBatch
 DATA_DIR = PROJECT_DIR / "data"
 RAW_REVIEW_NAME = "差评分析汇总.csv"
 NEGATIVE_REVIEW_NAME = "差评分析表.csv"
@@ -142,59 +144,52 @@ def run(
     output_dir: Path = PROJECT_DIR / "output",
     artifacts_dir: Path = PROJECT_DIR / "artifacts",
 ) -> dict:
-    missing = [name for name in REQUIRED_INPUTS if not (data_dir / name).is_file()]
-    if missing:
-        raise NegativeReviewError(f"data/ 缺少输入：{missing}")
-    raw_table = data_dir / RAW_REVIEW_NAME
-    negative_review_path = data_dir / NEGATIVE_REVIEW_NAME
-    rules_path = data_dir / FILTER_RULES_NAME
-    ear_rules_path = data_dir / EAR_RULES_NAME
+    with RunBatch.create(artifacts_dir, "negative-review-analysis", data_dir) as batch:
+        missing = [name for name in REQUIRED_INPUTS if not (data_dir / name).is_file()]
+        if missing:
+            raise NegativeReviewError(f"data/ 缺少输入：{missing}")
+        raw_table = data_dir / RAW_REVIEW_NAME
+        negative_review_path = data_dir / NEGATIVE_REVIEW_NAME
+        rules_path = data_dir / FILTER_RULES_NAME
+        ear_rules_path = data_dir / EAR_RULES_NAME
 
-    # 先快照本次运行读取的 data/，再计算；核对清单只写进本批次，不回写 data/。
-    artifact = next_artifact_dir(artifacts_dir, "negative-review-analysis")
-    (artifact / "input").mkdir(parents=True)
-    for name in REQUIRED_INPUTS:
-        shutil.copy2(data_dir / name, artifact / "input")
+        # 先快照本次运行读取的 data/，再计算；核对清单只写进本批次，不回写 data/。
+        artifact = batch.directory
+        filtered_count, review_count = summary_mod.build(
+            raw_table, rules_path, batch.extra(SIZE_SUMMARY_NAME, compress=False), negative_review_path, batch.extra(SIZE_REVIEW_NAME, compress=False),
+        )
+        ear_summary_rows, ear_report = ear_mod.build(
+            raw_table, ear_rules_path, negative_review_path, batch.extra(EAR_DETAIL_NAME, compress=False),
+        )
+        cab_bed_rows, cab_bed_report = cab_bed_mod.build(raw_table, negative_review_path)
 
-    filtered_count, review_count = summary_mod.build(
-        raw_table, rules_path, artifact / SIZE_SUMMARY_NAME, negative_review_path, artifact / SIZE_REVIEW_NAME,
-    )
-    ear_summary_rows, ear_report = ear_mod.build(
-        raw_table, ear_rules_path, negative_review_path, artifact / EAR_DETAIL_NAME,
-    )
-    cab_bed_rows, cab_bed_report = cab_bed_mod.build(raw_table, negative_review_path)
+        rows = read_csv_rows(negative_review_path)
+        fieldnames = list(rows[0].keys()) if rows else []
+        size_report = add_sizes_from_raw_reviews(rows, read_csv_rows(raw_table))
+        if SIZE_COLUMN not in fieldnames:
+            insert_at = fieldnames.index("结构") + 1 if "结构" in fieldnames else len(fieldnames)
+            fieldnames.insert(insert_at, SIZE_COLUMN)
+        validation = validate_negative_review_table(rows)
 
-    rows = read_csv_rows(negative_review_path)
-    fieldnames = list(rows[0].keys()) if rows else []
-    size_report = add_sizes_from_raw_reviews(rows, read_csv_rows(raw_table))
-    if SIZE_COLUMN not in fieldnames:
-        insert_at = fieldnames.index("结构") + 1 if "结构" in fieldnames else len(fieldnames)
-        fieldnames.insert(insert_at, SIZE_COLUMN)
-    validation = validate_negative_review_table(rows)
+        write_csv_atomic(batch.output(OUTPUT_NAME), fieldnames, rows)
+        write_csv_atomic(batch.output(EAR_OUTPUT_NAME), list(ear_mod.SUMMARY_FIELDS), ear_summary_rows)
+        write_csv_atomic(batch.output(CAB_BED_OUTPUT_NAME), list(cab_bed_mod.SUMMARY_FIELDS), cab_bed_rows)
 
-    write_csv_atomic(artifact / "output" / OUTPUT_NAME, fieldnames, rows)
-    write_csv_atomic(artifact / "output" / EAR_OUTPUT_NAME, list(ear_mod.SUMMARY_FIELDS), ear_summary_rows)
-    write_csv_atomic(artifact / "output" / CAB_BED_OUTPUT_NAME, list(cab_bed_mod.SUMMARY_FIELDS), cab_bed_rows)
+        status = {
+            "status": "passed",
+            "尺寸问题差评筛选": filtered_count,
+            "尺寸问题待复核": review_count,
+            "耳位分析": ear_report,
+            "驾驶室货斗分析": cab_bed_report,
+            "差评分析表校验": validation,
+            "尺码提取": size_report,
+            "outputs": [OUTPUT_NAME, EAR_OUTPUT_NAME, CAB_BED_OUTPUT_NAME],
+        }
+        (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    status = {
-        "status": "passed",
-        "尺寸问题差评筛选": filtered_count,
-        "尺寸问题待复核": review_count,
-        "耳位分析": ear_report,
-        "驾驶室货斗分析": cab_bed_report,
-        "差评分析表校验": validation,
-        "尺码提取": size_report,
-        "outputs": [OUTPUT_NAME, EAR_OUTPUT_NAME, CAB_BED_OUTPUT_NAME],
-    }
-    (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        batch.finish(status, publish_to=output_dir)
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-    for name in (OUTPUT_NAME, EAR_OUTPUT_NAME, CAB_BED_OUTPUT_NAME):
-        staged = (output_dir / name).with_suffix(".tmp")
-        shutil.copy2(artifact / "output" / name, staged)
-        os.replace(staged, output_dir / name)
-
-    return {**status, "artifact": str(artifact)}
+        return {**status, "artifact": str(artifact)}
 
 
 def main(argv: list[str] | None = None) -> int:

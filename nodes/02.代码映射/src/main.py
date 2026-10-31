@@ -10,6 +10,9 @@ from pathlib import Path
 if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "lib"))
+from artifact_batch import RunBatch
+
 from src.config import Settings, load_settings, region_names
 from src.dimension_code import DIMENSION_CODE_FIELDS, dimension_code_rows, duplicate_code_count
 from src.exporter import (
@@ -138,7 +141,7 @@ def run(settings: Settings, dry_run: bool = False, publish: bool = False) -> dic
     return plan.summary()
 
 
-def run_all(config_path, input_override=None, dry_run=False, publish=False) -> dict[str, dict]:
+def run_all(config_path, input_override=None, dry_run=False, publish=False, update_registry=False) -> dict[str, dict]:
     """US/EU/RU 各自独立编码，共用一个 artifact 批次与两份合并交付物。
 
     交付物：output/车型编码映射.csv（REGION + MAKE/MODEL 编码）、
@@ -174,21 +177,20 @@ def run_all(config_path, input_override=None, dry_run=False, publish=False) -> d
         return summary
 
     base = plans[0].settings
-    for plan in plans:
-        apply_region(plan)
-    artifact_path = create_multi_artifact_batch(
-        base.artifact_root, base.artifact_slug,
-        {plan.settings.region: (plan.new_makes, plan.new_models) for plan in plans},
-        {"车型编码映射.csv": (["REGION", *VEHICLE_FIELDS], vehicle_rows),
-         "尺寸编码映射.csv": (DIMENSION_CODE_FIELDS, code_rows)},
-        {"regions": summary, "dimension_code_rows": len(code_rows), "shared_code_rows": duplicates},
-        base.input_path,
-    )
-    write_csv_atomic(base.publish_path, ["REGION", *VEHICLE_FIELDS], vehicle_rows)
-    write_csv_atomic(base.dimension_code_path, DIMENSION_CODE_FIELDS, code_rows)
-    print(f"Artifact created: {artifact_path}")
-    print(f"Published: {base.publish_path}")
-    print(f"Published: {base.dimension_code_path}")
+    if any(plan.changed() or plan.mode == "INITIAL" for plan in plans):
+        if not update_registry:
+            raise ValueError("存在未登记的编码变化；请先维护data映射，或显式使用 --update-registry")
+        for plan in plans:
+            apply_region(plan)
+    project = base.artifact_root.parent
+    data_dir = project / "data"
+    with RunBatch.create(base.artifact_root, "code-mapping", data_dir if data_dir.is_dir() else None) as batch:
+        for path in dict.fromkeys(plan.settings.input_path for plan in plans):
+            batch.input(path)
+        write_csv_atomic(batch.output("车型编码映射.csv"), ["REGION", *VEHICLE_FIELDS], vehicle_rows)
+        write_csv_atomic(batch.output("尺寸编码映射.csv"), DIMENSION_CODE_FIELDS, code_rows)
+        batch.finish({"regions": summary, "dimension_code_rows": len(code_rows)}, publish_to=base.publish_path.parent)
+    print(f"Artifact created: {batch.directory}")
     if publish:
         write_csv_atomic(base.public_publish_path, ["REGION", *VEHICLE_FIELDS], vehicle_rows)
     print("Mapping update completed successfully.")
@@ -241,6 +243,7 @@ def parse_args(argv: list[str] | None = None):
     parser.add_argument(
         "--publish", action="store_true", help="Also write the published mapping to the public_publish path"
     )
+    parser.add_argument("--update-registry", action="store_true", help="显式维护data编码登记后再生成；正式默认run不修改data")
     parser.add_argument("--region", help="仅运行单个区域（US/EU/RU），不合并交付物，仅调试用")
     parser.add_argument("--report", action="store_true", help="Show current mapping statistics only")
     return parser.parse_args(argv)
@@ -263,7 +266,7 @@ def main(argv: list[str] | None = None) -> int:
             run(regional, dry_run=args.dry_run, publish=args.publish)
         else:
             run_all(args.config, Path(args.input).resolve() if args.input else None,
-                    dry_run=args.dry_run, publish=args.publish)
+                    dry_run=args.dry_run, publish=args.publish, update_registry=args.update_registry)
         return 0
     except (OSError, ValueError) as exc:
         LOGGER.error("%s", exc)

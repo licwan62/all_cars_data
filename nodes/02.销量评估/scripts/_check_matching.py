@@ -1,7 +1,7 @@
 import csv
 
 queue = list(csv.DictReader(open('research_queue/model_year_research_queue.csv', encoding='utf-8-sig')))
-cache = list(csv.DictReader(open('cache/sales_model_year_cache.csv', encoding='utf-8-sig')))
+cache = list(csv.DictReader(open('data/销量依据/sales_model_year_cache.csv', encoding='utf-8-sig')))
 
 # Check Ford entries in cache
 ford_cache = {r['MODEL']: int(r['MODEL_YEAR_US_SALES']) for r in cache if r['MAKE']=='Ford' and r.get('MODEL_YEAR_US_SALES','')}

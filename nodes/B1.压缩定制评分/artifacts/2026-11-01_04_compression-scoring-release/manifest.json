@@ -1,0 +1,87 @@
+{
+  "schema_version": 2,
+  "node": "compression-scoring",
+  "path": "nodes/B1.压缩定制评分",
+  "version": "20261101_04",
+  "artifact": "nodes/B1.压缩定制评分/artifacts/2026-11-01_04_compression-scoring-release",
+  "published_at": "2026-11-01T02:46:50+08:00",
+  "deliverables": [
+    {
+      "file": "定制需求度评分.csv",
+      "versioned_file": "定制需求度评分-20261009_04.csv",
+      "artifact_file": "nodes/B1.压缩定制评分/artifacts/2026-10-09_04_compression-scoring-release/output/定制需求度评分-20261009_04.csv",
+      "content_reference": false,
+      "sha256": "f0468b1e4a5e733efce8b84bf440c1f75723030761cd7acb32d88fba4963c1c2",
+      "bytes": 169084,
+      "rows": 7479
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261101_07",
+      "basis": "run",
+      "files": [
+        {
+          "file": "EU/全量/全量表.csv",
+          "versioned_file": "EU/全量/全量表-20261013_16.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/EU/全量/全量表-20261013_16.csv",
+          "sha256": "43250bf7748fcff6651aa5ae2e7f47fe22d1945731f99fc9a4dae41a04b3406d"
+        },
+        {
+          "file": "RU/全量/全量表.csv",
+          "versioned_file": "RU/全量/全量表-20261101_04.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_04_full-table-cover-shape/output/RU/全量/全量表-20261101_04.csv",
+          "sha256": "26febcda79cb7d91991d3459919047ae88843d1208cb2139854f60fc6ce4115a"
+        },
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv",
+          "sha256": "563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4"
+        }
+      ]
+    },
+    {
+      "node": "negative-review-analysis",
+      "version": "20261009_04",
+      "basis": "run",
+      "files": [
+        {
+          "file": "差评分析表.csv",
+          "versioned_file": "差评分析表-20261009_04.csv",
+          "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+          "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+        },
+        {
+          "file": "皮卡驾驶室货斗分析表.csv",
+          "versioned_file": "皮卡驾驶室货斗分析表-20261009_04.csv",
+          "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/皮卡驾驶室货斗分析表-20261009_04.csv",
+          "sha256": "94b8bf2d801fb62017061581d0e297fbcd5798426b4ea763c70682ff7fc67d7e"
+        },
+        {
+          "file": "耳位分析表.csv",
+          "versioned_file": "耳位分析表-20261009_04.csv",
+          "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/耳位分析表-20261009_04.csv",
+          "sha256": "b064104c2c86742a95091999de3210fb38a7fd5794c690c181e16f5616febbcf"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/定制评分规则.json",
+      "sha256": "313f28b38c706692e9798c79d498dedc894799f1ec637f5c934a16e261464f94"
+    },
+    {
+      "file": "data/车耳状态登记.csv",
+      "sha256": "9793443f210cd07aeb9e0b4d706b45e25b17716413608f88630b4c6edfa9530a"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-22 新增节点：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间；并结合 data/ 三张人工维护台账（差评分析表/人工维护进度/车耳状态登记，均为空表，尚无历史数据）打定制需求度评分，首次运行全部为“数据不足”，需人工陆续录入",
+    "2026-09-23 拆分为三个节点：压缩机制迁移到 A2.压缩尺寸信息，差评分析迁移到 B0.差评分析；本节点改名 B1.压缩定制评分，只保留定制需求度评分，差评维度改读 B0 的 output/",
+    "2026-09-27 评分键来源由 A1.全量生成 全量表_汇总.csv 改为 A0.尺码计算 US/EU/RU 全量表"
+  ]
+}

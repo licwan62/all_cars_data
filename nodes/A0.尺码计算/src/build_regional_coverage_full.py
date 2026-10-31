@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import sys
+import tempfile
 from datetime import date
 from pathlib import Path
 
@@ -15,6 +16,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[3]
 PROJECT = ROOT / "nodes" / "A0.尺码计算"
 sys.path.insert(0, str(ROOT / "lib"))
+from artifact_batch import RunBatch
 import data_layout
 import output_layout as layout
 import pandas_analysis as analysis
@@ -88,31 +90,19 @@ def build_ru(shapes: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, object]]:
 
 
 def main() -> int:
-    artifact = batch_dir()
-    staging = artifact.with_name(f".{artifact.name}.tmp")
-    try:
+    with RunBatch.create(ARTIFACTS, "regional-coverage-full", PROJECT / "data") as batch:
+        batch.input(SHAPES)
+        batch.input(DIMENSIONS / "车型结构_EU.csv")
+        batch.input(OUTPUT / layout.full_table("RU"))
         shapes_eu, shapes_ru = candidate_shapes("EU"), candidate_shapes("RU")
-        eu, eu_report = build_eu(staging, shapes_eu)
+        with tempfile.TemporaryDirectory(prefix="eu-coverage-") as temp:
+            eu, eu_report = build_eu(Path(temp), shapes_eu)
         ru, ru_report = build_ru(shapes_ru)
         for region, frame, report in [("EU", eu, eu_report), ("RU", ru, ru_report)]:
-            (staging / "output" / layout.full_table(region)).parent.mkdir(parents=True, exist_ok=True)
-            frame.to_csv(staging / "output" / layout.full_table(region), index=False, encoding="utf-8-sig", lineterminator="\n")
-            (staging / "reports").mkdir(exist_ok=True)
-            (staging / "reports" / f"尺码匹配报告_{region}.json").write_text(json.dumps({"status": "passed", "coverage_first": True, **report}, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
-        os.replace(staging, artifact)
-        for region in ("EU", "RU"):
-            for name in (layout.full_table(region),):
-                target = OUTPUT / name
-                target.parent.mkdir(parents=True, exist_ok=True)
-                temporary = target.with_name(f".{target.name}.tmp")
-                shutil.copy2(artifact / "output" / name, temporary)
-                os.replace(temporary, target)
-        print(json.dumps({"artifact": str(artifact), "EU": eu_report, "RU": ru_report}, ensure_ascii=False, indent=2))
+            frame.to_csv(batch.output(layout.full_table(region)), index=False, encoding="utf-8-sig", lineterminator="\n")
+            batch.extra(f"尺码匹配报告_{region}.json", compress=False).write_text(json.dumps(report, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+        batch.finish({"EU": eu_report, "RU": ru_report}, publish_to=OUTPUT)
         return 0
-    except Exception as error:
-        if staging.exists(): shutil.rmtree(staging)
-        print(f"区域覆盖全量生成失败：{error}", file=sys.stderr)
-        return 2
 
 
 if __name__ == "__main__":

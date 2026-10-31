@@ -5,7 +5,7 @@ from collections import defaultdict
 with open(r'research_queue/model_year_research_queue.csv', encoding='utf-8-sig') as f:
     queue = list(csv.DictReader(f))
 
-with open(r'cache/sales_model_year_cache.csv', encoding='utf-8-sig') as f:
+with open(r'data/销量依据/sales_model_year_cache.csv', encoding='utf-8-sig') as f:
     cache = list(csv.DictReader(f))
 
 # Build cache key set

@@ -1,0 +1,80 @@
+{
+  "schema_version": 2,
+  "node": "size-analysis",
+  "path": "nodes/E0.尺寸分析",
+  "version": "20261101_02",
+  "artifact": "nodes/E0.尺寸分析/artifacts/2026-11-01_02_size-analysis-release",
+  "published_at": "2026-11-01T02:37:37+08:00",
+  "deliverables": [
+    {
+      "file": "尺码宽高统计.csv",
+      "versioned_file": "尺码宽高统计-20261101_01.csv",
+      "artifact_file": "nodes/E0.尺寸分析/artifacts/2026-11-01_01_dimension-statistics/output/尺码宽高统计-20261101_01.csv",
+      "content_reference": true,
+      "sha256": "78b03b5bc8bab6496b130c829ae47a58904fc853d18aba686b58f6d882061fcc",
+      "bytes": 9902,
+      "rows": 105
+    },
+    {
+      "file": "尺码宽高极值车型.csv",
+      "versioned_file": "尺码宽高极值车型-20261101_01.csv",
+      "artifact_file": "nodes/E0.尺寸分析/artifacts/2026-11-01_01_dimension-statistics/output/尺码宽高极值车型-20261101_01.csv",
+      "content_reference": true,
+      "sha256": "dd058cecb76f8600a3385c0fbf543c9e1575730caaf15b2fbf5d379846ddf005",
+      "bytes": 65221,
+      "rows": 462
+    },
+    {
+      "file": "尺码尺寸异常.csv",
+      "versioned_file": "尺码尺寸异常-20261101_01.csv",
+      "artifact_file": "nodes/E0.尺寸分析/artifacts/2026-11-01_01_dimension-statistics/output/尺码尺寸异常-20261101_01.csv",
+      "content_reference": true,
+      "sha256": "b47fabf5256cb7cfa49d5ed121dcebd6adfc1cfd09b7c9fe839b22eee2149bca",
+      "bytes": 639383,
+      "rows": 3176
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261101_07",
+      "basis": "run",
+      "files": [
+        {
+          "file": "EU/全量/全量表.csv",
+          "versioned_file": "EU/全量/全量表-20261013_16.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/EU/全量/全量表-20261013_16.csv",
+          "sha256": "43250bf7748fcff6651aa5ae2e7f47fe22d1945731f99fc9a4dae41a04b3406d"
+        },
+        {
+          "file": "RU/全量/全量表.csv",
+          "versioned_file": "RU/全量/全量表-20261101_04.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_04_full-table-cover-shape/output/RU/全量/全量表-20261101_04.csv",
+          "sha256": "26febcda79cb7d91991d3459919047ae88843d1208cb2139854f60fc6ce4115a"
+        },
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv",
+          "sha256": "563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/dimension_stats_config.json",
+      "sha256": "07b7d9f694e9eccffe3eaa41f9f4b1cd90aab7d44b5facced8ca35bf5d3a28db"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-22 由 full-table-summary（A1.全量汇总）与 adapter-trim（B1.适配器-Trim生成）合并为单一节点 A1.全量生成；历史 artifact 分别归档在 artifacts/legacy-full-table-summary/ 与 artifacts/legacy-adapter-trim/ 下，未做内容改动",
+    "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核（继承自 A0 口径限制，汇总表必须保留）",
+    "2026-09-25 整理 output：新增分区域全量表 全量生成_US/EU/RU.csv（= A0 全量表_<区域> 原行序原列 + Trims，EU/RU 的 Trims 为空），作为 A2.压缩尺寸信息 与网站流水线（pipeline_carstable_to_webapp/input）的区域输入；全量表_汇总.csv 不变",
+    "2026-09-25 新增店铺产线 全量生成_HNT/TM/TM_拆分.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、店铺发货尺码）+ Trims；A 线共 6 条产线（US、HNT、TM、TM_拆分、EU、RU）",
+    "2026-09-27 改为全量表分析节点：只读 A0 US/EU/RU 全量表做宽高统计（尺码宽高统计、尺码宽高极值车型、尺码尺寸异常）；TRIM 匹配、TRIM适配器 与 data/ TRIM 资料迁至 A0.尺码计算，不再输出 全量表_汇总、全量生成_<产线>、尺寸TRIM映射",
+    "2026-10-09 由 A1.全量生成（id full-generation）移出 A 线，改为 E0.尺寸分析（id size-analysis），按需运行，A 线发布不再自动刷新；交付物与算法不变",
+    "2026-10-09 运行批次改用 lib/artifact_batch.py：A0 全量表只记引用不复制，规则记 sha256 + git commit；批次约 8 MB → 0.7 MB，输出不变"
+  ]
+}

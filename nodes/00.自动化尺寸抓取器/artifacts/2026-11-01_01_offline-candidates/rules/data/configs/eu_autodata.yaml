@@ -1,0 +1,53 @@
+version: 1
+
+# 共享 EU Ktype 预设。运行时必须用 -ProjectPath 指向具体任务目录。
+mode: work
+
+workspace:
+  require_project_path: true
+  root: .
+  traversal:
+    strategy: explicit
+    projects:
+      - .
+
+project_layout:
+  input: input
+  output: output
+  reply: replies
+  tables: tables
+  log: log.csv
+  summary: summary.txt
+
+runtime:
+  max_rounds: 150
+  max_reply_wait_seconds: 9999
+  browser: playwright
+  conversation:
+    mode: new
+    archive_code: ""
+  input_sources:
+    directories:
+      - path: input
+        pattern: "*.tsv"
+        recursive: false
+    order: name_asc
+  processing:
+    mode: batch
+    rows_per_task: 100
+    row_label_columns:
+      - Make
+      - Model
+      - VariantName
+      - Ktype
+    checkpoint_dir: checkpoints
+  continue_on_error: false
+  only_files: []
+  input_files:
+    skip_processed: true
+
+data_contract:
+  requirement: ../requirements/eu_autodata.md
+  dimension_representative:
+    # EU 由 DIMENSION_GROUP_ID 管理尺寸共享，不使用单一 YEAR 代表年算法。
+    enabled: false

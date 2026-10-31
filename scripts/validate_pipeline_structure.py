@@ -5,7 +5,11 @@ import re
 import sys
 from pathlib import Path
 
-from artifact_refs import check_deliverable_source, sha256
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+
+from pipeline_contract import lifecycle_state, validate_contract
+from content_store import resolve_source
+from artifact_refs import check_deliverable_source, sha256, reference_cycles
 from node_paths import NODES_DIR, load_record, node_dir_name
 from identity_coverage import validate_rules as check_identity_rules
 from pipeline_status import check_status, node_trigger
@@ -38,6 +42,8 @@ def check_layers(nodes: list[dict]) -> list[str]:
 
     for node in nodes:
         node_id, layer = node["id"], node.get("layer")
+        if node.get("kind") == "container":
+            continue
         if layer != depth[node_id]:
             errors.append(f"{node_id}: layer={layer}，按上游计算应为 {depth[node_id]}")
         prefix = node_dir_name(node["path"]).split(".", 1)[0]
@@ -99,7 +105,7 @@ def check_outputs(nodes: list[dict]) -> list[str]:
     ]
 
 
-PUBLIC_SUFFIXES = {".csv", ".md", ".json"}
+PUBLIC_SUFFIXES = {".csv"}
 
 
 def check_public_outputs(nodes: list[dict]) -> list[str]:
@@ -139,7 +145,7 @@ def check_release_naming(nodes: list[dict]) -> list[str]:
                 errors.append(f"{node['id']}: {problem}")
                 continue
             out_file = base / "output" / item["file"]
-            if out_file.is_file() and sha256(out_file) != sha256(ROOT / item["artifact_file"]):
+            if out_file.is_file() and sha256(out_file) != sha256(resolve_source(ROOT, item["artifact_file"])):
                 errors.append(f"{node['id']}: output/{item['file']} 与 {item['versioned_file']} 内容不一致")
         for path in (base / "output").rglob("*"):
             if VERSION_SUFFIX.search(path.name):
@@ -221,7 +227,7 @@ def main() -> int:
             continue
         if not (project / "AGENTS.md").is_file():
             errors.append(f"{node_id}: 缺少 AGENTS.md")
-        for directory in REQUIRED_DIRECTORIES:
+        for directory in (("data",) if lifecycle_state(node) else REQUIRED_DIRECTORIES):
             if not (project / directory).is_dir():
                 errors.append(f"{node_id}: 缺少 {directory}/")
         for upstream in node.get("upstream", []):
@@ -230,6 +236,8 @@ def main() -> int:
             if upstream == node_id:
                 errors.append(f"{node_id}: 不得依赖自身")
 
+    errors.extend(validate_contract(nodes))
+    errors.extend(reference_cycles(ROOT, nodes))
     errors.extend(check_layers(nodes))
     errors.extend(check_triggers(payload))
     errors.extend(check_outputs(nodes))
@@ -245,7 +253,7 @@ def main() -> int:
         for error in errors:
             print(f"- {error}", file=sys.stderr)
         return 1
-    print(f"流水线结构校验通过：{len(nodes)} 个 agent，均具备 data/output/artifacts，代码集中在 code_dir，流水线状态.md 与发布一致。")
+    print(f"流水线结构校验通过：{len(nodes)} 个登记项目；活跃节点结构完整，容器/待接入/历史节点按类型校验，状态文件与发布一致。")
     return 0
 
 

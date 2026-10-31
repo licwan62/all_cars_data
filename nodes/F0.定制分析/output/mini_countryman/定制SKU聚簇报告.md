@@ -3,7 +3,7 @@
 ## 结论与范围
 
 区域：US；车系范围：MINI Countryman；结构：SUV。
-4 条尺寸记录形成 2 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。
+5 条尺寸记录形成 2 个尺寸候选 SKU。跨代际共版须完成外形核验和实测适配验证。
 
 
 ## 差评依据
@@ -21,7 +21,7 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 | 候选 SKU | 车型代号 | 记录数 | L/mm | W/mm | H/mm | 最大包络/mm | 代表车型 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | SKU-01 | 32031116 | 2 | 4110–4143（跨度 33） | 1788–1788（跨度 0） | 1562–1562（跨度 0） | 4143 × 1788 × 1562 | MINI Countryman JCW SUV 2016 US |
-| SKU-02 | 32031726 | 2 | 4313–4448（跨度 135） | 1821–1844（跨度 23） | 1557–1656（跨度 99） | 4448 × 1844 × 1656 | MINI Countryman SUV 2025-2026 US |
+| SKU-02 | 32031726 | 3 | 4313–4448（跨度 135） | 1821–1844（跨度 23） | 1557–1656（跨度 99） | 4448 × 1844 × 1656 | MINI Countryman SUV 2025-2026 US |
 
 各维度最大值可能来自不同车型，代表车型不一定达到三项最大值。包络是车辆外廓，不是成品车衣的放量或裁片尺寸。
 
@@ -31,7 +31,8 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SKU-01 | MINI Countryman SUV 2011-2015 US | 32031115 | 2011-2015 | gen1 | — | SUV | 4110 | 1788 | 1562 | 90205 |
 | SKU-01 | MINI Countryman JCW SUV 2016 US | 32031616 | 2016 | gen1 | JCW | SUV | 4143 | 1788 | 1562 | 12706 |
-| SKU-02 | MINI Countryman SUV 2017-2024 US | 32031724 | 2017-2024 | gen2 | — | SUV | 4313 | 1821 | 1557 | 109639 |
+| SKU-02 | MINI Countryman JCW SUV 2018 US | 32031818 | 2018 | gen2 | JCW | SUV | 4313 | 1821 | 1557 | 8783 |
+| SKU-02 | MINI Countryman SUV 2017-2024 US | 32031724 | 2017-2024 | gen2 | — | SUV | 4313 | 1821 | 1557 | 100856 |
 | SKU-02 | MINI Countryman SUV 2025-2026 US | 32032526 | 2025-2026 | gen3 | — | SUV | 4448 | 1844 | 1656 | 26500 |
 
 ## 通用尺码适配风险
@@ -41,7 +42,7 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 | 候选 SKU | 车型代号 | 记录数 | 自动尺码×条数 | 自动长度余量/mm | 参考侧高/mm |
 | --- | --- | --- | --- | --- | --- |
 | SKU-01 | 32031116 | 2 | YM×2 | 487–520（跨度 33） | 1183–1183（跨度 0） |
-| SKU-02 | 32031726 | 2 | YM×2 | 182–317（跨度 135） | 1192–1279（跨度 87） |
+| SKU-02 | 32031726 | 3 | YM×3 | 182–317（跨度 135） | 1192–1279（跨度 87） |
 
 ### 风险解读
 
@@ -57,7 +58,7 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 | 候选 SKU | 代际 | 覆盖车型 | 状态 | 核验项目 |
 | --- | --- | --- | --- | --- |
 | SKU-01 | R60 | MINI Countryman JCW SUV 2016 US；MINI Countryman SUV 2011-2015 US | 待外形核验 | 车顶弧线；前后轮廓；后视镜位置；尾门及扰流板；跨代际共版可行性 |
-| SKU-02 | F60 | MINI Countryman SUV 2017-2024 US | 待外形核验 | 车顶弧线；前后轮廓；后视镜位置；尾门及扰流板；跨代际共版可行性 |
+| SKU-02 | F60 | MINI Countryman JCW SUV 2018 US；MINI Countryman SUV 2017-2024 US | 待外形核验 | 车顶弧线；前后轮廓；后视镜位置；尾门及扰流板；跨代际共版可行性 |
 | SKU-02 | U25 | MINI Countryman SUV 2025-2026 US | 待补参考模型 | 车顶弧线；前后轮廓；后视镜位置；尾门及扰流板；跨代际共版可行性 |
 
 ## Sketchfab 检索与完整参考链接
@@ -97,6 +98,6 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 
 | 节点 | 输入 | 上游版本 | sha256 | 来源 artifact |
 | --- | --- | --- | --- | --- |
-| size-calculation | US/全量/全量表.csv | 20261015_02 | f666d9455be9ea9e5d0dba53ea0d2b1150c6f68b724b183dae30daa1a82230f4 | A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/US/全量/全量表-20261013_16.csv |
-| code-mapping | 尺寸编码映射.csv | 20261010_01 | e9312b10b0589293e6ebeea0b169f09ec9578baa0a290215ed74b48706bde445 | 02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/尺寸编码映射-20261009_04.csv |
-| negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |
+| size-calculation | US/全量/全量表.csv | 20261101_07 | 563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4 | nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv |
+| code-mapping | 尺寸编码映射.csv | 20261019_02 | cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8 | nodes/02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv |
+| negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |

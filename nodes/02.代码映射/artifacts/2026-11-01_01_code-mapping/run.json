@@ -1,0 +1,237 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/02.代码映射/artifacts/2026-11-01_01_code-mapping",
+  "version": "20261101_01",
+  "description": "code-mapping",
+  "created_at": "2026-11-01T02:46:45+08:00",
+  "finished_at": "2026-11-01T02:46:46+08:00",
+  "command": [
+    "main.py"
+  ],
+  "inputs": [
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261101_02",
+      "file": "尺寸库.csv",
+      "versioned_file": "尺寸库-20261009_08.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库-20261009_08.csv",
+      "sha256": "5b3fccb71c6e69fa9fde07f62cd6d99584582ccbe278f871c6c60ec2422e1f69"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/02.代码映射/data",
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "copied": [],
+    "files": [
+      {
+        "file": "data/config.yaml",
+        "sha256": "b7676be7107adf9f9f5900951f81e0677bac0b176a1bd455be3823a7183f6b7e"
+      },
+      {
+        "file": "data/input/0918.1_mg添加.csv",
+        "sha256": "2df551d3e7e9c68bf2c33a729d8f92b15dada46fc501e53527eebe831db91fb2"
+      },
+      {
+        "file": "data/mapping/eu/make_mapping.csv",
+        "sha256": "a88d33f58d70a922ad95431ec3f3d19ddc77c17d61aa2790064f35c467b93a56"
+      },
+      {
+        "file": "data/mapping/eu/model_mapping.csv",
+        "sha256": "f1bbd0258d44519bb502d89875015eafa51b7328c362d15bdac4b238412fd1ac"
+      },
+      {
+        "file": "data/mapping/ru/make_mapping.csv",
+        "sha256": "dad3d18233d461090dc3a9e6743cb584530fb24a18711d1df775875a2fa39baf"
+      },
+      {
+        "file": "data/mapping/ru/model_mapping.csv",
+        "sha256": "301a9d0ff04103653eee0fb440e80062123d17dbb8cc3cb0f2ee727d726d542f"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_162242_367449_make_mapping.csv",
+        "sha256": "9ba07227660e56d17cd6da442c62fd047e42e4e6d2bc49de9d78d1c3004ec461"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_162242_367449_model_mapping.csv",
+        "sha256": "ccc8e976a2265955dbd81fce45868aa7aa73f86458534331c453bc2522558cef"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_162655_273995_make_mapping.csv",
+        "sha256": "e094e6bea30228d5a67c86fbe52918234eb32cba6874e6392f7f062826e3bb86"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_162655_273995_model_mapping.csv",
+        "sha256": "2481e87346c5304caf3d2be812a23ca265e6008848ca9268c4134adda35b6896"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_163127_477277_make_mapping.csv",
+        "sha256": "32c2e47762d001787a2721458cfdf413a37f9579556b921813d04461b0c41901"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_163127_477277_model_mapping.csv",
+        "sha256": "e4dbb0295c820322672f4592f6113298207bdf5a14e9358bce3ae295b13f2815"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_171142_496831_make_mapping.csv",
+        "sha256": "e094e6bea30228d5a67c86fbe52918234eb32cba6874e6392f7f062826e3bb86"
+      },
+      {
+        "file": "data/mapping/us/backups/20260918_171142_496831_model_mapping.csv",
+        "sha256": "56edb3853909d7e806f85915ac8c2a76060d12c5e3d9d09c3d26d80b057ed468"
+      },
+      {
+        "file": "data/mapping/us/backups/20260920_235705_004066_make_mapping.csv",
+        "sha256": "e094e6bea30228d5a67c86fbe52918234eb32cba6874e6392f7f062826e3bb86"
+      },
+      {
+        "file": "data/mapping/us/backups/20260920_235705_004066_model_mapping.csv",
+        "sha256": "947686beb7ee06ccfcb620b8f87a1eca882cada4a7ebcef25a946b4dcb66f6b4"
+      },
+      {
+        "file": "data/mapping/us/make_mapping.csv",
+        "sha256": "e094e6bea30228d5a67c86fbe52918234eb32cba6874e6392f7f062826e3bb86"
+      },
+      {
+        "file": "data/mapping/us/model_mapping.csv",
+        "sha256": "56edb3853909d7e806f85915ac8c2a76060d12c5e3d9d09c3d26d80b057ed468"
+      },
+      {
+        "file": "data/编码规则.md",
+        "sha256": "100e9b415ba0ecaadcf4965acd797cf8b8740eec5708ac5b0490f8d4449cdaff"
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "718afe5662d3df11b482c7a9938a23bafffd5e8c217a9071996d8c3d2376cd6d",
+        "artifact_file": "nodes/E0.尺寸分析/artifacts/2026-11-01_01_dimension-statistics/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6",
+        "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "e49dff0d5a3056be5a4e7cd6521a72449302bb3a83b3251c9eb3315af688cb27",
+        "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/code/lib/materials.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be",
+        "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/rules_snapshot.py"
+      },
+      {
+        "file": "nodes/02.代码映射/src/__init__.py",
+        "sha256": "0bc5c47fb5ad2a5c009834febd3d04cc5d4e9e8db32351d44e4abf7aeca23b55"
+      },
+      {
+        "file": "nodes/02.代码映射/src/config.py",
+        "sha256": "0406ec64936f03a5ab1cd9e2e38a5b885ecbba1b8c628b37337c9091e0f818d1"
+      },
+      {
+        "file": "nodes/02.代码映射/src/dimension_code.py",
+        "sha256": "feb925c6c5cba58cfc41c8122cbb78884164d08fe9f9c766aa8119a8e8c47653"
+      },
+      {
+        "file": "nodes/02.代码映射/src/exporter.py",
+        "sha256": "ea2234c80cba96dea9f8572fdbc038581958fb2ba338d78ca026b81648939ad6"
+      },
+      {
+        "file": "nodes/02.代码映射/src/loader.py",
+        "sha256": "dad35bf3edb70fea2f03e4a889b6ab3fdecfd567503f582aa98c7a8c6c3b6f06"
+      },
+      {
+        "file": "nodes/02.代码映射/src/main.py",
+        "sha256": "3d650e04e433117f4b0d2d36557f6d3e0eb0eb2f5f6327f0593983af1ba027f1",
+        "artifact_file": "nodes/02.代码映射/artifacts/2026-11-01_01_code-mapping/code/nodes/02.代码映射/src/main.py"
+      },
+      {
+        "file": "nodes/02.代码映射/src/make_mapper.py",
+        "sha256": "5661fd19b9d556d932702d96cd0ba2d4bac942ae03d01a880d91997f0bdff752"
+      },
+      {
+        "file": "nodes/02.代码映射/src/model_mapper.py",
+        "sha256": "68e78eb1b4e8d9a0c9c456a7b29063bf2c715bdc48e35a8c7bb58574bd268034"
+      },
+      {
+        "file": "nodes/02.代码映射/src/models.py",
+        "sha256": "685784e1fab8ee5c835e42f306b3f82685b16928a9b8f380caa4a4d93c36d5fc"
+      },
+      {
+        "file": "nodes/02.代码映射/src/normalizer.py",
+        "sha256": "742f6f392e82b773dd0eb5afbfb0aa4f3a8dc49fc187b7d822af820eda66cbd2"
+      },
+      {
+        "file": "nodes/02.代码映射/src/validator.py",
+        "sha256": "901097195a57833dd508c85945a41f548f16dba6096775dc4a77e13352a14136"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "车型编码映射.csv",
+      "versioned_file": "车型编码映射-20261101_01.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-10-09_03_code-mapping-release/output/车型编码映射-20261009_03.csv",
+      "content_reference": true,
+      "sha256": "c7f979666e864d99bbeb8cb5a3e65a4ee255e2468bda303b1270912342a3f657",
+      "bytes": 17382,
+      "rows": 704
+    },
+    {
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261101_01.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv",
+      "content_reference": true,
+      "sha256": "cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8",
+      "bytes": 201796,
+      "rows": 4383
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "regions": {
+      "US": {
+        "mode": "UPDATE",
+        "input_rows": 47361,
+        "unique_makes": 50,
+        "unique_models": 704,
+        "new_makes": 0,
+        "new_models": 0
+      }
+    },
+    "dimension_code_rows": 4383
+  }
+}

@@ -26,6 +26,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
 
+from pipeline_contract import lifecycle_state
+from content_store import resolve_source
 from artifact_refs import check_deliverable_source, sha256
 from identity_coverage import check_node as identity_gaps
 from pipeline_status import is_on_demand
@@ -47,6 +49,8 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False, root
     stale: list[str] = []
     deferred: list[str] = []
     root = root or ROOT
+    if lifecycle_state(node):
+        return errors, stale, deferred
     manifest = load_manifest(node, root)
     if manifest is None:
         return [f"{node['path']}: 缺少 output/manifest.json"], stale, deferred
@@ -61,12 +65,20 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False, root
             errors.append(f"{node['path']}: {problem}")
         elif not published.is_file():
             errors.append(f"{node['path']}: output/{name} 不存在")
-        elif not sha256(root / item["artifact_file"]) == sha256(published) == item["sha256"]:
+        elif not sha256(resolve_source(root, item["artifact_file"])) == sha256(published) == item["sha256"]:
             errors.append(f"{node['path']}: output/{name} 与来源 artifact 或记录的 sha256 不一致")
     for upstream in manifest.get("upstream", []):
-        missing = [f["artifact_file"] for f in upstream.get("files", []) if f.get("artifact_file") and not (root / f["artifact_file"]).is_file()]
+        missing = [f["artifact_file"] for f in upstream.get("files", []) if f.get("artifact_file") and not resolve_source(root, f["artifact_file"]).is_file()]
         if missing:
             errors.append(f"{node['path']}: 引用的上游 artifact 不存在（被移走或改名）：{', '.join(missing)}")
+        if upstream["node"] not in by_id or upstream["node"] not in node.get("upstream", []):
+            errors.append(f"{node['path']}: 运行记录引用未声明上游 {upstream['node']}")
+            continue
+        if "inputs" in node and upstream.get("basis") == "run":
+            declared = {(i["node"], i["file"]) for i in node["inputs"]}
+            for item in upstream.get("files", []):
+                if (upstream["node"], item["file"]) not in declared:
+                    errors.append(f"{node['path']}: 实际输入未登记 {upstream['node']}/{item['file']}")
         up_node = by_id[upstream["node"]]
         up_manifest = load_manifest(up_node, root)
         current = {item["file"]: item["sha256"] for item in (up_manifest or {}).get("deliverables", [])}
@@ -77,7 +89,13 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False, root
                 f"当前 {(up_manifest or {}).get('version')}）：{', '.join(changed)}"
             )
     if "rules" in manifest:
-        changed = describe_changes(rules_changes(manifest["rules"], rules_snapshot(root / node["path"])))
+        current_rules = rules_snapshot(root / node["path"])
+        if manifest.get("schema_version", 1) == 1:
+            import hashlib
+            for item in current_rules:
+                source = root / node["path"] / item["file"]
+                item["sha256"] = hashlib.sha256(source.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+        changed = describe_changes(rules_changes(manifest["rules"], current_rules))
         if changed:
             stale.append(f"{node['path']}: 本节点规则在 {manifest['version']} 发布后已变化：{changed}")
     for gap in identity_gaps(root, node, by_id):
@@ -100,7 +118,7 @@ def main() -> int:
     for node in payload["nodes"]:
         errors, stale, deferred = trace_node(node, by_id, is_on_demand(payload, node))
         manifest = load_manifest(node) or {}
-        state = "ERROR" if errors else "STALE" if stale else "ON-DEMAND" if deferred else "OK"
+        state = lifecycle_state(node) or ("ERROR" if errors else "STALE" if stale else "ON-DEMAND" if deferred else "OK")
         print(f"{node['path']:<22}{manifest.get('version', '-'):<14}{len(manifest.get('deliverables', [])):>4}  {len(manifest.get('upstream', [])):>6}  {rules_state(manifest):<8}{state}")
         for line in [*errors, *stale]:
             print(f"    - {line}")

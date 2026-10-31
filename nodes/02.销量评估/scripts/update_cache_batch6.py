@@ -1,7 +1,7 @@
 """批量更新缓存 - 第6批：Chrysler"""
 import csv
 
-CACHE_CSV = "cache/sales_model_year_cache.csv"
+CACHE_CSV = "data/销量依据/sales_model_year_cache.csv"
 
 ALL_DATA = [
     ("Chrysler", "300", 2024, 5295, "Chrysler_300"),

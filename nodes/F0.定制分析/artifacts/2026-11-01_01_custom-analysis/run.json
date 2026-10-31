@@ -1,0 +1,461 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis",
+  "version": "20261101_01",
+  "description": "custom-analysis",
+  "created_at": "2026-11-01T02:28:01+08:00",
+  "finished_at": "2026-11-01T02:28:03+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261101_07",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261028_01.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv",
+      "sha256": "563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4"
+    },
+    {
+      "node": "code-mapping",
+      "path": "nodes/02.代码映射",
+      "version": "20261019_02",
+      "file": "尺寸编码映射.csv",
+      "versioned_file": "尺寸编码映射-20261019_02.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv",
+      "sha256": "cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "nodes/B0.差评分析",
+      "version": "20261009_04",
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261009_04.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv",
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/F0.定制分析/data",
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "copied": [
+      "data/参考/定制车衣/combined/BRONCO-2DR&4DR.pdf",
+      "data/参考/定制车衣/combined/CHARGER.pdf",
+      "data/参考/定制车衣/combined/COOPER.pdf",
+      "data/参考/定制车衣/combined/CORVETTE.pdf",
+      "data/参考/定制车衣/combined/COUNTRYMAN.pdf",
+      "data/参考/定制车衣/combined/CROSSTREK&OUTBACK-SP.pdf",
+      "data/参考/定制车衣/combined/DODGE-CHALLENGER.pdf",
+      "data/参考/定制车衣/combined/Land Rover Range Rover Sport.pdf",
+      "data/参考/定制车衣/combined/MUSTANG.pdf",
+      "data/参考/定制车衣/combined/POSCHE-911.pdf",
+      "data/参考/定制车衣/combined/PRIUS(C&V).pdf",
+      "data/参考/定制车衣/combined/SOUL.pdf",
+      "data/参考/定制车衣/combined/TESLA-XY3S.pdf",
+      "data/参考/定制车衣/combined/WRANGLER-2&4DR.pdf"
+    ],
+    "files": [
+      {
+        "file": "data/ford_f150_supercrew_short_bed_custom_analysis.json",
+        "sha256": "7d93e1fd42cba1288dbb6edadbefd7c10aff344ef035fe95e21c3141d7d20dc0"
+      },
+      {
+        "file": "data/ford_f250_crew_short_bed_custom_analysis.json",
+        "sha256": "c053983d595ab0f273c3b899fa05cc55cbe432c7086fc39da6dce7e95fa55002"
+      },
+      {
+        "file": "data/ford_f350_crew_short_bed_custom_analysis.json",
+        "sha256": "07651e7cb65226c50bd1c3713184bebd9db145a10255ec48313fc22e6aa706ab"
+      },
+      {
+        "file": "data/ford_mustang_custom_analysis.json",
+        "sha256": "c69ed520f5607be1d88ab188efd2df1f5d1df5970413e6ddb40751ebb2cb5dbc"
+      },
+      {
+        "file": "data/jeep_gladiator_custom_analysis.json",
+        "sha256": "81ffce2c3cf73891276aec9de95d724eb1600c67d327124798c4b57c12cf26ea"
+      },
+      {
+        "file": "data/kia_forte_custom_analysis.json",
+        "sha256": "6822fe8b41850aa6e5b9fab423194f61bf966e8067d3ec95a45ced66b6021af6"
+      },
+      {
+        "file": "data/kia_soul_custom_analysis.json",
+        "sha256": "02e12a4ed9184038077373d18f66e76192dd5d2f3cc43e6c428f66c853a236f0"
+      },
+      {
+        "file": "data/mercedes_e_class_custom_analysis.json",
+        "sha256": "189c80e78816a5b2f44d3789d12f6177b1fe597f030c4535c5ba9a517c699758"
+      },
+      {
+        "file": "data/mini_cooper_custom_analysis.json",
+        "sha256": "10bb3082559ee0ae50dacd06fd53a256d7c39ae96e40d321dfb3b6073faa3c8c"
+      },
+      {
+        "file": "data/mini_countryman_custom_analysis.json",
+        "sha256": "b76a1018af9b8afdbe7b05db8c356be7de55cf2f0aef6a69a248be9e8deafa43"
+      },
+      {
+        "file": "data/prius_custom_analysis.json",
+        "sha256": "169f8bb8934b01dc745b7e58fc10b0c67bebd9e13dad2f8ba7c9f310619053e2"
+      },
+      {
+        "file": "data/ram1500_crew_short_bed_custom_analysis.json",
+        "sha256": "e8fe418f96dd2731643484cf14c4820d30e7c8ed8832a1bbc272aa48e50d6bd5"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "e78efc31b8c1cd7f501ce03826de50c6f595c0e9bf5259b951c118be5c49dd59"
+      },
+      {
+        "file": "data/silverado2500_crew_short_bed_custom_analysis.json",
+        "sha256": "764769343b3f89507239da569d7cd7f9692f6dead42535480934d94971a5b580"
+      },
+      {
+        "file": "data/subaru_forester_custom_analysis.json",
+        "sha256": "5ba3eed488b403805c67c9753c259059a8fe2a4238a39b0649f2bfdf8e64f8af"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/BRONCO-2DR&4DR.pdf",
+        "sha256": "5afe52da6c84e8b946d1697e1c6b7fb9864ad71f80fcfb0683e5b4b360f19630",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/BRONCO-2DR&4DR.pdf",
+        "raw_sha256": "5afe52da6c84e8b946d1697e1c6b7fb9864ad71f80fcfb0683e5b4b360f19630"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/CHARGER.pdf",
+        "sha256": "a7c9b026e2b9c3cfbfa63338c367a3f59ebfdb6b5d638a994ebd0243ec8a400b",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/CHARGER.pdf",
+        "raw_sha256": "a7c9b026e2b9c3cfbfa63338c367a3f59ebfdb6b5d638a994ebd0243ec8a400b"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/COOPER.pdf",
+        "sha256": "69cb0546e190536bfaaa42b959e40db3a583f4ad969180ef1b2a331388928a3c",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/COOPER.pdf",
+        "raw_sha256": "69cb0546e190536bfaaa42b959e40db3a583f4ad969180ef1b2a331388928a3c"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/CORVETTE.pdf",
+        "sha256": "a9ec8f24b884e60637ed626071138838d6376d86fca9aa90f2ce302c0705ce40",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/CORVETTE.pdf",
+        "raw_sha256": "a9ec8f24b884e60637ed626071138838d6376d86fca9aa90f2ce302c0705ce40"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/COUNTRYMAN.pdf",
+        "sha256": "cd2c7a6096c24c628b4850e9c782d6b4c0d9dd3e0112b17fcdf1811f48f57e0b",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/COUNTRYMAN.pdf",
+        "raw_sha256": "cd2c7a6096c24c628b4850e9c782d6b4c0d9dd3e0112b17fcdf1811f48f57e0b"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/CROSSTREK&OUTBACK-SP.pdf",
+        "sha256": "5a81b69f23f053c740c09dc7ecefdd72d788ec426c608eb11d6783a720baa140",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/CROSSTREK&OUTBACK-SP.pdf",
+        "raw_sha256": "5a81b69f23f053c740c09dc7ecefdd72d788ec426c608eb11d6783a720baa140"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/DODGE-CHALLENGER.pdf",
+        "sha256": "477e59287e284df7a305ff5cfde358bbbf0cb1ee2ccf2695d56cd9e1e89cdd88",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/DODGE-CHALLENGER.pdf",
+        "raw_sha256": "477e59287e284df7a305ff5cfde358bbbf0cb1ee2ccf2695d56cd9e1e89cdd88"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/Land Rover Range Rover Sport.pdf",
+        "sha256": "710609e6f540baed157cac1345b912cb1b859e3747d9cf2115416a2cd9b75998",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/Land Rover Range Rover Sport.pdf",
+        "raw_sha256": "710609e6f540baed157cac1345b912cb1b859e3747d9cf2115416a2cd9b75998"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/MUSTANG.pdf",
+        "sha256": "54996e912dc08577cc026858481a03ae6c1cae9a63accf31d73f220fcab722f4",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/MUSTANG.pdf",
+        "raw_sha256": "54996e912dc08577cc026858481a03ae6c1cae9a63accf31d73f220fcab722f4"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/POSCHE-911.pdf",
+        "sha256": "cefd51a3e98ef9589f979f27908d48ccfc5238eadc43e57f46995287f5b4b0a0",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/POSCHE-911.pdf",
+        "raw_sha256": "cefd51a3e98ef9589f979f27908d48ccfc5238eadc43e57f46995287f5b4b0a0"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/PRIUS(C&V).pdf",
+        "sha256": "a9bbe2a5ddca413a14cd037a21dd2bc5a107043190b4a45a78cd8c86b9e4e6a7",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/PRIUS(C&V).pdf",
+        "raw_sha256": "a9bbe2a5ddca413a14cd037a21dd2bc5a107043190b4a45a78cd8c86b9e4e6a7"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/SOUL.pdf",
+        "sha256": "fcedaac5e0be7975054af91408d8b667cffbd9cdfd31c3c81b220985c4bb44bc",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/SOUL.pdf",
+        "raw_sha256": "fcedaac5e0be7975054af91408d8b667cffbd9cdfd31c3c81b220985c4bb44bc"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/TESLA-XY3S.pdf",
+        "sha256": "a79b5aa74b0bd21edc24a1c031ae1b5f38783c259b4e365b27eef2589d1904cf",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/TESLA-XY3S.pdf",
+        "raw_sha256": "a79b5aa74b0bd21edc24a1c031ae1b5f38783c259b4e365b27eef2589d1904cf"
+      },
+      {
+        "file": "data/参考/定制车衣/combined/WRANGLER-2&4DR.pdf",
+        "sha256": "fe8a3908c356437f347f80615799d8631c5913f4ee8ad99dc1e0ee4692d51edd",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/rules/data/参考/定制车衣/combined/WRANGLER-2&4DR.pdf",
+        "raw_sha256": "fe8a3908c356437f347f80615799d8631c5913f4ee8ad99dc1e0ee4692d51edd"
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "58f919d1e00f42521bb31e99b9e73fbce893f25fac8fdd21be87086c7754cc85",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "ce1ff7f55f053c75487c722514851ba2af1dcf0397d01fc66d2fe41243193b67",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "d7825cc3cb8e7f0ea752da9b32d36b7fcc356c49e0f58a44e319c6a178eeabd1",
+        "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/code/lib/materials.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "385cee565376ba7345019e39e8cf9b7d8dc464608de6a19f756e484e1c4dabdd",
+        "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-01_01_regional-shapes/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/rules_snapshot.py"
+      },
+      {
+        "file": "nodes/F0.定制分析/src/custom_analysis.py",
+        "sha256": "ffa28c0259bb6728d70e3d366879ad878904518be2ed26f4e2352033d146f35a"
+      },
+      {
+        "file": "nodes/F0.定制分析/src/report.py",
+        "sha256": "bd8bfb8f861e65e709b775d289c28909976d6ccb1e9cd34c6598bb5aa4f0dbf0"
+      },
+      {
+        "file": "nodes/F0.定制分析/src/run.py",
+        "sha256": "2ecdbfe8dbff1cfa95034950128b429ef10083feef882554324f681971348682"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "ford_f150_supercrew_short_bed/定制SKU聚簇报告.md",
+      "versioned_file": "ford_f150_supercrew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/ford_f150_supercrew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "ee9d9c29a3878ec7f66f48287a359dee1d7783847d6c48514c0ea55baa7ba5b3",
+      "bytes": 11610,
+      "rows": null
+    },
+    {
+      "file": "ford_f250_crew_short_bed/定制SKU聚簇报告.md",
+      "versioned_file": "ford_f250_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/ford_f250_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "551d0390495fc3bd7ce2ad94be77f4f4b411fb9ad3b977349288dd9319408b1e",
+      "bytes": 8662,
+      "rows": null
+    },
+    {
+      "file": "ford_f350_crew_short_bed/定制SKU聚簇报告.md",
+      "versioned_file": "ford_f350_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/ford_f350_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "25904d973ac770fc698e5f1f4c93c4173536c38ef383141e3a54c185aee8267b",
+      "bytes": 8965,
+      "rows": null
+    },
+    {
+      "file": "ford_mustang/定制SKU聚簇报告.md",
+      "versioned_file": "ford_mustang/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/ford_mustang/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "5d17e451542c1792a948884ad1342d516e7afee09117d54899c1f2c6aba5a393",
+      "bytes": 18960,
+      "rows": null
+    },
+    {
+      "file": "jeep_gladiator/定制SKU聚簇报告.md",
+      "versioned_file": "jeep_gladiator/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/jeep_gladiator/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "330dbc0418711c81a007e9c9af5f7675f566dade443bd1df2b583334acfdc434",
+      "bytes": 7642,
+      "rows": null
+    },
+    {
+      "file": "kia_forte/定制SKU聚簇报告.md",
+      "versioned_file": "kia_forte/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/kia_forte/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "3f7b72ddd1220686aa5f4e2abc5abca6f14d08c565d0bd9160c7deb067f2640f",
+      "bytes": 8988,
+      "rows": null
+    },
+    {
+      "file": "kia_soul/定制SKU聚簇报告.md",
+      "versioned_file": "kia_soul/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/kia_soul/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "6da4cef1c70d4e128f8a7818aded6df449f8aff3ef0e5c5a21de460d9de5e047",
+      "bytes": 7640,
+      "rows": null
+    },
+    {
+      "file": "mercedes_e_class/定制SKU聚簇报告.md",
+      "versioned_file": "mercedes_e_class/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/mercedes_e_class/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "58542950498f70dbde69729a3bea088ef47fdbe99f36b694446e32ffa03a8497",
+      "bytes": 9724,
+      "rows": null
+    },
+    {
+      "file": "mini_cooper/定制SKU聚簇报告.md",
+      "versioned_file": "mini_cooper/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/mini_cooper/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "95721ec28b9ec6febc8894776ecabf9839681344fdd1dfe8d4cb9ddcd31989e9",
+      "bytes": 10411,
+      "rows": null
+    },
+    {
+      "file": "mini_countryman/定制SKU聚簇报告.md",
+      "versioned_file": "mini_countryman/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/mini_countryman/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "84745f7be8a10b1619f6c06bf1ade17d0f38e6a091b230215aed808b42f22892",
+      "bytes": 6528,
+      "rows": null
+    },
+    {
+      "file": "prius/定制SKU聚簇报告.md",
+      "versioned_file": "prius/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/prius/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "192a3d251de4d217c12dec9aa662e094c9151e631c5a41dcfde59850cff96729",
+      "bytes": 13117,
+      "rows": null
+    },
+    {
+      "file": "ram1500_crew_short_bed/定制SKU聚簇报告.md",
+      "versioned_file": "ram1500_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/ram1500_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "63dad1c278348bf887e6bdade5b0705b756d3ebe04583e5485854b85f67ecb3d",
+      "bytes": 10081,
+      "rows": null
+    },
+    {
+      "file": "silverado2500_crew_short_bed/定制SKU聚簇报告.md",
+      "versioned_file": "silverado2500_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/silverado2500_crew_short_bed/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "5632d4a6f382322cd6e7b162d310ebe70c1e65dd3a901f2358159d37da96c945",
+      "bytes": 7592,
+      "rows": null
+    },
+    {
+      "file": "subaru_forester/定制SKU聚簇报告.md",
+      "versioned_file": "subaru_forester/定制SKU聚簇报告-20261101_01.md",
+      "artifact_file": "nodes/F0.定制分析/artifacts/2026-11-01_01_custom-analysis/output/subaru_forester/定制SKU聚簇报告-20261101_01.md",
+      "content_reference": true,
+      "sha256": "bcd0129ef3bc427b5276c04c4d2383312f11749ffa95e6be903d7a6e793cd0f3",
+      "bytes": 9275,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "ford_f150_supercrew_short_bed",
+        "input_rows": 10
+      },
+      {
+        "case": "ford_f250_crew_short_bed",
+        "input_rows": 5
+      },
+      {
+        "case": "ford_f350_crew_short_bed",
+        "input_rows": 5
+      },
+      {
+        "case": "ford_mustang",
+        "input_rows": 58
+      },
+      {
+        "case": "jeep_gladiator",
+        "input_rows": 6
+      },
+      {
+        "case": "kia_forte",
+        "input_rows": 6
+      },
+      {
+        "case": "kia_soul",
+        "input_rows": 4
+      },
+      {
+        "case": "mercedes_e_class",
+        "input_rows": 15
+      },
+      {
+        "case": "mini_cooper",
+        "input_rows": 10
+      },
+      {
+        "case": "mini_countryman",
+        "input_rows": 5
+      },
+      {
+        "case": "prius",
+        "input_rows": 13
+      },
+      {
+        "case": "ram1500_crew_short_bed",
+        "input_rows": 6
+      },
+      {
+        "case": "silverado2500_crew_short_bed",
+        "input_rows": 1
+      },
+      {
+        "case": "subaru_forester",
+        "input_rows": 8
+      }
+    ],
+    "change": "按配置生成完整 Markdown；支持驾驶室、货斗、版本排除及年份交集筛选，保留来源年款和身份"
+  }
+}

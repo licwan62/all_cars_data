@@ -152,7 +152,7 @@ def test_local_http_preview_note_and_open(tmp_path, monkeypatch):
     def send(path, payload, origin=base):
         raw = json.dumps(payload).encode("utf-8")
         request = Request(base + path, data=raw, headers={
-            "Origin": origin, "Content-Type": "application/json", "X-Portal-Request": "1"}, method="POST")
+            "Origin": origin, "Content-Type": "application/json", "X-Portal-Request": "1", "X-Portal-Token": portal.token}, method="POST")
         with urlopen(request) as response:
             return json.load(response)
 
@@ -170,6 +170,33 @@ def test_local_http_preview_note_and_open(tmp_path, monkeypatch):
             assert error.code == 403
         else:
             raise AssertionError("cross-origin write must be rejected")
+    finally:
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=2)
+
+
+def test_sha_search_covers_all_materials_and_uses_raw_input_digest(tmp_path):
+    portal, data, _ = fixture_portal(tmp_path)
+    folder = data / "nodes/A0.尺码计算/data"
+    for i in range(501):
+        (folder / f"{i:04d}.txt").write_bytes(b"filler")
+    raw = b"target\r\n"
+    (folder / "zz-target.txt").write_bytes(raw)
+    sha = hashlib.sha256(raw).hexdigest()
+    write_json(data / "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_run/run.json", {
+        "status": {"status": "passed"}, "inputs": [{"file": "zz-target.txt",
+        "sha256": hashlib.sha256(b"target\n").hexdigest(), "raw_sha256": sha}]})
+    server = ThreadingHTTPServer(("127.0.0.1", 0), handler_for(portal))
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        with urlopen(f"http://127.0.0.1:{server.server_port}/api/content?sha={sha}") as response:
+            result = json.load(response)
+        assert any(item["artifact_file"].endswith("/zz-target.txt") for item in result["locations"])
+        assert any(item["node"] == "size-compression" for item in result["consumers"])
+        with portal.materials.connect() as db:
+            assert db.execute("SELECT COUNT(*) FROM materials").fetchone()[0] == 0
     finally:
         server.shutdown()
         server.server_close()

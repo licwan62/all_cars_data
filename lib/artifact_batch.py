@@ -29,6 +29,8 @@
 from __future__ import annotations
 
 import csv
+import gzip
+import tempfile
 import hashlib
 import json
 import os
@@ -41,6 +43,7 @@ from pathlib import Path
 
 from node_paths import load_record
 from rules_snapshot import rules_snapshot
+from content_store import ContentIndex, resolve_source, content_lock
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 RUN_RECORD = "run.json"
@@ -144,6 +147,10 @@ class RunBatch:
         self.outputs: dict[str, Path] = {}
         self.extras: list[Path] = []
         self.finished = False
+        self._index = None
+        self._sources = {}
+        self._rule_snapshot = self._rules()
+        self._code = self._code_snapshot()
 
     @classmethod
     def create(cls, artifacts_dir: Path, description: str, data_dir: Path | None = None, day: date | None = None) -> "RunBatch":
@@ -249,29 +256,97 @@ class RunBatch:
         dirty_set = set(dirty)
         for item in files:
             source = (self.data_dir.parent / item["file"]).resolve()
+            item["raw_sha256"] = sha256(source)
+            item["bytes"] = source.stat().st_size
             if commit is None or source in dirty_set:
                 target = self.directory / "rules" / item["file"]
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)
                 item["artifact_file"] = repo_path(target)
+                item["raw_sha256"] = sha256(source)
                 copied.append(item["file"])
         return {"data_dir": repo_path(self.data_dir), "git_commit": commit, "copied": copied, "files": files}
 
+    def _code_snapshot(self):
+        project = self.directory.parent.parent
+        commit, dirty = git_state(project)
+        dirty = set(dirty)
+        paths = []
+        for folder in ("src", "code", "scripts"):
+            paths.extend((project / folder).rglob("*.py"))
+        if project.is_relative_to(REPO_ROOT):
+            paths.extend((REPO_ROOT / "lib").glob("*.py"))
+            _, shared_dirty = git_state(REPO_ROOT / "lib")
+            dirty.update(shared_dirty)
+        files = []
+        for path in sorted(set(paths)):
+            if "__pycache__" in path.parts:
+                continue
+            item = {"file": repo_path(path), "sha256": sha256(path)}
+            if commit is None or path.resolve() in dirty:
+                try:
+                    relative = path.relative_to(REPO_ROOT)
+                except ValueError:
+                    relative = path.relative_to(project)
+                snapshot = self.directory / "code" / relative
+                snapshot.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(path, snapshot)
+                item["artifact_file"] = repo_path(snapshot)
+            files.append(item)
+        return {"git_commit": commit, "files": files}
+
+    def _content_index(self):
+        if self._index is None:
+            try:
+                self.directory.resolve().relative_to(REPO_ROOT.resolve())
+                root = REPO_ROOT
+            except ValueError:
+                root = self.directory.parent.parent
+            self._index = ContentIndex(root)
+            self._index.rebuild()
+        return self._index
+
+    def _reuse(self, path, digest):
+        index = self._content_index()
+        ref = index.find(digest, path.stat().st_size)
+        if ref and resolve_source(index.root, ref).resolve() != path.resolve():
+            path.unlink()
+            return ref
+        reference = repo_path(path)
+        index.add(digest, path.stat().st_size, reference)
+        return reference
+
     def _record(self, status: dict) -> dict:
+        # Finalize snapshots before the record becomes immutable.
+        for item in self.inputs + self._rule_snapshot.get("files", []) + self._code.get("files", []):
+            if item.get("artifact_file"):
+                path = Path(item["artifact_file"])
+                path = path if path.is_absolute() else REPO_ROOT / path
+                if path.is_file() and path.is_relative_to(self.directory.resolve()):
+                    item["artifact_file"] = self._reuse(path, item.get("raw_sha256") or item["sha256"])
         outputs = []
         for name, path in self.outputs.items():
             if not path.is_file():
                 raise BatchError(f"交付物未写出：{name}")
+            digest, size, rows = sha256(path), path.stat().st_size, _row_count(path)
+            reference = self._reuse(path, digest)
+            self._sources[name] = resolve_source(self._content_index().root, reference)
             outputs.append({
                 "file": name,
                 "versioned_file": versioned_name(name, self.version),
-                "artifact_file": repo_path(path),
-                "sha256": sha256(path),
-                "bytes": path.stat().st_size,
-                "rows": _row_count(path),
+                "artifact_file": reference,
+                "content_reference": True,
+                "sha256": digest,
+                "bytes": size,
+                "rows": rows,
             })
+        extra_records = []
+        for path in self.extras:
+            if path.is_file():
+                digest, size = sha256(path), path.stat().st_size
+                extra_records.append({"file": path.relative_to(self.directory).as_posix(), "artifact_file": self._reuse(path, digest), "sha256": digest, "bytes": size})
         return {
-            "schema_version": 1,
+            "schema_version": 2,
             "batch": repo_path(self.directory),
             "version": self.version,
             "description": self.description,
@@ -279,9 +354,11 @@ class RunBatch:
             "finished_at": datetime.now().astimezone().isoformat(timespec="seconds"),
             "command": [Path(sys.argv[0]).name, *sys.argv[1:]] if sys.argv and sys.argv[0] else [],
             "inputs": self.inputs,
-            "rules": self._rules(),
+            "rules": self._rule_snapshot,
+            "code": self._code,
             "outputs": outputs,
-            "extras": [repo_path(path) for path in self.extras if path.is_file()],
+            "extras": [i["artifact_file"] for i in extra_records],
+            "extra_records": extra_records,
             "status": status,
         }
 
@@ -291,20 +368,62 @@ class RunBatch:
         os.replace(temporary, self.directory / RUN_RECORD)
 
     def finish(self, status: dict | None = None, publish_to: Path | None = None) -> dict:
-        """写 run.json（状态 passed），再把交付物原子发布到 publish_to/<name>。"""
+        try:
+            self.directory.resolve().relative_to(REPO_ROOT.resolve())
+            root = REPO_ROOT
+        except ValueError:
+            root = self.directory.parent.parent
+        with content_lock(root):
+            return self._finish(status, publish_to)
+
+    def _finish(self, status: dict | None = None, publish_to: Path | None = None) -> dict:
+        """Validate the full output set, install with rollback, then record success."""
         if self.finished:
             raise BatchError("批次已完成")
+        if status and status.get("status", "passed") != "passed":
+            raise BatchError("finish 只接受 passed；失败必须使用 fail")
+        # Normalize gzip metadata produced by pandas/gzip (mtime and filename).
+        for path in self.extras:
+            if path.is_file() and path.suffix == ".gz":
+                payload = gzip.decompress(path.read_bytes())
+                path.write_bytes(gzip.compress(payload, mtime=0))
         record = self._record({"status": "passed", **(status or {})})
-        self._write_record(record)
-        self.finished = True
-        if publish_to is not None:
-            for name, path in self.outputs.items():
-                destination = publish_to / name
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                temporary = destination.with_name(f".{destination.name}.tmp")
-                shutil.copy2(path, temporary)
-                os.replace(temporary, destination)
-        return record
+        baseline = [{k: v for k, v in i.items() if k in {"file", "sha256"}} for i in self._rule_snapshot["files"]]
+        if self.data_dir and rules_snapshot(self.data_dir.parent) != baseline:
+            raise BatchError("运行期间 data/ 已变化，拒绝发布")
+        stage = Path(tempfile.mkdtemp(prefix=".publish-", dir=publish_to.parent if publish_to and publish_to.parent.exists() else self.directory))
+        installed = []
+        try:
+            if publish_to is not None:
+                for name, source in self._sources.items():
+                    target = stage / "new" / name
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(source, target)
+                    if sha256(target) != next(i["sha256"] for i in record["outputs"] if i["file"] == name):
+                        raise BatchError("输出在发布前被改动")
+                for name in self.outputs:
+                    dest = publish_to / name
+                    backup = stage / "old" / name
+                    if dest.exists():
+                        backup.parent.mkdir(parents=True, exist_ok=True)
+                        shutil.copy2(dest, backup)
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    os.replace(stage / "new" / name, dest)
+                    installed.append((dest, backup))
+            self._write_record(record)
+            self.finished = True
+            return record
+        except BaseException:
+            for dest, backup in reversed(installed):
+                if backup.exists():
+                    os.replace(backup, dest)
+                else:
+                    dest.unlink(missing_ok=True)
+            raise
+        finally:
+            shutil.rmtree(stage, ignore_errors=True)
+            if self._index:
+                self._index.close()
 
     def fail(self, error: BaseException | str) -> None:
         """记录失败（不发布）；批次保留以便排查。"""

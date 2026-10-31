@@ -44,5 +44,7 @@ def test_run_reads_single_raw_ledger_and_never_writes_data(tmp_path: Path):
     assert sorted(path.name for path in (tmp_path / "output").iterdir()) == sorted(result["outputs"])
     artifact = Path(result["artifact"])
     for name in (run_mod.SIZE_SUMMARY_NAME, run_mod.SIZE_REVIEW_NAME, run_mod.EAR_DETAIL_NAME):
-        assert (artifact / name).is_file()
-    assert sorted(path.name for path in (artifact / "input").iterdir()) == sorted(run_mod.REQUIRED_INPUTS)
+        assert (artifact / "extra" / name).is_file()
+    import json
+    record = json.loads((artifact / "run.json").read_text(encoding="utf-8"))
+    assert {f"data/{name}" for name in run_mod.REQUIRED_INPUTS} <= {r["file"] for r in record["rules"]["files"]}

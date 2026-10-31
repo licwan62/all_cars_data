@@ -1,7 +1,7 @@
 """Final round: handle remaining PENDING items via name mapping and historical brand estimates."""
 import csv
 
-CACHE_CSV = r"cache/sales_model_year_cache.csv"
+CACHE_CSV = r"data/销量依据/sales_model_year_cache.csv"
 QUEUE_CSV = r"research_queue/model_year_research_queue.csv"
 
 # Map queue model names to cache model names that now have data

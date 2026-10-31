@@ -17,8 +17,7 @@ public/ 只是仓库外发布或人工交换区，不是 agent 间数据总线�
 发布范围只取 pipeline.json 各节点 ``public_outputs`` 明确列出的交付物（publication_contract），不按文件类型遍历
 manifest：资料采用清单、结果依据、待处理清单等内部追溯接口即使是 CSV 也不会公开。
 发布目录只保存可直接使用的 CSV 数据表；JSON、TSV、XLSX 等辅助小文件不发布。
-节点 output/ 中的 md 交付物（如 A0 尺码匹配报告）原样发布，JSON 交付物转成同名 .md 说明文档，
-与 CSV 放在同一目录，说明该目录文件的生成情况。
+节点 output/ 中的 md、JSON 等辅助交付不发布；发布说明集中写入根 README.md。
 README.md 是发布说明和来源清单，不写入 JSON manifest。旧命名 CSV 移到 NAS 目录下
 集中备份区 backup/data_legacy_names_<日期>/，不删除。
 """
@@ -151,7 +150,7 @@ def public_items(node: dict, manifest: dict) -> list[dict]:
     missing = [name for name in node.get("public_outputs", []) if name not in deliverables]
     if missing:
         raise ValueError(f"{node['path']}: public_outputs 中 {'、'.join(missing)} 未在 output/manifest.json 发布，请先发布该节点")
-    return [deliverables[name] for name in node.get("public_outputs", [])]
+    return [deliverables[name] for name in node.get("public_outputs", []) if Path(name).suffix.lower() == ".csv"]
 
 
 def collect_docs() -> dict[Path, str]:
@@ -248,7 +247,7 @@ def main() -> int:
         "",
         f"本次发布：{datetime.now().astimezone().isoformat(timespec='seconds')}",
         "",
-        "仅发布 CSV 数据表；JSON 交付物（如尺码匹配报告）转换为同名 `.md` 说明文档，放在对应区域目录中，说明该目录文件的生成情况；原始 JSON 和其他辅助小文件保留在仓库的 `output/` 与 `artifacts/`，不存入本目录。",
+        "仅发布 public_outputs 显式登记的 CSV 数据表。JSON、Markdown及其他辅助交付保留在节点 output/ 与 artifacts/；本README集中说明发布范围与来源。",
         "",
         "`data/` 和 `customizing/` 是本脚本管理的正式发布地址（本文件与来源清单描述的即是这两个目录的当前内容）。`data/` 下按国别或数据职责分目录，不在根目录堆放数据文件；`customizing/` 存放定制类产物（如定制需求度评分）。被替换的旧命名文件与历史批次统一归档到本目录的 `backup/`，不散落在其他位置；`car_code/`、`reference/`、`reports/`、`sku_cluster/` 为人工维护的参考资料，不受本脚本管理；其中 `sku_cluster/皮卡/` 的四张 CSV 由节点 `link-analysis-pickup` 发布（见下表），只覆盖这些文件。",
         "",

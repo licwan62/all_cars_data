@@ -238,6 +238,11 @@ def transform_region_rows(
 
 
 def latest_batch(region: str) -> Path:
+    generated = PROJECT_DIR / "work" / "regions" / region
+    if generated.is_dir():
+        return generated
+    if region == "us":
+        return ROOT / "nodes" / "00.自动化尺寸抓取器" / "output" / "US"
     region_dir = PROJECT_DIR / "data" / region
     batches = sorted(path for path in region_dir.iterdir() if path.is_dir())
     if not batches:

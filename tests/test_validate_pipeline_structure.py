@@ -76,6 +76,6 @@ def test_public_outputs_must_be_explicit_registered_and_publishable():
     errors = validator.check_public_outputs(nodes)
     assert errors == [
         "b: pipeline.json 缺少 public_outputs（不对外发布写 []）",
-        "c: public_outputs 的 图.xlsx 不是可发布类型（.csv/.json/.md）",
+        "c: public_outputs 的 图.xlsx 不是可发布类型（.csv）",
         "c: public_outputs 的 未登记.csv 不在 outputs",
     ]

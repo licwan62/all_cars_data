@@ -317,7 +317,9 @@ def test_offline_e2e_and_reclassify_preserve_unknown_without_network(tmp_path, m
     evidence_path = next((batch / "output").glob("evidence-*.jsonl"))
     cli.main(["reclassify", "--evidence", str(evidence_path), "--taxonomy", str(rules / "taxonomy.yaml")])
     rerun = sorted((project / "artifacts").iterdir())[-1]
-    actual = list(__import__("csv").DictReader(next((rerun / "output").glob("cover_shape_results-*.csv")).open(encoding="utf-8-sig")))
+    record = json.loads((rerun / "run.json").read_text(encoding="utf-8"))
+    stored = next(item["artifact_file"] for item in record["outputs"] if item["file"] == "cover_shape_results.csv")
+    actual = list(__import__("csv").DictReader(Path(stored).open(encoding="utf-8-sig")))
     for a, b in zip(results, actual):
         assert {k: v for k, v in a.items() if k != "processed_at_utc"} == {k: v for k, v in b.items() if k != "processed_at_utc"}
     cli.main(["run", "--input", str(input_path), "--config", str(rules / "pipeline.yaml")])

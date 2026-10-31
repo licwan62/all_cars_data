@@ -1,0 +1,256 @@
+[structure-review] python code/build_structure_review.py
+{
+  "status": "passed",
+  "rows": {
+    "US": 4383,
+    "EU": 29361,
+    "RU": 13617
+  },
+  "rule_counts": {
+    "通用标准": 46864,
+    "联网判定": 388,
+    "联网结构修正": 101,
+    "排除": 8
+  },
+  "changed_rows": 9575,
+  "structure_changed_rows": 101,
+  "change_summary": [
+    {
+      "区域": "EU",
+      "结构": "Van",
+      "原分类": "越野车",
+      "新分类": "两厢车",
+      "行数": 3775
+    },
+    {
+      "区域": "EU",
+      "结构": "Wagon",
+      "原分类": "三厢车",
+      "新分类": "两厢车",
+      "行数": 2743
+    },
+    {
+      "区域": "EU",
+      "结构": "MPV",
+      "原分类": "越野车",
+      "新分类": "两厢车",
+      "行数": 2200
+    },
+    {
+      "区域": "EU",
+      "结构": "Bus",
+      "原分类": "越野车",
+      "新分类": "两厢车",
+      "行数": 403
+    },
+    {
+      "区域": "RU",
+      "结构": "Liftback",
+      "原分类": "两厢车",
+      "新分类": "三厢车",
+      "行数": 241
+    },
+    {
+      "区域": "EU",
+      "结构": "Hatchback",
+      "原分类": "两厢车",
+      "新分类": "三厢车",
+      "行数": 71
+    },
+    {
+      "区域": "EU",
+      "结构": "Liftback",
+      "原分类": "跑车",
+      "新分类": "三厢车",
+      "行数": 40
+    },
+    {
+      "区域": "EU",
+      "结构": "Fastback",
+      "原分类": "跑车",
+      "新分类": "三厢车",
+      "行数": 21
+    },
+    {
+      "区域": "EU",
+      "结构": "Hatchback",
+      "原分类": "两厢车",
+      "新分类": "跑车",
+      "行数": 17
+    },
+    {
+      "区域": "RU",
+      "结构": "Fastback",
+      "原分类": "两厢车",
+      "新分类": "三厢车",
+      "行数": 15
+    },
+    {
+      "区域": "RU",
+      "结构": "Fastback",
+      "原分类": "两厢车",
+      "新分类": "跑车",
+      "行数": 13
+    },
+    {
+      "区域": "EU",
+      "结构": "Pritsche/Fahrgestell",
+      "原分类": "",
+      "新分类": "皮卡",
+      "行数": 11
+    },
+    {
+      "区域": "US",
+      "结构": "Hatchback",
+      "原分类": "两厢车",
+      "新分类": "三厢车",
+      "行数": 9
+    },
+    {
+      "区域": "RU",
+      "结构": "Liftback",
+      "原分类": "两厢车",
+      "新分类": "跑车",
+      "行数": 8
+    },
+    {
+      "区域": "RU",
+      "结构": "Hatchback",
+      "原分类": "两厢车",
+      "新分类": "跑车",
+      "行数": 3
+    },
+    {
+      "区域": "US",
+      "结构": "Fastback",
+      "原分类": "跑车",
+      "新分类": "三厢车",
+      "行数": 1
+    },
+    {
+      "区域": "US",
+      "结构": "Liftback",
+      "原分类": "跑车",
+      "新分类": "三厢车",
+      "行数": 1
+    },
+    {
+      "区域": "US",
+      "结构": "Liftback",
+      "原分类": "两厢车",
+      "新分类": "三厢车",
+      "行数": 1
+    },
+    {
+      "区域": "US",
+      "结构": "Hatchback",
+      "原分类": "两厢车",
+      "新分类": "跑车",
+      "行数": 1
+    },
+    {
+      "区域": "EU",
+      "结构": "Bus",
+      "原分类": "",
+      "新分类": "两厢车",
+      "行数": 1
+    }
+  ],
+  "pending_research_models": 0,
+  "pending_research_rows": 0,
+  "decisions": 184,
+  "artifact": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.分类结构审核\\artifacts\\2026-11-01_01_category-standard"
+}
+nodes/02.分类结构审核: 20261101_02  4 个交付物（新存 0，其余引用），pending 0；上游输入变化
+[sales-estimation] python scripts/run_pipeline.py
+pipeline complete: 10620 cache rows normalized, 15223 expanded rows, 9956 model-year tasks, 9955 allocated, 1 pending, 0 failed, 15223 final atom sales rows
+[sales-estimation] python scripts/build_ru_proxy_sales.py
+{"sales_source_rows": 13137, "sales_source_positive_rows": 4272, "sales_rows_without_match_key": 304, "sales_source_total": 301065, "matched_sales_total": 297009, "unmatched_sales_total": 4056, "dimension_rows": 13617, "dimension_rows_with_positive_proxy_sales": 4050, "artifact": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.销量评估\\artifacts\\2026-11-01_10_ru-proxy-sales"}
+[sales-estimation] python scripts/build_market_potential.py
+{
+  "batch": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\02.销量评估\\artifacts\\2026-11-01_11_us-market-potential",
+  "rows": 4383,
+  "boosted_rows": 970,
+  "base_total": 310821.5677032259,
+  "potential_total": 396126.1496965334,
+  "missing_atom_sales": 2,
+  "match_counts": {
+    "积加 / 未匹配，待审核": 44,
+    "积加 / 车型匹配，按潜力分摊": 299,
+    "积加 / 车型歧义，待审核": 1,
+    "积加 / 通用或多车型，待审核": 218,
+    "竞品 / 未匹配，待审核": 288,
+    "竞品 / 车型匹配，按潜力分摊": 3497,
+    "竞品 / 车型歧义，待审核": 5,
+    "竞品 / 通用或多车型，待审核": 1090,
+    "竞品 / 非纳入车罩类别，待审核": 462
+  }
+}
+nodes/02.销量评估: 20261101_12  4 个交付物（新存 0，其余引用），pending 0；上游输入变化
+[code-mapping] python src/main.py
+== US
+Mode: UPDATE
+Input rows: 47,361
+Unique MAKE: 50
+Unique MAKE/MODEL: 704
+Existing MAKE: 50
+New MAKE: 0
+Existing MODEL: 705
+New MODEL: 0
+DIMENSION-CODE rows: 4,383; rows sharing a code with another row: 1,678
+Artifact created: D:\Licheng\Repo\all_cars_data\nodes\02.代码映射\artifacts\2026-11-01_01_code-mapping
+Mapping update completed successfully.
+nodes/02.代码映射: 20261101_02  2 个交付物（新存 0，其余引用），pending 0；上游输入变化
+[negative-review-analysis] python src/run.py
+{
+  "status": "passed",
+  "尺寸问题差评筛选": 157,
+  "尺寸问题待复核": 9,
+  "耳位分析": {
+    "耳位相关差评条数": 101,
+    "涉及车型数": 42
+  },
+  "驾驶室货斗分析": {
+    "驾驶室货斗相关差评条数": 143,
+    "涉及车型数": 18
+  },
+  "差评分析表校验": {
+    "行数": 195,
+    "重复键数": 0,
+    "差评占比异常数": 0
+  },
+  "尺码提取": {
+    "有尺码行数": 140,
+    "无尺码行数": 55
+  },
+  "outputs": [
+    "差评分析表.csv",
+    "耳位分析表.csv",
+    "皮卡驾驶室货斗分析表.csv"
+  ],
+  "artifact": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\B0.差评分析\\artifacts\\2026-11-01_01_negative-review-analysis"
+}
+nodes/B0.差评分析: 未变化，沿用当前版本
+[compression-scoring] python src/run.py
+{
+  "status": "passed",
+  "上游全量表行数": 47361,
+  "上游差评分析表行数": 195,
+  "上游耳位分析表行数": 42,
+  "上游驾驶室货斗分析表行数": 18,
+  "车耳状态登记行数": 6,
+  "评分": {
+    "车型数": 7479,
+    "差评表结构重复数": 0,
+    "数据不足车型数": 7336,
+    "人工登记耳位车型数": 6
+  },
+  "outputs": [
+    "定制需求度评分.csv"
+  ],
+  "artifact": "D:\\Licheng\\Repo\\all_cars_data\\nodes\\B1.压缩定制评分\\artifacts\\2026-11-01_03_score"
+}
+nodes/B1.压缩定制评分: 20261101_04  1 个交付物（新存 0，其余引用），pending 0；上游输入变化
+[representative-model] python src/build_size_representatives.py
+sizes=29 rows=116 output=D:\Licheng\Repo\all_cars_data\nodes\C1.车型代表分析\artifacts\2026-11-01_02_size-representatives\output\代表车型-20261101_02.csv tsv=D:\Licheng\Repo\all_cars_data\nodes\C1.车型代表分析\artifacts\2026-11-01_02_size-representatives\output\代表车型-20261101_02.tsv report=D:\Licheng\Repo\all_cars_data\nodes\C1.车型代表分析\artifacts\2026-11-01_02_size-representatives\output\代表车型报告-20261101_02.md
+nodes/C1.车型代表分析: 20261101_03  3 个交付物（新存 0，其余引用），pending 0；上游输入变化

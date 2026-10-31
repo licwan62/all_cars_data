@@ -52,6 +52,14 @@ def test_node_dir_name_strips_nodes_prefix():
     assert node_dir_name("A0.尺码计算") == "A0.尺码计算"
 
 
+def test_unc_and_arbitrary_text_never_trigger_filesystem_lookup(monkeypatch):
+    def forbidden(*args, **kwargs):
+        raise AssertionError("arbitrary records must not stat network paths")
+    monkeypatch.setattr(Path, "is_dir", forbidden)
+    for value in (r"\\NAS8824B4\Public\archive", "D:/archive/file.csv", "a note", "a"*10000):
+        assert canonical_path(value) == value
+
+
 def test_batch_of_handles_nodes_prefix_and_nested_nodes():
     assert batch_of("nodes/A0.尺码计算/artifacts/b1/output/x.csv") == "nodes/A0.尺码计算/artifacts/b1"
     assert batch_of("nodes/D2.链接分析/皮卡/artifacts/b2/output/x.csv") == "nodes/D2.链接分析/皮卡/artifacts/b2"

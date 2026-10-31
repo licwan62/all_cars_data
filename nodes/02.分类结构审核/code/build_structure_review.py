@@ -20,6 +20,8 @@ from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
 ROOT = PROJECT.parents[1]
+sys.path.insert(0, str(ROOT / "lib"))
+from artifact_batch import RunBatch
 UPSTREAM = ROOT / "nodes" / "01.整理尺寸库" / "output"
 DATA = PROJECT / "data"
 STANDARD_PATH = DATA / "分类标准.json"
@@ -241,61 +243,51 @@ def next_artifact_dir(artifacts: Path, description: str) -> Path:
 
 
 def run(upstream: Path = UPSTREAM, output_dir: Path = PROJECT / "output", artifacts: Path = PROJECT / "artifacts") -> dict:
-    standard = load_standard()
-    decisions = load_decisions()
-    repairs = load_repairs()
-    region_rows = {}
-    for region in REGIONS:
-        rows = read_csv(upstream / f"尺寸库_{region}.csv")
-        if rows and list(rows[0].keys()) != FIELDS:
-            raise ReviewError(f"尺寸库_{region}.csv 字段与约定不一致")
-        region_rows[region] = rows
-    result = review(region_rows, standard, decisions, repairs)
-    validation = validate(result, region_rows, standard, repairs)
-    if not validation["passed"]:
-        raise ReviewError(f"校验失败：{validation['errors']}")
+    with RunBatch.create(artifacts, "category-standard", PROJECT / "data") as batch:
+        standard = load_standard()
+        decisions = load_decisions()
+        repairs = load_repairs()
+        region_rows = {}
+        for region in REGIONS:
+            rows = read_csv(upstream / f"尺寸库_{region}.csv")
+            if rows and list(rows[0].keys()) != FIELDS:
+                raise ReviewError(f"尺寸库_{region}.csv 字段与约定不一致")
+            region_rows[region] = rows
+        result = review(region_rows, standard, decisions, repairs)
+        validation = validate(result, region_rows, standard, repairs)
+        if not validation["passed"]:
+            raise ReviewError(f"校验失败：{validation['errors']}")
 
-    artifact = next_artifact_dir(artifacts, "category-standard")
-    artifact.mkdir(parents=True)
-    rules_dir = artifact / "rules"
-    rules_dir.mkdir()
-    for path in (STANDARD_PATH, DECISIONS_PATH, REPAIRS_PATH, Path(__file__)):
-        if path.is_file():
-            shutil.copy2(path, rules_dir / path.name)
-    upstream_manifest = upstream / "manifest.json"
-    if upstream_manifest.is_file():
-        shutil.copy2(upstream_manifest, artifact / "upstream_manifest.json")
-    combined = [row for region in REGIONS for row in result["outputs"][region]]
-    files = {f"车型结构_{region}.csv": result["outputs"][region] for region in REGIONS}
-    files["车型结构.csv"] = combined
-    for name, rows in files.items():
-        write_csv(artifact / "output" / name, FIELDS, rows)
-    write_csv(artifact / "changes.csv", CHANGE_FIELDS, result["changes"])
-    write_csv(artifact / "structure_changes.csv", REPAIR_CHANGE_FIELDS, result["structure_changes"])
-    write_csv(artifact / "待联网.csv", QUEUE_FIELDS, result["queue"])
-    change_summary = Counter((c["区域"], structure_family(c["结构"], standard), c["原分类"], c["新分类"]) for c in result["changes"])
-    status = {
-        "status": "passed",
-        "rows": {region: len(result["outputs"][region]) for region in REGIONS},
-        "rule_counts": result["rule_counts"],
-        "changed_rows": len(result["changes"]),
-        "structure_changed_rows": len(result["structure_changes"]),
-        "change_summary": [
-            {"区域": r, "结构": f, "原分类": o, "新分类": n, "行数": c}
-            for (r, f, o, n), c in sorted(change_summary.items(), key=lambda item: -item[1])
-        ],
-        "pending_research_models": len(result["queue"]),
-        "pending_research_rows": sum(item["行数"] for item in result["queue"]),
-        "decisions": len(decisions),
-    }
-    (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        artifact = batch.directory
+        for region in REGIONS:
+            batch.input(upstream / f"尺寸库_{region}.csv")
+        combined = [row for region in REGIONS for row in result["outputs"][region]]
+        files = {f"车型结构_{region}.csv": result["outputs"][region] for region in REGIONS}
+        files["车型结构.csv"] = combined
+        for name, rows in files.items():
+            write_csv(batch.output(name), FIELDS, rows)
+        write_csv(batch.extra("changes.csv", compress=False), CHANGE_FIELDS, result["changes"])
+        write_csv(batch.extra("structure_changes.csv", compress=False), REPAIR_CHANGE_FIELDS, result["structure_changes"])
+        write_csv(batch.extra("待联网.csv", compress=False), QUEUE_FIELDS, result["queue"])
+        change_summary = Counter((c["区域"], structure_family(c["结构"], standard), c["原分类"], c["新分类"]) for c in result["changes"])
+        status = {
+            "status": "passed",
+            "rows": {region: len(result["outputs"][region]) for region in REGIONS},
+            "rule_counts": result["rule_counts"],
+            "changed_rows": len(result["changes"]),
+            "structure_changed_rows": len(result["structure_changes"]),
+            "change_summary": [
+                {"区域": r, "结构": f, "原分类": o, "新分类": n, "行数": c}
+                for (r, f, o, n), c in sorted(change_summary.items(), key=lambda item: -item[1])
+            ],
+            "pending_research_models": len(result["queue"]),
+            "pending_research_rows": sum(item["行数"] for item in result["queue"]),
+            "decisions": len(decisions),
+        }
+        (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-    for name in files:
-        staged = output_dir / f".{name}.tmp"
-        shutil.copy2(artifact / "output" / name, staged)
-        os.replace(staged, output_dir / name)
-    return {**status, "artifact": str(artifact)}
+        batch.finish(status, publish_to=output_dir)
+        return {**status, "artifact": str(artifact)}
 
 
 def main(argv: list[str] | None = None) -> int:

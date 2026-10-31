@@ -20,6 +20,7 @@ WORKSPACE_ROOT = PROJECT_DIR.parents[1]
 if str(WORKSPACE_ROOT / "lib") not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT / "lib"))
 
+from artifact_batch import RunBatch
 import data_layout
 import output_layout as layout
 import pandas_analysis as analysis
@@ -215,7 +216,8 @@ def published_sales_snapshot(dimensions: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> int:
-    artifact_dir = next_artifact_dir()
+    batch = RunBatch.create(ARTIFACTS_DIR, "ru-full-table", PROJECT_DIR / "data")
+    artifact_dir = batch.directory
     artifact_output = artifact_dir / "output"
     artifact_inputs = artifact_dir / "input"
     try:
@@ -243,12 +245,11 @@ def main() -> int:
         if result["DIMENSION-ID"].duplicated().any():
             raise analysis.DataContractError("RU 全量表 DIMENSION-ID 不唯一")
 
-        artifact_inputs.mkdir(parents=True)
-        shutil.copy2(RULES_PATH, artifact_inputs / RULES_PATH.name)
-        shutil.copy2(PARAMETERS_PATH, artifact_inputs / PARAMETERS_PATH.name)
-        shutil.copy2(RU_DIMENSIONS_PATH, artifact_inputs / "尺寸库_RU.csv")
-        shutil.copy2(RU_SALES_PATH, artifact_inputs / RU_SALES_PATH.name)
-        full_path = artifact_output / layout.full_table("RU")
+        batch.input(RU_DIMENSIONS_PATH)
+        batch.input(RU_SALES_PATH)
+        if sales_snapshot_fallback:
+            batch.input(OUTPUT_DIR / layout.full_table("RU"))
+        full_path = batch.output(layout.full_table("RU"))
         analysis.write_result(result, full_path)
         report = {
             **summary,
@@ -264,10 +265,11 @@ def main() -> int:
         report_path = artifact_dir / "尺码匹配报告_RU.json"
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         (artifact_dir / "status.json").write_text(json.dumps({"status": "passed", "output": str(full_path), "report": str(report_path)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        atomic_copy(full_path, OUTPUT_DIR / layout.full_table("RU"))
+        batch.finish(summary, publish_to=OUTPUT_DIR)
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0
     except Exception as error:
+        batch.fail(error)
         artifact_dir.mkdir(parents=True, exist_ok=True)
         (artifact_dir / "status.json").write_text(json.dumps({"status": "failed", "error": str(error)}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         print(f"生成失败：{error}", file=sys.stderr)

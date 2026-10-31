@@ -106,8 +106,13 @@ def file_hashes(directory: Path) -> dict[str, str]:
     return {path.relative_to(directory).as_posix(): sha256(path) for path in sorted(directory.rglob("*")) if path.is_file()}
 
 
-def archive_batch(source: Path, target: Path) -> dict:
+def archive_batch(source: Path, target: Path, delete_source: bool = True) -> dict:
     """复制到 target 并逐文件校验后删除 source；返回索引记录（不含批次路径）。"""
+    source, target = source.resolve(), target.resolve()
+    if source == target or source in target.parents or target in source.parents:
+        raise ValueError("归档源和目标不能重叠")
+    if any(p.is_symlink() or p.is_junction() for p in source.rglob("*")):
+        raise ValueError("批次中存在链接，拒绝递归归档")
     if target.exists():
         raise SystemExit(f"目标已存在，拒绝覆盖：{target}")
     hashes = file_hashes(source)
@@ -122,8 +127,17 @@ def archive_batch(source: Path, target: Path) -> dict:
         raise SystemExit(f"复制校验失败，未删除本地：{source}")
     os.replace(staging, target)
     size = sum(path.stat().st_size for path in source.rglob("*") if path.is_file())
-    shutil.rmtree(source)
-    return {"files": len(hashes), "bytes": size, "sha256": hashes}
+    if delete_source:
+        if file_hashes(source) != hashes:
+            raise ValueError("归档期间源批次已变化，保留本地")
+        shutil.rmtree(source)
+    status_path = target / "run.json"
+    reuse_status = "unverified"
+    if status_path.is_file():
+        reuse_status = json.loads(status_path.read_text(encoding="utf-8")).get("status", {}).get("status", "unverified")
+    elif (target / "manifest.json").is_file():
+        reuse_status = "passed"
+    return {"files": len(hashes), "bytes": size, "sha256": hashes, "reuse_status": reuse_status}
 
 
 def append_index(path: Path, entry: dict) -> None:
@@ -157,9 +171,17 @@ def main(argv: list[str] | None = None) -> int:
         if args.dry_run:
             total += sum(path.stat().st_size for path in src.rglob("*") if path.is_file())
             continue
-        record = archive_batch(src, dest)
+        src.resolve().relative_to(root)
+        record = archive_batch(src, dest, delete_source=False)
         total += record["bytes"]
-        entry["batches"].append({"batch": src.relative_to(root).as_posix(), "archive_path": str(dest), **record})
+        batch_record = {"batch": src.relative_to(root).as_posix(), "archive_path": str(dest), **record, "local_deleted": False}
+        checkpoint = {**entry, "batches": [batch_record]}
+        append_index(root / INDEX_NAME, checkpoint)
+        append_index(dest_root / DEST_INDEX_NAME, checkpoint)
+        if file_hashes(src) != record["sha256"]:
+            raise ValueError("源批次在归档中变化，保留本地")
+        shutil.rmtree(src)
+        entry["batches"].append({**batch_record, "local_deleted": True})
 
     if not args.dry_run:
         append_index(root / INDEX_NAME, entry)

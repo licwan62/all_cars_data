@@ -67,7 +67,10 @@ def test_run_all_only_encodes_enabled_us_region(tmp_path):
     config.write_text("\n".join(line for line in text.splitlines() if "name: EU" not in line) + "\n", encoding="utf-8")
     assert region_names(config) == ["US"]
 
-    run_all(config)
+    import pytest
+    with pytest.raises(ValueError, match="未登记"):
+        run_all(config)
+    run_all(config, update_registry=True)
 
     with (tmp_path / "output" / "尺寸编码映射.csv").open(encoding="utf-8-sig", newline="") as handle:
         codes = {row["DIMENSION-ID"]: row["DIMENSION-CODE"] for row in csv.DictReader(handle)}

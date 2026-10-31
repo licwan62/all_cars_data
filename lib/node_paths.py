@@ -8,11 +8,17 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 NODES_DIR = "nodes"
-NODE_PATH_ALIASES = {"D1.聚类SKU": "D1.发货评估"}
+NODE_PATH_ALIASES = {
+    "D1.聚类SKU": "D1.发货评估",
+    "D2.链接分析/皮卡": "D2.链接分析/nodes/皮卡",
+    "D2.链接分析/普通": "D2.链接分析/nodes/普通",
+    "D2.链接分析/W型车": "D2.链接分析/nodes/W型车",
+}
 
 
 def node_dir_name(path: str) -> str:
@@ -28,7 +34,13 @@ def canonical_path(value: str, root: Path = REPO_ROOT) -> str:
             if value == prefix or value.startswith(prefix + "/"):
                 suffix = value[len(prefix):]
                 return f"{NODES_DIR}/{new}{suffix}"
+    # Only node-relative POSIX paths are candidates. Never stat arbitrary text,
+    # drive paths or UNC archive locations while recursively reading records.
+    if "\\" in value or value.startswith("/") or ":" in value:
+        return value
     head = value.split("/", 1)[0]
+    if not re.match(r"^(?:[0-9]{2}|[A-Z][0-9]+)\.", head):
+        return value
     if head and head != NODES_DIR and (root / NODES_DIR / head).is_dir() and not (root / head).exists():
         return f"{NODES_DIR}/{value}"
     return value

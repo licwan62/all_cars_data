@@ -1,7 +1,7 @@
 """Round 2 backfill: fill remaining 2015-2027 PENDING items using chain approach."""
 import csv
 
-CACHE_CSV = r"cache/sales_model_year_cache.csv"
+CACHE_CSV = r"data/销量依据/sales_model_year_cache.csv"
 QUEUE_CSV = r"research_queue/model_year_research_queue.csv"
 
 # Additional name mappings for remaining unmatched items

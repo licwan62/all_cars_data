@@ -1,7 +1,7 @@
 import csv
 from collections import Counter
 
-INPUT = "cache/sales_model_year_cache.csv"
+INPUT = "data/销量依据/sales_model_year_cache.csv"
 FIELDNAMES = [
     "MAKE", "MODEL", "YEAR", "SALES_MODEL_NAME", "SALES_REPORTING_GROUP",
     "MODEL_YEAR_US_SALES", "RAW_SALES", "SALES_SCOPE", "SALES_PERIOD",

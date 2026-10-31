@@ -1,0 +1,188 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis",
+  "version": "20261101_01",
+  "description": "negative-review-analysis",
+  "created_at": "2026-11-01T02:46:47+08:00",
+  "finished_at": "2026-11-01T02:46:49+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [],
+  "rules": {
+    "data_dir": "nodes/B0.差评分析/data",
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "copied": [],
+    "files": [
+      {
+        "file": "data/尺寸分析筛选规则.json",
+        "sha256": "580fbeb0045d9e61c9dfc5ff91e210c7eea2f7157041e04b3eeef51679c06e93"
+      },
+      {
+        "file": "data/差评分析汇总.csv",
+        "sha256": "40fe6557be3a7b0875f5fec80b6f1d801b885b02f513248df1c1fd668a80246c"
+      },
+      {
+        "file": "data/差评分析表.csv",
+        "sha256": "9086c844ab6cb435c620b87d4bd6edcc21e2ddd8fd2755244fa7fb25849fa9bd"
+      },
+      {
+        "file": "data/耳位筛选规则.json",
+        "sha256": "7743063624e4cd24e5d9ea19823c1fe45d7cab18ba3c6dfc577bea08c999d9ec"
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "718afe5662d3df11b482c7a9938a23bafffd5e8c217a9071996d8c3d2376cd6d",
+        "artifact_file": "nodes/E0.尺寸分析/artifacts/2026-11-01_01_dimension-statistics/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6",
+        "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "e49dff0d5a3056be5a4e7cd6521a72449302bb3a83b3251c9eb3315af688cb27",
+        "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/code/lib/materials.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be",
+        "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/rules_snapshot.py"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/build_ear_position_summary.py",
+        "sha256": "baae93498f8762d79f64d9fc631c59cb93c1d05d5de386914c81f2b1e6cd08f4"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/build_pickup_cab_bed_summary.py",
+        "sha256": "b65d00d64f9f62ef446941c4e2b7b6effa3d8fb25cd7e57fc184ebaf9afaa388"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/build_size_analysis_summary.py",
+        "sha256": "b2df6786115a146e544b5fbef31b18d6ded861749743399e9578763bfeffd0e3"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/run.py",
+        "sha256": "881ed719e8789823f92e49bfff6b65cd37f6298f376733e4e247a152203ec8fd",
+        "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis/code/nodes/B0.差评分析/src/run.py"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "差评分析表.csv",
+      "versioned_file": "差评分析表-20261101_01.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_02_negative-review-analysis-release/output/差评分析表-20261009_02.csv",
+      "content_reference": true,
+      "sha256": "df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c",
+      "bytes": 34759,
+      "rows": 195
+    },
+    {
+      "file": "耳位分析表.csv",
+      "versioned_file": "耳位分析表-20261101_01.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_02_negative-review-analysis-release/output/耳位分析表-20261009_02.csv",
+      "content_reference": true,
+      "sha256": "b064104c2c86742a95091999de3210fb38a7fd5794c690c181e16f5616febbcf",
+      "bytes": 1048,
+      "rows": 42
+    },
+    {
+      "file": "皮卡驾驶室货斗分析表.csv",
+      "versioned_file": "皮卡驾驶室货斗分析表-20261101_01.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-10-09_02_negative-review-analysis-release/output/皮卡驾驶室货斗分析表-20261009_02.csv",
+      "content_reference": true,
+      "sha256": "94b8bf2d801fb62017061581d0e297fbcd5798426b4ea763c70682ff7fc67d7e",
+      "bytes": 1147,
+      "rows": 18
+    }
+  ],
+  "extras": [
+    "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis/extra/01.差评分析精选.csv",
+    "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis/extra/02.尺寸问题复核表.csv",
+    "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis/extra/03.耳位问题清单.csv"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/01.差评分析精选.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis/extra/01.差评分析精选.csv",
+      "sha256": "1c495e9e05d4a6d92d28925f33e8619c04557cb9390d8d63482ba6f5cbe16e10",
+      "bytes": 22898
+    },
+    {
+      "file": "extra/02.尺寸问题复核表.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis/extra/02.尺寸问题复核表.csv",
+      "sha256": "15f868b1a7b643ded2b866c75e8286aafac76e1388f1d8ca1af4a2327d45b3f3",
+      "bytes": 4928
+    },
+    {
+      "file": "extra/03.耳位问题清单.csv",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-01_01_negative-review-analysis/extra/03.耳位问题清单.csv",
+      "sha256": "abeab8e9a42c14c4a093a528ffdfd86c9c4f6c0c41c41fae0e8571362ad876de",
+      "bytes": 82528
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "尺寸问题差评筛选": 157,
+    "尺寸问题待复核": 9,
+    "耳位分析": {
+      "耳位相关差评条数": 101,
+      "涉及车型数": 42
+    },
+    "驾驶室货斗分析": {
+      "驾驶室货斗相关差评条数": 143,
+      "涉及车型数": 18
+    },
+    "差评分析表校验": {
+      "行数": 195,
+      "重复键数": 0,
+      "差评占比异常数": 0
+    },
+    "尺码提取": {
+      "有尺码行数": 140,
+      "无尺码行数": 55
+    },
+    "outputs": [
+      "差评分析表.csv",
+      "耳位分析表.csv",
+      "皮卡驾驶室货斗分析表.csv"
+    ]
+  }
+}

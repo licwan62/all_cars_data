@@ -2,7 +2,7 @@
 import csv
 
 QUEUE_CSV = r"research_queue/model_year_research_queue.csv"
-CACHE_CSV = r"cache/sales_model_year_cache.csv"
+CACHE_CSV = r"data/销量依据/sales_model_year_cache.csv"
 
 # Load cache keys that have sales data
 with open(CACHE_CSV, encoding="utf-8-sig") as f:

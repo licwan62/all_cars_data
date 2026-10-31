@@ -23,7 +23,10 @@ def _ignored(relative: Path) -> bool:
 
 
 def content_sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+    raw = path.read_bytes()
+    if path.suffix.lower() in {".csv", ".tsv", ".json", ".jsonl", ".yaml", ".yml", ".md", ".txt", ".html", ".css", ".js", ".py", ".ps1"}:
+        raw = raw.replace(b"\r\n", b"\n")
+    return hashlib.sha256(raw).hexdigest()
 
 
 def rules_snapshot(project: Path) -> list[dict]:

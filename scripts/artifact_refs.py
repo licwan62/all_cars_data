@@ -15,6 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块在 lib/
 
+from content_store import resolve_source
 from node_paths import load_record  # noqa: E402
 
 VERSION = re.compile(r"^\d{8}_\d{2}$")
@@ -55,9 +56,9 @@ def check_deliverable_source(root: Path, manifest: dict, item: dict) -> str | No
         return f"{name} 的 versioned_file {versioned!r} 不是 {versioned_name(name, '<YYYYMMDD_NN>')}"
     if stored > manifest.get("version", ""):
         return f"{name} 的存储版本 {stored} 晚于 manifest 版本 {manifest.get('version')}"
-    if not source.endswith(f"/output/{versioned}"):
+    if not item.get("content_reference") and not source.endswith(f"/output/{versioned}"):
         return f"{name} 的 artifact_file {source!r} 应以 /output/{versioned} 结尾"
-    if not (root / source).is_file():
+    if not resolve_source(root, source).is_file():
         return f"来源 {source} 不存在"
     return None
 
@@ -83,6 +84,11 @@ def record_references(record: dict) -> set[str]:
             refs.add(upstream["artifact"])
         for item in upstream.get("files", [upstream]):
             refs.add(batch_of(item.get("artifact_file") or ""))
+    rules = record.get("rules", {})
+    for item in (rules.get("files", []) if isinstance(rules, dict) else rules):
+        refs.add(batch_of(item.get("artifact_file") or ""))
+    for item in record.get("code", {}).get("files", []) + record.get("extra_records", []):
+        refs.add(batch_of(item.get("artifact_file") or ""))
     refs.discard(None)
     return refs
 
@@ -112,3 +118,30 @@ def referenced_batches(root: Path, nodes: list[dict], keep_batches: set[str] = f
             if record:
                 pending.extend(record_references(record) - seen)
     return seen
+
+
+def reference_cycles(root: Path, nodes: list[dict]) -> list[str]:
+    """Detect cycles reachable from current manifests; self-batch bookkeeping is normal."""
+    roots = set()
+    for node in nodes:
+        manifest = _load(root / node["path"] / "output" / MANIFEST, root)
+        if manifest:
+            roots.update(record_references(manifest))
+    done, stack, errors = set(), [], []
+    def visit(batch):
+        if batch in stack:
+            errors.append("artifact引用循环: " + " -> ".join(stack[stack.index(batch):] + [batch]))
+            return
+        if batch in done:
+            return
+        stack.append(batch)
+        for name in (MANIFEST, RUN_RECORD):
+            record = _load(root / batch / name, root)
+            if record:
+                for source in sorted(record_references(record) - {batch}):
+                    visit(source)
+        stack.pop()
+        done.add(batch)
+    for batch in sorted(roots):
+        visit(batch)
+    return errors

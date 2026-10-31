@@ -29,6 +29,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src import scoring as scoring_mod
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_DIR.parents[1] / "lib"))
+from artifact_batch import RunBatch
 UPSTREAM_FULL_TABLE_OUTPUT = PROJECT_DIR.parent / "A0.尺码计算" / "output"
 UPSTREAM_FULL_TABLE_FILES = tuple(f"{region}/全量/全量表.csv" for region in ("US", "EU", "RU"))
 UPSTREAM_NEGATIVE_REVIEW_OUTPUT = PROJECT_DIR.parent / "B0.差评分析" / "output"
@@ -91,62 +93,50 @@ def run(
     output_dir: Path = PROJECT_DIR / "output",
     artifacts_dir: Path = PROJECT_DIR / "artifacts",
 ) -> dict:
-    full_table_paths = [full_table_dir / name for name in UPSTREAM_FULL_TABLE_FILES]
-    rows = [row for path in full_table_paths for row in read_csv_rows(path)]
-    negative_review_path = negative_review_dir / UPSTREAM_NEGATIVE_REVIEW_FILE
-    negative_review_rows = read_csv_rows(negative_review_path)
-    ear_position_path = ear_position_dir / UPSTREAM_EAR_POSITION_FILE
-    ear_position_rows = read_csv_rows(ear_position_path)
-    cab_bed_path = cab_bed_dir / UPSTREAM_CAB_BED_FILE
-    cab_bed_rows = read_csv_rows(cab_bed_path)
+    with RunBatch.create(artifacts_dir, "score", data_dir) as batch:
+        full_table_paths = [full_table_dir / name for name in UPSTREAM_FULL_TABLE_FILES]
+        rows = [row for path in full_table_paths for row in read_csv_rows(path)]
+        negative_review_path = negative_review_dir / UPSTREAM_NEGATIVE_REVIEW_FILE
+        negative_review_rows = read_csv_rows(negative_review_path)
+        ear_position_path = ear_position_dir / UPSTREAM_EAR_POSITION_FILE
+        ear_position_rows = read_csv_rows(ear_position_path)
+        cab_bed_path = cab_bed_dir / UPSTREAM_CAB_BED_FILE
+        cab_bed_rows = read_csv_rows(cab_bed_path)
 
-    keys = sorted({
-        scoring_mod.ModelKey(row.get("MAKE", "").strip(), row.get("MODEL", "").strip())
-        for row in rows if row.get("MAKE", "").strip() and row.get("MODEL", "").strip()
-    })
-    scoring_rules = load_json(data_dir / "定制评分规则.json", scoring_mod.DEFAULT_RULES)
-    ear_registry_path = data_dir / EAR_REGISTRY
-    ear_registry_rows = read_csv_rows(ear_registry_path) if ear_registry_path.is_file() else []
-    try:
-        scored_rows, scoring_meta = scoring_mod.score_keys(
-            keys, negative_review_rows, ear_position_rows, cab_bed_rows, scoring_rules, ear_registry_rows,
-        )
-    except ValueError as error:
-        raise ScoringError(str(error)) from error
+        keys = sorted({
+            scoring_mod.ModelKey(row.get("MAKE", "").strip(), row.get("MODEL", "").strip())
+            for row in rows if row.get("MAKE", "").strip() and row.get("MODEL", "").strip()
+        })
+        scoring_rules = load_json(data_dir / "定制评分规则.json", scoring_mod.DEFAULT_RULES)
+        ear_registry_path = data_dir / EAR_REGISTRY
+        ear_registry_rows = read_csv_rows(ear_registry_path) if ear_registry_path.is_file() else []
+        try:
+            scored_rows, scoring_meta = scoring_mod.score_keys(
+                keys, negative_review_rows, ear_position_rows, cab_bed_rows, scoring_rules, ear_registry_rows,
+            )
+        except ValueError as error:
+            raise ScoringError(str(error)) from error
 
-    artifact = next_artifact_dir(artifacts_dir, "score")
-    (artifact / "input").mkdir(parents=True)
-    for path in full_table_paths:
-        snapshot = artifact / "input" / path.relative_to(full_table_dir)
-        snapshot.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(path, snapshot)
-    shutil.copy2(negative_review_path, artifact / "input")
-    shutil.copy2(ear_position_path, artifact / "input")
-    shutil.copy2(cab_bed_path, artifact / "input")
-    for rule_file in (data_dir / "定制评分规则.json", ear_registry_path):
-        if rule_file.is_file():
-            shutil.copy2(rule_file, artifact / "input")
+        artifact = batch.directory
+        for path in [*full_table_paths, negative_review_path, ear_position_path, cab_bed_path]:
+            batch.input(path)
+        write_csv_atomic(batch.output(SCORE_OUTPUT_NAME), SCORE_FIELDS, scored_rows)
 
-    write_csv_atomic(artifact / "output" / SCORE_OUTPUT_NAME, SCORE_FIELDS, scored_rows)
+        status = {
+            "status": "passed",
+            "上游全量表行数": len(rows),
+            "上游差评分析表行数": len(negative_review_rows),
+            "上游耳位分析表行数": len(ear_position_rows),
+            "上游驾驶室货斗分析表行数": len(cab_bed_rows),
+            "车耳状态登记行数": len(ear_registry_rows),
+            "评分": scoring_meta,
+            "outputs": [SCORE_OUTPUT_NAME],
+        }
+        (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    status = {
-        "status": "passed",
-        "上游全量表行数": len(rows),
-        "上游差评分析表行数": len(negative_review_rows),
-        "上游耳位分析表行数": len(ear_position_rows),
-        "上游驾驶室货斗分析表行数": len(cab_bed_rows),
-        "车耳状态登记行数": len(ear_registry_rows),
-        "评分": scoring_meta,
-        "outputs": [SCORE_OUTPUT_NAME],
-    }
-    (artifact / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        batch.finish(status, publish_to=output_dir)
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-    staged = (output_dir / SCORE_OUTPUT_NAME).with_suffix(".tmp")
-    shutil.copy2(artifact / "output" / SCORE_OUTPUT_NAME, staged)
-    os.replace(staged, output_dir / SCORE_OUTPUT_NAME)
-
-    return {**status, "artifact": str(artifact)}
+        return {**status, "artifact": str(artifact)}
 
 
 def main(argv: list[str] | None = None) -> int:

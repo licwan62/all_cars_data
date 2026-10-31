@@ -20,6 +20,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块在 lib/
 
+from pipeline_contract import lifecycle_state
 from node_paths import load_record, node_dir_name  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -57,6 +58,8 @@ def node_state(root: Path, node: dict, by_id: dict[str, dict], on_demand: bool =
 
     ``on_demand`` 节点的上游更新只说明“需要时可刷新”，状态为 按需待刷新 而不是 过期。
     """
+    if lifecycle_state(node):
+        return lifecycle_state(node), node.get("blockers", [])
     manifest = _manifest(root, node)
     if manifest is None:
         return "未发布", ["缺少 output/manifest.json"]
@@ -99,7 +102,7 @@ def render_status(root: Path = ROOT) -> str:
         "> `python scripts/validate_pipeline_structure.py` 会校验它与各节点 `output/manifest.json` 一致。",
         "",
         f"- 最近发布：`{release.get('released_at', '-')}`",
-        f"- 节点：{len(nodes)} 个；" + "，".join(f"{state} {counts[state]}" for state in ("最新", "过期", ON_DEMAND_STATE, "待产出", "未发布") if counts.get(state)),
+        f"- 节点：{len(nodes)} 个；" + "，".join(f"{state} {counts[state]}" for state in ("最新", "过期", ON_DEMAND_STATE, "待产出", "未发布", "业务容器", "待接入", "历史保留") if counts.get(state)),
         "",
         "## 节点",
         "",

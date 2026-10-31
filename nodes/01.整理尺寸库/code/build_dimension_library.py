@@ -46,8 +46,8 @@ def main() -> int:
     args = parse_args()
     label = REGION_LABELS[args.region]
     batch_dir = PROJECT_DIR / "data" / args.region / args.batch if args.batch else latest_batch(args.region)
-    source_dir = args.source_dir or batch_dir
-    output_path = args.output or batch_dir / f"00_{label}尺寸库.csv"
+    source_dir = args.source_dir or ROOT / "nodes" / "00.自动化尺寸抓取器" / "output" / label
+    output_path = args.output or PROJECT_DIR / "work" / "regions" / args.region / f"00_{label}尺寸库.csv"
 
     try:
         if args.region == "eu":

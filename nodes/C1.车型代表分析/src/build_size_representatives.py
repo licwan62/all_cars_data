@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import sys
 import math
 import argparse
 from collections import defaultdict
@@ -11,6 +12,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / "lib"))
+from artifact_batch import RunBatch
 DEFAULT_SOURCE = ROOT / "nodes" / "A1.压缩尺寸信息" / "output" / "US" / "压缩尺码表.csv"
 DEFAULT_DETAILS = ROOT / "nodes" / "A0.尺码计算" / "output" / "US" / "全量" / "全量表.csv"
 DEFAULT_OUTPUT_DIR = ROOT / "nodes" / "C1.车型代表分析" / "output"
@@ -183,60 +186,65 @@ def main() -> None:
     details = args.details.resolve()
     output_dir = args.output_dir.resolve()
     suffix = f"-{args.version_suffix}" if args.version_suffix else ""
-    output = output_dir / f"代表车型{suffix}.csv"
-    output_tsv = output_dir / f"代表车型{suffix}.tsv"
-    report = output_dir / f"代表车型报告{suffix}.md"
+    project = Path(__file__).resolve().parents[1]
+    with RunBatch.create(project / "artifacts", "size-representatives", project / "data") as batch:
+        batch.input(source)
+        batch.input(details)
+        output = batch.output(f"代表车型{suffix}.csv")
+        output_tsv = batch.output(f"代表车型{suffix}.tsv")
+        report = batch.output(f"代表车型报告{suffix}.md")
 
-    with source.open("r", encoding="utf-8-sig", newline="") as handle:
-        source_rows = list(csv.DictReader(handle))
-    with details.open("r", encoding="utf-8-sig", newline="") as handle:
-        detail_rows = list(csv.DictReader(handle))
-    groups = compressed_candidates(source_rows, detail_rows)
+        with source.open("r", encoding="utf-8-sig", newline="") as handle:
+            source_rows = list(csv.DictReader(handle))
+        with details.open("r", encoding="utf-8-sig", newline="") as handle:
+            detail_rows = list(csv.DictReader(handle))
+        groups = compressed_candidates(source_rows, detail_rows)
 
-    output_rows = []
-    for size in sorted(groups):
-        for row in rank_group(groups[size]):
-            output_rows.append(
-                {
-                    "车型": display_name(row),
-                    "dimension-id": row.get("DIMENSION-ID", ""),
-                    "型号": size,
-                    "车长": int(number(row, "L-MM")),
-                    "车宽": int(number(row, "W-MM")),
-                    "车高": int(number(row, "H-MM")),
-                    "车形": row.get("车形", ""),
-                    "销量": int(number(row, "尺寸组销量")),
-                    "in_eagle": 0,
-                }
-            )
+        output_rows = []
+        for size in sorted(groups):
+            for row in rank_group(groups[size]):
+                output_rows.append(
+                    {
+                        "车型": display_name(row),
+                        "dimension-id": row.get("DIMENSION-ID", ""),
+                        "型号": size,
+                        "车长": int(number(row, "L-MM")),
+                        "车宽": int(number(row, "W-MM")),
+                        "车高": int(number(row, "H-MM")),
+                        "车形": row.get("车形", ""),
+                        "销量": int(number(row, "尺寸组销量")),
+                        "in_eagle": 0,
+                    }
+                )
 
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with output.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=OUTPUT_FIELDS, lineterminator="\n")
-        writer.writeheader()
-        writer.writerows(output_rows)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        with output.open("w", encoding="utf-8-sig", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=OUTPUT_FIELDS, lineterminator="\n")
+            writer.writeheader()
+            writer.writerows(output_rows)
 
-    with output_tsv.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=TSV_FIELDS, delimiter="\t", lineterminator="\n")
-        writer.writeheader()
-        writer.writerows({field: row[field] for field in TSV_FIELDS} for row in output_rows)
+        with output_tsv.open("w", encoding="utf-8-sig", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=TSV_FIELDS, delimiter="\t", lineterminator="\n")
+            writer.writeheader()
+            writer.writerows({field: row[field] for field in TSV_FIELDS} for row in output_rows)
 
-    try:
-        source_label = source.relative_to(ROOT).as_posix()
-    except ValueError:
-        source_label = str(source)
-    lines = [
-        f"# {args.region} 尺码代表车型报告", "",
-        f"候选簇来源：`{source_label}`。尺寸、销量和 DIMENSION-ID 由 A0 全量表补齐；每个发货尺码按销量和尺寸代表性最多选取四款车型。", "",
-    ]
-    for size in sorted(groups):
-        rows = [row for row in output_rows if row["型号"] == size]
-        lines.extend([f"## {size}", "", "| 车型 | 长×宽×高 mm | 销量 |", "|---|---:|---:|"])
-        lines.extend(f"| {row['车型']} | {row['车长']}×{row['车宽']}×{row['车高']} | {row['销量']} |" for row in rows)
-        lines.append("")
-    report.write_text("\n".join(lines), encoding="utf-8")
+        try:
+            source_label = source.relative_to(ROOT).as_posix()
+        except ValueError:
+            source_label = str(source)
+        lines = [
+            f"# {args.region} 尺码代表车型报告", "",
+            f"候选簇来源：`{source_label}`。尺寸、销量和 DIMENSION-ID 由 A0 全量表补齐；每个发货尺码按销量和尺寸代表性最多选取四款车型。", "",
+        ]
+        for size in sorted(groups):
+            rows = [row for row in output_rows if row["型号"] == size]
+            lines.extend([f"## {size}", "", "| 车型 | 长×宽×高 mm | 销量 |", "|---|---:|---:|"])
+            lines.extend(f"| {row['车型']} | {row['车长']}×{row['车宽']}×{row['车高']} | {row['销量']} |" for row in rows)
+            lines.append("")
+        report.write_text("\n".join(lines), encoding="utf-8")
 
-    print(f"sizes={len(groups)} rows={len(output_rows)} output={output} tsv={output_tsv} report={report}")
+        batch.finish({"sizes": len(groups), "rows": len(output_rows)}, publish_to=output_dir)
+        print(f"sizes={len(groups)} rows={len(output_rows)} output={output} tsv={output_tsv} report={report}")
 
 
 if __name__ == "__main__":

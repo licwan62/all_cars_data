@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "node": "representative-model",
+  "path": "nodes/C1.车型代表分析",
+  "version": "20261101_03",
+  "artifact": "nodes/C1.车型代表分析/artifacts/2026-11-01_03_representative-model-release",
+  "published_at": "2026-11-01T02:46:52+08:00",
+  "deliverables": [
+    {
+      "file": "代表车型.csv",
+      "versioned_file": "代表车型-20261101_01.csv",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-01_01_representative-model-release/output/代表车型-20261101_01.csv",
+      "content_reference": false,
+      "sha256": "837fe31d59e946edcdff1647488f6fb6b01e7b093c5bfeed71a91e302ef64d14",
+      "bytes": 11221,
+      "rows": 116
+    },
+    {
+      "file": "代表车型.tsv",
+      "versioned_file": "代表车型-20261009_05.tsv",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-10-09_05_representative-model-release/output/代表车型-20261009_05.tsv",
+      "content_reference": false,
+      "sha256": "a5c7ed2d3f09e6f0a1379e274cb3f2384edf6484c4b751a0013e0f64512d093d",
+      "bytes": 6019,
+      "rows": 116
+    },
+    {
+      "file": "代表车型报告.md",
+      "versioned_file": "代表车型报告-20261101_01.md",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-01_01_representative-model-release/output/代表车型报告-20261101_01.md",
+      "content_reference": false,
+      "sha256": "29711cb73ae06e68f04ea447d229fe385bd08884ca4c633cd454032064bb93ef",
+      "bytes": 9178,
+      "rows": null
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261101_07",
+      "basis": "run",
+      "files": [
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv",
+          "sha256": "563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4"
+        }
+      ]
+    },
+    {
+      "node": "size-compression",
+      "version": "20261101_03",
+      "basis": "run",
+      "files": [
+        {
+          "file": "US/压缩尺码表.csv",
+          "versioned_file": "US/压缩尺码表-20261028_03.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_03_compress-by-line/output/US/压缩尺码表-20261028_03.csv",
+          "sha256": "f005563e71e1dadde2368192949e78b10302c0243cef676984cf0892704869d8"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/README.md",
+      "sha256": "1c357c170df5c02a9794499b28bc6fc61cca04a3c3edd5d5cd95de2489444714"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-27 候选来源改为 A2 US 压缩尺码表，按 BACKSIZE 分组；A0 US 全量表仅用于为压缩车型簇补齐尺寸、销量和 DIMENSION-ID，稳定输出接口不变",
+    "2026-09-28 A0 全量表 销量合计 更名为 尺寸组销量，代表车型排序与销量列改读该列，结果不变",
+    "2026-09-28 A0 全量表不再提供 等效长：代表车型打分去掉周长项（长度/销量/年份保持原 0.30/0.20/0.20 相对权重），代表车型.csv 删除 参考半周长 列",
+    "2026-10-09 候选来源随目录改名改读 A1.压缩尺寸信息/output/US/压缩尺码表.csv（原 A2）；代表车型.csv/.tsv 逐字节不变，报告仅来源路径一行变化"
+  ]
+}

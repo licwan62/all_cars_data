@@ -1,0 +1,415 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard",
+  "version": "20261101_01",
+  "description": "category-standard",
+  "created_at": "2026-11-01T02:46:33+08:00",
+  "finished_at": "2026-11-01T02:46:34+08:00",
+  "command": [
+    "build_structure_review.py"
+  ],
+  "inputs": [
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261101_02",
+      "file": "尺寸库_US.csv",
+      "versioned_file": "尺寸库_US-20261009_08.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库_US-20261009_08.csv",
+      "sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261101_02",
+      "file": "尺寸库_EU.csv",
+      "versioned_file": "尺寸库_EU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_EU-20261009_06.csv",
+      "sha256": "5d4d4351ca6ce48c7dd816ab1ec98cea5157c1627413f3892826053e5a536354"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261101_02",
+      "file": "尺寸库_RU.csv",
+      "versioned_file": "尺寸库_RU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_RU-20261009_06.csv",
+      "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/02.分类结构审核/data",
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "copied": [],
+    "files": [
+      {
+        "file": "data/BMW_GT_Corolla_Celica复核.md",
+        "sha256": "dd1d45e99252be036a48ca98f3454ea1ee29a4004744f8a473ccc60feb891dd4"
+      },
+      {
+        "file": "data/README.md",
+        "sha256": "a179885c73ffd3666fd9e6e3af8b19568b9aded0650a4e2d3b77198ebbe4c7ae"
+      },
+      {
+        "file": "data/review_rules/generation_conflict_decisions_2026-08-25.json",
+        "sha256": "5bf9dfe47ecabc99139cc422c33cc3db1a9c0c8311baef3c81d5044faef74b94"
+      },
+      {
+        "file": "data/review_rules/identity_decisions_2026-08-25.json",
+        "sha256": "e8c1b55e4b5fe49a564958c69b1537423618a37e3fbe06dfefb48eca6ee1074d"
+      },
+      {
+        "file": "data/review_rules/year_generation_decisions_2026-08-25.json",
+        "sha256": "9d07ee11eb786b83c2488a8dd36622f171810ac2e0c84c4440873efee6c6edbd"
+      },
+      {
+        "file": "data/分类标准.json",
+        "sha256": "560fcb8a4872046216a1e1d8377a0ab0f15d81928387405892e63ab839b8373c"
+      },
+      {
+        "file": "data/分类联网判定.csv",
+        "sha256": "7d7f501a9f20c3a17f23dca5eaf9be9f88e12ab9762218a76d8bce2090c1a4e2"
+      },
+      {
+        "file": "data/新SOP生效说明.md",
+        "sha256": "19edbaf0e234429952320a11de23f5ae73930dce063c985b3af2b0a1f2233adf"
+      },
+      {
+        "file": "data/结构联网修正.csv",
+        "sha256": "0daca5f99ccfc3a99e604e5a3dfe3166d5ade27f0705ca397cecc2b3b843333e"
+      },
+      {
+        "file": "data/结构联网修正说明.md",
+        "sha256": "e96826db328c60bc44bb7e85acafa4d3eed11645f869afb61dbfa18653670a82"
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "4af66a06c3be67f3ad3d96bc103c9d6a6f889e8b",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "718afe5662d3df11b482c7a9938a23bafffd5e8c217a9071996d8c3d2376cd6d",
+        "artifact_file": "nodes/E0.尺寸分析/artifacts/2026-11-01_01_dimension-statistics/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6",
+        "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "e49dff0d5a3056be5a4e7cd6521a72449302bb3a83b3251c9eb3315af688cb27",
+        "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/code/lib/materials.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be",
+        "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6",
+        "artifact_file": "nodes/D1.发货评估/artifacts/2026-11-01_01_delivery-evaluation/code/lib/rules_snapshot.py"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/advance_confirmed_branch_gaps.py",
+        "sha256": "81c8ca3738993bda8667e3742566cb024b048e4914fc43ef9c8677f1ecda12b5"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/advance_final_review.py",
+        "sha256": "b95552589c4849b092c245f27d4f79d82a0ebe705a653f47e145637d0f9e6844"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/advance_verified_atomic_gaps.py",
+        "sha256": "1a83641152e8a67a955ff0cd5394458a8d2bc710a1760295b809b475cd67a44a"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/analyze2.py",
+        "sha256": "5075c562570d28dc93eeb170cb60a4e7e1bb24720e2964bddc50de635d4fbf34"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/analyze_data.py",
+        "sha256": "d0012158921e8e36c54d2c0a832f3a75df0d2ffc6e088607023fd1c615e2a529"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/audit_structure.py",
+        "sha256": "d43a85b0d70990348ee325d136114088d871085fc385629d1d0575736ff3abfb"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/build_maintenance_union.py",
+        "sha256": "060b1c321b9972d62727e5ecb87a32a142a04eae6b07b22299253f570d640d79"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/build_structure_review.py",
+        "sha256": "9a63db13e93ed3d06bf5424e53a23c11ef8f844257783497d69a5a88e7bc74e6",
+        "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/code/nodes/02.分类结构审核/code/build_structure_review.py"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/build_unified_corrected.py",
+        "sha256": "37e5823d3e38a6c8ee4708c9fb532c9551ad800d06637d23a0d336a8e6405c1b"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/check_corrections.py",
+        "sha256": "e3c8e1d6d6122a44399eab5ab933271c0ccb1aee3beb0d24017bcb99822ab34f"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/regenerate_artifacts.py",
+        "sha256": "f64c9ce9c758d6854a1a9b62f9fa80bf0cd42f69a6f5603b02e99a7b17a855ef"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/review_year_generation.py",
+        "sha256": "9e890329a9d0857e09e6d34be9a05eff85ee313a98674e4e0dac2968d0ad1453"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/validate_project.py",
+        "sha256": "0eca2f0cd00a59200395624b479b40da746ea689cbe3766853af2d89657b78f2"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "车型结构_US.csv",
+      "versioned_file": "车型结构_US-20261101_01.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-10-19_02_structure-review-release/output/车型结构_US-20261019_02.csv",
+      "content_reference": true,
+      "sha256": "5ac0ec9c3d39bd5a2becb547be30b8ab8165fe7dffc65fe048e3cc3e7158ce22",
+      "bytes": 909390,
+      "rows": 4383
+    },
+    {
+      "file": "车型结构_EU.csv",
+      "versioned_file": "车型结构_EU-20261101_01.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-10-09_02_structure-review-release/output/车型结构_EU-20261009_02.csv",
+      "content_reference": true,
+      "sha256": "e10d085c830b88a65da9029e8e9e0593131ef7f815c7dfe007e41bcb3d5a1b97",
+      "bytes": 3892806,
+      "rows": 29361
+    },
+    {
+      "file": "车型结构_RU.csv",
+      "versioned_file": "车型结构_RU-20261101_01.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-10-09_02_structure-review-release/output/车型结构_RU-20261009_02.csv",
+      "content_reference": true,
+      "sha256": "5a46d24aa8b51a2434dedbfabff230f1d96cb305399e6b9d803872559795696f",
+      "bytes": 1608853,
+      "rows": 13617
+    },
+    {
+      "file": "车型结构.csv",
+      "versioned_file": "车型结构-20261101_01.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-10-19_02_structure-review-release/output/车型结构-20261019_02.csv",
+      "content_reference": true,
+      "sha256": "e3db1db22782338b4196aa187347a8c44b5fd579bbe89340da4d61b96e7d2562",
+      "bytes": 6410817,
+      "rows": 47361
+    }
+  ],
+  "extras": [
+    "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/extra/changes.csv",
+    "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/extra/structure_changes.csv",
+    "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/extra/待联网.csv"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/changes.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/extra/changes.csv",
+      "sha256": "2450b653d905db48e6fd132358cb4660b760da5b1e161c9d89c924f37bcb155f",
+      "bytes": 1198932
+    },
+    {
+      "file": "extra/structure_changes.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/extra/structure_changes.csv",
+      "sha256": "65f48d3c734ddf6429810037f4318600c123814607922e6586e9ed0b39517fdf",
+      "bytes": 32225
+    },
+    {
+      "file": "extra/待联网.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_01_category-standard/extra/待联网.csv",
+      "sha256": "e5f9dd6e1a5c7d87cf305de04c9969285271246eb6a1920732fe8f1b1af442a4",
+      "bytes": 72
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "rows": {
+      "US": 4383,
+      "EU": 29361,
+      "RU": 13617
+    },
+    "rule_counts": {
+      "通用标准": 46864,
+      "联网判定": 388,
+      "联网结构修正": 101,
+      "排除": 8
+    },
+    "changed_rows": 9575,
+    "structure_changed_rows": 101,
+    "change_summary": [
+      {
+        "区域": "EU",
+        "结构": "Van",
+        "原分类": "越野车",
+        "新分类": "两厢车",
+        "行数": 3775
+      },
+      {
+        "区域": "EU",
+        "结构": "Wagon",
+        "原分类": "三厢车",
+        "新分类": "两厢车",
+        "行数": 2743
+      },
+      {
+        "区域": "EU",
+        "结构": "MPV",
+        "原分类": "越野车",
+        "新分类": "两厢车",
+        "行数": 2200
+      },
+      {
+        "区域": "EU",
+        "结构": "Bus",
+        "原分类": "越野车",
+        "新分类": "两厢车",
+        "行数": 403
+      },
+      {
+        "区域": "RU",
+        "结构": "Liftback",
+        "原分类": "两厢车",
+        "新分类": "三厢车",
+        "行数": 241
+      },
+      {
+        "区域": "EU",
+        "结构": "Hatchback",
+        "原分类": "两厢车",
+        "新分类": "三厢车",
+        "行数": 71
+      },
+      {
+        "区域": "EU",
+        "结构": "Liftback",
+        "原分类": "跑车",
+        "新分类": "三厢车",
+        "行数": 40
+      },
+      {
+        "区域": "EU",
+        "结构": "Fastback",
+        "原分类": "跑车",
+        "新分类": "三厢车",
+        "行数": 21
+      },
+      {
+        "区域": "EU",
+        "结构": "Hatchback",
+        "原分类": "两厢车",
+        "新分类": "跑车",
+        "行数": 17
+      },
+      {
+        "区域": "RU",
+        "结构": "Fastback",
+        "原分类": "两厢车",
+        "新分类": "三厢车",
+        "行数": 15
+      },
+      {
+        "区域": "RU",
+        "结构": "Fastback",
+        "原分类": "两厢车",
+        "新分类": "跑车",
+        "行数": 13
+      },
+      {
+        "区域": "EU",
+        "结构": "Pritsche/Fahrgestell",
+        "原分类": "",
+        "新分类": "皮卡",
+        "行数": 11
+      },
+      {
+        "区域": "US",
+        "结构": "Hatchback",
+        "原分类": "两厢车",
+        "新分类": "三厢车",
+        "行数": 9
+      },
+      {
+        "区域": "RU",
+        "结构": "Liftback",
+        "原分类": "两厢车",
+        "新分类": "跑车",
+        "行数": 8
+      },
+      {
+        "区域": "RU",
+        "结构": "Hatchback",
+        "原分类": "两厢车",
+        "新分类": "跑车",
+        "行数": 3
+      },
+      {
+        "区域": "US",
+        "结构": "Fastback",
+        "原分类": "跑车",
+        "新分类": "三厢车",
+        "行数": 1
+      },
+      {
+        "区域": "US",
+        "结构": "Liftback",
+        "原分类": "跑车",
+        "新分类": "三厢车",
+        "行数": 1
+      },
+      {
+        "区域": "US",
+        "结构": "Liftback",
+        "原分类": "两厢车",
+        "新分类": "三厢车",
+        "行数": 1
+      },
+      {
+        "区域": "US",
+        "结构": "Hatchback",
+        "原分类": "两厢车",
+        "新分类": "跑车",
+        "行数": 1
+      },
+      {
+        "区域": "EU",
+        "结构": "Bus",
+        "原分类": "",
+        "新分类": "两厢车",
+        "行数": 1
+      }
+    ],
+    "pending_research_models": 0,
+    "pending_research_rows": 0,
+    "decisions": 184
+  }
+}

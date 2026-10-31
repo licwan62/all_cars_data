@@ -44,6 +44,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
 
+from pipeline_contract import publishable
+from content_store import resolve_source, ContentIndex, content_lock
 from artifact_refs import RUN_RECORD, sha256, versioned_name
 from node_paths import load_record  # noqa: E402
 from identity_coverage import check_node as identity_gaps
@@ -321,7 +323,7 @@ def _reusable(root: Path, item: dict | None, digest: str) -> bool:
     """旧记录指向的 artifact 文件存在且内容就是 digest。"""
     if not item or item.get("sha256") != digest or not item.get("artifact_file") or not item.get("versioned_file"):
         return False
-    source = root / item["artifact_file"]
+    source = resolve_source(root, item["artifact_file"])
     return source.is_file() and sha256(source) == digest
 
 
@@ -398,6 +400,12 @@ def identity_checks(root: Path, node: dict, by_id: dict[str, dict], enforce: boo
 
 def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, released_at: str, force: bool = False,
                  enforce_identity: bool = False, accept_identity_gaps: bool = False) -> dict | None:
+    with content_lock(root):
+        return _release_node(root, node, by_id, today, released_at, force, enforce_identity, accept_identity_gaps)
+
+
+def _release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, released_at: str, force: bool = False,
+                 enforce_identity: bool = False, accept_identity_gaps: bool = False) -> dict | None:
     """发布一个节点；交付物、上游、规则与说明均未变化且未 force 时返回 None，沿用当前版本。"""
     project = root / node["path"]
     output_dir = project / "output"
@@ -430,15 +438,23 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
     staging.mkdir(parents=True)
 
     run_outputs = run_batch_outputs(project, runs)
+    content = ContentIndex(root)
+    content.rebuild()
     deliverables = []
     copied = []
+    stored_sources = {}
     for item in current:
         name = item["file"]
         run_item = run_outputs.get((name, item["sha256"]))
-        if _reusable(root, previous.get(name), item["sha256"]):
+        key = (item["sha256"], item["bytes"])
+        if key in stored_sources:
+            source = {**stored_sources[key], "versioned_file": versioned_name(name, version), "content_reference": True}
+        elif _reusable(root, previous.get(name), item["sha256"]):
             source = previous[name]
         elif _reusable(root, run_item, item["sha256"]):
             source = run_item
+        elif (reference := content.find(item["sha256"], item["bytes"])):
+            source = {"versioned_file": versioned_name(name, version), "artifact_file": reference, "content_reference": True}
         else:
             versioned = versioned_name(name, version)
             target = staging / "output" / versioned
@@ -448,12 +464,15 @@ def release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, rel
                 raise ReleaseError(f"{node['path']}: output/{name} 在发布过程中被改动")
             source = {"versioned_file": versioned, "artifact_file": f"{node['path']}/artifacts/{batch_name}/output/{versioned}"}
             copied.append(name)
+        stored_sources.setdefault(key, source)
         deliverables.append(
             {"file": name, "versioned_file": source["versioned_file"], "artifact_file": source["artifact_file"],
+             "content_reference": source.get("content_reference", False),
              "sha256": item["sha256"], "bytes": item["bytes"], "rows": item["rows"]}
         )
+    content.close()
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "node": node["id"],
         "path": node["path"],
         "version": version,
@@ -495,6 +514,7 @@ def select_nodes(payload: dict, nodes: list[dict], only: set[str] | None, lines:
     unknown = sorted((only or set()) - known_ids) + sorted((lines or set()) - known_lines)
     if unknown:
         raise ReleaseError(f"未知节点或产线：{', '.join(unknown)}")
+    nodes = [node for node in nodes if publishable(node)]
     if only or lines:
         return [node for node in nodes if node["id"] in (only or set()) or node.get("line", "U") in (lines or set())]
     return [node for node in nodes if include_on_demand or not is_on_demand(payload, node)]

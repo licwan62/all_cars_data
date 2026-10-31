@@ -42,7 +42,7 @@ def test_sku_shipment_report_uses_confirmed_sku_facts_without_cluster() -> None:
     workbook = MODULE.WORKBOOK
     project = Path(__file__).resolve().parents[1]
     listing = pd.read_excel(workbook, sheet_name="上架明细").fillna("")
-    facts = pd.read_csv(project / "review" / "发货事实.csv", encoding="utf-8-sig")
+    facts = pd.read_csv(project / "data" / "发货事实.csv", encoding="utf-8-sig")
     mapping = pd.read_csv(project / "data" / "SKU上架映射.csv", encoding="utf-8-sig")
     report = MODULE.sku_shipment_report(facts, listing, mapping)
     assert len(report) == 108

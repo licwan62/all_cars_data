@@ -1,15 +1,16 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "node": "code-mapping",
-  "path": "02.代码映射",
-  "version": "20261019_02",
-  "artifact": "02.代码映射/artifacts/2026-10-19_02_code-mapping-release",
-  "published_at": "2026-10-19T02:04:36+08:00",
+  "path": "nodes/02.代码映射",
+  "version": "20261101_02",
+  "artifact": "nodes/02.代码映射/artifacts/2026-11-01_02_code-mapping-release",
+  "published_at": "2026-11-01T02:46:46+08:00",
   "deliverables": [
     {
       "file": "车型编码映射.csv",
       "versioned_file": "车型编码映射-20261009_04.csv",
-      "artifact_file": "02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/车型编码映射-20261009_04.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-10-09_04_code-mapping-release/output/车型编码映射-20261009_04.csv",
+      "content_reference": false,
       "sha256": "c7f979666e864d99bbeb8cb5a3e65a4ee255e2468bda303b1270912342a3f657",
       "bytes": 17382,
       "rows": 704
@@ -17,7 +18,8 @@
     {
       "file": "尺寸编码映射.csv",
       "versioned_file": "尺寸编码映射-20261019_02.csv",
-      "artifact_file": "02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv",
+      "content_reference": false,
       "sha256": "cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8",
       "bytes": 201796,
       "rows": 4383
@@ -26,51 +28,14 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261009_08",
-      "artifact": "01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release",
-      "basis": "publish-time",
+      "version": "20261101_02",
+      "basis": "run",
       "files": [
         {
           "file": "尺寸库.csv",
           "versioned_file": "尺寸库-20261009_08.csv",
-          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库-20261009_08.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库-20261009_08.csv",
           "sha256": "5b3fccb71c6e69fa9fde07f62cd6d99584582ccbe278f871c6c60ec2422e1f69"
-        },
-        {
-          "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261009_08.csv",
-          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库_US-20261009_08.csv",
-          "sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db"
-        },
-        {
-          "file": "尺寸库_EU.csv",
-          "versioned_file": "尺寸库_EU-20261009_06.csv",
-          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_EU-20261009_06.csv",
-          "sha256": "5d4d4351ca6ce48c7dd816ab1ec98cea5157c1627413f3892826053e5a536354"
-        },
-        {
-          "file": "尺寸库_RU.csv",
-          "versioned_file": "尺寸库_RU-20261009_06.csv",
-          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_RU-20261009_06.csv",
-          "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
-        },
-        {
-          "file": "EU_ID迁移.csv",
-          "versioned_file": "EU_ID迁移-20261009_06.csv",
-          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/EU_ID迁移-20261009_06.csv",
-          "sha256": "4cd2b24a5a41668a10f338ee238df954c3f05900b34371b7118cb6646766c81b"
-        },
-        {
-          "file": "来源映射_EU.csv",
-          "versioned_file": "来源映射_EU-20261009_06.csv",
-          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_EU-20261009_06.csv",
-          "sha256": "a43d64cf242536d0bae6e2193cfb4f378a66b6f58e85335c1bf685ce7bad37a9"
-        },
-        {
-          "file": "来源映射_RU.csv",
-          "versioned_file": "来源映射_RU-20261009_06.csv",
-          "artifact_file": "01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
-          "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
         }
       ]
     }
@@ -167,10 +132,6 @@
         "missing_examples": [],
         "residual_examples": []
       }
-    ],
-    "unverified_deliverables": [
-      "车型编码映射.csv",
-      "尺寸编码映射.csv"
     ]
   }
 }

@@ -3,7 +3,7 @@ import csv
 from collections import defaultdict
 
 queue_path = r'research_queue/model_year_research_queue.csv'
-cache_path = r'cache/sales_model_year_cache.csv'
+cache_path = r'data/销量依据/sales_model_year_cache.csv'
 
 with open(queue_path, encoding='utf-8-sig') as f:
     queue = list(csv.DictReader(f))

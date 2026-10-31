@@ -1,0 +1,273 @@
+{
+  "schema_version": 2,
+  "node": "representative-model",
+  "path": "nodes/C1.车型代表分析",
+  "version": "20261101_01",
+  "artifact": "nodes/C1.车型代表分析/artifacts/2026-11-01_01_representative-model-release",
+  "published_at": "2026-11-01T02:37:34+08:00",
+  "deliverables": [
+    {
+      "file": "代表车型.csv",
+      "versioned_file": "代表车型-20261101_01.csv",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-01_01_representative-model-release/output/代表车型-20261101_01.csv",
+      "content_reference": false,
+      "sha256": "837fe31d59e946edcdff1647488f6fb6b01e7b093c5bfeed71a91e302ef64d14",
+      "bytes": 11221,
+      "rows": 116
+    },
+    {
+      "file": "代表车型.tsv",
+      "versioned_file": "代表车型-20261009_05.tsv",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-10-09_05_representative-model-release/output/代表车型-20261009_05.tsv",
+      "content_reference": false,
+      "sha256": "a5c7ed2d3f09e6f0a1379e274cb3f2384edf6484c4b751a0013e0f64512d093d",
+      "bytes": 6019,
+      "rows": 116
+    },
+    {
+      "file": "代表车型报告.md",
+      "versioned_file": "代表车型报告-20261101_01.md",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-01_01_representative-model-release/output/代表车型报告-20261101_01.md",
+      "content_reference": false,
+      "sha256": "29711cb73ae06e68f04ea447d229fe385bd08884ca4c633cd454032064bb93ef",
+      "bytes": 9178,
+      "rows": null
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261101_07",
+      "artifact": "nodes/A0.尺码计算/artifacts/2026-11-01_07_size-calculation-release",
+      "basis": "publish-time",
+      "files": [
+        {
+          "file": "US/尺码匹配报告.md",
+          "versioned_file": "US/尺码匹配报告-20261028_02.md",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_02_match-report-shape/output/US/尺码匹配报告-20261028_02.md",
+          "sha256": "69d65acd24c4b9f2a8e6f3d2ead5564d748ba4d07080586e8ccf77cfaa526b1e"
+        },
+        {
+          "file": "US/全量/全量表.csv",
+          "versioned_file": "US/全量/全量表-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv",
+          "sha256": "563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4"
+        },
+        {
+          "file": "US/店铺/店铺全量_HNT.csv",
+          "versioned_file": "US/店铺/店铺全量_HNT-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/店铺/店铺全量_HNT-20261028_01.csv",
+          "sha256": "f53e1efa4e2b0c9c9362fc66b93c57ad9a3a931459b00a78d5b5cbf76c925a93"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM.csv",
+          "versioned_file": "US/店铺/店铺全量_TM-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/店铺/店铺全量_TM-20261028_01.csv",
+          "sha256": "30cca82bcc209df7f495c18062ba7fdbe352945ed0f665270e8ec5239b872f00"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM_拆分.csv",
+          "versioned_file": "US/店铺/店铺全量_TM_拆分-20261028_01.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/店铺/店铺全量_TM_拆分-20261028_01.csv",
+          "sha256": "3e6ff981174988bf9b8a45cda0051398f4d6909e5bae072db9447f96c4c4f81c"
+        },
+        {
+          "file": "US/TRIM/TRIM适配器.csv",
+          "versioned_file": "US/TRIM/TRIM适配器-20261019_06.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-19_06_us-size-trim-shape/output/US/TRIM/TRIM适配器-20261019_06.csv",
+          "sha256": "576e7bfce6d9978a82c49a8b018aaf3329515e662b52994175f7544d2a1b5d36"
+        },
+        {
+          "file": "US/尺码规则.json",
+          "versioned_file": "US/尺码规则-20261015_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+          "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+        },
+        {
+          "file": "US/店铺货架.json",
+          "versioned_file": "US/店铺货架-20261015_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/店铺货架-20261015_01.json",
+          "sha256": "8e369204b7136f916dc86b8a31d6065449ce2be7f73d04c162764fdb32c417e0"
+        },
+        {
+          "file": "US/新旧尺码对应.csv",
+          "versioned_file": "US/新旧尺码对应-20261028_02.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_02_match-report-shape/output/US/新旧尺码对应-20261028_02.csv",
+          "sha256": "c49283ec04bf2010776b65fc2618d332569e4fe174fedd4c8d084134d0cc709b"
+        },
+        {
+          "file": "EU/尺码匹配报告.md",
+          "versioned_file": "EU/尺码匹配报告-20261013_18.md",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-13_18_size-calculation-release/output/EU/尺码匹配报告-20261013_18.md",
+          "sha256": "472664564f132933ec0f838863c3cbf29c666189458f70d6f6c49c15a7daf522"
+        },
+        {
+          "file": "EU/全量/全量表.csv",
+          "versioned_file": "EU/全量/全量表-20261013_16.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/EU/全量/全量表-20261013_16.csv",
+          "sha256": "43250bf7748fcff6651aa5ae2e7f47fe22d1945731f99fc9a4dae41a04b3406d"
+        },
+        {
+          "file": "EU/尺码规则.json",
+          "versioned_file": "EU/尺码规则-20261015_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/EU/尺码规则-20261015_01.json",
+          "sha256": "716ec1ed53d3ccb4610868d5df09933c5d91d348a779450e29576b62303533ef"
+        },
+        {
+          "file": "RU/尺码匹配报告.md",
+          "versioned_file": "RU/尺码匹配报告-20261101_06.md",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_06_match-report-shape/output/RU/尺码匹配报告-20261101_06.md",
+          "sha256": "72e5546add4e2c35718869643f716a7ea6e79b6e40c482e2e93471e1f61099b2"
+        },
+        {
+          "file": "RU/全量/全量表.csv",
+          "versioned_file": "RU/全量/全量表-20261101_04.csv",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_04_full-table-cover-shape/output/RU/全量/全量表-20261101_04.csv",
+          "sha256": "26febcda79cb7d91991d3459919047ae88843d1208cb2139854f60fc6ce4115a"
+        },
+        {
+          "file": "RU/尺码规则.json",
+          "versioned_file": "RU/尺码规则-20261026_02.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-26_02_match-report-shape/output/RU/尺码规则-20261026_02.json",
+          "sha256": "b42291abedfbdcd9ac2f1afa47c8b69a6fd4b8c6343298a61966aadf1a6fa63a"
+        }
+      ]
+    },
+    {
+      "node": "size-compression",
+      "version": "20261101_03",
+      "artifact": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_03_size-compression-release",
+      "basis": "publish-time",
+      "files": [
+        {
+          "file": "US/压缩尺码表.csv",
+          "versioned_file": "US/压缩尺码表-20261028_03.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_03_compress-by-line/output/US/压缩尺码表-20261028_03.csv",
+          "sha256": "f005563e71e1dadde2368192949e78b10302c0243cef676984cf0892704869d8"
+        },
+        {
+          "file": "US/压缩尺码表_皮卡.csv",
+          "versioned_file": "US/压缩尺码表_皮卡-20261028_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_01_compress-by-line/output/US/压缩尺码表_皮卡-20261028_01.csv",
+          "sha256": "a2fab39fc3a91ee3ca882c2de4e69d52fb4b97afc16027cbf9211bbee2599722"
+        },
+        {
+          "file": "US/压缩来源.csv",
+          "versioned_file": "US/压缩来源-20261019_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-19_01_compress-by-line/output/US/压缩来源-20261019_01.csv",
+          "sha256": "46dca2c703a93916c51975902f7eee22ab7ffb462f8a480921d6b107a63a0356"
+        },
+        {
+          "file": "HNT/压缩尺码表.csv",
+          "versioned_file": "HNT/压缩尺码表-20261028_03.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_03_compress-by-line/output/HNT/压缩尺码表-20261028_03.csv",
+          "sha256": "09e0fc501bac90a45b9dbca3253c9fb79f71db9ad15ae16995042336827fa8be"
+        },
+        {
+          "file": "HNT/压缩尺码表_皮卡.csv",
+          "versioned_file": "HNT/压缩尺码表_皮卡-20261028_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_01_compress-by-line/output/HNT/压缩尺码表_皮卡-20261028_01.csv",
+          "sha256": "2bdcec2a37bb4eb98de124a490cf68927da73918c01b869c42783e0c8eb93896"
+        },
+        {
+          "file": "HNT/压缩来源.csv",
+          "versioned_file": "HNT/压缩来源-20261019_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-19_01_compress-by-line/output/HNT/压缩来源-20261019_01.csv",
+          "sha256": "2062cf4cb1f3b2ebd2020dd71b39bb4174436f3071be61d2e833ea9f69aedd66"
+        },
+        {
+          "file": "TM/压缩尺码表.csv",
+          "versioned_file": "TM/压缩尺码表-20261028_03.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_03_compress-by-line/output/TM/压缩尺码表-20261028_03.csv",
+          "sha256": "ee8f2fd6d2e62fa3ebbd86e081dcff6e8f0c6b3ff3255c2ed7ab9a73b91b8cd2"
+        },
+        {
+          "file": "TM/压缩尺码表_皮卡.csv",
+          "versioned_file": "TM/压缩尺码表_皮卡-20261028_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_01_compress-by-line/output/TM/压缩尺码表_皮卡-20261028_01.csv",
+          "sha256": "a2fab39fc3a91ee3ca882c2de4e69d52fb4b97afc16027cbf9211bbee2599722"
+        },
+        {
+          "file": "TM/压缩来源.csv",
+          "versioned_file": "TM/压缩来源-20261019_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-19_01_compress-by-line/output/TM/压缩来源-20261019_01.csv",
+          "sha256": "f35ef3154a9ca3a1f423b5dc970d9887ed651e5998c935c3ffdab248ba243ca7"
+        },
+        {
+          "file": "TM_拆分/压缩尺码表.csv",
+          "versioned_file": "TM_拆分/压缩尺码表-20261028_03.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_03_compress-by-line/output/TM_拆分/压缩尺码表-20261028_03.csv",
+          "sha256": "a326a36b1ff7cb29d4ff7a409dac529463bc6e778016fe4aac0de36ac236005e"
+        },
+        {
+          "file": "TM_拆分/压缩尺码表_皮卡.csv",
+          "versioned_file": "TM_拆分/压缩尺码表_皮卡-20261028_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-28_01_compress-by-line/output/TM_拆分/压缩尺码表_皮卡-20261028_01.csv",
+          "sha256": "d086b9b0cbd68f642b40e0489ef5a80c2e202768e1bcd4d63ab053135372103b"
+        },
+        {
+          "file": "TM_拆分/压缩来源.csv",
+          "versioned_file": "TM_拆分/压缩来源-20261019_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-19_01_compress-by-line/output/TM_拆分/压缩来源-20261019_01.csv",
+          "sha256": "c70f83325d182eb0f0b37ca594f5268d6c2e0bc0ddd2ed59e82ba24e6b82e89c"
+        },
+        {
+          "file": "EU/压缩尺码表.csv",
+          "versioned_file": "EU/压缩尺码表-20261010_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-10_01_compress-by-line/output/EU/压缩尺码表-20261010_01.csv",
+          "sha256": "a555ff89079b493defb28645877c193dbf3334d82e91859626fde2025bdfc240"
+        },
+        {
+          "file": "EU/压缩尺码表_皮卡.csv",
+          "versioned_file": "EU/压缩尺码表_皮卡-20261010_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-10_01_compress-by-line/output/EU/压缩尺码表_皮卡-20261010_01.csv",
+          "sha256": "28fdaf210743611880994bc994af2e1c6f0463e3fe51e584d430c5300aa95570"
+        },
+        {
+          "file": "EU/压缩来源.csv",
+          "versioned_file": "EU/压缩来源-20261010_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-10_01_compress-by-line/output/EU/压缩来源-20261010_01.csv",
+          "sha256": "6e8671cc0b5f436679fded011cda633afc2f8dab6fad821225fcad9445787cce"
+        },
+        {
+          "file": "RU/压缩尺码表.csv",
+          "versioned_file": "RU/压缩尺码表-20261026_03.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-26_03_compress-by-line/output/RU/压缩尺码表-20261026_03.csv",
+          "sha256": "067cb6e1a4241c4af6d489ae44112eab2a0a913fa8de15de898326b43c9ae714"
+        },
+        {
+          "file": "RU/压缩尺码表_皮卡.csv",
+          "versioned_file": "RU/压缩尺码表_皮卡-20261026_01.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-26_01_compress-by-line/output/RU/压缩尺码表_皮卡-20261026_01.csv",
+          "sha256": "a6c7d1992052ff281e89e5f93ede6bd1a2661ed710dfd0d51b6865231d53a50e"
+        },
+        {
+          "file": "RU/压缩来源.csv",
+          "versioned_file": "RU/压缩来源-20261026_03.csv",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-26_03_compress-by-line/output/RU/压缩来源-20261026_03.csv",
+          "sha256": "88feb717a26f184de680fb921d0ff9c417f465ad24a8f8dd22792ffd7370151e"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/README.md",
+      "sha256": "1c357c170df5c02a9794499b28bc6fc61cca04a3c3edd5d5cd95de2489444714"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "2026-09-27 候选来源改为 A2 US 压缩尺码表，按 BACKSIZE 分组；A0 US 全量表仅用于为压缩车型簇补齐尺寸、销量和 DIMENSION-ID，稳定输出接口不变",
+    "2026-09-28 A0 全量表 销量合计 更名为 尺寸组销量，代表车型排序与销量列改读该列，结果不变",
+    "2026-09-28 A0 全量表不再提供 等效长：代表车型打分去掉周长项（长度/销量/年份保持原 0.30/0.20/0.20 相对权重），代表车型.csv 删除 参考半周长 列",
+    "2026-10-09 候选来源随目录改名改读 A1.压缩尺寸信息/output/US/压缩尺码表.csv（原 A2）；代表车型.csv/.tsv 逐字节不变，报告仅来源路径一行变化"
+  ],
+  "checks": {
+    "unverified_deliverables": [
+      "代表车型.csv",
+      "代表车型.tsv",
+      "代表车型报告.md"
+    ]
+  }
+}

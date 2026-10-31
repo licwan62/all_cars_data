@@ -8,6 +8,9 @@ always binds to loopback; no pipeline run or publish endpoint is exposed.
 from __future__ import annotations
 
 import argparse
+import secrets
+import hashlib
+import tempfile
 import json
 import os
 import sqlite3
@@ -23,6 +26,9 @@ from urllib.parse import parse_qs, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "lib"))
 
+from materials import Materials, Conflict, UPLOAD_LIMIT, ClosingConnection
+from pipeline_contract import lifecycle_state
+from content_store import ContentIndex, raw_sha256
 from node_paths import canonical_path, load_record  # noqa: E402
 from pipeline_status import is_on_demand  # noqa: E402
 from trace_pipeline import trace_node  # noqa: E402
@@ -66,7 +72,7 @@ def archive_batches(root: Path, site: bool) -> dict[str, Path]:
 
 
 class Portal:
-    def __init__(self, data_root: Path = ROOT, web_root: Path | None = None, db_path: Path | None = None):
+    def __init__(self, data_root: Path = ROOT, web_root: Path | None = None, db_path: Path | None = None, upload_limit: int = UPLOAD_LIMIT):
         self.data_root = data_root.resolve()
         self.web_root = (web_root or data_root.parent / "pipeline_carstable_to_webapp").resolve()
         self.db_path = db_path or self.data_root / "portal" / "data" / "journal.sqlite3"
@@ -74,9 +80,11 @@ class Portal:
         self.lock = threading.RLock()
         self._snapshot: tuple[float, dict] | None = None
         self._init_db()
+        self.token = secrets.token_urlsafe(32)
+        self.materials = Materials(self.data_root, self.db_path, self.lock, upload_limit)
 
     def _connect(self):
-        db = sqlite3.connect(self.db_path, timeout=20)
+        db = sqlite3.connect(self.db_path, timeout=20, factory=ClosingConnection)
         db.row_factory = sqlite3.Row
         return db
 
@@ -103,7 +111,7 @@ class Portal:
         if dest.exists():
             return
         dest.parent.mkdir(parents=True, exist_ok=True)
-        with self._connect() as source, sqlite3.connect(dest) as backup:
+        with self._connect() as source, sqlite3.connect(dest, factory=ClosingConnection) as backup:
             source.backup(backup)
 
     def _pipeline(self) -> dict:
@@ -154,7 +162,9 @@ class Portal:
             nodes = []
             for node in payload["nodes"]:
                 manifest = read_json(self.data_root / node["path"] / "output" / "manifest.json", self.data_root)
-                if not manifest:
+                if lifecycle_state(node):
+                    state, issues = lifecycle_state(node), node.get("blockers", [])
+                elif not manifest:
                     state, issues = "未发布", ["缺少 output/manifest.json"]
                 else:
                     errors, stale, deferred = trace_node(node, by_id, is_on_demand(payload, node), self.data_root)
@@ -168,14 +178,19 @@ class Portal:
                         state, issues = "待产出", []
                     else:
                         state, issues = "最新", []
-                nodes.append({"id": node["id"], "name": node["path"].removeprefix("nodes/"),
-                              "line": node.get("line", "U"), "layer": node.get("layer", 0),
+                display_name = (node["path"].split("/")[-1] if node.get("parent") else node["path"].removeprefix("nodes/"))
+                display_layer = max(0, min((child.get("layer", 1) for child in payload["nodes"] if child.get("parent") == node["id"]), default=1) - 1) if node.get("kind") == "container" else node.get("layer", 0)
+                nodes.append({"id": node["id"], "name": display_name,
+                              "kind": node.get("kind", "node"), "parent": node.get("parent"), "lifecycle": node.get("lifecycle", "active"),
+                              "naming_basis": node.get("naming_basis", ""),
+                              "line": node.get("line", "U"), "layer": display_layer,
                               "trigger": "按需" if is_on_demand(payload, node) else "自动",
                               "upstream": node.get("upstream", []), "state": state, "issues": issues[:5],
                               "version": manifest.get("version"), "deliverables": len(manifest.get("deliverables", [])),
                               "pending": node.get("pending", [])})
             site = self._latest_site()
             edges = [{"from": upstream, "to": node["id"]} for node in payload["nodes"] for upstream in node.get("upstream", [])]
+            edges += [{"from": n["parent"], "to": n["id"], "type": "contains"} for n in payload["nodes"] if n.get("parent")]
             edges += [{"from": item["node"], "to": SITE_ID} for item in site["upstream"] if item.get("node") in by_id]
             result = {"nodes": nodes, "edges": edges, "site": site,
                       "files": [self.file_entry("data", name) for name in
@@ -273,6 +288,7 @@ class Portal:
                 history.append({"name": Path(batch).name, "ref": f"data:{batch}", "location": "归档" if path.exists() else "归档不可用"})
         history.sort(key=lambda item: item["name"], reverse=True)
         return {"id": node_id, "name": node["path"].removeprefix("nodes/"), "line": node.get("line"),
+                "naming_basis": node.get("naming_basis", ""), "kind": node.get("kind", "node"), "lifecycle": node.get("lifecycle", "active"), "parent": node.get("parent"),
                 "run": node.get("run", []), "state": next(n for n in self.overview()["nodes"] if n["id"] == node_id),
                 "docs": docs, "files": files, "outputs": outputs, "rules": rules,
                 "upstream": upstream, "declared_upstream": node.get("upstream", []),
@@ -427,10 +443,16 @@ def handler_for(portal: Portal):
             self.wfile.write(raw)
 
         def _error(self, error):
-            status = 404 if isinstance(error, (KeyError, FileNotFoundError)) else 400 if isinstance(error, ValueError) else 500
+            status = 409 if isinstance(error, Conflict) else 404 if isinstance(error, (KeyError, FileNotFoundError)) else 400 if isinstance(error, ValueError) else 500
             self._json({"error": str(error)}, status)
 
+        def _host_valid(self):
+            return self.headers.get("Host") == f"127.0.0.1:{self.server.server_port}"
+
         def do_GET(self):
+            if not self._host_valid():
+                self._json({"error": "无效本机 Host"}, 403)
+                return
             url = urlsplit(self.path)
             query = parse_qs(url.query)
             try:
@@ -438,10 +460,70 @@ def handler_for(portal: Portal):
                     raw = (portal.data_root / "portal" / "index.html").read_bytes()
                     self.send_response(200)
                     self.send_header("Content-Type", "text/html; charset=utf-8")
-                    self.send_header("Content-Security-Policy", "default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'none'")
+                    self.send_header("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; object-src 'none'; base-uri 'none'")
                     self.send_header("Content-Length", str(len(raw)))
                     self.end_headers()
                     self.wfile.write(raw)
+                elif url.path in ("/materials.js", "/materials.css"):
+                    raw = (portal.data_root / "portal" / url.path[1:]).read_bytes()
+                    self.send_response(200)
+                    self.send_header("Content-Type", "text/javascript; charset=utf-8" if url.path.endswith(".js") else "text/css; charset=utf-8")
+                    self.send_header("Content-Length", str(len(raw)))
+                    self.end_headers()
+                    self.wfile.write(raw)
+                elif url.path == "/api/session":
+                    self._json({"token": portal.token, "upload_limit": portal.materials.upload_limit})
+                elif url.path == "/api/materials":
+                    self._json(portal.materials.listing(query.get("node", [None])[0], query.get("q", [""])[0], int(query.get("page", [1])[0])))
+                elif url.path == "/api/material":
+                    self._json(portal.materials.read(query["node"][0], query["path"][0], int(query.get("page", [1])[0]), q=query.get("q", [""])[0]))
+                elif url.path == "/api/materials/download":
+                    path = portal.materials.path(query["node"][0], query["path"][0])
+                    self.send_response(200)
+                    self.send_header("Content-Type", "application/octet-stream")
+                    self.send_header("Content-Disposition", "attachment; filename=material.bin")
+                    self.send_header("X-Content-Type-Options", "nosniff")
+                    self.send_header("Content-Length", str(path.stat().st_size))
+                    self.end_headers()
+                    with path.open("rb") as stream:
+                        while block := stream.read(1024**2):
+                            self.wfile.write(block)
+                elif url.path == "/api/materials/history":
+                    self._json(portal.materials.history(query.get("node", [None])[0], query.get("path", [None])[0]))
+                elif url.path == "/api/content":
+                    sha = query.get("sha", [""])[0]
+                    if len(sha) != 64 or any(c not in "0123456789abcdef" for c in sha):
+                        raise ValueError("请输入完整 SHA-256")
+                    index = ContentIndex(portal.data_root, persistent=True)
+                    try:
+                        index.rebuild()
+                        locations = index.entries(sha)
+                    finally:
+                        index.close()
+                    for node_id, _, p in portal.materials.iter_files():
+                        if raw_sha256(p) == sha:
+                            locations.append({"artifact_file": p.relative_to(portal.data_root).as_posix(), "kind": "维护工作副本", "node": node_id})
+                    consumers = []
+                    for n in portal._pipeline()["nodes"]:
+                        manifest = read_json(portal.data_root / n["path"] / "output/manifest.json", portal.data_root)
+                        for item in manifest.get("deliverables", []):
+                            if item.get("sha256") == sha:
+                                locations.append({"artifact_file": f"{n['path']}/output/{item['file']}", "kind": "当前工作交付", "node": n["id"], "version": manifest.get("version")})
+                        for record_path in (portal.data_root / n["path"] / "artifacts").glob("*/run.json"):
+                            record = read_json(record_path, portal.data_root)
+                            for item in record.get("inputs", []):
+                                if (item.get("raw_sha256") or item.get("sha256")) == sha:
+                                    consumers.append({"node": n["id"], "record": record_path.relative_to(portal.data_root).as_posix(), "version": record.get("version"), "input": item.get("file"), "status": record.get("status")})
+                    self._json({"sha256": sha, "locations": locations, "consumers": consumers})
+                elif url.path == "/api/storage":
+                    from storage_audit import walk, classify
+                    from archive_old_artifacts import plan_moves
+                    categories = {}
+                    for parts, size in walk(portal.data_root):
+                        category = classify(parts)
+                        categories[category] = categories.get(category, 0) + size
+                    moves = plan_moves(portal.data_root, 5, portal.data_root / ".bak" / "artifacts")
+                    self._json({"categories": categories, "archive_candidates": [p.relative_to(portal.data_root).as_posix() for p, _ in moves], "note": "只读预演；保护当前及传递引用、最近5批和未提交文件。"})
                 elif url.path == "/api/overview":
                     self._json(portal.overview())
                 elif url.path == "/api/node":
@@ -456,25 +538,72 @@ def handler_for(portal: Portal):
                 self._error(error)
 
         def do_POST(self):
+            self._write()
+
+        def do_PUT(self):
+            self._write()
+
+        def do_DELETE(self):
+            self._write()
+
+        def _write(self):
             origin = self.headers.get("Origin", "")
-            host = self.headers.get("Host", "")
-            if (not origin.startswith("http://127.0.0.1:") or origin != f"http://{host}"
+            if (not self._host_valid() or origin != f"http://127.0.0.1:{self.server.server_port}"
                     or self.headers.get("X-Portal-Request") != "1"
-                    or self.headers.get("Content-Type", "").split(";")[0] != "application/json"):
-                self._json({"error": "只接受本机页面发起的请求"}, 403)
+                    or not secrets.compare_digest(self.headers.get("X-Portal-Token", ""), portal.token)):
+                self._json({"error": "只接受持有令牌的本机页面请求"}, 403)
                 return
             try:
+                url = urlsplit(self.path)
                 length = int(self.headers.get("Content-Length", "0"))
-                if length < 1 or length > 100_000:
-                    raise ValueError("请求大小无效")
-                data = json.loads(self.rfile.read(length))
-                if self.path == "/api/notes":
+                if self.headers.get("Transfer-Encoding") or length < 1 or length > portal.materials.upload_limit:
+                    raise ValueError("请求大小无效或超过上传上限")
+                portal._backup_before_write()
+                if url.path == "/api/materials/upload" and self.command == "POST":
+                    if self.headers.get("Content-Type") != "application/octet-stream":
+                        raise ValueError("上传需要 application/octet-stream")
+                    q = parse_qs(url.query, keep_blank_values=True)
+                    data = {k: v[0] for k, v in q.items()}
+                    data["expected_sha"] = data.get("expected_sha") or None
+                    portal.materials.path(data["node"], data["path"])
+                    with tempfile.TemporaryFile() as spool:
+                        remaining = length
+                        while remaining:
+                            block = self.rfile.read(min(1024**2, remaining))
+                            if not block:
+                                raise ValueError("上传内容不完整")
+                            spool.write(block)
+                            remaining -= len(block)
+                        spool.seek(0)
+                        result = portal.materials.mutate("update" if data["expected_sha"] else "create", data, spool.read())
+                    portal._snapshot = None
+                    self._json(result)
+                    return
+                if self.headers.get("Content-Type", "").split(";")[0] != "application/json" or length > 8 * 1024**2:
+                    raise ValueError("JSON 请求大小或类型无效")
+                raw = self.rfile.read(length)
+                if len(raw) != length:
+                    raise ValueError("请求不完整")
+                data = json.loads(raw)
+                routes = {("POST", "/api/materials"): "create", ("PUT", "/api/material"): "update",
+                          ("DELETE", "/api/material"): "delete", ("POST", "/api/materials/rename"): "rename",
+                          ("POST", "/api/materials/restore"): "restore"}
+                if (self.command, url.path) in routes:
+                    result = portal.materials.mutate(routes[(self.command, url.path)], data)
+                    portal._snapshot = None
+                    self._json(result)
+                elif self.command == "POST" and url.path == "/api/materials/preview":
+                    with portal.lock:
+                        self._json(portal.materials.prepare(data)[2])
+                elif self.command == "POST" and url.path == "/api/notes":
                     self._json(portal.add_note(data), 201)
-                elif self.path == "/api/open":
+                elif self.command == "POST" and url.path == "/api/open":
                     path, location = portal.resolve_ref(str(data.get("ref", "")))
                     if not path.exists():
                         raise FileNotFoundError(f"{location}：{path}")
-                    os.startfile(path)  # Windows shell; only validated repo/archive references reach here.
+                    if path.is_file() and path.suffix.lower() not in {".md", ".txt", ".csv", ".tsv", ".json", ".jsonl", ".yaml", ".yml", ".pdf", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".xlsx", ".docx"}:
+                        raise ValueError("此文件只提供预览或下载，不能通过看板执行")
+                    os.startfile(path)
                     self._json({"opened": str(path), "location": location})
                 else:
                     self._json({"error": "未找到"}, 404)
@@ -497,11 +626,10 @@ def main(argv=None) -> int:
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--web-repo", type=Path, default=ROOT.parent / "pipeline_carstable_to_webapp")
     parser.add_argument("--db", type=Path)
+    parser.add_argument("--upload-limit-mib", type=int, default=200)
     parser.add_argument("--no-browser", action="store_true")
     args = parser.parse_args(argv)
-    if not (args.web_repo / "configs" / "pipeline.yaml").is_file():
-        parser.error(f"网站仓库不存在：{args.web_repo}")
-    portal = Portal(ROOT, args.web_repo, args.db)
+    portal = Portal(ROOT, args.web_repo, args.db, max(1, args.upload_limit_mib) * 1024**2)
     handler = handler_for(portal)
     try:
         server = LoopbackServer(("127.0.0.1", args.port), handler)

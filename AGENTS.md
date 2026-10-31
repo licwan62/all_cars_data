@@ -60,3 +60,12 @@ python scripts/verify_pipeline.py --rebuild <id> --fresh   # 不预置本节点�
 ```powershell
 python scripts/material_catalog.py
 ```
+
+
+## 2026-11 结构与内容引用扩展
+
+- pipeline schema 4增加kind（node/container）、lifecycle（active/planned/legacy）、parent、naming_basis及文件级inputs；容器不要求output，也不参加生产发布；待接入与历史节点不得显示为已验证生产节点。
+- run/manifest schema 2的content_reference=true允许逻辑versioned_file与实际artifact_file名称不同，以原始sha256和实际保存位置核验；schema 1继续遵守旧同名约束。复用字节不复用旧输入依据。
+- 规则换行归一只适用于文本；二进制使用原始字节。旧schema 1归一口径仅用于兼容旧追踪记录。
+- 本机看板只写节点data及独立审计库，不运行或发布节点；portal/data整个目录需持久备份，不可作为缓存清理。
+- 未核实的历史导入与既有核定基线须说明原来源及限制，不得冒称新抓取或新核实。00联网配置归data/configs。

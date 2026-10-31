@@ -1,7 +1,7 @@
 """Add 2026 estimates for all brands already in cache. Uses 2025 data with slight adjustments."""
 import csv
 
-CACHE_CSV = r"cache/sales_model_year_cache.csv"
+CACHE_CSV = r"data/销量依据/sales_model_year_cache.csv"
 
 # Read cache to get 2025 data, then create 2026 estimates
 def main():

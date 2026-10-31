@@ -23,12 +23,15 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
 import os
 import shutil
 import subprocess
 import sys
+import time
+import uuid
 from datetime import datetime
 from pathlib import Path, PureWindowsPath
 
@@ -174,29 +177,45 @@ def _execute_units(plan: dict, delete_source: bool, done: list[dict]) -> int:
         if BAK.resolve() not in src.parents:
             print(f"拒绝：{src} 不在 .bak 内", file=sys.stderr)
             return 2
-        dest = Path(unit["dest"])
+        dest = Path(unit["dest"]).resolve()
+        destination_root = Path(plan["dest_root"]).resolve()
+        try:
+            dest.relative_to(destination_root)
+        except ValueError:
+            raise ValueError("归档目标超出登记根目录")
+        if dest == src or src in dest.parents or dest in src.parents:
+            raise ValueError("归档源与目标不得重叠")
         if not src.exists():
             print(f"跳过（源已不存在）：{unit['source']}")
             continue
-        for entry in unit["entries"]:
-            source_file = src / entry["path"] if unit["is_dir"] else src
+        expected = {e["path"] for e in unit["entries"]}
+        if unit["is_dir"]:
+            actual = {p.relative_to(src).as_posix() for p in src.rglob("*") if p.is_file()}
+            if actual != expected or any(p.is_symlink() or p.is_junction() for p in src.rglob("*")):
+                raise ValueError(f"计划文件集合已变化或包含链接，保留源目录：{src}")
+        def verify_entry(entry):
+            rel = Path(entry["path"])
+            if rel.is_absolute() or ".." in rel.parts:
+                raise ValueError("非法归档条目路径")
+            source_file = src / rel if unit["is_dir"] else src
+            source_file.resolve().relative_to(src if unit["is_dir"] else src.parent)
             if sha256(source_file) != entry["sha256"]:
-                print(f"拒绝：计划已过期，{unit['source']}/{entry['path']} 与计划 SHA-256 不一致", file=sys.stderr)
-                return 2
-            target = dest / entry["path"] if unit["is_dir"] else dest
-            if target.exists():
-                if sha256(target) != entry["sha256"]:
-                    print(f"拒绝：目标已存在且内容不同 {target}", file=sys.stderr)
-                    return 2
-                continue
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(source_file, target)
-        bad = [e["path"] for e in unit["entries"] if sha256(dest / e["path"] if unit["is_dir"] else dest) != e["sha256"]]
-        if bad:
-            print(f"校验失败，保留本地：{unit['source']}：{bad[:5]}", file=sys.stderr)
-            return 1
+                raise ValueError(f"源文件与计划SHA不一致：{source_file}")
+            target = dest / rel if unit["is_dir"] else dest
+            target.resolve().relative_to(destination_root)
+            if not target.exists():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source_file, target)
+            if sha256(target) != entry["sha256"]:
+                raise ValueError(f"目标文件与计划SHA不一致：{target}")
+        with ThreadPoolExecutor(max_workers=12) as pool:
+            list(pool.map(verify_entry, unit["entries"]))
         print(f"已复制并校验 {unit['files']} 个文件：{unit['source']} -> {dest}")
+        # Persist recovery location before deleting any source bytes.
+        checkpoint = {"source": unit["source"], "archive_path": str(dest), "files": unit["files"], "bytes": unit["bytes"],
+                      "sha256": {e["path"]: e["sha256"] for e in unit["entries"]}, "local_deleted": False}
         if delete_source:
+            _append_index(plan, [checkpoint])
             if unit["is_dir"]:
                 shutil.rmtree(src)
             else:
@@ -207,16 +226,32 @@ def _execute_units(plan: dict, delete_source: bool, done: list[dict]) -> int:
     return 0
 
 
+def atomic_json(path, payload):
+    temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+    try:
+        temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        for attempt in range(10):
+            try:
+                os.replace(temporary, path)
+                break
+            except OSError:
+                if attempt == 9:
+                    raise
+                time.sleep(0.2)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 def _append_index(plan: dict, done: list[dict]) -> None:
     record = {"archived_at": datetime.now().astimezone().isoformat(timespec="seconds"), "kind": "dotbak", "dest": plan["dest_root"], "units": done}
     index = ROOT / INDEX_NAME
     data = json.loads(index.read_text(encoding="utf-8")) if index.is_file() else {"schema_version": 1, "archives": []}
     data["archives"].append(record)
-    index.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    atomic_json(index, data)
     dest_index = Path(plan["dest_root"]) / DEST_INDEX_NAME
     existing = json.loads(dest_index.read_text(encoding="utf-8")) if dest_index.is_file() else {"schema_version": 1, "archives": []}
     existing["archives"].append(record)
-    dest_index.write_text(json.dumps(existing, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    atomic_json(dest_index, existing)
 
 
 def main(argv: list[str] | None = None) -> int:

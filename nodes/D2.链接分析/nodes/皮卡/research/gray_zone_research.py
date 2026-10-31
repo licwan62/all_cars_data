@@ -19,7 +19,7 @@ import pandas as pd
 
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
-REPO_ROOT = PROJECT_DIR.parents[2]
+REPO_ROOT = PROJECT_DIR.parents[3]
 ENGINE_DIR = REPO_ROOT / "nodes" / "D1.发货评估" / "artifacts" / "皮卡"
 SOURCE_DETAIL = ENGINE_DIR / "output" / "pickup_cluster_detail.csv"
 SHIPMENT_WORKBOOK = PROJECT_DIR / "data" / "发货单明细.xlsx"

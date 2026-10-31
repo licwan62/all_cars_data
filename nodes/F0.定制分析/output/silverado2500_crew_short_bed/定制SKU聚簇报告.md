@@ -105,6 +105,6 @@ L/W/H 跨度阈值：250/150/100 mm。L-MM 作为长度代理。按长度降序�
 
 | 节点 | 输入 | 上游版本 | sha256 | 来源 artifact |
 | --- | --- | --- | --- | --- |
-| size-calculation | US/全量/全量表.csv | 20261019_10 | feb13a570f427f848cc5f3b06c3f4f5aafb04c3fba4350a8548fd6cba2c86ca4 | A0.尺码计算/artifacts/2026-10-19_07_full-table-cover-shape/output/US/全量/全量表-20261019_07.csv |
-| code-mapping | 尺寸编码映射.csv | 20261019_02 | cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8 | 02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv |
-| negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |
+| size-calculation | US/全量/全量表.csv | 20261101_07 | 563ef622ff706624b5eff237648b8601039002345ac41b246aa5bfcfd389bdc4 | nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/output/US/全量/全量表-20261028_01.csv |
+| code-mapping | 尺寸编码映射.csv | 20261019_02 | cc8c22d408a4a09098db1833a87dc523fbdef2c1c0051a50c3a252661c5e51d8 | nodes/02.代码映射/artifacts/2026-10-19_02_code-mapping-release/output/尺寸编码映射-20261019_02.csv |
+| negative-review-analysis | 差评分析表.csv | 20261009_04 | df162b43a6c7daf208d15ba08089022422cb9d256f0cf2089027d8659593189c | nodes/B0.差评分析/artifacts/2026-10-09_04_negative-review-analysis-release/output/差评分析表-20261009_04.csv |
