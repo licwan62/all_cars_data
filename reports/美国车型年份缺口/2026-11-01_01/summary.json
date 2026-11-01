@@ -1,0 +1,84 @@
+{
+  "as_of_year": 2026,
+  "dimension_rows": 4383,
+  "dimension_make_model_pairs": 704,
+  "invalid_dimension_rows": [],
+  "reference_trim_rows": 51884,
+  "reference_make_model_pairs": 5696,
+  "reference_model_year_pairs": 26980,
+  "in_scope_counts": {
+    "未匹配车型": 11715,
+    "名称或版本待核对": 11168,
+    "已覆盖（车型年层面）": 3410,
+    "同名车型年份缺口": 202
+  },
+  "recent_2020_to_as_of_counts": {
+    "名称或版本待核对": 3857,
+    "已覆盖（车型年层面）": 507,
+    "未匹配车型": 2697,
+    "同名车型年份缺口": 39
+  },
+  "future_counts": {
+    "未匹配车型": 215,
+    "名称或版本待核对": 248,
+    "同名车型年份缺口": 21,
+    "已覆盖（车型年层面）": 1
+  },
+  "exact_name_year_gaps_by_make": {
+    "Audi": 69,
+    "Chevrolet": 23,
+    "Mitsubishi": 23,
+    "Mazda": 12,
+    "Pontiac": 9,
+    "Acura": 8,
+    "Oldsmobile": 7,
+    "Cadillac": 6,
+    "Plymouth": 5,
+    "Subaru": 5,
+    "Ford": 4,
+    "Jaguar": 4,
+    "Kia": 4,
+    "Volkswagen": 4,
+    "Hyundai": 3,
+    "Maserati": 3,
+    "Porsche": 3,
+    "Toyota": 3,
+    "Land Rover": 2,
+    "Buick": 1,
+    "INEOS Automotive": 1,
+    "Nissan": 1,
+    "Saturn": 1,
+    "Scion": 1
+  },
+  "us_market_model_counts": {
+    "未匹配车型": 571,
+    "同名匹配": 554,
+    "名称或版本待核对": 87
+  },
+  "sources": {
+    "dimensions": {
+      "file": "nodes/01.整理尺寸库/output/尺寸库_US.csv",
+      "sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db"
+    },
+    "year_reference": {
+      "file": "nodes/01.整理尺寸库/data/data_source/trimslate-vehicles.csv",
+      "sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d"
+    },
+    "market_reference": {
+      "file": "nodes/01.整理尺寸库/data/data_source/vehicles.csv",
+      "sha256": "4647c58d9ff6fe962568f9990ce7bc16b92f71abaa3e18035ef41d7e818805ee"
+    },
+    "config": {
+      "file": "nodes/01.整理尺寸库/data/build_config.json",
+      "sha256": "c4fdd59f23d3ae3ad0f5f2a103b79023628867d9d00e30ba3aeb7f6d7cb5c9ff"
+    }
+  },
+  "limits": [
+    "仅本地参考库差集，不代表已核实美国实际上市/销售年份。",
+    "trimslate没有市场字段，按用户指定的美国年份候选参考使用；未独立核实来源。",
+    "仅忽略大小写、空格、标点；无模糊合并或语义别名自动归并。",
+    "同名覆盖指至少一条尺寸记录覆盖该年，不保证每种车身、配置、动力版本齐全。",
+    "未匹配与名称待核不计入同名年份缺口；2027单列，不计入2026范围。",
+    "vehicles仅取countries包含us，不提供年份，不能据此推算缺失年份。"
+  ]
+}

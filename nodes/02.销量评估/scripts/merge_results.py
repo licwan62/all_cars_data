@@ -68,6 +68,19 @@ def run(config_path: str = "data/config.json") -> dict[str, int]:
             raise ValueError(f"duplicate allocation override: {key}")
         overrides[key] = override
 
+    holdouts: dict[tuple[str, str, str], dict[str, str]] = {}
+    holdout_path = config.get("model_year_sales_holdouts_csv")
+    if holdout_path:
+        holdout_fields, holdout_rows = read_csv(holdout_path)
+        require_fields(holdout_fields, ["MAKE", "MODEL", "YEAR", "REASON", "SOURCE_URL"], holdout_path)
+        for holdout in holdout_rows:
+            key = cache_key(holdout)
+            if key in holdouts:
+                raise ValueError(f"duplicate sales holdout: {'|'.join(key)}")
+            if not key[0] or not key[1] or not key[2] or not holdout["REASON"] or not holdout["SOURCE_URL"]:
+                raise ValueError("sales holdout requires MAKE, MODEL, YEAR, REASON and SOURCE_URL")
+            holdouts[key] = holdout
+
     groups: dict[tuple[str, str, str], list[dict[str, str]]] = defaultdict(list)
     for atom in atoms:
         groups[model_year_key(atom)].append(atom)
@@ -79,6 +92,17 @@ def run(config_path: str = "data/config.json") -> dict[str, int]:
     for group_key in sorted(groups):
         group = groups[group_key]
         cache = cache_by_key.get(cache_key({"MAKE": group_key[0], "MODEL": group_key[1], "YEAR": group_key[2]}))
+        holdout = holdouts.get(cache_key({"MAKE": group_key[0], "MODEL": group_key[1], "YEAR": group_key[2]}))
+        if holdout:
+            pending_groups += 1
+            for atom in group:
+                result = dict(atom)
+                result.update({field: "" for field in SALES_FIELDS if field not in atom})
+                result["ITERATION_STATUS"] = "PENDING"
+                result["SOURCE_URL"] = holdout["SOURCE_URL"]
+                result["NOTES"] = _join_notes("Model-year sales held pending source-period and allocation review", holdout["REASON"], holdout["SOURCE_URL"])
+                output.append(result)
+            continue
         if not cache or not cache.get("MODEL_YEAR_US_SALES", ""):
             pending_groups += 1
             for atom in group:

@@ -2,27 +2,27 @@
   "schema_version": 2,
   "node": "structure-review",
   "path": "nodes/02.分类结构审核",
-  "version": "20261101_02",
-  "artifact": "nodes/02.分类结构审核/artifacts/2026-11-01_02_structure-review-release",
-  "published_at": "2026-11-01T02:46:34+08:00",
+  "version": "20261101_09",
+  "artifact": "nodes/02.分类结构审核/artifacts/2026-11-01_09_structure-review-release",
+  "published_at": "2026-11-01T13:26:23+08:00",
   "deliverables": [
     {
       "file": "车型结构.csv",
-      "versioned_file": "车型结构-20261019_02.csv",
-      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-10-19_02_structure-review-release/output/车型结构-20261019_02.csv",
-      "content_reference": false,
-      "sha256": "e3db1db22782338b4196aa187347a8c44b5fd579bbe89340da4d61b96e7d2562",
-      "bytes": 6410817,
-      "rows": 47361
+      "versioned_file": "车型结构-20261101_08.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_08_category-standard/output/车型结构-20261101_08.csv",
+      "content_reference": true,
+      "sha256": "01f83dd52b25d921a32a6637ed94a5e4c4a10c7f0f2a45d41664169ff6988d02",
+      "bytes": 6432616,
+      "rows": 47453
     },
     {
       "file": "车型结构_US.csv",
-      "versioned_file": "车型结构_US-20261019_02.csv",
-      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-10-19_02_structure-review-release/output/车型结构_US-20261019_02.csv",
-      "content_reference": false,
-      "sha256": "5ac0ec9c3d39bd5a2becb547be30b8ab8165fe7dffc65fe048e3cc3e7158ce22",
-      "bytes": 909390,
-      "rows": 4383
+      "versioned_file": "车型结构_US-20261101_08.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-01_08_category-standard/output/车型结构_US-20261101_08.csv",
+      "content_reference": true,
+      "sha256": "f81e6ffac5f9e215744bcaf50b9094f1a50a9f38d99ee3e76694c467481bdb0c",
+      "bytes": 931189,
+      "rows": 4475
     },
     {
       "file": "车型结构_EU.csv",
@@ -46,7 +46,7 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261101_02",
+      "version": "20261101_20",
       "basis": "run",
       "files": [
         {
@@ -63,9 +63,9 @@
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261009_08.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_08_dimension-library-release/output/尺寸库_US-20261009_08.csv",
-          "sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db"
+          "versioned_file": "尺寸库_US-20261101_19.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/尺寸库_US-20261101_19.csv",
+          "sha256": "2c8f590c0e2f8e083525a5b5d3925c24d3e6ccff3f97465dff0fbde1c4a0499a"
         }
       ]
     }
@@ -112,8 +112,11 @@
       "sha256": "e96826db328c60bc44bb7e85acafa4d3eed11645f869afb61dbfa18653670a82"
     }
   ],
-  "pending": [],
+  "pending": [
+    "新增车型年度销量暂由data/销量依据/model_year_sales_holdouts.csv拦截；原子销量待核.csv记录PENDING和来源，未确认车型年口径前不作为销量值发布"
+  ],
   "notes": [
+    "新增US车型年销量待核旁表原子销量待核.csv；销售来源/车型年口径未确认的原子销量保持空值，不影响其他已核实销量",
     "2026-09-23 改为按 data/分类标准.json（三国通用 结构→分类）与 data/分类联网判定.csv（Liftback/Fastback 车型级联网判定）重算分类；DIMENSION-ID 不变；输出全量与分区域文件",
     "2026-09-28 新增 data/结构联网修正.csv：官方资料核实长斜背 Hatchback→Liftback，按精确区域/车型/原结构及完整年份包含匹配；修正结构和分类，保留上游 DIMENSION-ID 与尺寸；77条涉及 Model S、Panamera、A7、A6 e-tron Sportback、Arteon"
   ],

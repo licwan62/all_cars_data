@@ -7,6 +7,7 @@ from common import load_config, read_csv, require_fields, write_csv
 
 
 FINAL_FIELDS = ["atom_record_id", "预估销量"]
+PENDING_FIELDS = ["atom_record_id", "MAKE", "MODEL", "YEAR", "状态", "待核原因", "SOURCE_URL"]
 
 
 def run(config_path: str = "data/config.json") -> dict[str, int]:
@@ -31,10 +32,19 @@ def run(config_path: str = "data/config.json") -> dict[str, int]:
         raise ValueError("final atom sales contains duplicate atom_record_id values")
 
     write_csv(config["atom_sales_output_csv"], FINAL_FIELDS, output)
+    pending_path = config.get("pending_sales_review_csv")
+    if pending_path:
+        pending = [{
+            "atom_record_id": row["ATOM_ROW_ID"], "MAKE": row["MAKE"], "MODEL": row["MODEL"],
+            "YEAR": row["YEAR"], "状态": "PENDING", "待核原因": row.get("NOTES", ""),
+            "SOURCE_URL": row.get("SOURCE_URL", ""),
+        } for row in rows if row.get("ITERATION_STATUS") == "PENDING"]
+        write_csv(pending_path, PENDING_FIELDS, pending)
     return {
         "atom_rows": len(output),
         "estimated_rows": sum(bool(row["预估销量"]) for row in output),
         "pending_rows": sum(not row["预估销量"] for row in output),
+        "pending_review_rows": sum(row.get("ITERATION_STATUS") == "PENDING" for row in rows),
     }
 
 

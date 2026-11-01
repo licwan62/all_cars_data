@@ -107,3 +107,26 @@ def test_us_new_record_uses_shape_decision_and_conflict_fails():
 
 def test_current_us_shape_decisions_are_valid():
     assert module.read_us_shape_decisions(module.US_SHAPE_DECISIONS)
+
+
+@pytest.mark.parametrize("record_id,shape", [
+    ("Land Rover Discovery SUV 2025 US", "SU1"),
+    ("Land Rover Discovery SUV 2026 US", "SU1"),
+    ("Mitsubishi Montero SUV 1998 US", "SU2"),
+    ("Audi A6 allroad quattro Wagon 2026 US", "H2"),
+    ("Buick Riviera Coupe 1995 US", "SD2"),
+    ("Cadillac Eldorado Coupe 1994 US", "SD2"),
+    ("Cadillac XTS Sedan 2013 US", "SD1"),
+    ("Ford Thunderbird Coupe 1995 US", "SD0"),
+    ("Mazda RX-8 Coupe 2004 US", "SD0"),
+    ("Porsche Cayman Coupe 2008 US", "SD0"),
+])
+def test_researched_us_shapes_apply_only_to_the_stated_identity(record_id, shape):
+    decisions = module.read_us_shape_decisions(module.US_SHAPE_DECISIONS)
+    structure = next(value for value in ("SUV", "Wagon", "Coupe", "Sedan") if f" {value} " in record_id)
+    category = {"SUV": "越野车", "Wagon": "两厢车", "Coupe": "跑车", "Sedan": "三厢车"}[structure]
+    row = lib_row(record_id, structure, category)
+    assert module.build([row], [], [], RULES, us_decisions=decisions)["output"][0]["车形"] == shape
+    unreviewed = dict(row, **{"DIMENSION-ID": record_id.replace(" US", " variant US")})
+    with pytest.raises(ValueError, match="缺少已核定车形"):
+        module.build([unreviewed], [], [], RULES, us_decisions=decisions)

@@ -1,0 +1,659 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/A0.尺码计算/artifacts/2026-11-01_27_match-report-shape",
+  "version": "20261101_27",
+  "description": "match-report-shape",
+  "created_at": "2026-11-01T12:54:17+08:00",
+  "finished_at": "2026-11-01T12:54:20+08:00",
+  "command": [
+    "build_match_report.py"
+  ],
+  "inputs": [
+    {
+      "node": "shape-classification",
+      "path": "nodes/03.车形分类核定",
+      "version": "20261101_14",
+      "file": "COVER_SHAPE.csv",
+      "versioned_file": "COVER_SHAPE-20261101_13.csv",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-01_13_representative-cover-shape/output/COVER_SHAPE-20261101_13.csv",
+      "sha256": "5990476d7c43bb967fdcc925273497fbc19daa50fddecbce2aeca97e8bc08e44"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/A0.尺码计算/data",
+    "git_commit": "4c5245a043f311ee399d92739fcd7461b1aa16f2",
+    "copied": [],
+    "files": [
+      {
+        "file": "data/EU/参数/尺码匹配参数.csv",
+        "sha256": "aa9da04d29f5b8c1515c8ebc9ec5c7bc04612a730af596eac761a0c6124f8bc5",
+        "raw_sha256": "edd8e49ecf47556815beea975f6750b2e113c65159956207c510e5b6520ee0b5",
+        "bytes": 36
+      },
+      {
+        "file": "data/EU/研究/当前已审核全量.csv",
+        "sha256": "c5bed3fc87219f07d45e3a706e9843d35d78d5f17dcad4471b3d345e5a40c828",
+        "raw_sha256": "c00f0be35150b4da666dab6d7d3c50cb660192001378b2bfd20ce5d560a7b24e",
+        "bytes": 44835
+      },
+      {
+        "file": "data/EU/规则/尺码匹配规则.csv",
+        "sha256": "3e468b50eb5f93c3efa1757fa51c360760244d7f96be1560e88db0213f40a72d",
+        "raw_sha256": "97d97707e0f9733135649a66c23ca7c7811a02d15d074129fcad81c869d5b3ef",
+        "bytes": 1680
+      },
+      {
+        "file": "data/RU/参数/0918.0.csv",
+        "sha256": "f6d38c33bb1ed0690f654b7eabdcd06d9c3dc0fa92fc40c907c2b376bec6c6b9",
+        "raw_sha256": "94ea2209f4f39b7c71f0aad0f196db68fca896f5ddb1d4e258664105f912c0e1",
+        "bytes": 106
+      },
+      {
+        "file": "data/RU/参数/0921.0-加容宽.csv",
+        "sha256": "77dbf9e29fa3e13743a1e5516d3633598284ee0bd45a9fb4a20d8cb21cecc739",
+        "raw_sha256": "35377edcdf07224fb6639b00471f45a59acd9a9a39dce081a494ec91dc31284d",
+        "bytes": 102
+      },
+      {
+        "file": "data/RU/参数/0921.1-仅余量.csv",
+        "sha256": "d9c69c862d200a57046e4cad706446889e76b1f9ad7d5ea02e911c66e94eb3c2",
+        "raw_sha256": "f448bb3583e89be5b8bace70a6b1611aca02f6a32efe456d78eb0df0c8ca7c14",
+        "bytes": 48
+      },
+      {
+        "file": "data/RU/参考/ozon映射.csv",
+        "sha256": "1d7931754ba9b6bc4eb4ae493677c71a8ed0bbdcecb5fa0c410d4ce395f2ec81",
+        "raw_sha256": "2a0ae2ab4f67e248527db8564109aa81377c29b8f30172ca0d9d6538484497c3",
+        "bytes": 625
+      },
+      {
+        "file": "data/RU/规则/0918-新版.csv",
+        "sha256": "cdf87dc0ccf128f751c421d09c78cb6fb60a1559298cde0a10d7ead1d47bff08",
+        "raw_sha256": "b15c730ba394988212a968db7868b0d8c02a0dbb8793374ced3e05c369e65a2d",
+        "bytes": 1889
+      },
+      {
+        "file": "data/RU/规则/0918.0-ru定制.csv",
+        "sha256": "f6d38c33bb1ed0690f654b7eabdcd06d9c3dc0fa92fc40c907c2b376bec6c6b9",
+        "raw_sha256": "94ea2209f4f39b7c71f0aad0f196db68fca896f5ddb1d4e258664105f912c0e1",
+        "bytes": 106
+      },
+      {
+        "file": "data/RU/规则/0918.1-老尺码加y340.csv",
+        "sha256": "97576adc53e8870a359a6ee45502641b0ecac08a4973cd2acf336fa7105216c0",
+        "raw_sha256": "88dbdac756a1fc205f61cd62d2357b268cfab5dea909cfb0effa8197f010e2eb",
+        "bytes": 1311
+      },
+      {
+        "file": "data/RU/规则/0921.0-y380&y410.csv",
+        "sha256": "f16ba1db3c87bac9dceb73f68d21d89fecd0dc6765160b0f43b57963e32659e9",
+        "raw_sha256": "c30632efbb9c6725a694c508844f13897d852e7903512081b05281d4f51181b1",
+        "bytes": 1354
+      },
+      {
+        "file": "data/RU/规则/0921.1-微调&高mpv.csv",
+        "sha256": "77e316fa5413dae825fc49abfd85967eb899fd9dacc5a8a06b7cb43ee4832519",
+        "raw_sha256": "f7a5e5c4fa1e914babfaa593d4061450e99432d5ef512e0b545662dc497c48b2",
+        "bytes": 1492
+      },
+      {
+        "file": "data/RU/规则/0921.2-真实上限.csv",
+        "sha256": "cff2691e8bd0d46daaba1b80fbb20833808ca8e39e36f95057dbc38b515a804a",
+        "raw_sha256": "602f6993fe4e32cb5e97026a270281ea9f837dbf252a180488dcd3d98287c031",
+        "bytes": 1667
+      },
+      {
+        "file": "data/RU/规则/0921.3-两厢车候选-2L200 copy.csv",
+        "sha256": "82bfb3fcaef9190155a28cb220aaf983e925c0e1e74c48bcc2a328c60064b809",
+        "raw_sha256": "a930c62a1d71f7a8a066a0efbabeb71b531b5309304b8ab995268b605837b590",
+        "bytes": 2287
+      },
+      {
+        "file": "data/RU/规则/0928-1.csv",
+        "sha256": "32b4ab0f01286975a1251577240e73b3b972245373df28fbf72a21d8c3ef3e55",
+        "raw_sha256": "3d59eebc8c7e9b7ea21b9baf962a55bc02a154df0b8ac089e35b9c5826081227",
+        "bytes": 2293
+      },
+      {
+        "file": "data/RU/规则/1023-亚马逊尺码更新.csv",
+        "sha256": "ed7cb0295684fd623f4916964a94e44f37a265f7319ffc836315ce70248cd183",
+        "raw_sha256": "ed7cb0295684fd623f4916964a94e44f37a265f7319ffc836315ce70248cd183",
+        "bytes": 1566
+      },
+      {
+        "file": "data/US/TRIM/4a_fitment_0722.tsv",
+        "sha256": "8f29b1281d17e93c4b6929979d3d8294c5811bc3c60993c4c5f23215d1f74e98",
+        "raw_sha256": "e4efc38513ca784e0e1acdcd5367f3dad5b6719eac3f7c0da89b4479bf306a8c",
+        "bytes": 1281387
+      },
+      {
+        "file": "data/US/TRIM/AdapterSizeList.csv",
+        "sha256": "4fc1e6f7028fd572fba629cbe8b0e053f09f16f722fe7fb1dbee4aa0d39be3d7",
+        "raw_sha256": "7ba9fe90961e1b7614af74cc4d873ab35556fed47ca30db1338acd8a489691ec",
+        "bytes": 2511942
+      },
+      {
+        "file": "data/US/TRIM/DimensionSizeMap.csv",
+        "sha256": "3a6bdde1e62e08c5935f04f7214e97594cb88c0d8b8c54621fde99fe7017b86a",
+        "raw_sha256": "638fd54d8507a80ce0e5167296829f6b46c8e74a842b3767bf9dc790ed67f222",
+        "bytes": 340605
+      },
+      {
+        "file": "data/US/TRIM/FitmentCoverage.csv",
+        "sha256": "93203b427bc037628b0234e3a8e61594e0b934a5f5f48316d067840be07cb09e",
+        "raw_sha256": "885bd8b6352df13e52fa05faa35bf3253db91e4b09c3e48dc40ec92eb1b4ff1c",
+        "bytes": 21517395
+      },
+      {
+        "file": "data/US/TRIM/FitmentCoverageCandidates.csv",
+        "sha256": "1ed808a848a0bbe1d898daff16094d55adf836407df4af030519d37b1e24ceab",
+        "raw_sha256": "06c5c1d349025d6ea99468b617ec844724df0a3f325c618ad3774899ae4b8c70",
+        "bytes": 354654
+      },
+      {
+        "file": "data/US/TRIM/FitmentCoverageSummary.json",
+        "sha256": "4263d5597dbf46b89d0ae9dcb0b555e667aa8d56eeb41f1ebf1f476a1667ca42",
+        "raw_sha256": "82643e61528117fe59330197b401c42c6f6bf61a85cb28dd7584e3444cf1b4bf",
+        "bytes": 1694
+      },
+      {
+        "file": "data/US/TRIM/MultipleSizeDetail.csv",
+        "sha256": "6db07e41f3276f8229b5178ab6ffa6a32c1e067415cce70db8f219ed8938c7cc",
+        "raw_sha256": "aae7e6442cfa621da4a4babdefebe56eea91ec01f4306bcafafabafe8e85ee4f",
+        "bytes": 2112236
+      },
+      {
+        "file": "data/US/TRIM/MultipleSizeReport.csv",
+        "sha256": "949cd2a71beecc76658467b6258322560380e79e4664b00f35d6feefe2f4ad19",
+        "raw_sha256": "4c4e808ddee402ac0eaf007f4537c8660de8f2b05e97cefe04c272e4579e73c8",
+        "bytes": 1418950
+      },
+      {
+        "file": "data/US/TRIM/NHTSAFitmentCoverageResearch.csv",
+        "sha256": "f5634665f30c91b051c397660121479d61299aa1c5bfb5c2afcdaab16a5c471e",
+        "raw_sha256": "d7ef0385151927deefe98de4b6ed9547f2d8ff2fc7097bfdb89503831b747f43",
+        "bytes": 28341
+      },
+      {
+        "file": "data/US/TRIM/NHTSAResearchReport.csv",
+        "sha256": "4d536c3b431918b6ad2fb3727f2592e0ed1571dcf036c0c5b4be2398e1091f20",
+        "raw_sha256": "ff9675287846f63918a3dd286a64376a5c2b51d8055909ea2ec9d42c027978d6",
+        "bytes": 94759
+      },
+      {
+        "file": "data/US/TRIM/NoPublishableSizeReport.csv",
+        "sha256": "cd64b6d7fb4bff4a30751ed58cc23898c0c377ca103f0614aab5cf2fcd2b05de",
+        "raw_sha256": "cfb4fc94d6ca55a23891df327a2cb0cd6c1dbd90a3623ecd4eb9d9af7e439cb6",
+        "bytes": 56735
+      },
+      {
+        "file": "data/US/TRIM/online_evidence.csv",
+        "sha256": "eae7b04d6ce14c145c504f74f015b4a386f5a34fe6f33e2e9e56d7b13bfca34c",
+        "raw_sha256": "8b80824d93c5c6823ca14d7375b0cf392bc27efe8bde7b9c79519b2456ae54b8",
+        "bytes": 95693
+      },
+      {
+        "file": "data/US/TRIM/SizeAnalysis.csv",
+        "sha256": "1a2156210a70b3bb2a66d2c22fab72937832bdf784b42a31546345375f8c60dd",
+        "raw_sha256": "a58738a25861f17688afa14f7acd08412efc09246518bdab2b196b8dda533507",
+        "bytes": 2015954
+      },
+      {
+        "file": "data/US/TRIM/SizeAnalysisSummary.json",
+        "sha256": "d3e0e5108808b0a3857d018e090e2939f1873c0cfef7123f40f75efe0fa88dcf",
+        "raw_sha256": "e05f00dcb8a92056d98b5db12dcef7e91c964d15baba626db744202406486ef8",
+        "bytes": 4332
+      },
+      {
+        "file": "data/US/TRIM/SizeAnalysisSummary.md",
+        "sha256": "4ea54b1635f1a761b48a087ca61b2612d336e7f59af3b75156741a7efcb58b23",
+        "raw_sha256": "2f8f51090ac024b6f2f902251734fc17ae8cfb354cb0bd19625bf613e1361800",
+        "bytes": 1584
+      },
+      {
+        "file": "data/US/TRIM/trim_overrides.csv",
+        "sha256": "0a6ba30b6ca75cb899f97f7873b5ed420fb97f92ec1e8497fd2b200996c1820e",
+        "raw_sha256": "4adda15a23539467eaff25d7a5b0b919d4f154510640bcc489b36caa922a30a2",
+        "bytes": 44
+      },
+      {
+        "file": "data/US/TRIM/trim_values.csv",
+        "sha256": "538c205517c93971779cb0929f08c0c62d4240a46de4d9ad5628f00a57dea671",
+        "raw_sha256": "077f9942353e1fddc4cb185cbee602f5dd57f62e0b931082dc3c7ed2302fc93a",
+        "bytes": 210615
+      },
+      {
+        "file": "data/US/TRIM/TrimList.csv",
+        "sha256": "db0d2e88b232f065c15dbb024f3a87a0096ca822f8a8bc01064e0cd07e2700ec",
+        "raw_sha256": "f4f27f9add52ae478a6fe01239db1afccf506cbff28c2d4ca25ad6a76646207e",
+        "bytes": 1343077
+      },
+      {
+        "file": "data/US/TRIM/TrimList_audit.csv",
+        "sha256": "48d154a960b16fb786703218acc4274f70c584ba3615cb6b7c87c4ef1d24f95b",
+        "raw_sha256": "9371fc8d0cad7cb8f4a02a53689ccc2b7c38aa4baf514dd84877d84ba71799c8",
+        "bytes": 3080752
+      },
+      {
+        "file": "data/US/TRIM/TrimList_conflicts.csv",
+        "sha256": "09248fe2b740ed6643e62f0ac09191ebcd2de4ee5b914b3d506c7218bd50930e",
+        "raw_sha256": "f97030031518876c563234476e6e46ab854452598409aa5020f0738f46fe8d12",
+        "bytes": 868204
+      },
+      {
+        "file": "data/US/TRIM/TrimList_ID迁移.csv",
+        "sha256": "b46f184837132fef835ad2d70a00465aaf338c49b638dc3c11f9115069c0935b",
+        "raw_sha256": "5e267ca0e27db4d9aa34634ac53a6d4a1fe73a5124d63204bd9756b6fd9b2ca8",
+        "bytes": 22092
+      },
+      {
+        "file": "data/US/TRIM/TrimList_multi_dimension.csv",
+        "sha256": "09248fe2b740ed6643e62f0ac09191ebcd2de4ee5b914b3d506c7218bd50930e",
+        "raw_sha256": "f97030031518876c563234476e6e46ab854452598409aa5020f0738f46fe8d12",
+        "bytes": 868204
+      },
+      {
+        "file": "data/US/TRIM/TrimList_online_review.csv",
+        "sha256": "6d9dec7c5056a56b30908fd567d4a5e527daf153a80cd6dad3c261cb77147422",
+        "raw_sha256": "9dca7249f7e24a88752734c5307492a6aca55e0b8abac111e372891afd0283d8",
+        "bytes": 478489
+      },
+      {
+        "file": "data/US/TRIM/TrimList_online_review_groups.csv",
+        "sha256": "4a9e60811804ea9853ffa19a6b6b0bf4f1da4da681232a17a8a0e7cde3d93138",
+        "raw_sha256": "2bc6c58618f2672b56d0ffb772b638e345ef2f1d4c686dbfc97376e0e17bf380",
+        "bytes": 88847
+      },
+      {
+        "file": "data/US/TRIM/TrimList_unmapped.csv",
+        "sha256": "c22ebab91dc6944050208c57a6b3d94e2306917b38a6aff5952062a6a0bcbd2c",
+        "raw_sha256": "7368dcff18e55e666c3e449de0e9a293704c5f75752176cfa3daec6a5a2fd155",
+        "bytes": 20945
+      },
+      {
+        "file": "data/US/TRIM/validation_report.json",
+        "sha256": "6e5006dc8f79aca84139b3acc6f8de902c7fba92c8d235a63464d822f4bfac58",
+        "raw_sha256": "6b32e741bb481dcccd875ef16de008dda087cfee00f0299f27223cf74730c67e",
+        "bytes": 2664
+      },
+      {
+        "file": "data/US/参数/尺码匹配参数.csv",
+        "sha256": "aa9da04d29f5b8c1515c8ebc9ec5c7bc04612a730af596eac761a0c6124f8bc5",
+        "raw_sha256": "edd8e49ecf47556815beea975f6750b2e113c65159956207c510e5b6520ee0b5",
+        "bytes": 36
+      },
+      {
+        "file": "data/US/店铺/货架.yaml",
+        "sha256": "dce90fb95f78019fb2d413c6c5eca84fc1f09fd984565f18beb886573a51eac4",
+        "raw_sha256": "6fb997853b5e1fe2d63e0c2579954777f562ae106494b9ae47bb1bb45b2b989f",
+        "bytes": 2857
+      },
+      {
+        "file": "data/US/规则/0911.1-插片指数微调 copy.csv",
+        "sha256": "76d8418fce7b36cebfbf1619b8ebf354ad9ca5f02e082e400f4032c4cb20a96c",
+        "raw_sha256": "3d0a10eba08521e40dd42b3738d60c4f76c76e5f1c6b27b5ac22003c4c169119",
+        "bytes": 1779
+      },
+      {
+        "file": "data/US/规则/0911.2-改错.csv",
+        "sha256": "979fd6d6be6c8447b8d399f006da768567bf5687941c1626dbf55b84e8961c0b",
+        "raw_sha256": "2dd86643dec685106c29f6d1ff660b1515e2458d88a5f7a91985e7750df9573c",
+        "bytes": 1789
+      },
+      {
+        "file": "data/US/规则/0911.3-改错.csv",
+        "sha256": "64dfbf688830e549497e429cc6194304f0f45ee65b9c11d27f5cd0f2dcfeffda",
+        "raw_sha256": "d45fb361d8d2c7d919268350ae1636b45119a9d9f27e63b5000b3ea46f330592",
+        "bytes": 1793
+      },
+      {
+        "file": "data/US/规则/0914.1-bel air专版.csv",
+        "sha256": "5dd4ebd6ea6782d0995ba80d78d23cfbd2edb256c27d479281842c38b6d2fc89",
+        "raw_sha256": "7cf9e53d07d52b80b835e748a42fac936431680dda9f7616f555b942303d9641",
+        "bytes": 2268
+      },
+      {
+        "file": "data/US/规则/0914.2-modelx和challenger定制.csv",
+        "sha256": "ae6379220c94b73b25373d5c7ffd2acd209d23bee25f65206562bfc298128b27",
+        "raw_sha256": "7d7b07673ad5a7a31d5c2795e46abb3f21207f884b5f3c6651d9d468ee479971",
+        "bytes": 2517
+      },
+      {
+        "file": "data/US/规则/0915.1-新结构.csv",
+        "sha256": "50874a39a135b8a680cafb1fadc7c0f9d36f84b0600e49fbcbd77fe904516136",
+        "raw_sha256": "6f344b794096d14e6cebc3e8c605c19422619e2a3381a64dd37d46bac127b5a6",
+        "bytes": 1905
+      },
+      {
+        "file": "data/US/规则/0915.2.修复数据错误.csv",
+        "sha256": "efa7cf85d68a06c9db137c55346648531ef727dfb743a410ff53026e17572809",
+        "raw_sha256": "4498709ab1b79a9e1a0e6988b74b585c586eda3f9382654662ca0a13282ad045",
+        "bytes": 1861
+      },
+      {
+        "file": "data/US/规则/0917.1-新命名.csv",
+        "sha256": "c16614881d5af1750acd5a42e12452aa7baeece8eba4e880e9bb4e4e41d0652c",
+        "raw_sha256": "704fe09ac42f12701cb3a9db8db8da055aec361204fa389ec6ba03723c9aa211",
+        "bytes": 1425
+      },
+      {
+        "file": "data/US/规则/0924.1-新命名.csv",
+        "sha256": "cce87efa43cda0b47f882e5b5de7a4535fab245ead2d58aecbb1f43b9d1c9d4a",
+        "raw_sha256": "4c7879118348ab71495f602938faf6196a59c96ffc08e6ef1629a37522438d88",
+        "bytes": 1200
+      },
+      {
+        "file": "data/US/规则/0924.2-老爷车插片下限.csv",
+        "sha256": "7de70a7d9c87002e5dea0832c25097fe0013f48a827dfe23b9b50ad682e0ac31",
+        "raw_sha256": "12c28a97c9e677d093354ac884bd48f35f7c3fb1ee20f629189c13fa1c0f921d",
+        "bytes": 1269
+      },
+      {
+        "file": "data/US/规则/SHAPE调整.yaml",
+        "sha256": "a25332992af18ed28a9eae74f6b06143088af1180fb6ec7f941c5399098d96ce",
+        "raw_sha256": "a25332992af18ed28a9eae74f6b06143088af1180fb6ec7f941c5399098d96ce",
+        "bytes": 645
+      },
+      {
+        "file": "data/全量SHAPE.yaml",
+        "sha256": "23177918c9f9228f8925a70824bcf4ac434e635e786b251b1399b303b6a1532d",
+        "raw_sha256": "23177918c9f9228f8925a70824bcf4ac434e635e786b251b1399b303b6a1532d",
+        "bytes": 385
+      },
+      {
+        "file": "data/参考/powerquery.md",
+        "sha256": "7a334bab197edff49c2fe28c650c5e0ba237be27d8ccbd3138e3a7261de3121b",
+        "raw_sha256": "776dbeee2fba3691c0931baa85c2f25543eeff1dd1b365b02b3abe0c901c2525",
+        "bytes": 45991
+      },
+      {
+        "file": "data/参考/历史全域新旧尺码对应.csv",
+        "sha256": "c1fec2cf3eda9f90b220e01a559d3fdd333f5d41a5b71046b298e68948db7349",
+        "raw_sha256": "183b20719768aff105a2a287695599f065ce6a431690299d88a29b8752604995",
+        "bytes": 1249
+      },
+      {
+        "file": "data/参考/插片必要性.md",
+        "sha256": "e2005b122a0409b39f8598e515d85267e8005f3c4b3f0c207aafe3d7bd8c5866",
+        "raw_sha256": "dd1a6fe2ee2aa5828691ec13f8f0d728df4d73e36071b4d2697780fdb55224fe",
+        "bytes": 2713
+      },
+      {
+        "file": "data/参考/新旧尺码对应/新旧尺码对应.csv",
+        "sha256": "a33920ed6d2894e3ecc96ed22380bf13718d3f00f60b447f67c3b7766eb7dcb0",
+        "raw_sha256": "5c7a7235c83c19d0b4e9015636a47bb68b1438fd95d78f0f90af1932cddacb9d",
+        "bytes": 1127
+      },
+      {
+        "file": "data/参考/新旧尺码对应/新旧尺码对应2.csv",
+        "sha256": "c49283ec04bf2010776b65fc2618d332569e4fe174fedd4c8d084134d0cc709b",
+        "raw_sha256": "c49283ec04bf2010776b65fc2618d332569e4fe174fedd4c8d084134d0cc709b",
+        "bytes": 1102
+      },
+      {
+        "file": "data/参考/车衣数据/ru/0924.csv",
+        "sha256": "2e5c3b1af443a7771b309d7664f2f7b1e051a8fee3ea7b04c56424c26ce7b6ec",
+        "raw_sha256": "3735756ccc613d8b9cdfc0001c6b6440bcc6a5c8f01d48736b97e73cab297117",
+        "bytes": 1250
+      },
+      {
+        "file": "data/参考/车衣数据/us/0915.csv",
+        "sha256": "a1296fea6a4a12bb0208e1028c6138b56f7c98b280c2d8492b2c42b3fa247ed1",
+        "raw_sha256": "158bf7deb00b75d62045d7441a61d8b3de78f77314f29ba397adac05170d64ca",
+        "bytes": 891
+      },
+      {
+        "file": "data/参考/车衣数据/us/0924.csv",
+        "sha256": "26eec6748d519e21793d520fe2c52e4eef472ab6fbe200739e6b0566e38dc28c",
+        "raw_sha256": "5989a5fd92a9eaec7889494a5c51c825e742c9efb7cca7691ebef844c9038a1d",
+        "bytes": 1195
+      },
+      {
+        "file": "data/当前规则.yaml",
+        "sha256": "91d4cb1e6186716e1e33ed11cfeb25b22f3fde27c7344013659f982f7a4eafae",
+        "raw_sha256": "cb8900f60c6d2218d02c9725f70168acd772fdca5597c1cd6a88d0a31f8e3b93",
+        "bytes": 700
+      },
+      {
+        "file": "data/销量ID迁移.csv",
+        "sha256": "779742d8a3011ed06fc7d58d7e5c875e3c79bd978af5fbd3ce60d3aacdd04522",
+        "raw_sha256": "779742d8a3011ed06fc7d58d7e5c875e3c79bd978af5fbd3ce60d3aacdd04522",
+        "bytes": 250
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "4c5245a043f311ee399d92739fcd7461b1aa16f2",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "4eba9a2e05635c3d842970a1df5e6e27ed634a2b7bc256574c64c4f07fd1a8d5"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f",
+        "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_03_regional-library/code/lib/model_members.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "54ff302c9372f3f27b1870e0252fd83df7bb86b0a855c64ab61aeac2e7d65f8e"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/add_cover_shape.py",
+        "sha256": "5e103f618595a7aa7f87075197d358b86b2a26d37fbbce36f4d547e66431ecba"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/add_market_potential.py",
+        "sha256": "6390d3f6c516c60bad6379c13e6239758c2b8d534916c7033570ed5d8b6ff3de"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/build_match_report.py",
+        "sha256": "b7c3f6bc7062ede04a5b9bd28aee81e57704bab7e9c55e1a3e6ba1dac1ff0998"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/build_regional_coverage_full.py",
+        "sha256": "cbcbc14fd4a25415668dd5fab5ef08312d04e56ed6ad0fa30e82f6c0ffae51a4"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/data_layout.py",
+        "sha256": "381795e1921de11f281f78f25cf8e7a883983773e72d3b7e12a7cdbefa8566a9"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/generate_ru_full_table.py",
+        "sha256": "4d34525471cbc22ed61c6cebaead8e8b1966eb5d37fa6b0eac49508ee278e9cd"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/generate_store_outputs.py",
+        "sha256": "28b773cdf8056287cf123f2493f2edfa7e3629cad2011d741fb67666028dc8a2"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/half_perimeter_analysis.py",
+        "sha256": "b7601ee3e95ab65cfcb8425c0134049369e6f2b0d92bb5c28778b6f09b946e98"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/output_layout.py",
+        "sha256": "63f6bb2b638bc25a3fd8f808113b860e4ba7a4eb6962eb4e88209627dbb5e290"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/pandas_analysis.py",
+        "sha256": "e083caf4208b39b81eff3292814a6e1e9993a5d4dac9a9a2946a88892ca69686"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/publish_eu_current_research.py",
+        "sha256": "6b51657c305bbc50ae2a0428f51ff6bf295e95a17488f8c9654cf620287c2d0f"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/publish_ru_data.py",
+        "sha256": "74f4114ad5be5aac495928e9f52c47f055354b31fd0b726f5b96fa261867e65e"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/rule_identity.py",
+        "sha256": "cbe1a741c8aedd73b668d9fa29440f6dd489c624565e51f70fe28b567554a996"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/shape_adjustment.py",
+        "sha256": "50e08607e091ad8c97e6673670a488d6f3258ab6f2b383bd95f1fdea9a817404"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/size_calculation_0908.py",
+        "sha256": "cc1e1a2187912ec266eaa45dfdfcfb74da653739cceb4a4888828b66353c4fec"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/__init__.py",
+        "sha256": "82a6b32f1801454ba0cf2d42d088e6a71edaf4a4b3161b0c318807b776ab5c43"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/analyze_fitment_coverage.py",
+        "sha256": "b68f93df02feb7641c9e3ae122f1174fc03236e3fba1ba1e2cdbc51225db92fc"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/analyze_sizes.py",
+        "sha256": "733c55f741a8bc568dd59c3dbfab37639a90fc225e18285edb5de80b87f8e49b"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/fitment_coverage.py",
+        "sha256": "e27521f6851e808516c6e18b92a7f158abdcdf450ae6513009177c87e9ae62fc"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/matching.py",
+        "sha256": "da0177b79d92c6cef78aacbe760a22e97a78292abe4d1e4f1e25672a85f228c3"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/rebuild_trimlist.py",
+        "sha256": "3449701ef109bba001eeac632dcf0448eecddc61f96c8022e4b432375c9757ce"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/research_nhtsa.py",
+        "sha256": "1c8cb48eb1b82929e33b6fddaa2de76cdef76742e3d9ba86cf1d502834818c12"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/size_analysis.py",
+        "sha256": "931b9f6138fabcf8b54b40ec03981100f3a3e1207aaf19c5e589c5a542bbc6ab"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/trimlist.py",
+        "sha256": "8299885bab242fe0bbd3f00546e54f865da9b7f3f0494a9825c93dacf7e60e88"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "US/尺码匹配报告.md",
+      "versioned_file": "US/尺码匹配报告-20261101_27.md",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_27_match-report-shape/output/US/尺码匹配报告-20261101_27.md",
+      "content_reference": true,
+      "sha256": "bafd330886f7170f5aa22d75e55dd0f3bb88051ef640983706374889ebf7ea01",
+      "bytes": 12694,
+      "rows": null
+    },
+    {
+      "file": "US/尺码规则.json",
+      "versioned_file": "US/尺码规则-20261101_27.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+      "content_reference": true,
+      "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb",
+      "bytes": 9006,
+      "rows": null
+    },
+    {
+      "file": "EU/尺码匹配报告.md",
+      "versioned_file": "EU/尺码匹配报告-20261101_27.md",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-13_18_size-calculation-release/output/EU/尺码匹配报告-20261013_18.md",
+      "content_reference": true,
+      "sha256": "472664564f132933ec0f838863c3cbf29c666189458f70d6f6c49c15a7daf522",
+      "bytes": 7571,
+      "rows": null
+    },
+    {
+      "file": "EU/尺码规则.json",
+      "versioned_file": "EU/尺码规则-20261101_27.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/EU/尺码规则-20261015_01.json",
+      "content_reference": true,
+      "sha256": "716ec1ed53d3ccb4610868d5df09933c5d91d348a779450e29576b62303533ef",
+      "bytes": 9452,
+      "rows": null
+    },
+    {
+      "file": "RU/尺码匹配报告.md",
+      "versioned_file": "RU/尺码匹配报告-20261101_27.md",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_06_match-report-shape/output/RU/尺码匹配报告-20261101_06.md",
+      "content_reference": true,
+      "sha256": "72e5546add4e2c35718869643f716a7ea6e79b6e40c482e2e93471e1f61099b2",
+      "bytes": 6967,
+      "rows": null
+    },
+    {
+      "file": "RU/尺码规则.json",
+      "versioned_file": "RU/尺码规则-20261101_27.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-26_02_match-report-shape/output/RU/尺码规则-20261026_02.json",
+      "content_reference": true,
+      "sha256": "b42291abedfbdcd9ac2f1afa47c8b69a6fd4b8c6343298a61966aadf1a6fa63a",
+      "bytes": 9690,
+      "rows": null
+    },
+    {
+      "file": "US/店铺货架.json",
+      "versioned_file": "US/店铺货架-20261101_27.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/店铺货架-20261015_01.json",
+      "content_reference": true,
+      "sha256": "8e369204b7136f916dc86b8a31d6065449ce2be7f73d04c162764fdb32c417e0",
+      "bytes": 3196,
+      "rows": null
+    },
+    {
+      "file": "US/新旧尺码对应.csv",
+      "versioned_file": "US/新旧尺码对应-20261101_27.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-28_01_us-market-potential/rules/data/参考/新旧尺码对应/新旧尺码对应2.csv",
+      "content_reference": true,
+      "sha256": "c49283ec04bf2010776b65fc2618d332569e4fe174fedd4c8d084134d0cc709b",
+      "bytes": 1102,
+      "rows": 35
+    }
+  ],
+  "extras": [
+    "nodes/A0.尺码计算/artifacts/2026-11-01_06_match-report-shape/extra/REPORT.md"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/REPORT.md",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_06_match-report-shape/extra/REPORT.md",
+      "sha256": "9c7d03b37c6d404cab9715b53d2e98fea0e38dc588084ea63fd6a37f8f8aaae1",
+      "bytes": 476
+    }
+  ],
+  "status": {
+    "status": "passed"
+  }
+}

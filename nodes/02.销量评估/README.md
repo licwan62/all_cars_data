@@ -9,6 +9,7 @@
 - `research_queue/model_year_research_queue.csv`：缓存命中及待研究任务。
 - `work/`：展开表、原子明细及验证过程文件。
 - `output/原子销量.csv`：当前 `atom_record_id,预估销量` 稳定交付物。
+- `output/原子销量待核.csv`：当前不满足车型年销量证据/口径的原子及原因，内部追溯交付。
 
 ## 标准流程
 
@@ -19,6 +20,8 @@ python -m unittest discover -s tests -v
 ```
 
 流水线会先规范缓存字段与品牌/车型大小写，再展开年份、构建原子、分配销量、验证守恒并导出最终表。无可靠美国销量时保留空值，不自动猜测。
+
+`data/销量依据/model_year_sales_holdouts.csv` 按 `MAKE+MODEL+YEAR` 暂停有来源但不能确认车型年口径的销量。源缓存数值保留供复核，原子销量输出保持空值，并在 `原子销量待核.csv` 标记 `PENDING`、原因和来源；核实后再从 holdout 清单移除并重跑。
 
 项目先在 `artifacts/<批次>/` 保存运行证据；验收成功后更新 `output/原子销量.csv`。下游只读取 `output/`。
 

@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "as_of_year": 2026,
+  "dimension_rows": 4383,
+  "dimension_make_model_pairs": 704,
+  "invalid_dimension_rows": [],
+  "reference_trim_rows": 51884,
+  "reference_make_model_pairs": 5696,
+  "reference_model_year_pairs": 26980,
+  "combined_rows": 190,
+  "combined_labels": 26,
+  "in_scope_counts": {
+    "名称待核": 22669,
+    "独立记录覆盖": 3410,
+    "尺寸候选待发布": 80,
+    "组合记录覆盖、成员年份待核": 274,
+    "候选待核": 52,
+    "参考年份排除": 10
+  },
+  "recent_2020_to_as_of_counts": {
+    "名称待核": 6461,
+    "独立记录覆盖": 507,
+    "组合记录覆盖、成员年份待核": 113,
+    "尺寸候选待发布": 10,
+    "候选待核": 5,
+    "参考年份排除": 4
+  },
+  "future_counts": {
+    "名称待核": 457,
+    "确认年份缺口（本地参考差集）": 27,
+    "独立记录覆盖": 1
+  },
+  "gap_model_count": 39,
+  "previous_gap_reclassified_as_group": 0,
+  "exact_name_year_gaps_by_make": {
+    "Chevrolet": 23,
+    "Mitsubishi": 23,
+    "Audi": 9,
+    "Pontiac": 9,
+    "Acura": 8,
+    "Mazda": 7,
+    "Oldsmobile": 7,
+    "Cadillac": 6,
+    "Plymouth": 5,
+    "Subaru": 5,
+    "Ford": 4,
+    "Jaguar": 4,
+    "Kia": 4,
+    "Volkswagen": 4,
+    "Hyundai": 3,
+    "Maserati": 3,
+    "Land Rover": 2,
+    "Porsche": 2,
+    "Toyota": 2,
+    "Buick": 1,
+    "Saturn": 1
+  },
+  "us_market_model_counts": {
+    "名称待核": 635,
+    "独立记录覆盖": 554,
+    "组合记录覆盖、成员年份待核": 23
+  },
+  "sources": {
+    "dimensions": {
+      "file": "nodes/01.整理尺寸库/output/尺寸库_US.csv",
+      "sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db"
+    },
+    "year_reference": {
+      "file": "nodes/01.整理尺寸库/data/data_source/trimslate-vehicles.csv",
+      "sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d"
+    },
+    "market_reference": {
+      "file": "nodes/01.整理尺寸库/data/data_source/vehicles.csv",
+      "sha256": "4647c58d9ff6fe962568f9990ce7bc16b92f71abaa3e18035ef41d7e818805ee"
+    },
+    "config": {
+      "file": "nodes/01.整理尺寸库/data/build_config.json",
+      "sha256": "c4fdd59f23d3ae3ad0f5f2a103b79023628867d9d00e30ba3aeb7f6d7cb5c9ff"
+    },
+    "members": {
+      "file": "nodes/01.整理尺寸库/data/us/model_members.json",
+      "sha256": "d1a6aa0a960b77ad0c371a454ffd92ad9b287a803f6080135ab09dc33525b618"
+    },
+    "year_resolutions": {
+      "file": "nodes/01.整理尺寸库/data/us/year_gap_resolutions.json",
+      "sha256": "342124d21769bdc0c29ca1886a7376001977f666ec57543b4f405f0968b74f6e"
+    },
+    "previous_detail": {
+      "file": "reports/美国车型年份缺口/2026-11-01_02_combined-models/车型年份核对.csv",
+      "sha256": "a653c8ffe9c5c1d0f1ab2e3db29e715dac3121b83b81908de94886b497b8cb4d"
+    }
+  },
+  "limits": [
+    "确认年份缺口仅指本地参考差集，不代表已核实美国销售年份。",
+    "尺寸候选待发布仅指研究登记，不代表正式尺寸库已覆盖或下游已承接。",
+    "参考年份排除是对候选年份的有来源处置，不删除历史参考数据。",
+    "组合记录仅表示组内覆盖可能，成员车型年与尺寸仍待核，不作为独立确认。",
+    "trimslate没有市场字段，原来源未独立核实；不据缺行推断未销售。",
+    "不按斜杠自动拆词；仅按显式规则认成员，不自动去除AWD/Hybrid等版本词。",
+    "独立覆盖指至少一条尺寸记录覆盖该年，不保证车身、配置、动力版本齐全。",
+    "超过评估年的年份单列；vehicles只取countries包含us，没有年份。"
+  ]
+}

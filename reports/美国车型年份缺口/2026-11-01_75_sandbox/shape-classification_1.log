@@ -1,0 +1,10 @@
+
+Traceback (most recent call last):
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-22zehnjx\nodes\03.车形分类核定\code\build_regional_shape_output.py", line 283, in <module>
+    print(json.dumps(run(), ensure_ascii=False, indent=2))
+                     ~~~^^
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-22zehnjx\nodes\03.车形分类核定\code\build_regional_shape_output.py", line 254, in run
+    result = build(source, read_rows(BASELINE), previous_library(), rules, migration, overrides, read_us_shape_decisions(US_SHAPE_DECISIONS))
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-22zehnjx\nodes\03.车形分类核定\code\build_regional_shape_output.py", line 174, in build
+    raise ValueError(f"US 记录缺少已核定车形：{record_id}")
+ValueError: US 记录缺少已核定车形：Chevrolet Caprice Sedan 1986 US

@@ -1,0 +1,78 @@
+{
+  "rules_sha256": "426e196dbb97fa868d585db9c9eef44f65c1a339046344841e6ef906cc6506df",
+  "input_us_sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db",
+  "input_all_sha256": "5b3fccb71c6e69fa9fde07f62cd6d99584582ccbe278f871c6c60ec2422e1f69",
+  "added_count": 83,
+  "nodes": [
+    {
+      "id": "structure-review",
+      "commands": [
+        {
+          "command": "python code/build_structure_review.py",
+          "exit_code": 0,
+          "log": "structure-review_1.log"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "sales-estimation",
+      "commands": [
+        {
+          "command": "python scripts/run_pipeline.py",
+          "exit_code": 0,
+          "log": "sales-estimation_1.log"
+        },
+        {
+          "command": "python scripts/build_ru_proxy_sales.py",
+          "exit_code": 0,
+          "log": "sales-estimation_2.log"
+        },
+        {
+          "command": "python scripts/build_market_potential.py",
+          "exit_code": 0,
+          "log": "sales-estimation_3.log"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "code-mapping",
+      "commands": [
+        {
+          "command": "python src/main.py",
+          "exit_code": 0,
+          "log": "code-mapping_1.log"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "shape-classification",
+      "commands": [
+        {
+          "command": "python code/build_regional_shape_output.py",
+          "exit_code": 1,
+          "log": "shape-classification_1.log"
+        }
+      ],
+      "status": "failed"
+    },
+    {
+      "id": "size-calculation",
+      "commands": [],
+      "status": "skipped",
+      "blockers": [
+        "shape-classification"
+      ]
+    },
+    {
+      "id": "size-compression",
+      "commands": [],
+      "status": "skipped",
+      "blockers": [
+        "size-calculation"
+      ]
+    }
+  ]
+}

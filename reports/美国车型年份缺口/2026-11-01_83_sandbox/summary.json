@@ -1,0 +1,142 @@
+{
+  "rules_sha256": "0eb83774383f6e0d3981a7c2a577b669c55ee99b0b12e9e7a6a5bc3bc5ab8e4a",
+  "input_us_sha256": "cb70cc650ce68b9362a1e1c16e4392776526612784d3a85456bc7928500b39db",
+  "input_all_sha256": "5b3fccb71c6e69fa9fde07f62cd6d99584582ccbe278f871c6c60ec2422e1f69",
+  "script_sha256": "8402927f7aeefbc01fa00eb8a00832c91be4460fb3bcdf576c2685ea5e5dfd2e",
+  "added_count": 85,
+  "nodes": [
+    {
+      "id": "structure-review",
+      "commands": [
+        {
+          "command": "python code/build_structure_review.py",
+          "exit_code": 0,
+          "log": "structure-review_1.log"
+        }
+      ],
+      "status": "passed",
+      "new_ids_missing": 0,
+      "duplicate_ids": 0
+    },
+    {
+      "id": "sales-estimation",
+      "commands": [
+        {
+          "command": "python scripts/run_pipeline.py",
+          "exit_code": 0,
+          "log": "sales-estimation_1.log"
+        },
+        {
+          "command": "python scripts/build_ru_proxy_sales.py",
+          "exit_code": 0,
+          "log": "sales-estimation_2.log"
+        },
+        {
+          "command": "python scripts/build_market_potential.py",
+          "exit_code": 0,
+          "log": "sales-estimation_3.log"
+        }
+      ],
+      "status": "passed",
+      "existing_atom_rows_changed": 0,
+      "new_atom_rows": 85,
+      "new_atom_unallocated_rows": 85,
+      "new_atom_nonzero_rows": 0,
+      "new_atom_nonzero_rows_pending_review": 0,
+      "new_atom_ids_missing_evidence_audit": 0,
+      "new_atom_ids_without_evidence_audit": false
+    },
+    {
+      "id": "code-mapping",
+      "commands": [
+        {
+          "command": "python src/main.py",
+          "exit_code": 0,
+          "log": "code-mapping_1.log"
+        }
+      ],
+      "status": "passed",
+      "new_ids_missing": 0,
+      "duplicate_ids": 0,
+      "make_mapping.csv": {
+        "old_rows": 50,
+        "new_rows": 50,
+        "old_rows_missing_or_changed": 0
+      },
+      "model_mapping.csv": {
+        "old_rows": 705,
+        "new_rows": 706,
+        "old_rows_missing_or_changed": 0
+      }
+    },
+    {
+      "id": "shape-classification",
+      "commands": [
+        {
+          "command": "python code/build_regional_shape_output.py",
+          "exit_code": 0,
+          "log": "shape-classification_1.log"
+        },
+        {
+          "command": "python code/validate_regional_shape_output.py",
+          "exit_code": 0,
+          "log": "shape-classification_2.log"
+        },
+        {
+          "command": "python code/build_cover_shape_output.py",
+          "exit_code": 0,
+          "log": "shape-classification_3.log"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "size-calculation",
+      "commands": [
+        {
+          "command": "python src/generate_store_outputs.py",
+          "exit_code": 0,
+          "log": "size-calculation_1.log"
+        },
+        {
+          "command": "python src/generate_ru_full_table.py",
+          "exit_code": 0,
+          "log": "size-calculation_2.log"
+        },
+        {
+          "command": "python src/build_regional_coverage_full.py",
+          "exit_code": 0,
+          "log": "size-calculation_3.log"
+        },
+        {
+          "command": "python src/add_cover_shape.py",
+          "exit_code": 0,
+          "log": "size-calculation_4.log"
+        },
+        {
+          "command": "python src/add_market_potential.py",
+          "exit_code": 0,
+          "log": "size-calculation_5.log"
+        },
+        {
+          "command": "python src/build_match_report.py",
+          "exit_code": 0,
+          "log": "size-calculation_6.log"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "id": "size-compression",
+      "commands": [
+        {
+          "command": "python src/run.py",
+          "exit_code": 0,
+          "log": "size-compression_1.log"
+        }
+      ],
+      "status": "passed"
+    }
+  ],
+  "new_ids_with_shape_decisions": 85
+}

@@ -24,6 +24,7 @@ def main() -> None:
         config = load_config(args.config)
         batch.input(resolve_path(config["input_csv"]))
         config["atom_sales_output_csv"] = str(batch.output("原子销量.csv"))
+        config["pending_sales_review_csv"] = str(batch.output("原子销量待核.csv"))
         with tempfile.TemporaryDirectory(prefix="sales-config-") as temp:
             config_path = Path(temp) / "config.json"
             config_path.write_text(json.dumps(config, ensure_ascii=False), encoding="utf-8")

@@ -82,11 +82,19 @@
         "尺寸库_US.csv",
         "尺寸库_EU.csv",
         "尺寸库_RU.csv",
+        "US_ID迁移.csv",
+        "US_拆分候选.csv",
+        "US_拆分待核.csv",
+        "US_补库核对.csv",
+        "US_补库待核.csv",
         "EU_ID迁移.csv",
         "来源映射_EU.csv",
         "来源映射_RU.csv"
       ],
-      "pending": [],
+      "pending": [
+        "Audi A7/S7/RS7拆分：逐成员逐年独立尺寸、美国供售间断及下游迁移证据未齐，保留原组合记录",
+        "美国车型年份缺口：未核实项保留在US_补库待核.csv；销量年款口径未核实项在sales-estimation的原子销量待核.csv保持PENDING"
+      ],
       "public_outputs": [
         "尺寸库.csv",
         "尺寸库_US.csv",
@@ -166,7 +174,9 @@
         "车型结构_EU.csv",
         "车型结构_RU.csv"
       ],
-      "pending": [],
+      "pending": [
+        "新增车型年度销量暂由data/销量依据/model_year_sales_holdouts.csv拦截；原子销量待核.csv记录PENDING和来源，未确认车型年口径前不作为销量值发布"
+      ],
       "public_outputs": [
         "车型结构.csv",
         "车型结构_US.csv",
@@ -196,6 +206,7 @@
         }
       ],
       "release_notes": [
+        "新增US车型年销量待核旁表原子销量待核.csv；销售来源/车型年口径未确认的原子销量保持空值，不影响其他已核实销量",
         "2026-09-23 改为按 data/分类标准.json（三国通用 结构→分类）与 data/分类联网判定.csv（Liftback/Fastback 车型级联网判定）重算分类；DIMENSION-ID 不变；输出全量与分区域文件",
         "2026-09-28 新增 data/结构联网修正.csv：官方资料核实长斜背 Hatchback→Liftback，按精确区域/车型/原结构及完整年份包含匹配；修正结构和分类，保留上游 DIMENSION-ID 与尺寸；77条涉及 Model S、Panamera、A7、A6 e-tron Sportback、Arteon"
       ],
@@ -259,6 +270,7 @@
       ],
       "outputs": [
         "原子销量.csv",
+        "原子销量待核.csv",
         "RU代理销量.csv",
         "市场潜力.csv",
         "积加销量.csv"
@@ -363,7 +375,7 @@
       "path": "nodes/02.代码映射",
       "code_dir": "src",
       "run": [
-        "python src/main.py"
+        "python src/main.py --update-registry"
       ],
       "tests": "tests",
       "layer": 2,
@@ -705,6 +717,36 @@
         {
           "node": "sales-estimation",
           "file": "积加销量.csv",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_ID迁移.csv",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_拆分候选.csv",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_拆分待核.csv",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_补库待核.csv",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_补库核对.csv",
+          "required": true
+        },
+        {
+          "node": "sales-estimation",
+          "file": "原子销量待核.csv",
           "required": true
         }
       ]

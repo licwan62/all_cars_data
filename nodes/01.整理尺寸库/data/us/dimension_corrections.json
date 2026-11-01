@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "corrections": [
+    {
+      "DIMENSION-ID": "Pontiac Solstice Convertible 2009 US",
+      "expected": {
+        "MAKE": "Pontiac",
+        "MODEL": "Solstice",
+        "YEAR": "2009",
+        "结构": "Convertible",
+        "H-IN": "50.9"
+      },
+      "changes": {
+        "H-IN": "50.1",
+        "备注": "原子化记录；源记录 CAR-01KYFT6HYK4BR0A0545KXTTB9Q；源结构：Coupe/Roadster；源年份：2009；敞篷高度经同年资料修正为50.1英寸"
+      },
+      "reason": "原敞篷记录由 Coupe/Roadster 合并记录原子化继承了 Coupe 高度；同年敞篷资料列 50.1 英寸。",
+      "sources": [
+        {"url": "https://www.edmunds.com/pontiac/solstice/2009/convertible/st-101029837/features-specs/", "note": "美国 2009 GXP Convertible 高 50.1 英寸"},
+        {"url": "https://www.caranddriver.com/pontiac/solstice/specs/2009/pontiac_solstice_pontiac-solstice-gxp-convertible_2009", "note": "2009 GXP Convertible 高 50.1 英寸"},
+        {"url": "https://www.caranddriver.com/pontiac/solstice/specs/2009/pontiac_solstice_pontiac-solstice-gxp-coupe_2009", "note": "2009 GXP Coupe 高 50.9 英寸"}
+      ]
+    }
+  ]
+}

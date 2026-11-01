@@ -1,0 +1,15 @@
+
+Traceback (most recent call last):
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-27w4pvwg\nodes\03.车形分类核定\code\build_regional_shape_output.py", line 283, in <module>
+    print(json.dumps(run(), ensure_ascii=False, indent=2))
+                     ~~~^^
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-27w4pvwg\nodes\03.车形分类核定\code\build_regional_shape_output.py", line 263, in run
+    batch.input(SOURCE)
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-27w4pvwg\lib\artifact_batch.py", line 180, in input
+    reference, reason = published_reference(path, digest)
+                        ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-27w4pvwg\lib\artifact_batch.py", line 98, in published_reference
+    if item["sha256"] != digest:
+       ~~~~^^^^^^^^^^
+KeyError: 'sha256'

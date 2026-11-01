@@ -59,3 +59,13 @@ python scripts/archive_old_artifacts.py --keep 5 --dest "\\NAS8824B4\Public\PQDa
 归档保护当前及传递引用、最近5批与未提交批次。复制、逐文件校验、登记恢复位置完成后才删除本地。外部public不是节点输入，只有 `public_outputs` 点名的CSV可公开，辅助文件留在内部；NAS README说明来源。
 
 本轮实施、验证、迁移与清理记录见 `reports/结构优化实施/`。
+
+## 美国组合车型与年份核对
+
+01节点的 `data/us/model_members.json` 显式登记组合成员；组合区间覆盖不代表每个成员均在该区间供售。查询不按斜杠自动拆词，未登记名称保持待核。
+
+```powershell
+python scripts/audit_us_model_years.py --report-dir reports/美国车型年份缺口/<新批次> --previous-report reports/美国车型年份缺口/2026-11-01_01
+```
+
+Audi A7/S7/RS7试点按证据门槛整组替换；证据未齐时保留正式组合记录和2026 RS7，只交付内部 `US_拆分候选.csv`、`US_拆分待核.csv`，`US_ID迁移.csv`仅登记生效映射。规则及证据维护说明见01节点 `data/us/README.md`。参考数据库差集不是重新核实的美国上市年份；原始数据库和历史artifact不改写。

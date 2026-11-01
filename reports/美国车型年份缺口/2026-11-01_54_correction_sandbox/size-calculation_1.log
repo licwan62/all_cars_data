@@ -1,0 +1,11 @@
+
+Traceback (most recent call last):
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-d2frbyot\nodes\A0.尺码计算\src\generate_store_outputs.py", line 280, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-d2frbyot\nodes\A0.尺码计算\src\generate_store_outputs.py", line 206, in main
+    batch.input_published(WORKSPACE_ROOT / "nodes" / node / "output", exclude=(SOURCE,))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\cc\AppData\Local\Temp\us-supplement-preview-d2frbyot\lib\artifact_batch.py", line 209, in input_published
+    raise BatchError(f"找不到上游 manifest：{manifest_path}")
+artifact_batch.BatchError: 找不到上游 manifest：C:\Users\cc\AppData\Local\Temp\us-supplement-preview-d2frbyot\nodes\02.分类结构审核\output\manifest.json

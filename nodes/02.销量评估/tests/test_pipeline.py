@@ -129,6 +129,48 @@ class PipelineIntegrationTests(unittest.TestCase):
             self.assertTrue(all(row["ALLOCATION_METHOD"] == "EQUAL_SPLIT" for row in rows))
             self.assertTrue(all(row["ITERATION_STATUS"] == "REVIEW" for row in rows))
 
+    def test_sales_holdout_keeps_unverified_model_year_value_pending(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            paths = {
+                "input_csv": root / "input.csv", "expanded_csv": root / "expanded.csv",
+                "atoms_csv": root / "atoms.csv", "research_queue_csv": root / "queue.csv",
+                "model_year_cache_csv": root / "cache.csv", "allocation_overrides_csv": root / "overrides.csv",
+                "atomic_output_csv": root / "atomic.csv", "duplicate_report_csv": root / "duplicates.csv",
+                "validation_report_csv": root / "validation.csv", "validation_summary_json": root / "summary.json",
+                "research_log": root / "research.log", "model_year_sales_holdouts_csv": root / "holdouts.csv",
+            }
+            fields = ["DIMENSION-ID", "MAKE", "MODEL", "版本", "CAB", "BED", "结构", "代际", "YEAR"]
+            row = {field: "" for field in fields}
+            row.update({"MAKE": "Test", "MODEL": "One", "结构": "Sedan", "YEAR": "2025"})
+            row["DIMENSION-ID"] = dimension_id(row)
+            write_csv(paths["input_csv"], fields, [row])
+            config = {key: str(value) for key, value in paths.items()}
+            config.update({"conservation_tolerance": 1, "allowed_us_scopes": ["US"]})
+            config_path = root / "config.json"
+            config_path.write_text(json.dumps(config, ensure_ascii=False), encoding="utf-8")
+            expand_years.run(str(config_path))
+            build_atoms.run(str(config_path))
+            write_csv(paths["model_year_cache_csv"], CACHE_FIELDS, [{
+                "MAKE": "Test", "MODEL": "One", "YEAR": "2025", "MODEL_YEAR_US_SALES": "101",
+                "SALES_SCOPE": "US", "SALES_PERIOD": "FULL_YEAR", "SALES_SOURCE_TYPE": "DATABASE",
+                "SALES_SOURCE": "calendar-year table", "SOURCE_URL": "https://example.test/source",
+            }])
+            write_csv(paths["allocation_overrides_csv"], ["SALES_ATOM_KEY", "ALLOCATION_WEIGHT"], [])
+            write_csv(paths["model_year_sales_holdouts_csv"], ["MAKE", "MODEL", "YEAR", "REASON", "SOURCE_URL"], [{
+                "MAKE": "Test", "MODEL": "One", "YEAR": "2025", "REASON": "calendar year is not model year",
+                "SOURCE_URL": "https://example.test/audit",
+            }])
+            merge_results.run(str(config_path))
+            summary = validate_sales.run(str(config_path))
+            _, rows = read_csv(paths["atomic_output_csv"])
+            self.assertEqual(summary["pending"], 1)
+            self.assertEqual(summary["fail"], 0)
+            self.assertEqual(rows[0]["ITERATION_STATUS"], "PENDING")
+            self.assertEqual(rows[0]["MODEL_YEAR_US_SALES"], "")
+            self.assertEqual(rows[0]["US_SALES_ESTIMATE"], "")
+            self.assertIn("calendar year is not model year", rows[0]["NOTES"])
+
 
 class AllocationWeightQueueTests(unittest.TestCase):
     def test_diff_type_distinguishes_trim_from_body(self) -> None:

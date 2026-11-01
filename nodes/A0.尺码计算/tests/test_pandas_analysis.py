@@ -447,8 +447,11 @@ class FullPipelineRegressionTests(unittest.TestCase):
     def test_full_result_contract(self) -> None:
         summary = analysis.validate_result(self.result, self.expected_rows)
         self.assertEqual(summary["unique_dimension_ids"], self.expected_rows)
-        self.assertEqual(summary["unavailable_sizes"], 140)
-        self.assertEqual(summary["matched_sizes"], self.expected_rows - 140)
+        # 140 existing unavailable mappings + 3 newly registered F-Pace model-years
+        # without model-year-specific size mappings; the vehicle identities still flow through.
+        unavailable_sizes = 143
+        self.assertEqual(summary["unavailable_sizes"], unavailable_sizes)
+        self.assertEqual(summary["matched_sizes"], self.expected_rows - unavailable_sizes)
         self.assertEqual(summary["incomplete_rows"], 0)
         self.assertEqual(summary["sales_total"], 750288484)
 
