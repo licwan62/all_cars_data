@@ -2,9 +2,9 @@
   "schema_version": 2,
   "node": "sales-estimation",
   "path": "nodes/02.销量评估",
-  "version": "20261102_16",
-  "artifact": "nodes/02.销量评估/artifacts/2026-11-02_16_sales-estimation-release",
-  "published_at": "2026-11-02T18:25:24+08:00",
+  "version": "20261102_20",
+  "artifact": "nodes/02.销量评估/artifacts/2026-11-02_20_sales-estimation-release",
+  "published_at": "2026-11-02T18:41:52+08:00",
   "deliverables": [
     {
       "file": "原子销量.csv",
@@ -55,14 +55,14 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261102_12",
+      "version": "20261102_15",
       "basis": "run",
       "files": [
         {
           "file": "尺寸库.csv",
-          "versioned_file": "尺寸库-20261102_11.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库-20261102_11.csv",
-          "sha256": "4c70f8a6bbded5616e009da758e73157b6ed389188e566b1de92fa88c4dcb12a"
+          "versioned_file": "尺寸库-20261102_14.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_14_regional-library/output/尺寸库-20261102_14.csv",
+          "sha256": "7d1aad8b5f6b58a2547d8a8ed340a95b59562d8bf5f1298e378c64e6e6bdf63c"
         },
         {
           "file": "尺寸库_RU.csv",
@@ -72,9 +72,9 @@
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261102_11.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库_US-20261102_11.csv",
-          "sha256": "9fa14b74f54ba8f591b14a598c2009af7710c4eabaccfb1ea9c0e2d1c86a2e8d"
+          "versioned_file": "尺寸库_US-20261102_14.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_14_regional-library/output/尺寸库_US-20261102_14.csv",
+          "sha256": "a1130609dacaa9b97bb6d771d11a2a38a075a1a97452aeac1d268130a591222a"
         },
         {
           "file": "来源映射_RU.csv",
@@ -82,10 +82,6 @@
           "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
           "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
         }
-      ],
-      "versions": [
-        "20261102_10",
-        "20261102_12"
       ]
     },
     {

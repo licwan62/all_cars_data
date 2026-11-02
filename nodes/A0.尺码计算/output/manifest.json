@@ -2,53 +2,53 @@
   "schema_version": 2,
   "node": "size-calculation",
   "path": "nodes/A0.尺码计算",
-  "version": "20261102_36",
-  "artifact": "nodes/A0.尺码计算/artifacts/2026-11-02_36_size-calculation-release",
-  "published_at": "2026-11-02T18:26:57+08:00",
+  "version": "20261102_43",
+  "artifact": "nodes/A0.尺码计算/artifacts/2026-11-02_43_size-calculation-release",
+  "published_at": "2026-11-02T18:42:48+08:00",
   "deliverables": [
     {
       "file": "US/尺码匹配报告.md",
-      "versioned_file": "US/尺码匹配报告-20261102_35.md",
-      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_35_match-report-shape/output/US/尺码匹配报告-20261102_35.md",
+      "versioned_file": "US/尺码匹配报告-20261102_42.md",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_42_match-report-shape/output/US/尺码匹配报告-20261102_42.md",
       "content_reference": true,
-      "sha256": "6cf1e067913280cc8edbba403f9a4e4a39f667c84d3eb9325d9f8dcce8dd491c",
+      "sha256": "c1770398a89d1c9b577522fedfdab51488b32fe398ee6417d1baad96e55f9206",
       "bytes": 12417,
       "rows": null
     },
     {
       "file": "US/全量/全量表.csv",
-      "versioned_file": "US/全量/全量表-20261102_34.csv",
-      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_34_us-market-potential/output/US/全量/全量表-20261102_34.csv",
+      "versioned_file": "US/全量/全量表-20261102_41.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_41_us-market-potential/output/US/全量/全量表-20261102_41.csv",
       "content_reference": true,
-      "sha256": "edc08096bc19f01135f6b6c2906deb2a2f8ad9280318c63d99aa4d6decfdf34b",
-      "bytes": 932313,
+      "sha256": "93cdcd1c018eda46db3a41015ddc01f230153a08c366ff88c59c5d1e3b2d4b50",
+      "bytes": 932316,
       "rows": 4837
     },
     {
       "file": "US/店铺/店铺全量_HNT.csv",
-      "versioned_file": "US/店铺/店铺全量_HNT-20261102_34.csv",
-      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_34_us-market-potential/output/US/店铺/店铺全量_HNT-20261102_34.csv",
+      "versioned_file": "US/店铺/店铺全量_HNT-20261102_41.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_41_us-market-potential/output/US/店铺/店铺全量_HNT-20261102_41.csv",
       "content_reference": true,
-      "sha256": "2eb1cc8d581ff95a32c718b380ac291feafab066b7e0d64253df21c7966b3c01",
-      "bytes": 979338,
+      "sha256": "a138ef32f1ad68b111a250cc115ef60948ab907896ef2b825f90a6f51ec302b8",
+      "bytes": 979341,
       "rows": 4837
     },
     {
       "file": "US/店铺/店铺全量_TM.csv",
-      "versioned_file": "US/店铺/店铺全量_TM-20261102_34.csv",
-      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_34_us-market-potential/output/US/店铺/店铺全量_TM-20261102_34.csv",
+      "versioned_file": "US/店铺/店铺全量_TM-20261102_41.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_41_us-market-potential/output/US/店铺/店铺全量_TM-20261102_41.csv",
       "content_reference": true,
-      "sha256": "8b1f987a44c11223c148e7e67dac0875558ff948f1a199d8aff57692f1bed08c",
-      "bytes": 974080,
+      "sha256": "c65c0e6768efad6e12c8d1e4bf9774d29094d6581dd34e9ae61a89764e1bb516",
+      "bytes": 974083,
       "rows": 4837
     },
     {
       "file": "US/店铺/店铺全量_TM_拆分.csv",
-      "versioned_file": "US/店铺/店铺全量_TM_拆分-20261102_34.csv",
-      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_34_us-market-potential/output/US/店铺/店铺全量_TM_拆分-20261102_34.csv",
+      "versioned_file": "US/店铺/店铺全量_TM_拆分-20261102_41.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_41_us-market-potential/output/US/店铺/店铺全量_TM_拆分-20261102_41.csv",
       "content_reference": true,
-      "sha256": "d78d07dc2f66d6484ebd0456313c163c81d1f92c0f731a48cb398ad073539aed",
-      "bytes": 1021814,
+      "sha256": "114185644b9dc17406210c6f5fa902aa7c0d110ad38f7b7abb0786956b72eb5a",
+      "bytes": 1021817,
       "rows": 4837
     },
     {
@@ -145,7 +145,7 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261102_12",
+      "version": "20261102_15",
       "basis": "run",
       "files": [
         {
@@ -180,15 +180,15 @@
         },
         {
           "file": "US_补库核对.csv",
-          "versioned_file": "US_补库核对-20261102_11.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/US_补库核对-20261102_11.csv",
-          "sha256": "88c83aa532b1d0900a4c1c18177eec5d4dd31793e718622dedd7b338c3540ce2"
+          "versioned_file": "US_补库核对-20261102_14.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_14_regional-library/output/US_补库核对-20261102_14.csv",
+          "sha256": "f39fa9491459eb71fe6efb2278f3f18c00dc462d1efa1441bbec548bb60e049f"
         },
         {
           "file": "尺寸库.csv",
-          "versioned_file": "尺寸库-20261102_11.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库-20261102_11.csv",
-          "sha256": "4c70f8a6bbded5616e009da758e73157b6ed389188e566b1de92fa88c4dcb12a"
+          "versioned_file": "尺寸库-20261102_14.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_14_regional-library/output/尺寸库-20261102_14.csv",
+          "sha256": "7d1aad8b5f6b58a2547d8a8ed340a95b59562d8bf5f1298e378c64e6e6bdf63c"
         },
         {
           "file": "尺寸库_EU.csv",
@@ -204,9 +204,9 @@
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261102_11.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库_US-20261102_11.csv",
-          "sha256": "9fa14b74f54ba8f591b14a598c2009af7710c4eabaccfb1ea9c0e2d1c86a2e8d"
+          "versioned_file": "尺寸库_US-20261102_14.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_14_regional-library/output/尺寸库_US-20261102_14.csv",
+          "sha256": "a1130609dacaa9b97bb6d771d11a2a38a075a1a97452aeac1d268130a591222a"
         },
         {
           "file": "来源映射_EU.csv",
@@ -224,14 +224,14 @@
     },
     {
       "node": "structure-review",
-      "version": "20261102_08",
+      "version": "20261102_10",
       "basis": "run",
       "files": [
         {
           "file": "车型结构.csv",
-          "versioned_file": "车型结构-20261102_07.csv",
-          "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_07_category-standard/output/车型结构-20261102_07.csv",
-          "sha256": "a9a32b9c66bd9fd7a49976412d2834cf69a50bd8af5cd9a327d8f7796e9c75e7"
+          "versioned_file": "车型结构-20261102_09.csv",
+          "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_09_category-standard/output/车型结构-20261102_09.csv",
+          "sha256": "bcc8e2dc020fc1928a096409f036932802a6c6f850c8f1d24a172022d95fe0b2"
         },
         {
           "file": "车型结构_EU.csv",
@@ -247,15 +247,15 @@
         },
         {
           "file": "车型结构_US.csv",
-          "versioned_file": "车型结构_US-20261102_07.csv",
-          "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_07_category-standard/output/车型结构_US-20261102_07.csv",
-          "sha256": "5c028c8830f3263e2a5366b7d896082ace16ea38541982b0cb029068b248ac47"
+          "versioned_file": "车型结构_US-20261102_09.csv",
+          "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_09_category-standard/output/车型结构_US-20261102_09.csv",
+          "sha256": "7845c465acffffb7ed1566e623fa821490199049efa3820e9cf4dceb219315e1"
         }
       ]
     },
     {
       "node": "shape-classification",
-      "version": "20261102_12",
+      "version": "20261102_15",
       "basis": "run",
       "files": [
         {
@@ -292,7 +292,7 @@
     },
     {
       "node": "sales-estimation",
-      "version": "20261102_16",
+      "version": "20261102_20",
       "basis": "run",
       "files": [
         {

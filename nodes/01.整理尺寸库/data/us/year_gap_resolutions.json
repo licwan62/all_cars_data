@@ -17942,9 +17942,43 @@
       "make": "smart",
       "model": "fortwo",
       "year": 2017,
-      "status": "approximate_add",
-      "reason": "approximate_needs_review: QC: MotorTrend 2017 page labels width 74.5 in as 'without mirrors' (Length (inches) 106.1 Width, without mirrors (inches) 74.5 Height (inches) 61.2), but 2017 (C453) fortwo is ~65.5 in body width; 74.5 is consistent with with-mirror width -> mislabeled, kept pending; no other same-year source fetched",
+      "status": "verified_add",
+      "reason": "verified: MBUSA 2017 smart fortwo coupe 与 electric drive coupe 规格表：Length 106.1 / Width (w/o mirrors) 65.5 / Height 61.2 in (2695/1664/1554 mm)；旧74.5in为含镜宽",
       "sources": [
+        {
+          "url": "https://media.mbusa.com/releases/release-0b8054e2635e44beabc6c5bafff1c0fd-2017-smart-fortwo-coupe-specifications",
+          "publisher": "Mercedes-Benz USA",
+          "market": "US",
+          "year": 2017,
+          "body": "Coupe",
+          "width_basis": "without_mirrors",
+          "retrieved_at": "2026-11-02",
+          "selected_trim": "2017 smart fortwo coupe (gas, spec sheet Sep 21 2016)",
+          "dimensions": {
+            "L-IN": "106.1",
+            "W-IN": "65.5",
+            "H-IN": "61.2"
+          },
+          "method": "MBUSA media spec sheet (staging J07-fortwo-width.jsonl)",
+          "verbatim": "Length 106.1 | Width (w/o mirrors) 65.5 | Height 61.2"
+        },
+        {
+          "url": "https://media.mbusa.com/releases/release-8dfc2c83a06e82baa64ca8cc400002f8-2017-smart-fortwo-electric-drive-coupe-specifications",
+          "publisher": "Mercedes-Benz USA",
+          "market": "US",
+          "year": 2017,
+          "body": "Coupe",
+          "width_basis": "without_mirrors",
+          "retrieved_at": "2026-11-02",
+          "selected_trim": "2017 smart fortwo coupe (electric drive, spec sheet Feb 3 2017)",
+          "dimensions": {
+            "L-IN": "106.1",
+            "W-IN": "65.5",
+            "H-IN": "61.2"
+          },
+          "method": "MBUSA media spec sheet (staging J07-fortwo-width.jsonl)",
+          "verbatim": "Length 106.1 | Width (w/o mirrors) 65.5 | Height 61.2"
+        },
         {
           "url": "https://www.motortrend.com/cars/smart/fortwo/2017/specs",
           "publisher": "MotorTrend",
@@ -17967,17 +18001,28 @@
       ],
       "record": {
         "L-IN": "106.1",
-        "W-IN": "74.5",
+        "W-IN": "65.5",
         "H-IN": "61.2",
-        "参考车型": "2017 Smart ForTwo Specs and Features (default trim, not named on page)",
+        "参考车型": "2017 smart fortwo coupe (MBUSA spec sheet)",
         "结构": "Coupe",
         "分类": "跑车",
         "版本": "",
         "代际": "",
-        "备注": "美国补库(2026-11-02)；approximate_needs_review；来源MotorTrend；存疑：QC: MotorTrend 2017 page labels width 74.5 in as 'without mirrors' (Length (inches) 106.1 Width, without mirrors (inches) 74.5 Height (inches) 61.2), but 2017 (C453) fortwo is ~65.5 in body width; 74.；结构按manual_map推定",
-        "迭代状态": "待终核: approximate_needs_review 近似尺寸(可能含镜/来源冲突/QC降级)，需第二来源核对"
+        "备注": "美国补库(2026-11-02)；宽度修正：MBUSA 2017规格表车身宽(不含镜)65.5in=1664mm，替换含镜74.5in(1892mm)；来源MBUSA；结构按manual_map推定"
       },
-      "staging_status": "pending"
+      "width_fix": {
+        "old_W-IN": "74.5",
+        "new_W-IN": "65.5",
+        "old_width_mm": 1892,
+        "new_width_mm": 1664,
+        "basis": "旧值74.5in(1892mm)为含后视镜宽(MBUSA 2017 Quick Reference Guide 'Width 74.53\"')；MBUSA 2017规格表 Width (w/o mirrors) 65.5in",
+        "evidence": [
+          "https://media.mbusa.com/releases/release-0b8054e2635e44beabc6c5bafff1c0fd-2017-smart-fortwo-coupe-specifications",
+          "https://media.mbusa.com/releases/release-8dfc2c83a06e82baa64ca8cc400002f8-2017-smart-fortwo-electric-drive-coupe-specifications",
+          "https://media.mbusa.com/releases/release-8c9a5c715894491cadf579f4c5282532-2017-smart-fortwo-coupe-quick-reference-guide"
+        ],
+        "staging": "dataman_out/staging/J07-fortwo-width.jsonl"
+      }
     },
     {
       "make": "Nissan",
@@ -20158,8 +20203,48 @@
       "model": "fortwo",
       "year": 2018,
       "status": "approximate_add",
-      "reason": "approximate_needs_review: 沿用库内2017 approximate 第三代 106.1/74.5/61.2",
+      "reason": "approximate_carry_over: 沿用2017 MBUSA规格表 106.1/65.5/61.2 in (2695/1664/1554 mm)；W453车身美国市场2018–2019未变(仅电动版)",
       "sources": [
+        {
+          "url": "https://media.mbusa.com/releases/release-0b8054e2635e44beabc6c5bafff1c0fd-2017-smart-fortwo-coupe-specifications",
+          "publisher": "Mercedes-Benz USA",
+          "market": "US",
+          "year": 2018,
+          "body": "Coupe",
+          "width_basis": "without_mirrors",
+          "retrieved_at": "2026-11-02",
+          "selected_trim": "2017 smart fortwo coupe (gas, spec sheet Sep 21 2016)",
+          "dimensions": {
+            "L-IN": "106.1",
+            "W-IN": "65.5",
+            "H-IN": "61.2"
+          },
+          "method": "MBUSA media spec sheet (staging J07-fortwo-width.jsonl)",
+          "verbatim": "Length 106.1 | Width (w/o mirrors) 65.5 | Height 61.2",
+          "spec_sheet_year": 2017,
+          "evidence_type": "carry_over",
+          "note": "沿用2017 MBUSA规格表；W453车身美国2018未变(仅electric drive)"
+        },
+        {
+          "url": "https://media.mbusa.com/releases/release-8dfc2c83a06e82baa64ca8cc400002f8-2017-smart-fortwo-electric-drive-coupe-specifications",
+          "publisher": "Mercedes-Benz USA",
+          "market": "US",
+          "year": 2018,
+          "body": "Coupe",
+          "width_basis": "without_mirrors",
+          "retrieved_at": "2026-11-02",
+          "selected_trim": "2017 smart fortwo coupe (electric drive, spec sheet Feb 3 2017)",
+          "dimensions": {
+            "L-IN": "106.1",
+            "W-IN": "65.5",
+            "H-IN": "61.2"
+          },
+          "method": "MBUSA media spec sheet (staging J07-fortwo-width.jsonl)",
+          "verbatim": "Length 106.1 | Width (w/o mirrors) 65.5 | Height 61.2",
+          "spec_sheet_year": 2017,
+          "evidence_type": "carry_over",
+          "note": "沿用2017 MBUSA规格表；W453车身美国2018未变(仅electric drive)"
+        },
         {
           "url": "https://www.edmunds.com/smart/fortwo/2008/features-specs/",
           "publisher": "Edmunds",
@@ -20185,21 +20270,74 @@
         "代际": "",
         "分类": "跑车",
         "L-IN": "106.1",
-        "W-IN": "74.5",
+        "W-IN": "65.5",
         "H-IN": "61.2",
         "参考车型": "2018 smart fortwo passion coupe",
-        "备注": "美国补库(2026-11-02)；approximate_needs_review；来源Edmunds；存疑：沿用库内2017 approximate 第三代 106.1/74.5/61.2；结构按manual_map推定",
-        "迭代状态": "待终核: approximate_needs_review 近似尺寸(可能含镜/来源冲突/QC降级)，需第二来源核对"
+        "备注": "美国补库(2026-11-02)；宽度修正：沿用2017 MBUSA规格表车身宽(不含镜)65.5in=1664mm(同代车身延续,2018仅electric drive)，替换含镜74.5in；approximate(carry-over)；结构按manual_map推定",
+        "迭代状态": "待终核: approximate carry-over 沿用2017 MBUSA同代车身尺寸"
       },
-      "staging_status": "pending"
+      "staging_status": "pending",
+      "width_fix": {
+        "old_W-IN": "74.5",
+        "new_W-IN": "65.5",
+        "old_width_mm": 1892,
+        "new_width_mm": 1664,
+        "basis": "旧值74.5in(1892mm)为含后视镜宽(MBUSA 2017 Quick Reference Guide 'Width 74.53\"')；MBUSA 2017规格表 Width (w/o mirrors) 65.5in",
+        "evidence": [
+          "https://media.mbusa.com/releases/release-0b8054e2635e44beabc6c5bafff1c0fd-2017-smart-fortwo-coupe-specifications",
+          "https://media.mbusa.com/releases/release-8dfc2c83a06e82baa64ca8cc400002f8-2017-smart-fortwo-electric-drive-coupe-specifications",
+          "https://media.mbusa.com/releases/release-8c9a5c715894491cadf579f4c5282532-2017-smart-fortwo-coupe-quick-reference-guide"
+        ],
+        "staging": "dataman_out/staging/J07-fortwo-width.jsonl"
+      }
     },
     {
       "make": "smart",
       "model": "fortwo",
       "year": 2019,
       "status": "approximate_add",
-      "reason": "approximate_needs_review: 沿用库内2017 approximate 第三代",
+      "reason": "approximate_carry_over: 沿用2017 MBUSA规格表 106.1/65.5/61.2 in (2695/1664/1554 mm)；W453车身美国市场2018–2019未变(仅电动版)",
       "sources": [
+        {
+          "url": "https://media.mbusa.com/releases/release-0b8054e2635e44beabc6c5bafff1c0fd-2017-smart-fortwo-coupe-specifications",
+          "publisher": "Mercedes-Benz USA",
+          "market": "US",
+          "year": 2019,
+          "body": "Coupe",
+          "width_basis": "without_mirrors",
+          "retrieved_at": "2026-11-02",
+          "selected_trim": "2017 smart fortwo coupe (gas, spec sheet Sep 21 2016)",
+          "dimensions": {
+            "L-IN": "106.1",
+            "W-IN": "65.5",
+            "H-IN": "61.2"
+          },
+          "method": "MBUSA media spec sheet (staging J07-fortwo-width.jsonl)",
+          "verbatim": "Length 106.1 | Width (w/o mirrors) 65.5 | Height 61.2",
+          "spec_sheet_year": 2017,
+          "evidence_type": "carry_over",
+          "note": "沿用2017 MBUSA规格表；W453车身美国2019未变(仅electric drive)"
+        },
+        {
+          "url": "https://media.mbusa.com/releases/release-8dfc2c83a06e82baa64ca8cc400002f8-2017-smart-fortwo-electric-drive-coupe-specifications",
+          "publisher": "Mercedes-Benz USA",
+          "market": "US",
+          "year": 2019,
+          "body": "Coupe",
+          "width_basis": "without_mirrors",
+          "retrieved_at": "2026-11-02",
+          "selected_trim": "2017 smart fortwo coupe (electric drive, spec sheet Feb 3 2017)",
+          "dimensions": {
+            "L-IN": "106.1",
+            "W-IN": "65.5",
+            "H-IN": "61.2"
+          },
+          "method": "MBUSA media spec sheet (staging J07-fortwo-width.jsonl)",
+          "verbatim": "Length 106.1 | Width (w/o mirrors) 65.5 | Height 61.2",
+          "spec_sheet_year": 2017,
+          "evidence_type": "carry_over",
+          "note": "沿用2017 MBUSA规格表；W453车身美国2019未变(仅electric drive)"
+        },
         {
           "url": "https://www.edmunds.com/smart/fortwo/2008/features-specs/",
           "publisher": "Edmunds",
@@ -20225,13 +20363,26 @@
         "代际": "",
         "分类": "跑车",
         "L-IN": "106.1",
-        "W-IN": "74.5",
+        "W-IN": "65.5",
         "H-IN": "61.2",
         "参考车型": "2019 smart fortwo passion coupe",
-        "备注": "美国补库(2026-11-02)；approximate_needs_review；来源Edmunds；存疑：沿用库内2017 approximate 第三代；结构按manual_map推定",
-        "迭代状态": "待终核: approximate_needs_review 近似尺寸(可能含镜/来源冲突/QC降级)，需第二来源核对"
+        "备注": "美国补库(2026-11-02)；宽度修正：沿用2017 MBUSA规格表车身宽(不含镜)65.5in=1664mm(同代车身延续,2019仅electric drive)，替换含镜74.5in；approximate(carry-over)；结构按manual_map推定",
+        "迭代状态": "待终核: approximate carry-over 沿用2017 MBUSA同代车身尺寸"
       },
-      "staging_status": "pending"
+      "staging_status": "pending",
+      "width_fix": {
+        "old_W-IN": "74.5",
+        "new_W-IN": "65.5",
+        "old_width_mm": 1892,
+        "new_width_mm": 1664,
+        "basis": "旧值74.5in(1892mm)为含后视镜宽(MBUSA 2017 Quick Reference Guide 'Width 74.53\"')；MBUSA 2017规格表 Width (w/o mirrors) 65.5in",
+        "evidence": [
+          "https://media.mbusa.com/releases/release-0b8054e2635e44beabc6c5bafff1c0fd-2017-smart-fortwo-coupe-specifications",
+          "https://media.mbusa.com/releases/release-8dfc2c83a06e82baa64ca8cc400002f8-2017-smart-fortwo-electric-drive-coupe-specifications",
+          "https://media.mbusa.com/releases/release-8c9a5c715894491cadf579f4c5282532-2017-smart-fortwo-coupe-quick-reference-guide"
+        ],
+        "staging": "dataman_out/staging/J07-fortwo-width.jsonl"
+      }
     },
     {
       "make": "Pontiac",

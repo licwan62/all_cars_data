@@ -2,26 +2,26 @@
   "schema_version": 2,
   "node": "structure-review",
   "path": "nodes/02.分类结构审核",
-  "version": "20261102_08",
-  "artifact": "nodes/02.分类结构审核/artifacts/2026-11-02_08_structure-review-release",
-  "published_at": "2026-11-02T18:25:24+08:00",
+  "version": "20261102_10",
+  "artifact": "nodes/02.分类结构审核/artifacts/2026-11-02_10_structure-review-release",
+  "published_at": "2026-11-02T18:41:43+08:00",
   "deliverables": [
     {
       "file": "车型结构.csv",
-      "versioned_file": "车型结构-20261102_07.csv",
-      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_07_category-standard/output/车型结构-20261102_07.csv",
+      "versioned_file": "车型结构-20261102_09.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_09_category-standard/output/车型结构-20261102_09.csv",
       "content_reference": true,
-      "sha256": "a9a32b9c66bd9fd7a49976412d2834cf69a50bd8af5cd9a327d8f7796e9c75e7",
-      "bytes": 6543181,
+      "sha256": "bcc8e2dc020fc1928a096409f036932802a6c6f850c8f1d24a172022d95fe0b2",
+      "bytes": 6542957,
       "rows": 47815
     },
     {
       "file": "车型结构_US.csv",
-      "versioned_file": "车型结构_US-20261102_07.csv",
-      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_07_category-standard/output/车型结构_US-20261102_07.csv",
+      "versioned_file": "车型结构_US-20261102_09.csv",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_09_category-standard/output/车型结构_US-20261102_09.csv",
       "content_reference": true,
-      "sha256": "5c028c8830f3263e2a5366b7d896082ace16ea38541982b0cb029068b248ac47",
-      "bytes": 1041754,
+      "sha256": "7845c465acffffb7ed1566e623fa821490199049efa3820e9cf4dceb219315e1",
+      "bytes": 1041530,
       "rows": 4837
     },
     {
@@ -46,7 +46,7 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261102_12",
+      "version": "20261102_15",
       "basis": "run",
       "files": [
         {
@@ -63,14 +63,10 @@
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261102_11.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库_US-20261102_11.csv",
-          "sha256": "9fa14b74f54ba8f591b14a598c2009af7710c4eabaccfb1ea9c0e2d1c86a2e8d"
+          "versioned_file": "尺寸库_US-20261102_14.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_14_regional-library/output/尺寸库_US-20261102_14.csv",
+          "sha256": "a1130609dacaa9b97bb6d771d11a2a38a075a1a97452aeac1d268130a591222a"
         }
-      ],
-      "versions": [
-        "20261102_10",
-        "20261102_12"
       ]
     }
   ],
