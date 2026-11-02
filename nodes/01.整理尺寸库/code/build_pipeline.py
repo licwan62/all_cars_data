@@ -72,7 +72,7 @@ def run():
                 rows, stage = traced[region]
                 mapping = merge.source_mapping(region, {r["DIMENSION-ID"] for r in rows}, stage)
                 merge.write_source_mapping(batch.output(f"来源映射_{region.upper()}.csv"), mapping)
-            shutil.copy2(merge.EU_MIGRATION_PATH, batch.output("EU_ID迁移.csv"))
+            merge.copy_eu_migration(batch.output("EU_ID迁移.csv"))
         finally:
             merge.latest_batch = old_latest
         batch.finish({"rows": len(merged), "as_of_year": config["as_of_year"],

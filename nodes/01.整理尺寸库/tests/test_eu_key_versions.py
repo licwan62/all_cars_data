@@ -71,6 +71,20 @@ def test_merge_stage_traces_every_input_id():
     assert mapping == {"a": result[0]["DIMENSION-ID"], "b": result[0]["DIMENSION-ID"]}
 
 
+def test_eu_migration_copy_reproduces_published_crlf(tmp_path):
+    source = tmp_path / "lf.csv"
+    source.write_bytes("旧DIMENSION-ID,新DIMENSION-ID\nA,B\n".encode())
+    copied = tmp_path / "out.csv"
+    merge.copy_eu_migration(copied, source)
+    assert copied.read_bytes() == "旧DIMENSION-ID,新DIMENSION-ID\r\nA,B\r\n".encode()
+    source.write_bytes(copied.read_bytes())
+    merge.copy_eu_migration(copied, source)
+    assert copied.read_bytes() == source.read_bytes()
+    destination = tmp_path / "EU_ID迁移.csv"
+    merge.copy_eu_migration(destination)
+    assert destination.read_bytes() == (PROJECT / "output" / "EU_ID迁移.csv").read_bytes()
+
+
 def test_published_eu_library_and_migration_are_consistent():
     library = read_csv(PROJECT / "output" / "尺寸库_EU.csv")
     merge.validate_eu_migration(library.to_dict("records"))
