@@ -2,17 +2,17 @@
   "schema_version": 2,
   "node": "shape-classification",
   "path": "nodes/03.车形分类核定",
-  "version": "20261102_09",
-  "artifact": "nodes/03.车形分类核定/artifacts/2026-11-02_09_shape-classification-release",
-  "published_at": "2026-11-02T12:44:12+08:00",
+  "version": "20261102_12",
+  "artifact": "nodes/03.车形分类核定/artifacts/2026-11-02_12_shape-classification-release",
+  "published_at": "2026-11-02T18:25:24+08:00",
   "deliverables": [
     {
       "file": "车形分类.csv",
-      "versioned_file": "车形分类-20261102_07.csv",
-      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_07_regional-shapes/output/车形分类-20261102_07.csv",
+      "versioned_file": "车形分类-20261102_10.csv",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_10_regional-shapes/output/车形分类-20261102_10.csv",
       "content_reference": true,
-      "sha256": "c74ed093395b08411a19d9023614f00ef390002aff1eacb2e9d1c39627ba1c69",
-      "bytes": 3558068,
+      "sha256": "7afdd3a15379b6ee06e7a64c34d71a0076312e1274ed3652bfdc9bf1dee01c00",
+      "bytes": 3558106,
       "rows": 47815
     },
     {
@@ -26,50 +26,50 @@
     },
     {
       "file": "COVER_SHAPE.csv",
-      "versioned_file": "COVER_SHAPE-20261102_08.csv",
-      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_08_representative-cover-shape/output/COVER_SHAPE-20261102_08.csv",
+      "versioned_file": "COVER_SHAPE-20261102_11.csv",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_11_representative-cover-shape/output/COVER_SHAPE-20261102_11.csv",
       "content_reference": true,
-      "sha256": "ebfebe05f81f3dda4aad3ff925ad676a3b0881104fd61c13bc8a161a0a69c132",
-      "bytes": 6846933,
+      "sha256": "935a8db942120520248e043ad38a1171d1f7e95622b4065b9777baa2dcc42515",
+      "bytes": 6846967,
       "rows": 47815
     },
     {
       "file": "cover_shape_summary.json",
-      "versioned_file": "cover_shape_summary-20261102_08.json",
-      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_08_representative-cover-shape/output/cover_shape_summary-20261102_08.json",
+      "versioned_file": "cover_shape_summary-20261102_11.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_11_representative-cover-shape/output/cover_shape_summary-20261102_11.json",
       "content_reference": true,
-      "sha256": "a40241e2786ca04ef685d9a89e7b0b5a9eee02cc01a3da3fcd9ebe91be8673b7",
+      "sha256": "28a0e990c92c209fd24b6f968c65e1aecb881d32dc4238343cf96faf35ff8461",
       "bytes": 1542,
       "rows": null
     },
     {
       "file": "shape_research_queue.jsonl",
-      "versioned_file": "shape_research_queue-20261102_08.jsonl",
-      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_08_representative-cover-shape/output/shape_research_queue-20261102_08.jsonl",
+      "versioned_file": "shape_research_queue-20261102_11.jsonl",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-02_11_representative-cover-shape/output/shape_research_queue-20261102_11.jsonl",
       "content_reference": true,
-      "sha256": "07dd78aacdad3930b72cea2269cb00833a6e22491aa24dcdc729f37387cfe0a9",
-      "bytes": 9212585,
+      "sha256": "0722f1ee80794084f130dc890e8c09ca28845f2b6cdc7a29bcc142a02c861d23",
+      "bytes": 9212101,
       "rows": null
     }
   ],
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261102_10",
-      "artifact": "nodes/01.整理尺寸库/artifacts/2026-11-02_10_dimension-library-release",
+      "version": "20261102_12",
+      "artifact": "nodes/01.整理尺寸库/artifacts/2026-11-02_12_dimension-library-release",
       "basis": "publish-time",
       "files": [
         {
           "file": "尺寸库.csv",
-          "versioned_file": "尺寸库-20261102_06.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_06_regional-library/output/尺寸库-20261102_06.csv",
-          "sha256": "bb8cfb1c0f0e8b2d7a1a4b66d706394f78619bdbb86c1b0253a16b7d0feda640"
+          "versioned_file": "尺寸库-20261102_11.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库-20261102_11.csv",
+          "sha256": "4c70f8a6bbded5616e009da758e73157b6ed389188e566b1de92fa88c4dcb12a"
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261102_06.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_06_regional-library/output/尺寸库_US-20261102_06.csv",
-          "sha256": "e35b134e0f2fec3e1301f845f61972df28be2dace9d34b6d464c2bc31606b5f4"
+          "versioned_file": "尺寸库_US-20261102_11.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库_US-20261102_11.csv",
+          "sha256": "9fa14b74f54ba8f591b14a598c2009af7710c4eabaccfb1ea9c0e2d1c86a2e8d"
         },
         {
           "file": "尺寸库_EU.csv",
@@ -103,9 +103,9 @@
         },
         {
           "file": "US_补库核对.csv",
-          "versioned_file": "US_补库核对-20261102_06.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_06_regional-library/output/US_补库核对-20261102_06.csv",
-          "sha256": "ce77d2d0fb18725fff600782ba395fb699599b6b6c61acc954a0333cedf04d6d"
+          "versioned_file": "US_补库核对-20261102_11.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/US_补库核对-20261102_11.csv",
+          "sha256": "88c83aa532b1d0900a4c1c18177eec5d4dd31793e718622dedd7b338c3540ce2"
         },
         {
           "file": "US_补库待核.csv",
@@ -135,14 +135,14 @@
     },
     {
       "node": "structure-review",
-      "version": "20261102_06",
+      "version": "20261102_08",
       "basis": "run",
       "files": [
         {
           "file": "车型结构.csv",
-          "versioned_file": "车型结构-20261102_05.csv",
-          "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_05_category-standard/output/车型结构-20261102_05.csv",
-          "sha256": "77f0f1f0db0b674c97287df53e9bd021c7884152333de627d2ed33276aac0dc3"
+          "versioned_file": "车型结构-20261102_07.csv",
+          "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-02_07_category-standard/output/车型结构-20261102_07.csv",
+          "sha256": "a9a32b9c66bd9fd7a49976412d2834cf69a50bd8af5cd9a327d8f7796e9c75e7"
         }
       ]
     }
@@ -162,7 +162,7 @@
     },
     {
       "file": "data/US车形补充核定.csv",
-      "sha256": "fc3d80e295db3f9195b694b3046f2828d0054048c79618283328a492a4055a89"
+      "sha256": "438ece41015fb575b7c39c3135253fb8be099e94e66c404073e5594f9bef463d"
     },
     {
       "file": "data/cover_shape/README.md",

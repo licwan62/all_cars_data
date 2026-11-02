@@ -2,26 +2,26 @@
   "schema_version": 2,
   "node": "sales-estimation",
   "path": "nodes/02.销量评估",
-  "version": "20261102_12",
-  "artifact": "nodes/02.销量评估/artifacts/2026-11-02_12_sales-estimation-release",
-  "published_at": "2026-11-02T12:43:45+08:00",
+  "version": "20261102_16",
+  "artifact": "nodes/02.销量评估/artifacts/2026-11-02_16_sales-estimation-release",
+  "published_at": "2026-11-02T18:25:24+08:00",
   "deliverables": [
     {
       "file": "原子销量.csv",
-      "versioned_file": "原子销量-20261102_09.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_09_atomic-sales/output/原子销量-20261102_09.csv",
+      "versioned_file": "原子销量-20261102_13.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_13_atomic-sales/output/原子销量-20261102_13.csv",
       "content_reference": true,
-      "sha256": "c25904a44f3586f919a4cf11ab3cb694480d738cddc5cf9a86c7c35b7c04ab54",
-      "bytes": 902055,
+      "sha256": "2ed67375d47d6d3485b5346b90f7e2db35f5d67ccae293bcafc32be9f4f14a75",
+      "bytes": 902093,
       "rows": 15677
     },
     {
       "file": "原子销量待核.csv",
-      "versioned_file": "原子销量待核-20261102_09.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_09_atomic-sales/output/原子销量待核-20261102_09.csv",
+      "versioned_file": "原子销量待核-20261102_13.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_13_atomic-sales/output/原子销量待核-20261102_13.csv",
       "content_reference": true,
-      "sha256": "f6473bb31bac488fea307c74a74b08ab3e4c35924d42627414a0f6713c2c421c",
-      "bytes": 50354,
+      "sha256": "c100e00a8d9797cff44bda32c6d466c326beefd477e6d84cb467c495443fa124",
+      "bytes": 50392,
       "rows": 432
     },
     {
@@ -35,11 +35,11 @@
     },
     {
       "file": "市场潜力.csv",
-      "versioned_file": "市场潜力-20261102_11.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_11_us-market-potential/output/市场潜力-20261102_11.csv",
+      "versioned_file": "市场潜力-20261102_15.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_15_us-market-potential/output/市场潜力-20261102_15.csv",
       "content_reference": true,
-      "sha256": "11c06c1c07925f95bce92d7b7bd85e08f12e6309294b0d5ba8636fd8f1a1e01b",
-      "bytes": 262431,
+      "sha256": "f923b9cf02198f739c8250e85873d721c8d0d8db57de44c91c71a5d9ddfdd20f",
+      "bytes": 262469,
       "rows": 4837
     },
     {
@@ -55,14 +55,14 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261102_10",
+      "version": "20261102_12",
       "basis": "run",
       "files": [
         {
           "file": "尺寸库.csv",
-          "versioned_file": "尺寸库-20261102_06.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_06_regional-library/output/尺寸库-20261102_06.csv",
-          "sha256": "bb8cfb1c0f0e8b2d7a1a4b66d706394f78619bdbb86c1b0253a16b7d0feda640"
+          "versioned_file": "尺寸库-20261102_11.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库-20261102_11.csv",
+          "sha256": "4c70f8a6bbded5616e009da758e73157b6ed389188e566b1de92fa88c4dcb12a"
         },
         {
           "file": "尺寸库_RU.csv",
@@ -72,9 +72,9 @@
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261102_06.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_06_regional-library/output/尺寸库_US-20261102_06.csv",
-          "sha256": "e35b134e0f2fec3e1301f845f61972df28be2dace9d34b6d464c2bc31606b5f4"
+          "versioned_file": "尺寸库_US-20261102_11.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库_US-20261102_11.csv",
+          "sha256": "9fa14b74f54ba8f591b14a598c2009af7710c4eabaccfb1ea9c0e2d1c86a2e8d"
         },
         {
           "file": "来源映射_RU.csv",
@@ -82,6 +82,10 @@
           "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
           "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
         }
+      ],
+      "versions": [
+        "20261102_10",
+        "20261102_12"
       ]
     },
     {
