@@ -1,0 +1,493 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library",
+  "version": "20261102_11",
+  "description": "regional-library",
+  "created_at": "2026-11-02T18:23:31+08:00",
+  "finished_at": "2026-11-02T18:23:57+08:00",
+  "command": [
+    "build_pipeline.py"
+  ],
+  "inputs": [
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "EU/Ktype.csv",
+      "versioned_file": "EU/Ktype-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/eu/Ktype.csv",
+      "sha256": "8686a268563b3fdb60338cf93310f808b83b69f5dbc8d80acfd0e809891192d7"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "EU/KtypeMatched.csv",
+      "versioned_file": "EU/KtypeMatched-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/eu/KtypeMatched.csv",
+      "sha256": "d36d4dfbb91429ab2cf9da9328c188acdc6d1109d88e5340189c4c45dd55da1a"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "EU/DimensionGroup尺寸.csv",
+      "versioned_file": "EU/DimensionGroup尺寸-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/eu/DimensionGroup尺寸.csv",
+      "sha256": "3baed038166582e3d0792b024aa30a51f3d94cbe43a3d88da4b7a69471d1af00"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "RU/auto_ru_catalog_rank.csv",
+      "versioned_file": "RU/auto_ru_catalog_rank-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/ru/auto_ru_catalog_rank.csv",
+      "sha256": "4bac50ed223cf80f3d3d18632f66d41ec9967838d9e24d99dcbc715b0f756ac6"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "RU/auto_ru_dimensions_with_match_key.csv",
+      "versioned_file": "RU/auto_ru_dimensions_with_match_key-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/ru/auto_ru_dimensions_with_match_key.csv",
+      "sha256": "d346a1f83142891469445f0f77928f400777e68bc4b373874154735da93eeee9"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "RU/auto_ru_model_sales_with_match_key.csv",
+      "versioned_file": "RU/auto_ru_model_sales_with_match_key-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/ru/auto_ru_model_sales_with_match_key.csv",
+      "sha256": "804bb3c40f7979fbd469c6786a67b2d192bb0d80aa105f9a38725304f589dcea"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "US/00_US尺寸库.csv",
+      "versioned_file": "US/00_US尺寸库-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/us/00_US尺寸库.csv",
+      "sha256": "5f351ca5ad8ecb82266c4612b327a4516dbb446fc476229cc8f3de07d41b7a73"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "候选来源.json",
+      "versioned_file": "候选来源-20261101_02.json",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/output/候选来源-20261101_02.json",
+      "sha256": "ef2969d0a14bc5b8775ccf66d04a1d889c1f748742d85b6c85ed8c94deb9e5c4"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/01.整理尺寸库/data",
+    "git_commit": "a19cfe75165813b22b84d986f5c234182cecabd5",
+    "copied": [
+      "data/us/year_gap_resolutions.json"
+    ],
+    "files": [
+      {
+        "file": "data/EU_ID迁移.csv",
+        "sha256": "092b9ba729ff9b559c700ae2a8676aa3e912dfd83d57133d9476e7cdd3a4b8d4",
+        "raw_sha256": "092b9ba729ff9b559c700ae2a8676aa3e912dfd83d57133d9476e7cdd3a4b8d4",
+        "bytes": 3446103
+      },
+      {
+        "file": "data/EU裸SUV疑似重复候选.csv",
+        "sha256": "a792c1c759a1e98507c453f0b9bbfc5893b96c3863969fffd2ddbf7178881b70",
+        "raw_sha256": "a792c1c759a1e98507c453f0b9bbfc5893b96c3863969fffd2ddbf7178881b70",
+        "bytes": 128
+      },
+      {
+        "file": "data/RU裸SUV疑似重复候选.csv",
+        "sha256": "8829120187437214c11d82ae0e276e1e6f732d37946e54cc98db7a11d28580c9",
+        "raw_sha256": "8829120187437214c11d82ae0e276e1e6f732d37946e54cc98db7a11d28580c9",
+        "bytes": 10119
+      },
+      {
+        "file": "data/build_config.json",
+        "sha256": "e145f0a8f0d352f4dbee4ca8a58492cbace3f7150627eb591e1c657c698cc934",
+        "raw_sha256": "e145f0a8f0d352f4dbee4ca8a58492cbace3f7150627eb591e1c657c698cc934",
+        "bytes": 21
+      },
+      {
+        "file": "data/data_source/trimslate-vehicles.csv",
+        "sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+        "raw_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+        "bytes": 9200154
+      },
+      {
+        "file": "data/data_source/vehicles.csv",
+        "sha256": "4647c58d9ff6fe962568f9990ce7bc16b92f71abaa3e18035ef41d7e818805ee",
+        "raw_sha256": "4647c58d9ff6fe962568f9990ce7bc16b92f71abaa3e18035ef41d7e818805ee",
+        "bytes": 1203628
+      },
+      {
+        "file": "data/dimension_id_generation.json",
+        "sha256": "8d4b332688231ac6de677cd58a9e7aaef2631c13af441b518669e627167a88f1",
+        "raw_sha256": "8d4b332688231ac6de677cd58a9e7aaef2631c13af441b518669e627167a88f1",
+        "bytes": 623
+      },
+      {
+        "file": "data/eu_key_versions.json",
+        "sha256": "416ac23c42e1758f5187d9000fdb2d72423d7284b58f6df4904dfeba910dd979",
+        "raw_sha256": "416ac23c42e1758f5187d9000fdb2d72423d7284b58f6df4904dfeba910dd979",
+        "bytes": 1533
+      },
+      {
+        "file": "data/identity_merge_rules.json",
+        "sha256": "abb2b46e357dc725fa51b1bc5d9f0c6e205e588b03b1a0b4634a8f486d6d4b9e",
+        "raw_sha256": "abb2b46e357dc725fa51b1bc5d9f0c6e205e588b03b1a0b4634a8f486d6d4b9e",
+        "bytes": 6578
+      },
+      {
+        "file": "data/legacy/07-FULL.csv",
+        "sha256": "63837c59589d4551a3822f7e7ab1dde02dd02b08143796fde2d763cb66332ab6",
+        "raw_sha256": "63837c59589d4551a3822f7e7ab1dde02dd02b08143796fde2d763cb66332ab6",
+        "bytes": 868029
+      },
+      {
+        "file": "data/legacy/rules.csv",
+        "sha256": "59852e475afea0f48b1245f0b9f3b01e1d547a15efa9600b5c8d373abfec5138",
+        "raw_sha256": "59852e475afea0f48b1245f0b9f3b01e1d547a15efa9600b5c8d373abfec5138",
+        "bytes": 832
+      },
+      {
+        "file": "data/ru/0916/无尺码分析.csv",
+        "sha256": "d21d6d4aeb9e8bcb0da97dc10aed6d62f8cb51bae66f94b15ca1b1d8c3603299",
+        "raw_sha256": "d21d6d4aeb9e8bcb0da97dc10aed6d62f8cb51bae66f94b15ca1b1d8c3603299",
+        "bytes": 158307
+      },
+      {
+        "file": "data/structure_normalization.json",
+        "sha256": "2e7263f3dcfcf7c3465dd85e73c3177a050566ca973f115323d8da3fc1f08186",
+        "raw_sha256": "2e7263f3dcfcf7c3465dd85e73c3177a050566ca973f115323d8da3fc1f08186",
+        "bytes": 364
+      },
+      {
+        "file": "data/us/2027_gle_sources.md",
+        "sha256": "e81b270998e3ebe674f681d9b994b7a0b20e527822cf9a4d9e9773405d1386bf",
+        "raw_sha256": "e81b270998e3ebe674f681d9b994b7a0b20e527822cf9a4d9e9773405d1386bf",
+        "bytes": 922
+      },
+      {
+        "file": "data/us/README.md",
+        "sha256": "692d83462fb9355ffa7dfecbe63940429caf49551c39a98f5f1ef3427810e19b",
+        "raw_sha256": "692d83462fb9355ffa7dfecbe63940429caf49551c39a98f5f1ef3427810e19b",
+        "bytes": 2122
+      },
+      {
+        "file": "data/us/audi_a7_evidence.json",
+        "sha256": "8aebab9f7b3203ca0f9feaff2ca5d543fc40cba274840677bb463eb3824241e9",
+        "raw_sha256": "8aebab9f7b3203ca0f9feaff2ca5d543fc40cba274840677bb463eb3824241e9",
+        "bytes": 2327
+      },
+      {
+        "file": "data/us/audi_a7_split.json",
+        "sha256": "b8bc94335a15aa469a5b10bb67d353207a94430fae7ded8777faf6baad0e4dd1",
+        "raw_sha256": "b8bc94335a15aa469a5b10bb67d353207a94430fae7ded8777faf6baad0e4dd1",
+        "bytes": 1196
+      },
+      {
+        "file": "data/us/dimension_corrections.json",
+        "sha256": "e3e3059968af01e599079ffcd3ecee242f2faedaabd1542b78dfdb92e2159b97",
+        "raw_sha256": "e3e3059968af01e599079ffcd3ecee242f2faedaabd1542b78dfdb92e2159b97",
+        "bytes": 1189
+      },
+      {
+        "file": "data/us/evidence/1c90c323e88fff89a0506dd4d943527e8c0dbb47ae121e31857ba47526109d3c.pdf",
+        "sha256": "1c90c323e88fff89a0506dd4d943527e8c0dbb47ae121e31857ba47526109d3c",
+        "raw_sha256": "1c90c323e88fff89a0506dd4d943527e8c0dbb47ae121e31857ba47526109d3c",
+        "bytes": 2217189
+      },
+      {
+        "file": "data/us/evidence/1d9d4e5347c5f4b353571043792ab0a573d02da3ffd64d5190d864f39e5e8cd9.jpg",
+        "sha256": "1d9d4e5347c5f4b353571043792ab0a573d02da3ffd64d5190d864f39e5e8cd9",
+        "raw_sha256": "1d9d4e5347c5f4b353571043792ab0a573d02da3ffd64d5190d864f39e5e8cd9",
+        "bytes": 3079152
+      },
+      {
+        "file": "data/us/evidence/24dd2bd57e1186240596b24f12af9653e8fc6798d2c3ecada7570ab3cbeed63f.jpg",
+        "sha256": "24dd2bd57e1186240596b24f12af9653e8fc6798d2c3ecada7570ab3cbeed63f",
+        "raw_sha256": "24dd2bd57e1186240596b24f12af9653e8fc6798d2c3ecada7570ab3cbeed63f",
+        "bytes": 958478
+      },
+      {
+        "file": "data/us/evidence/3d61409a721aa2dceb281b70fcc5d846e70ad5199f881d6e74ed3c8cb210b82f.pdf",
+        "sha256": "3d61409a721aa2dceb281b70fcc5d846e70ad5199f881d6e74ed3c8cb210b82f",
+        "raw_sha256": "3d61409a721aa2dceb281b70fcc5d846e70ad5199f881d6e74ed3c8cb210b82f",
+        "bytes": 1924959
+      },
+      {
+        "file": "data/us/evidence/428edb9fcb61632e89ccf4f040d5ac03ab975a0252a772e57a747299df8d70a1.jpg",
+        "sha256": "428edb9fcb61632e89ccf4f040d5ac03ab975a0252a772e57a747299df8d70a1",
+        "raw_sha256": "428edb9fcb61632e89ccf4f040d5ac03ab975a0252a772e57a747299df8d70a1",
+        "bytes": 38164
+      },
+      {
+        "file": "data/us/evidence/4de4ea15dd5226c1a6a0f2f7183b1873efdd8403a4dfbdadef3366fc42ff46a9.jpg",
+        "sha256": "4de4ea15dd5226c1a6a0f2f7183b1873efdd8403a4dfbdadef3366fc42ff46a9",
+        "raw_sha256": "4de4ea15dd5226c1a6a0f2f7183b1873efdd8403a4dfbdadef3366fc42ff46a9",
+        "bytes": 1219585
+      },
+      {
+        "file": "data/us/evidence/5eab5cd6d3afb1a37f182c65464cf6f938f1ab601da5b139dbff13ef1d8f1a58.pdf",
+        "sha256": "5eab5cd6d3afb1a37f182c65464cf6f938f1ab601da5b139dbff13ef1d8f1a58",
+        "raw_sha256": "5eab5cd6d3afb1a37f182c65464cf6f938f1ab601da5b139dbff13ef1d8f1a58",
+        "bytes": 2625782
+      },
+      {
+        "file": "data/us/evidence/9c26a5bd9398f0734a2f9e74c6b1e4ce0fbec5cb787899e28b691ad7cf49c4cd.pdf",
+        "sha256": "9c26a5bd9398f0734a2f9e74c6b1e4ce0fbec5cb787899e28b691ad7cf49c4cd",
+        "raw_sha256": "9c26a5bd9398f0734a2f9e74c6b1e4ce0fbec5cb787899e28b691ad7cf49c4cd",
+        "bytes": 1963380
+      },
+      {
+        "file": "data/us/evidence/c799093196b835dcf9721f942603b2bf6fd10476c63f2b1311ae4993b0483e73.jpg",
+        "sha256": "c799093196b835dcf9721f942603b2bf6fd10476c63f2b1311ae4993b0483e73",
+        "raw_sha256": "c799093196b835dcf9721f942603b2bf6fd10476c63f2b1311ae4993b0483e73",
+        "bytes": 1547713
+      },
+      {
+        "file": "data/us/evidence/dd5604d9483dde4abc57e9d06f390d2ae263359c9add1c16539d202113889256.jpg",
+        "sha256": "dd5604d9483dde4abc57e9d06f390d2ae263359c9add1c16539d202113889256",
+        "raw_sha256": "dd5604d9483dde4abc57e9d06f390d2ae263359c9add1c16539d202113889256",
+        "bytes": 512634
+      },
+      {
+        "file": "data/us/model_members.json",
+        "sha256": "66c7aa83d999aa230043a058d2777b7dda5621fd892f678fdac652824cffade0",
+        "raw_sha256": "66c7aa83d999aa230043a058d2777b7dda5621fd892f678fdac652824cffade0",
+        "bytes": 9822
+      },
+      {
+        "file": "data/us/year_gap_resolutions.json",
+        "sha256": "9475f4ea5d6d6d2c339d459fdfe733f1d0b8be1aa4c3498e3d33c441e81e2327",
+        "raw_sha256": "9475f4ea5d6d6d2c339d459fdfe733f1d0b8be1aa4c3498e3d33c441e81e2327",
+        "bytes": 878821,
+        "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/rules/data/us/year_gap_resolutions.json"
+      },
+      {
+        "file": "data/来源.md",
+        "sha256": "79b463d60549e7e33316c40fd7e328b5778482d3cf89cf22496cf1da001a7038",
+        "raw_sha256": "79b463d60549e7e33316c40fd7e328b5778482d3cf89cf22496cf1da001a7038",
+        "bytes": 1429
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "a19cfe75165813b22b84d986f5c234182cecabd5",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "15ce83f9a9205851ebdcccac865bd7ccb1e1d3473108f5bfc9f8fe4b8ed0a8cb"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "fb791f68b647468fb58256835158805eebc8d54ccd5861962a34dcdbaeed4237"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "6b1c9b547afa5c237df1864b7f858ca6d65d15a137a9971ebf7c146c1e3e4776"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_dimension_library.py",
+        "sha256": "3467b9d06b75f8ddbf64b7c93ca9e33266ba1cc75f6c196c61390d56bc2a8b5d"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_eu_id_migration.py",
+        "sha256": "59fa5bda3f79662094e899db6a5fbd7e431e7e65c1c85f13d38f8b0c5e17b79f"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_pipeline.py",
+        "sha256": "cad0abd1bf244771e9cbdd978e151baae14dd2d1514d18406b5bfd5adef28bac"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_us_research_queue.py",
+        "sha256": "2f53d56e6e498337706f81037eb3de94b09dfb3abca0d8ae8008b75fe5eb9e86"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/find_bare_suv_duplicate_candidates.py",
+        "sha256": "b857ed39fd65cfc375dc15fd800846f769bd542f8ba8cc1b31a90593dc9ee5e0"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/merge_dimension_library.py",
+        "sha256": "11898660a64c30dd734d3a8dac0ec3de9f0fbd1c04219101000249be721c848b"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/regional_sources.py",
+        "sha256": "d5f102df7518d501fad6927b6d51143415a4e99a3751b1ef3cce17f9b1c3ee76"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/us_dimension_corrections.py",
+        "sha256": "091dbbb522d00a9e4e2614c017d0983ac4fab75e2f1860d4b5868a16c2f0d8d5"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/us_model_splits.py",
+        "sha256": "e6df2ad474210ad010bb5318f40ee48726083849a8a77aa4a33898bb69425593"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/us_year_supplements.py",
+        "sha256": "ce5f78b9f74f37f1f7fd6b70a9363aa3e5861f092d7944790b154e612a096311"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "US_ID迁移.csv",
+      "versioned_file": "US_ID迁移-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_03_regional-library/output/US_ID迁移-20261101_03.csv",
+      "content_reference": true,
+      "sha256": "9920d2887a5a40faaaebdc44b7a5931a55f165076136d018f61dab7d41281e54",
+      "bytes": 81,
+      "rows": 0
+    },
+    {
+      "file": "US_拆分候选.csv",
+      "versioned_file": "US_拆分候选-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_03_regional-library/output/US_拆分候选-20261101_03.csv",
+      "content_reference": true,
+      "sha256": "c439b58b4845d4457a54c1774f4734de47a90dedbd677ac72a9032561f468e4e",
+      "bytes": 7248,
+      "rows": 42
+    },
+    {
+      "file": "US_拆分待核.csv",
+      "versioned_file": "US_拆分待核-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_03_regional-library/output/US_拆分待核-20261101_03.csv",
+      "content_reference": true,
+      "sha256": "9c6a51ea696d336709849e57bcaa68008ae9cbe0d4373a57cf0acc09c1d40f91",
+      "bytes": 1385,
+      "rows": 6
+    },
+    {
+      "file": "US_补库核对.csv",
+      "versioned_file": "US_补库核对-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/US_补库核对-20261102_11.csv",
+      "content_reference": true,
+      "sha256": "88c83aa532b1d0900a4c1c18177eec5d4dd31793e718622dedd7b338c3540ce2",
+      "bytes": 153942,
+      "rows": 504
+    },
+    {
+      "file": "US_补库待核.csv",
+      "versioned_file": "US_补库待核-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/US_补库待核-20261101_19.csv",
+      "content_reference": true,
+      "sha256": "f6ed2e22e25f959b8ed8cff48197d238ba4323ee81de06ea21c240fb2422cdbf",
+      "bytes": 25510,
+      "rows": 50
+    },
+    {
+      "file": "尺寸库_US.csv",
+      "versioned_file": "尺寸库_US-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库_US-20261102_11.csv",
+      "content_reference": true,
+      "sha256": "9fa14b74f54ba8f591b14a598c2009af7710c4eabaccfb1ea9c0e2d1c86a2e8d",
+      "bytes": 1041761,
+      "rows": 4837
+    },
+    {
+      "file": "尺寸库_EU.csv",
+      "versioned_file": "尺寸库_EU-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_03_dimension-library-release/output/尺寸库_EU-20261009_03.csv",
+      "content_reference": true,
+      "sha256": "5d4d4351ca6ce48c7dd816ab1ec98cea5157c1627413f3892826053e5a536354",
+      "bytes": 3892687,
+      "rows": 29361
+    },
+    {
+      "file": "尺寸库_RU.csv",
+      "versioned_file": "尺寸库_RU-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_03_dimension-library-release/output/尺寸库_RU-20261009_03.csv",
+      "content_reference": true,
+      "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a",
+      "bytes": 1608928,
+      "rows": 13617
+    },
+    {
+      "file": "尺寸库.csv",
+      "versioned_file": "尺寸库-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_11_regional-library/output/尺寸库-20261102_11.csv",
+      "content_reference": true,
+      "sha256": "4c70f8a6bbded5616e009da758e73157b6ed389188e566b1de92fa88c4dcb12a",
+      "bytes": 6543144,
+      "rows": 47815
+    },
+    {
+      "file": "来源映射_EU.csv",
+      "versioned_file": "来源映射_EU-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_03_dimension-library-release/output/来源映射_EU-20261009_03.csv",
+      "content_reference": true,
+      "sha256": "a43d64cf242536d0bae6e2193cfb4f378a66b6f58e85335c1bf685ce7bad37a9",
+      "bytes": 3268589,
+      "rows": 50389
+    },
+    {
+      "file": "来源映射_RU.csv",
+      "versioned_file": "来源映射_RU-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_03_dimension-library-release/output/来源映射_RU-20261009_03.csv",
+      "content_reference": true,
+      "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe",
+      "bytes": 1209960,
+      "rows": 13868
+    },
+    {
+      "file": "EU_ID迁移.csv",
+      "versioned_file": "EU_ID迁移-20261102_11.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_03_dimension-library-release/output/EU_ID迁移-20261009_03.csv",
+      "content_reference": true,
+      "sha256": "4cd2b24a5a41668a10f338ee238df954c3f05900b34371b7118cb6646766c81b",
+      "bytes": 3476979,
+      "rows": 30875
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "rows": 47815,
+    "as_of_year": 2026,
+    "us_split_candidates": 42,
+    "us_split_pending": 6,
+    "us_applied_migrations": 0,
+    "us_supplements_added": 372,
+    "us_supplements_approximate": 82,
+    "us_supplements_pending_or_excluded": 50
+  }
+}

@@ -449,11 +449,15 @@ class FullPipelineRegressionTests(unittest.TestCase):
         self.assertEqual(summary["unique_dimension_ids"], self.expected_rows)
         # 140 existing unavailable mappings + 3 newly registered F-Pace model-years
         # without model-year-specific size mappings; the vehicle identities still flow through.
-        unavailable_sizes = 143
+        # +12 smart fortwo Coupe 2008-2019 (US supplement) are shorter than the smallest
+        # 跑车 size 3S-0; no matching size is legal by design.
+        unavailable_sizes = 155
         self.assertEqual(summary["unavailable_sizes"], unavailable_sizes)
         self.assertEqual(summary["matched_sizes"], self.expected_rows - unavailable_sizes)
         self.assertEqual(summary["incomplete_rows"], 0)
-        self.assertEqual(summary["sales_total"], 750288484)
+        # 750288484 -> 750945573: 02.销量评估 原子销量.csv gained 362 rows (0 removed) for the
+        # 2026-11-02 US year-gap supplement model-years.
+        self.assertEqual(summary["sales_total"], 750945573)
 
         dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]

@@ -2,9 +2,9 @@
   "schema_version": 2,
   "node": "dimension-crawler",
   "path": "nodes/00.自动化尺寸抓取器",
-  "version": "20261101_03",
-  "artifact": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_03_dimension-crawler-release",
-  "published_at": "2026-11-01T02:14:23+08:00",
+  "version": "20261102_01",
+  "artifact": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-02_01_dimension-crawler-release",
+  "published_at": "2026-11-02T09:06:38+08:00",
   "deliverables": [
     {
       "file": "EU/Ktype.csv",
@@ -82,6 +82,10 @@
   "upstream": [],
   "rules": [
     {
+      "file": "data/README.md",
+      "sha256": "5ac95b80daab5e24a6df02de289acd29f9582a7ae2a2de3761f64e6133c57360"
+    },
+    {
       "file": "data/candidate_sources.json",
       "sha256": "ff488337bfcb2542ef3222e2cfed8ca7a71420932be3eb4ac1d0ff13042fda20"
     },
@@ -96,10 +100,6 @@
     {
       "file": "data/configs/us_edmund.yaml",
       "sha256": "0e3cf3ec68b9cd4bb7c1f870f0c74ec9e25c7e6c5f9121b6c3229000ad3042a1"
-    },
-    {
-      "file": "data/README.md",
-      "sha256": "5ac95b80daab5e24a6df02de289acd29f9582a7ae2a2de3761f64e6133c57360"
     },
     {
       "file": "data/历史导入/eu/DimensionGroup尺寸.csv",

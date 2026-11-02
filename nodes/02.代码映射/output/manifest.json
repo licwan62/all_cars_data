@@ -2,40 +2,40 @@
   "schema_version": 2,
   "node": "code-mapping",
   "path": "nodes/02.代码映射",
-  "version": "20261101_09",
-  "artifact": "nodes/02.代码映射/artifacts/2026-11-01_09_code-mapping-release",
-  "published_at": "2026-11-01T13:26:37+08:00",
+  "version": "20261102_12",
+  "artifact": "nodes/02.代码映射/artifacts/2026-11-02_12_code-mapping-release",
+  "published_at": "2026-11-02T18:41:54+08:00",
   "deliverables": [
     {
       "file": "车型编码映射.csv",
-      "versioned_file": "车型编码映射-20261101_03.csv",
-      "artifact_file": "nodes/02.代码映射/artifacts/2026-11-01_03_code-mapping/output/车型编码映射-20261101_03.csv",
+      "versioned_file": "车型编码映射-20261102_06.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-11-02_06_code-mapping/output/车型编码映射-20261102_06.csv",
       "content_reference": true,
-      "sha256": "cb4acf91d16fb878e2b139a65d07f481b2b9010bf2ed2fc827471a65af165eb6",
-      "bytes": 17400,
-      "rows": 705
+      "sha256": "a859af1bd295f4433353ce8505c9bb38b4ef615936e4b3a3fd695d9295044f7e",
+      "bytes": 18855,
+      "rows": 764
     },
     {
       "file": "尺寸编码映射.csv",
-      "versioned_file": "尺寸编码映射-20261101_08.csv",
-      "artifact_file": "nodes/02.代码映射/artifacts/2026-11-01_08_code-mapping/output/尺寸编码映射-20261101_08.csv",
+      "versioned_file": "尺寸编码映射-20261102_09.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-11-02_09_code-mapping/output/尺寸编码映射-20261102_09.csv",
       "content_reference": true,
-      "sha256": "6f6053af43672629f55f74802f920438c3d716fec19e2807329b9fdaff872b66",
-      "bytes": 205392,
-      "rows": 4475
+      "sha256": "ea49b3921ffa9aa69ca39be47ba8cf78ad7e3c7b6bd31f683a78972268f78021",
+      "bytes": 219246,
+      "rows": 4837
     }
   ],
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261101_20",
+      "version": "20261102_15",
       "basis": "run",
       "files": [
         {
           "file": "尺寸库.csv",
-          "versioned_file": "尺寸库-20261101_19.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/尺寸库-20261101_19.csv",
-          "sha256": "6b630fb873f154a2d0cfd1642e744f47cccdee67f6300ae3364caf5a9a752a53"
+          "versioned_file": "尺寸库-20261102_14.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_14_regional-library/output/尺寸库-20261102_14.csv",
+          "sha256": "7d1aad8b5f6b58a2547d8a8ed340a95b59562d8bf5f1298e378c64e6e6bdf63c"
         }
       ]
     }
@@ -114,12 +114,36 @@
       "sha256": "56edb3853909d7e806f85915ac8c2a76060d12c5e3d9d09c3d26d80b057ed468"
     },
     {
-      "file": "data/mapping/us/make_mapping.csv",
+      "file": "data/mapping/us/backups/20261102_090423_537962_make_mapping.csv",
       "sha256": "e094e6bea30228d5a67c86fbe52918234eb32cba6874e6392f7f062826e3bb86"
     },
     {
-      "file": "data/mapping/us/model_mapping.csv",
+      "file": "data/mapping/us/backups/20261102_090423_537962_model_mapping.csv",
       "sha256": "0a74b93b7444df0e5ae0b883045e178e4755dba8cd540faecc65a786611a3f48"
+    },
+    {
+      "file": "data/mapping/us/backups/20261102_123828_259924_make_mapping.csv",
+      "sha256": "cc57590579b572e837f548537d35a1cac827f4924c2b941296356efe3971b396"
+    },
+    {
+      "file": "data/mapping/us/backups/20261102_123828_259924_model_mapping.csv",
+      "sha256": "2d9c6e3d6b2fe352daa3a873a6707fc211e891c04f2bfd4ac2c3a33eecfc86e0"
+    },
+    {
+      "file": "data/mapping/us/backups/20261102_124345_756312_make_mapping.csv",
+      "sha256": "61706241228693c795e2ad2aa6bf00ad9088ee8bdab9a175019236d404b3192b"
+    },
+    {
+      "file": "data/mapping/us/backups/20261102_124345_756312_model_mapping.csv",
+      "sha256": "935b96aeabceaefcec65fd206fb0369d3a68da177d54a8b2fe55a5b02088d0ae"
+    },
+    {
+      "file": "data/mapping/us/make_mapping.csv",
+      "sha256": "364dac2d69a6580f13b3168e5e313382ff38d572fdfece461a71346262aa060e"
+    },
+    {
+      "file": "data/mapping/us/model_mapping.csv",
+      "sha256": "543ef587398aac81f3f94a94b4b07a23c1978270c7570350fa2959dda8d2bf51"
     },
     {
       "file": "data/编码规则.md",

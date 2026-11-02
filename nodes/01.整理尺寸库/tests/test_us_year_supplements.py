@@ -89,3 +89,17 @@ def test_generation_requires_evidence_for_the_same_market_and_year():
     source["year"] = 2020
     result, _ = apply_supplements(rows, rules)
     assert result[-1]["代际"] == "gen2"
+
+
+def test_approximate_add_is_added_with_pending_final_review_status():
+    rules = json.loads((NODE / "data/us/year_gap_resolutions.json").read_text(encoding="utf-8-sig"))
+    approx = [r for r in rules["resolutions"] if r["status"] == "approximate_add"]
+    assert approx and all(r["record"]["迭代状态"].startswith("待终核") and r["record"]["备注"] for r in approx)
+    item = copy.deepcopy(approx[0])
+    rows = [{"DIMENSION-ID": "baseline", "MAKE": "Other", "MODEL": "Car", "YEAR": "2000", "迭代状态": ""}]
+    result, review = apply_supplements(rows, {"resolutions": [item]}, NODE)
+    assert result[-1]["迭代状态"].startswith("待终核")
+    assert review[0]["处理结果"] == "approximate_add"
+    item["record"]["迭代状态"] = "可入库"
+    with pytest.raises(ValueError):
+        apply_supplements(rows, {"resolutions": [item]}, NODE)

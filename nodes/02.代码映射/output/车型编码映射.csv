@@ -82,6 +82,7 @@ US,Ford,Excursion,01,24
 US,Ford,Freestyle,01,25
 US,Ford,C-MAX,01,26
 US,Ford,GT,01,27
+US,Ford,Transit Connect,01,28
 US,Toyota,Camry,02,00
 US,Toyota,Corolla,02,01
 US,Toyota,RAV4,02,02
@@ -161,6 +162,8 @@ US,Nissan,Cube,04,19
 US,Nissan,Ariya,04,20
 US,Nissan,Z,04,21
 US,Nissan,GT-R,04,22
+US,Nissan,NV200 Cargo Van,04,23
+US,Nissan,Quest,04,24
 US,Buick,LeSabre,05,00
 US,Buick,Century,05,01
 US,Buick,Regal,05,02
@@ -180,6 +183,7 @@ US,Buick,Envista,05,15
 US,Buick,Rainier,05,16
 US,Buick,Reatta,05,17
 US,Buick,Cascada,05,18
+US,Buick,Terraza,05,19
 US,Dodge,Caravan,06,00
 US,Dodge,Charger,06,01
 US,Dodge,Dakota,06,02
@@ -199,6 +203,7 @@ US,Dodge,Magnum,06,15
 US,Dodge,Stealth,06,16
 US,Dodge,Hornet,06,17
 US,Dodge,Viper,06,18
+US,Dodge,Grand Caravan,06,19
 US,Jeep,Grand Cherokee,07,00
 US,Jeep,Wrangler,07,01
 US,Jeep,Cherokee,07,02
@@ -211,6 +216,7 @@ US,Jeep,Gladiator,07,08
 US,Jeep,Grand Wagoneer,07,09
 US,Jeep,Commander,07,10
 US,Jeep,Wagoneer S,07,11
+US,Jeep,Recon,07,12
 US,Oldsmobile,Cutlass,08,00
 US,Oldsmobile,88,08,01
 US,Oldsmobile,Alero,08,02
@@ -219,6 +225,7 @@ US,Oldsmobile,Intrigue,08,04
 US,Oldsmobile,Bravada,08,05
 US,Oldsmobile,Aurora,08,06
 US,Oldsmobile,Custom Cruiser,08,07
+US,Oldsmobile,Silhouette,08,08
 US,Pontiac,Grand Prix,09,00
 US,Pontiac,Bonneville,09,01
 US,Pontiac,Grand Am,09,02
@@ -236,9 +243,11 @@ US,Pontiac,Solstice,09,13
 US,Pontiac,G8,09,14
 US,Pontiac,Grand Safari,09,15
 US,Pontiac,G3,09,16
+US,Pontiac,Montana,09,17
 US,Ram,1500,10,00
 US,Ram,2500/3500,10,01
 US,Ram,1500 Classic,10,02
+US,Ram,Promaster City,10,03
 US,Hyundai,Elantra,11,00
 US,Hyundai,Sonata,11,01
 US,Hyundai,Santa Fe,11,02
@@ -262,6 +271,7 @@ US,Hyundai,IONIQ 6,11,19
 US,Hyundai,Equus,11,20
 US,Hyundai,Ioniq 9,11,21
 US,Hyundai,Nexo,11,22
+US,Hyundai,Entourage,11,23
 US,Volkswagen,Passat,12,00
 US,Volkswagen,Jetta,12,01
 US,Volkswagen,Rabbit,12,02
@@ -278,6 +288,9 @@ US,Volkswagen,Eos,12,12
 US,Volkswagen,Dasher,12,13
 US,Volkswagen,Arteon,12,14
 US,Volkswagen,Phaeton,12,15
+US,Volkswagen,CC,12,16
+US,Volkswagen,Routan,12,17
+US,Volkswagen,Eurovan,12,18
 US,GMC,Sierra 1500,13,00
 US,GMC,Yukon,13,01
 US,GMC,Sierra 2500HD/3500HD,13,02
@@ -289,6 +302,7 @@ US,GMC,Envoy,13,07
 US,GMC,Canyon,13,08
 US,GMC,Hummer SUV,13,09
 US,GMC,Sierra EV,13,10
+US,GMC,Hummer EV,13,11
 US,Cadillac,DeVille,14,00
 US,Cadillac,Eldorado,14,01
 US,Cadillac,Escalade,14,02
@@ -313,6 +327,7 @@ US,Cadillac,Optiq,14,20
 US,Cadillac,XLR,14,21
 US,Cadillac,Vistiq,14,22
 US,Cadillac,ELR,14,23
+US,Cadillac,CTS-V,14,24
 US,Subaru,Outback,15,00
 US,Subaru,Forester,15,01
 US,Subaru,Legacy,15,02
@@ -324,6 +339,9 @@ US,Subaru,Outback Sport,15,07
 US,Subaru,Tribeca,15,08
 US,Subaru,BRZ,15,09
 US,Subaru,Solterra,15,10
+US,Subaru,Trailseeker,15,11
+US,Subaru,Uncharted,15,12
+US,Subaru,Baja,15,13
 US,Kia,Sportage,16,00
 US,Kia,Sorento,16,01
 US,Kia,Optima,16,02
@@ -345,6 +363,9 @@ US,Kia,EV9,16,17
 US,Kia,Cadenza,16,18
 US,Kia,Borrego,16,19
 US,Kia,K900,16,20
+US,Kia,EV3,16,21
+US,Kia,K4,16,22
+US,Kia,Sedona,16,23
 US,Mercury,Cougar,17,00
 US,Mercury,Grand Marquis,17,01
 US,Mercury,Monterey,17,02
@@ -394,6 +415,7 @@ US,BMW,i5,19,20
 US,BMW,i7,19,21
 US,BMW,XM,19,22
 US,BMW,i8,19,23
+US,BMW,iX3,19,24
 US,Plymouth,Valiant,20,00
 US,Plymouth,Fury,20,01
 US,Plymouth,Neon,20,02
@@ -425,6 +447,7 @@ US,Mazda,CX-3,21,18
 US,Mazda,CX-70,21,19
 US,Mazda,RX-8,21,20
 US,Mazda,MX-30,21,21
+US,Mazda,MPV,21,22
 US,Lexus,RX,22,00
 US,Lexus,ES,22,01
 US,Lexus,IS,22,02
@@ -442,6 +465,7 @@ US,Lexus,RZ,22,13
 US,Lexus,HS,22,14
 US,Lexus,LC,22,15
 US,Lexus,LFA,22,16
+US,Lexus,IS F,22,17
 US,Mercedes-Benz,C-Class,23,00
 US,Mercedes-Benz,E-Class,23,01
 US,Mercedes-Benz,M-Class,23,02
@@ -466,6 +490,14 @@ US,Mercedes-Benz,CL-Class,23,20
 US,Mercedes-Benz,EQB,23,21
 US,Mercedes-Benz,SLC-Class,23,22
 US,Mercedes-Benz,B-Class,23,23
+US,Mercedes-Benz,CLE-Class,23,24
+US,Mercedes-Benz,EQE,23,25
+US,Mercedes-Benz,EQS,23,26
+US,Mercedes-Benz,Metris,23,27
+US,Mercedes-Benz,Metris Cargo,23,28
+US,Mercedes-Benz,Metris Passenger,23,29
+US,Mercedes-Benz,R-Class,23,30
+US,Mercedes-Benz,SLS AMG,23,31
 US,Lincoln,Town Car,24,00
 US,Lincoln,Continental,24,01
 US,Lincoln,Navigator,24,02
@@ -534,6 +566,18 @@ US,Audi,A6 e-tron/S6 e-tron,26,33
 US,Audi,90,26,34
 US,Audi,RS7,26,35
 US,Audi,S4,26,37
+US,Audi,A5,26,38
+US,Audi,A6 e-tron,26,39
+US,Audi,A8,26,40
+US,Audi,Q6 e-tron,26,41
+US,Audi,RS Q8,26,42
+US,Audi,S3,26,43
+US,Audi,S5,26,44
+US,Audi,S6 e-tron,26,45
+US,Audi,S8,26,46
+US,Audi,SQ5,26,47
+US,Audi,SQ6 e-tron,26,48
+US,Audi,SQ8,26,49
 US,Mitsubishi,Galant,27,00
 US,Mitsubishi,Eclipse,27,01
 US,Mitsubishi,Outlander,27,02
@@ -580,6 +624,7 @@ US,Infiniti,QX70,30,16
 US,Infiniti,QX55,30,17
 US,Infiniti,Q40,30,18
 US,Infiniti,Q70L,30,19
+US,Infiniti,QX65,30,20
 US,Volvo,XC90,31,00
 US,Volvo,XC60,31,01
 US,Volvo,S60,31,02
@@ -602,6 +647,7 @@ US,Volvo,EX30,31,18
 US,Volvo,C40,31,19
 US,Volvo,C40 Recharge,31,20
 US,Volvo,EC40,31,21
+US,Volvo,EX60,31,22
 US,MINI,Cooper,32,00
 US,MINI,Hatchback,32,01
 US,MINI,Hardtop,32,02
@@ -632,6 +678,7 @@ US,Porsche,Panamera,34,04
 US,Porsche,Cayman,34,05
 US,Porsche,Taycan,34,06
 US,Porsche,912,34,07
+US,Porsche,718,34,08
 US,Scion,tC,35,00
 US,Scion,xB,35,01
 US,Scion,xD,35,02
@@ -646,6 +693,9 @@ US,Suzuki,Forenza,36,02
 US,Suzuki,XL7,36,03
 US,Suzuki,SX4,36,04
 US,Suzuki,Aerio,36,05
+US,Suzuki,Kizashi,36,06
+US,Suzuki,Swift,36,07
+US,Suzuki,Vitara,36,08
 US,Jaguar,XJ,37,00
 US,Jaguar,S-Type,37,01
 US,Jaguar,X-Type,37,02
@@ -704,3 +754,12 @@ US,MG,Midget,49,07
 US,MG,TD Midget,49,08
 US,MG,TF Midget,49,09
 US,MG,TC Midget,49,10
+US,Fisker,Karma,50,00
+US,Fisker,Ocean,50,01
+US,smart,fortwo,51,00
+US,Hummer,H3,52,00
+US,Isuzu,Ascender,53,00
+US,BYD,e6,54,00
+US,Daewoo,Lanos,55,00
+US,Daewoo,Leganza,55,01
+US,Daewoo,Nubira,55,02

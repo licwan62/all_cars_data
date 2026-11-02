@@ -62,7 +62,7 @@ def run():
             write_table(batch.output("US_拆分候选.csv"), CANDIDATE_FIELDS, candidates)
             write_table(batch.output("US_拆分待核.csv"), PENDING_FIELDS, pending)
             write_table(batch.output("US_补库核对.csv"), SUPPLEMENT_FIELDS, supplement_review)
-            pending_supplements = [row for row in supplement_review if row["处理结果"] != "verified_add"]
+            pending_supplements = [row for row in supplement_review if row["处理结果"] not in ("verified_add", "approximate_add")]
             write_table(batch.output("US_补库待核.csv"), SUPPLEMENT_FIELDS, pending_supplements)
             merge.validate_eu_migration(traced["eu"][0])
             for region, (rows, _) in traced.items():
@@ -72,13 +72,14 @@ def run():
                 rows, stage = traced[region]
                 mapping = merge.source_mapping(region, {r["DIMENSION-ID"] for r in rows}, stage)
                 merge.write_source_mapping(batch.output(f"来源映射_{region.upper()}.csv"), mapping)
-            shutil.copy2(merge.EU_MIGRATION_PATH, batch.output("EU_ID迁移.csv"))
+            merge.copy_eu_migration(batch.output("EU_ID迁移.csv"))
         finally:
             merge.latest_batch = old_latest
         batch.finish({"rows": len(merged), "as_of_year": config["as_of_year"],
                       "us_split_candidates": len(candidates), "us_split_pending": len(pending),
                       "us_applied_migrations": len(migrations),
                       "us_supplements_added": sum(row["处理结果"] == "verified_add" for row in supplement_review),
+                      "us_supplements_approximate": sum(row["处理结果"] == "approximate_add" for row in supplement_review),
                       "us_supplements_pending_or_excluded": len(pending_supplements)},
                       publish_to=PROJECT / "output")
 

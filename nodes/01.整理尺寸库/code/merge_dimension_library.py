@@ -325,6 +325,22 @@ EU_MIGRATION_PATH = PROJECT_DIR / "data" / "EU_ID迁移.csv"
 EU_MIGRATION_NAME = "EU_ID迁移.csv"
 
 
+def copy_eu_migration(destination: Path, source: Path = EU_MIGRATION_PATH) -> None:
+    """Copy the maintained EU migration table using the published CRLF bytes.
+
+    ``data/EU_ID迁移.csv`` is a text rule and checks out as LF. The handoff in
+    ``output/`` is git ``-text`` and still stores the CRLF from the 2026-10-09
+    release. A plain copy on an LF checkout changes only newlines, so rebuild
+    byte-compare fails even though every row is the same. A checkout that is
+    already CRLF is copied unchanged.
+    """
+    raw = source.read_bytes()
+    if b"\r\n" not in raw:
+        raw = raw.replace(b"\n", b"\r\n")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_bytes(raw)
+
+
 def validate_eu_migration(eu_rows: list[dict[str, str]], path: Path = EU_MIGRATION_PATH) -> None:
     """EU 版本整改的 ID 迁移表：每个新 ID 都必须在当前 EU 尺寸库中，且当前每个 EU ID 都有来源。"""
     migration = read_csv(path)
