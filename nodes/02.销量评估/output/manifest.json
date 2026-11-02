@@ -2,27 +2,27 @@
   "schema_version": 2,
   "node": "sales-estimation",
   "path": "nodes/02.销量评估",
-  "version": "20261101_31",
-  "artifact": "nodes/02.销量评估/artifacts/2026-11-01_31_sales-estimation-release",
-  "published_at": "2026-11-01T13:26:34+08:00",
+  "version": "20261102_04",
+  "artifact": "nodes/02.销量评估/artifacts/2026-11-02_04_sales-estimation-release",
+  "published_at": "2026-11-02T09:05:45+08:00",
   "deliverables": [
     {
       "file": "原子销量.csv",
-      "versioned_file": "原子销量-20261101_28.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-01_28_atomic-sales/output/原子销量-20261101_28.csv",
+      "versioned_file": "原子销量-20261102_01.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_01_atomic-sales/output/原子销量-20261102_01.csv",
       "content_reference": true,
-      "sha256": "b949503e382b0d6db988fde51dde80b521ffa9a542598e3ffb65978344247e74",
-      "bytes": 885955,
-      "rows": 15315
+      "sha256": "378cd5d069c68afd42b463ce2a0f1cf38da5bf40eb4faf89c83f7cc2b2a26812",
+      "bytes": 897948,
+      "rows": 15580
     },
     {
       "file": "原子销量待核.csv",
-      "versioned_file": "原子销量待核-20261101_28.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-01_28_atomic-sales/output/原子销量待核-20261101_28.csv",
+      "versioned_file": "原子销量待核-20261102_01.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_01_atomic-sales/output/原子销量待核-20261102_01.csv",
       "content_reference": true,
-      "sha256": "ce67871475bbb13498b219bd507037d6667c28580b52842830cc9f1ff8ad8df8",
-      "bytes": 14366,
-      "rows": 94
+      "sha256": "385fb02a4f7b1a600e5b90cfcd231f8ecc5606e94f3c5dab757dee76d4dd7383",
+      "bytes": 40873,
+      "rows": 339
     },
     {
       "file": "RU代理销量.csv",
@@ -35,12 +35,12 @@
     },
     {
       "file": "市场潜力.csv",
-      "versioned_file": "市场潜力-20261101_30.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-01_30_us-market-potential/output/市场潜力-20261101_30.csv",
+      "versioned_file": "市场潜力-20261102_03.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_03_us-market-potential/output/市场潜力-20261102_03.csv",
       "content_reference": true,
-      "sha256": "80d39253aaeb287fbf03f9ad334020f56b77000ab8efb7ab42b2eba2c6bf97bd",
-      "bytes": 245675,
-      "rows": 4475
+      "sha256": "5f36dc21be8eb4faf0579d0524ca9d27b1ea6e17acf2888f8170c062509a2883",
+      "bytes": 258150,
+      "rows": 4740
     },
     {
       "file": "积加销量.csv",
@@ -55,14 +55,14 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261101_20",
+      "version": "20261102_02",
       "basis": "run",
       "files": [
         {
           "file": "尺寸库.csv",
-          "versioned_file": "尺寸库-20261101_19.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/尺寸库-20261101_19.csv",
-          "sha256": "6b630fb873f154a2d0cfd1642e744f47cccdee67f6300ae3364caf5a9a752a53"
+          "versioned_file": "尺寸库-20261102_01.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_01_regional-library/output/尺寸库-20261102_01.csv",
+          "sha256": "423689472f95378a16083f93dd052db92a3693ec4b861cdaaca9148d8f48f42a"
         },
         {
           "file": "尺寸库_RU.csv",
@@ -72,9 +72,9 @@
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261101_19.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/尺寸库_US-20261101_19.csv",
-          "sha256": "2c8f590c0e2f8e083525a5b5d3925c24d3e6ccff3f97465dff0fbde1c4a0499a"
+          "versioned_file": "尺寸库_US-20261102_01.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_01_regional-library/output/尺寸库_US-20261102_01.csv",
+          "sha256": "07b8e9439d3f8fa23fb9adbfd5120a82037cfc405de989ff1448e899b513ef68"
         },
         {
           "file": "来源映射_RU.csv",
@@ -82,6 +82,10 @@
           "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
           "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
         }
+      ],
+      "versions": [
+        "20261101_20",
+        "20261102_02"
       ]
     },
     {
@@ -100,6 +104,10 @@
   ],
   "rules": [
     {
+      "file": "data/README.md",
+      "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef"
+    },
+    {
       "file": "data/config.json",
       "sha256": "23210c279569f4026e93fa1b2a83a45d447497f42c6d1929c90dd6f94ac2f50b"
     },
@@ -110,10 +118,6 @@
     {
       "file": "data/modeled_historic_us_sales.csv",
       "sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f"
-    },
-    {
-      "file": "data/README.md",
-      "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef"
     },
     {
       "file": "data/参考/历史商业潜力调整/10-23-积加销量.csv",

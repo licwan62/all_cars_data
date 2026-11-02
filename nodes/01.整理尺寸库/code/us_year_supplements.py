@@ -8,6 +8,10 @@ from urllib.parse import urlsplit
 from id_scheme import append_country_code, dimension_id
 from model_members import model_key, year_set
 
+# approximate_add: usable but unconfirmed dimensions (conflicting sources, unstated or possibly
+# mirror-inclusive width); added with a 待终核 iteration status so it can be rechecked later.
+APPROX = "approximate_add"
+ADDED = {"verified_add", APPROX}
 REVIEW_FIELDS = ["MAKE", "MODEL", "YEAR", "处理结果", "DIMENSION-ID", "依据", "来源URL"]
 
 
@@ -23,7 +27,7 @@ def apply_supplements(rows, rules, project=None):
             raise ValueError("补库任务重复")
         seen.add(cell)
         status = item["status"]
-        if status not in {"verified_add", "excluded_reference_year", "pending"}:
+        if status not in {"verified_add", APPROX, "excluded_reference_year", "pending"}:
             raise ValueError("无效补库处理状态")
         if status != "pending" and not item.get("sources"):
             raise ValueError("补库/排除结论必须有来源")
@@ -42,7 +46,7 @@ def apply_supplements(rows, rules, project=None):
                     raise ValueError("本地证据必须位于节点data目录") from exc
                 if hashlib.sha256(evidence.read_bytes()).hexdigest() != source.get("sha256"):
                     raise ValueError("本地证据SHA已变化；需重新核实")
-        if status != "verified_add":
+        if status not in ADDED:
             review.append(dict(zip(REVIEW_FIELDS, [item["make"], item["model"], item["year"], status, "", item["reason"], "|".join(urls)])))
             continue
         if cell in covered:
@@ -62,13 +66,16 @@ def apply_supplements(rows, rules, project=None):
         expected = dict(zip(("L-IN", "W-IN", "H-IN"), values))
         for field, value in expected.items():
             if not any(s.get("market") == "US" and s.get("year") == item["year"]
-                and s.get("width_basis") == "without_mirrors" and s.get("body") == spec["结构"]
+                and (status == APPROX or s.get("width_basis") == "without_mirrors") and s.get("body") == spec["结构"]
                 and field in s.get("dimensions", {}) and float(s["dimensions"][field]) == value
                 for s in item["sources"]):
                 raise ValueError(f"补库字段缺同年美国同车身证据：{field}")
         row = {key: "" for key in rows[0]}
         row.update(spec)
-        row.update({"MAKE": item["make"], "MODEL": item["model"], "YEAR": str(item["year"]), "迭代状态": "可入库"})
+        if status == APPROX and not str(spec.get("迭代状态", "")).startswith("待终核"):
+            raise ValueError("近似补库必须标注待终核迭代状态")
+        row.update({"MAKE": item["make"], "MODEL": item["model"], "YEAR": str(item["year"]),
+                    "迭代状态": spec["迭代状态"] if status == APPROX else "可入库"})
         row["DIMENSION-ID"] = append_country_code(dimension_id(row), "US")
         if row["DIMENSION-ID"] in identities:
             raise ValueError("补库身份冲突")

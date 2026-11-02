@@ -2,27 +2,27 @@
   "schema_version": 2,
   "node": "dimension-library",
   "path": "nodes/01.整理尺寸库",
-  "version": "20261101_20",
-  "artifact": "nodes/01.整理尺寸库/artifacts/2026-11-01_20_dimension-library-release",
-  "published_at": "2026-11-01T13:26:19+08:00",
+  "version": "20261102_02",
+  "artifact": "nodes/01.整理尺寸库/artifacts/2026-11-02_02_dimension-library-release",
+  "published_at": "2026-11-02T09:05:45+08:00",
   "deliverables": [
     {
       "file": "尺寸库.csv",
-      "versioned_file": "尺寸库-20261101_19.csv",
-      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/尺寸库-20261101_19.csv",
+      "versioned_file": "尺寸库-20261102_01.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_01_regional-library/output/尺寸库-20261102_01.csv",
       "content_reference": true,
-      "sha256": "6b630fb873f154a2d0cfd1642e744f47cccdee67f6300ae3364caf5a9a752a53",
-      "bytes": 6432579,
-      "rows": 47453
+      "sha256": "423689472f95378a16083f93dd052db92a3693ec4b861cdaaca9148d8f48f42a",
+      "bytes": 6509604,
+      "rows": 47718
     },
     {
       "file": "尺寸库_US.csv",
-      "versioned_file": "尺寸库_US-20261101_19.csv",
-      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/尺寸库_US-20261101_19.csv",
+      "versioned_file": "尺寸库_US-20261102_01.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_01_regional-library/output/尺寸库_US-20261102_01.csv",
       "content_reference": true,
-      "sha256": "2c8f590c0e2f8e083525a5b5d3925c24d3e6ccff3f97465dff0fbde1c4a0499a",
-      "bytes": 931196,
-      "rows": 4475
+      "sha256": "07b8e9439d3f8fa23fb9adbfd5120a82037cfc405de989ff1448e899b513ef68",
+      "bytes": 1008221,
+      "rows": 4740
     },
     {
       "file": "尺寸库_EU.csv",
@@ -71,12 +71,12 @@
     },
     {
       "file": "US_补库核对.csv",
-      "versioned_file": "US_补库核对-20261101_19.csv",
-      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/US_补库核对-20261101_19.csv",
+      "versioned_file": "US_补库核对-20261102_01.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_01_regional-library/output/US_补库核对-20261102_01.csv",
       "content_reference": true,
-      "sha256": "b400f062805648d0a75ccb4b54bbb6be064f6892b14092c9db4cf1f845f24b17",
-      "bytes": 56591,
-      "rows": 142
+      "sha256": "392403ad59f5091526feeb959cb0220afd98f92a9785b13182c3e9a59bfd2f35",
+      "bytes": 133040,
+      "rows": 407
     },
     {
       "file": "US_补库待核.csv",
@@ -174,6 +174,18 @@
   ],
   "rules": [
     {
+      "file": "data/EU_ID迁移.csv",
+      "sha256": "092b9ba729ff9b559c700ae2a8676aa3e912dfd83d57133d9476e7cdd3a4b8d4"
+    },
+    {
+      "file": "data/EU裸SUV疑似重复候选.csv",
+      "sha256": "a792c1c759a1e98507c453f0b9bbfc5893b96c3863969fffd2ddbf7178881b70"
+    },
+    {
+      "file": "data/RU裸SUV疑似重复候选.csv",
+      "sha256": "8829120187437214c11d82ae0e276e1e6f732d37946e54cc98db7a11d28580c9"
+    },
+    {
       "file": "data/build_config.json",
       "sha256": "e145f0a8f0d352f4dbee4ca8a58492cbace3f7150627eb591e1c657c698cc934"
     },
@@ -190,16 +202,8 @@
       "sha256": "8d4b332688231ac6de677cd58a9e7aaef2631c13af441b518669e627167a88f1"
     },
     {
-      "file": "data/EU_ID迁移.csv",
-      "sha256": "092b9ba729ff9b559c700ae2a8676aa3e912dfd83d57133d9476e7cdd3a4b8d4"
-    },
-    {
       "file": "data/eu_key_versions.json",
       "sha256": "416ac23c42e1758f5187d9000fdb2d72423d7284b58f6df4904dfeba910dd979"
-    },
-    {
-      "file": "data/EU裸SUV疑似重复候选.csv",
-      "sha256": "a792c1c759a1e98507c453f0b9bbfc5893b96c3863969fffd2ddbf7178881b70"
     },
     {
       "file": "data/identity_merge_rules.json",
@@ -218,16 +222,16 @@
       "sha256": "d21d6d4aeb9e8bcb0da97dc10aed6d62f8cb51bae66f94b15ca1b1d8c3603299"
     },
     {
-      "file": "data/RU裸SUV疑似重复候选.csv",
-      "sha256": "8829120187437214c11d82ae0e276e1e6f732d37946e54cc98db7a11d28580c9"
-    },
-    {
       "file": "data/structure_normalization.json",
       "sha256": "2e7263f3dcfcf7c3465dd85e73c3177a050566ca973f115323d8da3fc1f08186"
     },
     {
       "file": "data/us/2027_gle_sources.md",
       "sha256": "e81b270998e3ebe674f681d9b994b7a0b20e527822cf9a4d9e9773405d1386bf"
+    },
+    {
+      "file": "data/us/README.md",
+      "sha256": "692d83462fb9355ffa7dfecbe63940429caf49551c39a98f5f1ef3427810e19b"
     },
     {
       "file": "data/us/audi_a7_evidence.json",
@@ -286,12 +290,8 @@
       "sha256": "66c7aa83d999aa230043a058d2777b7dda5621fd892f678fdac652824cffade0"
     },
     {
-      "file": "data/us/README.md",
-      "sha256": "692d83462fb9355ffa7dfecbe63940429caf49551c39a98f5f1ef3427810e19b"
-    },
-    {
       "file": "data/us/year_gap_resolutions.json",
-      "sha256": "9cb82944361a7b2c5bdaf5b90ff27dfe0f22a18aae55c4b6546168147099c37e"
+      "sha256": "b7361036382441912fa1fba0e73c450f219549ea4e2a80b2946ea04334c24c99"
     },
     {
       "file": "data/来源.md",

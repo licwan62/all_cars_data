@@ -62,7 +62,7 @@ def run():
             write_table(batch.output("US_拆分候选.csv"), CANDIDATE_FIELDS, candidates)
             write_table(batch.output("US_拆分待核.csv"), PENDING_FIELDS, pending)
             write_table(batch.output("US_补库核对.csv"), SUPPLEMENT_FIELDS, supplement_review)
-            pending_supplements = [row for row in supplement_review if row["处理结果"] != "verified_add"]
+            pending_supplements = [row for row in supplement_review if row["处理结果"] not in ("verified_add", "approximate_add")]
             write_table(batch.output("US_补库待核.csv"), SUPPLEMENT_FIELDS, pending_supplements)
             merge.validate_eu_migration(traced["eu"][0])
             for region, (rows, _) in traced.items():
@@ -79,6 +79,7 @@ def run():
                       "us_split_candidates": len(candidates), "us_split_pending": len(pending),
                       "us_applied_migrations": len(migrations),
                       "us_supplements_added": sum(row["处理结果"] == "verified_add" for row in supplement_review),
+                      "us_supplements_approximate": sum(row["处理结果"] == "approximate_add" for row in supplement_review),
                       "us_supplements_pending_or_excluded": len(pending_supplements)},
                       publish_to=PROJECT / "output")
 
