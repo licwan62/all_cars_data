@@ -451,13 +451,16 @@ class FullPipelineRegressionTests(unittest.TestCase):
         # without model-year-specific size mappings; the vehicle identities still flow through.
         # +12 smart fortwo Coupe 2008-2019 (US supplement) are shorter than the smallest
         # 跑车 size 3S-0; no matching size is legal by design.
-        unavailable_sizes = 155
+        # +129 from the EURU DIMS2-001..008 approximate supplement (1498 new US model-years,
+        # 2026-11-02): pre-war/classic/micro/supercar rows outside the size tables; data-only change.
+        unavailable_sizes = 284
         self.assertEqual(summary["unavailable_sizes"], unavailable_sizes)
         self.assertEqual(summary["matched_sizes"], self.expected_rows - unavailable_sizes)
         self.assertEqual(summary["incomplete_rows"], 0)
         # 750288484 -> 750945573: 02.销量评估 原子销量.csv gained 362 rows (0 removed) for the
         # 2026-11-02 US year-gap supplement model-years.
-        self.assertEqual(summary["sales_total"], 750945573)
+        # 750945573 -> 750974086: sales proxies for the EURU DIMS2 supplement model-years (data-only).
+        self.assertEqual(summary["sales_total"], 750974086)
 
         dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]
