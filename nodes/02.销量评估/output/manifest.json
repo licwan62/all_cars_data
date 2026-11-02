@@ -2,27 +2,27 @@
   "schema_version": 2,
   "node": "sales-estimation",
   "path": "nodes/02.销量评估",
-  "version": "20261102_04",
-  "artifact": "nodes/02.销量评估/artifacts/2026-11-02_04_sales-estimation-release",
-  "published_at": "2026-11-02T09:05:45+08:00",
+  "version": "20261102_12",
+  "artifact": "nodes/02.销量评估/artifacts/2026-11-02_12_sales-estimation-release",
+  "published_at": "2026-11-02T12:43:45+08:00",
   "deliverables": [
     {
       "file": "原子销量.csv",
-      "versioned_file": "原子销量-20261102_01.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_01_atomic-sales/output/原子销量-20261102_01.csv",
+      "versioned_file": "原子销量-20261102_09.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_09_atomic-sales/output/原子销量-20261102_09.csv",
       "content_reference": true,
-      "sha256": "378cd5d069c68afd42b463ce2a0f1cf38da5bf40eb4faf89c83f7cc2b2a26812",
-      "bytes": 897948,
-      "rows": 15580
+      "sha256": "c25904a44f3586f919a4cf11ab3cb694480d738cddc5cf9a86c7c35b7c04ab54",
+      "bytes": 902055,
+      "rows": 15677
     },
     {
       "file": "原子销量待核.csv",
-      "versioned_file": "原子销量待核-20261102_01.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_01_atomic-sales/output/原子销量待核-20261102_01.csv",
+      "versioned_file": "原子销量待核-20261102_09.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_09_atomic-sales/output/原子销量待核-20261102_09.csv",
       "content_reference": true,
-      "sha256": "385fb02a4f7b1a600e5b90cfcd231f8ecc5606e94f3c5dab757dee76d4dd7383",
-      "bytes": 40873,
-      "rows": 339
+      "sha256": "f6473bb31bac488fea307c74a74b08ab3e4c35924d42627414a0f6713c2c421c",
+      "bytes": 50354,
+      "rows": 432
     },
     {
       "file": "RU代理销量.csv",
@@ -35,12 +35,12 @@
     },
     {
       "file": "市场潜力.csv",
-      "versioned_file": "市场潜力-20261102_03.csv",
-      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_03_us-market-potential/output/市场潜力-20261102_03.csv",
+      "versioned_file": "市场潜力-20261102_11.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-02_11_us-market-potential/output/市场潜力-20261102_11.csv",
       "content_reference": true,
-      "sha256": "5f36dc21be8eb4faf0579d0524ca9d27b1ea6e17acf2888f8170c062509a2883",
-      "bytes": 258150,
-      "rows": 4740
+      "sha256": "11c06c1c07925f95bce92d7b7bd85e08f12e6309294b0d5ba8636fd8f1a1e01b",
+      "bytes": 262431,
+      "rows": 4837
     },
     {
       "file": "积加销量.csv",
@@ -55,14 +55,14 @@
   "upstream": [
     {
       "node": "dimension-library",
-      "version": "20261102_02",
+      "version": "20261102_10",
       "basis": "run",
       "files": [
         {
           "file": "尺寸库.csv",
-          "versioned_file": "尺寸库-20261102_01.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_01_regional-library/output/尺寸库-20261102_01.csv",
-          "sha256": "423689472f95378a16083f93dd052db92a3693ec4b861cdaaca9148d8f48f42a"
+          "versioned_file": "尺寸库-20261102_06.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_06_regional-library/output/尺寸库-20261102_06.csv",
+          "sha256": "bb8cfb1c0f0e8b2d7a1a4b66d706394f78619bdbb86c1b0253a16b7d0feda640"
         },
         {
           "file": "尺寸库_RU.csv",
@@ -72,9 +72,9 @@
         },
         {
           "file": "尺寸库_US.csv",
-          "versioned_file": "尺寸库_US-20261102_01.csv",
-          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_01_regional-library/output/尺寸库_US-20261102_01.csv",
-          "sha256": "07b8e9439d3f8fa23fb9adbfd5120a82037cfc405de989ff1448e899b513ef68"
+          "versioned_file": "尺寸库_US-20261102_06.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_06_regional-library/output/尺寸库_US-20261102_06.csv",
+          "sha256": "e35b134e0f2fec3e1301f845f61972df28be2dace9d34b6d464c2bc31606b5f4"
         },
         {
           "file": "来源映射_RU.csv",
@@ -82,15 +82,11 @@
           "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
           "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
         }
-      ],
-      "versions": [
-        "20261101_20",
-        "20261102_02"
       ]
     },
     {
       "node": "dimension-crawler",
-      "version": "20261101_03",
+      "version": "20261102_01",
       "basis": "run",
       "files": [
         {

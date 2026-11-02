@@ -1,0 +1,440 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/02.销量评估/artifacts/2026-11-02_10_ru-proxy-sales",
+  "version": "20261102_10",
+  "description": "ru-proxy-sales",
+  "created_at": "2026-11-02T12:43:39+08:00",
+  "finished_at": "2026-11-02T12:43:40+08:00",
+  "command": [
+    "build_ru_proxy_sales.py"
+  ],
+  "inputs": [
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261102_01",
+      "file": "RU/auto_ru_model_sales_with_match_key.csv",
+      "versioned_file": "RU/auto_ru_model_sales_with_match_key-20261101_02.csv",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/ru/auto_ru_model_sales_with_match_key.csv",
+      "sha256": "804bb3c40f7979fbd469c6786a67b2d192bb0d80aa105f9a38725304f589dcea"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261102_10",
+      "file": "来源映射_RU.csv",
+      "versioned_file": "来源映射_RU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
+      "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261102_10",
+      "file": "尺寸库_RU.csv",
+      "versioned_file": "尺寸库_RU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_RU-20261009_06.csv",
+      "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/02.销量评估/data",
+    "git_commit": "64cad47b566b91ed2976ac8090b057c5ffdcf2b7",
+    "copied": [],
+    "files": [
+      {
+        "file": "data/README.md",
+        "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef",
+        "raw_sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef",
+        "bytes": 89
+      },
+      {
+        "file": "data/config.json",
+        "sha256": "23210c279569f4026e93fa1b2a83a45d447497f42c6d1929c90dd6f94ac2f50b",
+        "raw_sha256": "23210c279569f4026e93fa1b2a83a45d447497f42c6d1929c90dd6f94ac2f50b",
+        "bytes": 990
+      },
+      {
+        "file": "data/modeled_config_share_policy.json",
+        "sha256": "9f08cb720c87d13bd1511b01465a004639f75922f86d9885ab53a1bc7af7c69d",
+        "raw_sha256": "9f08cb720c87d13bd1511b01465a004639f75922f86d9885ab53a1bc7af7c69d",
+        "bytes": 708
+      },
+      {
+        "file": "data/modeled_historic_us_sales.csv",
+        "sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f",
+        "raw_sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f",
+        "bytes": 1692
+      },
+      {
+        "file": "data/参考/历史商业潜力调整/10-23-积加销量.csv",
+        "sha256": "0168f61c7bd788f1bc8cf8c93c9c7a639836d8c1ea76b82de57f707e46869f81",
+        "raw_sha256": "0168f61c7bd788f1bc8cf8c93c9c7a639836d8c1ea76b82de57f707e46869f81",
+        "bytes": 34020
+      },
+      {
+        "file": "data/参考/历史商业潜力调整/竞品车罩销量统计表.csv",
+        "sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a",
+        "raw_sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a",
+        "bytes": 454516
+      },
+      {
+        "file": "data/商业潜力调整/README.md",
+        "sha256": "64f74b2fd8c7d47e1cea5afbc71575703fad94c3c31888f2912ad898c98fab26",
+        "raw_sha256": "64f74b2fd8c7d47e1cea5afbc71575703fad94c3c31888f2912ad898c98fab26",
+        "bytes": 4041
+      },
+      {
+        "file": "data/商业潜力调整/参数.json",
+        "sha256": "634ae1c893b1d9cc778643a68e01673acfe2953f94e44486028074bfbe64ea8e",
+        "raw_sha256": "634ae1c893b1d9cc778643a68e01673acfe2953f94e44486028074bfbe64ea8e",
+        "bytes": 274
+      },
+      {
+        "file": "data/商业潜力调整/来源.json",
+        "sha256": "270c4a35a5e15d3ef76277648c4487d5c0aea9469f2f0c78072fa026c7c78142",
+        "raw_sha256": "270c4a35a5e15d3ef76277648c4487d5c0aea9469f2f0c78072fa026c7c78142",
+        "bytes": 978
+      },
+      {
+        "file": "data/商业潜力调整/积加销量.csv",
+        "sha256": "f8d632c06f1819de4ee0269aa2515e68a1da144142151be8a874f8a8dca6b4c6",
+        "raw_sha256": "f8d632c06f1819de4ee0269aa2515e68a1da144142151be8a874f8a8dca6b4c6",
+        "bytes": 34035
+      },
+      {
+        "file": "data/商业潜力调整/竞品车罩销量统计表.csv",
+        "sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a",
+        "raw_sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a",
+        "bytes": 454516
+      },
+      {
+        "file": "data/销量依据/allocation_weights.csv",
+        "sha256": "cfd95e87b74485d2f66ad7833db4bf6f0d7e5d234a5eba883fed75b998d59a26",
+        "raw_sha256": "cfd95e87b74485d2f66ad7833db4bf6f0d7e5d234a5eba883fed75b998d59a26",
+        "bytes": 4003123
+      },
+      {
+        "file": "data/销量依据/model_year_sales_holdouts.csv",
+        "sha256": "79dd5b19ff3de64c465f9a6073c296eb03c869e8b715c00c166fd1111cf5102d",
+        "raw_sha256": "79dd5b19ff3de64c465f9a6073c296eb03c869e8b715c00c166fd1111cf5102d",
+        "bytes": 3904
+      },
+      {
+        "file": "data/销量依据/sales_model_year_cache.csv",
+        "sha256": "4298fcd9299807fe331803b164070b67e5b4fae83a30e91f941397b3dc35fb0f",
+        "raw_sha256": "4298fcd9299807fe331803b164070b67e5b4fae83a30e91f941397b3dc35fb0f",
+        "bytes": 2198163
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "64cad47b566b91ed2976ac8090b057c5ffdcf2b7",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "15ce83f9a9205851ebdcccac865bd7ccb1e1d3473108f5bfc9f8fe4b8ed0a8cb"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "fb791f68b647468fb58256835158805eebc8d54ccd5861962a34dcdbaeed4237"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "6b1c9b547afa5c237df1864b7f858ca6d65d15a137a9971ebf7c146c1e3e4776"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_analyze_next_brands.py",
+        "sha256": "95ef762186f5df7cdc86dc7c84c7b68c9eb0c3a129b1aed4692f15aa4c4d2b1f"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_analyze_pending.py",
+        "sha256": "06cf452c63605dd07f91c58c245506863fc0967046d51654dfc0a0adf80907de"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_analyze_pending2.py",
+        "sha256": "09b7aa452e4fa4e3d8f119716ff690cbd299953038e2593cd0c7127bcd9c5b7a"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_analyze_queue.py",
+        "sha256": "41fb32f192f976a8e2f03619bf37af93fb4fb2eab15aee792c617ffed515162c"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_check_audi.py",
+        "sha256": "8e5b82fdef4310c9545e6db35a13362777ebf1a39a776c1bae958d106555a641"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_check_brands.py",
+        "sha256": "9c95ea0d8d2d89ada95c058467fdbfa7303db07753ab1980d043c8e0e37cdded"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_check_matching.py",
+        "sha256": "66c6eaffcc64fc4481fe5ebee0a70181294d486e3585ddfa506faf6e39c4b3a9"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_check_pending.py",
+        "sha256": "7554f09e3b09952179a65ab2ca31ea16e6e50b2bcc190659bfe2a2fdd5c3ad9b"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_check_progress.py",
+        "sha256": "b9f3182d91b52e65e3e2a4ceb20d79f93a2823be1ea4d2bb216743c678452018"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_debug_audi.py",
+        "sha256": "7a8a61b1754962c27b1eb814b66ff9c961eef880608688f324a2c034fbb860a8"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_dedup_cache.py",
+        "sha256": "0e6752e7bb5fcd5722382775c0d979344e7472a05efa3bd5b36949e2b4a5d592"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_show_pending.py",
+        "sha256": "a5f30e1bed9242cb410f591350fad728c5136faee89d2e9cdb087c8a9b8273c9"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/_sync_queue.py",
+        "sha256": "2d5a12a1e69df3271f555fd70bfa218f624d5d3b2441bf6a520e0ac02946284e"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/allocation_weight_review_project.py",
+        "sha256": "a10a5a8f5f0cda54c3a06698cd8d4e26732cb41488519c386057b02ad5220229"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/apply_modeled_historic_sales.py",
+        "sha256": "4f2080d81fec18b44704f22da144f012971800a7b02f3dca036ba05460a2f0cf"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/backfill_2020_2027.py",
+        "sha256": "8acc3912994dd8310bb678120a0233c7f7025dc9f0bd858cd9884982e88e0125"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/backfill_round2.py",
+        "sha256": "ab014956fb2bdca500586ae122107a8a55d20c14524611719dd0090c4a5acc77"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/build_atoms.py",
+        "sha256": "36b0e6458283db7762bb15eb37e0a5d60d8d53094a8c7808b8152455bcb30aa1"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/build_market_potential.py",
+        "sha256": "bcd95cd897c164bf7aa287390d49e2806a4630952eed3cfd039fe44a7d4ede85"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/build_ru_proxy_sales.py",
+        "sha256": "c7180ba7622c0dc041d22f462d563950362d8ed771052ad2f1f87507ec890b8f"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/build_supplement_chevy_toyota_ford.py",
+        "sha256": "196078c7ece77710c6820a2dc370ce61431ccf6d331715e04f405a1b35956122"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/common.py",
+        "sha256": "209a0efa886f2eec307d59961e904182d3885d2db7f407c66d691ed32f911590"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/expand_years.py",
+        "sha256": "edd95f501df18d96ac80292d8a87c4c7a0d4dca31d7723cd2f3a9df88af57672"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/export_final.py",
+        "sha256": "4f422f8f5044425995b38ec8b4cb552edfe38e7dc35e16d34423d4b7d3075f92"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/fix_audi_cache.py",
+        "sha256": "22f9fb94995fa08d39409c60080055b582d5bbe5499806f1dcb181d72eb72cb7"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/fix_audi_cache2.py",
+        "sha256": "c85c1bd6f341fe66172f019eb959437ec99a86013d6ee8a19f950454737397fb"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/generate_modeled_config_batch.py",
+        "sha256": "72cfda3d6e0996f06073e9c0aaa955c4f5b2203e839915edb4cef14ca5cecc9a"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/generate_supplement_chevy_toyota_ford.py",
+        "sha256": "2ff44ad34b546ffebee83e91b81096ac59917e8b0c047e7da78d894bfb359925"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/merge_research_results.py",
+        "sha256": "199aeb4f654032282b5cd4046ff4e2bd3ddaf262beed318b7f52d36b8699db0e"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/merge_results.py",
+        "sha256": "50bfd3768dfc5d16349a80314def86270b46002cc2b0f3596f75aed54465d1c5"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/normalize_cache.py",
+        "sha256": "d9bf6295e19dcbae560a334524205a6b3074f6a960f0cdd6925508fb72ead8aa"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/research_regional_sales_20260916_02.py",
+        "sha256": "2cc8dbbc417d46a8e36c541b02ba07078d810e68584a7b366fb0ca9a06517027"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/research_regional_sales_20260916_03.py",
+        "sha256": "294bcb272e98fa3ae1e525a2ca1ae37988e24cd8f378cdaf82e91b41994459e4"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/run_pipeline.py",
+        "sha256": "bf7ec8c516c9458e5c86346a2cd0aade5937dfead28730c5c1094668ddcf84c8"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/sales_low_review_project.py",
+        "sha256": "05923f2cdab044b356434964fb244c7fe99802179d49db27051b23330c2ac80c"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/sales_research_project.py",
+        "sha256": "3dba66cf20a35800f63f4dee6b1c8ec1e0919ea9b5f8c4c173d6714567a1bbcd"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/sync_regional_sales.py",
+        "sha256": "8cddc3b98a91fba9adf7e98d3034a335c4287eed2970645c061359be72653217"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_2026_estimates.py",
+        "sha256": "cd9fc42daa8324f08090164c7ff3eec57b1580723d702ac511040f12edc8e2ba"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_acura.py",
+        "sha256": "c681111c9ba78474321c0df115da091091aedfd3e8c0592ad18ffbac6c9fb568"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_alfa_genesis_polestar.py",
+        "sha256": "0c09c1ec94e5b80516fbdfca1a7ec1d4586234d56d2df0c1db73977071c451d4"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_audi_bmw_merc_vw_mazda.py",
+        "sha256": "9b79f793e74293192c9ec7b11c23c956d98e6680d8ebe2472df6edfd79f51160"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_batch.py",
+        "sha256": "c41a6cc008c4139fef16201d85ae4267336c30b17fe1134ac409549481213e04"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_batch2.py",
+        "sha256": "7dcdb1b9f1a92fe14672974e5e4c4a3e6d5bb1f0bfd6a22eb45fa41a1eb945e9"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_batch3.py",
+        "sha256": "b16e65afae61813e83a8666ce519ed7fd6cbc1c647abc53d7d344f779157bb90"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_batch4.py",
+        "sha256": "e76ea8d3af12bb6c302f2f6485077ccb56fb9300ce9b108e4f22acc13b07246c"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_batch5.py",
+        "sha256": "585d1f87f791a81855447cebbf515c213deabd716b8807337d95c6561d1232c1"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_batch6.py",
+        "sha256": "8107d1ab1a5167803a26b00e57f32026f3fc4f4ca536756d0e8c214ee2811b0e"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_batch7.py",
+        "sha256": "0edaa2a7415e46f344ec59a0b213eb8edecf4e1c01ffb83f273e8ec5ded87c0d"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_chevy_porsche_gm.py",
+        "sha256": "3122048d6b1fcaff579b15067b6abbc37467adae510b8beb80f6571d6a0f9ae7"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_complete.py",
+        "sha256": "02b03d3deb342470d689a2922977879497355e5c4e65a96652bdcdc0a4c53e7d"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_final.py",
+        "sha256": "d4b51776c66677180d531d1afb904eabed9931091f7aa394511b351f6da77574"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_from_agents.py",
+        "sha256": "d3f0c8c238bdaea77c449f16b7f7d96546604e3fe6ba38e2918b523827a08de0"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_historical.py",
+        "sha256": "ee6dcfbcbce8d8b0f9ecfb0c5b581104f4e2c2321e9f17c62a38e21d9ad4e7c8"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_hyundai_honda_subaru.py",
+        "sha256": "417a66bd853f6ad1989ef6ffd08f91f5495a94bbc7557800a2f0d76d88be16e0"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_jeep_ram_dodge_tesla.py",
+        "sha256": "a371477080c7322059c6f44b43f7a9f0f46d28f2aa375b7564c1c83a19be8d81"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_kia_nissan.py",
+        "sha256": "a28e2e9483beca48d35212d5d3886e0d4c6cf8ab155b28311d22e3fc1193c1e1"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_mini_maserati_others.py",
+        "sha256": "e14d3ad29238b842349dd7de3ea509e7644e52b7aadcc646e2347af97aaff944"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/update_cache_toyota_lexus_ford.py",
+        "sha256": "8bd8c0d8c4eb0263592f04d2e3e7c38fcd98c0333aab09e5106c51fadba14a7a"
+      },
+      {
+        "file": "nodes/02.销量评估/scripts/validate_sales.py",
+        "sha256": "e2da57f54fe57c689eaa60c354efd357d3702c659ef74ecd9f72be9350e28204"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "RU代理销量.csv",
+      "versioned_file": "RU代理销量-20261102_10.csv",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-10-09_02_sales-estimation-release/output/RU代理销量-20261009_02.csv",
+      "content_reference": true,
+      "sha256": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd",
+      "bytes": 520302,
+      "rows": 13617
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "sales_source_rows": 13137,
+    "sales_source_positive_rows": 4272,
+    "sales_rows_without_match_key": 304,
+    "sales_source_total": 301065,
+    "matched_sales_total": 297009,
+    "unmatched_sales_total": 4056,
+    "dimension_rows": 13617,
+    "dimension_rows_with_positive_proxy_sales": 4050
+  }
+}

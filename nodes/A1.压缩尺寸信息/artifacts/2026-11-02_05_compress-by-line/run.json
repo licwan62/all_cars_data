@@ -1,0 +1,792 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line",
+  "version": "20261102_05",
+  "description": "compress-by-line",
+  "created_at": "2026-11-02T12:45:29+08:00",
+  "finished_at": "2026-11-02T12:45:32+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261102_25",
+      "file": "US/全量/全量表.csv",
+      "versioned_file": "US/全量/全量表-20261102_23.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_23_us-market-potential/output/US/全量/全量表-20261102_23.csv",
+      "sha256": "6f1c3dd387b04d89e28a1bd9bf78f0a4abd9e2da18e028119a56dc5f11d0d5f2"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261102_25",
+      "file": "US/店铺/店铺全量_HNT.csv",
+      "versioned_file": "US/店铺/店铺全量_HNT-20261102_23.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_23_us-market-potential/output/US/店铺/店铺全量_HNT-20261102_23.csv",
+      "sha256": "1bf4969e1b2210a0741444dc35ba70997ae31da059d1c2006abb1d8ca4cef7cb"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261102_25",
+      "file": "US/店铺/店铺全量_TM.csv",
+      "versioned_file": "US/店铺/店铺全量_TM-20261102_23.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_23_us-market-potential/output/US/店铺/店铺全量_TM-20261102_23.csv",
+      "sha256": "458c42b1c58a134168e8bb6484232b86afd9c2fbb383d8954830d13a8746c9ec"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261102_25",
+      "file": "US/店铺/店铺全量_TM_拆分.csv",
+      "versioned_file": "US/店铺/店铺全量_TM_拆分-20261102_23.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-02_23_us-market-potential/output/US/店铺/店铺全量_TM_拆分-20261102_23.csv",
+      "sha256": "679d5ca3fe5ab45a0ae196d5abaa080bf556306e01c7289083886bdb77f783c6"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261102_25",
+      "file": "EU/全量/全量表.csv",
+      "versioned_file": "EU/全量/全量表-20261013_16.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-13_16_full-table-cover-shape/output/EU/全量/全量表-20261013_16.csv",
+      "sha256": "43250bf7748fcff6651aa5ae2e7f47fe22d1945731f99fc9a4dae41a04b3406d"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261102_25",
+      "file": "RU/全量/全量表.csv",
+      "versioned_file": "RU/全量/全量表-20261101_04.csv",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-01_04_full-table-cover-shape/output/RU/全量/全量表-20261101_04.csv",
+      "sha256": "26febcda79cb7d91991d3459919047ae88843d1208cb2139854f60fc6ce4115a"
+    },
+    {
+      "node": "code-mapping",
+      "path": "nodes/02.代码映射",
+      "version": "20261102_08",
+      "file": "车型编码映射.csv",
+      "versioned_file": "车型编码映射-20261102_06.csv",
+      "artifact_file": "nodes/02.代码映射/artifacts/2026-11-02_06_code-mapping/output/车型编码映射-20261102_06.csv",
+      "sha256": "a859af1bd295f4433353ce8505c9bb38b4ef615936e4b3a3fd695d9295044f7e"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/A1.压缩尺寸信息/data",
+    "git_commit": "64cad47b566b91ed2976ac8090b057c5ffdcf2b7",
+    "copied": [],
+    "files": [
+      {
+        "file": "data/ssh发布.yaml",
+        "sha256": "19cc2cfa1c3ebec79b142121ece46e245443cb01d5d6575bd4c2d6c9dde9bb82",
+        "raw_sha256": "19cc2cfa1c3ebec79b142121ece46e245443cb01d5d6575bd4c2d6c9dde9bb82",
+        "bytes": 229
+      },
+      {
+        "file": "data/产线.yaml",
+        "sha256": "8e8a070a261d0c402f3b8d45ede084cc66d053bcd69c777c5b5553c7779c4ddb",
+        "raw_sha256": "8e8a070a261d0c402f3b8d45ede084cc66d053bcd69c777c5b5553c7779c4ddb",
+        "bytes": 1149
+      },
+      {
+        "file": "data/合并规则.yaml",
+        "sha256": "bcedbd27c92bf3f60cebb887438286d08ce2cd7cb8fe6b3f9e00eb00f7d64c88",
+        "raw_sha256": "bcedbd27c92bf3f60cebb887438286d08ce2cd7cb8fe6b3f9e00eb00f7d64c88",
+        "bytes": 686
+      },
+      {
+        "file": "data/字段映射.yaml",
+        "sha256": "866eced706ec5e5235cc9f7f8db2f41ea612cbae3c5a58eca7c675f19d72a86f",
+        "raw_sha256": "866eced706ec5e5235cc9f7f8db2f41ea612cbae3c5a58eca7c675f19d72a86f",
+        "bytes": 684
+      },
+      {
+        "file": "data/车型组合.tsv",
+        "sha256": "5781e398280d2397e0b48756c80fa8ac311385be1a68e6aa53f5d116733b1d0c",
+        "raw_sha256": "5781e398280d2397e0b48756c80fa8ac311385be1a68e6aa53f5d116733b1d0c",
+        "bytes": 199
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "64cad47b566b91ed2976ac8090b057c5ffdcf2b7",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "15ce83f9a9205851ebdcccac865bd7ccb1e1d3473108f5bfc9f8fe4b8ed0a8cb"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "fb791f68b647468fb58256835158805eebc8d54ccd5861962a34dcdbaeed4237"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "6b1c9b547afa5c237df1864b7f858ca6d65d15a137a9971ebf7c146c1e3e4776"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "32034369e59b2ae771b7146a049616dee55a76c15e45db5d742b645da0347e63"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/ambiguity.py",
+        "sha256": "db99e7ddb39669bd00703370ec01dc99ca1744c61c33f6da85037a62ccfce052"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/publish_ssh.py",
+        "sha256": "54050f92ae852f8b2953f8276657400c2b73dd965105a0b27ffa92c473fea616"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/run.py",
+        "sha256": "c303d1ee01f185365a0d369d1573ddc08b0fdaf6db34be84cec0ea12a1ce5ae3"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/sizechart/check_atom.py",
+        "sha256": "4a5e02e8042a4e35140d03aacda98c0b71b1f36e8f0a4e97b35d048208373658"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/sizechart/field_profile.py",
+        "sha256": "82fb7f56bb8d446be9c4a0423094b4f11e1ac66ee4f0ea595594f2f6bfb57234"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/sizechart/non_pickup_validation.py",
+        "sha256": "3f972888627761795ef27b67c19c65013f320dd8bb15dd8628c8e9928a5bc559"
+      },
+      {
+        "file": "nodes/A1.压缩尺寸信息/src/sizechart/process_tsv.py",
+        "sha256": "0f47603da283f20eb208c3c7b7c98b4d90a4827572c4a2d3121fa9fe21f44ce4"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "US/压缩尺码表.csv",
+      "versioned_file": "US/压缩尺码表-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/US/压缩尺码表-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "12ed6f1c26e7cf2d6b06bd397f9112ab544b829c39365e227aa7c5442ad47642",
+      "bytes": 243638,
+      "rows": 1455
+    },
+    {
+      "file": "US/压缩尺码表_皮卡.csv",
+      "versioned_file": "US/压缩尺码表_皮卡-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_03_compress-by-line/output/US/压缩尺码表_皮卡-20261102_03.csv",
+      "content_reference": true,
+      "sha256": "09ec461a4c8227b0c1102fa593923592a854a905e5c7242691fa98c3946e06d1",
+      "bytes": 26724,
+      "rows": 145
+    },
+    {
+      "file": "US/压缩来源.csv",
+      "versioned_file": "US/压缩来源-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/US/压缩来源-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "d2461d76c04f63ae0ecab79b2bf08c76b9fae4c20d9dcd6f07c99284482ea05f",
+      "bytes": 480736,
+      "rows": 4850
+    },
+    {
+      "file": "HNT/压缩尺码表.csv",
+      "versioned_file": "HNT/压缩尺码表-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/HNT/压缩尺码表-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "f88ac801f5639bcbc366f9fb59e6fe6a96f18b5f35204fb9f0b55ed820cec4f2",
+      "bytes": 219723,
+      "rows": 1291
+    },
+    {
+      "file": "HNT/压缩尺码表_皮卡.csv",
+      "versioned_file": "HNT/压缩尺码表_皮卡-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_03_compress-by-line/output/HNT/压缩尺码表_皮卡-20261102_03.csv",
+      "content_reference": true,
+      "sha256": "a173270f3e9106e112f51b0145978985939ac879222aed0ccd98fede73342a2a",
+      "bytes": 25305,
+      "rows": 136
+    },
+    {
+      "file": "HNT/压缩来源.csv",
+      "versioned_file": "HNT/压缩来源-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/HNT/压缩来源-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "08568e538312ed1ee04671a87c751df0c6c0e0b618f78e33068bd9daccc8dcf2",
+      "bytes": 480624,
+      "rows": 4854
+    },
+    {
+      "file": "TM/压缩尺码表.csv",
+      "versioned_file": "TM/压缩尺码表-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/TM/压缩尺码表-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "11421f247563865316d0f94d209e5fd969a9f89ef5e4a7c0cfde4dae7989a2b2",
+      "bytes": 222932,
+      "rows": 1316
+    },
+    {
+      "file": "TM/压缩尺码表_皮卡.csv",
+      "versioned_file": "TM/压缩尺码表_皮卡-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_03_compress-by-line/output/US/压缩尺码表_皮卡-20261102_03.csv",
+      "content_reference": true,
+      "sha256": "09ec461a4c8227b0c1102fa593923592a854a905e5c7242691fa98c3946e06d1",
+      "bytes": 26724,
+      "rows": 145
+    },
+    {
+      "file": "TM/压缩来源.csv",
+      "versioned_file": "TM/压缩来源-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/TM/压缩来源-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "365ef5d9a01a87e9b27fdc0a63045a26601b0bc563bea21e0f8a5deb2280f682",
+      "bytes": 480513,
+      "rows": 4852
+    },
+    {
+      "file": "TM_拆分/压缩尺码表.csv",
+      "versioned_file": "TM_拆分/压缩尺码表-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/TM_拆分/压缩尺码表-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "d2c460737d9a103509f1e0266ce7a4b3464a3c96f5f72b9e4fc018e3285cac7a",
+      "bytes": 161934,
+      "rows": 896
+    },
+    {
+      "file": "TM_拆分/压缩尺码表_皮卡.csv",
+      "versioned_file": "TM_拆分/压缩尺码表_皮卡-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_03_compress-by-line/output/TM_拆分/压缩尺码表_皮卡-20261102_03.csv",
+      "content_reference": true,
+      "sha256": "8e07c8b2b01859de772712e3150fb43a9fcc62033de650ac81b76c0f4ae54c33",
+      "bytes": 7754,
+      "rows": 36
+    },
+    {
+      "file": "TM_拆分/压缩来源.csv",
+      "versioned_file": "TM_拆分/压缩来源-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/output/TM_拆分/压缩来源-20261102_05.csv",
+      "content_reference": true,
+      "sha256": "a9a63cab8e5fe75573336c0d3cb1b7179620c73742921860369a096945f50dca",
+      "bytes": 479806,
+      "rows": 4861
+    },
+    {
+      "file": "EU/压缩尺码表.csv",
+      "versioned_file": "EU/压缩尺码表-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-10_01_compress-by-line/output/EU/压缩尺码表-20261010_01.csv",
+      "content_reference": true,
+      "sha256": "a555ff89079b493defb28645877c193dbf3334d82e91859626fde2025bdfc240",
+      "bytes": 869365,
+      "rows": 5256
+    },
+    {
+      "file": "EU/压缩尺码表_皮卡.csv",
+      "versioned_file": "EU/压缩尺码表_皮卡-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-10_01_compress-by-line/output/EU/压缩尺码表_皮卡-20261010_01.csv",
+      "content_reference": true,
+      "sha256": "28fdaf210743611880994bc994af2e1c6f0463e3fe51e584d430c5300aa95570",
+      "bytes": 196913,
+      "rows": 1163
+    },
+    {
+      "file": "EU/压缩来源.csv",
+      "versioned_file": "EU/压缩来源-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-10_01_compress-by-line/output/EU/压缩来源-20261010_01.csv",
+      "content_reference": true,
+      "sha256": "6e8671cc0b5f436679fded011cda633afc2f8dab6fad821225fcad9445787cce",
+      "bytes": 3325796,
+      "rows": 29595
+    },
+    {
+      "file": "RU/压缩尺码表.csv",
+      "versioned_file": "RU/压缩尺码表-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-26_03_compress-by-line/output/RU/压缩尺码表-20261026_03.csv",
+      "content_reference": true,
+      "sha256": "067cb6e1a4241c4af6d489ae44112eab2a0a913fa8de15de898326b43c9ae714",
+      "bytes": 1075273,
+      "rows": 7090
+    },
+    {
+      "file": "RU/压缩尺码表_皮卡.csv",
+      "versioned_file": "RU/压缩尺码表_皮卡-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-26_01_compress-by-line/output/RU/压缩尺码表_皮卡-20261026_01.csv",
+      "content_reference": true,
+      "sha256": "a6c7d1992052ff281e89e5f93ede6bd1a2661ed710dfd0d51b6865231d53a50e",
+      "bytes": 61040,
+      "rows": 401
+    },
+    {
+      "file": "RU/压缩来源.csv",
+      "versioned_file": "RU/压缩来源-20261102_05.csv",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-10-26_03_compress-by-line/output/RU/压缩来源-20261026_03.csv",
+      "content_reference": true,
+      "sha256": "88feb717a26f184de680fb921d0ff9c417f465ad24a8f8dd22792ffd7370151e",
+      "bytes": 1383400,
+      "rows": 13645
+    }
+  ],
+  "extras": [
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_US.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_US.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_US_非皮卡.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_HNT.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_HNT.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_HNT_非皮卡.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_TM.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_TM.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_TM_非皮卡.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_TM_拆分.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_TM_拆分.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_TM_拆分_非皮卡.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/压缩log_EU.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子事实表_EU.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_EU_非皮卡.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_EU_皮卡.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/压缩log_RU.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子事实表_RU.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_RU_非皮卡.csv.gz",
+    "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_RU_皮卡.csv.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/压缩log_US.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_US.csv.gz",
+      "sha256": "cca3ec67ef71316894cd37f2dc6a0f89583760495f9b84521f822865d84dc4ff",
+      "bytes": 16433
+    },
+    {
+      "file": "extra/原子事实表_US.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_US.csv.gz",
+      "sha256": "6ad5a8a79127de5ec7772f7f7ddd394933ee6e6ee69bcdd2308b37cf48de9447",
+      "bytes": 52712
+    },
+    {
+      "file": "extra/原子检查问题_US_非皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_US_非皮卡.csv.gz",
+      "sha256": "facf0cad5954e19080ddfbcd04f93cd75c79a33415172744f0ca1fe1781984c3",
+      "bytes": 325
+    },
+    {
+      "file": "extra/压缩log_HNT.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_HNT.csv.gz",
+      "sha256": "d736a436461955d3de42afaf5608427141e7ef927f9828927f482227036df44f",
+      "bytes": 17340
+    },
+    {
+      "file": "extra/原子事实表_HNT.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_HNT.csv.gz",
+      "sha256": "c12c44434e7e22d2d9ce62d7d9b7986681ad45faec8c49bef8c253930b6e334d",
+      "bytes": 53055
+    },
+    {
+      "file": "extra/原子检查问题_HNT_非皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_HNT_非皮卡.csv.gz",
+      "sha256": "5d81f8100ec671cfe3a6f452a415397a14588478e87cd914445eb29d64151895",
+      "bytes": 335
+    },
+    {
+      "file": "extra/压缩log_TM.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_TM.csv.gz",
+      "sha256": "f602de475c7d729329fe4b917850ddcccec587b3289d73321258e5b206812376",
+      "bytes": 16894
+    },
+    {
+      "file": "extra/原子事实表_TM.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_TM.csv.gz",
+      "sha256": "7c0f95d0bb05ac66519c4fd93fba99da99ff140d6b3f494b235565d3f502840d",
+      "bytes": 52904
+    },
+    {
+      "file": "extra/原子检查问题_TM_非皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_TM_非皮卡.csv.gz",
+      "sha256": "d706622c09f88f8256b805cafe750423718cd2942a15e22e408b04e7ca45f94c",
+      "bytes": 337
+    },
+    {
+      "file": "extra/压缩log_TM_拆分.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/压缩log_TM_拆分.csv.gz",
+      "sha256": "5f1427afd43e129f9f6b07a2700d12715299169d5ec6a2daf80b9d9d66aa9050",
+      "bytes": 21361
+    },
+    {
+      "file": "extra/原子事实表_TM_拆分.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子事实表_TM_拆分.csv.gz",
+      "sha256": "43eb2f36d5e699066ca942dfd17216a4094320cc36e27695e8a9e618c36448a6",
+      "bytes": 51772
+    },
+    {
+      "file": "extra/原子检查问题_TM_拆分_非皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-02_05_compress-by-line/extra/原子检查问题_TM_拆分_非皮卡.csv.gz",
+      "sha256": "e2b64bcaef1f7f898b531dcfaee7c367a34c384ea89d721b1af830365612ebb8",
+      "bytes": 332
+    },
+    {
+      "file": "extra/压缩log_EU.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/压缩log_EU.csv.gz",
+      "sha256": "afb71746fe79ea48a35942aae485abb55f5fba0e437f70285da1e7bbd1378f88",
+      "bytes": 149388
+    },
+    {
+      "file": "extra/原子事实表_EU.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子事实表_EU.csv.gz",
+      "sha256": "dc8a29929d2f975c79bb2f9f0ff200251d392e9b9dae6d7b2b7285fb4424447d",
+      "bytes": 445327
+    },
+    {
+      "file": "extra/原子检查问题_EU_非皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_EU_非皮卡.csv.gz",
+      "sha256": "aaa304cb490644ac4346240f50da70157e7ece4889a075750961023118a1411f",
+      "bytes": 48721
+    },
+    {
+      "file": "extra/原子检查问题_EU_皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_EU_皮卡.csv.gz",
+      "sha256": "b1fd293becb41ef7225678bb91573c13cc1d36d95d6b84f0ba73bf04c98d0e9c",
+      "bytes": 8419
+    },
+    {
+      "file": "extra/压缩log_RU.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/压缩log_RU.csv.gz",
+      "sha256": "1079fad88a32c724414d1866b887841c0f259c0665f6d6fc316a8d0df5eff7c4",
+      "bytes": 34161
+    },
+    {
+      "file": "extra/原子事实表_RU.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子事实表_RU.csv.gz",
+      "sha256": "447cdb65a4817711a1461a797c2b5fd069539a82bcc463ae06e0c44356572a03",
+      "bytes": 262868
+    },
+    {
+      "file": "extra/原子检查问题_RU_非皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_RU_非皮卡.csv.gz",
+      "sha256": "b7253a24d6dde6b35eb49268e60706edd18c89cfb769344c7184b98d279bda96",
+      "bytes": 42556
+    },
+    {
+      "file": "extra/原子检查问题_RU_皮卡.csv.gz",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-01_01_compress-by-line/extra/原子检查问题_RU_皮卡.csv.gz",
+      "sha256": "91c40129927f59cc9a690718321a537e19582eddedae01fb9a98f415ab2a4969",
+      "bytes": 3385
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "lines": {
+      "US": {
+        "区域": "US",
+        "上游输入": "US/全量/全量表.csv",
+        "行数": {
+          "US/压缩尺码表.csv": 1455,
+          "US/压缩尺码表_皮卡.csv": 145,
+          "US/压缩来源.csv": 4850
+        },
+        "原子事实数": 15682,
+        "两两合并": {
+          "success": 784,
+          "fallback": 2223
+        },
+        "fallback原因": {
+          "命中尺码": 1510,
+          "无原子空档": 114,
+          "原子事实命中不同尺码候选记录": 599
+        },
+        "原子检查": {
+          "非皮卡": {
+            "OK": 13475,
+            "MULTI": 10
+          },
+          "皮卡": {
+            "OK": 2197
+          }
+        },
+        "尺码销量总和": {
+          "非皮卡": {
+            "原子销量": 587979881,
+            "已分配": 587979881,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 319604.298022,
+              "已分配": 319604.298022,
+              "未命中同尺码记录": 0.0
+            }
+          },
+          "皮卡": {
+            "原子销量": 162988466,
+            "已分配": 162988466,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 78344.73962,
+              "已分配": 78344.73962,
+              "未命中同尺码记录": 0.0
+            }
+          }
+        }
+      },
+      "HNT": {
+        "区域": "US",
+        "上游输入": "US/店铺/店铺全量_HNT.csv",
+        "行数": {
+          "HNT/压缩尺码表.csv": 1291,
+          "HNT/压缩尺码表_皮卡.csv": 136,
+          "HNT/压缩来源.csv": 4854
+        },
+        "原子事实数": 15682,
+        "两两合并": {
+          "success": 837,
+          "fallback": 2397
+        },
+        "fallback原因": {
+          "命中尺码": 1581,
+          "无原子空档": 140,
+          "原子事实命中不同尺码候选记录": 676
+        },
+        "原子检查": {
+          "非皮卡": {
+            "OK": 13475,
+            "MULTI": 10
+          },
+          "皮卡": {
+            "OK": 2197
+          }
+        },
+        "尺码销量总和": {
+          "非皮卡": {
+            "原子销量": 587979881,
+            "已分配": 587979881,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 319604.298022,
+              "已分配": 319604.298022,
+              "未命中同尺码记录": 0.0
+            }
+          },
+          "皮卡": {
+            "原子销量": 162988466,
+            "已分配": 162988466,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 78344.73962,
+              "已分配": 78344.73962,
+              "未命中同尺码记录": 0.0
+            }
+          }
+        }
+      },
+      "TM": {
+        "区域": "US",
+        "上游输入": "US/店铺/店铺全量_TM.csv",
+        "行数": {
+          "TM/压缩尺码表.csv": 1316,
+          "TM/压缩尺码表_皮卡.csv": 145,
+          "TM/压缩来源.csv": 4852
+        },
+        "原子事实数": 15682,
+        "两两合并": {
+          "success": 808,
+          "fallback": 2161
+        },
+        "fallback原因": {
+          "命中尺码": 1431,
+          "无原子空档": 131,
+          "原子事实命中不同尺码候选记录": 599
+        },
+        "原子检查": {
+          "非皮卡": {
+            "OK": 13475,
+            "MULTI": 10
+          },
+          "皮卡": {
+            "OK": 2197
+          }
+        },
+        "尺码销量总和": {
+          "非皮卡": {
+            "原子销量": 587979881,
+            "已分配": 587979881,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 319604.298022,
+              "已分配": 319604.298022,
+              "未命中同尺码记录": 0.0
+            }
+          },
+          "皮卡": {
+            "原子销量": 162988466,
+            "已分配": 162988466,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 78344.73962,
+              "已分配": 78344.73962,
+              "未命中同尺码记录": 0.0
+            }
+          }
+        }
+      },
+      "TM_拆分": {
+        "区域": "US",
+        "上游输入": "US/店铺/店铺全量_TM_拆分.csv",
+        "行数": {
+          "TM_拆分/压缩尺码表.csv": 896,
+          "TM_拆分/压缩尺码表_皮卡.csv": 36,
+          "TM_拆分/压缩来源.csv": 4861
+        },
+        "原子事实数": 15682,
+        "两两合并": {
+          "success": 1129,
+          "fallback": 1349
+        },
+        "fallback原因": {
+          "命中尺码": 1321,
+          "无原子空档": 28
+        },
+        "原子检查": {
+          "非皮卡": {
+            "OK": 13475,
+            "MULTI": 10
+          },
+          "皮卡": {
+            "OK": 2197
+          }
+        },
+        "尺码销量总和": {
+          "非皮卡": {
+            "原子销量": 587979881,
+            "已分配": 587979881,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 319604.298022,
+              "已分配": 319604.298022,
+              "未命中同尺码记录": 0.0
+            }
+          },
+          "皮卡": {
+            "原子销量": 162988466,
+            "已分配": 162988466,
+            "未命中同尺码记录": 0,
+            "市场潜力": {
+              "原子潜力": 78344.73962,
+              "已分配": 78344.73962,
+              "未命中同尺码记录": 0.0
+            }
+          }
+        }
+      },
+      "EU": {
+        "区域": "EU",
+        "上游输入": "EU/全量/全量表.csv",
+        "行数": {
+          "EU/压缩尺码表.csv": 5256,
+          "EU/压缩尺码表_皮卡.csv": 1163,
+          "EU/压缩来源.csv": 29595
+        },
+        "原子事实数": 171237,
+        "两两合并": {
+          "success": 7619,
+          "fallback": 63580
+        },
+        "fallback原因": {
+          "命中尺码": 57083,
+          "无原子空档": 1075,
+          "候选合并范围内没有可验证原子事实": 294,
+          "原子事实未被候选记录覆盖": 73,
+          "原子事实命中不同尺码候选记录": 5055
+        },
+        "原子检查": {
+          "非皮卡": {
+            "OK": 148110,
+            "MULTI": 5772
+          },
+          "皮卡": {
+            "OK": 16562,
+            "MULTI": 793
+          }
+        },
+        "尺码销量总和": {
+          "非皮卡": {
+            "原子销量": 0,
+            "已分配": 0,
+            "未命中同尺码记录": 0
+          },
+          "皮卡": {
+            "原子销量": 0,
+            "已分配": 0,
+            "未命中同尺码记录": 0
+          }
+        }
+      },
+      "RU": {
+        "区域": "RU",
+        "上游输入": "RU/全量/全量表.csv",
+        "行数": {
+          "RU/压缩尺码表.csv": 7090,
+          "RU/压缩尺码表_皮卡.csv": 401,
+          "RU/压缩来源.csv": 13645
+        },
+        "原子事实数": 82890,
+        "两两合并": {
+          "fallback": 1738,
+          "success": 1339
+        },
+        "fallback原因": {
+          "命中尺码": 1392,
+          "无原子空档": 132,
+          "候选合并范围内没有可验证原子事实": 6,
+          "原子事实未被候选记录覆盖": 7,
+          "原子事实命中不同尺码候选记录": 201
+        },
+        "原子检查": {
+          "非皮卡": {
+            "OK": 75900,
+            "MULTI": 2705
+          },
+          "皮卡": {
+            "OK": 4113,
+            "MULTI": 172
+          }
+        },
+        "尺码销量总和": {
+          "非皮卡": {
+            "原子销量": 386689,
+            "已分配": 386689,
+            "未命中同尺码记录": 0
+          },
+          "皮卡": {
+            "原子销量": 3648,
+            "已分配": 3648,
+            "未命中同尺码记录": 0
+          }
+        }
+      }
+    }
+  }
+}
