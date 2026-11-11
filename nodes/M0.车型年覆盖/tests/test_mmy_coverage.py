@@ -48,6 +48,13 @@ def test_group_and_slash_names_do_not_falsely_close_gaps():
     assert all(r['回补方式']=='仅供人工选择；不执行、不写入00/01' for r in result['回补候选.json'])
 
 
+def test_us_covered_models_only_include_independent_reference_matches():
+    result = analyze(*fixture())
+    rows = result['US已覆盖车型.json']
+    assert [(row['REGION'], row['MAKE'], row['MODEL'], row['状态'], row['已覆盖参考年份'])
+            for row in rows] == [('US', 'A', 'M', '独立记录覆盖', '2020')]
+
+
 def test_explicit_exclusion_and_market_confirmation_are_separate():
     args=list(fixture());args[5]=[
         {'make':'A','model':'M','year':'2020','market':'US','action':'confirm_market','basis':'reviewed evidence'},
@@ -161,3 +168,37 @@ def test_owned_rules_preserve_sensitive_names_and_family_scope():
     [dict(raw_make='A',make='B',status='approved',basis='')]])
 def test_invalid_brand_rules_fail(rules):
     with pytest.raises(ValueError):Names({'groups':[]},[],rules)
+
+
+def test_us_review_production_rules_preserve_unsafe_names_and_granularity():
+    data = Path(__file__).resolve().parents[1] / 'data'
+    names = Names({'groups': []}, read_csv(data / '名称映射.csv'), read_csv(data / '品牌映射.csv'))
+    for make, raw, target in [('Chevrolet', 'Express 3500', 'Express'),
+                               ('GMC', 'Yukon XL 1500 4WD', 'Yukon XL'),
+                               ('Toyota', 'Camry Solara Convertible', 'Solara')]:
+        _, resolved_make, model, relation, evidence = names.resolve(make, raw)
+        assert (resolved_make, model, relation) == (make, target, 'family')
+        assert evidence
+    for make, raw in [('Ford', 'F-350'), ('Ford', 'F250'), ('Ford', 'F-150 Lightning 4WD'),
+                      ('GMC', 'Savana 3500'), ('Chevrolet', 'Silverado 2500'),
+                      ('Dodge', 'Caravan/Grand Caravan 2WD'), ('Chevrolet', 'Express 1500/2500 2WD')]:
+        assert names.resolve(make, raw)[2] == raw
+
+
+def test_us_review_ratings_are_family_only_and_do_not_certify_market():
+    data = Path(__file__).resolve().parents[1] / 'data'
+    args = list(fixture())
+    args[0] = [dict(id='years', file='years.csv', sha256='a', kind='model_year', notes='市场未知', rows=[
+        dict(make='Chevrolet', model='Express 3500', year='2020'),
+        dict(make='Chevrolet', model='Express 3500', year='2022')])]
+    entries = {'US': dict(rows=[dict(MAKE='Chevrolet', MODEL='Express', YEAR='2020', **{'DIMENSION-ID':'express'})],file='current.json',sha256='b')}
+    args[1] = args[2] = entries
+    args[3] = {'groups': []}
+    args[4] = read_csv(data / '名称映射.csv')
+    result = analyze(*args)
+    rows = {r['YEAR']:r for r in result['覆盖明细.json']}
+    assert rows[2020]['状态'] == '车系级记录覆盖（配置未核）'
+    assert rows[2022]['状态'] == '年份缺口（名称已对应）'
+    assert all(r['市场依据'] == '车型年市场未核' for r in rows.values())
+    total = next(r for r in result['覆盖汇总.json'] if r['分组']=='全部')
+    assert (total['分母'], total['独立记录覆盖'], total['车系级覆盖'], total['已对应年份缺口']) == (2,0,1,1)

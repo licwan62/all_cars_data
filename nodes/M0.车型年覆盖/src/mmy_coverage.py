@@ -387,7 +387,18 @@ def analyze(sources, libraries, structures, membership, mappings, decisions, sco
                                '记录类型': '参考名录' if item['reference_sources'] else '仅库内观察',
                                '车辆类别线索': joined(item['categories']), '国家线索': joined(item['countries']),
                                '区域线索': joined(item['regions']), '原始名称': joined(item['raw_names'])})
-    return {'车型名录.json': catalogue_rows, '车型年全集.json': master, '来源关联.json': associations,
+    us_years = defaultdict(list)
+    for row in detail:
+        if row['REGION'] == 'US' and row['状态'] == '独立记录覆盖' and row['计入分母'] == '是':
+            us_years[row['MM_ID']].append(row['YEAR'])
+    us_models = []
+    for row in model_detail:
+        if row['REGION'] == 'US' and row['状态'] == '独立记录覆盖':
+            us_models.append({
+                **{field: row[field] for field in ('REGION', 'MAKE', 'MODEL', '状态', 'MM_ID')},
+                '已覆盖参考年份': joined(us_years[row['MM_ID']]),
+            })
+    return {'US已覆盖车型.json': us_models, '车型名录.json': catalogue_rows, '车型年全集.json': master, '来源关联.json': associations,
             '覆盖明细.json': detail, '车型覆盖明细.json': model_detail, '覆盖汇总.json': summary,
             '回补候选.json': candidates, '来源统计.json': source_summary,
             '名称未匹配.json': reviews, '已对应缺口.json': gaps, '映射影响.json': impact,

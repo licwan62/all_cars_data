@@ -58,8 +58,10 @@ def run():
         for name, rows in results.items():
             # Schemas stay useful even when no manual tasks exist.
             columns = list(rows[0]) if rows else ['候选ID', 'MMY_ID', 'REGION', 'MAKE', 'MODEL', 'YEAR', '状态']
+            if name == 'US已覆盖车型.json':
+                columns = ['REGION', 'MAKE', 'MODEL', '状态', 'MM_ID', '已覆盖参考年份']
             batch.output(name).write_text(dumps({'schema': SCHEMA, 'columns': columns,
-                                                 'rows': [[str(row.get(c, '')) for c in columns] for row in rows]}), encoding='utf-8')
+                                                 'rows': [[str(row.get(c, '')) for c in columns] for row in rows]}), encoding='utf-8', newline='\r\n')
         if sum(len(s['rows']) for s in sources) != sum(1 for x in results['来源关联.json'] if x['SOURCE'] in {s['id'] for s in sources}):
             raise ValueError('来源记录未完整承接')
         for filename, identifier in [('车型名录.json', 'MM_ID'), ('车型年全集.json', 'MMY_ID')]:

@@ -142,7 +142,10 @@ def _calculate(
     result = us_rows(result)
     result["DIMENSION-ID"] = result["DIMENSION-ID"].map(us_dimension_id)
     from shape_adjustment import adjust
-    result, _ = adjust(result, analysis._read_csv(parameters_path), analysis._read_csv(rule_path), allowed_sizes)
+    from gray_matching import apply_gray_matching
+    parameters, rules = analysis._read_csv(parameters_path), analysis._read_csv(rule_path)
+    result, _ = adjust(result, parameters, rules, allowed_sizes)
+    result, _ = apply_gray_matching(result, parameters, rules, allowed_sizes)
     return result
 
 
