@@ -27,3 +27,20 @@
 00/01、A0/A1/A2及其当前接口均无变更；没有运行上游或网站命令，没有NAS/ECS部署，不合并main。发布渠道是M0正式JSON/HTML版本与GitHub专用分支。
 
 剩余优先级与具体证据需求：[remaining-priority.json](remaining-priority.json)。经人工审查撤下的歧义候选见[deferred-draft.json](deferred-draft.json)，不计完成。
+
+
+## 本轮收尾与证据边界
+
+最终新增1,094条显式规则（1,092条family、2条书写alias），完成3,023个初始待核US身份：14个转独立别名覆盖、2,882个转车系对应、88个转已对应年份差集、39个转组合成员待核。后者仍不计独立或车系覆盖。原队列累计完成4,441个，剩余6,190个；固定分母26,495。最终数据20261112_44、HTML 20261112_45。
+
+前5批按约500门槛发布；后续补充证据分批收尾，不为了凑500增加不确定映射。第7批原预测包含EX的AWD别名链，但实际只完成58个；回读确认两条AWD原名没有旧规则，第8批补显式规则后才计4个，累计3,000。第9批以已发布L版本和参考年份范围补23个Jeep长车身原名。各次历史与原预测均保留，最终计数只采用正式结果。
+
+所有批次提交与实际远端SHA回读见[push-receipts.json](push-receipts.json)；[final-summary.json](final-summary.json)汇总完成去向；运行`python reports/m0-us-next/check_batches.py`可从冻结起点逐ID复核，结果见[final-check.txt](final-check.txt)。本轮没有修改或删除任何既有M0历史artifact。
+
+当前US已对应年份差集539个，比起点增加88个，均未新增逐年市场确认；组合成员待核523个（比起点增加39个）。这些状态与“名称已能对应”的完成口径分开，不能宣称全部是车型/配置/市场覆盖。
+
+仍待核的高优先品牌为Ford 477、GMC 404、Chevrolet 342、Dodge 331、Mercedes-Benz 258。高优先车型包括F-350 35、E-450 29、E-350/F-450/F-550各28、Phantom 23、Titan 2WD/4WD各20。Ford重载名称跨Super Duty前后年代，当前全局名称规则无分年关系，不能把所有年代强并；Savana/Sonoma等缺少明确US目标；Rolls-Royce/Ferrari/Bentley等不能借EU记录冒充US。Lucid/Lucid Motors等品牌名关系也需明确品牌证据后再裁决。
+
+来源目录former_ids只作为有记录的历史目录归属证据，结合US模型/版本后人工批准family，不作为厂家或市场新核实。泛称Classic/Turbo、旧车系姐妹车型、斜杠组合、MINI车身歧义等不由字符串或单个版本词自动批准。例如Chevrolet Classic虽碰到卡车版本词Classic，不能映射到Silverado；Volvo V70 XC的版本证据1998–2000与参考2001–2002不一致，继续待核。其余逐项证据需求与排序见remaining-priority.json；本轮不继续给缺乏这些证据的项强行结案。
+
+仅推送专用GitHub分支，不合并main，不运行00/01或A0/A1/A2，不部署NAS/ECS。A2现有版本0a391b8942b22187及原双端回读报告字节保留。
