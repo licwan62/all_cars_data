@@ -202,3 +202,14 @@ def test_us_review_ratings_are_family_only_and_do_not_certify_market():
     assert all(r['市场依据'] == '车型年市场未核' for r in rows.values())
     total = next(r for r in result['覆盖汇总.json'] if r['分组']=='全部')
     assert (total['分母'], total['独立记录覆盖'], total['车系级覆盖'], total['已对应年份缺口']) == (2,0,1,1)
+
+
+def test_next_rules_keep_performance_and_separate_vehicle_identities():
+    data=Path(__file__).resolve().parents[1]/'data'
+    names=Names({'groups':[]},read_csv(data/'名称映射.csv'),read_csv(data/'品牌映射.csv'))
+    for make,model in [('Ford','F-350'),('Ford','F-150 Lightning 4WD'),('GMC','Jimmy Sonoma 2WD'),
+                       ('Honda','Civic CRX'),('Subaru','Legacy AWD (incl. Outback)')]:
+        assert names.resolve(make,model)[2]==model
+    # The original strict separation of M3 from the ordinary 3 Series stays valid.
+    assert names.resolve('BMW','M3')[2]=='M3'
+    assert names.resolve('BMW','X5 M')[2]=='X5 M'
