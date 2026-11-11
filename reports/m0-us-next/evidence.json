@@ -124022,6 +124022,116 @@
         }
       ],
       "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-44ad768914bf54d3",
+      "raw_make": "Infiniti",
+      "raw_model": "EX35 AWD",
+      "make": "Infiniti",
+      "model": "EX",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型EX的版本字段明确登记EX35/EX37；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-44ad768914bf54d3",
+      "raw_MM_ID": "MM-85cde1aa365aaf52e5ca5b04",
+      "reference_years": "2010|2011|2012",
+      "raw_input_name": "EX35 AWD",
+      "intermediate_mapping_key": "EX35 AWD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "26520",
+          "raw_make": "Infiniti",
+          "raw_model": "EX35 AWD",
+          "raw_year": "2010"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Infiniti",
+          "MODEL": "EX",
+          "版本": "EX35/EX37",
+          "YEAR": "2008-2013",
+          "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-a8f0c20c14141775",
+      "raw_make": "Infiniti",
+      "raw_model": "EX37 AWD",
+      "make": "Infiniti",
+      "model": "EX",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型EX的版本字段明确登记EX35/EX37；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-a8f0c20c14141775",
+      "raw_MM_ID": "MM-4519236d78164c9f2ae3a662",
+      "reference_years": "2013",
+      "raw_input_name": "EX37 AWD",
+      "intermediate_mapping_key": "EX37 AWD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "26524",
+          "raw_make": "Infiniti",
+          "raw_model": "EX37 AWD",
+          "raw_year": "2013"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Infiniti",
+          "MODEL": "EX",
+          "版本": "EX35/EX37",
+          "YEAR": "2008-2013",
+          "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
     }
   ]
 }
