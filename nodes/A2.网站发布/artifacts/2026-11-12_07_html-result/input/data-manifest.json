@@ -1,0 +1,252 @@
+{
+  "schema_version": 2,
+  "node": "website-publish",
+  "path": "nodes/A2.网站发布",
+  "version": "20261112_06",
+  "artifact": "nodes/A2.网站发布/artifacts/2026-11-12_06_website-publish-release",
+  "published_at": "2026-11-12T02:37:47+08:00",
+  "deliverables": [
+    {
+      "file": "网站构建清单.json",
+      "versioned_file": "网站构建清单-20261112_05.json",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/output/网站构建清单-20261112_05.json",
+      "content_reference": true,
+      "sha256": "69aed33e4cd764db1632d0bee01ded98b55627cb57a9f19506ae4d2d965cbb32",
+      "bytes": 414104,
+      "rows": null
+    }
+  ],
+  "upstream": [
+    {
+      "node": "size-calculation",
+      "version": "20261112_01",
+      "basis": "run",
+      "files": [
+        {
+          "file": "EU/全量/全量表.json",
+          "versioned_file": "EU/全量/全量表-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/EU/全量/全量表-20261112_01.json",
+          "sha256": "695739373b0d00242b70a394a35378136e949b7542476517108f944737532b1f"
+        },
+        {
+          "file": "EU/尺码规则.json",
+          "versioned_file": "EU/尺码规则-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/EU/尺码规则-20261015_01.json",
+          "sha256": "716ec1ed53d3ccb4610868d5df09933c5d91d348a779450e29576b62303533ef"
+        },
+        {
+          "file": "RU/全量/全量表.json",
+          "versioned_file": "RU/全量/全量表-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/RU/全量/全量表-20261112_01.json",
+          "sha256": "2cbbcd746722a539f95c191c540dd9da5c50d3b6cd4153652ec46c9d8c593a7b"
+        },
+        {
+          "file": "RU/尺码规则.json",
+          "versioned_file": "RU/尺码规则-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-26_02_match-report-shape/output/RU/尺码规则-20261026_02.json",
+          "sha256": "b42291abedfbdcd9ac2f1afa47c8b69a6fd4b8c6343298a61966aadf1a6fa63a"
+        },
+        {
+          "file": "US/全量/全量表.json",
+          "versioned_file": "US/全量/全量表-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/全量/全量表-20261112_01.json",
+          "sha256": "509a60533622669d41fc1b37e24df547f73b1b91084c1986899ac72a6caad837"
+        },
+        {
+          "file": "US/尺码规则.json",
+          "versioned_file": "US/尺码规则-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+          "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+        },
+        {
+          "file": "US/店铺/店铺全量_HNT.json",
+          "versioned_file": "US/店铺/店铺全量_HNT-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_HNT-20261112_01.json",
+          "sha256": "e1ed6b6a35c4851ac14baae4a8b02e93494f39ba4388d106cd2e8191d1f84121"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM.json",
+          "versioned_file": "US/店铺/店铺全量_TM-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_TM-20261112_01.json",
+          "sha256": "1b0b75333d6607a9eff8ddb7a77b587ac524c46c374410b0329bcc7ddc23be8a"
+        },
+        {
+          "file": "US/店铺/店铺全量_TM_拆分.json",
+          "versioned_file": "US/店铺/店铺全量_TM_拆分-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_TM_拆分-20261112_01.json",
+          "sha256": "ee7d80b9aa342a635d2435fc0ad1bb5863fc87e26b123fe8c8720a7efe64d3bb"
+        },
+        {
+          "file": "US/店铺货架.json",
+          "versioned_file": "US/店铺货架-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/店铺货架-20261015_01.json",
+          "sha256": "8e369204b7136f916dc86b8a31d6065449ce2be7f73d04c162764fdb32c417e0"
+        },
+        {
+          "file": "US/新旧尺码对应.json",
+          "versioned_file": "US/新旧尺码对应-20261112_01.json",
+          "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/新旧尺码对应-20261112_01.json",
+          "sha256": "1100e4cd06d9bc045d8b01140522532a2dd07c9e72feb9079b4d769ccdd1c083"
+        }
+      ]
+    },
+    {
+      "node": "size-compression",
+      "version": "20261112_01",
+      "basis": "run",
+      "files": [
+        {
+          "file": "EU/压缩尺码表.json",
+          "versioned_file": "EU/压缩尺码表-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/EU/压缩尺码表-20261112_01.json",
+          "sha256": "2a68bde211ee1a98bf7a3f55e3a6064510c4d195f97ba2e6e63bef0ec91f8417"
+        },
+        {
+          "file": "EU/压缩尺码表_皮卡.json",
+          "versioned_file": "EU/压缩尺码表_皮卡-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/EU/压缩尺码表_皮卡-20261112_01.json",
+          "sha256": "ef5bcff87e72c7a2e4729604f995b357e98f995f1853435666168eb834d3a491"
+        },
+        {
+          "file": "EU/压缩来源.json",
+          "versioned_file": "EU/压缩来源-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/EU/压缩来源-20261112_01.json",
+          "sha256": "7ad45fbde18ca60d6afb0e4188b8805165cc1821dc9cbcb981c11c7abd572457"
+        },
+        {
+          "file": "HNT/压缩尺码表.json",
+          "versioned_file": "HNT/压缩尺码表-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/HNT/压缩尺码表-20261112_01.json",
+          "sha256": "00d89ba690354b2b4abf06c6ded2b381be74a1b7ad3d497c9054336d23ff73a7"
+        },
+        {
+          "file": "HNT/压缩尺码表_皮卡.json",
+          "versioned_file": "HNT/压缩尺码表_皮卡-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/HNT/压缩尺码表_皮卡-20261112_01.json",
+          "sha256": "b7f89b8debd072eb76bf313e119bf87317e6b8b8c2fbe96f6214661cb66f1a8d"
+        },
+        {
+          "file": "HNT/压缩来源.json",
+          "versioned_file": "HNT/压缩来源-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/HNT/压缩来源-20261112_01.json",
+          "sha256": "62c104f2c66a4d9ceda7e2d10b25bed7a28b6bd89dddbeb1cac09fa4cc972f80"
+        },
+        {
+          "file": "RU/压缩尺码表.json",
+          "versioned_file": "RU/压缩尺码表-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/RU/压缩尺码表-20261112_01.json",
+          "sha256": "47f9f25df6d71b5f05af6d4a9dcf361530e6ea73ddf1b49c9cd89b2df701785a"
+        },
+        {
+          "file": "RU/压缩尺码表_皮卡.json",
+          "versioned_file": "RU/压缩尺码表_皮卡-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/RU/压缩尺码表_皮卡-20261112_01.json",
+          "sha256": "f220375ed19293e4c2246ab3d9a0b30cc3ce782a14254146e6825d88ba275beb"
+        },
+        {
+          "file": "RU/压缩来源.json",
+          "versioned_file": "RU/压缩来源-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/RU/压缩来源-20261112_01.json",
+          "sha256": "456994856a177346d55f2e6ff73c74bae287a1a2de5aef9213a5da19080497c4"
+        },
+        {
+          "file": "TM/压缩尺码表.json",
+          "versioned_file": "TM/压缩尺码表-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM/压缩尺码表-20261112_01.json",
+          "sha256": "1a3157ffc28ae83d29b53c8a16496aa2259ca28c5fc650a30a0ede537c880ed7"
+        },
+        {
+          "file": "TM/压缩尺码表_皮卡.json",
+          "versioned_file": "TM/压缩尺码表_皮卡-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩尺码表_皮卡-20261112_01.json",
+          "sha256": "c9051e80ab6717f83cc95b7ebde17bd52a8364b3c14b0615217bf17167425b43"
+        },
+        {
+          "file": "TM/压缩来源.json",
+          "versioned_file": "TM/压缩来源-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM/压缩来源-20261112_01.json",
+          "sha256": "ff85b804dc0045125348034e427327d39154973df7a3cebd5c59397b5fa009ce"
+        },
+        {
+          "file": "TM_拆分/压缩尺码表.json",
+          "versioned_file": "TM_拆分/压缩尺码表-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM_拆分/压缩尺码表-20261112_01.json",
+          "sha256": "29381246608995e445a0885774e6dd8c2dd714d9522fd3bc2ddee9ab1d70195c"
+        },
+        {
+          "file": "TM_拆分/压缩尺码表_皮卡.json",
+          "versioned_file": "TM_拆分/压缩尺码表_皮卡-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM_拆分/压缩尺码表_皮卡-20261112_01.json",
+          "sha256": "fdc78afbe2de8d8cdabe498ab3b30e4760dbb5d84051d526c3eb521425ecdc38"
+        },
+        {
+          "file": "TM_拆分/压缩来源.json",
+          "versioned_file": "TM_拆分/压缩来源-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM_拆分/压缩来源-20261112_01.json",
+          "sha256": "a265a8ec81e061d87127312e4c18b302c681718ac6f4393dbf1c09721cb1f439"
+        },
+        {
+          "file": "US/压缩尺码表.json",
+          "versioned_file": "US/压缩尺码表-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩尺码表-20261112_01.json",
+          "sha256": "dabd1e9b45b9029761bca5566b3b01dc0dd693a06cf694d024892f123895288d"
+        },
+        {
+          "file": "US/压缩尺码表_皮卡.json",
+          "versioned_file": "US/压缩尺码表_皮卡-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩尺码表_皮卡-20261112_01.json",
+          "sha256": "c9051e80ab6717f83cc95b7ebde17bd52a8364b3c14b0615217bf17167425b43"
+        },
+        {
+          "file": "US/压缩来源.json",
+          "versioned_file": "US/压缩来源-20261112_01.json",
+          "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩来源-20261112_01.json",
+          "sha256": "27ae6701033858da3c9ad4d4e026a9a96d6f49fc779fb21c76b9d7b7d08b0c03"
+        }
+      ]
+    },
+    {
+      "node": "sales-estimation",
+      "version": "20261112_01",
+      "basis": "run",
+      "files": [
+        {
+          "file": "原子销量.json",
+          "versioned_file": "原子销量-20261112_01.json",
+          "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/原子销量-20261112_01.json",
+          "sha256": "1c833df2cbe0f75b29132f7d85dd06cdff747de62954e9cccbb9f582861588f1"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/ai-user-size.yaml",
+      "sha256": "775ef50fc92e2d831d2f6755d8b91b6945b27692ee84b92f68f07dc086017834"
+    },
+    {
+      "file": "data/html-style.yaml",
+      "sha256": "218f582c1ce674d40f48f4fed55ba5f1a4d031f957f53435e8b43998df57c1bf"
+    },
+    {
+      "file": "data/pipeline.yaml",
+      "sha256": "36ebe9d7a9e4a3c539b45d67d23964a63642fe744a1e77bcf4987e0ade92fdcc"
+    },
+    {
+      "file": "data/type-manual-confirm.csv",
+      "sha256": "576d976225a1202076f593363ab81ffd2018bc89350a64c523d49fb08821afa2"
+    },
+    {
+      "file": "data/type-structure-abbreviations.json",
+      "sha256": "57a47b48cf215a523d9d21ed5ef641173ea38c435c868578896d63813956af75"
+    },
+    {
+      "file": "data/user-size-rules.json",
+      "sha256": "5945991240042fa9497162c88e31d12f377157e55861ae1072aa487849414164"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "网站最终构建节点；独立支持 NAS 与阿里云双端发布，普通运行不自动上线。"
+  ]
+}

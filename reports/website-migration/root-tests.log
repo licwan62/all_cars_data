@@ -1,0 +1,35 @@
+........................................................................ [ 67%]
+..........................F....F...                                      [100%]
+================================== FAILURES ===================================
+_______________________ test_current_repo_traces_clean ________________________
+
+    def test_current_repo_traces_clean():
+        payload = json.loads((trace.ROOT / "pipeline.json").read_text(encoding="utf-8"))
+        by_id = {node["id"]: node for node in payload["nodes"]}
+        for node in payload["nodes"]:
+            errors, _stale, _deferred = trace.trace_node(node, by_id)  # 过期只提示，不让测试失败
+>           assert not errors, errors
+E           AssertionError: ['nodes/A2.网站发布: 缺少 output/manifest.json']
+E           assert not ['nodes/A2.网站发布: 缺少 output/manifest.json']
+
+tests\test_trace_pipeline.py:14: AssertionError
+______________________ test_repository_pipeline_is_valid ______________________
+
+    def test_repository_pipeline_is_valid():
+>       assert validator.main() == 0
+E       assert 1 == 0
+E        +  where 1 = <function main at 0x0000024DE7686B90>()
+E        +    where <function main at 0x0000024DE7686B90> = validator.main
+
+tests\test_validate_pipeline_structure.py:55: AssertionError
+---------------------------- Captured stderr call -----------------------------
+流水线结构校验失败：
+- website-publish: 缺少 AGENTS.md
+- website-publish: HTML 交付缺失或损坏：[Errno 2] No such file or directory: 'D:\\Home\\Repo\\all_cars_data\\json\\website-publish\\html_manifest.json'
+- website-publish: nodes/A2.网站发布/output/网站构建清单.json 不存在（未产出的请移到 pending）
+- 流水线状态.md 与当前发布状态不一致；请运行 python scripts/publish_release.py --status-only 更新
+- 流水线状态.html 与当前发布状态不一致；请运行 python scripts/publish_release.py --status-only 更新
+=========================== short test summary info ===========================
+FAILED tests/test_trace_pipeline.py::test_current_repo_traces_clean - Asserti...
+FAILED tests/test_validate_pipeline_structure.py::test_repository_pipeline_is_valid
+2 failed, 105 passed in 26.70s

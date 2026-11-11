@@ -1,0 +1,132 @@
+[website-publish] python src/run.py
+TYPE 待人工确认：7 个（填写 D:\Home\Repo\all_cars_data\nodes\A2.网站发布\data\type-manual-confirm.csv 的 确认TYPE 列）
+User-size JSON written: D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\user-size.json
+HNT: non-pickup=1211, pickup=114
+TM: non-pickup=1312, pickup=137
+TM_拆分: non-pickup=217, pickup=0
+US: non-pickup=1635, pickup=137
+[HNT/nonpick] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\nodes\A2.网站发布\src\chart_generator\tsv_to_size_chart_html.py --non-pickup-input C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\HNT-non-pickup.tsv --order non-pickup --config-path C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\preference.yaml --output D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\html\HNT\nonpick\output.html
+[HNT/pick] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\nodes\A2.网站发布\src\chart_generator\tsv_to_size_chart_html.py --pickup-input C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\HNT-pickup.tsv --order pickup --config-path C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\preference.yaml --output D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\html\HNT\pick\output.html
+[TM/nonpick] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\nodes\A2.网站发布\src\chart_generator\tsv_to_size_chart_html.py --non-pickup-input C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\TM-non-pickup.tsv --order non-pickup --config-path C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\preference.yaml --output D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\html\TM\nonpick\output.html
+[TM/pick] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\nodes\A2.网站发布\src\chart_generator\tsv_to_size_chart_html.py --pickup-input C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\TM-pickup.tsv --order pickup --config-path C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\preference.yaml --output D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\html\TM\pick\output.html
+[TM_拆分/nonpick] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\nodes\A2.网站发布\src\chart_generator\tsv_to_size_chart_html.py --non-pickup-input C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\TM_拆分-non-pickup.tsv --order non-pickup --config-path C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\preference.yaml --output D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\html\TM_拆分\nonpick\output.html
+[TM_拆分/pick] skipped: no publishable rows
+[US/nonpick] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\nodes\A2.网站发布\src\chart_generator\tsv_to_size_chart_html.py --non-pickup-input C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\US-non-pickup.tsv --order non-pickup --config-path C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\preference.yaml --output D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\html\US\nonpick\output.html
+[US/pick] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\nodes\A2.网站发布\src\chart_generator\tsv_to_size_chart_html.py --pickup-input C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\US-pickup.tsv --order pickup --config-path C:\Users\hzwlc\AppData\Local\Temp\html-config-eoago08a\preference.yaml --output D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\html\US\pick\output.html
+[line] US -> US: 001-US.csv (6352 rows), D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\compressed\US\compress
+[line] HNT -> HNT: 002-HNT.csv (6352 rows), D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\compressed\HNT\compress
+[line] TM -> TM: 003-TM.csv (6352 rows), D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\compressed\TM\compress
+[line] TM_拆分 -> TM_拆分: 004-TM_拆分.csv (6352 rows), D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\compressed\TM_拆分\compress
+Imported 4 line(s) from A0 20261112_01 / A2 20261112_01; runtime config: D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\pipeline.json
+[configure_publish] stores=['US', 'HNT', 'TM', 'TM_拆分']; reuse existing size reference
+[export_csv_sources] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\site\tools\export_csv_sources.py --pipeline-config D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\pipeline.json
+[build_site] C:\Users\hzwlc\AppData\Local\Python\pythoncore-3.14-64\python.exe D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\site\tools\build_site.py
+[size-rules] {'US': 35, 'EU': 38, 'RU': 38, 'stores': 3, 'interface': 'json'}
+[validate] staged site: {'sources': 4, 'records': 25408, 'reference_rows': 35, 'match_full_rows': 68386, 'match_compressed_rows': 20301, 'evolution': 1, 'match_page_views': 1}
+[size-match acceptance] C:\Program Files\nodejs\node.EXE D:\Home\Repo\all_cars_data\nodes\A2.网站发布\tests\acceptance\size_match_data.cjs --site D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\site\_site --a1 D:\Home\Repo\all_cars_data\work\website\build-iz0sqviv\upstream\size-compression
+PASS D1 [R2] 只有一套尺码配对数据（size-match-data*），无 size-match-code*/size-match-full* 重复数据 — 1175 个文件
+PASS D2 [R1] 每个数据源、每个类别都同时有压缩表与全量表视图 — US/nonpick 压缩 1708 · 全量 5864；US/pick 压缩 145 · 全量 488；HNT/nonpick 压缩 1537 · 全量 5864；HNT/pick 压缩 136 · 全量 488；TM/nonpick 压缩 1562 · 全量 5864；TM/pick 压缩 145 · 全量 488；TM_拆分/nonpick 压缩 1122 · 全量 5864；TM_拆分/pick 压缩 36 · 全量 488；EU/nonpick 压缩 5256 · 全量 26247；EU/pick 压缩 1163 · 全量 3114；RU/nonpick 压缩 7090 · 全量 12989；RU/pick 压缩 401 · 全量 628
+PASS D3 [R2] 压缩记录的来源行全部由引用还原（不内嵌 A0 行），且都指向本分片的全量行 — 20301 条压缩记录，68880 个来源引用
+PASS D4 [R2] 页面还原的压缩来源与 A1 压缩来源.csv 逐条一致 — 来源行：US 6397，HNT 6412，TM 6410，TM_拆分 6421，EU 29595，RU 13645
+PASS S1 [R3] bmw 7 只出现 7 系（缺陷复现：曾混入 3/5 系等）（US/nonpick「bmw 7」） — 压缩 3 条 · 全量 8 行
+PASS S2 [R3] bmw 3 只出现 3 系，不混入尺码 3M 的 1/2 系（US/nonpick「bmw 3」） — 压缩 7 条 · 全量 19 行
+PASS S3 [R3] bmw x5 只出现 X5 及其 M 版本（US/nonpick「bmw x5」） — 压缩 3 条 · 全量 22 行
+PASS S4 [R3] mazda 3 只出现 Mazda 3，不混入 CX-3/CX-30/MX-30（US/nonpick「mazda 3」） — 压缩 5 条 · 全量 9 行
+PASS S5 [R3] 连字符车型：honda crv / cr-v（US/nonpick「honda cr-v」） — 压缩 2 条 · 全量 7 行
+PASS S6 [R3] 皮卡：ford f150（US/pick「ford f150」） — 压缩 13 条 · 全量 47 行
+PASS S7 [R3] 年份按年份区间匹配：camry 2017（US/nonpick「toyota camry 2017」） — 压缩 1 条 · 全量 1 行
+PASS S8 [R3] EU 数据源：bmw 7 只出现 7（EU 车型名为 7），不混入 700/X7/i7（EU/nonpick「bmw 7」） — 压缩 17 条 · 全量 96 行
+PASS S10 [R3] RU 数据源：bmw 7 只出现 7 серии，不混入 700/X7/i7（RU/nonpick「bmw 7」） — 压缩 4 条 · 全量 20 行
+PASS S11 [R7] 皮卡年份区间：自动切到皮卡全量表，2008-2026 按区间交集筛选（US/pick「Ford F-150 2008-2026」） — 压缩 9 条 · 全量 35 行 · 自动切到 pick
+PASS S12 [R7] 皮卡驾驶室：SuperCrew 收窄，Cab / Short Bed 无映射时忽略而不清空结果（US/pick「Ford F-150 2008-2026 SuperCrew Cab Short Bed」） — 压缩 4 条 · 全量 15 行 · 自动切到 pick · 忽略 cab/short/bed
+PASS annual sales: 6352 dimension identities; 17175 atoms; 1967 null values; US and all three stores agree
+PASS B1 [R1] 页面有「视图」切换（压缩表 / 全量表），默认压缩表 — 压缩表 / 全量表
+PASS B2 [R2] 两种视图读同一份数据：切换视图不再下载数据，全程没有请求旧的 size-match-code / size-match-full — 切换前已请求 152 个数据文件，切换时 0 个
+PASS B3 [R1] 切换视图保留搜索词与类别，URL 记录视图（?view=），刷新后保持 — size-match.html?q=ford+f150&view=compressed
+PASS A11 [R7] 输入「Ford F-150 2008-2026」自动切到皮卡全量表且有筛选记录 — pick / full · 35 条
+PASS A12 [R7] 输入「Ford F-150 2008-2026 SuperCrew Cab Short Bed」自动切到皮卡全量表且有筛选记录 — pick / full · 15 条 · 未匹配的词已忽略：cab、short、bed
+PASS S1 [R3] bmw 7 只出现 7 系（缺陷复现：曾混入 3/5 系等）（页面 US/nonpick「bmw 7」） — 压缩 3 · 全量 8
+PASS S2 [R3] bmw 3 只出现 3 系，不混入尺码 3M 的 1/2 系（页面 US/nonpick「bmw 3」） — 压缩 7 · 全量 19
+PASS S3 [R3] bmw x5 只出现 X5 及其 M 版本（页面 US/nonpick「bmw x5」） — 压缩 3 · 全量 22
+PASS S4 [R3] mazda 3 只出现 Mazda 3，不混入 CX-3/CX-30/MX-30（页面 US/nonpick「mazda 3」） — 压缩 5 · 全量 9
+PASS S5 [R3] 连字符车型：honda crv / cr-v（页面 US/nonpick「honda cr-v」） — 压缩 2 · 全量 7
+PASS S6 [R3] 皮卡：ford f150（页面 US/pick「ford f150」） — 压缩 13 · 全量 47
+PASS S7 [R3] 年份按年份区间匹配：camry 2017（页面 US/nonpick「toyota camry 2017」） — 压缩 1 · 全量 1
+PASS S8 [R3] EU 数据源：bmw 7 只出现 7（EU 车型名为 7），不混入 700/X7/i7（页面 EU/nonpick「bmw 7」） — 压缩 17 · 全量 96
+PASS S10 [R3] RU 数据源：bmw 7 只出现 7 серии，不混入 700/X7/i7（页面 RU/nonpick「bmw 7」） — 压缩 4 · 全量 20
+PASS S11 [R7] 皮卡年份区间：自动切到皮卡全量表，2008-2026 按区间交集筛选（页面 US/pick「Ford F-150 2008-2026」） — 压缩 9 · 全量 35
+PASS S12 [R7] 皮卡驾驶室：SuperCrew 收窄，Cab / Short Bed 无映射时忽略而不清空结果（页面 US/pick「Ford F-150 2008-2026 SuperCrew Cab Short Bed」） — 压缩 4 · 全量 15
+PASS S9 [R3] 8 位车型代码 01039426 = Ford Mustang 1994-2026（页面 US/nonpick「01039426」） — 压缩 3 · 全量 27
+PASS B4 [R4] 压缩表点 CODE 展开来源车型各年份，来源行属于同一车型 — 2 行来源
+PASS B6 [尺码参考] 同页切换地区与店铺，筛选、规则详情及旧店铺入口可用 — US / EU / RU、店铺分组及 390px 布局
+PASS B5 [R5] 页面无脚本错误与失败请求（本地缺少 NAS 登记文件除外） — 3872 个请求
+PASS fitment columns stay aligned and record actions appear at the bottom
+PASS full table: fitment SVG, thousand-unit sales, raw sorting and margin filter
+PASS model dashboard: exact model, deep link, shared controls and return state
+PASS shared panel, compact tooltip and configuration selection persist across tabs
+PASS compressed sources, stores and pickup charts
+PASS EU missing potential is explicit; annual sales retry remains available
+PASS 1440px layout, drawer and chart switching
+PASS 768px layout, drawer and chart switching
+PASS 390px layout, drawer and chart switching
+PASS 360px layout, drawer and chart switching
+PASS no browser script errors
+PASS comparison entry preserves listing return state
+PASS cross-brand comparisons preserve totals under structure regrouping and unit conversion
+PASS model selection spans brands and categories; pickup structure exposes CAB BED and versions
+PASS EU missing markets and source reset cannot mix country data
+PASS sales failure retains dimensions and retry restores the market chart
+PASS comparison 1440px responsive charts and local table scrolling
+PASS comparison 768px responsive charts and local table scrolling
+PASS comparison 390px responsive charts and local table scrolling
+PASS comparison 360px responsive charts and local table scrolling
+PASS comparison has no browser script errors
+PASS listing scatter shortcut opens full-history points for the chosen model
+PASS scatter uses true length/year coordinates, area scaling and published rule overlays
+PASS sales metric uses yearly values and survives regrouping, units, year and size filters
+PASS store mappings and missing metrics do not invent fitment or sales
+PASS rule version mismatch keeps points but suppresses overlays
+PASS single-model dashboard shares scatter controls and retains them after unit rerender
+PASS successful sales retry clears the scatter error notice and restores point sizes
+PASS scatter 1440px controls, chart and touch details
+PASS scatter 768px controls, chart and touch details
+PASS scatter 390px controls, chart and touch details
+PASS scatter 360px controls, chart and touch details
+PASS scatter has no browser script errors
+PASS row opens vehicle drawer, SHAPE stays in details, copying is explicit
+PASS hover stays inline; click compares multiple aligned match points
+PASS checkboxes preserve selection and never open the drawer
+PASS source rows, outline details and keyboard navigation remain usable
+PASS toyota camry: no horizontal scroll at 1920px
+PASS toyota camry: no horizontal scroll at 1440px
+PASS toyota camry: no horizontal scroll at 1366px
+PASS toyota camry: no horizontal scroll at 1280px
+PASS ford f-150: no horizontal scroll at 1920px
+PASS ford f-150: no horizontal scroll at 1440px
+PASS ford f-150: no horizontal scroll at 1366px
+PASS ford f-150: no horizontal scroll at 1280px
+PASS mobile drawer fits the viewport
+Validated website: D:\Home\Repo\all_cars_data\work\website\public (1980 files); no remote publication
+nodes/A2.网站发布: 20261112_09  1 个交付物（新存 0，其余引用），pending 0；交付物变化：网站构建清单.json
+HTML dimension-crawler: 未变化
+HTML dimension-library: 未变化
+HTML structure-review: 未变化
+HTML sales-estimation: 未变化
+HTML code-mapping: 未变化
+HTML shape-classification: 未变化
+HTML size-calculation: 未变化
+HTML size-compression: 未变化
+HTML negative-review-analysis: 未变化
+HTML compression-scoring: 未变化
+HTML custom-analysis: 未变化
+HTML representative-model: 未变化
+HTML sku-clustering: 未变化
+HTML link-analysis-pickup: 未变化
+HTML link-analysis: 未变化
+HTML size-analysis: 未变化
+HTML dimension-iteration: 未变化
+HTML size-cluster-analysis: 未变化
+HTML link-analysis-regular: 未变化
+HTML link-analysis-w: 未变化
+HTML model-year-coverage: 未变化
+HTML website-publish: 20261112_10

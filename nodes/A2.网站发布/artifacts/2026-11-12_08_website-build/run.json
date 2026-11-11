@@ -1,0 +1,550 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build",
+  "version": "20261112_08",
+  "description": "website-build",
+  "created_at": "2026-11-12T02:40:22+08:00",
+  "finished_at": "2026-11-12T02:41:37+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/全量/全量表.json",
+      "versioned_file": "US/全量/全量表-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/全量/全量表-20261112_01.json",
+      "sha256": "509a60533622669d41fc1b37e24df547f73b1b91084c1986899ac72a6caad837"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺/店铺全量_HNT.json",
+      "versioned_file": "US/店铺/店铺全量_HNT-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_HNT-20261112_01.json",
+      "sha256": "e1ed6b6a35c4851ac14baae4a8b02e93494f39ba4388d106cd2e8191d1f84121"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺/店铺全量_TM.json",
+      "versioned_file": "US/店铺/店铺全量_TM-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_TM-20261112_01.json",
+      "sha256": "1b0b75333d6607a9eff8ddb7a77b587ac524c46c374410b0329bcc7ddc23be8a"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺/店铺全量_TM_拆分.json",
+      "versioned_file": "US/店铺/店铺全量_TM_拆分-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_TM_拆分-20261112_01.json",
+      "sha256": "ee7d80b9aa342a635d2435fc0ad1bb5863fc87e26b123fe8c8720a7efe64d3bb"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/尺码规则.json",
+      "versioned_file": "US/尺码规则-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+      "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺货架.json",
+      "versioned_file": "US/店铺货架-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/店铺货架-20261015_01.json",
+      "sha256": "8e369204b7136f916dc86b8a31d6065449ce2be7f73d04c162764fdb32c417e0"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/新旧尺码对应.json",
+      "versioned_file": "US/新旧尺码对应-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/新旧尺码对应-20261112_01.json",
+      "sha256": "1100e4cd06d9bc045d8b01140522532a2dd07c9e72feb9079b4d769ccdd1c083"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "EU/全量/全量表.json",
+      "versioned_file": "EU/全量/全量表-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/EU/全量/全量表-20261112_01.json",
+      "sha256": "695739373b0d00242b70a394a35378136e949b7542476517108f944737532b1f"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "EU/尺码规则.json",
+      "versioned_file": "EU/尺码规则-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/EU/尺码规则-20261015_01.json",
+      "sha256": "716ec1ed53d3ccb4610868d5df09933c5d91d348a779450e29576b62303533ef"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "RU/全量/全量表.json",
+      "versioned_file": "RU/全量/全量表-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/RU/全量/全量表-20261112_01.json",
+      "sha256": "2cbbcd746722a539f95c191c540dd9da5c50d3b6cd4153652ec46c9d8c593a7b"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "RU/尺码规则.json",
+      "versioned_file": "RU/尺码规则-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-26_02_match-report-shape/output/RU/尺码规则-20261026_02.json",
+      "sha256": "b42291abedfbdcd9ac2f1afa47c8b69a6fd4b8c6343298a61966aadf1a6fa63a"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "US/压缩尺码表.json",
+      "versioned_file": "US/压缩尺码表-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩尺码表-20261112_01.json",
+      "sha256": "dabd1e9b45b9029761bca5566b3b01dc0dd693a06cf694d024892f123895288d"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "US/压缩尺码表_皮卡.json",
+      "versioned_file": "US/压缩尺码表_皮卡-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩尺码表_皮卡-20261112_01.json",
+      "sha256": "c9051e80ab6717f83cc95b7ebde17bd52a8364b3c14b0615217bf17167425b43"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "US/压缩来源.json",
+      "versioned_file": "US/压缩来源-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩来源-20261112_01.json",
+      "sha256": "27ae6701033858da3c9ad4d4e026a9a96d6f49fc779fb21c76b9d7b7d08b0c03"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "HNT/压缩尺码表.json",
+      "versioned_file": "HNT/压缩尺码表-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/HNT/压缩尺码表-20261112_01.json",
+      "sha256": "00d89ba690354b2b4abf06c6ded2b381be74a1b7ad3d497c9054336d23ff73a7"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "HNT/压缩尺码表_皮卡.json",
+      "versioned_file": "HNT/压缩尺码表_皮卡-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/HNT/压缩尺码表_皮卡-20261112_01.json",
+      "sha256": "b7f89b8debd072eb76bf313e119bf87317e6b8b8c2fbe96f6214661cb66f1a8d"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "HNT/压缩来源.json",
+      "versioned_file": "HNT/压缩来源-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/HNT/压缩来源-20261112_01.json",
+      "sha256": "62c104f2c66a4d9ceda7e2d10b25bed7a28b6bd89dddbeb1cac09fa4cc972f80"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "TM/压缩尺码表.json",
+      "versioned_file": "TM/压缩尺码表-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM/压缩尺码表-20261112_01.json",
+      "sha256": "1a3157ffc28ae83d29b53c8a16496aa2259ca28c5fc650a30a0ede537c880ed7"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "TM/压缩尺码表_皮卡.json",
+      "versioned_file": "TM/压缩尺码表_皮卡-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/US/压缩尺码表_皮卡-20261112_01.json",
+      "sha256": "c9051e80ab6717f83cc95b7ebde17bd52a8364b3c14b0615217bf17167425b43"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "TM/压缩来源.json",
+      "versioned_file": "TM/压缩来源-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM/压缩来源-20261112_01.json",
+      "sha256": "ff85b804dc0045125348034e427327d39154973df7a3cebd5c59397b5fa009ce"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "TM_拆分/压缩尺码表.json",
+      "versioned_file": "TM_拆分/压缩尺码表-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM_拆分/压缩尺码表-20261112_01.json",
+      "sha256": "29381246608995e445a0885774e6dd8c2dd714d9522fd3bc2ddee9ab1d70195c"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "TM_拆分/压缩尺码表_皮卡.json",
+      "versioned_file": "TM_拆分/压缩尺码表_皮卡-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM_拆分/压缩尺码表_皮卡-20261112_01.json",
+      "sha256": "fdc78afbe2de8d8cdabe498ab3b30e4760dbb5d84051d526c3eb521425ecdc38"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "TM_拆分/压缩来源.json",
+      "versioned_file": "TM_拆分/压缩来源-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/TM_拆分/压缩来源-20261112_01.json",
+      "sha256": "a265a8ec81e061d87127312e4c18b302c681718ac6f4393dbf1c09721cb1f439"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "EU/压缩尺码表.json",
+      "versioned_file": "EU/压缩尺码表-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/EU/压缩尺码表-20261112_01.json",
+      "sha256": "2a68bde211ee1a98bf7a3f55e3a6064510c4d195f97ba2e6e63bef0ec91f8417"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "EU/压缩尺码表_皮卡.json",
+      "versioned_file": "EU/压缩尺码表_皮卡-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/EU/压缩尺码表_皮卡-20261112_01.json",
+      "sha256": "ef5bcff87e72c7a2e4729604f995b357e98f995f1853435666168eb834d3a491"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "EU/压缩来源.json",
+      "versioned_file": "EU/压缩来源-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/EU/压缩来源-20261112_01.json",
+      "sha256": "7ad45fbde18ca60d6afb0e4188b8805165cc1821dc9cbcb981c11c7abd572457"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "RU/压缩尺码表.json",
+      "versioned_file": "RU/压缩尺码表-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/RU/压缩尺码表-20261112_01.json",
+      "sha256": "47f9f25df6d71b5f05af6d4a9dcf361530e6ea73ddf1b49c9cd89b2df701785a"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "RU/压缩尺码表_皮卡.json",
+      "versioned_file": "RU/压缩尺码表_皮卡-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/RU/压缩尺码表_皮卡-20261112_01.json",
+      "sha256": "f220375ed19293e4c2246ab3d9a0b30cc3ce782a14254146e6825d88ba275beb"
+    },
+    {
+      "node": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "file": "RU/压缩来源.json",
+      "versioned_file": "RU/压缩来源-20261112_01.json",
+      "artifact_file": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration/output/RU/压缩来源-20261112_01.json",
+      "sha256": "456994856a177346d55f2e6ff73c74bae287a1a2de5aef9213a5da19080497c4"
+    },
+    {
+      "node": "sales-estimation",
+      "path": "nodes/02.销量评估",
+      "version": "20261112_01",
+      "file": "原子销量.json",
+      "versioned_file": "原子销量-20261112_01.json",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/原子销量-20261112_01.json",
+      "sha256": "1c833df2cbe0f75b29132f7d85dd06cdff747de62954e9cccbb9f582861588f1"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/A2.网站发布/data",
+    "git_commit": "155dfb67cbdaa95ece1c5310909d395082641874",
+    "copied": [
+      "data/ai-user-size.yaml",
+      "data/html-style.yaml",
+      "data/pipeline.yaml",
+      "data/type-manual-confirm.csv",
+      "data/type-structure-abbreviations.json",
+      "data/user-size-rules.json"
+    ],
+    "files": [
+      {
+        "file": "data/ai-user-size.yaml",
+        "sha256": "775ef50fc92e2d831d2f6755d8b91b6945b27692ee84b92f68f07dc086017834",
+        "raw_sha256": "de45f300fc0c434efa2a70d84228b7f25e11e4712d4d4cc7ef76844bd333e7b0",
+        "bytes": 268,
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/rules/data/ai-user-size.yaml"
+      },
+      {
+        "file": "data/html-style.yaml",
+        "sha256": "218f582c1ce674d40f48f4fed55ba5f1a4d031f957f53435e8b43998df57c1bf",
+        "raw_sha256": "1c2db4bc57ad4f19168a1ec0669926844206427e97dd28393b1ffcac7ee1e8ee",
+        "bytes": 4526,
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/rules/data/html-style.yaml"
+      },
+      {
+        "file": "data/pipeline.yaml",
+        "sha256": "36ebe9d7a9e4a3c539b45d67d23964a63642fe744a1e77bcf4987e0ade92fdcc",
+        "raw_sha256": "f6ade4a666b375d06872c09339e609bf2cb61a19e85ed3bc209d03d2fbcd541a",
+        "bytes": 1323,
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/rules/data/pipeline.yaml"
+      },
+      {
+        "file": "data/type-manual-confirm.csv",
+        "sha256": "576d976225a1202076f593363ab81ffd2018bc89350a64c523d49fb08821afa2",
+        "raw_sha256": "734dbf2d2894ef20898f9d68d50a6cd5f7ec244b3f8bebcc7d58dad6acc0de84",
+        "bytes": 9380,
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/rules/data/type-manual-confirm.csv"
+      },
+      {
+        "file": "data/type-structure-abbreviations.json",
+        "sha256": "57a47b48cf215a523d9d21ed5ef641173ea38c435c868578896d63813956af75",
+        "raw_sha256": "9f8322d5d275c448ab7a4dec0d7d47ae81c5b7e6203377f59962d0eb0b4a9c22",
+        "bytes": 496,
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/rules/data/type-structure-abbreviations.json"
+      },
+      {
+        "file": "data/user-size-rules.json",
+        "sha256": "5945991240042fa9497162c88e31d12f377157e55861ae1072aa487849414164",
+        "raw_sha256": "5945991240042fa9497162c88e31d12f377157e55861ae1072aa487849414164",
+        "bytes": 226194,
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/rules/data/user-size-rules.json"
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "155dfb67cbdaa95ece1c5310909d395082641874",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/chart_generator/tsv_to_size_chart_html.py",
+        "sha256": "01d409fcba5d1d17c4de24dd6f636ea1845f4ad58092bc417635d50d2f59b20d",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/chart_generator/tsv_to_size_chart_html.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/run.py",
+        "sha256": "38f24bd1abfc03b15934adbca11af8ab289097a2f64b895cea4b7b112f1e47c2",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/run.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/skeleton/tools/build_site.py",
+        "sha256": "ed82d7324da101b7d304432ed5e1675b9947a2a155569062e5a851f990191c4c",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/skeleton/tools/build_site.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/skeleton/tools/export_xlsx_sources.py",
+        "sha256": "638695f9dcdc15b6d2ab4506e1b7342c943ef0c734354c49f3f703cf9b17712a",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/skeleton/tools/export_xlsx_sources.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/skeleton/tools/validate_generated_data.py",
+        "sha256": "d5fb805ce117921513c71d08280e42a5d9cfce7674260ba89d4f7ee07333c896",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/skeleton/tools/validate_generated_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/__init__.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/acceptance_size_match.py",
+        "sha256": "3b9011318f6c41b63a4e96ce5a1307246c31e3015b420195374ec77493c51f90",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/tools/acceptance_size_match.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_publish_site.py",
+        "sha256": "24460171c78b6f8e72e0153524b3131f5c828a8ee032d1fd153ced5e637ef62e",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_publish_site.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_sales_year_data.py",
+        "sha256": "ab592ff4b799d0c010ba11a3a947c8b38be6b2b4001c80bcf5c1090c37d92210",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_sales_year_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_size_match_code_data.py",
+        "sha256": "32d6535b541d863c6d1c8d9bd44677a408c2459afc91db8bffbe3831957051db",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/tools/build_size_match_code_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_size_match_data.py",
+        "sha256": "4d671c8976c8646a0d112fbbdf609b47b27a8ed7f2f15599a490cd6ecf1aff90",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_size_match_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_size_rules_data.py",
+        "sha256": "0213a2e2348e6aac87c2ce6bb9bd56de2144fc239679477cf57cc8356a74351f",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_size_rules_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_user_size_json.py",
+        "sha256": "f7c7301e027602c646ae10b9a34f21f2f1bc387bbf1d26e8eccdbcdcb274cccc",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_user_size_json.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/ecs_site_install.py",
+        "sha256": "ba1a20831bf581b92fd742899d3e4638854006d2c0d32dc76f9b4ad7a307d579",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/ecs_site_install.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/export_csv_sources.py",
+        "sha256": "0f2fd66ae287db930a9aa1f9791aa5878295fe452a2024b1c4b5dc70d41ee3c2",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/tools/export_csv_sources.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/export_user_size_json_tables.py",
+        "sha256": "048ae2eb2cae2bdbd40700e95515ac86ae789f1e57069fa43ee77a89a2018713",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/export_user_size_json_tables.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/generate_all_html.py",
+        "sha256": "7c09e85489e70d4bf200cc467d9c11011eb6cfb09a1261b21043f511f9598bf6",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/generate_all_html.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/import_compressed_tables.py",
+        "sha256": "c53a380832b072befe63e866823264c1e4fdabf6deb2520b3b4ab8a3db7df222",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/import_compressed_tables.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/materialize_input_sources.py",
+        "sha256": "8f862f844dc4b47c6a991cc6332d4de75f7212882e1bc60dc04424c9e7c3ebde",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/materialize_input_sources.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/pipeline_paths.py",
+        "sha256": "63c9f4143fa1b67acbe0769b9fd6f7f40c085bf580f12c48692ed4674e5130ba",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/pipeline_paths.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/publish_ecs_site.py",
+        "sha256": "c902dec4cb73216c772f7d46abca8d9a3b3dc4cdd2373a54adc9a12c2014fe6d",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/publish_ecs_site.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/publish_site_copy.py",
+        "sha256": "53d9dc9a0ac0ee75221c19372437884b782916fcde04b25a44dd2063c10815d3",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/publish_site_copy.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/site_promote.py",
+        "sha256": "ccbb04ab6e354ea03e96017480bb1e4bc9aa2e469a73e85e33b7a18dc1e3eecf",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/site_promote.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/validate_publish_site.py",
+        "sha256": "9262ff89cc273857f76d1f1fdc65a8088734af678379e9dd41b0ff146fb6f217",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/validate_publish_site.py"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "网站构建清单.json",
+      "versioned_file": "网站构建清单-20261112_08.json",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/output/网站构建清单-20261112_08.json",
+      "content_reference": true,
+      "sha256": "0fc6f547cb94e985599f6c9d9ec9641a03ac2ed48a8fdaca0569c636d8285f24",
+      "bytes": 414104,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/extra/website.zip",
+    "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/extra/type-pending.csv"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/website.zip",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/extra/website.zip",
+      "sha256": "ea20997d5a18ef57e845c86981faa64a11651a2620adaea806c327ca1aea7953",
+      "bytes": 10736928
+    },
+    {
+      "file": "extra/type-pending.csv",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/extra/type-pending.csv",
+      "sha256": "166370d0418778e98e771fa25524f3754fdf27cd942316d51a51fa79f339c522",
+      "bytes": 759
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "transport": "json",
+    "site_files": 1980
+  }
+}

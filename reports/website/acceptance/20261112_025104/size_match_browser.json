@@ -1,0 +1,145 @@
+{
+ "layer": "browser",
+ "results": [
+  {
+   "id": "B1",
+   "requirement": "R1",
+   "title": "页面有「视图」切换（压缩表 / 全量表），默认压缩表",
+   "status": "pass",
+   "detail": "压缩表 / 全量表"
+  },
+  {
+   "id": "B2",
+   "requirement": "R2",
+   "title": "两种视图读同一份数据：切换视图不再下载数据，全程没有请求旧的 size-match-code / size-match-full",
+   "status": "pass",
+   "detail": "切换前已请求 152 个数据文件，切换时 0 个"
+  },
+  {
+   "id": "B3",
+   "requirement": "R1",
+   "title": "切换视图保留搜索词与类别，URL 记录视图（?view=），刷新后保持",
+   "status": "pass",
+   "detail": "size-match.html?q=ford+f150&view=compressed"
+  },
+  {
+   "id": "A11",
+   "requirement": "R7",
+   "title": "输入「Ford F-150 2008-2026」自动切到皮卡全量表且有筛选记录",
+   "status": "pass",
+   "detail": "pick / full · 35 条"
+  },
+  {
+   "id": "A12",
+   "requirement": "R7",
+   "title": "输入「Ford F-150 2008-2026 SuperCrew Cab Short Bed」自动切到皮卡全量表且有筛选记录",
+   "status": "pass",
+   "detail": "pick / full · 15 条 · 未匹配的词已忽略：cab、short、bed"
+  },
+  {
+   "id": "S1",
+   "requirement": "R3",
+   "title": "bmw 7 只出现 7 系（缺陷复现：曾混入 3/5 系等）（页面 US/nonpick「bmw 7」）",
+   "status": "pass",
+   "detail": "压缩 3 · 全量 8"
+  },
+  {
+   "id": "S2",
+   "requirement": "R3",
+   "title": "bmw 3 只出现 3 系，不混入尺码 3M 的 1/2 系（页面 US/nonpick「bmw 3」）",
+   "status": "pass",
+   "detail": "压缩 7 · 全量 19"
+  },
+  {
+   "id": "S3",
+   "requirement": "R3",
+   "title": "bmw x5 只出现 X5 及其 M 版本（页面 US/nonpick「bmw x5」）",
+   "status": "pass",
+   "detail": "压缩 3 · 全量 22"
+  },
+  {
+   "id": "S4",
+   "requirement": "R3",
+   "title": "mazda 3 只出现 Mazda 3，不混入 CX-3/CX-30/MX-30（页面 US/nonpick「mazda 3」）",
+   "status": "pass",
+   "detail": "压缩 5 · 全量 9"
+  },
+  {
+   "id": "S5",
+   "requirement": "R3",
+   "title": "连字符车型：honda crv / cr-v（页面 US/nonpick「honda cr-v」）",
+   "status": "pass",
+   "detail": "压缩 2 · 全量 7"
+  },
+  {
+   "id": "S6",
+   "requirement": "R3",
+   "title": "皮卡：ford f150（页面 US/pick「ford f150」）",
+   "status": "pass",
+   "detail": "压缩 12 · 全量 47"
+  },
+  {
+   "id": "S7",
+   "requirement": "R3",
+   "title": "年份按年份区间匹配：camry 2017（页面 US/nonpick「toyota camry 2017」）",
+   "status": "pass",
+   "detail": "压缩 1 · 全量 1"
+  },
+  {
+   "id": "S8",
+   "requirement": "R3",
+   "title": "EU 数据源：bmw 7 只出现 7（EU 车型名为 7），不混入 700/X7/i7（页面 EU/nonpick「bmw 7」）",
+   "status": "pass",
+   "detail": "压缩 17 · 全量 96"
+  },
+  {
+   "id": "S10",
+   "requirement": "R3",
+   "title": "RU 数据源：bmw 7 只出现 7 серии，不混入 700/X7/i7（页面 RU/nonpick「bmw 7」）",
+   "status": "pass",
+   "detail": "压缩 4 · 全量 20"
+  },
+  {
+   "id": "S11",
+   "requirement": "R7",
+   "title": "皮卡年份区间：自动切到皮卡全量表，2008-2026 按区间交集筛选（页面 US/pick「Ford F-150 2008-2026」）",
+   "status": "pass",
+   "detail": "压缩 8 · 全量 35"
+  },
+  {
+   "id": "S12",
+   "requirement": "R7",
+   "title": "皮卡驾驶室：SuperCrew 收窄，Cab / Short Bed 无映射时忽略而不清空结果（页面 US/pick「Ford F-150 2008-2026 SuperCrew Cab Short Bed」）",
+   "status": "pass",
+   "detail": "压缩 3 · 全量 15"
+  },
+  {
+   "id": "S9",
+   "requirement": "R3",
+   "title": "8 位车型代码 01039426 = Ford Mustang 1994-2026（页面 US/nonpick「01039426」）",
+   "status": "pass",
+   "detail": "压缩 3 · 全量 27"
+  },
+  {
+   "id": "B4",
+   "requirement": "R4",
+   "title": "压缩表点 CODE 展开来源车型各年份，来源行属于同一车型",
+   "status": "pass",
+   "detail": "2 行来源"
+  },
+  {
+   "id": "B6",
+   "requirement": "尺码参考",
+   "title": "同页切换地区与店铺，筛选、规则详情及旧店铺入口可用",
+   "status": "pass",
+   "detail": "US / EU / RU、店铺分组及 390px 布局"
+  },
+  {
+   "id": "B5",
+   "requirement": "R5",
+   "title": "页面无脚本错误与失败请求（本地缺少 NAS 登记文件除外）",
+   "status": "pass",
+   "detail": "3872 个请求"
+  }
+ ]
+}

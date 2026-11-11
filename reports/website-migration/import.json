@@ -1,0 +1,985 @@
+{
+  "source": "D:\\Home\\Repo\\pipeline_carstable_to_webapp",
+  "files": [
+    {
+      "file": "package.json",
+      "bytes": 152,
+      "sha256": "a7bdf773c0537ccab9868645d77b580688bc8cdd1b31278a88902b4d7658afda"
+    },
+    {
+      "file": "requirements.txt",
+      "bytes": 39,
+      "sha256": "b49ee3d9b9577f4263e80df1c64470b35f84cdf38ebfb8c5c7b2f548834fb1c0"
+    },
+    {
+      "file": "data/ai-user-size.yaml",
+      "bytes": 268,
+      "sha256": "de45f300fc0c434efa2a70d84228b7f25e11e4712d4d4cc7ef76844bd333e7b0"
+    },
+    {
+      "file": "data/html-style.yaml",
+      "bytes": 4526,
+      "sha256": "1c2db4bc57ad4f19168a1ec0669926844206427e97dd28393b1ffcac7ee1e8ee"
+    },
+    {
+      "file": "data/pipeline.yaml",
+      "bytes": 1323,
+      "sha256": "5506fd490cbcaa3e9fd7aecf03fa1dca8ecfa00dc9e215dceabb348d93747f25"
+    },
+    {
+      "file": "data/type-manual-confirm.csv",
+      "bytes": 9380,
+      "sha256": "734dbf2d2894ef20898f9d68d50a6cd5f7ec244b3f8bebcc7d58dad6acc0de84"
+    },
+    {
+      "file": "data/type-structure-abbreviations.json",
+      "bytes": 496,
+      "sha256": "9f8322d5d275c448ab7a4dec0d7d47ae81c5b7e6203377f59962d0eb0b4a9c22"
+    },
+    {
+      "file": "data/user-size-rules.json",
+      "bytes": 226194,
+      "sha256": "5945991240042fa9497162c88e31d12f377157e55861ae1072aa487849414164"
+    },
+    {
+      "file": "tests/conftest.py",
+      "bytes": 136,
+      "sha256": "00abf163e0b7ee9479dd68375955568304b9fed4f64b510e2b842272c1a3335e"
+    },
+    {
+      "file": "tests/test_build_size_match_code_data.py",
+      "bytes": 15684,
+      "sha256": "a1e1b707057cefcf3ba82c5e3f4552644c3c935b03d0f8f759f905fd438000c7"
+    },
+    {
+      "file": "tests/test_build_size_rules_data.py",
+      "bytes": 6030,
+      "sha256": "f9a5cbfad89e3788639ce0d7752059f87993f9849241831bac3b36d92a4feef4"
+    },
+    {
+      "file": "tests/test_ecs_site_publish.py",
+      "bytes": 5369,
+      "sha256": "2c4bf847ae50bf7aed65221c5ae950b24516845dcb778912afea6805a8f3d9c0"
+    },
+    {
+      "file": "tests/test_publish_site_copy.py",
+      "bytes": 5895,
+      "sha256": "616958a32a347b7d8f6a4e5fc7baf7e96f2e025d845a8944fccf81220874d97a"
+    },
+    {
+      "file": "tests/test_validate_publish_site.py",
+      "bytes": 2718,
+      "sha256": "a58cdf9eaaed8887e70d104519f620923091934bb1994f833eb9b5c06fa63ec2"
+    },
+    {
+      "file": "tests/acceptance/compact_detail_browser.cjs",
+      "bytes": 6228,
+      "sha256": "58e2dcaa61a36e9711e1d0fc747b86e0140cfee2c77cec7cb50f4853a9595b50"
+    },
+    {
+      "file": "tests/acceptance/fitment_scatter_browser.cjs",
+      "bytes": 9113,
+      "sha256": "2fe5b23cefb9e2972299c2a807ee182b7cb02566aa1f7aa482c977f4f2a47e64"
+    },
+    {
+      "file": "tests/acceptance/market_potential_browser.cjs",
+      "bytes": 21385,
+      "sha256": "680d2f6bf04065d8977bfe5edcb14a22a67d942f5e78725ae1e875b5456aa900"
+    },
+    {
+      "file": "tests/acceptance/model_compare_browser.cjs",
+      "bytes": 8697,
+      "sha256": "c658a2e9f1fb44e52f951d18633cc1f8c7aa9e7149c32438982eed4a7d26cb71"
+    },
+    {
+      "file": "tests/acceptance/sales_year_data.cjs",
+      "bytes": 2506,
+      "sha256": "d755e8d51d9592384fb00a8a81f17add863210d9f090bbd57e7e9a1025a3a422"
+    },
+    {
+      "file": "tests/acceptance/size-match-scenarios.json",
+      "bytes": 4205,
+      "sha256": "13e08f0522513baccf25a8dc4efe56c6248a3a2b7e975da4b46d5f2ceaf1fea8"
+    },
+    {
+      "file": "tests/acceptance/size_match_browser.cjs",
+      "bytes": 16868,
+      "sha256": "ae1cd1c5e1541652481364d7a134b686666351385597ccdb9b9aebf0783e9c7f"
+    },
+    {
+      "file": "tests/acceptance/size_match_data.cjs",
+      "bytes": 11520,
+      "sha256": "694ac33f05d17b539b7c601e9d23c27f85d79ce3feb3e4e9a01ae834ab1e6962"
+    },
+    {
+      "file": "tests/acceptance/size_match_lib.cjs",
+      "bytes": 4096,
+      "sha256": "9e83f21bc4e6bdc7ee97e537c143c02e78b36c4984328c38099c1ed07fd4b45f"
+    },
+    {
+      "file": "tests/js/fitment-scatter.test.cjs",
+      "bytes": 3268,
+      "sha256": "5f0a4f89e75032520547d1810da39c5c009b82cfd3c62f6fd031760a52d2b32c"
+    },
+    {
+      "file": "tests/js/model-compare-data.test.cjs",
+      "bytes": 2894,
+      "sha256": "b502495d2ef51e2150893d4e83d8e9c334ae09d94bd49892d4495366c07dc04e"
+    },
+    {
+      "file": "tests/js/model-dashboard.test.cjs",
+      "bytes": 1489,
+      "sha256": "e458555da3203abefe6ec4badf9198353c450ad574bc751d7848412cf78cd020"
+    },
+    {
+      "file": "tests/js/sales-year-data.test.cjs",
+      "bytes": 2178,
+      "sha256": "f4867150eac15b749cf9e8ef6fc30d69dc7161d11916541c6d89bf2c30518f03"
+    },
+    {
+      "file": "tests/js/size-evolution-data.test.cjs",
+      "bytes": 21741,
+      "sha256": "a208dc53603760992504995505cf543b9a05825a39f0a37d27fca8831d39a55d"
+    },
+    {
+      "file": "tests/js/viewer-data.test.cjs",
+      "bytes": 3460,
+      "sha256": "eff033d82484fa041af633d595eae70382ce13a9f9bdbd91b3d68837b92038d3"
+    },
+    {
+      "file": "tests/js/viewer-rules.test.cjs",
+      "bytes": 11717,
+      "sha256": "faed794a186ec70d2aa8ab7d28213f4435549882f54a7c2f12a94dd5341a69d8"
+    },
+    {
+      "file": "tests/js/viewer-search.test.cjs",
+      "bytes": 11144,
+      "sha256": "f3854d50b682a2605a154462e10a670bd86eee9612f5ef255f80640b8ecd4c95"
+    },
+    {
+      "file": "src/chart_generator/tsv_to_size_chart_html.py",
+      "bytes": 81039,
+      "sha256": "535fd677a89b923ef23865c629e7e0efbf13d925643409b412578e613e7c36e8"
+    },
+    {
+      "file": "src/site_overrides/.htaccess",
+      "bytes": 391,
+      "sha256": "bb02ff313fa3b2b1bae19cbc4829acbeac0932e16aae942ef6791d0abb0e8fa2"
+    },
+    {
+      "file": "src/site_overrides/size-ref.html",
+      "bytes": 573,
+      "sha256": "9c09468c144e2c2841b5ea451df00a7950331538979759f8de9e8000ff5bb1b4"
+    },
+    {
+      "file": "src/site_overrides/store-groups.html",
+      "bytes": 592,
+      "sha256": "263de13009ceccfc183179197695ea4f32df0ac2cfec3ca8373e0a4ee48150e2"
+    },
+    {
+      "file": "src/skeleton/.nojekyll",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "file": "src/skeleton/README.md",
+      "bytes": 4433,
+      "sha256": "eb4e51477e6e212c2e6442b46f22b571ceeb81d9cb26d84a4d993b83c7956825"
+    },
+    {
+      "file": "src/tools/acceptance_size_match.py",
+      "bytes": 7396,
+      "sha256": "55406431b6bcc219d956313751eabba19aa5d1b54dbd9f0129d4457aad7e21cf"
+    },
+    {
+      "file": "src/tools/build_publish_site.py",
+      "bytes": 24294,
+      "sha256": "cf640d4badc8831144ea82e36fe26a24b9eed9b6df116f4f96dda2c62e23fcad"
+    },
+    {
+      "file": "src/tools/build_sales_year_data.py",
+      "bytes": 5222,
+      "sha256": "ab592ff4b799d0c010ba11a3a947c8b38be6b2b4001c80bcf5c1090c37d92210"
+    },
+    {
+      "file": "src/tools/build_size_match_code_data.py",
+      "bytes": 18857,
+      "sha256": "d6643bb910ab65225f846d9d885f234af9cc105bd33b014d3b84c0700022ff88"
+    },
+    {
+      "file": "src/tools/build_size_match_data.py",
+      "bytes": 3832,
+      "sha256": "4d671c8976c8646a0d112fbbdf609b47b27a8ed7f2f15599a490cd6ecf1aff90"
+    },
+    {
+      "file": "src/tools/build_size_rules_data.py",
+      "bytes": 8337,
+      "sha256": "0213a2e2348e6aac87c2ce6bb9bd56de2144fc239679477cf57cc8356a74351f"
+    },
+    {
+      "file": "src/tools/build_user_size_json.py",
+      "bytes": 23680,
+      "sha256": "f7c7301e027602c646ae10b9a34f21f2f1bc387bbf1d26e8eccdbcdcb274cccc"
+    },
+    {
+      "file": "src/tools/ecs_site_install.py",
+      "bytes": 5740,
+      "sha256": "ba1a20831bf581b92fd742899d3e4638854006d2c0d32dc76f9b4ad7a307d579"
+    },
+    {
+      "file": "src/tools/export_csv_sources.py",
+      "bytes": 2283,
+      "sha256": "d6a00d4a10b8e5a6ac66651301e0e91ed3537c2208ea5dbc435cb1e21d417bdb"
+    },
+    {
+      "file": "src/tools/export_user_size_json_tables.py",
+      "bytes": 2613,
+      "sha256": "048ae2eb2cae2bdbd40700e95515ac86ae789f1e57069fa43ee77a89a2018713"
+    },
+    {
+      "file": "src/tools/generate_all_html.py",
+      "bytes": 6323,
+      "sha256": "7c09e85489e70d4bf200cc467d9c11011eb6cfb09a1261b21043f511f9598bf6"
+    },
+    {
+      "file": "src/tools/import_compressed_tables.py",
+      "bytes": 8320,
+      "sha256": "c53a380832b072befe63e866823264c1e4fdabf6deb2520b3b4ab8a3db7df222"
+    },
+    {
+      "file": "src/tools/materialize_input_sources.py",
+      "bytes": 13277,
+      "sha256": "8f862f844dc4b47c6a991cc6332d4de75f7212882e1bc60dc04424c9e7c3ebde"
+    },
+    {
+      "file": "src/tools/pipeline_paths.py",
+      "bytes": 1439,
+      "sha256": "63c9f4143fa1b67acbe0769b9fd6f7f40c085bf580f12c48692ed4674e5130ba"
+    },
+    {
+      "file": "src/tools/publish_ecs_site.py",
+      "bytes": 6234,
+      "sha256": "c902dec4cb73216c772f7d46abca8d9a3b3dc4cdd2373a54adc9a12c2014fe6d"
+    },
+    {
+      "file": "src/tools/publish_site_copy.py",
+      "bytes": 13482,
+      "sha256": "53d9dc9a0ac0ee75221c19372437884b782916fcde04b25a44dd2063c10815d3"
+    },
+    {
+      "file": "src/tools/site_promote.py",
+      "bytes": 6256,
+      "sha256": "ccbb04ab6e354ea03e96017480bb1e4bc9aa2e469a73e85e33b7a18dc1e3eecf"
+    },
+    {
+      "file": "src/tools/validate_publish_site.py",
+      "bytes": 22361,
+      "sha256": "9262ff89cc273857f76d1f1fdc65a8088734af678379e9dd41b0ff146fb6f217"
+    },
+    {
+      "file": "src/tools/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/skeleton/config/size-chart-view.yaml",
+      "bytes": 1319,
+      "sha256": "14e8fd858ef8196c1fc3dc01abbee02b76b896e6c814334d36735f02ffbdbc09"
+    },
+    {
+      "file": "src/skeleton/tools/build_site.py",
+      "bytes": 2744,
+      "sha256": "89a820d3c19020b371c2974e87d26b4979bd5cfb22f025070c5256be8e78afac"
+    },
+    {
+      "file": "src/skeleton/tools/export_xlsx_sources.py",
+      "bytes": 14011,
+      "sha256": "a815bbcf6bd2ad10a56fc3c7a6c4bd3c1898b39d3d4b5112297dfd6ee71728dc"
+    },
+    {
+      "file": "src/skeleton/tools/validate_generated_data.py",
+      "bytes": 8531,
+      "sha256": "946ded7409592dff26c8915bb526739af5da6c2b30bc82c0f52a5de9368d4358"
+    },
+    {
+      "file": "src/skeleton/pages/level-1/index.html",
+      "bytes": 1067,
+      "sha256": "3506e01ac2e3c9b3f2fe1acf93814f9b98074027b6505c1af96e29202625dd85"
+    },
+    {
+      "file": "src/skeleton/pages/level-1/size-chart.html",
+      "bytes": 1465,
+      "sha256": "4e84146d540e5f1ded0485d681c15653a0b184903ee343f123136d4e7c74288b"
+    },
+    {
+      "file": "src/skeleton/pages/level-1/size-charts.html",
+      "bytes": 1467,
+      "sha256": "69f7ab45e00247655b36d7d66403b20ce0d9b4815885a3b0707fd4f68384020c"
+    },
+    {
+      "file": "src/skeleton/pages/level-1/size-match.html",
+      "bytes": 1390,
+      "sha256": "4d4b18e653d9f63a319cec8bcc98e1f90241b24d1b7aacc88070a51f324566aa"
+    },
+    {
+      "file": "src/skeleton/pages/level-1/size-ref.html",
+      "bytes": 527,
+      "sha256": "597978db5721ffffee667c796cf1612a72267b83b44878496b48614b45589941"
+    },
+    {
+      "file": "src/skeleton/pages/redirect/404.html",
+      "bytes": 1413,
+      "sha256": "aadfa6b762ca71ed2b58bd5f2dc1f9b5dee7c5cd75e4dccd7ce3c373cb7e6a3e"
+    },
+    {
+      "file": "src/skeleton/pages/redirect/index.html",
+      "bytes": 1518,
+      "sha256": "d5591a06b50eeaa8d6f3219de758c5b1e13ea0a5f4bb1a89924cfdc3fcdd34ea"
+    },
+    {
+      "file": "src/skeleton/pages/tools/html-source-preview.html",
+      "bytes": 1375,
+      "sha256": "0f61afb7bc9fd7ec9b39ceba8657ad439ee4aaf709e8d912d26ee583c358d06f"
+    },
+    {
+      "file": "src/skeleton/data/generated/size-ref.json",
+      "bytes": 5340,
+      "sha256": "6c86abc5430c03843b8c7e854b25a7e22ebe2b9fb52a46d4aeca9a97047f49a1"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/D-DIN-PRO-400-Regular.woff2",
+      "bytes": 10636,
+      "sha256": "dcc3561488968ca5cb3c9f0e1e2f81bf4d0470bb63b2b0be12771e3fb364b2f2"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/D-DIN-PRO-600-SemiBold.woff2",
+      "bytes": 12176,
+      "sha256": "8b61fbfe695e12d4eb08a58a6bd81f7c2553097de30c54e72e311ee349b3abf6"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/D-DIN-PRO-700-Bold.woff2",
+      "bytes": 10992,
+      "sha256": "adcea7529aee522343d1482784dedcdab40eda098147691d42239dd6aa02eeb0"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/D-DIN-PRO-900-Heavy.woff2",
+      "bytes": 12488,
+      "sha256": "7559dc554679e901221ad87b803afe0461c6be9e7763dffd1e67e49efe216907"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/LICENSE.txt",
+      "bytes": 419,
+      "sha256": "7c728e71e96845fb9cb891753cf28c3aeb3c378a1d8c9ebd61b85288e70ab998"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-Black.otf",
+      "bytes": 28396,
+      "sha256": "c0e560eab888162a18b4be7342733b19733f7b6a009a1ae95e4191384a22816d"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BlackAlternate.otf",
+      "bytes": 29100,
+      "sha256": "99fda14045b31eebca5f0264b11388ef61d5a031afe742a3f6c830f750984b14"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BlackItalic.otf",
+      "bytes": 27756,
+      "sha256": "2dd2c08b6ff9369f4216c5a640b3c248c97c77a026c18e69f1ee1cef595a6b9e"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BlackItalicAlt.otf",
+      "bytes": 28468,
+      "sha256": "e4897d9c6fd2a2bb73b3d1684b7db560c14a3f744aea8056f233440b17755359"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BlackItalicExp.otf",
+      "bytes": 20184,
+      "sha256": "b2197e4b7f03a5815c4e100df5a8e6836af64972e73aa8f5f00c5ae8ccff28ee"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-Bold.otf",
+      "bytes": 28640,
+      "sha256": "aa121f9bdb891acdfbd269059f7c43ffe2897eadf84edcde869e8988d6986743"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BoldAlternate.otf",
+      "bytes": 29204,
+      "sha256": "aecb798fcc89f88b66ec80956bf1e6ba08552eb7847fe63726e8746a72eec00a"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BoldItalic.otf",
+      "bytes": 28128,
+      "sha256": "7993863d662489f1be160a4740c2e3467827438e9168749cd9a79cbdd71d97a5"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BoldItalicAlt.otf",
+      "bytes": 28884,
+      "sha256": "d5a6f32bee4ebd95b6cd26ea5f77a94da3bba5ae7e12ef3f3bf36a9c7921660c"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-BoldItalicExp.otf",
+      "bytes": 19996,
+      "sha256": "6790b3097741700c6341999dcec6185adbe4b9c39cfdd26609ec4b6186225cbb"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-Euro.otf",
+      "bytes": 12984,
+      "sha256": "cdc159a6cab5c3a79325068cad5f0aa87015a78f016fd89549c6815434e461b2"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-Light.otf",
+      "bytes": 27580,
+      "sha256": "690862a3b8fbb353a68ce2f2152f6c9f6dfd7bf9c0df5504d228f60175ebc7d3"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-LightAlternate.otf",
+      "bytes": 28388,
+      "sha256": "6a35a4d635bbba2d65bbcc5f020de9b83230b86005be9aaadfe6d1dcf2ed8ba0"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-LightItalic.otf",
+      "bytes": 27640,
+      "sha256": "acbb66dc2eb218794ee16d86cff9f1f7c2bfdd802414c48b831e00e398011fb0"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-LightItalicAlt.otf",
+      "bytes": 28436,
+      "sha256": "f1b2242e2b33ccd989df9223ebc7f500256cd052ab9c16f837d5509b7e52d05b"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-LightItalicExp.otf",
+      "bytes": 19904,
+      "sha256": "de7715e251c25bbae4e4921237a567af272aef6af3d649618b51781fab5fa287"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-Medium.otf",
+      "bytes": 27828,
+      "sha256": "9be26bc017a85b62fc72377b639326a8d90643f0ddeda97d9f79fda503ec0615"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-MediumAlternate.otf",
+      "bytes": 28548,
+      "sha256": "15bec864fe9a86f2aafcf30f26eba44f06d076513912542c0d5e3cfeeea32942"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-MediumItalic.otf",
+      "bytes": 27660,
+      "sha256": "78de24a0cd0a3dd6ce07a23fbcd28948739d4df9c4f6fd41906ac91ac63388e0"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-MediumItalicAlt.otf",
+      "bytes": 28324,
+      "sha256": "73129f57a44c3d294688b98ffb0dfc287b8b64e3b500d1abaa55759df67a4d87"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-MediumItalicExp.otf",
+      "bytes": 19872,
+      "sha256": "4313c6f90275455825a56f0b9d18b422b715db33bd4e9b7a9262c9a212730085"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-Regular.otf",
+      "bytes": 27476,
+      "sha256": "2476c4c6b30bec348b2fa97fc2abee1fedc35620c454cd543a10bcd0af5634d1"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-RegularAlternate.otf",
+      "bytes": 28336,
+      "sha256": "b56e605cd088a2f51a614c43fd9567881dbb42ca69213c1b4ccd886a358c6be6"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-RegularItalic.otf",
+      "bytes": 27648,
+      "sha256": "34000a8f99d9928679265d24089775241e473fd7d4ab70bb960f7912ccc779ce"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-RegularItalicAlt.otf",
+      "bytes": 28444,
+      "sha256": "3bb49547b2beb278349e3633bc2325e1668cf540f65093da12a26c6f8d3c22a0"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DIN-RegularItalicExp.otf",
+      "bytes": 19996,
+      "sha256": "785d694b228105d52bdcf70095b87adf9ecd22b7daee6ebddef141d1aa3b5d1d"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-Black.otf",
+      "bytes": 31144,
+      "sha256": "7b29f6a327e657b96492a506754b310b76651a943cf4a6c3356d8a70897f2dd3"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-BlackAlternate.otf",
+      "bytes": 31832,
+      "sha256": "476543e69c4fc41e7bf7759ea87f8c6369be30742b5dd12d203cfa4dfa3afe07"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-BlackExpert.otf",
+      "bytes": 21072,
+      "sha256": "61ffb3b44fb61a98196c12178cacd5df64a313d41fb4d299b835c7c48e8a9fd0"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-Bold.otf",
+      "bytes": 31380,
+      "sha256": "fc5da17a88f457cd13ecb1fe363fd08e4eed79d76eb2d2af1ec66f4b7f08ac24"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-BoldAlternate.otf",
+      "bytes": 31488,
+      "sha256": "ac6118b1523feb99e1b61352576cfe51372edac7a27a1a9a86de23c5e04778b2"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-BoldExpert.otf",
+      "bytes": 20996,
+      "sha256": "f05c301871ca8065cc446152b44e55f9623345b767ded37270e66e0cb151b46c"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-Light.otf",
+      "bytes": 30956,
+      "sha256": "d06cddafbe133e943bff0af87885e652f17a04fbcba2eff11bcea6748f81ebe6"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-LightAlternate.otf",
+      "bytes": 31008,
+      "sha256": "edfb28c728e6b604354bf98be1f65221bba0c92e4ffe4985818eae9ea4d3a7b7"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-LightExpert.otf",
+      "bytes": 20964,
+      "sha256": "d52778e7e167562a7c64978acf2adbd6e6863469079f546e15d7c94e6eea5521"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-Medium.otf",
+      "bytes": 30536,
+      "sha256": "0680acfcb4d2d0926868121d18e55a2675f38a2e04af1983c74596527d760fb5"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-MediumAlternate.otf",
+      "bytes": 31332,
+      "sha256": "5517ef41487dfc56952b91d3fe4b51698543cdd68aa138f76442bcdc4c251c47"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-MediumExpert.otf",
+      "bytes": 20980,
+      "sha256": "9f3a25e97eb81dee9224d183392d06c3792ef7feb956db57402b03d457a9d8fd"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-Regular.otf",
+      "bytes": 30716,
+      "sha256": "937d8f61663906195ba7588abe9fd4afa614284e14afca879d18356c088db390"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-RegularAlternate.otf",
+      "bytes": 31512,
+      "sha256": "a27974e357dc1dd84725b9f4cfeda9efd66cbde822abda58878acb5799a69809"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINCond-RegularExpert.otf",
+      "bytes": 21004,
+      "sha256": "26c46b3af0baadaef61105b75bf516b857fc8fbede8e0eb92140db46536adc49"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINEngschrift-Alternate.otf",
+      "bytes": 23808,
+      "sha256": "f696d376788967f422d0475cc5570d81e3d00d6dbea49881f28705e03bf19617"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINEngschrift.otf",
+      "bytes": 22832,
+      "sha256": "faa9f3cc407467c865eaf5ece702dc01e7c4a6e7a0fee8985c465d6151c1163a"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINPro-Black.otf",
+      "bytes": 88940,
+      "sha256": "8fdbf41e6f92f644e74a78d13cca8c38300a8eee32fd3d9fd6140cadb8004998"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINPro-Bold.otf",
+      "bytes": 90228,
+      "sha256": "e67ddf8c385e538b5cc80dfc0e7ac15b1bee2c59280a626321c5f8bae467cec0"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINPro-Light.otf",
+      "bytes": 88240,
+      "sha256": "f26fe203a4ca1f9bcb69ca93a33c8df19a3656e1a4a634d92f4aac53036d269e"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINPro-Medium.otf",
+      "bytes": 89060,
+      "sha256": "4f353e87997c254c379a81770045d40814f32baa2c534540d103415337b5fb93"
+    },
+    {
+      "file": "src/skeleton/assets/fonts/Din/DINPro-Regular.otf",
+      "bytes": 87364,
+      "sha256": "617311af2fbd10bf1a1c15643661740c83fb812ac56fcd83478c00e239eb5080"
+    },
+    {
+      "file": "src/site_overrides/assets/app/fitment-scatter-data.js",
+      "bytes": 3263,
+      "sha256": "1e3827e883d0864a971b8b145770dc7bdb7bad54202772fd34ca042217830a45"
+    },
+    {
+      "file": "src/site_overrides/assets/app/fitment-scatter.js",
+      "bytes": 12560,
+      "sha256": "8aae5874d28f0a31b693d01ac6cd3dbbb1a405b0436aaf8c692974be56a0d28b"
+    },
+    {
+      "file": "src/site_overrides/assets/app/model-compare-data.js",
+      "bytes": 3726,
+      "sha256": "cdac1aca6d7ce42cdee295bc804dbddab940aaddf03002ba34bc78cf598dd0da"
+    },
+    {
+      "file": "src/site_overrides/assets/app/model-compare.css",
+      "bytes": 5157,
+      "sha256": "8fdded4db0f7411305a0c9cfad1ce5bc397c97debcd8309fdceb3595a31aee35"
+    },
+    {
+      "file": "src/site_overrides/assets/app/model-compare.js",
+      "bytes": 23981,
+      "sha256": "75ffde64c774b98090b25e6337ae50c75abe2566f1ad0914c76eb22a0cf7aa91"
+    },
+    {
+      "file": "src/site_overrides/assets/app/model-dashboard.js",
+      "bytes": 4908,
+      "sha256": "8b6ab1a8892cab59a001a18f3c1c7a730c01359b620bfb4fcf058e455e5bea10"
+    },
+    {
+      "file": "src/site_overrides/assets/app/site-common.js",
+      "bytes": 6827,
+      "sha256": "b9a11916353b04665e7e1911ef20198d802aac3fda051625860e61eda39f2ecc"
+    },
+    {
+      "file": "src/site_overrides/assets/app/size-evolution-data.js",
+      "bytes": 38431,
+      "sha256": "50315c609550842097e2293227bffcc7179c82cb431729d35b4bd5e130652408"
+    },
+    {
+      "file": "src/site_overrides/assets/app/size-evolution.css",
+      "bytes": 28742,
+      "sha256": "db457adf23d9d98a67339823cae6a128b5bb9734584565a4d5feef61a713cc48"
+    },
+    {
+      "file": "src/site_overrides/assets/app/size-evolution.js",
+      "bytes": 93442,
+      "sha256": "353de5711e408f337aca6ac74c98b0e63b6da3244504b36c9064e4097f400da0"
+    },
+    {
+      "file": "src/site_overrides/assets/app/size-ref.css",
+      "bytes": 7587,
+      "sha256": "d053c7864d9e83d34be9e29bdf068e263a9d6bc9cddf7ed2e8b55bdff02ad313"
+    },
+    {
+      "file": "src/site_overrides/assets/app/size-ref.js",
+      "bytes": 13755,
+      "sha256": "08e6cc08526e4a95684aaa40900fe47e3b75a2bb959fe4f4fbc8eaf9f15ca847"
+    },
+    {
+      "file": "src/site_overrides/assets/app/viewer-data.js",
+      "bytes": 25181,
+      "sha256": "a87b060c62a77ee17c75dd2a6f3ae7a1c599b9222d4ab006bf89840fd3212de9"
+    },
+    {
+      "file": "src/site_overrides/assets/app/viewer-rules.js",
+      "bytes": 22008,
+      "sha256": "c238e7e27f3fe24188bbd079e66ab0a6aa6d2a85432d73ab895fdc3ca24415db"
+    },
+    {
+      "file": "src/site_overrides/assets/app/viewer.css",
+      "bytes": 85852,
+      "sha256": "3483d413518a6d862f4fe77bec37214424d1fb420a4d6711e6c9294113cb4257"
+    },
+    {
+      "file": "src/site_overrides/assets/app/viewer.js",
+      "bytes": 187293,
+      "sha256": "60bc5d8f521f3fa6bd0d84eddb4ee951f5fe1efa5b10b14089cf5c73a5e90999"
+    },
+    {
+      "file": "src/site_overrides/assets/vendor/echarts/echarts.min.js",
+      "bytes": 1034147,
+      "sha256": "873a889da5ecf780d88ce440cebcc75b57ef405b2cf08f78f43554f864b1b2bd"
+    },
+    {
+      "file": "src/site_overrides/assets/vendor/echarts/LICENSE",
+      "bytes": 12212,
+      "sha256": "9ef11df57e751e8c6d10d54e1855c64d316627bbe89e73326de7e3ccdb8184aa"
+    },
+    {
+      "file": "src/site_overrides/assets/vendor/echarts/NOTICE",
+      "bytes": 172,
+      "sha256": "6e991b88000ad9e981472373befe6968be3673c5020ae8e5954be54725abe104"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Acura.png",
+      "bytes": 7603,
+      "sha256": "427e997240d44e00095791485605250cac7351a85be471e541bb6a6c8d798ddd"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Alfa Romeo.png",
+      "bytes": 12437,
+      "sha256": "7291c29e2014d967831412c25a55b017a989de22dc55dcd1be3f491ba7a84cfd"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Audi.png",
+      "bytes": 12034,
+      "sha256": "b38f026332389f434f9c3da4e1bc8b9548fb3704bacaab9dcc1b466b0b5423e7"
+    },
+    {
+      "file": "src/chart_generator/img_logos/BMW.png",
+      "bytes": 10127,
+      "sha256": "42b6659350bc3772624d3182c617087582bb036996c2aa041a58224bd00017e6"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Buick.png",
+      "bytes": 9748,
+      "sha256": "8998860f2aed105926c6a8678be3ea035c0803df3baa7619fa99ebf2024015cf"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Cadillac.png",
+      "bytes": 6146,
+      "sha256": "4e7aa906485ee3e56a3b472a1e4fecf8310bc6ea6596085ad6d64da6799eb0d1"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Chevrolet.png",
+      "bytes": 2499,
+      "sha256": "a4f912e96f63d0d53ce9f70705ec8d57f707639c3b1a138556c7d8f69be8145c"
+    },
+    {
+      "file": "src/chart_generator/img_logos/CHRYSLER.png",
+      "bytes": 8360,
+      "sha256": "8b551b2d708b39945cab085e5652ad4f5734e3ecbc83133922ad5139ea49dfaf"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Dodge.png",
+      "bytes": 8471,
+      "sha256": "616e8473a4228983b1c87b9f3e18c2cde7bfc431079bca4672e216c245097959"
+    },
+    {
+      "file": "src/chart_generator/img_logos/FIAT.png",
+      "bytes": 7090,
+      "sha256": "683ec28097b3a71a5ef77f61bd8606a618c00990f1e9df2a56b08c62d47849b8"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Ford.png",
+      "bytes": 17551,
+      "sha256": "7a5911887a935f6d76643e891895cfa137e99e09b67d36fa480ab6da802c7beb"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Genesis.png",
+      "bytes": 10926,
+      "sha256": "0550de7dff32dfdd19f2255e58635f8834b044fe20a12ce63fb4111067d08dca"
+    },
+    {
+      "file": "src/chart_generator/img_logos/GMC.png",
+      "bytes": 7549,
+      "sha256": "4b98d0ce12fbce954ae44026dcfcb07f4c93e6867406f8625757b02aaabd7abc"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Honda.png",
+      "bytes": 6127,
+      "sha256": "e4013687d439e0c21071b9be3742ca93b37183451b9201b552cb54d731535944"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Hyundai.png",
+      "bytes": 8396,
+      "sha256": "ca89f3310878863827eed3ce35b33842f190ffd704aa5f641d4f6f8f6ff0c9e3"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Ineos.png",
+      "bytes": 5869,
+      "sha256": "e39c523002c54cba6e65bbedb7fc8704a75ad0c0406a28ef38baed8cbc657290"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Infiniti.png",
+      "bytes": 7893,
+      "sha256": "5cbb9f1e6ccddb0edb65c3ba0ad9cf9e5c073958de059130b4d54e576ce4d38c"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Jaguar.png",
+      "bytes": 10526,
+      "sha256": "d939738ed068919ad7cfbd1a17ca7816ff9cd2b37ff922d28eccb92647e22633"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Jeep.png",
+      "bytes": 7168,
+      "sha256": "ae30e2701ea391eca64630829562e9a94caf6557f2a30e04e8796c08f568c66d"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Karma.png",
+      "bytes": 2405,
+      "sha256": "cf3e3e47a61fa5f06133ee722bc35129f1a1732c6c05ad1439c0304407cdca6c"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Kia.png",
+      "bytes": 8380,
+      "sha256": "8bda91ef1c56cf7bc68de1907a8280ee1101014071c0ac893f52314cbb2e9acb"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Land Rover.png",
+      "bytes": 13769,
+      "sha256": "f60caf9208ab0bcaca5d08426b87a233851d433cb4569f567dd7122f44e84c09"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Lexus.png",
+      "bytes": 6419,
+      "sha256": "44cc6cda4748b4b50b615308abce93805ce02bdb47a78e392ee5dd6bbd12714d"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Lincoln.png",
+      "bytes": 3315,
+      "sha256": "eb7be8392dadd6b7728757b0f92f9b1d60ed3fd712c9180e054f33cf4292fbf8"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Lucid Motors.png",
+      "bytes": 1316,
+      "sha256": "3d06d3b09f56e8e24e71588d8824676aec3f583189e3dacc1d5fc3e8f3464e97"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Maserati.png",
+      "bytes": 5215,
+      "sha256": "88c4ee05ea817c079d7e149c194f46e0697c33003a9ca646ed9dff2876d63e8e"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Mazda.png",
+      "bytes": 7662,
+      "sha256": "955543d012d1669eca3faf6af95906b24bfae3dbae5840b94fdc41038428c117"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Mercedes-Benz.png",
+      "bytes": 7007,
+      "sha256": "08a43a2977e904ff043542fb28d434071925249d7e3e87c149dc09cfba519087"
+    },
+    {
+      "file": "src/chart_generator/img_logos/MERCURY.png",
+      "bytes": 10080,
+      "sha256": "0d1e01a5066ce88826108c67389b89e0ead7a48e7803d2d7be8b2ed84c3d773d"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Mini.png",
+      "bytes": 6040,
+      "sha256": "3706f079488b7664dc03710f5ff41c9681eae2dd4e8e73f675d6cbd836700d00"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Mitsubishi.png",
+      "bytes": 3230,
+      "sha256": "ff39a78d43329911371c4876dc048aaa77db3f66711671b9798f5c2e5a7c6bef"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Nissan.png",
+      "bytes": 6538,
+      "sha256": "280481d099fbc567223e54b52033fd9e5fe489554d158006d14e2e8c97d91cf8"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Oldsmobile.png",
+      "bytes": 15937,
+      "sha256": "91bfa092a95fbf76deb9833893c753900deeacbbcb706cafd7ce821dce3da782"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Plymouth.png",
+      "bytes": 8692,
+      "sha256": "f317c2fc400f58508fa411b7a2d5b364184e56d8ece539e885ff95401ee9b35f"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Polestar.png",
+      "bytes": 2151,
+      "sha256": "efd584ed843a8bfc1a62224ae4e14e8b0f8959f90be7117e58d80ad0caef4a61"
+    },
+    {
+      "file": "src/chart_generator/img_logos/PONTIAC.png",
+      "bytes": 5516,
+      "sha256": "07eda4867292df623959c7212838ff822baa313f7ce309a05303115c5a1808b4"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Porsche.png",
+      "bytes": 12828,
+      "sha256": "1978edccb1c36caa4152ac818723f9267c70c557e6622b4c27d9011d83322067"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Ram.png",
+      "bytes": 8471,
+      "sha256": "616e8473a4228983b1c87b9f3e18c2cde7bfc431079bca4672e216c245097959"
+    },
+    {
+      "file": "src/chart_generator/img_logos/RIVIAN.png",
+      "bytes": 7766,
+      "sha256": "a37e36510b536d0277269493eab0af9601fe8ea97290e5fe32aab71e3fd99818"
+    },
+    {
+      "file": "src/chart_generator/img_logos/SAAB.png",
+      "bytes": 10691,
+      "sha256": "17f143c9fcd51a7f56a99f895a4cef77170ce89213d2f6cf518d943258efbe3a"
+    },
+    {
+      "file": "src/chart_generator/img_logos/SATURN.png",
+      "bytes": 4720,
+      "sha256": "41ba21193eea1f8838036feafa80bfa09ac19cbd545870f74c99b623e31e3712"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Scion.png",
+      "bytes": 8492,
+      "sha256": "81ea789ff48a495e70238d25862a06ec8c68f9c7fd48647bcf5a2feb58b65e7d"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Subaru.png",
+      "bytes": 10163,
+      "sha256": "222b750b40ff025a38820bc29eee3a46ccf4ea56718094ab888be9ca1930724e"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Suzuki.png",
+      "bytes": 5573,
+      "sha256": "95bf8f37badef9421d8a315edcdba6d74bed8eafeea9da9ee6853ebbbb6915b4"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Tesla.png",
+      "bytes": 4025,
+      "sha256": "d56c3ebb3ba32ae1885e30e0495466cba16018fc5c2d3adbed6fc059cd1069bc"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Thumbs.db",
+      "bytes": 229376,
+      "sha256": "db82ab963d8a8051e8a43429cd0343dbf5f1abc7ae686ed234ed6b8c34732141"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Toyota.png",
+      "bytes": 8611,
+      "sha256": "8210989bee31d4372c2edeb38cb62f1c51a8b7d284802098b9d425a9b0745a5c"
+    },
+    {
+      "file": "src/chart_generator/img_logos/VinFast.png",
+      "bytes": 10632,
+      "sha256": "bbd131d8276f5c13927ac15cfb37fb8cbb1192a5bfa91b9020c8649834ee838f"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Volkswagen.png",
+      "bytes": 8092,
+      "sha256": "6cf68c5b395ecb360bc9c042fcea57c7e76b66f0db163d9d2fbf43f1d38bf357"
+    },
+    {
+      "file": "src/chart_generator/img_logos/Volvo.png",
+      "bytes": 7378,
+      "sha256": "5f4a95ee52898500d86b2e39385c5cf19b8e64545e4996eadb7406ddb319c5c5"
+    },
+    {
+      "file": "src/chart_generator/assets/fonts/LICENSE.txt",
+      "bytes": 419,
+      "sha256": "7c728e71e96845fb9cb891753cf28c3aeb3c378a1d8c9ebd61b85288e70ab998"
+    },
+    {
+      "file": "src/chart_generator/assets/fonts/Din/DINPro-Black.otf",
+      "bytes": 88940,
+      "sha256": "8fdbf41e6f92f644e74a78d13cca8c38300a8eee32fd3d9fd6140cadb8004998"
+    },
+    {
+      "file": "src/chart_generator/assets/fonts/Din/DINPro-Bold.otf",
+      "bytes": 90228,
+      "sha256": "e67ddf8c385e538b5cc80dfc0e7ac15b1bee2c59280a626321c5f8bae467cec0"
+    },
+    {
+      "file": "src/chart_generator/assets/fonts/Din/DINPro-Medium.otf",
+      "bytes": 89060,
+      "sha256": "4f353e87997c254c379a81770045d40814f32baa2c534540d103415337b5fb93"
+    },
+    {
+      "file": "src/chart_generator/assets/fonts/Din/DINPro-Regular.otf",
+      "bytes": 87364,
+      "sha256": "617311af2fbd10bf1a1c15643661740c83fb812ac56fcd83478c00e239eb5080"
+    }
+  ]
+}

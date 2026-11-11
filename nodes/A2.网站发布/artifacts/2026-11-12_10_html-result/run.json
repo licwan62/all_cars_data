@@ -1,0 +1,238 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/A2.网站发布/artifacts/2026-11-12_10_html-result",
+  "version": "20261112_10",
+  "description": "html-result",
+  "created_at": "2026-11-12T02:41:43+08:00",
+  "finished_at": "2026-11-12T02:41:44+08:00",
+  "command": [
+    "run_nodes.py",
+    "--nodes",
+    "website-publish"
+  ],
+  "inputs": [
+    {
+      "node": "website-publish",
+      "path": "nodes/A2.网站发布",
+      "version": "20261112_09",
+      "file": "网站构建清单.json",
+      "versioned_file": "网站构建清单-20261112_08.json",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/output/网站构建清单-20261112_08.json",
+      "sha256": "0fc6f547cb94e985599f6c9d9ec9641a03ac2ed48a8fdaca0569c636d8285f24"
+    },
+    {
+      "file": "json/website-publish/manifest.json",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_10_html-result/input/data-manifest.json",
+      "sha256": "5e8d58ece1b8a38db099aa5634cc6610774b9a3d545974e8306175fca7103b50",
+      "copied_because": "json/website-publish/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "155dfb67cbdaa95ece1c5310909d395082641874",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/chart_generator/tsv_to_size_chart_html.py",
+        "sha256": "01d409fcba5d1d17c4de24dd6f636ea1845f4ad58092bc417635d50d2f59b20d",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/chart_generator/tsv_to_size_chart_html.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/run.py",
+        "sha256": "38f24bd1abfc03b15934adbca11af8ab289097a2f64b895cea4b7b112f1e47c2",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/run.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/skeleton/tools/build_site.py",
+        "sha256": "ed82d7324da101b7d304432ed5e1675b9947a2a155569062e5a851f990191c4c",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/skeleton/tools/build_site.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/skeleton/tools/export_xlsx_sources.py",
+        "sha256": "638695f9dcdc15b6d2ab4506e1b7342c943ef0c734354c49f3f703cf9b17712a",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/skeleton/tools/export_xlsx_sources.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/skeleton/tools/validate_generated_data.py",
+        "sha256": "d5fb805ce117921513c71d08280e42a5d9cfce7674260ba89d4f7ee07333c896",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/skeleton/tools/validate_generated_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/__init__.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/acceptance_size_match.py",
+        "sha256": "3b9011318f6c41b63a4e96ce5a1307246c31e3015b420195374ec77493c51f90",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/tools/acceptance_size_match.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_publish_site.py",
+        "sha256": "24460171c78b6f8e72e0153524b3131f5c828a8ee032d1fd153ced5e637ef62e",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_publish_site.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_sales_year_data.py",
+        "sha256": "ab592ff4b799d0c010ba11a3a947c8b38be6b2b4001c80bcf5c1090c37d92210",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_sales_year_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_size_match_code_data.py",
+        "sha256": "32d6535b541d863c6d1c8d9bd44677a408c2459afc91db8bffbe3831957051db",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/tools/build_size_match_code_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_size_match_data.py",
+        "sha256": "4d671c8976c8646a0d112fbbdf609b47b27a8ed7f2f15599a490cd6ecf1aff90",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_size_match_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_size_rules_data.py",
+        "sha256": "0213a2e2348e6aac87c2ce6bb9bd56de2144fc239679477cf57cc8356a74351f",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_size_rules_data.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/build_user_size_json.py",
+        "sha256": "f7c7301e027602c646ae10b9a34f21f2f1bc387bbf1d26e8eccdbcdcb274cccc",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/build_user_size_json.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/ecs_site_install.py",
+        "sha256": "ba1a20831bf581b92fd742899d3e4638854006d2c0d32dc76f9b4ad7a307d579",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/ecs_site_install.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/export_csv_sources.py",
+        "sha256": "0f2fd66ae287db930a9aa1f9791aa5878295fe452a2024b1c4b5dc70d41ee3c2",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_08_website-build/code/nodes/A2.网站发布/src/tools/export_csv_sources.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/export_user_size_json_tables.py",
+        "sha256": "048ae2eb2cae2bdbd40700e95515ac86ae789f1e57069fa43ee77a89a2018713",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/export_user_size_json_tables.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/generate_all_html.py",
+        "sha256": "7c09e85489e70d4bf200cc467d9c11011eb6cfb09a1261b21043f511f9598bf6",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/generate_all_html.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/import_compressed_tables.py",
+        "sha256": "c53a380832b072befe63e866823264c1e4fdabf6deb2520b3b4ab8a3db7df222",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/import_compressed_tables.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/materialize_input_sources.py",
+        "sha256": "8f862f844dc4b47c6a991cc6332d4de75f7212882e1bc60dc04424c9e7c3ebde",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/materialize_input_sources.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/pipeline_paths.py",
+        "sha256": "63c9f4143fa1b67acbe0769b9fd6f7f40c085bf580f12c48692ed4674e5130ba",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/pipeline_paths.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/publish_ecs_site.py",
+        "sha256": "c902dec4cb73216c772f7d46abca8d9a3b3dc4cdd2373a54adc9a12c2014fe6d",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/publish_ecs_site.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/publish_site_copy.py",
+        "sha256": "53d9dc9a0ac0ee75221c19372437884b782916fcde04b25a44dd2063c10815d3",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/publish_site_copy.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/site_promote.py",
+        "sha256": "ccbb04ab6e354ea03e96017480bb1e4bc9aa2e469a73e85e33b7a18dc1e3eecf",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/site_promote.py"
+      },
+      {
+        "file": "nodes/A2.网站发布/src/tools/validate_publish_site.py",
+        "sha256": "9262ff89cc273857f76d1f1fdc65a8088734af678379e9dd41b0ff146fb6f217",
+        "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_05_website-build/code/nodes/A2.网站发布/src/tools/validate_publish_site.py"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "网站构建与发布.html",
+      "versioned_file": "网站构建与发布-20261112_10.html",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_10_html-result/output/网站构建与发布-20261112_10.html",
+      "content_reference": true,
+      "sha256": "ddb80544e71f4659e0f92ad70a0525ed3230c7e8a8aebf95880aec8db43d521e",
+      "bytes": 170727,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_10.json",
+      "artifact_file": "nodes/A2.网站发布/artifacts/2026-11-12_10_html-result/output/html_manifest-20261112_10.json",
+      "content_reference": true,
+      "sha256": "cb0579d945a626d11f8bdb4a8690433bdbbe5319db71a2985eeda01b069cb8c1",
+      "bytes": 1170,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

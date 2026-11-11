@@ -18,3 +18,8 @@ nodes/01.整理尺寸库/data/data_source/trimslate-vehicles.csv text eol=lf
 # The HTML fingerprint includes the exact builder and shared template bytes.
 /lib/node_html.py text eol=lf
 /lib/node_html_template.html text eol=lf
+
+# A2 records raw SHA-256 for these build inputs in each website package.
+/nodes/A2.网站发布/src/** -text
+/nodes/A2.网站发布/data/** -text
+/nodes/A2.网站发布/tests/** -text
