@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""验证各节点流水线是否打通（只读：不改动任何节点的 output/、artifacts/ 或 流水线状态.md）。
+"""验证各节点流水线是否打通（只读：不改动任何节点的 output/、artifacts/ 或流水线状态页）。
 
 检查项：
 1. 结构：``validate_pipeline_structure`` 全部规则。
@@ -40,8 +40,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
 from pipeline_contract import lifecycle_state, publishable
 import trace_pipeline
 import validate_pipeline_structure
-from node_paths import node_dir_name
-from pipeline_status import is_on_demand
+from node_paths import node_output, node_page, node_dir_name
+from pipeline_status import HTML_NAME, STATUS_NAME, is_on_demand
 
 ROOT = Path(__file__).resolve().parents[1]
 CODE_SUFFIXES = {".py", ".ps1", ".psm1"}
@@ -183,7 +183,7 @@ def unregistered_subprojects(node: dict, nodes: list[dict]) -> list[str]:
 
 def unverified_upstream(node: dict) -> list[str]:
     """manifest 中只按发布时上游版本记录、未经运行记录核实的上游。"""
-    path = ROOT / node["path"] / "output" / "manifest.json"
+    path = node_output(ROOT, node) / "manifest.json"
     if not path.is_file():
         return []
     manifest = json.loads(path.read_text(encoding="utf-8"))
@@ -204,6 +204,18 @@ def check_compile(node: dict) -> list[str]:
 
 
 def run_pytest(cwd: Path, target: str) -> tuple[bool, str]:
+    if cwd != ROOT and cwd.is_relative_to(ROOT / "nodes"):
+        payload = json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))
+        native_node = next((n for n in payload['nodes'] if ROOT / n['path'] == cwd), {})
+        if payload.get("interface_contract", {}).get("format") == "json" and not native_node.get("native_json"):
+            import atexit
+            from json_engine_test_view import prepare
+            global _engine_test_directory
+            if "_engine_test_directory" not in globals():
+                _engine_test_directory = tempfile.TemporaryDirectory(prefix="json-engine-tests-")
+                atexit.register(_engine_test_directory.cleanup)
+                prepare(ROOT, Path(_engine_test_directory.name))
+            cwd = Path(_engine_test_directory.name) / cwd.relative_to(ROOT)
     completed = subprocess.run(
         [sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider", target],
         cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace",
@@ -235,16 +247,21 @@ def rebuild_node(node: dict, by_id: dict[str, dict], keep: bool = False, loose: 
         source = ROOT / node["path"]
         shutil.copytree(source, sandbox / node["path"], ignore=lambda d, names: [n for n in names if n == "__pycache__" or (Path(d) == source and n == "artifacts")])
         (sandbox / node["path"] / "artifacts").mkdir(exist_ok=True)
+        current_output = node_output(ROOT, node)
+        sandbox_output = node_output(sandbox, node)
+        if node.get("output_dir") and not fresh:
+            shutil.copytree(current_output, sandbox_output)
         if fresh:
-            shutil.rmtree(sandbox / node["path"] / "output", ignore_errors=True)
-            (sandbox / node["path"] / "output").mkdir()
+            sandbox_output.resolve().relative_to(sandbox.resolve())
+            shutil.rmtree(sandbox_output, ignore_errors=True)
+            sandbox_output.mkdir(parents=True)
         for upstream_id in node.get("upstream", []):
             upstream = by_id[upstream_id]
             if loose:
                 shutil.copytree(ROOT / upstream["path"], sandbox / upstream["path"], ignore=shutil.ignore_patterns("__pycache__"))
-            else:
-                shutil.copytree(ROOT / upstream["path"] / "output", sandbox / upstream["path"] / "output")
-        before = {name: sha256(ROOT / node["path"] / "output" / name) for name in node.get("outputs", [])}
+            if not loose or upstream.get("output_dir"):
+                shutil.copytree(node_output(ROOT, upstream), node_output(sandbox, upstream))
+        before = {name: sha256(node_output(ROOT, node) / name) for name in node.get("outputs", [])}
         for command in commands:
             completed = subprocess.run(
                 [sys.executable, *command.split()[1:]], cwd=sandbox / node["path"], capture_output=True, text=True,
@@ -253,7 +270,7 @@ def rebuild_node(node: dict, by_id: dict[str, dict], keep: bool = False, loose: 
             if completed.returncode != 0:
                 tail = (completed.stderr or completed.stdout).strip().splitlines()[-1:] or [""]
                 return False, f"`{command}` 失败（退出码 {completed.returncode}）：{tail[0][:200]}"
-        after_dir = sandbox / node["path"] / "output"
+        after_dir = sandbox_output
         changed = [name for name, digest in before.items() if not (after_dir / name).is_file() or sha256(after_dir / name) != digest]
         mode = "首次构建" if fresh else "重建"
         if changed:
@@ -292,7 +309,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--keep-sandbox", action="store_true", help="保留重建沙箱以便排查")
     parser.add_argument("--loose", action="store_true", help="重建时复制完整上游节点目录（默认只复制上游 output/）")
     parser.add_argument("--fresh", action="store_true", help="重建时不预置本节点旧 output/（首次构建）")
-    parser.add_argument("--report", type=Path, help="另存 Markdown 报告（不得指向 流水线状态.md）")
+    parser.add_argument("--report", type=Path, help="另存 Markdown 报告（不得指向流水线状态页）")
     args = parser.parse_args(argv)
 
     payload = json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))
@@ -358,8 +375,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"全局 ✗ {error}")
 
     if args.report:
-        if args.report.resolve() == (ROOT / "流水线状态.md").resolve():
-            parser.error("流水线状态.md 只由 publish_release.py 写入")
+        if args.report.resolve() in {(ROOT / name).resolve() for name in (STATUS_NAME, HTML_NAME)}:
+            parser.error("流水线状态页只由 publish_release.py 写入")
         args.report.write_text(render_report(results, global_errors, root_tests), encoding="utf-8")
         print(f"报告已写入 {args.report}")
     failed = bool(global_errors) or any(result.errors for result in results)

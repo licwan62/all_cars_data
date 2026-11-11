@@ -21,6 +21,10 @@ def validate_contract(nodes):
     errors = []
     by_id = {n["id"]: n for n in nodes}
     for n in nodes:
+        if n.get("output_dir") and n["output_dir"] != f"json/{n['id']}":
+            errors.append(f"{n['id']}: 当前JSON必须集中到 json/<节点ID>")
+        if n.get("html_at_root") and (not relative_file(n.get("html_output", "")) or "/" in n["html_output"] or not n["html_output"].endswith(".html")):
+            errors.append(f"{n['id']}: HTML必须使用节点根目录下的业务名称")
         if n.get("kind", "node") not in {"node", "container"} or n.get("lifecycle", "active") not in {"active", "planned", "legacy"}:
             errors.append(f"{n['id']}: 无效节点类型或生命周期")
         parent = n.get("parent")

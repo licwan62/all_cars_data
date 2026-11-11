@@ -1,0 +1,202 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/02.分类结构审核/artifacts/2026-11-12_04_html-result",
+  "version": "20261112_04",
+  "description": "html-result",
+  "created_at": "2026-11-12T00:43:00+08:00",
+  "finished_at": "2026-11-12T00:43:01+08:00",
+  "command": [
+    "organize_project_layout.py",
+    "--apply"
+  ],
+  "inputs": [
+    {
+      "node": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "file": "车型结构.json",
+      "versioned_file": "车型结构-20261112_01.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/车型结构-20261112_01.json",
+      "sha256": "5365f2f1b504c05dbf6fdf061f36db8fc28b35f7966e4f4bbca7b3b4ff001760"
+    },
+    {
+      "node": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "file": "车型结构_US.json",
+      "versioned_file": "车型结构_US-20261112_01.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/车型结构_US-20261112_01.json",
+      "sha256": "a66c9253ff1a4af615882464196264de094cc4a87cbd2d955ba984f0d9aaf60a"
+    },
+    {
+      "node": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "file": "车型结构_EU.json",
+      "versioned_file": "车型结构_EU-20261112_01.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/车型结构_EU-20261112_01.json",
+      "sha256": "083cb8a39303e991ed9c5be624c6410983f47f93f92729f9af553b9b014e9a1a"
+    },
+    {
+      "node": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "file": "车型结构_RU.json",
+      "versioned_file": "车型结构_RU-20261112_01.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/车型结构_RU-20261112_01.json",
+      "sha256": "9c69fba6cc143718e167a3993e9e2f00c3ede23751470a293fd5c603d699827b"
+    },
+    {
+      "file": "json/structure-review/manifest.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "sha256": "4ed43474f29d21c378c2054cf3f08275a206be2444e4c59c4fb5ea4acdc7fd45",
+      "copied_because": "json/structure-review/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "649ca37ad026fd06eb2440b986f5f872ca6c8d16b86b2f349ea1c097fae003db",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/advance_confirmed_branch_gaps.py",
+        "sha256": "81c8ca3738993bda8667e3742566cb024b048e4914fc43ef9c8677f1ecda12b5"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/advance_final_review.py",
+        "sha256": "b95552589c4849b092c245f27d4f79d82a0ebe705a653f47e145637d0f9e6844"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/advance_verified_atomic_gaps.py",
+        "sha256": "1a83641152e8a67a955ff0cd5394458a8d2bc710a1760295b809b475cd67a44a"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/analyze2.py",
+        "sha256": "5075c562570d28dc93eeb170cb60a4e7e1bb24720e2964bddc50de635d4fbf34"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/analyze_data.py",
+        "sha256": "d0012158921e8e36c54d2c0a832f3a75df0d2ffc6e088607023fd1c615e2a529"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/audit_structure.py",
+        "sha256": "d43a85b0d70990348ee325d136114088d871085fc385629d1d0575736ff3abfb"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/build_maintenance_union.py",
+        "sha256": "060b1c321b9972d62727e5ecb87a32a142a04eae6b07b22299253f570d640d79"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/build_structure_review.py",
+        "sha256": "fc3667848a1d89c8eff8a762e1e8e1947b0be7c42311ccc88113cefa7365a3fa"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/build_unified_corrected.py",
+        "sha256": "37e5823d3e38a6c8ee4708c9fb532c9551ad800d06637d23a0d336a8e6405c1b"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/check_corrections.py",
+        "sha256": "e3c8e1d6d6122a44399eab5ab933271c0ccb1aee3beb0d24017bcb99822ab34f"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/regenerate_artifacts.py",
+        "sha256": "f64c9ce9c758d6854a1a9b62f9fa80bf0cd42f69a6f5603b02e99a7b17a855ef"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/review_year_generation.py",
+        "sha256": "9e890329a9d0857e09e6d34be9a05eff85ee313a98674e4e0dac2968d0ad1453"
+      },
+      {
+        "file": "nodes/02.分类结构审核/code/validate_project.py",
+        "sha256": "0eca2f0cd00a59200395624b479b40da746ea689cbe3766853af2d89657b78f2"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "车型分类审核.html",
+      "versioned_file": "车型分类审核-20261112_04.html",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_04_html-result/output/车型分类审核-20261112_04.html",
+      "content_reference": true,
+      "sha256": "ba14948f3c3f99cd6a27bc004079d098e8b46f1160dfa937374e354cce803953",
+      "bytes": 2460477,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_04.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_04_html-result/output/html_manifest-20261112_04.json",
+      "content_reference": true,
+      "sha256": "35ef75f9ee0bd6806b3f75f227467f4f991ae283e696f57095186283e000f4a9",
+      "bytes": 2278,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

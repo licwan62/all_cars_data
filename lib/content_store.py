@@ -9,7 +9,7 @@ from contextlib import contextmanager
 import json
 import sqlite3
 from pathlib import Path
-from node_paths import canonical_path, load_record
+from node_paths import repository_metadata, canonical_path, load_record
 
 
 def raw_sha256(path):
@@ -31,7 +31,7 @@ def resolve_source(root, reference):
         raise ValueError("历史内容引用超出仓库")
     if candidate.is_file():
         return candidate
-    index = root / "artifacts_archive.json"
+    index = repository_metadata(root, "artifacts_archive.json")
     if index.is_file():
         for group in load_record(index, root).get("archives", []):
             for batch in group.get("batches", []):
@@ -103,7 +103,7 @@ class ContentIndex:
                         self.add(digest, source.stat().st_size, ref, path.relative_to(self.root).as_posix())
             except (OSError, ValueError, TypeError):
                 continue
-        archive = self.root / "artifacts_archive.json"
+        archive = repository_metadata(self.root, "artifacts_archive.json")
         if archive.is_file():
             for group in load_record(archive, self.root).get("archives", []):
                 for batch in group.get("batches", []):

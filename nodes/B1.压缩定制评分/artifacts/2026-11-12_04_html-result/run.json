@@ -1,0 +1,135 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/B1.压缩定制评分/artifacts/2026-11-12_04_html-result",
+  "version": "20261112_04",
+  "description": "html-result",
+  "created_at": "2026-11-12T00:43:13+08:00",
+  "finished_at": "2026-11-12T00:43:15+08:00",
+  "command": [
+    "organize_project_layout.py",
+    "--apply"
+  ],
+  "inputs": [
+    {
+      "node": "compression-scoring",
+      "path": "nodes/B1.压缩定制评分",
+      "version": "20261112_01",
+      "file": "定制需求度评分.json",
+      "versioned_file": "定制需求度评分-20261112_01.json",
+      "artifact_file": "nodes/B1.压缩定制评分/artifacts/2026-11-12_01_json-interface-migration/output/定制需求度评分-20261112_01.json",
+      "sha256": "80d1344b5cbd70a6c5a57b338556fc7258337ed364a76990993b9b66ab2813a2"
+    },
+    {
+      "file": "json/compression-scoring/manifest.json",
+      "artifact_file": "nodes/B1.压缩定制评分/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "sha256": "e0ad0831992ce9346aa54587614ec77373fb89e7a8a66d133a03be3929ec84ee",
+      "copied_because": "json/compression-scoring/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "649ca37ad026fd06eb2440b986f5f872ca6c8d16b86b2f349ea1c097fae003db",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/B1.压缩定制评分/src/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "nodes/B1.压缩定制评分/src/run.py",
+        "sha256": "75cdd638cb1a196a2c0bff6c4132bc67115b4a9eea081e6bfce4140778846dee"
+      },
+      {
+        "file": "nodes/B1.压缩定制评分/src/scoring.py",
+        "sha256": "cdc5d9ea487fe5adb16101770571f4b17ded3823bbc8c326b19ea8994cb859f9"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "定制需求评分.html",
+      "versioned_file": "定制需求评分-20261112_04.html",
+      "artifact_file": "nodes/B1.压缩定制评分/artifacts/2026-11-12_04_html-result/output/定制需求评分-20261112_04.html",
+      "content_reference": true,
+      "sha256": "ae72d19f4aaf1fee68a0321c4f1de5d5c522228384691926ba88e6f6e8b038ba",
+      "bytes": 81244,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_04.json",
+      "artifact_file": "nodes/B1.压缩定制评分/artifacts/2026-11-12_04_html-result/output/html_manifest-20261112_04.json",
+      "content_reference": true,
+      "sha256": "3f61068dde360fd51d7bca4e210edda940c29e9b910316082dc69dbc5c03b81f",
+      "bytes": 1209,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

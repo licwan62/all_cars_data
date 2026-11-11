@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
 from pipeline_contract import lifecycle_state, validate_contract
 from content_store import resolve_source
 from artifact_refs import check_deliverable_source, sha256, reference_cycles
-from node_paths import NODES_DIR, load_record, node_dir_name
+from node_paths import node_output, node_page, NODES_DIR, load_record, node_dir_name
 from identity_coverage import validate_rules as check_identity_rules
 from pipeline_status import check_status, node_trigger
 
@@ -64,6 +64,10 @@ def check_layers(nodes: list[dict]) -> list[str]:
     hubs = [node for node in nodes if node.get("line", "U") != "U" and node.get("index") == 0]
     numeric_depth = max((depth[n["id"]] for n in nodes if n.get("line", "U") == "U"), default=-1)
     for hub in hubs:
+        if hub.get("line") == "M" and hub.get("id") == "model-year-coverage":
+            if hub.get("layer") != 3 or set(hub.get("upstream", [])) != {"dimension-library", "structure-review"}:
+                errors.append("model-year-coverage: M0必须接在01与02分类审核之后，layer=3")
+            continue
         if hub.get("upstream") and depth[hub["id"]] <= numeric_depth:
             errors.append(f"{hub['id']}: 枢纽必须位于所有数字层节点之后")
     return errors
@@ -101,11 +105,11 @@ def check_outputs(nodes: list[dict]) -> list[str]:
         f"{node['id']}: {node['path']}/output/{name} 不存在（未产出的请移到 pending）"
         for node in nodes
         for name in node.get("outputs", [])
-        if not (ROOT / node["path"] / "output" / name).is_file()
+        if not (node_output(ROOT, node) / name).is_file()
     ]
 
 
-PUBLIC_SUFFIXES = {".csv"}
+PUBLIC_SUFFIXES = {".csv", ".json"}
 
 
 def check_public_outputs(nodes: list[dict]) -> list[str]:
@@ -133,7 +137,7 @@ def check_release_naming(nodes: list[dict]) -> list[str]:
     errors: list[str] = []
     for node in nodes:
         base = ROOT / node["path"]
-        manifest_path = base / "output" / "manifest.json"
+        manifest_path = node_output(ROOT, node) / "manifest.json"
         if not manifest_path.is_file():
             continue
         manifest = load_record(manifest_path, ROOT)
@@ -144,10 +148,10 @@ def check_release_naming(nodes: list[dict]) -> list[str]:
             if problem:
                 errors.append(f"{node['id']}: {problem}")
                 continue
-            out_file = base / "output" / item["file"]
+            out_file = node_output(ROOT, node) / item["file"]
             if out_file.is_file() and sha256(out_file) != sha256(resolve_source(ROOT, item["artifact_file"])):
                 errors.append(f"{node['id']}: output/{item['file']} 与 {item['versioned_file']} 内容不一致")
-        for path in (base / "output").rglob("*"):
+        for path in node_output(ROOT, node).rglob("*"):
             if VERSION_SUFFIX.search(path.name):
                 errors.append(f"{node['id']}: output/ 不得带 artifact 后缀: {path.name}")
     return errors
@@ -162,7 +166,7 @@ def check_final_products(products: list[dict], nodes: list[dict]) -> list[str]:
             errors.append(f"最终产物 {product.get('name')}: 未知节点 {node_id}")
             continue
         for name in product.get("files", []):
-            if not (ROOT / paths[node_id] / "output" / name).is_file():
+            if not (node_output(ROOT, next(n for n in nodes if n['id'] == node_id)) / name).is_file():
                 errors.append(f"最终产物 {product['name']}: {paths[node_id]}/output/{name} 不存在")
     return errors
 
@@ -227,7 +231,8 @@ def main() -> int:
             continue
         if not (project / "AGENTS.md").is_file():
             errors.append(f"{node_id}: 缺少 AGENTS.md")
-        for directory in (("data",) if lifecycle_state(node) else REQUIRED_DIRECTORIES):
+        required = ("data", "artifacts") if node.get("output_dir") else REQUIRED_DIRECTORIES
+        for directory in (("data",) if lifecycle_state(node) else required):
             if not (project / directory).is_dir():
                 errors.append(f"{node_id}: 缺少 {directory}/")
         for upstream in node.get("upstream", []):
@@ -237,6 +242,16 @@ def main() -> int:
                 errors.append(f"{node_id}: 不得依赖自身")
 
     errors.extend(validate_contract(nodes))
+    if payload.get("html_contract"):
+        from node_html import check_reports
+        errors.extend(check_reports(ROOT, nodes))
+        for node in nodes:
+            if not node.get("html_output", "").endswith(".html"):
+                errors.append(f"{node['id']}: 缺少统一 HTML 最终结果入口")
+    if payload.get("interface_contract", {}).get("format") == "json":
+        for node in nodes:
+            if any(Path(name).suffix != ".json" for name in node.get("outputs", [])):
+                errors.append(f"{node['id']}: 节点数据接口必须为 JSON")
     errors.extend(reference_cycles(ROOT, nodes))
     errors.extend(check_layers(nodes))
     errors.extend(check_triggers(payload))

@@ -17,6 +17,7 @@ from artifact_batch import RunBatch
 from regional_size_common import build_dimension_library_rows, write_dimension_library
 from us_model_splits import apply_splits, write_table, MIGRATION_FIELDS, CANDIDATE_FIELDS, PENDING_FIELDS
 from us_dimension_corrections import apply_corrections
+from us_pickup_replacements import apply_pickup_replacements
 from us_year_supplements import apply_supplements, REVIEW_FIELDS as SUPPLEMENT_FIELDS
 
 
@@ -49,11 +50,14 @@ def run():
                     local.relative_to((PROJECT / "data").resolve())
                     if hashlib.sha256(local.read_bytes()).hexdigest() != item["sha256"]:
                         raise ValueError("本地证据SHA已变化；需重审登记")
-            with (PROJECT / "data/data_source/trimslate-vehicles.csv").open(encoding="utf-8-sig", newline="") as stream:
+            with (PROJECT / "data/us/audi_a7_reference_years.csv").open(encoding="utf-8-sig", newline="") as stream:
                 reference = list(csv.DictReader(stream))
             us_rows, migrations, candidates, pending = apply_splits(traced["us"][0], plan, evidence, reference)
             corrections = json.loads((PROJECT / "data/us/dimension_corrections.json").read_text(encoding="utf-8"))
             us_rows = apply_corrections(us_rows, corrections)
+            pickup_plan = json.loads((PROJECT / "data/us/pickup_replacements.json").read_text(encoding="utf-8"))
+            us_rows, pickup_migrations = apply_pickup_replacements(us_rows, pickup_plan)
+            migrations.extend(pickup_migrations)
             gap_rules = json.loads((PROJECT / "data/us/year_gap_resolutions.json").read_text(encoding="utf-8"))
             us_rows, supplement_review = apply_supplements(us_rows, gap_rules, PROJECT)
             traced["us"] = (us_rows, traced["us"][1])
@@ -73,6 +77,9 @@ def run():
                 mapping = merge.source_mapping(region, {r["DIMENSION-ID"] for r in rows}, stage)
                 merge.write_source_mapping(batch.output(f"来源映射_{region.upper()}.csv"), mapping)
             merge.copy_eu_migration(batch.output("EU_ID迁移.csv"))
+            # Publish owned name rules for downstream audits without exposing data/.
+            names = json.loads((PROJECT / "data/us/model_members.json").read_text(encoding="utf-8"))
+            batch.output("车型名称规则.json").write_text(json.dumps(names, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
         finally:
             merge.latest_batch = old_latest
         batch.finish({"rows": len(merged), "as_of_year": config["as_of_year"],

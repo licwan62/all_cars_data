@@ -76,6 +76,9 @@ def repo_path(path: Path) -> str:
 
 
 def _row_count(path: Path) -> int | None:
+    if path.suffix.lower() == ".json":
+        from json_interface import table_row_count
+        return table_row_count(path)
     suffixes = [suffix.lower() for suffix in path.suffixes]
     if not suffixes or suffixes[-1] not in {".csv", ".tsv"}:
         return None
@@ -88,7 +91,8 @@ def published_reference(path: Path, digest: str) -> tuple[dict | None, str]:
     resolved = path.resolve()
     for output_dir in resolved.parents:
         manifest_path = output_dir / MANIFEST
-        if output_dir.name != "output" or not manifest_path.is_file():
+        centralized = output_dir.parent == REPO_ROOT / "json"
+        if (output_dir.name != "output" and not centralized) or not manifest_path.is_file():
             continue
         manifest = load_record(manifest_path)
         name = resolved.relative_to(output_dir).as_posix()
@@ -220,6 +224,10 @@ class RunBatch:
     @staticmethod
     def _default_input_name(path: Path) -> str:
         parts = path.resolve().parts
+        central = REPO_ROOT / "json"
+        if path.resolve().is_relative_to(central.resolve()):
+            relative = path.resolve().relative_to(central.resolve())
+            return Path(*relative.parts[1:]).as_posix()
         if "output" in parts:
             return Path(*parts[len(parts) - parts[::-1].index("output"):]).as_posix()
         return path.name
@@ -367,21 +375,25 @@ class RunBatch:
         temporary.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         os.replace(temporary, self.directory / RUN_RECORD)
 
-    def finish(self, status: dict | None = None, publish_to: Path | None = None) -> dict:
+    def finish(self, status: dict | None = None, publish_to: Path | None = None,
+               publish_paths: dict[str, Path] | None = None) -> dict:
         try:
             self.directory.resolve().relative_to(REPO_ROOT.resolve())
             root = REPO_ROOT
         except ValueError:
             root = self.directory.parent.parent
         with content_lock(root):
-            return self._finish(status, publish_to)
+            return self._finish(status, publish_to, publish_paths)
 
-    def _finish(self, status: dict | None = None, publish_to: Path | None = None) -> dict:
+    def _finish(self, status: dict | None = None, publish_to: Path | None = None,
+                publish_paths: dict[str, Path] | None = None) -> dict:
         """Validate the full output set, install with rollback, then record success."""
         if self.finished:
             raise BatchError("批次已完成")
         if status and status.get("status", "passed") != "passed":
             raise BatchError("finish 只接受 passed；失败必须使用 fail")
+        if publish_paths is not None and (publish_to is not None or set(publish_paths) != set(self.outputs)):
+            raise BatchError("publish_paths 必须覆盖全部输出，且不能与 publish_to 同用")
         # Normalize gzip metadata produced by pandas/gzip (mtime and filename).
         for path in self.extras:
             if path.is_file() and path.suffix == ".gz":
@@ -394,7 +406,8 @@ class RunBatch:
         stage = Path(tempfile.mkdtemp(prefix=".publish-", dir=publish_to.parent if publish_to and publish_to.parent.exists() else self.directory))
         installed = []
         try:
-            if publish_to is not None:
+            destinations = publish_paths or ({name: publish_to / name for name in self.outputs} if publish_to else {})
+            if destinations:
                 for name, source in self._sources.items():
                     target = stage / "new" / name
                     target.parent.mkdir(parents=True, exist_ok=True)
@@ -402,7 +415,7 @@ class RunBatch:
                     if sha256(target) != next(i["sha256"] for i in record["outputs"] if i["file"] == name):
                         raise BatchError("输出在发布前被改动")
                 for name in self.outputs:
-                    dest = publish_to / name
+                    dest = destinations[name]
                     backup = stage / "old" / name
                     if dest.exists():
                         backup.parent.mkdir(parents=True, exist_ok=True)

@@ -60,8 +60,8 @@
     },
     {
       "id": "LOCAL-TRIMSLATE",
-      "file": "data/data_source/trimslate-vehicles.csv",
-      "sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "file": "data/us/audi_a7_reference_years.csv",
+      "sha256": "e4761fbc5d27c934170d2c100d5ae83e4b9b6937442077cdc42a32b7e8ddb0fb",
       "publisher": "用户提供，原来源未独立核实",
       "market": "unknown",
       "status": "lead",
@@ -72,7 +72,12 @@
       ],
       "years": [],
       "facts": [],
-      "notes": "车型年线索；没有尺寸及市场字段，不能证明缺失年份未在美国销售。"
+      "notes": "车型年线索；没有尺寸及市场字段，不能证明缺失年份未在美国销售。",
+      "original_source": {
+        "file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+        "sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+        "extraction": "仅现有Audi拆分试点reference_names所用make/model/year，去重；2026-11-12职责迁移时冻结，不新增核实"
+      }
     }
   ]
 }

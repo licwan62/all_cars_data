@@ -36,6 +36,8 @@ from datetime import datetime
 from pathlib import Path, PureWindowsPath
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "lib"))
+from node_paths import repository_metadata
 BAK = ROOT / ".bak"
 DEFAULT_DEST = r"\\NAS8824B4\Public\PQData\bak\all_cars_data\dotbak"
 TEXT_SUFFIXES = {".json", ".md", ".yaml", ".yml", ".csv", ".py", ".txt", ".ps1", ".tsv"}
@@ -244,7 +246,7 @@ def atomic_json(path, payload):
 
 def _append_index(plan: dict, done: list[dict]) -> None:
     record = {"archived_at": datetime.now().astimezone().isoformat(timespec="seconds"), "kind": "dotbak", "dest": plan["dest_root"], "units": done}
-    index = ROOT / INDEX_NAME
+    index = repository_metadata(ROOT, INDEX_NAME)
     data = json.loads(index.read_text(encoding="utf-8")) if index.is_file() else {"schema_version": 1, "archives": []}
     data["archives"].append(record)
     atomic_json(index, data)

@@ -1,6 +1,6 @@
 # 车型数据流水线
 
-节点、职责与接口以 `pipeline.json` 为准。维护规则见 `AGENTS.md`，当前发布状态见自动生成的 `流水线状态.md`。
+节点、职责与接口以 `pipeline.json` 为准。维护规则见 `AGENTS.md`。在浏览器打开 [流水线状态.html](流水线状态.html)，可离线查看节点依赖和发布状态。交付物来源明细见 [流水线状态.md](流水线状态.md)。节点刷新并发布后会同步更新这两份状态页。
 
 ## 本机维护看板
 
@@ -30,7 +30,7 @@ SHA查询扫描全部维护文件，不受列表分页限制；消费记录优�
 
 ## 输入、运行与发布
 
-正式输入仅来自自身data和上游output。00离线入口发布标明“历史导入、原始来源未重新核实”的区域候选；联网抓取命令单列在 `online_run`。01从这些稳定候选重建，生成中间表进入临时工作区。US历史库仍保留未核实来源说明。
+正式输入仅来自自身 `data/` 和根目录 `json/<上游节点ID>/`。00离线入口发布标明“历史导入、原始来源未重新核实”的区域候选；联网抓取命令单列在 `online_run`。01从这些稳定候选重建，生成中间表进入临时工作区。US历史库仍保留未核实来源说明。
 
 ```powershell
 python scripts/run_nodes.py --nodes dimension-library,size-calculation,size-compression
@@ -44,11 +44,23 @@ python scripts/verify_pipeline.py --rebuild all --fresh
 
 编码映射默认只使用已维护的持久编码；发现未登记变化会失败。显式维护可运行该节点 `python src/main.py --update-registry`，审核data变化并更新测试后再按正常流程发布。
 
-`run_nodes.py` 只运行明确点名节点，按依赖排序，运行后本地发布；失败恢复该节点原output。它不自动补跑未点名上游。按需节点不随上游更新自动生成，只提示待刷新。
+`run_nodes.py` 只运行明确点名节点，按依赖排序，运行后本地发布；失败恢复该节点原 JSON 接口。它不自动补跑未点名上游。按需节点不随上游更新自动生成，只提示待刷新。
 
 ## 字节与历史
 
-`data/` 是可维护工作资料，`output/` 是稳定交付工作副本，`artifacts/` 是不可变历史。新批次采用RunBatch；相同原始SHA的内容复用已有成功记录，跨名称、跨节点复用不改变本次运行的输入依据。
+节点 `data/` 是人工维护资料（以 CSV 为主），根目录 `json/<节点ID>/` 是稳定 JSON 接口，各节点根目录的业务命名 HTML 是阅读入口，节点 `artifacts/` 是不可变 HTML 版本及数据依据。目录说明见 [docs/目录结构.md](docs/目录结构.md)。新批次采用RunBatch；相同原始SHA的内容复用已有成功记录，跨名称、跨节点复用不改变本次运行的输入依据。
+
+每个登记项目打开节点根目录的业务 HTML（如 A0 的 `尺码计算与匹配.html`） 即可离线查看完整结果、搜索和分页，并导出 CSV。根目录 `流水线状态.html` 的节点卡片提供入口。HTML 展示版本由 `html_manifest.json` 单独追踪，数据版本仍由 `manifest.json` 追踪；待接入和历史项目不会因生成页面而变成生产已验证。
+
+```powershell
+python scripts/build_node_html.py          # 仅刷新 HTML，不重算数据
+python scripts/build_node_html.py --check  # 核对展示来源、当前页与历史快照
+python scripts/run_nodes.py --nodes <id>   # 正式 JSON 节点运行及本地发布
+```
+
+节点间接口已统一为 JSON。表格采用 `columns` + `rows` 字符串矩阵，保留前导零及空单元格；已有结构化 JSON 保留原 schema。旧计算代码由 JSON 运行器放入独立临时目录运行，所需 CSV 在该目录中临时生成，节点间不读取 CSV。不要直接调用 `engine_run` 旧入口写正式接口。人工规则和外部原始资料保持原格式，NAS 点名发布时从 JSON 导出 CSV。格式迁移保留旧 upstream/rules，不表示数据重新计算或新核实。
+
+全套验证仍使用 `python scripts/verify_pipeline.py`：节点业务测试在隔离兼容工作区使用从当前 JSON 物化的原格式测试输入；仓库级测试直接验证 JSON/HTML 接口。旧节点测试中直接访问 CSV 的用例不要在正式目录单独运行。明确登记的历史研究测试样本只用于对应历史回归测试，不作为生产输入。
 
 新版内容引用以 `content_reference=true` 明示，逻辑版本名与实际字节位置可以不同；旧版记录继续按旧命名约束读取。文本规则的归一SHA用于变化判定，原始SHA用于字节身份；二进制不做换行归一。归档引用统一经来源解析，历史JSON不回写。
 
@@ -69,3 +81,8 @@ python scripts/audit_us_model_years.py --report-dir reports/美国车型年份�
 ```
 
 Audi A7/S7/RS7试点按证据门槛整组替换；证据未齐时保留正式组合记录和2026 RS7，只交付内部 `US_拆分候选.csv`、`US_拆分待核.csv`，`US_ID迁移.csv`仅登记生效映射。规则及证据维护说明见01节点 `data/us/README.md`。参考数据库差集不是重新核实的美国上市年份；原始数据库和历史artifact不改写。
+
+
+## M0 车型年覆盖产线
+
+[车型年全集与覆盖率](nodes/M0.车型年覆盖/车型年全集与覆盖率.html) 汇总两份原始参考资料及01/02当前观察，展示按市场分开的Make/Model/MMY覆盖与人工回补候选。原始CSV现由 `nodes/M0.车型年覆盖/data/data_source/` 维护，已从01移出。运行 `python scripts/run_nodes.py --nodes model-year-coverage`；产线不写入或自动回补00/01。

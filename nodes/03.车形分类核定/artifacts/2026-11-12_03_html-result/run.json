@@ -1,0 +1,315 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/03.车形分类核定/artifacts/2026-11-12_03_html-result",
+  "version": "20261112_03",
+  "description": "html-result",
+  "created_at": "2026-11-12T00:15:28+08:00",
+  "finished_at": "2026-11-12T00:15:29+08:00",
+  "command": [
+    "build_node_html.py"
+  ],
+  "inputs": [
+    {
+      "node": "shape-classification",
+      "path": "nodes/03.车形分类核定",
+      "version": "20261112_01",
+      "file": "车形分类.json",
+      "versioned_file": "车形分类-20261112_01.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-12_01_json-interface-migration/output/车形分类-20261112_01.json",
+      "sha256": "172d794f3965663006fb4b21335ec7df8d86012b41a0f5a6c27859dc59625f36"
+    },
+    {
+      "node": "shape-classification",
+      "path": "nodes/03.车形分类核定",
+      "version": "20261112_01",
+      "file": "参考尺寸计算.json",
+      "versioned_file": "参考尺寸计算-20261112_01.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-12_01_json-interface-migration/output/参考尺寸计算-20261112_01.json",
+      "sha256": "12f99f311b41cddedae6d40ccc46e703814eb1151ebea0aad6885d4149c1c527"
+    },
+    {
+      "node": "shape-classification",
+      "path": "nodes/03.车形分类核定",
+      "version": "20261112_01",
+      "file": "COVER_SHAPE.json",
+      "versioned_file": "COVER_SHAPE-20261112_01.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-12_01_json-interface-migration/output/COVER_SHAPE-20261112_01.json",
+      "sha256": "4f9d0b0560ee97d9fa677f81a22d640982737f28c0a6deba19c5213f5719afbd"
+    },
+    {
+      "node": "shape-classification",
+      "path": "nodes/03.车形分类核定",
+      "version": "20261112_01",
+      "file": "cover_shape_summary.json",
+      "versioned_file": "cover_shape_summary-20261112_01.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-08_02_representative-cover-shape/output/cover_shape_summary-20261108_02.json",
+      "sha256": "27aa20680e4d5af9d56d803d617e7295065772fa7d43bd5d0ef60fafbf3cfec0"
+    },
+    {
+      "node": "shape-classification",
+      "path": "nodes/03.车形分类核定",
+      "version": "20261112_01",
+      "file": "shape_research_queue.json",
+      "versioned_file": "shape_research_queue-20261112_01.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-12_01_json-interface-migration/output/shape_research_queue-20261112_01.json",
+      "sha256": "b1f3ec111d34d5c1705148051901635f24f8921e99b002cfa67b24f50ea6f4c4"
+    },
+    {
+      "file": "nodes/03.车形分类核定/output/manifest.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "sha256": "4094a66222271edff08a2e35a3c375fc8fcf9b7880b911c976130e14934c2766",
+      "copied_because": "nodes/03.车形分类核定/output/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "199c25554240469119fb7e3548bb22a5e9bbafa922ba17f31945490b7fda1d2a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "15dfd58ef1735046fbbf401ef728c360d73d8dcd0855156d74e5015331d2040c",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_03_html-result/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "54ff302c9372f3f27b1870e0252fd83df7bb86b0a855c64ab61aeac2e7d65f8e"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/archive_change_batch.py",
+        "sha256": "cfd252d15910c08572d9bdbcf010d4635360280cde1022fc716f9c59f515d907"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/audit_all_dimension_shapes.py",
+        "sha256": "07512ed718c97ea1c76effdce71883e4a98097b07240c73da85323280a47b348"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/audit_previous_boxy_regressions.py",
+        "sha256": "3b054262b2294d528514084574eabee794575008da88a8b55b0fd0db0b07aae5"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/build_cover_shape_output.py",
+        "sha256": "753e36d263cbe81615b9a4a38ab2ae40cf3f06d3f394de18d060c2876e6fda17"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/build_regional_shape_output.py",
+        "sha256": "a615b5a46a02b2eb4dfdcf118965868a74052a49d0580c2968cbffe218e50a04"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/__init__.py",
+        "sha256": "d3f3e2ae7586165e6767e0bd4db3cf2563db64ded101f98fb6a37327babad0bb"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/automatic.py",
+        "sha256": "e7dc4522d86b473c37aa318ea82fb1dcca788dc07526996012e866f229807d9b"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/automatic_documents.py",
+        "sha256": "2752e86dbd828a02612ddb8b6b5d7b6970eafb1c4dd0d4405e3ab090e20e2380"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/automatic_geometry.py",
+        "sha256": "d0500b4fb589a64e86b47275456ace7fb3481c2ac0e68f11f24a50a35dec9e42"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/classifier.py",
+        "sha256": "17b32c96b4ef5e463685ddc3c8af79532af6b47fadeddb91cf05d527411152bf"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/cli.py",
+        "sha256": "a65f3a3988cee7cdd72687f1c8a646b46c3a8a4c1ffb83a9de4db8b0147372f6"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/evidence.py",
+        "sha256": "f3e7ca5f77bf4443164e7f84ee813b735d34580485a2dc8dc503ad5588150279"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/family_cache.py",
+        "sha256": "fca54d9988c866618d06e414894b90f8ee5e946c77463ba098757889f6e21eac"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/fetchers.py",
+        "sha256": "4ab9c7d26e4f5a24ddca522eeffecc5409157bbe515e74f2a850d1455510b5e1"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/geometry.py",
+        "sha256": "bfcbff57a0896b3e23a0fa23e06dc725b8da5cc255fdbe7b9cfd05568eccf83f"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/ingest.py",
+        "sha256": "55a5bc36db1643d12d606bcdf9c993423445dccad7956ff8c47f1853a1d2579d"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/representatives.py",
+        "sha256": "c7299cbe93065b7bffedbb0b5e15f751b9b37662219d71fe036fe90a587a45bf"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape/research_queue.py",
+        "sha256": "2862c76ca3e41f3846d9a595b2da125107566fb577ed6aef954f4ceecf53c2a4"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/cover_shape_cli.py",
+        "sha256": "d3966ba7627aed2e7de65aee01127f5aa8c7f817b22dec666ebb91a5fff3a297"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/import_cover_shape_evidence.py",
+        "sha256": "f33616866ae69d66a572424ece07ac88bfde3c7de200d27fb4d4402b8c3ce2f3"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/migrate_suv_shape_ids.py",
+        "sha256": "3647820fe5faf996f8699cc23bb92dfdf3fe9b4163d76e07b83a8dd7f1c6dbe2"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/qwen_family_research.py",
+        "sha256": "99953359667a5c88df1a2808e80573df9359b77f7a8e7c63bc401c6cf728745d"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/reclassify_reference_schema.py",
+        "sha256": "9bcdb36a7ab10e31fdaa38e4165f1c9458c40f8c3b2d4d25af475d828c098933"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_cover_shape.py",
+        "sha256": "204215c69c817d28f3ee13e665b9810ce1cd9ab101def3a65824a8cfd3c25e08"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260916_02.py",
+        "sha256": "6a28ea655fcb2e7f8bcf46abae51dcb09add1f41be0dd5b5f4fba32b93a583ce"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260916_03.py",
+        "sha256": "a65fe782d96edc8adbab22169f8c49a92f926e5c6ea90a7a57ecd6bb19db736c"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260916_04.py",
+        "sha256": "bd18c0d3308cd66c5e2fd9c09576b98132fa6b1533fbd4e4f721d8bf0ae5c001"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260916_05.py",
+        "sha256": "158aa7174896d321f2f003dafb6abd749ecce9de6420cb7bd14440bb75e3a938"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260917_01.py",
+        "sha256": "85b04edbf7ab71c38ff77aaba28cbdf6a45044ca2355de5b3c690e344448cd3e"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260917_02.py",
+        "sha256": "8e76b4974d57b63c174e6b5cf7db81b3ef28e9c9b507d92e354e7fd48cf89c6e"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260917_03.py",
+        "sha256": "b72eca6bac70a36c7e348e2efef5dd571acd668d70cea39ee0d231b56ef4debc"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260917_04.py",
+        "sha256": "13e19ac5948f7e1161110ba42e7f023fe496c7aa8e4de40c8d6693ce8ed46164"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/research_regional_batch_20260917_05.py",
+        "sha256": "14827129b338938eaad70e6fe56b0ca02973e23bc393eb9cf133651443536a7b"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/review_classic_shapes.py",
+        "sha256": "6f468f02684ec361756c61003cd77521b9df51686d77dc31e5ae61b0536ce2f9"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/review_generation_shape_cache.py",
+        "sha256": "f9fdee6fd5ea5c28dd064109cad97b8066165e1dc189da61b0256a00df0d1469"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/review_hatch_wagon_fronts.py",
+        "sha256": "f20b67280013bb8357768d6e5a0a5f78c2f903ec2ebfed4c5dca3cfd99e4baeb"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/shape_family_research.py",
+        "sha256": "417573bedab89757e9623b5432dc9c46566a842aa5a5c8b8df30b18c3b53ab7b"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/shape_project.py",
+        "sha256": "11ecc165d460e1193ce8d96a430d853ed970a3053a7d5d8d1def5c282bab689a"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/sync_regional_data.py",
+        "sha256": "e943d8f142d9cda19f20083edae61040efd0ba79b46aeabe0153f310203e2533"
+      },
+      {
+        "file": "nodes/03.车形分类核定/code/validate_regional_shape_output.py",
+        "sha256": "75fa7d54b03bf9a43d11dd9f1e66faae4f4ad472aa6ff8ce5c8c5959922bfdbd"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "结果.html",
+      "versioned_file": "结果-20261112_03.html",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-12_03_html-result/output/结果-20261112_03.html",
+      "content_reference": true,
+      "sha256": "a6466d8d3e4d77c4f82ed4710c378684f87dd530dde93018edd61f68842e294d",
+      "bytes": 2704565,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_03.json",
+      "artifact_file": "nodes/03.车形分类核定/artifacts/2026-11-12_03_html-result/output/html_manifest-20261112_03.json",
+      "content_reference": true,
+      "sha256": "6248eee18fd9b4b4a97969cf314dd7c38c0b0b6ba6df3971ae380245104c920b",
+      "bytes": 2544,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

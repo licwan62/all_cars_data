@@ -460,7 +460,9 @@ class FullPipelineRegressionTests(unittest.TestCase):
         # 750288484 -> 750945573: 02.销量评估 原子销量.csv gained 362 rows (0 removed) for the
         # 2026-11-02 US year-gap supplement model-years.
         # 750945573 -> 750974086: sales proxies for the EURU DIMS2 supplement model-years (data-only).
-        self.assertEqual(summary["sales_total"], 750974086)
+        # 2,404,369 Ranger sales are calendar-year family totals held for review
+        # after retiring the unsupported SuperCab 7 ft configuration.
+        self.assertEqual(summary["sales_total"], 748569717)
 
         dimension_id = "Chevrolet Bel Air Coupe 1960"
         row = self.result.set_index("DIMENSION-ID").loc[dimension_id]

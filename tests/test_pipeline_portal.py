@@ -201,3 +201,30 @@ def test_sha_search_covers_all_materials_and_uses_raw_input_digest(tmp_path):
         server.shutdown()
         server.server_close()
         thread.join(timeout=2)
+
+
+def test_sha_search_finds_central_current_interface(tmp_path):
+    portal, data, _ = fixture_portal(tmp_path)
+    config = json.loads((data / "pipeline.json").read_text(encoding="utf-8"))
+    config["nodes"][0]["output_dir"] = "json/size-calculation"
+    write_json(data / "pipeline.json", config)
+    raw = b'{"columns":[],"rows":[]}'
+    sha = hashlib.sha256(raw).hexdigest()
+    current = data / "json/size-calculation/table.json"
+    current.parent.mkdir(parents=True)
+    current.write_bytes(raw)
+    write_json(current.parent / "manifest.json", {
+        "node": "size-calculation", "version": "20261112_01",
+        "deliverables": [{"file": "table.json", "sha256": sha}]})
+    server = ThreadingHTTPServer(("127.0.0.1", 0), handler_for(portal))
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        with urlopen(f"http://127.0.0.1:{server.server_port}/api/content?sha={sha}") as response:
+            result = json.load(response)
+        assert any(item["artifact_file"] == "json/size-calculation/table.json"
+                   and item["kind"] == "当前工作交付" for item in result["locations"])
+    finally:
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=2)

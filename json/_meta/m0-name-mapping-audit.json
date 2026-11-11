@@ -1,0 +1,154 @@
+{
+  "data_version": "20261112_10",
+  "html_version": "20261112_11",
+  "scope": "M0 only; no automatic backfill or NAS publication",
+  "protected_00_01_files": 68,
+  "protected_inventory_and_sha256_unchanged": true,
+  "reference_outputs_unchanged": {
+    "车型名录.json": {
+      "sha256": "e0038cc3e05625226d5c94cc532373ba19003ffc173638ca5b18028ac948f4e1",
+      "baseline_artifact": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/车型名录-20261112_02.json"
+    },
+    "车型年全集.json": {
+      "sha256": "0d420a5ad6fcd2af79acba4f4b289391a3d8cc476c44b7b11bc225c73b1b7193",
+      "baseline_artifact": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/车型年全集-20261112_02.json"
+    },
+    "来源关联.json": {
+      "sha256": "225b74407a5576250349cbbb0a9f7b0c51794a3f5ba1513b8b1fe3a4531deabb",
+      "baseline_artifact": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/来源关联-20261112_02.json"
+    },
+    "来源统计.json": {
+      "sha256": "2de289016e4aed2899b7d318bc79c6aadb670e020249d52b1e852107dcee1f0c",
+      "baseline_artifact": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/来源统计-20261112_02.json"
+    }
+  },
+  "model_rules": 2211,
+  "model_rule_levels": {
+    "family": 2136,
+    "alias": 75
+  },
+  "totals": [
+    {
+      "region": "US",
+      "denominator": 26495,
+      "before": {
+        "车型缺口／名称待核": 22160,
+        "独立记录覆盖": 3927,
+        "年份缺口": 175,
+        "组合记录覆盖、成员待核": 233
+      },
+      "after": {
+        "名称未匹配（车型待核）": 9164,
+        "车系级记录覆盖（配置未核）": 11074,
+        "独立记录覆盖": 3948,
+        "年份缺口（名称已对应）": 358,
+        "名称未匹配（品牌待核）": 1467,
+        "组合记录覆盖、成员待核": 484
+      },
+      "summary": {
+        "REGION": "US",
+        "分组": "全部",
+        "分组值": "全部",
+        "参考MMY": "26980",
+        "分母": "26495",
+        "独立记录覆盖": "3948",
+        "记录覆盖率": "14.90%",
+        "车系级覆盖": "11074",
+        "名称对应后覆盖率": "56.70%",
+        "名称未匹配": "10631",
+        "已对应年份缺口": "358",
+        "组合待核": "484",
+        "已排除": "0",
+        "评估年后": "485",
+        "市场已核分母": "0",
+        "市场已核覆盖率": "",
+        "口径": "记录覆盖不等于市场供售已核，也不代表配置齐全"
+      }
+    },
+    {
+      "region": "EU",
+      "denominator": 26495,
+      "before": {
+        "车型缺口／名称待核": 24022,
+        "独立记录覆盖": 2006,
+        "年份缺口": 467
+      },
+      "after": {
+        "名称未匹配（品牌待核）": 1503,
+        "独立记录覆盖": 2014,
+        "名称未匹配（车型待核）": 17886,
+        "车系级记录覆盖（配置未核）": 3928,
+        "年份缺口（名称已对应）": 1164
+      },
+      "summary": {
+        "REGION": "EU",
+        "分组": "全部",
+        "分组值": "全部",
+        "参考MMY": "26980",
+        "分母": "26495",
+        "独立记录覆盖": "2014",
+        "记录覆盖率": "7.60%",
+        "车系级覆盖": "3928",
+        "名称对应后覆盖率": "22.43%",
+        "名称未匹配": "19389",
+        "已对应年份缺口": "1164",
+        "组合待核": "0",
+        "已排除": "0",
+        "评估年后": "485",
+        "市场已核分母": "0",
+        "市场已核覆盖率": "",
+        "口径": "记录覆盖不等于市场供售已核，也不代表配置齐全"
+      }
+    },
+    {
+      "region": "RU",
+      "denominator": 26495,
+      "before": {
+        "车型缺口／名称待核": 21535,
+        "独立记录覆盖": 4855,
+        "年份缺口": 104,
+        "名称待核": 1
+      },
+      "after": {
+        "名称未匹配（车型待核）": 12034,
+        "车系级记录覆盖（配置未核）": 8945,
+        "独立记录覆盖": 4898,
+        "年份缺口（名称已对应）": 261,
+        "名称未匹配（品牌待核）": 356,
+        "名称未匹配（组合待核）": 1
+      },
+      "summary": {
+        "REGION": "RU",
+        "分组": "全部",
+        "分组值": "全部",
+        "参考MMY": "26980",
+        "分母": "26495",
+        "独立记录覆盖": "4898",
+        "记录覆盖率": "18.49%",
+        "车系级覆盖": "8945",
+        "名称对应后覆盖率": "52.25%",
+        "名称未匹配": "12391",
+        "已对应年份缺口": "261",
+        "组合待核": "0",
+        "已排除": "0",
+        "评估年后": "485",
+        "市场已核分母": "0",
+        "市场已核覆盖率": "",
+        "口径": "记录覆盖不等于市场供售已核，也不代表配置齐全"
+      }
+    }
+  ],
+  "validation": {
+    "m0_tests": 17,
+    "repository_tests": 107,
+    "fresh_rebuild": "12 JSON outputs byte-identical",
+    "html_check": "21 projects passed",
+    "browser_check": "json/_meta/browser-checks/m0-name-mapping.json"
+  },
+  "limitations": [
+    "family mappings are naming projections, not configuration or dimension verification",
+    "year gaps are local record differences; no confirmed year-market denominator",
+    "unmatched names are not confirmed missing models",
+    "unrelated on-demand/planned/legacy warnings remain in verification report"
+  ]
+}

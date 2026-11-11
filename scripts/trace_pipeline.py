@@ -27,11 +27,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
 
 from pipeline_contract import lifecycle_state
+from json_interface import manifest_hashes
 from content_store import resolve_source
 from artifact_refs import check_deliverable_source, sha256
 from identity_coverage import check_node as identity_gaps
 from pipeline_status import is_on_demand
-from node_paths import load_record  # noqa: E402
+from node_paths import node_output, node_page, load_record  # noqa: E402
 from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,7 +40,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load_manifest(node: dict, root: Path | None = None) -> dict | None:
     root = root or ROOT
-    path = root / node["path"] / "output" / "manifest.json"
+    path = node_output(root, node) / "manifest.json"
     return load_record(path, root) if path.is_file() else None
 
 
@@ -60,7 +61,7 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False, root
             errors.append(f"{node['path']}: {name} 缺少 artifact_file 来源")
             continue
         problem = check_deliverable_source(root, manifest, item)
-        published = root / node["path"] / "output" / name
+        published = node_output(root, node) / name
         if problem:
             errors.append(f"{node['path']}: {problem}")
         elif not published.is_file():
@@ -77,11 +78,12 @@ def trace_node(node: dict, by_id: dict[str, dict], on_demand: bool = False, root
         if "inputs" in node and upstream.get("basis") == "run":
             declared = {(i["node"], i["file"]) for i in node["inputs"]}
             for item in upstream.get("files", []):
-                if (upstream["node"], item["file"]) not in declared:
+                migrated = by_id[upstream["node"]].get("interface_files", {}).get(item["file"], item["file"])
+                if (upstream["node"], migrated) not in declared:
                     errors.append(f"{node['path']}: 实际输入未登记 {upstream['node']}/{item['file']}")
         up_node = by_id[upstream["node"]]
         up_manifest = load_manifest(up_node, root)
-        current = {item["file"]: item["sha256"] for item in (up_manifest or {}).get("deliverables", [])}
+        current = manifest_hashes(up_manifest)
         changed = [f["file"] for f in upstream.get("files", []) if current.get(f["file"]) != f["sha256"]]
         if changed:
             (deferred if on_demand else stale).append(

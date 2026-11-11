@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>车型数据流水线状态</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: light; font: 15px/1.55 "Segoe UI", "Microsoft YaHei", sans-serif; color: #172b40; background: #eef2f6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  main { max-width: 1580px; margin: auto; padding: clamp(16px, 3vw, 40px); }
+  a { color: #164b86; text-underline-offset: .18em; }
+  h1, h2, h3, p { margin: 0; }
+  h1 { font-size: clamp(1.65rem, 4vw, 2.45rem); }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; overflow-wrap: anywhere; }
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+  .muted { color: #506478; }
+  .summary { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 18px 0; padding: 0; }
+  [data-state] { --ink: #435469; --tint: #eef1f6; --border: #b9c5d3; }
+  [data-state="最新"] { --ink: #0b6046; --tint: #e5f7ef; --border: #8fc6ad; }
+  [data-state="过期"], [data-state="未发布"] { --ink: #942739; --tint: #ffedf0; --border: #df9ca7; }
+  [data-state="按需待刷新"], [data-state="待产出"] { --ink: #805309; --tint: #fff4d7; --border: #d9b96d; }
+  [data-state="待接入"] { --ink: #523980; --tint: #f4edff; --border: #c3b2e0; }
+  .summary li, .badge { background: var(--tint); color: var(--ink); border: 1px solid var(--border); padding: 3px 9px; border-radius: 99px; font-size: .83rem; white-space: nowrap; }
+  .panel, article { background: #fff; border: 1px solid #ced8e3; border-radius: 12px; }
+  .panel { padding: 16px; margin-bottom: 24px; }
+  .graph { margin-top: 12px; overflow: auto; border: 1px solid #dce4ed; border-radius: 8px; background: #f8fafc; }
+  svg { display: block; max-width: 100%; min-width: var(--graph-min-width); height: auto; }
+  svg text { fill: #172b40; font-size: 13px; font-weight: 600; }
+  svg .layer { fill: #506478; font-size: 12px; }
+  svg .card-state { fill: var(--ink); font-size: 12px; font-weight: 400; }
+  svg rect { fill: var(--tint); stroke: var(--border); }
+  svg a:is(:hover, :focus) rect { stroke: #164b86; stroke-width: 2; }
+  .edge { fill: none; stroke: #8095ab; stroke-width: 1.35; marker-end: url(#arrow); }
+  svg.has-focus .edge { opacity: .16; }
+  svg.has-focus .edge.related { opacity: 1; stroke: #245f9d; stroke-width: 2.4; }
+  .details-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .details { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); gap: 12px; align-items: start; }
+  article { padding: 14px; min-width: 0; scroll-margin-top: 12px; }
+  article:target { border-color: #1c5995; box-shadow: 0 0 0 2px #b3d6f3; }
+  .node-title { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
+  code { color: #506478; overflow-wrap: anywhere; }
+  dl { margin: 10px 0 0; }
+  dl div { display: grid; grid-template-columns: 4.5rem 1fr; gap: 8px; border-top: 1px solid #e8edf2; padding: 5px 0; }
+  dt { color: #506478; }
+  dd { margin: 0; overflow-wrap: anywhere; }
+  article ul { margin: 10px 0 0; padding-left: 1.25em; color: #506478; overflow-wrap: anywhere; }
+  footer { color: #506478; margin-top: 18px; font-size: .85rem; }
+</style>
+<main>
+  <header>
+    <div>
+      <h1>车型数据流水线状态</h1>
+      <p class="muted">最近发布 <code>2026-11-12T01:37:21+08:00</code> · 21 个登记节点</p>
+    </div>
+    <a href="流水线状态.md">查看 Markdown 交付物明细</a>
+  </header>
+  <ul class="summary" aria-label="节点状态统计">
+<li data-state="最新">最新 <b>10</b></li>
+<li data-state="按需待刷新">按需待刷新 <b>7</b></li>
+<li data-state="业务容器">业务容器 <b>1</b></li>
+<li data-state="待接入">待接入 <b>2</b></li>
+<li data-state="历史保留">历史保留 <b>1</b></li>
+  </ul>
+  <section class="panel" id="dependencies">
+    <h2>节点依赖图</h2>
+    <p class="muted">箭头从上游指向下游。悬停高亮直接依赖，选择节点查看详情。容器归属见下方卡片。</p>
+    <div class="graph" tabindex="0" aria-label="可横向滚动的依赖图">
+<svg viewBox="0 0 1478 560" width="1478" height="560" style="--graph-min-width: 1182px" aria-label="节点数据依赖图">
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="context-stroke"/></marker></defs>
+<text class="layer" x="12" y="23">第 0 层</text>
+<text class="layer" x="225" y="23">第 1 层</text>
+<text class="layer" x="438" y="23">第 2 层</text>
+<text class="layer" x="651" y="23">第 3 层</text>
+<text class="layer" x="864" y="23">第 4 层</text>
+<text class="layer" x="1077" y="23">第 5 层</text>
+<text class="layer" x="1290" y="23">第 6 层</text>
+<path class="edge" data-from="dimension-crawler" data-to="dimension-library" d="M 188 254 C 205 254, 205 286, 222 286"/>
+<path class="edge" data-from="dimension-library" data-to="structure-review" d="M 401 286 C 418 286, 418 222, 435 222"/>
+<path class="edge" data-from="dimension-library" data-to="sales-estimation" d="M 401 286 C 418 286, 418 286, 435 286"/>
+<path class="edge" data-from="dimension-crawler" data-to="sales-estimation" d="M 188 254 C 204 254, 205 254, 221 254 H 405 C 420 254, 420 286, 435 286"/>
+<path class="edge" data-from="dimension-library" data-to="code-mapping" d="M 401 286 C 418 286, 418 350, 435 350"/>
+<path class="edge" data-from="dimension-library" data-to="shape-classification" d="M 401 286 C 417 286, 418 254, 434 254 H 618 C 633 254, 633 254, 648 254"/>
+<path class="edge" data-from="structure-review" data-to="shape-classification" d="M 614 222 C 631 222, 631 254, 648 254"/>
+<path class="edge" data-from="dimension-library" data-to="model-year-coverage" d="M 401 286 C 417 286, 418 318, 434 318 H 618 C 633 318, 633 318, 648 318"/>
+<path class="edge" data-from="structure-review" data-to="model-year-coverage" d="M 614 222 C 631 222, 631 318, 648 318"/>
+<path class="edge" data-from="dimension-library" data-to="size-calculation" d="M 401 286 C 417 286, 418 254, 434 254 H 618 C 632 254, 633 286, 647 286 H 831 C 846 286, 846 286, 861 286"/>
+<path class="edge" data-from="structure-review" data-to="size-calculation" d="M 614 222 C 630 222, 631 222, 647 222 H 831 C 846 222, 846 286, 861 286"/>
+<path class="edge" data-from="shape-classification" data-to="size-calculation" d="M 827 254 C 844 254, 844 286, 861 286"/>
+<path class="edge" data-from="sales-estimation" data-to="size-calculation" d="M 614 286 C 630 286, 631 286, 647 286 H 831 C 846 286, 846 286, 861 286"/>
+<path class="edge" data-from="size-calculation" data-to="size-compression" d="M 1040 286 C 1057 286, 1057 62, 1074 62"/>
+<path class="edge" data-from="code-mapping" data-to="size-compression" d="M 614 350 C 630 350, 631 350, 647 350 H 831 C 845 350, 846 318, 860 318 H 1044 C 1059 318, 1059 62, 1074 62"/>
+<path class="edge" data-from="size-calculation" data-to="compression-scoring" d="M 1040 286 C 1057 286, 1057 126, 1074 126"/>
+<path class="edge" data-from="negative-review-analysis" data-to="compression-scoring" d="M 188 318 C 204 318, 205 318, 221 318 H 405 C 419 318, 420 318, 434 318 H 618 C 632 318, 633 286, 647 286 H 831 C 845 286, 846 254, 860 254 H 1044 C 1059 254, 1059 126, 1074 126"/>
+<path class="edge" data-from="size-calculation" data-to="custom-analysis" d="M 1040 286 C 1057 286, 1057 190, 1074 190"/>
+<path class="edge" data-from="code-mapping" data-to="custom-analysis" d="M 614 350 C 630 350, 631 350, 647 350 H 831 C 845 350, 846 318, 860 318 H 1044 C 1059 318, 1059 190, 1074 190"/>
+<path class="edge" data-from="negative-review-analysis" data-to="custom-analysis" d="M 188 318 C 204 318, 205 318, 221 318 H 405 C 419 318, 420 318, 434 318 H 618 C 632 318, 633 286, 647 286 H 831 C 845 286, 846 254, 860 254 H 1044 C 1059 254, 1059 190, 1074 190"/>
+<path class="edge" data-from="size-calculation" data-to="sku-clustering" d="M 1040 286 C 1057 286, 1057 254, 1074 254"/>
+<path class="edge" data-from="negative-review-analysis" data-to="sku-clustering" d="M 188 318 C 204 318, 205 318, 221 318 H 405 C 419 318, 420 318, 434 318 H 618 C 632 318, 633 286, 647 286 H 831 C 845 286, 846 254, 860 254 H 1044 C 1059 254, 1059 254, 1074 254"/>
+<path class="edge" data-from="sales-estimation" data-to="sku-clustering" d="M 614 286 C 630 286, 631 286, 647 286 H 831 C 845 286, 846 254, 860 254 H 1044 C 1059 254, 1059 254, 1074 254"/>
+<path class="edge" data-from="size-calculation" data-to="link-analysis-pickup" d="M 1040 286 C 1057 286, 1057 318, 1074 318"/>
+<path class="edge" data-from="size-calculation" data-to="size-analysis" d="M 1040 286 C 1057 286, 1057 382, 1074 382"/>
+<path class="edge" data-from="dimension-library" data-to="dimension-iteration" d="M 401 286 C 417 286, 418 318, 434 318 H 618 C 632 318, 633 350, 647 350 H 831 C 845 350, 846 318, 860 318 H 1044 C 1059 318, 1059 446, 1074 446"/>
+<path class="edge" data-from="shape-classification" data-to="dimension-iteration" d="M 827 254 C 843 254, 844 254, 860 254 H 1044 C 1059 254, 1059 446, 1074 446"/>
+<path class="edge" data-from="size-calculation" data-to="dimension-iteration" d="M 1040 286 C 1057 286, 1057 446, 1074 446"/>
+<path class="edge" data-from="size-calculation" data-to="size-cluster-analysis" d="M 1040 286 C 1057 286, 1057 510, 1074 510"/>
+<path class="edge" data-from="size-calculation" data-to="representative-model" d="M 1040 286 C 1056 286, 1057 286, 1073 286 H 1257 C 1272 286, 1272 222, 1287 222"/>
+<path class="edge" data-from="size-compression" data-to="representative-model" d="M 1253 62 C 1270 62, 1270 222, 1287 222"/>
+<path class="edge" data-from="size-calculation" data-to="link-analysis-regular" d="M 1040 286 C 1056 286, 1057 286, 1073 286 H 1257 C 1272 286, 1272 286, 1287 286"/>
+<path class="edge" data-from="sku-clustering" data-to="link-analysis-regular" d="M 1253 254 C 1270 254, 1270 286, 1287 286"/>
+<path class="edge" data-from="sku-clustering" data-to="link-analysis-w" d="M 1253 254 C 1270 254, 1270 350, 1287 350"/>
+<a href="#node-dimension-crawler" data-node="dimension-crawler" data-state="最新" aria-label="00.自动化尺寸抓取器，最新" transform="translate(12 230)"><rect width="176" height="48" rx="8"/><text x="10" y="19">00.自动化尺寸抓取器</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-negative-review-analysis" data-node="negative-review-analysis" data-state="最新" aria-label="B0.差评分析，最新" transform="translate(12 294)"><rect width="176" height="48" rx="8"/><text x="10" y="19">B0.差评分析</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-dimension-library" data-node="dimension-library" data-state="最新" aria-label="01.整理尺寸库，最新" transform="translate(225 262)"><rect width="176" height="48" rx="8"/><text x="10" y="19">01.整理尺寸库</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-structure-review" data-node="structure-review" data-state="最新" aria-label="02.分类结构审核，最新" transform="translate(438 198)"><rect width="176" height="48" rx="8"/><text x="10" y="19">02.分类结构审核</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-sales-estimation" data-node="sales-estimation" data-state="最新" aria-label="02.销量评估，最新" transform="translate(438 262)"><rect width="176" height="48" rx="8"/><text x="10" y="19">02.销量评估</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-code-mapping" data-node="code-mapping" data-state="最新" aria-label="02.代码映射，最新" transform="translate(438 326)"><rect width="176" height="48" rx="8"/><text x="10" y="19">02.代码映射</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-shape-classification" data-node="shape-classification" data-state="最新" aria-label="03.车形分类核定，最新" transform="translate(651 230)"><rect width="176" height="48" rx="8"/><text x="10" y="19">03.车形分类核定</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-model-year-coverage" data-node="model-year-coverage" data-state="最新" aria-label="M0.车型年覆盖，最新" transform="translate(651 294)"><rect width="176" height="48" rx="8"/><text x="10" y="19">M0.车型年覆盖</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-size-calculation" data-node="size-calculation" data-state="最新" aria-label="A0.尺码计算，最新" transform="translate(864 262)"><rect width="176" height="48" rx="8"/><text x="10" y="19">A0.尺码计算</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-size-compression" data-node="size-compression" data-state="最新" aria-label="A1.压缩尺寸信息，最新" transform="translate(1077 38)"><rect width="176" height="48" rx="8"/><text x="10" y="19">A1.压缩尺寸信息</text><text class="card-state" x="10" y="36">最新</text></a>
+<a href="#node-compression-scoring" data-node="compression-scoring" data-state="按需待刷新" aria-label="B1.压缩定制评分，按需待刷新" transform="translate(1077 102)"><rect width="176" height="48" rx="8"/><text x="10" y="19">B1.压缩定制评分</text><text class="card-state" x="10" y="36">按需待刷新</text></a>
+<a href="#node-custom-analysis" data-node="custom-analysis" data-state="按需待刷新" aria-label="F0.定制分析，按需待刷新" transform="translate(1077 166)"><rect width="176" height="48" rx="8"/><text x="10" y="19">F0.定制分析</text><text class="card-state" x="10" y="36">按需待刷新</text></a>
+<a href="#node-sku-clustering" data-node="sku-clustering" data-state="按需待刷新" aria-label="D1.发货评估，按需待刷新" transform="translate(1077 230)"><rect width="176" height="48" rx="8"/><text x="10" y="19">D1.发货评估</text><text class="card-state" x="10" y="36">按需待刷新</text></a>
+<a href="#node-link-analysis-pickup" data-node="link-analysis-pickup" data-state="按需待刷新" aria-label="D2.链接分析 · 皮卡，按需待刷新" transform="translate(1077 294)"><rect width="176" height="48" rx="8"/><text x="10" y="19">D2.链接分析 · 皮卡</text><text class="card-state" x="10" y="36">按需待刷新</text></a>
+<a href="#node-size-analysis" data-node="size-analysis" data-state="按需待刷新" aria-label="E0.尺寸分析，按需待刷新" transform="translate(1077 358)"><rect width="176" height="48" rx="8"/><text x="10" y="19">E0.尺寸分析</text><text class="card-state" x="10" y="36">按需待刷新</text></a>
+<a href="#node-dimension-iteration" data-node="dimension-iteration" data-state="待接入" aria-label="X1.尺寸迭代，待接入" transform="translate(1077 422)"><rect width="176" height="48" rx="8"/><text x="10" y="19">X1.尺寸迭代</text><text class="card-state" x="10" y="36">待接入</text></a>
+<a href="#node-size-cluster-analysis" data-node="size-cluster-analysis" data-state="历史保留" aria-label="X2.尺码簇分析，历史保留" transform="translate(1077 486)"><rect width="176" height="48" rx="8"/><text x="10" y="19">X2.尺码簇分析</text><text class="card-state" x="10" y="36">历史保留</text></a>
+<a href="#node-representative-model" data-node="representative-model" data-state="按需待刷新" aria-label="C1.车型代表分析，按需待刷新" transform="translate(1290 198)"><rect width="176" height="48" rx="8"/><text x="10" y="19">C1.车型代表分析</text><text class="card-state" x="10" y="36">按需待刷新</text></a>
+<a href="#node-link-analysis-regular" data-node="link-analysis-regular" data-state="按需待刷新" aria-label="D2.链接分析 · 普通，按需待刷新" transform="translate(1290 262)"><rect width="176" height="48" rx="8"/><text x="10" y="19">D2.链接分析 · 普通</text><text class="card-state" x="10" y="36">按需待刷新</text></a>
+<a href="#node-link-analysis-w" data-node="link-analysis-w" data-state="待接入" aria-label="D2.链接分析 · W型车，待接入" transform="translate(1290 326)"><rect width="176" height="48" rx="8"/><text x="10" y="19">D2.链接分析 · W型车</text><text class="card-state" x="10" y="36">待接入</text></a>
+</svg>
+    </div>
+  </section>
+  <section aria-labelledby="details">
+    <div class="details-heading"><h2 id="details">节点信息</h2><a href="#dependencies">返回依赖图</a></div>
+    <div class="details">
+<article id="node-dimension-crawler"><div class="node-title"><h3>00.自动化尺寸抓取器</h3><span class="badge" data-state="最新">最新</span></div><code>dimension-crawler</code><dl><div><dt>产线</dt><dd>上游</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_04</dd></div><div><dt>交付物</dt><dd>8</dd></div><div><dt>上游</dt><dd>—</dd></div><div><dt>下游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a>、<a href="#node-sales-estimation">02.销量评估</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/00.%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B0%BA%E5%AF%B8%E6%8A%93%E5%8F%96%E5%99%A8/%E8%BD%A6%E5%9E%8B%E5%B0%BA%E5%AF%B8%E9%87%87%E9%9B%86.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+<article id="node-dimension-library"><div class="node-title"><h3>01.整理尺寸库</h3><span class="badge" data-state="最新">最新</span></div><code>dimension-library</code><dl><div><dt>产线</dt><dd>上游</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_06</dd></div><div><dt>交付物</dt><dd>13</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-crawler">00.自动化尺寸抓取器</a></dd></div><div><dt>下游</dt><dd><a href="#node-structure-review">02.分类结构审核</a>、<a href="#node-sales-estimation">02.销量评估</a>、<a href="#node-code-mapping">02.代码映射</a>、<a href="#node-shape-classification">03.车形分类核定</a>、<a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-dimension-iteration">X1.尺寸迭代</a>、<a href="#node-model-year-coverage">M0.车型年覆盖</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/01.%E6%95%B4%E7%90%86%E5%B0%BA%E5%AF%B8%E5%BA%93/%E8%BD%A6%E5%9E%8B%E5%B0%BA%E5%AF%B8%E5%BA%93.html">打开 HTML · 支持 CSV 导出</a></dd></div><div><dt>待产出</dt><dd>Audi A7/S7/RS7拆分：逐成员逐年独立尺寸、美国供售间断及下游迁移证据未齐，保留原组合记录、美国车型年份缺口：未核实项保留在US_补库待核.csv；销量年款口径未核实项在sales-estimation的原子销量待核.csv保持PENDING</dd></div></dl></article>
+<article id="node-structure-review"><div class="node-title"><h3>02.分类结构审核</h3><span class="badge" data-state="最新">最新</span></div><code>structure-review</code><dl><div><dt>产线</dt><dd>上游</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>4</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a></dd></div><div><dt>下游</dt><dd><a href="#node-shape-classification">03.车形分类核定</a>、<a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-model-year-coverage">M0.车型年覆盖</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/02.%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%84%E5%AE%A1%E6%A0%B8/%E8%BD%A6%E5%9E%8B%E5%88%86%E7%B1%BB%E5%AE%A1%E6%A0%B8.html">打开 HTML · 支持 CSV 导出</a></dd></div><div><dt>待产出</dt><dd>新增车型年度销量暂由data/销量依据/model_year_sales_holdouts.csv拦截；原子销量待核.csv记录PENDING和来源，未确认车型年口径前不作为销量值发布</dd></div></dl></article>
+<article id="node-sales-estimation"><div class="node-title"><h3>02.销量评估</h3><span class="badge" data-state="最新">最新</span></div><code>sales-estimation</code><dl><div><dt>产线</dt><dd>上游</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>5</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a>、<a href="#node-dimension-crawler">00.自动化尺寸抓取器</a></dd></div><div><dt>下游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-sku-clustering">D1.发货评估</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/02.%E9%94%80%E9%87%8F%E8%AF%84%E4%BC%B0/%E9%94%80%E9%87%8F%E4%B8%8E%E5%B8%82%E5%9C%BA%E6%BD%9C%E5%8A%9B.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+<article id="node-code-mapping"><div class="node-title"><h3>02.代码映射</h3><span class="badge" data-state="最新">最新</span></div><code>code-mapping</code><dl><div><dt>产线</dt><dd>上游</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>2</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a></dd></div><div><dt>下游</dt><dd><a href="#node-size-compression">A1.压缩尺寸信息</a>、<a href="#node-custom-analysis">F0.定制分析</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/02.%E4%BB%A3%E7%A0%81%E6%98%A0%E5%B0%84/%E8%BD%A6%E5%9E%8B%E7%BC%96%E7%A0%81%E6%98%A0%E5%B0%84.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+<article id="node-shape-classification"><div class="node-title"><h3>03.车形分类核定</h3><span class="badge" data-state="最新">最新</span></div><code>shape-classification</code><dl><div><dt>产线</dt><dd>上游</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>5</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a>、<a href="#node-structure-review">02.分类结构审核</a></dd></div><div><dt>下游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-dimension-iteration">X1.尺寸迭代</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/03.%E8%BD%A6%E5%BD%A2%E5%88%86%E7%B1%BB%E6%A0%B8%E5%AE%9A/%E8%BD%A6%E5%BD%A2%E6%A0%B8%E5%AE%9A%E4%B8%8E%E5%B0%BA%E5%AF%B8%E5%8F%82%E8%80%83.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+<article id="node-size-calculation"><div class="node-title"><h3>A0.尺码计算</h3><span class="badge" data-state="最新">最新</span></div><code>size-calculation</code><dl><div><dt>产线</dt><dd>A 全量表</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>15</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a>、<a href="#node-structure-review">02.分类结构审核</a>、<a href="#node-shape-classification">03.车形分类核定</a>、<a href="#node-sales-estimation">02.销量评估</a></dd></div><div><dt>下游</dt><dd><a href="#node-size-compression">A1.压缩尺寸信息</a>、<a href="#node-compression-scoring">B1.压缩定制评分</a>、<a href="#node-custom-analysis">F0.定制分析</a>、<a href="#node-representative-model">C1.车型代表分析</a>、<a href="#node-sku-clustering">D1.发货评估</a>、<a href="#node-link-analysis-pickup">D2.链接分析/nodes/皮卡</a>、<a href="#node-size-analysis">E0.尺寸分析</a>、<a href="#node-dimension-iteration">X1.尺寸迭代</a>、<a href="#node-size-cluster-analysis">X2.尺码簇分析</a>、<a href="#node-link-analysis-regular">D2.链接分析/nodes/普通</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/A0.%E5%B0%BA%E7%A0%81%E8%AE%A1%E7%AE%97/%E5%B0%BA%E7%A0%81%E8%AE%A1%E7%AE%97%E4%B8%8E%E5%8C%B9%E9%85%8D.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+<article id="node-size-compression"><div class="node-title"><h3>A1.压缩尺寸信息</h3><span class="badge" data-state="最新">最新</span></div><code>size-compression</code><dl><div><dt>产线</dt><dd>A 全量表</dd></div><div><dt>触发</dt><dd>自动</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>18</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-code-mapping">02.代码映射</a></dd></div><div><dt>下游</dt><dd><a href="#node-representative-model">C1.车型代表分析</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/A1.%E5%8E%8B%E7%BC%A9%E5%B0%BA%E5%AF%B8%E4%BF%A1%E6%81%AF/%E5%8E%8B%E7%BC%A9%E5%B0%BA%E7%A0%81%E6%96%B9%E6%A1%88.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+<article id="node-negative-review-analysis"><div class="node-title"><h3>B0.差评分析</h3><span class="badge" data-state="最新">最新</span></div><code>negative-review-analysis</code><dl><div><dt>产线</dt><dd>B 定制评分</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>3</dd></div><div><dt>上游</dt><dd>—</dd></div><div><dt>下游</dt><dd><a href="#node-compression-scoring">B1.压缩定制评分</a>、<a href="#node-custom-analysis">F0.定制分析</a>、<a href="#node-sku-clustering">D1.发货评估</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/B0.%E5%B7%AE%E8%AF%84%E5%88%86%E6%9E%90/%E5%B7%AE%E8%AF%84%E4%B8%8E%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+<article id="node-compression-scoring"><div class="node-title"><h3>B1.压缩定制评分</h3><span class="badge" data-state="按需待刷新">按需待刷新</span></div><code>compression-scoring</code><dl><div><dt>产线</dt><dd>B 定制评分</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>1</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-negative-review-analysis">B0.差评分析</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/B1.%E5%8E%8B%E7%BC%A9%E5%AE%9A%E5%88%B6%E8%AF%84%E5%88%86/%E5%AE%9A%E5%88%B6%E9%9C%80%E6%B1%82%E8%AF%84%E5%88%86.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl><ul><li>上游 A0.尺码计算 已更新（使用 20261101_07，当前 20261112_01）：US/全量/全量表.csv</li></ul></article>
+<article id="node-custom-analysis"><div class="node-title"><h3>F0.定制分析</h3><span class="badge" data-state="按需待刷新">按需待刷新</span></div><code>custom-analysis</code><dl><div><dt>产线</dt><dd>F 定制分析</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>14</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-code-mapping">02.代码映射</a>、<a href="#node-negative-review-analysis">B0.差评分析</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/F0.%E5%AE%9A%E5%88%B6%E5%88%86%E6%9E%90/%E5%AE%9A%E5%88%B6%E8%BD%A6%E5%9E%8B%E5%88%86%E6%9E%90.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl><ul><li>上游 A0.尺码计算 已更新（使用 20261101_07，当前 20261112_01）：US/全量/全量表.csv</li><li>上游 02.代码映射 已更新（使用 20261019_02，当前 20261112_01）：尺寸编码映射.csv</li></ul></article>
+<article id="node-representative-model"><div class="node-title"><h3>C1.车型代表分析</h3><span class="badge" data-state="按需待刷新">按需待刷新</span></div><code>representative-model</code><dl><div><dt>产线</dt><dd>C 代表车型</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>3</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-size-compression">A1.压缩尺寸信息</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/C1.%E8%BD%A6%E5%9E%8B%E4%BB%A3%E8%A1%A8%E5%88%86%E6%9E%90/%E4%BB%A3%E8%A1%A8%E8%BD%A6%E5%9E%8B%E5%88%86%E6%9E%90.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl><ul><li>上游 A0.尺码计算 已更新（使用 20261101_07，当前 20261112_01）：US/全量/全量表.csv</li><li>上游 A1.压缩尺寸信息 已更新（使用 20261101_03，当前 20261112_01）：US/压缩尺码表.csv</li></ul></article>
+<article id="node-sku-clustering"><div class="node-title"><h3>D1.发货评估</h3><span class="badge" data-state="按需待刷新">按需待刷新</span></div><code>sku-clustering</code><dl><div><dt>产线</dt><dd>D 发货单</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>6</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-negative-review-analysis">B0.差评分析</a>、<a href="#node-sales-estimation">02.销量评估</a></dd></div><div><dt>下游</dt><dd><a href="#node-link-analysis-regular">D2.链接分析/nodes/普通</a>、<a href="#node-link-analysis-w">D2.链接分析/nodes/W型车</a></dd></div><div><dt>最终结果</dt><dd><a href="nodes/D1.%E5%8F%91%E8%B4%A7%E8%AF%84%E4%BC%B0/%E8%BD%A6%E5%9E%8B%E5%8F%91%E8%B4%A7%E8%AF%84%E4%BC%B0.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl><ul><li>上游 A0.尺码计算 已更新（使用 20261101_07，当前 20261112_01）：US/全量/全量表.csv</li><li>上游 02.销量评估 已更新（使用 20261101_04，当前 20261112_01）：积加销量.csv</li></ul></article>
+<article id="node-link-analysis-pickup"><div class="node-title"><h3>D2.链接分析/nodes/皮卡</h3><span class="badge" data-state="按需待刷新">按需待刷新</span></div><code>link-analysis-pickup</code><dl><div><dt>产线</dt><dd>D 发货单</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>5</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/D2.%E9%93%BE%E6%8E%A5%E5%88%86%E6%9E%90/nodes/%E7%9A%AE%E5%8D%A1/%E7%9A%AE%E5%8D%A1%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%8F%91%E8%B4%A7%E6%A0%B8%E5%AF%B9.html">打开 HTML · 支持 CSV 导出</a></dd></div><div><dt>所属容器</dt><dd><a href="#node-link-analysis">D2.链接分析</a></dd></div></dl><ul><li>上游 A0.尺码计算 已更新（使用 20261101_07，当前 20261112_01）：US/全量/全量表.csv</li></ul></article>
+<article id="node-link-analysis"><div class="node-title"><h3>D2.链接分析</h3><span class="badge" data-state="业务容器">业务容器</span></div><code>link-analysis</code><dl><div><dt>产线</dt><dd>D 发货单</dd></div><div><dt>触发</dt><dd>—</dd></div><div><dt>版本</dt><dd>—</dd></div><div><dt>交付物</dt><dd>0</dd></div><div><dt>上游</dt><dd>—</dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/D2.%E9%93%BE%E6%8E%A5%E5%88%86%E6%9E%90/%E9%93%BE%E6%8E%A5%E5%88%86%E6%9E%90%E6%80%BB%E8%A7%88.html">打开 HTML · 支持 CSV 导出</a></dd></div><div><dt>子节点</dt><dd><a href="#node-link-analysis-pickup">D2.链接分析/nodes/皮卡</a>、<a href="#node-link-analysis-regular">D2.链接分析/nodes/普通</a>、<a href="#node-link-analysis-w">D2.链接分析/nodes/W型车</a></dd></div></dl></article>
+<article id="node-size-analysis"><div class="node-title"><h3>E0.尺寸分析</h3><span class="badge" data-state="按需待刷新">按需待刷新</span></div><code>size-analysis</code><dl><div><dt>产线</dt><dd>E 尺寸分析</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>3</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/E0.%E5%B0%BA%E5%AF%B8%E5%88%86%E6%9E%90/%E5%B0%BA%E7%A0%81%E5%B0%BA%E5%AF%B8%E7%BB%9F%E8%AE%A1.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl><ul><li>上游 A0.尺码计算 已更新（使用 20261101_07，当前 20261112_01）：US/全量/全量表.csv</li></ul></article>
+<article id="node-dimension-iteration"><div class="node-title"><h3>X1.尺寸迭代</h3><span class="badge" data-state="待接入">待接入</span></div><code>dimension-iteration</code><dl><div><dt>产线</dt><dd>X 旁路</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261009_04</dd></div><div><dt>交付物</dt><dd>0</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a>、<a href="#node-shape-classification">03.车形分类核定</a>、<a href="#node-size-calculation">A0.尺码计算</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/X1.%E5%B0%BA%E5%AF%B8%E8%BF%AD%E4%BB%A3/%E5%B0%BA%E5%AF%B8%E8%BF%AD%E4%BB%A3%E5%B7%A5%E4%BD%9C%E5%8F%B0.html">打开 HTML · 支持 CSV 导出</a></dd></div><div><dt>待产出</dt><dd>尺寸迭代候选</dd></div></dl><ul><li>尚无正式候选交付与运行入口</li></ul></article>
+<article id="node-size-cluster-analysis"><div class="node-title"><h3>X2.尺码簇分析</h3><span class="badge" data-state="历史保留">历史保留</span></div><code>size-cluster-analysis</code><dl><div><dt>产线</dt><dd>X 旁路</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>2</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/X2.%E5%B0%BA%E7%A0%81%E7%B0%87%E5%88%86%E6%9E%90/%E5%B0%BA%E7%A0%81%E8%BE%B9%E7%95%8C%E5%8E%86%E5%8F%B2%E5%88%86%E6%9E%90.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl><ul><li>保留历史分析结果；旧规则结构尚未移植，无可重建入口</li></ul></article>
+<article id="node-link-analysis-regular"><div class="node-title"><h3>D2.链接分析/nodes/普通</h3><span class="badge" data-state="按需待刷新">按需待刷新</span></div><code>link-analysis-regular</code><dl><div><dt>产线</dt><dd>D 发货单</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_01</dd></div><div><dt>交付物</dt><dd>5</dd></div><div><dt>上游</dt><dd><a href="#node-size-calculation">A0.尺码计算</a>、<a href="#node-sku-clustering">D1.发货评估</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/D2.%E9%93%BE%E6%8E%A5%E5%88%86%E6%9E%90/nodes/%E6%99%AE%E9%80%9A/%E6%99%AE%E9%80%9A%E8%BD%A6%E9%93%BE%E6%8E%A5%E4%B8%8E%E5%8F%91%E8%B4%A7%E6%A0%B8%E5%AF%B9.html">打开 HTML · 支持 CSV 导出</a></dd></div><div><dt>所属容器</dt><dd><a href="#node-link-analysis">D2.链接分析</a></dd></div></dl><ul><li>上游 A0.尺码计算 已更新（使用 20261101_07，当前 20261112_01）：US/全量/全量表.csv</li></ul></article>
+<article id="node-link-analysis-w"><div class="node-title"><h3>D2.链接分析/nodes/W型车</h3><span class="badge" data-state="待接入">待接入</span></div><code>link-analysis-w</code><dl><div><dt>产线</dt><dd>D 发货单</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>—</dd></div><div><dt>交付物</dt><dd>0</dd></div><div><dt>上游</dt><dd><a href="#node-sku-clustering">D1.发货评估</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/D2.%E9%93%BE%E6%8E%A5%E5%88%86%E6%9E%90/nodes/W%E5%9E%8B%E8%BD%A6/W%E5%9E%8B%E8%BD%A6%E9%93%BE%E6%8E%A5%E5%B7%A5%E4%BD%9C%E5%8F%B0.html">打开 HTML · 支持 CSV 导出</a></dd></div><div><dt>所属容器</dt><dd><a href="#node-link-analysis">D2.链接分析</a></dd></div><div><dt>待产出</dt><dd>W型车链接与发货核对</dd></div></dl><ul><li>D1当前只交付发货评估，未提供旧W型车流程要求的聚类接口</li></ul></article>
+<article id="node-model-year-coverage"><div class="node-title"><h3>M0.车型年覆盖</h3><span class="badge" data-state="最新">最新</span></div><code>model-year-coverage</code><dl><div><dt>产线</dt><dd>M 车型年覆盖</dd></div><div><dt>触发</dt><dd>按需</dd></div><div><dt>版本</dt><dd>20261112_10</dd></div><div><dt>交付物</dt><dd>12</dd></div><div><dt>上游</dt><dd><a href="#node-dimension-library">01.整理尺寸库</a>、<a href="#node-structure-review">02.分类结构审核</a></dd></div><div><dt>下游</dt><dd>—</dd></div><div><dt>最终结果</dt><dd><a href="nodes/M0.%E8%BD%A6%E5%9E%8B%E5%B9%B4%E8%A6%86%E7%9B%96/%E8%BD%A6%E5%9E%8B%E5%B9%B4%E5%85%A8%E9%9B%86%E4%B8%8E%E8%A6%86%E7%9B%96%E7%8E%87.html">打开 HTML · 支持 CSV 导出</a></dd></div></dl></article>
+    </div>
+  </section>
+  <footer>快照由发布脚本根据 pipeline.json、release.json 和各节点的发布清单生成。</footer>
+</main>
+<script>
+  const graph = document.querySelector(".graph svg");
+  if (graph) {
+    const edges = graph.querySelectorAll(".edge");
+    function highlight(id) {
+      graph.classList.toggle("has-focus", Boolean(id));
+      for (const edge of edges) {
+        edge.classList.toggle("related", edge.dataset.from === id || edge.dataset.to === id);
+      }
+    }
+    for (const node of graph.querySelectorAll("[data-node]")) {
+      node.addEventListener("pointerenter", () => highlight(node.dataset.node));
+      node.addEventListener("pointerleave", () => highlight(document.activeElement?.dataset.node));
+      node.addEventListener("focus", () => highlight(node.dataset.node));
+      node.addEventListener("blur", () => highlight());
+    }
+  }
+</script>

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-01",
+  "sources": [
+    {
+      "id": "AUDI-US-RS7-2021",
+      "url": "https://media.audiusa.com/releases/393",
+      "publisher": "Audi of America",
+      "title": "2021 Audi RS 7 pricing announced: visceral performance with striking design",
+      "market": "US",
+      "status": "partial",
+      "members": [
+        "RS7"
+      ],
+      "years": [
+        2021
+      ],
+      "facts": [
+        "us_presence",
+        "wide_body_difference"
+      ],
+      "notes": "检索索引载有2020-03-04官方发布；2021第二代RS7、较A7更宽。直接打开当前旧站仅返回Audi占位页；不作逐年尺寸核定。"
+    },
+    {
+      "id": "AUDI-US-2014-PRESS",
+      "url": "https://www.audiworld.com/wp-content/uploads/2014/01/14A7S7RS7_pr.pdf",
+      "publisher": "Audi of America（第三方存档）",
+      "title": "Audi introduces the 2014 A7, A7 TDI, S7 and RS 7",
+      "market": "US",
+      "status": "lead",
+      "members": [
+        "A7",
+        "S7",
+        "RS7"
+      ],
+      "years": [
+        2014
+      ],
+      "facts": [
+        "us_presence"
+      ],
+      "notes": "检索索引指向Audi原发布稿存档；RS7为2014新车型线索。未逐页核验原件，不授权正式拆分。"
+    },
+    {
+      "id": "AUDI-US-2013-KIT",
+      "url": "https://www.audiworld.com/wp-content/uploads/2014/01/13A7S7_MediaInfo.pdf",
+      "publisher": "Audi of America（第三方存档）",
+      "title": "2013 Audi A7/S7 Media Information Kit",
+      "market": "US",
+      "status": "lead",
+      "members": [
+        "A7",
+        "S7"
+      ],
+      "years": [
+        2013
+      ],
+      "facts": [],
+      "notes": "官方作者资料的第三方存档线索；尺寸尚未逐页核验，不写入正式尺寸。"
+    },
+    {
+      "id": "LOCAL-TRIMSLATE",
+      "file": "data/us/audi_a7_reference_years.csv",
+      "sha256": "e4761fbc5d27c934170d2c100d5ae83e4b9b6937442077cdc42a32b7e8ddb0fb",
+      "publisher": "用户提供，原来源未独立核实",
+      "market": "unknown",
+      "status": "lead",
+      "members": [
+        "A7",
+        "S7",
+        "RS7"
+      ],
+      "years": [],
+      "facts": [],
+      "notes": "车型年线索；没有尺寸及市场字段，不能证明缺失年份未在美国销售。",
+      "original_source": {
+        "file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+        "sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+        "extraction": "仅现有Audi拆分试点reference_names所用make/model/year，去重；2026-11-12职责迁移时冻结，不新增核实"
+      }
+    }
+  ]
+}

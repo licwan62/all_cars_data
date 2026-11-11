@@ -34,6 +34,8 @@ from datetime import date, datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "lib"))
+from node_paths import node_output
 PUBLIC_ROOT = Path(r"\\NAS8824B4\Public\PQData\pub_all_cars_data")
 # 相对 PUBLIC_ROOT、由本脚本完全接管的目录：不在 wanted 清单里的文件会被归档到 backup/。
 OWNED_DIRS = ("data", "customizing")
@@ -150,23 +152,25 @@ def public_items(node: dict, manifest: dict) -> list[dict]:
     missing = [name for name in node.get("public_outputs", []) if name not in deliverables]
     if missing:
         raise ValueError(f"{node['path']}: public_outputs 中 {'、'.join(missing)} 未在 output/manifest.json 发布，请先发布该节点")
-    return [deliverables[name] for name in node.get("public_outputs", []) if Path(name).suffix.lower() == ".csv"]
+    return [deliverables[name] for name in node.get("public_outputs", []) if Path(name).suffix.lower() in {".csv", ".json"}]
 
 
 def collect_docs() -> dict[Path, str]:
     payload = json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))
     docs: dict[Path, str] = {}
     for node in payload["nodes"]:
-        manifest_path = ROOT / node["path"] / "output" / "manifest.json"
+        manifest_path = node_output(ROOT, node) / "manifest.json"
         if not manifest_path.is_file():
             continue
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for item in public_items(node, manifest):
             name = item["file"]
+            if node.get("interface_files"):
+                continue  # JSON tables are exported as CSV by collect(), not prose.
             suffix = Path(name).suffix.lower()
             if suffix not in {".json", ".md"} or name == "manifest.json":
                 continue
-            source = ROOT / node["path"] / "output" / name
+            source = node_output(ROOT, node) / name
             if not source.is_file() or sha256(source) != item["sha256"]:
                 raise ValueError(f"{node['path']}/output/{name} 缺失或与 manifest sha256 不一致，请先重新发布该节点")
             target = target_for(name, node["id"]).with_suffix(".md")
@@ -181,23 +185,32 @@ def collect() -> dict[Path, dict]:
     payload = json.loads((ROOT / "pipeline.json").read_text(encoding="utf-8"))
     plan: dict[Path, dict] = {}
     for node in payload["nodes"]:
-        manifest_path = ROOT / node["path"] / "output" / "manifest.json"
+        manifest_path = node_output(ROOT, node) / "manifest.json"
         if not manifest_path.is_file():
             continue
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for item in public_items(node, manifest):
             name = item["file"]
-            if Path(name).suffix.lower() not in PUBLISH_SUFFIXES:
+            if Path(name).suffix.lower() not in PUBLISH_SUFFIXES | {".json"}:
                 continue
-            source = ROOT / node["path"] / "output" / name
+            source = node_output(ROOT, node) / name
             if not source.is_file() or sha256(source) != item["sha256"]:
                 raise ValueError(f"{node['path']}/output/{name} 缺失或与 manifest sha256 不一致，请先重新发布该节点")
-            target = target_for(name, node["id"])
+            exported = None
+            if Path(name).suffix.lower() == ".json":
+                from json_interface import load_table, csv_bytes, legacy_name
+                exported = csv_bytes(load_table(source))
+                export_name = str(Path(legacy_name(node, name)).with_suffix(".csv"))
+            else:
+                export_name = name
+            target = target_for(export_name, node["id"])
             if target in plan:
                 raise ValueError(f"{name} 在 NAS public/data 中重名（{plan[target]['node']} 与 {node['id']}）")
             plan[target] = {
                 "file": target.as_posix(), "source": source, "node": node["id"], "version": manifest["version"],
                 "artifact_file": item["artifact_file"], "sha256": item["sha256"],
+                **({"export_bytes": exported, "source_sha256": item["sha256"],
+                    "sha256": hashlib.sha256(exported).hexdigest()} if exported is not None else {}),
             }
     return plan
 
@@ -226,7 +239,10 @@ def main() -> int:
         destination = PUBLIC_ROOT / target
         destination.parent.mkdir(parents=True, exist_ok=True)
         temporary = destination.with_name(f".{destination.name}.tmp")
-        shutil.copy2(record["source"], temporary)
+        if "export_bytes" in record:
+            temporary.write_bytes(record["export_bytes"])
+        else:
+            shutil.copy2(record["source"], temporary)
         os.replace(temporary, destination)
     for target, text in docs.items():
         destination = PUBLIC_ROOT / target
@@ -243,11 +259,11 @@ def main() -> int:
     lines = [
         "# 车型数据公开发布目录",
         "",
-        "本目录由 `D:\\Licheng\\Repo\\all_cars_data` 的流水线发布。正式输入仅来自各节点的 `output/`，不作为流水线上游或下游的数据源。",
+        "本目录由 all_cars_data 流水线发布。正式输入来自仓库集中 `json/<节点ID>/` 接口并导出为 CSV；本目录不作为节点间数据源。",
         "",
         f"本次发布：{datetime.now().astimezone().isoformat(timespec='seconds')}",
         "",
-        "仅发布 public_outputs 显式登记的 CSV 数据表。JSON、Markdown及其他辅助交付保留在节点 output/ 与 artifacts/；本README集中说明发布范围与来源。",
+        "仅发布 public_outputs 显式登记的 CSV 数据表。JSON及其他辅助交付保留在集中 json/ 与节点 artifacts/；本README集中说明发布范围与来源。",
         "",
         "`data/` 和 `customizing/` 是本脚本管理的正式发布地址（本文件与来源清单描述的即是这两个目录的当前内容）。`data/` 下按国别或数据职责分目录，不在根目录堆放数据文件；`customizing/` 存放定制类产物（如定制需求度评分）。被替换的旧命名文件与历史批次统一归档到本目录的 `backup/`，不散落在其他位置；`car_code/`、`reference/`、`reports/`、`sku_cluster/` 为人工维护的参考资料，不受本脚本管理；其中 `sku_cluster/皮卡/` 的四张 CSV 由节点 `link-analysis-pickup` 发布（见下表），只覆盖这些文件。",
         "",

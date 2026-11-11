@@ -21,6 +21,26 @@ NODE_PATH_ALIASES = {
 }
 
 
+def node_output(root: Path, node: dict) -> Path:
+    """Current machine interface location; old fixtures retain their old layout."""
+    relative = node.get("output_dir") or f"{node['path']}/output"
+    target = Path(root) / relative
+    target.resolve().relative_to(Path(root).resolve())
+    return target
+
+
+def node_page(root: Path, node: dict) -> Path:
+    base = Path(root) / node["path"] if node.get("html_at_root") else node_output(root, node)
+    return base / node.get("html_output", "结果.html")
+
+
+def repository_metadata(root: Path, name: str) -> Path:
+    """Repository-generated indexes live together; legacy fixtures remain readable."""
+    central = Path(root) / "json" / "_meta" / name
+    old = Path(root) / name
+    return central if central.is_file() or (central.parent.is_dir() and not old.is_file()) else old
+
+
 def node_dir_name(path: str) -> str:
     """``nodes/D2.链接分析/皮卡`` → ``D2.链接分析/皮卡``：节点在 nodes/ 下的目录名（用于前缀校验与展示）。"""
     prefix = f"{NODES_DIR}/"

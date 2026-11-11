@@ -6,6 +6,10 @@ from audit_us_model_years import audit
 
 def write(path, rows):
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.suffix == ".json":
+        columns = list(rows[0])
+        path.write_text(json.dumps({"schema":"vehicle-pipeline/table-v1", "columns":columns, "rows":[[str(r[c]) for c in columns] for r in rows]}),encoding="utf-8")
+        return
     with path.open("w", encoding="utf-8-sig", newline="") as stream:
         writer = csv.DictWriter(stream, list(rows[0]))
         writer.writeheader()
@@ -14,12 +18,13 @@ def write(path, rows):
 
 def test_combined_rs7_error_is_reclassified_and_previous_report_preserved(tmp_path):
     node = tmp_path / "nodes/01.整理尺寸库"
-    write(node / "output/尺寸库_US.csv", [
+    write(tmp_path / "json/dimension-library/尺寸库_US.json", [
         {"DIMENSION-ID": "combined", "MAKE": "Audi", "MODEL": "A7/S7/RS7", "YEAR": "2012-2025", "L-IN": "197", "W-IN": "75", "H-IN": "55"},
         {"DIMENSION-ID": "rs7-2026", "MAKE": "Audi", "MODEL": "RS7", "YEAR": "2026", "L-IN": "197", "W-IN": "76", "H-IN": "55"}])
-    write(node / "data/data_source/trimslate-vehicles.csv", [
+    write(tmp_path / "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv", [
         {"make": "Audi", "model": "RS 7", "year": str(year)} for year in (2025, 2026, 2027)])
-    write(node / "data/data_source/vehicles.csv", [{"make_name": "Audi", "model_name": "RS 7", "countries": "us", "aliases": "", "body_types": "liftback"}])
+    write(tmp_path / "nodes/M0.车型年覆盖/data/data_source/vehicles.csv", [{"make_name": "Audi", "model_name": "RS 7", "countries": "us", "aliases": "", "body_types": "liftback"}])
+    (node / "data").mkdir(parents=True, exist_ok=True)
     (node / "data/build_config.json").write_text('{"as_of_year":2026}')
     (node / "data/us").mkdir()
     (node / "data/us/model_members.json").write_text(json.dumps({"schema_version": 1, "groups": [
@@ -36,13 +41,14 @@ def test_combined_rs7_error_is_reclassified_and_previous_report_preserved(tmp_pa
 
 def test_research_dispositions_do_not_claim_publication_or_override_coverage(tmp_path):
     node = tmp_path / "nodes/01.整理尺寸库"
-    write(node / "output/尺寸库_US.csv", [
+    write(tmp_path / "json/dimension-library/尺寸库_US.json", [
         {"DIMENSION-ID": "independent", "MAKE": "A", "MODEL": "M", "YEAR": "2020", "L-IN": "180", "W-IN": "70", "H-IN": "60"},
         {"DIMENSION-ID": "group", "MAKE": "A", "MODEL": "X/Y", "YEAR": "2021", "L-IN": "180", "W-IN": "70", "H-IN": "60"}])
-    write(node / "data/data_source/trimslate-vehicles.csv", [
+    write(tmp_path / "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv", [
         {"make": "A", "model": model, "year": str(year)}
         for model, year in [("M", 2020), ("M", 2021), ("M", 2022), ("M", 2023), ("X", 2021)]])
-    write(node / "data/data_source/vehicles.csv", [{"make_name": "A", "model_name": "M", "countries": "us", "aliases": "", "body_types": ""}])
+    write(tmp_path / "nodes/M0.车型年覆盖/data/data_source/vehicles.csv", [{"make_name": "A", "model_name": "M", "countries": "us", "aliases": "", "body_types": ""}])
+    (node / "data").mkdir(parents=True, exist_ok=True)
     (node / "data/build_config.json").write_text('{"as_of_year":2026}')
     (node / "data/us").mkdir()
     (node / "data/us/model_members.json").write_text(json.dumps({"schema_version": 1, "groups": [

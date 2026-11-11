@@ -127,11 +127,23 @@ def test_release_writes_status_file_and_tampering_is_detected(tmp_path):
     release.release_all(repo)
     status = repo / pipeline_status.STATUS_NAME
     text = status.read_text(encoding="utf-8")
+    html = repo / pipeline_status.HTML_NAME
+    snapshot = html.read_text(encoding="utf-8")
     assert "| 01.b |" in text and "最新" in text
+    assert f"]({pipeline_status.HTML_NAME})" in text
+    assert 'data-from="a" data-to="b"' in snapshot
+    assert '<article id="node-b">' in snapshot
     assert pipeline_status.check_status(repo) == []
 
+    html.unlink()
+    assert any(pipeline_status.HTML_NAME in error for error in pipeline_status.check_status(repo))
+    assert release.release_all(repo) == {}
+    assert html.read_text(encoding="utf-8") == snapshot
+
+    html.write_text(snapshot + "\n临时笔记\n", encoding="utf-8")
+    assert any(pipeline_status.HTML_NAME in error for error in pipeline_status.check_status(repo))
     status.write_text(text + "\n临时笔记\n", encoding="utf-8")
-    assert pipeline_status.check_status(repo)
+    assert any(pipeline_status.STATUS_NAME in error for error in pipeline_status.check_status(repo))
 
 
 def test_status_marks_node_stale_when_upstream_republished(tmp_path):
@@ -145,6 +157,8 @@ def test_status_marks_node_stale_when_upstream_republished(tmp_path):
     text = (repo / pipeline_status.STATUS_NAME).read_text(encoding="utf-8")
     assert "| 01.b |" in text and "过期" in text
     assert "上游 00.a 已更新" in text
+    snapshot = (repo / pipeline_status.HTML_NAME).read_text(encoding="utf-8")
+    assert 'data-node="b" data-state="过期"' in snapshot
     assert pipeline_status.check_status(repo) == []
 
 
@@ -154,6 +168,7 @@ def test_dry_run_does_not_touch_status_file(tmp_path):
     repo = make_repo(tmp_path)
     release.release_all(repo, dry_run=True)
     assert not (repo / pipeline_status.STATUS_NAME).exists()
+    assert not (repo / pipeline_status.HTML_NAME).exists()
 
 
 def make_on_demand_repo(tmp_path: Path) -> Path:

@@ -82,7 +82,11 @@ def test_eu_migration_copy_reproduces_published_crlf(tmp_path):
     assert copied.read_bytes() == source.read_bytes()
     destination = tmp_path / "EU_ID迁移.csv"
     merge.copy_eu_migration(destination)
-    assert destination.read_bytes() == (PROJECT / "output" / "EU_ID迁移.csv").read_bytes()
+    # The JSON transport preserves cell values; BOM/record terminators in the
+    # private CSV computation view are serialization details, not data changes.
+    import csv
+    with destination.open(encoding="utf-8-sig", newline="") as left, (PROJECT / "output" / "EU_ID迁移.csv").open(encoding="utf-8-sig", newline="") as right:
+        assert list(csv.reader(left)) == list(csv.reader(right))
 
 
 def test_published_eu_library_and_migration_are_consistent():

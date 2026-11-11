@@ -23,6 +23,7 @@ from __future__ import annotations
 import csv
 from dataclasses import dataclass, field
 from pathlib import Path
+from node_paths import node_output
 
 DEFAULT_KEY = "DIMENSION-ID"
 MODES = {"equal", "subset"}
@@ -65,6 +66,14 @@ class CoverageGap:
 
 
 def read_keys(path: Path, key: str, split: str | None = None) -> set[str]:
+    if path.suffix.lower() == ".json":
+        from json_interface import load_table
+        payload = load_table(path)
+        if key not in payload["columns"]:
+            raise ValueError(f"{path.name} 缺少主键列 {key}")
+        index = payload["columns"].index(key)
+        values = (row[index] for row in payload["rows"] if len(row) > index)
+        return {value.split(split, 1)[0] if split else value for value in values if value}
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         if key not in (reader.fieldnames or []):
@@ -77,8 +86,8 @@ def check_rule(root: Path, node: dict, rule: dict, by_id: dict[str, dict]) -> Co
     upstream = by_id[rule["upstream"]]
     mode = rule.get("mode", "equal")
     gap = CoverageGap(rule["output"], upstream["id"], upstream["path"], rule["file"], mode)
-    own = root / node["path"] / "output" / rule["output"]
-    source = root / upstream["path"] / "output" / rule["file"]
+    own = node_output(root, node) / rule["output"]
+    source = node_output(root, upstream) / rule["file"]
     try:
         own_keys = read_keys(own, rule.get("key", DEFAULT_KEY), rule.get("key_split"))
         source_keys = read_keys(source, rule.get("upstream_key", DEFAULT_KEY))

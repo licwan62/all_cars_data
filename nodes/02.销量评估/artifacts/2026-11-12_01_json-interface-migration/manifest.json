@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "node": "sales-estimation",
+  "path": "nodes/02.销量评估",
+  "version": "20261112_01",
+  "artifact": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration",
+  "published_at": "2026-11-08T17:02:29+08:00",
+  "deliverables": [
+    {
+      "file": "原子销量.json",
+      "versioned_file": "原子销量-20261112_01.json",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/原子销量-20261112_01.json",
+      "sha256": "1c833df2cbe0f75b29132f7d85dd06cdff747de62954e9cccbb9f582861588f1",
+      "bytes": 1073011,
+      "rows": 17175,
+      "legacy_file": "原子销量.csv",
+      "legacy_sha256": "7fe3f64c3fa356c8a9c130b5416eaba08aecf7b15b68640b4f739be2f7c68fef"
+    },
+    {
+      "file": "原子销量待核.json",
+      "versioned_file": "原子销量待核-20261112_01.json",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/原子销量待核-20261112_01.json",
+      "sha256": "b061ab449c28c0767f249c0ea9b3e9a9dcc6e6cb0fe9bd3851043dce9e24a804",
+      "bytes": 258133,
+      "rows": 1967,
+      "legacy_file": "原子销量待核.csv",
+      "legacy_sha256": "eacafc4685f094f9587d34c1667956b575ed55690484a000f37f5f9086e3805a"
+    },
+    {
+      "file": "RU代理销量.json",
+      "versioned_file": "RU代理销量-20261112_01.json",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/RU代理销量-20261112_01.json",
+      "sha256": "634350dfa55b0e6ba6284486c27f88b77d2f694d787f00044b1253b060f42be7",
+      "bytes": 602158,
+      "rows": 13617,
+      "legacy_file": "RU代理销量.csv",
+      "legacy_sha256": "96bc5aaa8f53a154244372db4f9c6e6a8d0103a6cf1df78fd3a7991b6dbb26dd"
+    },
+    {
+      "file": "市场潜力.json",
+      "versioned_file": "市场潜力-20261112_01.json",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/市场潜力-20261112_01.json",
+      "sha256": "2660222dd5ac08780fb3a83c8527aa67cac0c66f633e2b330981336ae9ff1ddc",
+      "bytes": 385457,
+      "rows": 6352,
+      "legacy_file": "市场潜力.csv",
+      "legacy_sha256": "7bfe329777fc692b3a6c342e51d8df56a8131dd4d1c5c772242cc2e3cb16bcf8"
+    },
+    {
+      "file": "积加销量.json",
+      "versioned_file": "积加销量-20261112_01.json",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/积加销量-20261112_01.json",
+      "sha256": "97bb8f8ea26813246cff27f11fddbf632175c6b1dcb1cf9d9a17811385109ebe",
+      "bytes": 44317,
+      "rows": 562,
+      "legacy_file": "积加销量.csv",
+      "legacy_sha256": "713ba3cab9a407edf79a683a6b8a4c3b6c577a0e8ff65eb371bb3383e93f7996"
+    }
+  ],
+  "upstream": [
+    {
+      "node": "dimension-library",
+      "version": "20261108_02",
+      "basis": "run",
+      "files": [
+        {
+          "file": "尺寸库.csv",
+          "versioned_file": "尺寸库-20261108_01.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-08_01_regional-library/output/尺寸库-20261108_01.csv",
+          "sha256": "3a16a1e4f2def4773d94ce02de5a149b41c3bc62247358b84021c7918dd0ca01"
+        },
+        {
+          "file": "尺寸库_RU.csv",
+          "versioned_file": "尺寸库_RU-20261009_06.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_RU-20261009_06.csv",
+          "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+        },
+        {
+          "file": "尺寸库_US.csv",
+          "versioned_file": "尺寸库_US-20261108_01.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-08_01_regional-library/output/尺寸库_US-20261108_01.csv",
+          "sha256": "90ce3d4d5b74fd6bb03ae6702b3de621e52497f95f35238ba09304424c61e3e9"
+        },
+        {
+          "file": "来源映射_RU.csv",
+          "versioned_file": "来源映射_RU-20261009_06.csv",
+          "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
+          "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
+        }
+      ]
+    },
+    {
+      "node": "dimension-crawler",
+      "version": "20261102_01",
+      "basis": "run",
+      "files": [
+        {
+          "file": "RU/auto_ru_model_sales_with_match_key.csv",
+          "versioned_file": "RU/auto_ru_model_sales_with_match_key-20261101_02.csv",
+          "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-01_02_offline-candidates/rules/data/历史导入/ru/auto_ru_model_sales_with_match_key.csv",
+          "sha256": "804bb3c40f7979fbd469c6786a67b2d192bb0d80aa105f9a38725304f589dcea"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "file": "data/config.json",
+      "sha256": "23210c279569f4026e93fa1b2a83a45d447497f42c6d1929c90dd6f94ac2f50b"
+    },
+    {
+      "file": "data/modeled_config_share_policy.json",
+      "sha256": "9f08cb720c87d13bd1511b01465a004639f75922f86d9885ab53a1bc7af7c69d"
+    },
+    {
+      "file": "data/modeled_historic_us_sales.csv",
+      "sha256": "4167613822639882bc18668979afafbff9e62e49030c55386e6af6525420fd2f"
+    },
+    {
+      "file": "data/README.md",
+      "sha256": "36aec64f65deca62e499cb812d276261378c6150e3bdf9e8cd232e3321a9b8ef"
+    },
+    {
+      "file": "data/参考/历史商业潜力调整/10-23-积加销量.csv",
+      "sha256": "0168f61c7bd788f1bc8cf8c93c9c7a639836d8c1ea76b82de57f707e46869f81"
+    },
+    {
+      "file": "data/参考/历史商业潜力调整/竞品车罩销量统计表.csv",
+      "sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a"
+    },
+    {
+      "file": "data/商业潜力调整/README.md",
+      "sha256": "64f74b2fd8c7d47e1cea5afbc71575703fad94c3c31888f2912ad898c98fab26"
+    },
+    {
+      "file": "data/商业潜力调整/参数.json",
+      "sha256": "634ae1c893b1d9cc778643a68e01673acfe2953f94e44486028074bfbe64ea8e"
+    },
+    {
+      "file": "data/商业潜力调整/来源.json",
+      "sha256": "270c4a35a5e15d3ef76277648c4487d5c0aea9469f2f0c78072fa026c7c78142"
+    },
+    {
+      "file": "data/商业潜力调整/积加销量.csv",
+      "sha256": "f8d632c06f1819de4ee0269aa2515e68a1da144142151be8a874f8a8dca6b4c6"
+    },
+    {
+      "file": "data/商业潜力调整/竞品车罩销量统计表.csv",
+      "sha256": "98af9abd8410d135d3d867bcccedf7d15b9a177465f6bca9051a210fce51394a"
+    },
+    {
+      "file": "data/销量依据/allocation_weights.csv",
+      "sha256": "1957fd9fd78bec041585186bf76e58edf9933bf8d661edd2979fcad7b0227784"
+    },
+    {
+      "file": "data/销量依据/model_year_sales_holdouts.csv",
+      "sha256": "2de13f4bdc0b5eac5f7232935bb3b0ad335697e94501b05361ae5017f70c66b9"
+    },
+    {
+      "file": "data/销量依据/sales_model_year_cache.csv",
+      "sha256": "4298fcd9299807fe331803b164070b67e5b4fae83a30e91f941397b3dc35fb0f"
+    }
+  ],
+  "pending": [],
+  "notes": [
+    "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布",
+    "2026-09-27 新增 RU代理销量.csv：本节点 data/ru 的 Auto.ru 在售样本按 match_key 汇总，经 01 来源映射_RU.csv 落到 RU DIMENSION-ID（原由 A0 现场重跑 01 建库代码计算，结果逐 ID 一致）",
+    "2026-10-28 商业潜力调整数据与算法从 A0 迁入本节点；读取01尺寸库与自身原子销量，内部输出市场潜力及销量潜力调整，公式参数不变。"
+  ],
+  "checks": {
+    "identity_coverage": [
+      {
+        "output": "原子销量.csv",
+        "upstream": "dimension-library",
+        "file": "尺寸库_US.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      },
+      {
+        "output": "RU代理销量.csv",
+        "upstream": "dimension-library",
+        "file": "尺寸库_RU.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      },
+      {
+        "output": "市场潜力.csv",
+        "upstream": "dimension-library",
+        "file": "尺寸库_US.csv",
+        "mode": "equal",
+        "missing": 0,
+        "residual": 0,
+        "missing_examples": [],
+        "residual_examples": []
+      }
+    ]
+  },
+  "format_migration": {
+    "previous_version": "20261108_04",
+    "policy": "仅格式转换；数据未重算、未新核实，保留原upstream/rules依据。"
+  }
+}

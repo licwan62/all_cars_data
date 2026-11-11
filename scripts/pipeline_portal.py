@@ -29,7 +29,7 @@ sys.path.insert(0, str(ROOT / "lib"))
 from materials import Materials, Conflict, UPLOAD_LIMIT, ClosingConnection
 from pipeline_contract import lifecycle_state
 from content_store import ContentIndex, raw_sha256
-from node_paths import canonical_path, load_record  # noqa: E402
+from node_paths import repository_metadata, canonical_path, load_record, node_output, node_page  # noqa: E402
 from pipeline_status import is_on_demand  # noqa: E402
 from trace_pipeline import trace_node  # noqa: E402
 
@@ -59,7 +59,7 @@ def inside(path: Path, root: Path) -> bool:
 def archive_batches(root: Path, site: bool) -> dict[str, Path]:
     name = "artifact_archive.json" if site else "artifacts_archive.json"
     result = {}
-    for group in read_json(root / name).get("archives", []):
+    for group in read_json(root / name if site else repository_metadata(root, name)).get("archives", []):
         for batch in group.get("batches", []):
             key = batch.get("batch", "")
             if site:
@@ -161,7 +161,7 @@ class Portal:
             by_id = {node["id"]: node for node in payload["nodes"]}
             nodes = []
             for node in payload["nodes"]:
-                manifest = read_json(self.data_root / node["path"] / "output" / "manifest.json", self.data_root)
+                manifest = read_json(node_output(self.data_root, node) / "manifest.json", self.data_root)
                 if lifecycle_state(node):
                     state, issues = lifecycle_state(node), node.get("blockers", [])
                 elif not manifest:
@@ -194,7 +194,7 @@ class Portal:
             edges += [{"from": item["node"], "to": SITE_ID} for item in site["upstream"] if item.get("node") in by_id]
             result = {"nodes": nodes, "edges": edges, "site": site,
                       "files": [self.file_entry("data", name) for name in
-                                ("pipeline.json", "release.json", "流水线状态.md", "AGENTS.md", "README.md",
+                                ("pipeline.json", repository_metadata(self.data_root, "release.json").relative_to(self.data_root).as_posix(), "流水线状态.md", "AGENTS.md", "README.md",
                                  "reports/资料登记草案/资料目录.csv")],
                       "synced_at": datetime.now(CHINA_TZ).isoformat(timespec="seconds")}
             self._snapshot = (time.monotonic(), result)
@@ -251,7 +251,8 @@ class Portal:
             raise KeyError(node_id)
         node = by_id[node_id]
         base = self.data_root / node["path"]
-        manifest = read_json(base / "output" / "manifest.json", self.data_root)
+        interface_dir = node_output(self.data_root, node)
+        manifest = read_json(interface_dir / "manifest.json", self.data_root)
         docs = []
         for folder in ("data", "research_queue", "docs", "plans"):
             source_dir = base / folder
@@ -262,7 +263,7 @@ class Portal:
                  for p in sorted(base.glob("*.md")) if p.is_file()]
         outputs = []
         for item in manifest.get("deliverables", []):
-            current = self.file_entry("data", f"{node['path']}/output/{item['file']}", sha256=item.get("sha256"), rows=item.get("rows"))
+            current = self.file_entry("data", (interface_dir / item['file']).relative_to(self.data_root).as_posix(), sha256=item.get("sha256"), rows=item.get("rows"))
             current["source"] = self.file_entry("data", item["artifact_file"], sha256=item.get("sha256")) if item.get("artifact_file") else None
             outputs.append(current)
         upstream = []
@@ -276,7 +277,9 @@ class Portal:
         code_dir = node.get("code_dir")
         code_dirs = code_dir if isinstance(code_dir, list) else [code_dir] if code_dir else []
         files = [self.file_entry("data", f"{node['path']}/{name}") for name in code_dirs]
-        files.append(self.file_entry("data", f"{node['path']}/output/manifest.json"))
+        files.append(self.file_entry("data", (interface_dir / "manifest.json").relative_to(self.data_root).as_posix()))
+        if node.get("html_output"):
+            files.append(self.file_entry("data", node_page(self.data_root, node).relative_to(self.data_root).as_posix()))
         history = []
         art_dir = base / "artifacts"
         if art_dir.is_dir():
@@ -336,7 +339,7 @@ class Portal:
                                    "detail": "、".join(map(str, command)) if kind == "运行" else f"版本 {record.get('version', '—')}"})
         existing_keys = {event["event_key"] for event in events}
         for node in nodes:
-            path = self.data_root / node["path"] / "output" / "manifest.json"
+            path = node_output(self.data_root, node) / "manifest.json"
             record = read_json(path, self.data_root)
             if not record:
                 continue
@@ -505,10 +508,11 @@ def handler_for(portal: Portal):
                             locations.append({"artifact_file": p.relative_to(portal.data_root).as_posix(), "kind": "维护工作副本", "node": node_id})
                     consumers = []
                     for n in portal._pipeline()["nodes"]:
-                        manifest = read_json(portal.data_root / n["path"] / "output/manifest.json", portal.data_root)
+                        interface_dir = node_output(portal.data_root, n)
+                        manifest = read_json(interface_dir / "manifest.json", portal.data_root)
                         for item in manifest.get("deliverables", []):
                             if item.get("sha256") == sha:
-                                locations.append({"artifact_file": f"{n['path']}/output/{item['file']}", "kind": "当前工作交付", "node": n["id"], "version": manifest.get("version")})
+                                locations.append({"artifact_file": (interface_dir / item['file']).relative_to(portal.data_root).as_posix(), "kind": "当前工作交付", "node": n["id"], "version": manifest.get("version")})
                         for record_path in (portal.data_root / n["path"] / "artifacts").glob("*/run.json"):
                             record = read_json(record_path, portal.data_root)
                             for item in record.get("inputs", []):

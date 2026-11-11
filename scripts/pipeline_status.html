@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>车型数据流水线状态</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: light; font: 15px/1.55 "Segoe UI", "Microsoft YaHei", sans-serif; color: #172b40; background: #eef2f6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  main { max-width: 1580px; margin: auto; padding: clamp(16px, 3vw, 40px); }
+  a { color: #164b86; text-underline-offset: .18em; }
+  h1, h2, h3, p { margin: 0; }
+  h1 { font-size: clamp(1.65rem, 4vw, 2.45rem); }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1rem; overflow-wrap: anywhere; }
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+  .muted { color: #506478; }
+  .summary { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 18px 0; padding: 0; }
+  [data-state] { --ink: #435469; --tint: #eef1f6; --border: #b9c5d3; }
+  [data-state="最新"] { --ink: #0b6046; --tint: #e5f7ef; --border: #8fc6ad; }
+  [data-state="过期"], [data-state="未发布"] { --ink: #942739; --tint: #ffedf0; --border: #df9ca7; }
+  [data-state="按需待刷新"], [data-state="待产出"] { --ink: #805309; --tint: #fff4d7; --border: #d9b96d; }
+  [data-state="待接入"] { --ink: #523980; --tint: #f4edff; --border: #c3b2e0; }
+  .summary li, .badge { background: var(--tint); color: var(--ink); border: 1px solid var(--border); padding: 3px 9px; border-radius: 99px; font-size: .83rem; white-space: nowrap; }
+  .panel, article { background: #fff; border: 1px solid #ced8e3; border-radius: 12px; }
+  .panel { padding: 16px; margin-bottom: 24px; }
+  .graph { margin-top: 12px; overflow: auto; border: 1px solid #dce4ed; border-radius: 8px; background: #f8fafc; }
+  svg { display: block; max-width: 100%; min-width: var(--graph-min-width); height: auto; }
+  svg text { fill: #172b40; font-size: 13px; font-weight: 600; }
+  svg .layer { fill: #506478; font-size: 12px; }
+  svg .card-state { fill: var(--ink); font-size: 12px; font-weight: 400; }
+  svg rect { fill: var(--tint); stroke: var(--border); }
+  svg a:is(:hover, :focus) rect { stroke: #164b86; stroke-width: 2; }
+  .edge { fill: none; stroke: #8095ab; stroke-width: 1.35; marker-end: url(#arrow); }
+  svg.has-focus .edge { opacity: .16; }
+  svg.has-focus .edge.related { opacity: 1; stroke: #245f9d; stroke-width: 2.4; }
+  .details-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .details { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)); gap: 12px; align-items: start; }
+  article { padding: 14px; min-width: 0; scroll-margin-top: 12px; }
+  article:target { border-color: #1c5995; box-shadow: 0 0 0 2px #b3d6f3; }
+  .node-title { display: flex; justify-content: space-between; gap: 8px; align-items: start; }
+  code { color: #506478; overflow-wrap: anywhere; }
+  dl { margin: 10px 0 0; }
+  dl div { display: grid; grid-template-columns: 4.5rem 1fr; gap: 8px; border-top: 1px solid #e8edf2; padding: 5px 0; }
+  dt { color: #506478; }
+  dd { margin: 0; overflow-wrap: anywhere; }
+  article ul { margin: 10px 0 0; padding-left: 1.25em; color: #506478; overflow-wrap: anywhere; }
+  footer { color: #506478; margin-top: 18px; font-size: .85rem; }
+</style>
+<main>
+  <header>
+    <div>
+      <h1>车型数据流水线状态</h1>
+      <p class="muted">最近发布 <code>$released_at</code> · $node_count 个登记节点</p>
+    </div>
+    <a href="流水线状态.md">查看 Markdown 交付物明细</a>
+  </header>
+  <ul class="summary" aria-label="节点状态统计">
+$summary
+  </ul>
+  <section class="panel" id="dependencies">
+    <h2>节点依赖图</h2>
+    <p class="muted">箭头从上游指向下游。悬停高亮直接依赖，选择节点查看详情。容器归属见下方卡片。</p>
+    <div class="graph" tabindex="0" aria-label="可横向滚动的依赖图">
+$graph
+    </div>
+  </section>
+  <section aria-labelledby="details">
+    <div class="details-heading"><h2 id="details">节点信息</h2><a href="#dependencies">返回依赖图</a></div>
+    <div class="details">
+$cards
+    </div>
+  </section>
+  <footer>快照由发布脚本根据 pipeline.json、release.json 和各节点的发布清单生成。</footer>
+</main>
+<script>
+  const graph = document.querySelector(".graph svg");
+  if (graph) {
+    const edges = graph.querySelectorAll(".edge");
+    function highlight(id) {
+      graph.classList.toggle("has-focus", Boolean(id));
+      for (const edge of edges) {
+        edge.classList.toggle("related", edge.dataset.from === id || edge.dataset.to === id);
+      }
+    }
+    for (const node of graph.querySelectorAll("[data-node]")) {
+      node.addEventListener("pointerenter", () => highlight(node.dataset.node));
+      node.addEventListener("pointerleave", () => highlight(document.activeElement?.dataset.node));
+      node.addEventListener("focus", () => highlight(node.dataset.node));
+      node.addEventListener("blur", () => highlight());
+    }
+  }
+</script>

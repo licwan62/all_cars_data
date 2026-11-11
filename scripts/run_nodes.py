@@ -13,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "lib"))
+from node_paths import node_output, node_page
 from pipeline_contract import publishable
 from rules_snapshot import rules_snapshot
 from publish_release import topological_order, release_all
@@ -34,7 +35,7 @@ def main():
         project = ROOT / node["path"]
         before = rules_snapshot(project)
         with tempfile.TemporaryDirectory(prefix="node-output-backup-") as temp:
-            output = project / "output"
+            output = node_output(ROOT, node)
             existed = output.exists()
             if existed:
                 shutil.copytree(output, Path(temp) / "output")
@@ -50,7 +51,9 @@ def main():
                 release_all(ROOT, only={node["id"]})
             except BaseException:
                 # Verified absolute path must remain inside this node.
-                output.resolve().relative_to(project.resolve())
+                output.resolve().relative_to(ROOT.resolve())
+                if output.resolve() not in {(project / "output").resolve(), (ROOT / "json" / node["id"]).resolve()}:
+                    raise RuntimeError("拒绝回退非节点接口目录")
                 if output.exists():
                     shutil.rmtree(output)
                 if existed:

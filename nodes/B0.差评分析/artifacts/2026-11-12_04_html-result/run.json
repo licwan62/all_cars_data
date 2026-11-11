@@ -1,0 +1,161 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/B0.差评分析/artifacts/2026-11-12_04_html-result",
+  "version": "20261112_04",
+  "description": "html-result",
+  "created_at": "2026-11-12T00:43:12+08:00",
+  "finished_at": "2026-11-12T00:43:13+08:00",
+  "command": [
+    "organize_project_layout.py",
+    "--apply"
+  ],
+  "inputs": [
+    {
+      "node": "negative-review-analysis",
+      "path": "nodes/B0.差评分析",
+      "version": "20261112_01",
+      "file": "差评分析表.json",
+      "versioned_file": "差评分析表-20261112_01.json",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-12_01_json-interface-migration/output/差评分析表-20261112_01.json",
+      "sha256": "2ae470c594f4ec3d6d74e3474bc4c8a86c1d01c4a14b80b39509579a01b339b1"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "nodes/B0.差评分析",
+      "version": "20261112_01",
+      "file": "耳位分析表.json",
+      "versioned_file": "耳位分析表-20261112_01.json",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-12_01_json-interface-migration/output/耳位分析表-20261112_01.json",
+      "sha256": "b0951bd61993a171be221e3e9d8396a804664842b71b512ff886525265509caa"
+    },
+    {
+      "node": "negative-review-analysis",
+      "path": "nodes/B0.差评分析",
+      "version": "20261112_01",
+      "file": "皮卡驾驶室货斗分析表.json",
+      "versioned_file": "皮卡驾驶室货斗分析表-20261112_01.json",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-12_01_json-interface-migration/output/皮卡驾驶室货斗分析表-20261112_01.json",
+      "sha256": "1372aff7958343f0e1888b8f89afbb02a43143deafd505e7f61fb7cacde6c8dd"
+    },
+    {
+      "file": "json/negative-review-analysis/manifest.json",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "sha256": "2a699f177395a917953526005c11b0a76b8d44f9682e4f1ce7b6ad57cba627ba",
+      "copied_because": "json/negative-review-analysis/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "649ca37ad026fd06eb2440b986f5f872ca6c8d16b86b2f349ea1c097fae003db",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/build_ear_position_summary.py",
+        "sha256": "baae93498f8762d79f64d9fc631c59cb93c1d05d5de386914c81f2b1e6cd08f4"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/build_pickup_cab_bed_summary.py",
+        "sha256": "b65d00d64f9f62ef446941c4e2b7b6effa3d8fb25cd7e57fc184ebaf9afaa388"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/build_size_analysis_summary.py",
+        "sha256": "b2df6786115a146e544b5fbef31b18d6ded861749743399e9578763bfeffd0e3"
+      },
+      {
+        "file": "nodes/B0.差评分析/src/run.py",
+        "sha256": "c7de5968a8b8d570bfd60dc81eb7d8244588f78d84d834ccf784dd32c344b834"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "差评与适配问题.html",
+      "versioned_file": "差评与适配问题-20261112_04.html",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-12_04_html-result/output/差评与适配问题-20261112_04.html",
+      "content_reference": true,
+      "sha256": "8ff577e83f5efde22a33ce09f39eff2da4cc2293b9f84a5228a2031d7635a0f6",
+      "bytes": 37493,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_04.json",
+      "artifact_file": "nodes/B0.差评分析/artifacts/2026-11-12_04_html-result/output/html_manifest-20261112_04.json",
+      "content_reference": true,
+      "sha256": "516a4ddc56fb4fdd2e5991f452d1bafce4b5af97cca61d22ed122a74ddec7224",
+      "bytes": 1921,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

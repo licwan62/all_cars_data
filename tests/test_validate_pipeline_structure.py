@@ -21,6 +21,18 @@ def test_cycle_is_reported():
     assert "依赖存在环" in validator.check_layers(nodes)[0]
 
 
+def test_m0_is_an_explicit_branch_after_structure_review():
+    nodes = [node('crawler','00.crawler',0), node('dimension-library','01.library',1,['crawler']),
+             node('structure-review','02.review',2,['dimension-library']),
+             node('shape','03.shape',3,['structure-review'])]
+    branch = node('model-year-coverage','M0.车型年覆盖',3,['dimension-library','structure-review'])
+    branch.update(line='M', index=0)
+    assert validator.check_layers(nodes + [branch]) == []
+    branch['upstream'] = ['shape']
+    branch['layer'] = 4
+    assert any('M0必须' in e for e in validator.check_layers(nodes + [branch]))
+
+
 def test_triggers_must_be_declared_and_auto_nodes_cannot_depend_on_demand_nodes():
     payload = {
         "line_triggers": {"U": "auto", "A": "auto", "C": "on_demand"},
@@ -76,6 +88,6 @@ def test_public_outputs_must_be_explicit_registered_and_publishable():
     errors = validator.check_public_outputs(nodes)
     assert errors == [
         "b: pipeline.json 缺少 public_outputs（不对外发布写 []）",
-        "c: public_outputs 的 图.xlsx 不是可发布类型（.csv）",
+        "c: public_outputs 的 图.xlsx 不是可发布类型（.csv/.json）",
         "c: public_outputs 的 未登记.csv 不在 outputs",
     ]

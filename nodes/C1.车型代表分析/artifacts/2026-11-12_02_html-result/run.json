@@ -1,0 +1,145 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/C1.车型代表分析/artifacts/2026-11-12_02_html-result",
+  "version": "20261112_02",
+  "description": "html-result",
+  "created_at": "2026-11-12T00:10:52+08:00",
+  "finished_at": "2026-11-12T00:10:53+08:00",
+  "command": [
+    "build_node_html.py"
+  ],
+  "inputs": [
+    {
+      "node": "representative-model",
+      "path": "nodes/C1.车型代表分析",
+      "version": "20261112_01",
+      "file": "代表车型.json",
+      "versioned_file": "代表车型-20261112_01.json",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-12_01_json-interface-migration/output/代表车型-20261112_01.json",
+      "sha256": "180b810800f7e346049b63d06e35e0c68719ecb014dab8901128e27bf6b18300"
+    },
+    {
+      "node": "representative-model",
+      "path": "nodes/C1.车型代表分析",
+      "version": "20261112_01",
+      "file": "代表车型.tsv.json",
+      "versioned_file": "代表车型.tsv-20261112_01.json",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-12_01_json-interface-migration/output/代表车型.tsv-20261112_01.json",
+      "sha256": "c3bb597a6c5a3fef5e8f860ba7704c52d496129117b64fc0b8e8b344b72ebd07"
+    },
+    {
+      "node": "representative-model",
+      "path": "nodes/C1.车型代表分析",
+      "version": "20261112_01",
+      "file": "代表车型报告.json",
+      "versioned_file": "代表车型报告-20261112_01.json",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-12_01_json-interface-migration/output/代表车型报告-20261112_01.json",
+      "sha256": "1a441f52cf9b4f6768a2a5b1bf5954a1f31e3accb6a771125abb0e535e475c7a"
+    },
+    {
+      "file": "nodes/C1.车型代表分析/output/manifest.json",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "sha256": "8a425cd24a64135c4d225590d442f337f558344ef2a79269f69b00e6834a2be7",
+      "copied_because": "nodes/C1.车型代表分析/output/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "199c25554240469119fb7e3548bb22a5e9bbafa922ba17f31945490b7fda1d2a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "0fddff3db6ff4459b6cd45fa656ab4bd9b1db99336050732bdf86481734df45e",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "54ff302c9372f3f27b1870e0252fd83df7bb86b0a855c64ab61aeac2e7d65f8e"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/C1.车型代表分析/src/build_size_representatives.py",
+        "sha256": "752d7513e03f226f56969b43d0ecc213e3687c3191fd4b7d37d5788120d9d9b6"
+      },
+      {
+        "file": "nodes/C1.车型代表分析/src/sync_eagle_representatives.py",
+        "sha256": "a69899da2fe96bf088ce45ab51371adea2d23d947140eb85f006dae10e0cc3a3"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "结果.html",
+      "versioned_file": "结果-20261112_02.html",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-12_02_html-result/output/结果-20261112_02.html",
+      "content_reference": true,
+      "sha256": "ee906a08a97810881166faa5d9202f5d4132d9d134cd82489559f5bc1e55206c",
+      "bytes": 33816,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_02.json",
+      "artifact_file": "nodes/C1.车型代表分析/artifacts/2026-11-12_02_html-result/output/html_manifest-20261112_02.json",
+      "content_reference": true,
+      "sha256": "de618708ad8e500569538ed80037ed5ae4c83e3056ad9cdfb6d9d7e711a2e215",
+      "bytes": 1805,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

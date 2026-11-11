@@ -1,0 +1,363 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration",
+  "version": "20261112_01",
+  "description": "json-interface-migration",
+  "created_at": "2026-11-12T00:09:32+08:00",
+  "finished_at": "2026-11-12T00:09:35+08:00",
+  "command": [
+    "migrate_json_interfaces.py"
+  ],
+  "inputs": [
+    {
+      "file": "nodes/01.整理尺寸库/output/manifest.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/input/previous-manifest.json",
+      "sha256": "4ce1c841d3f2ff23fddab756655df4df29d0f1da1d34d4429e736bde097422d5",
+      "copied_because": "nodes/01.整理尺寸库/output/manifest.json 未登记 manifest.json"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "尺寸库.csv",
+      "versioned_file": "尺寸库-20261108_01.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-08_01_regional-library/output/尺寸库-20261108_01.csv",
+      "sha256": "3a16a1e4f2def4773d94ce02de5a149b41c3bc62247358b84021c7918dd0ca01"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "尺寸库_US.csv",
+      "versioned_file": "尺寸库_US-20261108_01.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-08_01_regional-library/output/尺寸库_US-20261108_01.csv",
+      "sha256": "90ce3d4d5b74fd6bb03ae6702b3de621e52497f95f35238ba09304424c61e3e9"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "尺寸库_EU.csv",
+      "versioned_file": "尺寸库_EU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_EU-20261009_06.csv",
+      "sha256": "5d4d4351ca6ce48c7dd816ab1ec98cea5157c1627413f3892826053e5a536354"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "尺寸库_RU.csv",
+      "versioned_file": "尺寸库_RU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/尺寸库_RU-20261009_06.csv",
+      "sha256": "e5f7ac2696118486e68a40a7b427618e7598496d25a1095e451c038a00c1f77a"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "US_ID迁移.csv",
+      "versioned_file": "US_ID迁移-20261108_01.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-08_01_regional-library/output/US_ID迁移-20261108_01.csv",
+      "sha256": "3a68b7e7fa47ec38bd3f1be297a50d86407d4e9136fe13728395dc9018ff7640"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "US_拆分候选.csv",
+      "versioned_file": "US_拆分候选-20261101_03.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_03_regional-library/output/US_拆分候选-20261101_03.csv",
+      "sha256": "c439b58b4845d4457a54c1774f4734de47a90dedbd677ac72a9032561f468e4e"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "US_拆分待核.csv",
+      "versioned_file": "US_拆分待核-20261101_03.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_03_regional-library/output/US_拆分待核-20261101_03.csv",
+      "sha256": "9c6a51ea696d336709849e57bcaa68008ae9cbe0d4373a57cf0acc09c1d40f91"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "US_补库核对.csv",
+      "versioned_file": "US_补库核对-20261102_16.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-02_16_regional-library/output/US_补库核对-20261102_16.csv",
+      "sha256": "04cad3e711184c770e3ee03af39f16382c81281add40a4c269a66662f92035af"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "US_补库待核.csv",
+      "versioned_file": "US_补库待核-20261101_19.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-01_19_regional-library/output/US_补库待核-20261101_19.csv",
+      "sha256": "f6ed2e22e25f959b8ed8cff48197d238ba4323ee81de06ea21c240fb2422cdbf"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "EU_ID迁移.csv",
+      "versioned_file": "EU_ID迁移-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/EU_ID迁移-20261009_06.csv",
+      "sha256": "4cd2b24a5a41668a10f338ee238df954c3f05900b34371b7118cb6646766c81b"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "来源映射_EU.csv",
+      "versioned_file": "来源映射_EU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_EU-20261009_06.csv",
+      "sha256": "a43d64cf242536d0bae6e2193cfb4f378a66b6f58e85335c1bf685ce7bad37a9"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261108_02",
+      "file": "来源映射_RU.csv",
+      "versioned_file": "来源映射_RU-20261009_06.csv",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-10-09_06_dimension-library-release/output/来源映射_RU-20261009_06.csv",
+      "sha256": "02ab62ce92835e0d3207a82b487cc136cd883cc5b86cf0f95c370fda66b7c4fe"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "199c25554240469119fb7e3548bb22a5e9bbafa922ba17f31945490b7fda1d2a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "0fddff3db6ff4459b6cd45fa656ab4bd9b1db99336050732bdf86481734df45e",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "54ff302c9372f3f27b1870e0252fd83df7bb86b0a855c64ab61aeac2e7d65f8e"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_dimension_library.py",
+        "sha256": "f0ac21b6ed77a47f022896ca1c1bb3bd543abf7fa42222644fd8c34c1d490bbf"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_eu_id_migration.py",
+        "sha256": "4c0597176351f0fc5980d445ce825f24c04852296e0253c0b102782335015b40"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_pipeline.py",
+        "sha256": "0ab4904c439db6302b9b89c51dd5f29b78ffe43f100d9a24d3792b6ba077a288",
+        "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-08_01_regional-library/code/nodes/01.整理尺寸库/code/build_pipeline.py"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/build_us_research_queue.py",
+        "sha256": "e64204a94d7bc0e7452afeb6335b88f4cc005c3203165ee45b8350c5230ff33d"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/find_bare_suv_duplicate_candidates.py",
+        "sha256": "c4d91fba663ef22fb2b5f0c17660f7d54f37e30e4fc0bc7ac8185cc5bfec3f09"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/merge_dimension_library.py",
+        "sha256": "1c525d48fa005a4f900498ed3a6bea5e474fef9bb90c4d24929da260e91bb41d"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/regional_sources.py",
+        "sha256": "144d63d18158eaab193207a9c5198ef8b52e06fed394c598377356a6e29e4f19"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/us_dimension_corrections.py",
+        "sha256": "d7ead8fb07f7f41d31b549c9d724248a389788a3878a1edc800d3ee78cea1ac9"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/us_model_splits.py",
+        "sha256": "bf29bf6026697a4c152c0158f14b55ad7d4043164e2d310f57a235b589428859"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/us_pickup_replacements.py",
+        "sha256": "d3539439695c73f17296848780401bcd7204f330a776799e294f7f7860e226d6",
+        "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-08_01_regional-library/code/nodes/01.整理尺寸库/code/us_pickup_replacements.py"
+      },
+      {
+        "file": "nodes/01.整理尺寸库/code/us_year_supplements.py",
+        "sha256": "599eb844a396d0a30a3c17f4d2e6163821261bcb6a93b7f0fc5719b2e9258edd"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "尺寸库.json",
+      "versioned_file": "尺寸库-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库-20261112_01.json",
+      "content_reference": true,
+      "sha256": "e47b59a9b5ebb7489bbcbe22691d01dc3d5cab8d6dfae7155a42b2c85fc90fc4",
+      "bytes": 8921647,
+      "rows": 49330
+    },
+    {
+      "file": "尺寸库_US.json",
+      "versioned_file": "尺寸库_US-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_US-20261112_01.json",
+      "content_reference": true,
+      "sha256": "10277b44f1fceb7ea6ae93e7668f3f8f661efccf46ee0a2102fa611a799d89ad",
+      "bytes": 1959400,
+      "rows": 6352
+    },
+    {
+      "file": "尺寸库_EU.json",
+      "versioned_file": "尺寸库_EU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_EU-20261112_01.json",
+      "content_reference": true,
+      "sha256": "cf003886f2986234c1e8d116d4e140e1799f6c90d21a6bdccf68f47eac7ac252",
+      "bytes": 4891105,
+      "rows": 29361
+    },
+    {
+      "file": "尺寸库_RU.json",
+      "versioned_file": "尺寸库_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_RU-20261112_01.json",
+      "content_reference": true,
+      "sha256": "45c9d420f9e6c403ad67bcd8340e84f293536832bb4ee87926060e7f903f25c8",
+      "bytes": 2071762,
+      "rows": 13617
+    },
+    {
+      "file": "US_ID迁移.json",
+      "versioned_file": "US_ID迁移-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/US_ID迁移-20261112_01.json",
+      "content_reference": true,
+      "sha256": "f104f66d8d6dfccd37544471e548069e7fb59a36a0d5c1c73eb31d9c34d46d6c",
+      "bytes": 3075,
+      "rows": 13
+    },
+    {
+      "file": "US_拆分候选.json",
+      "versioned_file": "US_拆分候选-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/US_拆分候选-20261112_01.json",
+      "content_reference": true,
+      "sha256": "683f46ff37fa756a36ed35ce842a9bc21a60cd10c3210613c4b1e21426c4251b",
+      "bytes": 8354,
+      "rows": 42
+    },
+    {
+      "file": "US_拆分待核.json",
+      "versioned_file": "US_拆分待核-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/US_拆分待核-20261112_01.json",
+      "content_reference": true,
+      "sha256": "ee301917b751c7c93d517d847cc7c0d2ad5bf5580d97291954e0af743e7310e6",
+      "bytes": 1643,
+      "rows": 6
+    },
+    {
+      "file": "US_补库核对.json",
+      "versioned_file": "US_补库核对-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/US_补库核对-20261112_01.json",
+      "content_reference": true,
+      "sha256": "a503507ab9ba4864e86bb95754ef53f208e4d8d0f5b05fe8191ff7359f257c54",
+      "bytes": 498278,
+      "rows": 2002
+    },
+    {
+      "file": "US_补库待核.json",
+      "versioned_file": "US_补库待核-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/US_补库待核-20261112_01.json",
+      "content_reference": true,
+      "sha256": "c89f9c11abbff4045186c12d63857ba3496aeabe5bb9e7cc5d526d09a9fb64cd",
+      "bytes": 26486,
+      "rows": 50
+    },
+    {
+      "file": "EU_ID迁移.json",
+      "versioned_file": "EU_ID迁移-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/EU_ID迁移-20261112_01.json",
+      "content_reference": true,
+      "sha256": "cb04fc3c3b86ef4eea2473dbabda252c1e5d27dff3091f2872111c952164d065",
+      "bytes": 3816775,
+      "rows": 30875
+    },
+    {
+      "file": "来源映射_EU.json",
+      "versioned_file": "来源映射_EU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_EU-20261112_01.json",
+      "content_reference": true,
+      "sha256": "6f83215bf10b8c36e66d1dc6dd9d391d0523ff053a89efe1a06a614e19d4208d",
+      "bytes": 3571089,
+      "rows": 50389
+    },
+    {
+      "file": "来源映射_RU.json",
+      "versioned_file": "来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "content_reference": true,
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "bytes": 1293002,
+      "rows": 13868
+    },
+    {
+      "file": "manifest.json",
+      "versioned_file": "manifest-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "content_reference": true,
+      "sha256": "900ec02b3dedc3dbaec442740914c7845fafeb49bd32e85ab593d86b2bae7906",
+      "bytes": 16014,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "json-format-migration",
+    "data_recomputed": false
+  }
+}

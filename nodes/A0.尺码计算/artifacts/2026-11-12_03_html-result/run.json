@@ -1,0 +1,341 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/A0.尺码计算/artifacts/2026-11-12_03_html-result",
+  "version": "20261112_03",
+  "description": "html-result",
+  "created_at": "2026-11-12T00:15:30+08:00",
+  "finished_at": "2026-11-12T00:15:32+08:00",
+  "command": [
+    "build_node_html.py"
+  ],
+  "inputs": [
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/尺码匹配报告.json",
+      "versioned_file": "US/尺码匹配报告-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/尺码匹配报告-20261112_01.json",
+      "sha256": "ef25b8acc125142c19e3fff8ba050b85cc554986180b6b80d3acf360347e1e40"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/全量/全量表.json",
+      "versioned_file": "US/全量/全量表-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/全量/全量表-20261112_01.json",
+      "sha256": "509a60533622669d41fc1b37e24df547f73b1b91084c1986899ac72a6caad837"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺/店铺全量_HNT.json",
+      "versioned_file": "US/店铺/店铺全量_HNT-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_HNT-20261112_01.json",
+      "sha256": "e1ed6b6a35c4851ac14baae4a8b02e93494f39ba4388d106cd2e8191d1f84121"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺/店铺全量_TM.json",
+      "versioned_file": "US/店铺/店铺全量_TM-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_TM-20261112_01.json",
+      "sha256": "1b0b75333d6607a9eff8ddb7a77b587ac524c46c374410b0329bcc7ddc23be8a"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺/店铺全量_TM_拆分.json",
+      "versioned_file": "US/店铺/店铺全量_TM_拆分-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/店铺/店铺全量_TM_拆分-20261112_01.json",
+      "sha256": "ee7d80b9aa342a635d2435fc0ad1bb5863fc87e26b123fe8c8720a7efe64d3bb"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/TRIM/TRIM适配器.json",
+      "versioned_file": "US/TRIM/TRIM适配器-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/TRIM/TRIM适配器-20261112_01.json",
+      "sha256": "b9b0d57e439319e6eb3db604db832c63d2ae64294b0d8b934f788859213b60b9"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/尺码规则.json",
+      "versioned_file": "US/尺码规则-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/尺码规则-20261015_01.json",
+      "sha256": "7f7d6dd05a750c1a9369738034b91eb75d179229e211ac871f54e5a4449c38eb"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/店铺货架.json",
+      "versioned_file": "US/店铺货架-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/US/店铺货架-20261015_01.json",
+      "sha256": "8e369204b7136f916dc86b8a31d6065449ce2be7f73d04c162764fdb32c417e0"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "US/新旧尺码对应.json",
+      "versioned_file": "US/新旧尺码对应-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/US/新旧尺码对应-20261112_01.json",
+      "sha256": "1100e4cd06d9bc045d8b01140522532a2dd07c9e72feb9079b4d769ccdd1c083"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "EU/尺码匹配报告.json",
+      "versioned_file": "EU/尺码匹配报告-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/EU/尺码匹配报告-20261112_01.json",
+      "sha256": "7c4adead1008742d465f1613a6baaa197a228fb570e75f827f4885a4d0ef7bf7"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "EU/全量/全量表.json",
+      "versioned_file": "EU/全量/全量表-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/EU/全量/全量表-20261112_01.json",
+      "sha256": "695739373b0d00242b70a394a35378136e949b7542476517108f944737532b1f"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "EU/尺码规则.json",
+      "versioned_file": "EU/尺码规则-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-15_01_match-report-shape/output/EU/尺码规则-20261015_01.json",
+      "sha256": "716ec1ed53d3ccb4610868d5df09933c5d91d348a779450e29576b62303533ef"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "RU/尺码匹配报告.json",
+      "versioned_file": "RU/尺码匹配报告-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/RU/尺码匹配报告-20261112_01.json",
+      "sha256": "db65352efae863cab018a09774dbe2919bcb368b2835e90ab98dca115ca74115"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "RU/全量/全量表.json",
+      "versioned_file": "RU/全量/全量表-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/RU/全量/全量表-20261112_01.json",
+      "sha256": "2cbbcd746722a539f95c191c540dd9da5c50d3b6cd4153652ec46c9d8c593a7b"
+    },
+    {
+      "node": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "file": "RU/尺码规则.json",
+      "versioned_file": "RU/尺码规则-20261112_01.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-10-26_02_match-report-shape/output/RU/尺码规则-20261026_02.json",
+      "sha256": "b42291abedfbdcd9ac2f1afa47c8b69a6fd4b8c6343298a61966aadf1a6fa63a"
+    },
+    {
+      "file": "nodes/A0.尺码计算/output/manifest.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "sha256": "b8fa236fef6b91ab282453623a2feb2ce320bdeb6126f4a07021092d08e40d97",
+      "copied_because": "nodes/A0.尺码计算/output/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "199c25554240469119fb7e3548bb22a5e9bbafa922ba17f31945490b7fda1d2a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "15dfd58ef1735046fbbf401ef728c360d73d8dcd0855156d74e5015331d2040c",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_03_html-result/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "54ff302c9372f3f27b1870e0252fd83df7bb86b0a855c64ab61aeac2e7d65f8e"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/add_cover_shape.py",
+        "sha256": "5e103f618595a7aa7f87075197d358b86b2a26d37fbbce36f4d547e66431ecba"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/add_market_potential.py",
+        "sha256": "6390d3f6c516c60bad6379c13e6239758c2b8d534916c7033570ed5d8b6ff3de"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/build_match_report.py",
+        "sha256": "4afbf29b1a5d46b5155557de8438b93dd4523e8a31105722d562c51168f63954"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/build_regional_coverage_full.py",
+        "sha256": "cbcbc14fd4a25415668dd5fab5ef08312d04e56ed6ad0fa30e82f6c0ffae51a4"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/data_layout.py",
+        "sha256": "381795e1921de11f281f78f25cf8e7a883983773e72d3b7e12a7cdbefa8566a9"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/generate_ru_full_table.py",
+        "sha256": "4d34525471cbc22ed61c6cebaead8e8b1966eb5d37fa6b0eac49508ee278e9cd"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/generate_store_outputs.py",
+        "sha256": "28b773cdf8056287cf123f2493f2edfa7e3629cad2011d741fb67666028dc8a2"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/half_perimeter_analysis.py",
+        "sha256": "b7601ee3e95ab65cfcb8425c0134049369e6f2b0d92bb5c28778b6f09b946e98"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/output_layout.py",
+        "sha256": "63f6bb2b638bc25a3fd8f808113b860e4ba7a4eb6962eb4e88209627dbb5e290"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/pandas_analysis.py",
+        "sha256": "e083caf4208b39b81eff3292814a6e1e9993a5d4dac9a9a2946a88892ca69686"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/publish_eu_current_research.py",
+        "sha256": "6b51657c305bbc50ae2a0428f51ff6bf295e95a17488f8c9654cf620287c2d0f"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/publish_ru_data.py",
+        "sha256": "74f4114ad5be5aac495928e9f52c47f055354b31fd0b726f5b96fa261867e65e"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/rule_identity.py",
+        "sha256": "4734040887e08f3e54c1f0378ddc67a299c86169599f9760e826048c7de785cb"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/shape_adjustment.py",
+        "sha256": "76dbae342d12dd6883f610e1b3ca4a1011c568668ea207c62d0008b25a249a27"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/size_calculation_0908.py",
+        "sha256": "cc1e1a2187912ec266eaa45dfdfcfb74da653739cceb4a4888828b66353c4fec"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/__init__.py",
+        "sha256": "82a6b32f1801454ba0cf2d42d088e6a71edaf4a4b3161b0c318807b776ab5c43"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/analyze_fitment_coverage.py",
+        "sha256": "b68f93df02feb7641c9e3ae122f1174fc03236e3fba1ba1e2cdbc51225db92fc"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/analyze_sizes.py",
+        "sha256": "733c55f741a8bc568dd59c3dbfab37639a90fc225e18285edb5de80b87f8e49b"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/fitment_coverage.py",
+        "sha256": "e27521f6851e808516c6e18b92a7f158abdcdf450ae6513009177c87e9ae62fc"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/matching.py",
+        "sha256": "da0177b79d92c6cef78aacbe760a22e97a78292abe4d1e4f1e25672a85f228c3"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/rebuild_trimlist.py",
+        "sha256": "3449701ef109bba001eeac632dcf0448eecddc61f96c8022e4b432375c9757ce"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/research_nhtsa.py",
+        "sha256": "1c8cb48eb1b82929e33b6fddaa2de76cdef76742e3d9ba86cf1d502834818c12"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/size_analysis.py",
+        "sha256": "931b9f6138fabcf8b54b40ec03981100f3a3e1207aaf19c5e589c5a542bbc6ab"
+      },
+      {
+        "file": "nodes/A0.尺码计算/src/trim/trimlist.py",
+        "sha256": "8299885bab242fe0bbd3f00546e54f865da9b7f3f0494a9825c93dacf7e60e88"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "结果.html",
+      "versioned_file": "结果-20261112_03.html",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_03_html-result/output/结果-20261112_03.html",
+      "content_reference": true,
+      "sha256": "dd82aaad28312d5153d11cd3171d356b3f7f2510ce13ca445e5c6d772b6031fc",
+      "bytes": 2578492,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_03.json",
+      "artifact_file": "nodes/A0.尺码计算/artifacts/2026-11-12_03_html-result/output/html_manifest-20261112_03.json",
+      "content_reference": true,
+      "sha256": "8daa39e22c53ec9a5fd7aa35bbf017a1243e1f65b0af1ba899c27afa5cb706b5",
+      "bytes": 6168,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

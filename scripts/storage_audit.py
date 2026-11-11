@@ -53,7 +53,7 @@ def classify(parts: tuple[str, ...]) -> str:
         return "cache"
     if "logs" in dirs:
         return "logs"
-    if "output" in dirs:
+    if "output" in dirs or (dirs and dirs[0] == "json"):
         return "output"
     if "public" in dirs:
         return "public"

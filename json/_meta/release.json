@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "released_at": "2026-11-12T01:37:21+08:00",
+  "nodes": {
+    "dimension-crawler": {
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261112_04",
+      "artifact": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_04_dimension-crawler-release",
+      "deliverables": [
+        "EU/Ktype.json",
+        "EU/KtypeMatched.json",
+        "EU/DimensionGroup尺寸.json",
+        "RU/auto_ru_catalog_rank.json",
+        "RU/auto_ru_dimensions_with_match_key.json",
+        "RU/auto_ru_model_sales_with_match_key.json",
+        "US/00_US尺寸库.json",
+        "候选来源.json"
+      ],
+      "pending": []
+    },
+    "dimension-library": {
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261112_06",
+      "artifact": "nodes/01.整理尺寸库/artifacts/2026-11-12_06_dimension-library-release",
+      "deliverables": [
+        "尺寸库.json",
+        "尺寸库_US.json",
+        "尺寸库_EU.json",
+        "尺寸库_RU.json",
+        "US_ID迁移.json",
+        "US_拆分候选.json",
+        "US_拆分待核.json",
+        "US_补库核对.json",
+        "US_补库待核.json",
+        "EU_ID迁移.json",
+        "来源映射_EU.json",
+        "来源映射_RU.json",
+        "车型名称规则.json"
+      ],
+      "pending": [
+        "Audi A7/S7/RS7拆分：逐成员逐年独立尺寸、美国供售间断及下游迁移证据未齐，保留原组合记录",
+        "美国车型年份缺口：未核实项保留在US_补库待核.csv；销量年款口径未核实项在sales-estimation的原子销量待核.csv保持PENDING"
+      ]
+    },
+    "structure-review": {
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "artifact": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "车型结构.json",
+        "车型结构_US.json",
+        "车型结构_EU.json",
+        "车型结构_RU.json"
+      ],
+      "pending": [
+        "新增车型年度销量暂由data/销量依据/model_year_sales_holdouts.csv拦截；原子销量待核.csv记录PENDING和来源，未确认车型年口径前不作为销量值发布"
+      ]
+    },
+    "sales-estimation": {
+      "path": "nodes/02.销量评估",
+      "version": "20261112_01",
+      "artifact": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "原子销量.json",
+        "原子销量待核.json",
+        "RU代理销量.json",
+        "市场潜力.json",
+        "积加销量.json"
+      ],
+      "pending": []
+    },
+    "code-mapping": {
+      "path": "nodes/02.代码映射",
+      "version": "20261112_01",
+      "artifact": "nodes/02.代码映射/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "车型编码映射.json",
+        "尺寸编码映射.json"
+      ],
+      "pending": []
+    },
+    "shape-classification": {
+      "path": "nodes/03.车形分类核定",
+      "version": "20261112_01",
+      "artifact": "nodes/03.车形分类核定/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "车形分类.json",
+        "参考尺寸计算.json",
+        "COVER_SHAPE.json",
+        "cover_shape_summary.json",
+        "shape_research_queue.json"
+      ],
+      "pending": []
+    },
+    "size-calculation": {
+      "path": "nodes/A0.尺码计算",
+      "version": "20261112_01",
+      "artifact": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "US/尺码匹配报告.json",
+        "US/全量/全量表.json",
+        "US/店铺/店铺全量_HNT.json",
+        "US/店铺/店铺全量_TM.json",
+        "US/店铺/店铺全量_TM_拆分.json",
+        "US/TRIM/TRIM适配器.json",
+        "US/尺码规则.json",
+        "US/店铺货架.json",
+        "US/新旧尺码对应.json",
+        "EU/尺码匹配报告.json",
+        "EU/全量/全量表.json",
+        "EU/尺码规则.json",
+        "RU/尺码匹配报告.json",
+        "RU/全量/全量表.json",
+        "RU/尺码规则.json"
+      ],
+      "pending": []
+    },
+    "representative-model": {
+      "path": "nodes/C1.车型代表分析",
+      "version": "20261112_01",
+      "artifact": "nodes/C1.车型代表分析/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "代表车型.json",
+        "代表车型.tsv.json",
+        "代表车型报告.json"
+      ],
+      "pending": []
+    },
+    "sku-clustering": {
+      "path": "nodes/D1.发货评估",
+      "version": "20261112_01",
+      "artifact": "nodes/D1.发货评估/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "全量车型发货评估明细.json",
+        "发货评估身份映射.json",
+        "W型车发货评估.json",
+        "皮卡发货评估.json",
+        "普通车发货评估.json",
+        "灰度匹配审核.json"
+      ],
+      "pending": []
+    },
+    "link-analysis": {
+      "path": "nodes/D2.链接分析",
+      "version": "20261019_01",
+      "artifact": "nodes/D2.链接分析/artifacts/2026-10-19_01_link-analysis-release",
+      "deliverables": [],
+      "pending": [
+        "发货单.csv"
+      ]
+    },
+    "dimension-iteration": {
+      "path": "nodes/X1.尺寸迭代",
+      "version": "20261009_04",
+      "artifact": "nodes/X1.尺寸迭代/artifacts/2026-10-09_04_dimension-iteration-release",
+      "deliverables": [],
+      "pending": [
+        "尺寸迭代候选"
+      ]
+    },
+    "size-cluster-analysis": {
+      "path": "nodes/X2.尺码簇分析",
+      "version": "20261112_01",
+      "artifact": "nodes/X2.尺码簇分析/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "尺码上限微调分析.json",
+        "边界负面影响及手动调整.json"
+      ],
+      "pending": []
+    },
+    "compression-scoring": {
+      "path": "nodes/B1.压缩定制评分",
+      "version": "20261112_01",
+      "artifact": "nodes/B1.压缩定制评分/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "定制需求度评分.json"
+      ],
+      "pending": []
+    },
+    "size-compression": {
+      "path": "nodes/A1.压缩尺寸信息",
+      "version": "20261112_01",
+      "artifact": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "US/压缩尺码表.json",
+        "US/压缩尺码表_皮卡.json",
+        "US/压缩来源.json",
+        "HNT/压缩尺码表.json",
+        "HNT/压缩尺码表_皮卡.json",
+        "HNT/压缩来源.json",
+        "TM/压缩尺码表.json",
+        "TM/压缩尺码表_皮卡.json",
+        "TM/压缩来源.json",
+        "TM_拆分/压缩尺码表.json",
+        "TM_拆分/压缩尺码表_皮卡.json",
+        "TM_拆分/压缩来源.json",
+        "EU/压缩尺码表.json",
+        "EU/压缩尺码表_皮卡.json",
+        "EU/压缩来源.json",
+        "RU/压缩尺码表.json",
+        "RU/压缩尺码表_皮卡.json",
+        "RU/压缩来源.json"
+      ],
+      "pending": []
+    },
+    "negative-review-analysis": {
+      "path": "nodes/B0.差评分析",
+      "version": "20261112_01",
+      "artifact": "nodes/B0.差评分析/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "差评分析表.json",
+        "耳位分析表.json",
+        "皮卡驾驶室货斗分析表.json"
+      ],
+      "pending": []
+    },
+    "size-analysis": {
+      "path": "nodes/E0.尺寸分析",
+      "version": "20261112_01",
+      "artifact": "nodes/E0.尺寸分析/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "尺码宽高统计.json",
+        "尺码宽高极值车型.json",
+        "尺码尺寸异常.json"
+      ],
+      "pending": []
+    },
+    "custom-analysis": {
+      "path": "nodes/F0.定制分析",
+      "version": "20261112_01",
+      "artifact": "nodes/F0.定制分析/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "ford_mustang/定制SKU聚簇报告.json",
+        "mercedes_e_class/定制SKU聚簇报告.json",
+        "jeep_gladiator/定制SKU聚簇报告.json",
+        "kia_forte/定制SKU聚簇报告.json",
+        "kia_soul/定制SKU聚簇报告.json",
+        "mini_cooper/定制SKU聚簇报告.json",
+        "mini_countryman/定制SKU聚簇报告.json",
+        "prius/定制SKU聚簇报告.json",
+        "subaru_forester/定制SKU聚簇报告.json",
+        "ford_f150_supercrew_short_bed/定制SKU聚簇报告.json",
+        "ford_f350_crew_short_bed/定制SKU聚簇报告.json",
+        "ford_f250_crew_short_bed/定制SKU聚簇报告.json",
+        "ram1500_crew_short_bed/定制SKU聚簇报告.json",
+        "silverado2500_crew_short_bed/定制SKU聚簇报告.json"
+      ],
+      "pending": []
+    },
+    "link-analysis-pickup": {
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "version": "20261112_01",
+      "artifact": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "链接字段审核.json",
+        "上架链接明细.json",
+        "发货分配核对.json",
+        "SKU发货数量.json",
+        "链接分析报告.json"
+      ],
+      "pending": []
+    },
+    "link-analysis-regular": {
+      "path": "nodes/D2.链接分析/nodes/普通",
+      "version": "20261112_01",
+      "artifact": "nodes/D2.链接分析/nodes/普通/artifacts/2026-11-12_01_json-interface-migration",
+      "deliverables": [
+        "上架链接明细.json",
+        "链接适配依据.json",
+        "尺码发货核对.json",
+        "待确认清单.json",
+        "链接分析报告.json"
+      ],
+      "pending": []
+    },
+    "model-year-coverage": {
+      "path": "nodes/M0.车型年覆盖",
+      "version": "20261112_10",
+      "artifact": "nodes/M0.车型年覆盖/artifacts/2026-11-12_10_model-year-coverage-release",
+      "deliverables": [
+        "覆盖汇总.json",
+        "覆盖明细.json",
+        "车型覆盖明细.json",
+        "车型名录.json",
+        "车型年全集.json",
+        "回补候选.json",
+        "来源关联.json",
+        "来源统计.json",
+        "名称未匹配.json",
+        "已对应缺口.json",
+        "映射影响.json",
+        "名称映射审计.json"
+      ],
+      "pending": []
+    }
+  }
+}

@@ -16,7 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块在 lib/
 
 from content_store import resolve_source
-from node_paths import load_record  # noqa: E402
+from node_paths import node_output, node_page, load_record  # noqa: E402
 
 VERSION = re.compile(r"^\d{8}_\d{2}$")
 RUN_RECORD = "run.json"
@@ -104,9 +104,10 @@ def referenced_batches(root: Path, nodes: list[dict], keep_batches: set[str] = f
     """当前各节点 output/manifest.json 与 keep_batches 直接或间接引用的全部批次（相对仓库的 posix 路径）。"""
     pending: list[str] = list(keep_batches)
     for node in nodes:
-        manifest = _load(root / node["path"] / "output" / MANIFEST, root)
-        if manifest:
-            pending.extend(record_references(manifest))
+        for name in (MANIFEST, "html_manifest.json"):
+            manifest = _load(node_output(root, node) / name, root)
+            if manifest:
+                pending.extend(record_references(manifest))
     seen: set[str] = set()
     while pending:
         batch = pending.pop()
@@ -124,9 +125,10 @@ def reference_cycles(root: Path, nodes: list[dict]) -> list[str]:
     """Detect cycles reachable from current manifests; self-batch bookkeeping is normal."""
     roots = set()
     for node in nodes:
-        manifest = _load(root / node["path"] / "output" / MANIFEST, root)
-        if manifest:
-            roots.update(record_references(manifest))
+        for name in (MANIFEST, "html_manifest.json"):
+            manifest = _load(node_output(root, node) / name, root)
+            if manifest:
+                roots.update(record_references(manifest))
     done, stack, errors = set(), [], []
     def visit(batch):
         if batch in stack:

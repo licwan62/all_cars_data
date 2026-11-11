@@ -1,0 +1,61 @@
+{
+  "schema_version": 2,
+  "purpose": "html-presentation",
+  "node": "sales-estimation",
+  "path": "nodes/02.销量评估",
+  "version": "20261112_05",
+  "artifact": "nodes/02.销量评估/artifacts/2026-11-12_05_html-result",
+  "fingerprint": "05864b954e71e52445f2a9d4cc8781c9656433963a0293ce399ff17c4c1e66f1",
+  "data_version": "20261112_01",
+  "sources": [
+    {
+      "file": "原子销量.json",
+      "exists": true,
+      "sha256": "1c833df2cbe0f75b29132f7d85dd06cdff747de62954e9cccbb9f582861588f1",
+      "bytes": 1073011,
+      "matches_manifest": true,
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/原子销量-20261112_01.json"
+    },
+    {
+      "file": "原子销量待核.json",
+      "exists": true,
+      "sha256": "b061ab449c28c0767f249c0ea9b3e9a9dcc6e6cb0fe9bd3851043dce9e24a804",
+      "bytes": 258133,
+      "matches_manifest": true,
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/原子销量待核-20261112_01.json"
+    },
+    {
+      "file": "RU代理销量.json",
+      "exists": true,
+      "sha256": "634350dfa55b0e6ba6284486c27f88b77d2f694d787f00044b1253b060f42be7",
+      "bytes": 602158,
+      "matches_manifest": true,
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/RU代理销量-20261112_01.json"
+    },
+    {
+      "file": "市场潜力.json",
+      "exists": true,
+      "sha256": "2660222dd5ac08780fb3a83c8527aa67cac0c66f633e2b330981336ae9ff1ddc",
+      "bytes": 385457,
+      "matches_manifest": true,
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/市场潜力-20261112_01.json"
+    },
+    {
+      "file": "积加销量.json",
+      "exists": true,
+      "sha256": "97bb8f8ea26813246cff27f11fddbf632175c6b1dcb1cf9d9a17811385109ebe",
+      "bytes": 44317,
+      "matches_manifest": true,
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_01_json-interface-migration/output/积加销量-20261112_01.json"
+    }
+  ],
+  "deliverables": [
+    {
+      "file": "销量与市场潜力.html",
+      "sha256": "a080ce3611418bde2122599fd2f28c2075471e711573fb6c6471a862984b14f9",
+      "current_file": "nodes/02.销量评估/销量与市场潜力.html",
+      "versioned_file": "销量与市场潜力-20261112_05.html",
+      "artifact_file": "nodes/02.销量评估/artifacts/2026-11-12_05_html-result/output/销量与市场潜力-20261112_05.html"
+    }
+  ]
+}

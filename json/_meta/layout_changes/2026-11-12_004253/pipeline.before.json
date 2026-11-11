@@ -1,0 +1,2188 @@
+{
+  "schema_version": 4,
+  "governance": {
+    "manifest_owner": "link-analysis",
+    "manifest_owner_path": "nodes/D2.链接分析",
+    "policy": "根pipeline.json由D2链接分析业务容器维护。"
+  },
+  "directory_contract": {
+    "data": "agent-maintained rules and reference material",
+    "output": "JSON data handoffs plus 结果.html final presentation; data manifest.json and presentation html_manifest.json keep distinct provenance",
+    "artifacts": "immutable per-run history; deliverables saved as 名称-YYYYMMDD_NN.ext, each byte stored once: published upstream inputs and committed data/ rules are referenced (sha256 / git commit) not copied; run batches via lib/artifact_batch.py write run.json; HTML result versions are immutable self-contained snapshots, with JSON provenance and original data artifacts retained",
+    "nodes": "所有节点目录位于仓库 nodes/ 下，path 以 nodes/ 开头；迁移（2026-10-21）前写入的 manifest/run.json 记录旧路径，不回写，由 lib/node_paths.py 读取时规范为 nodes/ 路径。",
+    "code": "节点代码集中在 code_dir 声明的目录（src/、code/ 或 scripts/）；节点根目录不放 .py 脚本。run 为在节点目录下执行的正式生成命令，tests 为自动测试目录。仓库级共享模块在根目录 lib/，仓库级工具在 scripts/。"
+  },
+  "naming_contract": "上游 00-03 用数字前缀=层号（最长上游链长度）。从尺码计算起按最终产物分线：A 全量表与压缩尺码表、B 定制评分、C 代表车型、D 发货单、E 尺寸分析、F 独立定制分析、X 旁路分析；A0 尺码计算是各线共用枢纽，线内序号自 1 递增，且大于线内上游的序号。个别线允许自己的 0 号节点作为线内独立枢纽（不依赖同线节点，可以没有任何上游，例如 B0 差评分析承接人工维护台账、E0 尺寸分析与 F0 定制分析直接读 A0 全量表），序号规则同样适用（线内后续序号必须大于它）。 容器子项目继承业务容器目录前缀，保留独立id与实际layer；parent不参与依赖层数计算。",
+  "release_contract": "python scripts/publish_release.py 自上游到下游发布：交付物、上游输入、data/ 规则快照与说明均未变化的节点不新建批次；否则新建发布批次，交付物与上一版或运行批次 run.json 登记的输出相同则引用该 artifact 文件，否则以 -YYYYMMDD_NN 后缀存入本批次；manifest.json 记录交付物 sha256、artifact 来源、上游版本与本节点 data/ 规则快照（rules，换行归一后的 sha256）；根目录 release.json 汇总。outputs 只列已存在的稳定交付物，未产出的写入 pending。",
+  "trigger_contract": "按产线区分触发方式（line_triggers，节点可用 trigger 字段覆盖）：auto 线随默认的 python scripts/publish_release.py 自上游到下游发布；on_demand 线只在显式指定时发布（--nodes <id> / --lines <线> / --all），上游更新不会触发它们。按需节点的上游变化只标为“按需待刷新”，不算过期、不使追踪失败；其自身 data/ 规则变化仍算过期。auto 节点不得依赖 on_demand 节点。",
+  "line_triggers": {
+    "U": "auto",
+    "A": "auto",
+    "B": "on_demand",
+    "C": "on_demand",
+    "D": "on_demand",
+    "E": "on_demand",
+    "X": "on_demand",
+    "F": "on_demand"
+  },
+  "publication_contract": "public_outputs显式登记可导出的JSON表格；NAS发布时转换为CSV，其他JSON及HTML保持内部；本次迁移不发布NAS。",
+  "identity_contract": "节点 identity_coverage 声明交付物必须承接的上游身份（默认主键 DIMENSION-ID；mode=equal 要求集合相同，subset 只要求不残留上游已撤销的身份）。scripts/trace_pipeline.py 按上游当前 output 核对：auto 节点未承接即过期，按需节点记为按需待刷新；scripts/publish_release.py 发布 auto 节点前同样核对，未承接时拒绝发布（--accept-identity-gaps 显式接受并把缺口写入 manifest checks）。manifest 的 upstream 优先取运行批次 run.json 实际读取的输入（basis=run），没有运行记录时才记发布时上游版本（basis=publish-time，表示未经运行记录核实）。",
+  "nodes": [
+    {
+      "id": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node dimension-crawler"
+      ],
+      "tests": "tests_py",
+      "layer": 0,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [],
+      "outputs": [
+        "EU/Ktype.json",
+        "EU/KtypeMatched.json",
+        "EU/DimensionGroup尺寸.json",
+        "RU/auto_ru_catalog_rank.json",
+        "RU/auto_ru_dimensions_with_match_key.json",
+        "RU/auto_ru_model_sales_with_match_key.json",
+        "US/00_US尺寸库.json",
+        "候选来源.json"
+      ],
+      "pending": [],
+      "public_outputs": [],
+      "release_notes": [
+        "抓取产物目前只保存在 artifacts，尚无稳定 output"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "U线前缀为最长上游链层数；职责：自动化尺寸抓取器",
+      "online_run": [
+        "pwsh -File run_from_config.ps1 -ConfigPath data/configs/<区域>.yaml"
+      ],
+      "inputs": [],
+      "interface_files": {
+        "EU/Ktype.csv": "EU/Ktype.json",
+        "EU/KtypeMatched.csv": "EU/KtypeMatched.json",
+        "EU/DimensionGroup尺寸.csv": "EU/DimensionGroup尺寸.json",
+        "RU/auto_ru_catalog_rank.csv": "RU/auto_ru_catalog_rank.json",
+        "RU/auto_ru_dimensions_with_match_key.csv": "RU/auto_ru_dimensions_with_match_key.json",
+        "RU/auto_ru_model_sales_with_match_key.csv": "RU/auto_ru_model_sales_with_match_key.json",
+        "US/00_US尺寸库.csv": "US/00_US尺寸库.json",
+        "候选来源.json": "候选来源.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/publish_candidates.py"
+      ]
+    },
+    {
+      "id": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "code_dir": "code",
+      "run": [
+        "python ../../scripts/run_json_node.py --node dimension-library"
+      ],
+      "tests": "tests",
+      "layer": 1,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-crawler"
+      ],
+      "outputs": [
+        "尺寸库.json",
+        "尺寸库_US.json",
+        "尺寸库_EU.json",
+        "尺寸库_RU.json",
+        "US_ID迁移.json",
+        "US_拆分候选.json",
+        "US_拆分待核.json",
+        "US_补库核对.json",
+        "US_补库待核.json",
+        "EU_ID迁移.json",
+        "来源映射_EU.json",
+        "来源映射_RU.json"
+      ],
+      "pending": [
+        "Audi A7/S7/RS7拆分：逐成员逐年独立尺寸、美国供售间断及下游迁移证据未齐，保留原组合记录",
+        "美国车型年份缺口：未核实项保留在US_补库待核.csv；销量年款口径未核实项在sales-estimation的原子销量待核.csv保持PENDING"
+      ],
+      "public_outputs": [
+        "尺寸库.json",
+        "尺寸库_US.json",
+        "尺寸库_EU.json",
+        "尺寸库_RU.json",
+        "EU_ID迁移.json",
+        "来源映射_EU.json",
+        "来源映射_RU.json"
+      ],
+      "release_notes": [
+        "2026-09-27 EU 版本列只保留关键版本（data/eu_key_versions.json），非必要版本留空，冲突时依次追加其余变体词、底盘代号、尺寸；EU 记录 29707 → 29361，版本非空 84% → 55%；EU DIMENSION-ID 随之变化，发布 EU_ID迁移.csv（旧→新）",
+        "2026-09-27 新增 来源映射_EU/RU.csv（源数据行 ID → 最终 DIMENSION-ID），建库时记录、合并时换算并校验覆盖全部区域记录，供下游按源键挂接数据而无需重跑本节点代码"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "U线前缀为最长上游链层数；职责：整理尺寸库",
+      "inputs": [
+        {
+          "node": "dimension-crawler",
+          "file": "EU/Ktype.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "EU/KtypeMatched.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "EU/DimensionGroup尺寸.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "RU/auto_ru_catalog_rank.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "RU/auto_ru_dimensions_with_match_key.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "RU/auto_ru_model_sales_with_match_key.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "US/00_US尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "候选来源.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "尺寸库.csv": "尺寸库.json",
+        "尺寸库_US.csv": "尺寸库_US.json",
+        "尺寸库_EU.csv": "尺寸库_EU.json",
+        "尺寸库_RU.csv": "尺寸库_RU.json",
+        "US_ID迁移.csv": "US_ID迁移.json",
+        "US_拆分候选.csv": "US_拆分候选.json",
+        "US_拆分待核.csv": "US_拆分待核.json",
+        "US_补库核对.csv": "US_补库核对.json",
+        "US_补库待核.csv": "US_补库待核.json",
+        "EU_ID迁移.csv": "EU_ID迁移.json",
+        "来源映射_EU.csv": "来源映射_EU.json",
+        "来源映射_RU.csv": "来源映射_RU.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python code/build_pipeline.py"
+      ]
+    },
+    {
+      "id": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "code_dir": "code",
+      "run": [
+        "python ../../scripts/run_json_node.py --node structure-review"
+      ],
+      "tests": "tests",
+      "layer": 2,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library"
+      ],
+      "outputs": [
+        "车型结构.json",
+        "车型结构_US.json",
+        "车型结构_EU.json",
+        "车型结构_RU.json"
+      ],
+      "pending": [
+        "新增车型年度销量暂由data/销量依据/model_year_sales_holdouts.csv拦截；原子销量待核.csv记录PENDING和来源，未确认车型年口径前不作为销量值发布"
+      ],
+      "public_outputs": [
+        "车型结构.json",
+        "车型结构_US.json",
+        "车型结构_EU.json",
+        "车型结构_RU.json"
+      ],
+      "identity_coverage": [
+        {
+          "output": "车型结构.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库.json"
+        },
+        {
+          "output": "车型结构_US.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_US.json"
+        },
+        {
+          "output": "车型结构_EU.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_EU.json"
+        },
+        {
+          "output": "车型结构_RU.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_RU.json"
+        }
+      ],
+      "release_notes": [
+        "新增US车型年销量待核旁表原子销量待核.csv；销售来源/车型年口径未确认的原子销量保持空值，不影响其他已核实销量",
+        "2026-09-23 改为按 data/分类标准.json（三国通用 结构→分类）与 data/分类联网判定.csv（Liftback/Fastback 车型级联网判定）重算分类；DIMENSION-ID 不变；输出全量与分区域文件",
+        "2026-09-28 新增 data/结构联网修正.csv：官方资料核实长斜背 Hatchback→Liftback，按精确区域/车型/原结构及完整年份包含匹配；修正结构和分类，保留上游 DIMENSION-ID 与尺寸；77条涉及 Model S、Panamera、A7、A6 e-tron Sportback、Arteon"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "U线前缀为最长上游链层数；职责：分类结构审核",
+      "inputs": [
+        {
+          "node": "dimension-library",
+          "file": "尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_US.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_RU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "EU_ID迁移.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_RU.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "车型结构.csv": "车型结构.json",
+        "车型结构_US.csv": "车型结构_US.json",
+        "车型结构_EU.csv": "车型结构_EU.json",
+        "车型结构_RU.csv": "车型结构_RU.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python code/build_structure_review.py"
+      ]
+    },
+    {
+      "id": "sales-estimation",
+      "path": "nodes/02.销量评估",
+      "code_dir": "scripts",
+      "run": [
+        "python ../../scripts/run_json_node.py --node sales-estimation"
+      ],
+      "tests": "tests",
+      "layer": 2,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library",
+        "dimension-crawler"
+      ],
+      "outputs": [
+        "原子销量.json",
+        "原子销量待核.json",
+        "RU代理销量.json",
+        "市场潜力.json",
+        "积加销量.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "原子销量.json",
+        "RU代理销量.json"
+      ],
+      "identity_coverage": [
+        {
+          "output": "原子销量.json",
+          "key": "atom_record_id",
+          "key_split": "|",
+          "upstream": "dimension-library",
+          "file": "尺寸库_US.json"
+        },
+        {
+          "output": "RU代理销量.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_RU.json"
+        },
+        {
+          "output": "市场潜力.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_US.json"
+        }
+      ],
+      "release_notes": [
+        "原子销量已从找回的 atom_sales.csv 校验后按稳定文件名发布",
+        "2026-09-27 新增 RU代理销量.csv：本节点 data/ru 的 Auto.ru 在售样本按 match_key 汇总，经 01 来源映射_RU.csv 落到 RU DIMENSION-ID（原由 A0 现场重跑 01 建库代码计算，结果逐 ID 一致）",
+        "2026-10-28 商业潜力调整数据与算法从 A0 迁入本节点；读取01尺寸库与自身原子销量，内部输出市场潜力及销量潜力调整，公式参数不变。"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "U线前缀为最长上游链层数；职责：销量评估",
+      "inputs": [
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_US.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "RU/auto_ru_model_sales_with_match_key.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "EU/Ktype.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "EU/KtypeMatched.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "EU/DimensionGroup尺寸.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "RU/auto_ru_catalog_rank.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "RU/auto_ru_dimensions_with_match_key.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "US/00_US尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-crawler",
+          "file": "候选来源.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_RU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_RU.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "原子销量.csv": "原子销量.json",
+        "原子销量待核.csv": "原子销量待核.json",
+        "RU代理销量.csv": "RU代理销量.json",
+        "市场潜力.csv": "市场潜力.json",
+        "积加销量.csv": "积加销量.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python scripts/run_pipeline.py",
+        "python scripts/build_ru_proxy_sales.py",
+        "python scripts/build_market_potential.py"
+      ]
+    },
+    {
+      "id": "code-mapping",
+      "path": "nodes/02.代码映射",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node code-mapping"
+      ],
+      "tests": "tests",
+      "layer": 2,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library"
+      ],
+      "outputs": [
+        "车型编码映射.json",
+        "尺寸编码映射.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "车型编码映射.json",
+        "尺寸编码映射.json"
+      ],
+      "identity_coverage": [
+        {
+          "output": "尺寸编码映射.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_US.json"
+        }
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "U线前缀为最长上游链层数；职责：代码映射",
+      "inputs": [
+        {
+          "node": "dimension-library",
+          "file": "尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_US.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_RU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "EU_ID迁移.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_RU.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "车型编码映射.csv": "车型编码映射.json",
+        "尺寸编码映射.csv": "尺寸编码映射.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/main.py --update-registry"
+      ]
+    },
+    {
+      "id": "shape-classification",
+      "path": "nodes/03.车形分类核定",
+      "code_dir": "code",
+      "run": [
+        "python ../../scripts/run_json_node.py --node shape-classification"
+      ],
+      "tests": "tests",
+      "layer": 3,
+      "line": "U",
+      "role": "upstream",
+      "upstream": [
+        "dimension-library",
+        "structure-review"
+      ],
+      "outputs": [
+        "车形分类.json",
+        "参考尺寸计算.json",
+        "COVER_SHAPE.json",
+        "cover_shape_summary.json",
+        "shape_research_queue.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "车形分类.json",
+        "参考尺寸计算.json",
+        "COVER_SHAPE.json"
+      ],
+      "identity_coverage": [
+        {
+          "output": "车形分类.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库.json"
+        },
+        {
+          "output": "COVER_SHAPE.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库.json"
+        }
+      ],
+      "release_notes": [
+        "2026-10-12 新增 COVER_SHAPE.csv：按同市场/代际/车身版本/CAB/BED/尺寸及旧几何原型选代表年，车型级冻结证据优先，其余以几何原型先验与尺寸补齐；每个 DIMENSION-ID 有 SHAPE、状态、代表年、方法、备选及来源；推断最高 INFERRED，不改变旧车形系数和尺码匹配",
+        "2026-10-12 SHAPE 的状态/代表年/方法/备选/来源仅在本节点维护；新增代表分支研究队列 shape_research_queue.jsonl，保留研究进度、失败、重试时间和输入变动失效；research_cover_shape.py --mode online 显式限量消费队列，合格几何事实写 data 后重建正式分类"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "U线前缀为最长上游链层数；职责：车形分类核定",
+      "inputs": [
+        {
+          "node": "dimension-library",
+          "file": "尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_US.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_RU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "EU_ID迁移.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_RU.json",
+          "required": true
+        },
+        {
+          "node": "structure-review",
+          "file": "车型结构.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "车形分类.csv": "车形分类.json",
+        "参考尺寸计算.csv": "参考尺寸计算.json",
+        "COVER_SHAPE.csv": "COVER_SHAPE.json",
+        "cover_shape_summary.json": "cover_shape_summary.json",
+        "shape_research_queue.jsonl": "shape_research_queue.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python code/build_regional_shape_output.py",
+        "python code/validate_regional_shape_output.py",
+        "python code/build_cover_shape_output.py"
+      ]
+    },
+    {
+      "id": "size-calculation",
+      "path": "nodes/A0.尺码计算",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node size-calculation"
+      ],
+      "tests": "tests",
+      "layer": 4,
+      "line": "A",
+      "index": 0,
+      "role": "final",
+      "upstream": [
+        "dimension-library",
+        "structure-review",
+        "shape-classification",
+        "sales-estimation"
+      ],
+      "outputs": [
+        "US/尺码匹配报告.json",
+        "US/全量/全量表.json",
+        "US/店铺/店铺全量_HNT.json",
+        "US/店铺/店铺全量_TM.json",
+        "US/店铺/店铺全量_TM_拆分.json",
+        "US/TRIM/TRIM适配器.json",
+        "US/尺码规则.json",
+        "US/店铺货架.json",
+        "US/新旧尺码对应.json",
+        "EU/尺码匹配报告.json",
+        "EU/全量/全量表.json",
+        "EU/尺码规则.json",
+        "RU/尺码匹配报告.json",
+        "RU/全量/全量表.json",
+        "RU/尺码规则.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "US/全量/全量表.json",
+        "US/店铺/店铺全量_HNT.json",
+        "US/店铺/店铺全量_TM.json",
+        "US/店铺/店铺全量_TM_拆分.json",
+        "US/TRIM/TRIM适配器.json",
+        "US/新旧尺码对应.json",
+        "EU/全量/全量表.json",
+        "RU/全量/全量表.json"
+      ],
+      "identity_coverage": [
+        {
+          "output": "US/全量/全量表.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_US.json"
+        },
+        {
+          "output": "EU/全量/全量表.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_EU.json"
+        },
+        {
+          "output": "RU/全量/全量表.json",
+          "upstream": "dimension-library",
+          "file": "尺寸库_RU.json"
+        }
+      ],
+      "release_notes": [
+        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核",
+        "2026-10-27 US全量表及三个店铺全量表在车型销量后新增市场潜力：尺寸组销量×YEAR平均留存系数÷1000，与积加及竞品逐ASIN可信月销量目标分的车型分摊合计取最大值；2026评估年、5年全权重、10年半衰期，月销目标系数20、可信度参数10；同DIMENSION-ID四表同值，只补不减，EU/RU不调整。参数和销售快照在data/商业潜力调整，匹配及计算明细仅留批次extra。",
+        "2026-09-27 output 改为 <国别>/ 目录：<国别>/尺码匹配报告.md（所用规则全文、参数、大致匹配状况；US 另含店铺货架、店铺分布与 TRIM 概况，替代原 尺码匹配规则/店铺货架 CSV 与 尺码匹配报告 JSON）、<国别>/全量/全量表.csv、US/店铺/店铺全量_<店铺>.csv、US/TRIM/TRIM适配器.csv；文件名去掉区域后缀",
+        "2026-09-27 A0 同时承担尺码匹配与 TRIM 匹配（TRIM 资料与代码自 A1.全量生成 迁入 data/US/TRIM、src/trim）：US 全量表与店铺全量表的 TRIM 列直接由 TRIM 匹配回填，EU/RU 无 TRIM 环节、全量表不带 TRIM 列；取消 尺寸分析表 与 DIMENSION-CODE 字段（不再依赖 02.代码映射）；data/ 按 US/EU/RU × 规则/参数 整理",
+        "2026-09-27 RU 代理销量改读 02.销量评估/output/RU代理销量.csv，不再读取 01/02 的 data/ 或重跑 01 代码；当前规则版本由 data/当前规则.yaml 指定；车衣数据归入 data/参考/",
+        "2026-09-28 全量表（US/EU/RU 全量表与 US 店铺全量）将 销量合计 拆为 尺寸组销量（原 销量合计，按 DIMENSION-ID）与 车型销量（同表按 MAKE+MODEL 汇总尺寸组销量）；两列位于 H-MM 之后，其余列不变。下游 C1、X2 改读 尺寸组销量，D1 读入后仍以 销量合计 输出供 D2",
+        "2026-09-28 RU 规则改用 data/RU/规则/0928-1.csv（YS-380→OZON XS/发货 S，YS-410→OZON S/发货 YM）；全量表不再输出 前宽-MM、后宽-MM、等效长（仍在内部用于插片指数）；车型销量 统计粒度改为 MAKE+MODEL+结构",
+        "2026-10-08 全量表（US/EU/RU 全量表与 US 店铺全量）调整字段顺序：DIMENSION-ID 移至首列，US 表 TRIM 移至末列（EU/RU 无 TRIM，末列为 相差数值）；行、列集合与取值不变。下游 A1/A2/B1/C1 均按列名读取，重跑结果逐字节不变",
+        "2026-10-12 三国与 US 店铺全量表紧跟旧车形仅插入 SHAPE；状态、代表年、方法、备选与来源由 03/COVER_SHAPE.csv 维护；按精确地区 ID 全覆盖关联，移除上一轮全量表的 SHAPE 辅助列，其他列值/行序/TRIM 不变，SHAPE 不参与尺码计算",
+        "2026-10-13 全量表（US/EU/RU 全量表与 US 店铺全量）在 相差数值 之后新增 规则ID：命中规则的内容标识（规则行规范化内容的 SHA-256 前 10 位，不含备注；无可用尺码/数据不全为空），与 <国别>/尺码匹配报告.md 规则表末列 规则ID 对应；US 店铺全量表在 规则ID 之前新增 匹配尺码（换成发货尺码前的规则匹配尺码）。其他列值、行序与 TRIM 不变，A1 重跑逐字节不变；下游均按列名读取",
+        "2026-10-14 新增机器接口（build_match_report.py 产出）：<国别>/尺码规则.json（报告规则表与参数的结构化版本，含 规则ID、余量长容差 mm、规则/参数文件与 sha256）、US/店铺货架.json（data/US/店铺/货架.yaml 的结构化发布）、US/新旧尺码对应.csv（data/参考/新旧尺码对应/新旧尺码对应2.csv 原样、LF）；Markdown 报告不变，继续供人阅读。网站流水线改读这些文件，不再解析报告表格或读取 A0 data/。全量表与报告字节不变",
+        "2026-10-28 潜力计算归属02；US及三店铺表只承接02已发布市场潜力与销量潜力调整，紧接车型销量。"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "A线按最终交付职责分组，序号0；独立枢纽",
+      "inputs": [
+        {
+          "node": "dimension-library",
+          "file": "EU_ID迁移.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_RU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_US.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_RU.json",
+          "required": true
+        },
+        {
+          "node": "structure-review",
+          "file": "车型结构.json",
+          "required": true
+        },
+        {
+          "node": "structure-review",
+          "file": "车型结构_EU.json",
+          "required": true
+        },
+        {
+          "node": "structure-review",
+          "file": "车型结构_RU.json",
+          "required": true
+        },
+        {
+          "node": "structure-review",
+          "file": "车型结构_US.json",
+          "required": true
+        },
+        {
+          "node": "shape-classification",
+          "file": "COVER_SHAPE.json",
+          "required": true
+        },
+        {
+          "node": "shape-classification",
+          "file": "cover_shape_summary.json",
+          "required": true
+        },
+        {
+          "node": "shape-classification",
+          "file": "shape_research_queue.json",
+          "required": true
+        },
+        {
+          "node": "shape-classification",
+          "file": "参考尺寸计算.json",
+          "required": true
+        },
+        {
+          "node": "shape-classification",
+          "file": "车形分类.json",
+          "required": true
+        },
+        {
+          "node": "sales-estimation",
+          "file": "RU代理销量.json",
+          "required": true
+        },
+        {
+          "node": "sales-estimation",
+          "file": "原子销量.json",
+          "required": true
+        },
+        {
+          "node": "sales-estimation",
+          "file": "市场潜力.json",
+          "required": true
+        },
+        {
+          "node": "sales-estimation",
+          "file": "积加销量.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_ID迁移.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_拆分候选.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_拆分待核.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_补库待核.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "US_补库核对.json",
+          "required": true
+        },
+        {
+          "node": "sales-estimation",
+          "file": "原子销量待核.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "US/尺码匹配报告.md": "US/尺码匹配报告.json",
+        "US/全量/全量表.csv": "US/全量/全量表.json",
+        "US/店铺/店铺全量_HNT.csv": "US/店铺/店铺全量_HNT.json",
+        "US/店铺/店铺全量_TM.csv": "US/店铺/店铺全量_TM.json",
+        "US/店铺/店铺全量_TM_拆分.csv": "US/店铺/店铺全量_TM_拆分.json",
+        "US/TRIM/TRIM适配器.csv": "US/TRIM/TRIM适配器.json",
+        "US/尺码规则.json": "US/尺码规则.json",
+        "US/店铺货架.json": "US/店铺货架.json",
+        "US/新旧尺码对应.csv": "US/新旧尺码对应.json",
+        "EU/尺码匹配报告.md": "EU/尺码匹配报告.json",
+        "EU/全量/全量表.csv": "EU/全量/全量表.json",
+        "EU/尺码规则.json": "EU/尺码规则.json",
+        "RU/尺码匹配报告.md": "RU/尺码匹配报告.json",
+        "RU/全量/全量表.csv": "RU/全量/全量表.json",
+        "RU/尺码规则.json": "RU/尺码规则.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/generate_store_outputs.py",
+        "python src/generate_ru_full_table.py",
+        "python src/build_regional_coverage_full.py",
+        "python src/add_cover_shape.py",
+        "python src/add_market_potential.py",
+        "python src/build_match_report.py"
+      ]
+    },
+    {
+      "id": "size-compression",
+      "path": "nodes/A1.压缩尺寸信息",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node size-compression"
+      ],
+      "tests": "tests",
+      "layer": 5,
+      "line": "A",
+      "index": 1,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "code-mapping"
+      ],
+      "outputs": [
+        "US/压缩尺码表.json",
+        "US/压缩尺码表_皮卡.json",
+        "US/压缩来源.json",
+        "HNT/压缩尺码表.json",
+        "HNT/压缩尺码表_皮卡.json",
+        "HNT/压缩来源.json",
+        "TM/压缩尺码表.json",
+        "TM/压缩尺码表_皮卡.json",
+        "TM/压缩来源.json",
+        "TM_拆分/压缩尺码表.json",
+        "TM_拆分/压缩尺码表_皮卡.json",
+        "TM_拆分/压缩来源.json",
+        "EU/压缩尺码表.json",
+        "EU/压缩尺码表_皮卡.json",
+        "EU/压缩来源.json",
+        "RU/压缩尺码表.json",
+        "RU/压缩尺码表_皮卡.json",
+        "RU/压缩来源.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "US/压缩尺码表.json",
+        "US/压缩尺码表_皮卡.json",
+        "US/压缩来源.json",
+        "HNT/压缩尺码表.json",
+        "HNT/压缩尺码表_皮卡.json",
+        "HNT/压缩来源.json",
+        "TM/压缩尺码表.json",
+        "TM/压缩尺码表_皮卡.json",
+        "TM/压缩来源.json",
+        "TM_拆分/压缩尺码表.json",
+        "TM_拆分/压缩尺码表_皮卡.json",
+        "TM_拆分/压缩来源.json",
+        "EU/压缩尺码表.json",
+        "EU/压缩尺码表_皮卡.json",
+        "EU/压缩来源.json",
+        "RU/压缩尺码表.json",
+        "RU/压缩尺码表_皮卡.json",
+        "RU/压缩来源.json"
+      ],
+      "identity_coverage": [
+        {
+          "output": "US/压缩来源.json",
+          "upstream": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "mode": "subset"
+        },
+        {
+          "output": "EU/压缩来源.json",
+          "upstream": "size-calculation",
+          "file": "EU/全量/全量表.json",
+          "mode": "subset"
+        },
+        {
+          "output": "RU/压缩来源.json",
+          "upstream": "size-calculation",
+          "file": "RU/全量/全量表.json",
+          "mode": "subset"
+        }
+      ],
+      "release_notes": [
+        "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间，只做压缩，不做评分",
+        "2026-09-23 压缩尺码表.csv 改为无损表：各结构独立合并同尺码连续年份；新增 压缩尺码表_有损.csv：同尺码短空洞/结构池合理扩张，扩张原子数单列；两表均通过原子唯一尺码检查",
+        "2026-09-23 上游改为 A0.尺码计算 的 全量表_US/EU/RU.csv，按区域分别压缩；每区域输出无损表与有损表（扩张原子数单列），均通过原子唯一尺码检查",
+        "2026-09-25 上游由 A0.尺码计算 全量表_<区域>.csv 改为 A1.全量生成 全量生成_<区域>.csv（行序与 A0 一致，多 Trims 列；压缩结果不变）",
+        "2026-09-25 压缩算法改为网站流水线 compress_to_size_chart（内置 src/sizechart/）：按原子事实（含版本）校验，非皮卡/皮卡分表，各输出无损与高度压缩（有损）表；修复单年份行被跳过（US 约 30%）与多版本多数票丢失尺码的问题。结果与网站流水线 2026-09-25_02 批次一致",
+        "2026-09-25 按产线压缩（data/产线.yaml）：US、HNT、TM、TM_拆分、EU、RU 共 6 条，店铺线读取 A1 全量生成_<店铺>.csv（店铺发货尺码）",
+        "2026-09-27 默认交付改为按 US/EU/RU 国别目录输出的有损压缩表；每国仅保留非皮卡与皮卡两张，文件名不再添加“有损”后缀，店铺线和无损表不再默认发布",
+        "2026-09-27 A2 output/US 接入 SSH 发布：校验 manifest 后发布两张 US 表至 qnap-nas:/share/Public/PQData/pub_all_cars_data/size_compressed，并复核远端 SHA-256",
+        "2026-09-27 上游由 A1.全量生成 全量生成_<产线>.csv 改为 A0.尺码计算 的 <国别>/全量/全量表.csv（店铺线 US/店铺/店铺全量_<店铺>.csv）；A0 US 表已含 TRIM，不再有 Trims 列",
+        "2026-09-28 压缩表末列新增 尺码销量总和：A0 全量表每行 尺寸组销量 按其原子事实均摊，再按原子检查命中关系汇总到压缩记录（多条同尺码命中均分）；原子检查 MISS 的销量无法归属，计入 status.json；其余列不变",
+        "2026-09-28 RU 压缩表 BACKSIZE 改名 亚马逊尺码，并回填 OZON尺码、发货尺码（按亚马逊尺码取自 A0 RU 全量表，须一一对应）；由 data/产线.yaml 的 尺码列名/附加尺码列 配置，其余产线格式不变",
+        "2026-10-08 US 区域产线（US、HNT、TM、TM_拆分）压缩表首列新增 CODE（代号）：取自 02.代码映射 车型编码映射.csv，CODE = MAKE_CODE + MODEL_CODE + YEARCODE（压缩记录 YEAR 两端后两位），与 DIMENSION-CODE 同一规则；车型不在映射中则运行失败；data/产线.yaml 代号区域 配置，EU/RU 不加；其余列不变",
+        "2026-09-28 高度压缩改为积极合并+合理扩张（data/合并规则.yaml）：同一原子被多条同尺码记录命中不再阻止两两合并（如 Golf GTI/GTI/R/R 合为一行），原子检查同尺码多重命中记 OK；合并记录年份区间内连续无原子的年数不超过 3（无可用尺码豁免），不再桥接停产期（如 Prelude 1983-2026 拆为 1983-2001 与 2026）；非皮卡合并须保留左右两条原覆盖的原子（修复含 / 版本名拼接丢原子，EU MISS 3774→约 3600）；原子检查按组合车型全名匹配（修复 US Audi A3/S3 等 308 个误报 MISS 与其销量未归属）",
+        "2026-10-09 节点目录由 A2.压缩尺寸信息 改为 A1.压缩尺寸信息（原 A1.全量生成 移出 A 线为 E0.尺寸分析）；id、交付物与算法不变",
+        "2026-10-09 运行批次改用 lib/artifact_batch.py：上游全量表/代码映射只记引用，data/ 规则记 sha256 + git commit，压缩 log、原子事实表、原子检查问题移入 extra/ 并 gzip，状态并入 run.json（取代 status.json）；批次约 31 MB → 2.6 MB，输出不变",
+        "2026-10-10 压缩表 尺码销量总和 之后新增来源尺寸 12 列（最大长-MM、最大长年份、最小长-MM、最小长年份，宽、高同理）：取压缩记录命中的同尺码原子事实的 A0 L-MM/W-MM/H-MM 最大/最小值及取到该值的年份（连续区间以 / 分隔，如 2019-2021/2024）；合理扩张出的无原子年份不参与；其余列与行不变",
+        "2026-10-10 新增交付物 <产线>/压缩来源.csv：两张压缩表每条记录（压缩类型 + 记录序号，序号为压缩表数据行序号）覆盖的 A0 全量表行（DIMENSION-ID、MAKE、MODEL、版本、结构、CAB、BED）、被覆盖年份与 L-MM/W-MM/H-MM，供网站「压缩代号」页点击展开各年份长宽高",
+        "2026-10-28 US与店铺压缩表新增市场潜力，沿用销量原子均摊及多重同尺码命中均分；保留6位小数并审计未分配潜力。"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "A线按最终交付职责分组，序号1；线内顺序大于同线上游",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "EU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_HNT.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM_拆分.json",
+          "required": true
+        },
+        {
+          "node": "code-mapping",
+          "file": "车型编码映射.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "US/压缩尺码表.csv": "US/压缩尺码表.json",
+        "US/压缩尺码表_皮卡.csv": "US/压缩尺码表_皮卡.json",
+        "US/压缩来源.csv": "US/压缩来源.json",
+        "HNT/压缩尺码表.csv": "HNT/压缩尺码表.json",
+        "HNT/压缩尺码表_皮卡.csv": "HNT/压缩尺码表_皮卡.json",
+        "HNT/压缩来源.csv": "HNT/压缩来源.json",
+        "TM/压缩尺码表.csv": "TM/压缩尺码表.json",
+        "TM/压缩尺码表_皮卡.csv": "TM/压缩尺码表_皮卡.json",
+        "TM/压缩来源.csv": "TM/压缩来源.json",
+        "TM_拆分/压缩尺码表.csv": "TM_拆分/压缩尺码表.json",
+        "TM_拆分/压缩尺码表_皮卡.csv": "TM_拆分/压缩尺码表_皮卡.json",
+        "TM_拆分/压缩来源.csv": "TM_拆分/压缩来源.json",
+        "EU/压缩尺码表.csv": "EU/压缩尺码表.json",
+        "EU/压缩尺码表_皮卡.csv": "EU/压缩尺码表_皮卡.json",
+        "EU/压缩来源.csv": "EU/压缩来源.json",
+        "RU/压缩尺码表.csv": "RU/压缩尺码表.json",
+        "RU/压缩尺码表_皮卡.csv": "RU/压缩尺码表_皮卡.json",
+        "RU/压缩来源.csv": "RU/压缩来源.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/run.py"
+      ]
+    },
+    {
+      "id": "negative-review-analysis",
+      "path": "nodes/B0.差评分析",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node negative-review-analysis"
+      ],
+      "tests": "tests",
+      "layer": 0,
+      "line": "B",
+      "index": 0,
+      "role": "final",
+      "upstream": [],
+      "outputs": [
+        "差评分析表.json",
+        "耳位分析表.json",
+        "皮卡驾驶室货斗分析表.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "差评分析表.json",
+        "耳位分析表.json",
+        "皮卡驾驶室货斗分析表.json"
+      ],
+      "release_notes": [
+        "2026-09-23 从原 A2.压缩定制评分（后改名 B1.压缩定制评分）拆出：从人工维护的差评原始台账筛选、汇总出品牌+车型+结构粒度的差评分析表；无上游流水线节点，原始数据是人工导出维护的台账",
+        "2026-09-28 data/ 精简为唯一原始台账 差评分析汇总.csv + 人工维护的 差评分析表.csv 与两份筛选规则；运行不再回写 data/，01/02/03 核对清单只写入 artifacts/<批次>/；补登记 耳位分析表.csv、皮卡驾驶室货斗分析表.csv 为交付物（B1 已在读取）；退役一次性脚本 apply_model_semantic_repairs.py"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "B线按最终交付职责分组，序号0；独立枢纽",
+      "inputs": [],
+      "interface_files": {
+        "差评分析表.csv": "差评分析表.json",
+        "耳位分析表.csv": "耳位分析表.json",
+        "皮卡驾驶室货斗分析表.csv": "皮卡驾驶室货斗分析表.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/run.py"
+      ]
+    },
+    {
+      "id": "compression-scoring",
+      "path": "nodes/B1.压缩定制评分",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node compression-scoring"
+      ],
+      "tests": "tests",
+      "layer": 5,
+      "line": "B",
+      "index": 1,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "negative-review-analysis"
+      ],
+      "outputs": [
+        "定制需求度评分.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "定制需求度评分.json"
+      ],
+      "release_notes": [
+        "2026-09-22 新增节点：把 A1 全量表按匹配尺码（自动尺码）压缩为结构池×年份区间；并结合 data/ 三张人工维护台账（差评分析表/人工维护进度/车耳状态登记，均为空表，尚无历史数据）打定制需求度评分，首次运行全部为“数据不足”，需人工陆续录入",
+        "2026-09-23 拆分为三个节点：压缩机制迁移到 A2.压缩尺寸信息，差评分析迁移到 B0.差评分析；本节点改名 B1.压缩定制评分，只保留定制需求度评分，差评维度改读 B0 的 output/",
+        "2026-09-27 评分键来源由 A1.全量生成 全量表_汇总.csv 改为 A0.尺码计算 US/EU/RU 全量表"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "B线按最终交付职责分组，序号1；线内顺序大于同线上游",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_HNT.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM_拆分.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/TRIM/TRIM适配器.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "negative-review-analysis",
+          "file": "差评分析表.json",
+          "required": true
+        },
+        {
+          "node": "negative-review-analysis",
+          "file": "耳位分析表.json",
+          "required": true
+        },
+        {
+          "node": "negative-review-analysis",
+          "file": "皮卡驾驶室货斗分析表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/尺码规则.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺货架.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/新旧尺码对应.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码规则.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码规则.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "定制需求度评分.csv": "定制需求度评分.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/run.py"
+      ]
+    },
+    {
+      "id": "custom-analysis",
+      "path": "nodes/F0.定制分析",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node custom-analysis"
+      ],
+      "tests": "tests",
+      "layer": 5,
+      "line": "F",
+      "index": 0,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "code-mapping",
+        "negative-review-analysis"
+      ],
+      "outputs": [
+        "ford_mustang/定制SKU聚簇报告.json",
+        "mercedes_e_class/定制SKU聚簇报告.json",
+        "jeep_gladiator/定制SKU聚簇报告.json",
+        "kia_forte/定制SKU聚簇报告.json",
+        "kia_soul/定制SKU聚簇报告.json",
+        "mini_cooper/定制SKU聚簇报告.json",
+        "mini_countryman/定制SKU聚簇报告.json",
+        "prius/定制SKU聚簇报告.json",
+        "subaru_forester/定制SKU聚簇报告.json",
+        "ford_f150_supercrew_short_bed/定制SKU聚簇报告.json",
+        "ford_f350_crew_short_bed/定制SKU聚簇报告.json",
+        "ford_f250_crew_short_bed/定制SKU聚簇报告.json",
+        "ram1500_crew_short_bed/定制SKU聚簇报告.json",
+        "silverado2500_crew_short_bed/定制SKU聚簇报告.json"
+      ],
+      "pending": [],
+      "public_outputs": [],
+      "release_notes": [
+        "2026-10-10 F0 独立 F 产线按需运行；正式输入只读 A0、02、B0 output。每车型仅交付完整 Markdown（结论、差评、SKU、成员、打样和 Sketchfab 任务），取消 CSV，新增 Prius；历史批次保留原位。",
+        "2026-10-16 新增 MINI Cooper Hatchback 2002–2026 定制分析；区分 2002–2013 早期组与 2014–2026 现代组，补充差评、通用尺码风险和 Sketchfab 参考任务。",
+        "2026-10-19 新增五组皮卡驾驶室/短斗/年份定制分析，保留合并车型来源与年款缺口；仅登记内部 Markdown，不新增 public_outputs。"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "F线按最终交付职责分组，序号0；独立枢纽",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "code-mapping",
+          "file": "尺寸编码映射.json",
+          "required": true
+        },
+        {
+          "node": "negative-review-analysis",
+          "file": "差评分析表.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "ford_mustang/定制SKU聚簇报告.md": "ford_mustang/定制SKU聚簇报告.json",
+        "mercedes_e_class/定制SKU聚簇报告.md": "mercedes_e_class/定制SKU聚簇报告.json",
+        "jeep_gladiator/定制SKU聚簇报告.md": "jeep_gladiator/定制SKU聚簇报告.json",
+        "kia_forte/定制SKU聚簇报告.md": "kia_forte/定制SKU聚簇报告.json",
+        "kia_soul/定制SKU聚簇报告.md": "kia_soul/定制SKU聚簇报告.json",
+        "mini_cooper/定制SKU聚簇报告.md": "mini_cooper/定制SKU聚簇报告.json",
+        "mini_countryman/定制SKU聚簇报告.md": "mini_countryman/定制SKU聚簇报告.json",
+        "prius/定制SKU聚簇报告.md": "prius/定制SKU聚簇报告.json",
+        "subaru_forester/定制SKU聚簇报告.md": "subaru_forester/定制SKU聚簇报告.json",
+        "ford_f150_supercrew_short_bed/定制SKU聚簇报告.md": "ford_f150_supercrew_short_bed/定制SKU聚簇报告.json",
+        "ford_f350_crew_short_bed/定制SKU聚簇报告.md": "ford_f350_crew_short_bed/定制SKU聚簇报告.json",
+        "ford_f250_crew_short_bed/定制SKU聚簇报告.md": "ford_f250_crew_short_bed/定制SKU聚簇报告.json",
+        "ram1500_crew_short_bed/定制SKU聚簇报告.md": "ram1500_crew_short_bed/定制SKU聚簇报告.json",
+        "silverado2500_crew_short_bed/定制SKU聚簇报告.md": "silverado2500_crew_short_bed/定制SKU聚簇报告.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/run.py"
+      ]
+    },
+    {
+      "id": "representative-model",
+      "path": "nodes/C1.车型代表分析",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node representative-model"
+      ],
+      "tests": "tests",
+      "layer": 6,
+      "line": "C",
+      "index": 1,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "size-compression"
+      ],
+      "outputs": [
+        "代表车型.json",
+        "代表车型.tsv.json",
+        "代表车型报告.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "代表车型.json"
+      ],
+      "release_notes": [
+        "2026-09-27 候选来源改为 A2 US 压缩尺码表，按 BACKSIZE 分组；A0 US 全量表仅用于为压缩车型簇补齐尺寸、销量和 DIMENSION-ID，稳定输出接口不变",
+        "2026-09-28 A0 全量表 销量合计 更名为 尺寸组销量，代表车型排序与销量列改读该列，结果不变",
+        "2026-09-28 A0 全量表不再提供 等效长：代表车型打分去掉周长项（长度/销量/年份保持原 0.30/0.20/0.20 相对权重），代表车型.csv 删除 参考半周长 列",
+        "2026-10-09 候选来源随目录改名改读 A1.压缩尺寸信息/output/US/压缩尺码表.csv（原 A2）；代表车型.csv/.tsv 逐字节不变，报告仅来源路径一行变化"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "C线按最终交付职责分组，序号1；线内顺序大于同线上游",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_HNT.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM_拆分.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/TRIM/TRIM适配器.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "US/压缩尺码表.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "US/压缩尺码表_皮卡.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "HNT/压缩尺码表.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "HNT/压缩尺码表_皮卡.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "TM/压缩尺码表.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "TM/压缩尺码表_皮卡.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "TM_拆分/压缩尺码表.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "TM_拆分/压缩尺码表_皮卡.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "EU/压缩尺码表.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "EU/压缩尺码表_皮卡.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "RU/压缩尺码表.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "RU/压缩尺码表_皮卡.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/尺码规则.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺货架.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/新旧尺码对应.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码规则.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码规则.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "US/压缩来源.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "HNT/压缩来源.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "TM/压缩来源.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "TM_拆分/压缩来源.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "EU/压缩来源.json",
+          "required": true
+        },
+        {
+          "node": "size-compression",
+          "file": "RU/压缩来源.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "代表车型.csv": "代表车型.json",
+        "代表车型.tsv": "代表车型.tsv.json",
+        "代表车型报告.md": "代表车型报告.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/build_size_representatives.py"
+      ]
+    },
+    {
+      "id": "sku-clustering",
+      "path": "nodes/D1.发货评估",
+      "code_dir": "code",
+      "run": [
+        "python ../../scripts/run_json_node.py --node sku-clustering"
+      ],
+      "tests": "tests",
+      "layer": 5,
+      "line": "D",
+      "index": 1,
+      "role": "upstream",
+      "upstream": [
+        "size-calculation",
+        "negative-review-analysis",
+        "sales-estimation"
+      ],
+      "outputs": [
+        "全量车型发货评估明细.json",
+        "发货评估身份映射.json",
+        "W型车发货评估.json",
+        "皮卡发货评估.json",
+        "普通车发货评估.json",
+        "灰度匹配审核.json"
+      ],
+      "pending": [],
+      "public_outputs": [],
+      "identity_coverage": [
+        {
+          "output": "发货评估身份映射.json",
+          "upstream": "size-calculation",
+          "file": "US/全量/全量表.json"
+        }
+      ],
+      "release_notes": [
+        "2026-09-27 W型车 聚类代码由 artifacts/W型车/run_cluster.py 移至 src/w_cluster.py，读 A0 US 全量表、写本节点 artifacts；目标尺码移至 data/W型车目标尺码.json。现值为旧尺码命名，按现行 A0 新命名命中 0 行（仅 Bel Air 专用规则命中），待确认新旧尺码对应后登记 run 与 output/W型车",
+        "2026-10-23 节点标题由 D1.聚类SKU 改为 D1.发货评估；正式运行覆盖 A0 US 全量表全部 DIMENSION-ID，按自动尺码 4* 的 W型车、皮卡、普通车分别灰度聚合并做市场潜力排序，不计算发货量；接入 B0 差评分析，输出精确/模糊匹配、差评数、原因和备注",
+        "2026-10-23 精简业务输出字段：移除 DIMENSION-ID，差评模糊与推理依据合并进差评备注，非皮卡分类表移除 CAB/BED；新增内部身份映射表承接上游身份",
+        "2026-10-23 正式业务输出改为 SKU 粒度：以 MAKE+MODEL+连续 YEAR 年份区间+供货尺码为组合主键，版本、结构、CAB、BED仅作汇总核对字段；全量车型发货评估明细改为全类别 SKU 主表",
+        "2026-10-23 参考 global/定制预定车型.csv 在本节点 data/ 维护正式清单，按规范化 MAKE+MODEL 为 SKU 增加定制标记；清单尾部的门数、代际等作为细分说明",
+        "2026-10-23 精简差评备注：移除上游匹配与语义归并流水账，保留业务分析；模糊原因改为短标签，推理只保留结论与来源 SKU",
+        "2026-10-23 按业务查看顺序重排 SKU 输出字段，并移除未列入交付口径的 SHAPE；非皮卡分类表继续省略 CAB/BED",
+        "2026-10-23 移除业务表和身份映射中的自生成哈希 SKU 字段，改用 MAKE+MODEL+YEAR+供货尺码自然主键；差评标记改为尺寸、质量、无三类，尺寸类原因优先",
+        "2026-10-23 调整业务表前置字段顺序为 MAKE、MODEL、版本、CAB、BED、YEAR、结构、评估类别、定制标记"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "D线按最终交付职责分组，序号1；线内顺序大于同线上游",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/尺码规则.json",
+          "required": true
+        },
+        {
+          "node": "negative-review-analysis",
+          "file": "差评分析表.json",
+          "required": true
+        },
+        {
+          "node": "sales-estimation",
+          "file": "积加销量.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "全量车型发货评估明细.csv": "全量车型发货评估明细.json",
+        "发货评估身份映射.csv": "发货评估身份映射.json",
+        "W型车发货评估.csv": "W型车发货评估.json",
+        "皮卡发货评估.csv": "皮卡发货评估.json",
+        "普通车发货评估.csv": "普通车发货评估.json",
+        "灰度匹配审核.csv": "灰度匹配审核.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python code/build_delivery_evaluation.py"
+      ]
+    },
+    {
+      "id": "link-analysis-pickup",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "code_dir": "scripts",
+      "run": [
+        "python ../../../../scripts/run_json_node.py --node link-analysis-pickup"
+      ],
+      "tests": "tests",
+      "layer": 5,
+      "line": "D",
+      "index": 2,
+      "role": "final",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [
+        "链接字段审核.json",
+        "上架链接明细.json",
+        "发货分配核对.json",
+        "SKU发货数量.json",
+        "链接分析报告.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "链接字段审核.json",
+        "上架链接明细.json",
+        "发货分配核对.json",
+        "SKU发货数量.json"
+      ],
+      "release_notes": [
+        "2026-10-11 皮卡作为 D2 下的独立业务子项目：审核 发货单明细.xlsx 的既成发货事实，逐行验证 CUSUMER_NAME、SIZE_NAME、适配车型并反查工作簿内嵌 ref_cluster_detail；输出字段审核、上架链接明细、发货分配核对和报告",
+        "2026-10-11 SKU发货数量.csv 以确认 SKU 为既成发货唯一键，合计 801，不向 108 条展示链接重新摊分",
+        "2026-10-19 在 pipeline.json 正式登记为节点（原 D2.链接分析 根节点 0 交付、子项目自带 manifest 不在总登记内）：run.py 移入 scripts/，发货单明细.xlsx 由 D2.链接分析/data/ 移入本节点 data/；manifest 改由 publish_release.py 生成，NAS sku_cluster/皮卡 改由 publish_public.py 按 public_outputs 发布；灰区研究脚本移入 research/（读取 D1 历史 artifacts，不属于正式运行）",
+        "2026-10-28 同步实际子项目目录为 nodes/D2.链接分析/nodes/皮卡；标题年份与事实年份分离，TITLE_YEAR 对不超过 3 年且无同车型/CAB/货斗事实占用的空档做合理扩张"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "D2链接分析业务容器下的独立车型分支；使用容器D2前缀，实际层数由自身输入计算",
+      "parent": "link-analysis",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "链接字段审核.csv": "链接字段审核.json",
+        "上架链接明细.csv": "上架链接明细.json",
+        "发货分配核对.csv": "发货分配核对.json",
+        "SKU发货数量.csv": "SKU发货数量.json",
+        "链接分析报告.md": "链接分析报告.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python scripts/run.py"
+      ]
+    },
+    {
+      "id": "link-analysis",
+      "path": "nodes/D2.链接分析",
+      "code_dir": [
+        "sku_shipment_analysis"
+      ],
+      "run": [],
+      "tests": [
+        "sku_shipment_analysis/tests"
+      ],
+      "layer": 0,
+      "line": "D",
+      "index": 2,
+      "role": "final",
+      "upstream": [],
+      "outputs": [],
+      "pending": [],
+      "public_outputs": [],
+      "release_notes": [
+        "2026-09-27 W型车/run.py 改为只读 D1.聚类SKU/output/W型车，不再调用 D1 代码或写入 D1 artifacts；皮卡/run.py（依赖从未入库的 D1 皮卡代码并读 NAS）归档至 archive/皮卡/",
+        "2026-10-11 皮卡/run.py 改为审核 data/发货单明细.xlsx 的既成发货事实：逐行验证 CUSUMER_NAME、SIZE_NAME、适配车型并反查工作簿内嵌 ref_cluster_detail；输出字段审核、发货分配核对和报告。",
+        "2026-10-11 链接字段规则改为适配车型不含年份，年份单独写入适配年份；皮卡新增上架链接明细.csv，共享引擎 listing_detail.csv 同步拆分。",
+        "2026-10-11 皮卡作为 D2 下的独立业务子项目：运行批次、规则和稳定输出分别归入 皮卡/artifacts、皮卡/data、皮卡/output；CSV 发布到 NAS public/sku_cluster/皮卡。",
+        "2026-10-11 新增 SKU发货数量.csv：以 CLUSTER_ID 为既成发货 SKU 唯一键，保留 102 条正向分配及合计 801，不向 108 条展示链接重新摊分。",
+        "2026-10-19 皮卡子项目登记为独立节点 link-analysis-pickup（目录 D2.链接分析/皮卡）：其运行、测试、交付与对外发布不再由本节点承载；发货单明细.xlsx 移入 皮卡/data/。本节点作为 D2 业务容器保留 W型车、通用发货分析（sku_shipment_analysis）及待接入的 发货单.csv，并继续维护 pipeline.json",
+        "2026-10-21 全部节点目录迁入仓库 nodes/（含历史目录 B2.定制分析）：pipeline.json 各节点 path 改为 nodes/<节点>；节点代码的仓库根改为 nodes/ 上一级，引用兄弟节点经 nodes/；历史 manifest/run.json 旧路径由 lib/node_paths.py 读取时规范，不回写"
+      ],
+      "kind": "container",
+      "lifecycle": "active",
+      "naming_basis": "D线按最终交付职责分组，序号2；线内顺序大于同线上游",
+      "inputs": [],
+      "interface_files": {},
+      "html_output": "结果.html",
+      "engine_run": []
+    },
+    {
+      "id": "size-analysis",
+      "path": "nodes/E0.尺寸分析",
+      "code_dir": "src",
+      "run": [
+        "python ../../scripts/run_json_node.py --node size-analysis"
+      ],
+      "tests": "tests",
+      "layer": 5,
+      "line": "E",
+      "index": 0,
+      "role": "final",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [
+        "尺码宽高统计.json",
+        "尺码宽高极值车型.json",
+        "尺码尺寸异常.json"
+      ],
+      "pending": [],
+      "public_outputs": [
+        "尺码宽高统计.json",
+        "尺码宽高极值车型.json",
+        "尺码尺寸异常.json"
+      ],
+      "release_notes": [
+        "2026-09-22 由 full-table-summary（A1.全量汇总）与 adapter-trim（B1.适配器-Trim生成）合并为单一节点 A1.全量生成；历史 artifact 分别归档在 artifacts/legacy-full-table-summary/ 与 artifacts/legacy-adapter-trim/ 下，未做内容改动",
+        "US 已使用正式发布的原子销量重算；RU 使用 Auto.ru 在售样本代理销量并以覆盖候选补齐车形；EU 已覆盖全尺寸库的车形与尺码候选，但销量为零占位，均需后续质量研究复核（继承自 A0 口径限制，汇总表必须保留）",
+        "2026-09-25 整理 output：新增分区域全量表 全量生成_US/EU/RU.csv（= A0 全量表_<区域> 原行序原列 + Trims，EU/RU 的 Trims 为空），作为 A2.压缩尺寸信息 与网站流水线（pipeline_carstable_to_webapp/input）的区域输入；全量表_汇总.csv 不变",
+        "2026-09-25 新增店铺产线 全量生成_HNT/TM/TM_拆分.csv：店铺取自 A0 店铺货架.csv，行来自 A0 店铺全量_<店铺>.csv（US 行、店铺发货尺码）+ Trims；A 线共 6 条产线（US、HNT、TM、TM_拆分、EU、RU）",
+        "2026-09-27 改为全量表分析节点：只读 A0 US/EU/RU 全量表做宽高统计（尺码宽高统计、尺码宽高极值车型、尺码尺寸异常）；TRIM 匹配、TRIM适配器 与 data/ TRIM 资料迁至 A0.尺码计算，不再输出 全量表_汇总、全量生成_<产线>、尺寸TRIM映射",
+        "2026-10-09 由 A1.全量生成（id full-generation）移出 A 线，改为 E0.尺寸分析（id size-analysis），按需运行，A 线发布不再自动刷新；交付物与算法不变",
+        "2026-10-09 运行批次改用 lib/artifact_batch.py：A0 全量表只记引用不复制，规则记 sha256 + git commit；批次约 8 MB → 0.7 MB，输出不变"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "E线按最终交付职责分组，序号0；独立枢纽",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_HNT.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM_拆分.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/TRIM/TRIM适配器.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/全量/全量表.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "尺码宽高统计.csv": "尺码宽高统计.json",
+        "尺码宽高极值车型.csv": "尺码宽高极值车型.json",
+        "尺码尺寸异常.csv": "尺码尺寸异常.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python src/build_dimension_statistics.py"
+      ]
+    },
+    {
+      "id": "dimension-iteration",
+      "path": "nodes/X1.尺寸迭代",
+      "code_dir": "src",
+      "run": [],
+      "tests": "tests",
+      "layer": 5,
+      "line": "X",
+      "index": 1,
+      "role": "support",
+      "upstream": [
+        "dimension-library",
+        "shape-classification",
+        "size-calculation"
+      ],
+      "outputs": [],
+      "pending": [
+        "尺寸迭代候选"
+      ],
+      "public_outputs": [],
+      "kind": "node",
+      "lifecycle": "planned",
+      "naming_basis": "X线按最终交付职责分组，序号1；线内顺序大于同线上游",
+      "blockers": [
+        "尚无正式候选交付与运行入口"
+      ],
+      "inputs": [
+        {
+          "node": "dimension-library",
+          "file": "尺寸库.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_US.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "尺寸库_RU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "EU_ID迁移.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_EU.json",
+          "required": true
+        },
+        {
+          "node": "dimension-library",
+          "file": "来源映射_RU.json",
+          "required": true
+        },
+        {
+          "node": "shape-classification",
+          "file": "车形分类.json",
+          "required": true
+        },
+        {
+          "node": "shape-classification",
+          "file": "参考尺寸计算.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_HNT.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM_拆分.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/TRIM/TRIM适配器.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/全量/全量表.json",
+          "required": true
+        }
+      ],
+      "interface_files": {},
+      "html_output": "结果.html",
+      "engine_run": []
+    },
+    {
+      "id": "size-cluster-analysis",
+      "path": "nodes/X2.尺码簇分析",
+      "code_dir": "src",
+      "run": [],
+      "tests": null,
+      "layer": 5,
+      "line": "X",
+      "index": 2,
+      "role": "support",
+      "upstream": [
+        "size-calculation"
+      ],
+      "outputs": [
+        "尺码上限微调分析.json",
+        "边界负面影响及手动调整.json"
+      ],
+      "pending": [],
+      "public_outputs": [],
+      "release_notes": [
+        "2026-09-27 撤下正式 run：analyze_size_clusters.py 基于旧规则表结构（逻辑尺码/内部尺码/档位序号/参考插片上限），原默认输入 source/尺码分析.csv 与 尺码计算/input/尺码匹配规则.csv 早已不存在；数据默认改读 A0 US 全量表，规则须 --rules 显式指定旧结构表。待移植到现行 A0 规则结构后恢复 run"
+      ],
+      "kind": "node",
+      "lifecycle": "legacy",
+      "naming_basis": "X线按最终交付职责分组，序号2；线内顺序大于同线上游",
+      "blockers": [
+        "保留历史分析结果；旧规则结构尚未移植，无可重建入口"
+      ],
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_HNT.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM_拆分.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/TRIM/TRIM适配器.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码匹配报告.json",
+          "required": true
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/全量/全量表.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "尺码上限微调分析.xlsx": "尺码上限微调分析.json",
+        "边界负面影响及手动调整.xlsx": "边界负面影响及手动调整.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": []
+    },
+    {
+      "id": "link-analysis-regular",
+      "path": "nodes/D2.链接分析/nodes/普通",
+      "code_dir": "scripts",
+      "run": [
+        "python ../../../../scripts/run_json_node.py --node link-analysis-regular"
+      ],
+      "tests": "tests",
+      "layer": 6,
+      "line": "D",
+      "index": 2,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "sku-clustering"
+      ],
+      "outputs": [
+        "上架链接明细.json",
+        "链接适配依据.json",
+        "尺码发货核对.json",
+        "待确认清单.json",
+        "链接分析报告.json"
+      ],
+      "pending": [],
+      "public_outputs": [],
+      "release_notes": [
+        "2026-10-23 普通车第一批既成发货分析，保留1000件配额，按D1身份映射核对A0，定制尺码缺失列为待确认，未对外发布。"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "D2链接分析业务容器下的独立车型分支；使用容器D2前缀，实际层数由自身输入计算",
+      "parent": "link-analysis",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json",
+          "required": true
+        },
+        {
+          "node": "sku-clustering",
+          "file": "发货评估身份映射.json",
+          "required": true
+        }
+      ],
+      "interface_files": {
+        "上架链接明细.csv": "上架链接明细.json",
+        "链接适配依据.csv": "链接适配依据.json",
+        "尺码发货核对.csv": "尺码发货核对.json",
+        "待确认清单.csv": "待确认清单.json",
+        "链接分析报告.md": "链接分析报告.json"
+      },
+      "html_output": "结果.html",
+      "engine_run": [
+        "python scripts/run.py"
+      ]
+    },
+    {
+      "id": "link-analysis-w",
+      "path": "nodes/D2.链接分析/nodes/W型车",
+      "kind": "node",
+      "lifecycle": "planned",
+      "parent": "link-analysis",
+      "line": "D",
+      "index": 2,
+      "layer": 6,
+      "role": "support",
+      "code_dir": "src",
+      "run": [],
+      "tests": "tests",
+      "upstream": [
+        "sku-clustering"
+      ],
+      "outputs": [],
+      "public_outputs": [],
+      "pending": [
+        "W型车链接与发货核对"
+      ],
+      "blockers": [
+        "D1当前只交付发货评估，未提供旧W型车流程要求的聚类接口"
+      ],
+      "naming_basis": "D2链接分析下W型车分支；待接入，未视为已打通",
+      "inputs": [
+        {
+          "node": "sku-clustering",
+          "file": "W型车/聚类主表.json",
+          "required": true
+        }
+      ],
+      "interface_files": {},
+      "html_output": "结果.html",
+      "engine_run": []
+    }
+  ],
+  "final_products": [
+    {
+      "name": "全量表（US/RU）",
+      "node": "size-calculation",
+      "files": [
+        "US/全量/全量表.json",
+        "RU/全量/全量表.json",
+        "EU/全量/全量表.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "尺码宽高统计",
+      "node": "size-analysis",
+      "files": [
+        "尺码宽高统计.json",
+        "尺码宽高极值车型.json",
+        "尺码尺寸异常.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "TRIM适配器",
+      "node": "size-calculation",
+      "files": [
+        "US/TRIM/TRIM适配器.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "压缩尺码表",
+      "node": "size-compression",
+      "files": [
+        "US/压缩尺码表.json",
+        "US/压缩尺码表_皮卡.json",
+        "US/压缩来源.json",
+        "EU/压缩尺码表.json",
+        "EU/压缩尺码表_皮卡.json",
+        "EU/压缩来源.json",
+        "RU/压缩尺码表.json",
+        "RU/压缩尺码表_皮卡.json",
+        "RU/压缩来源.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "差评分析表",
+      "node": "negative-review-analysis",
+      "files": [
+        "差评分析表.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "定制需求度评分",
+      "node": "compression-scoring",
+      "files": [
+        "定制需求度评分.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "定制SKU分析与Sketchfab参考任务",
+      "node": "custom-analysis",
+      "files": [
+        "ford_mustang/定制SKU聚簇报告.json",
+        "mercedes_e_class/定制SKU聚簇报告.json",
+        "jeep_gladiator/定制SKU聚簇报告.json",
+        "kia_forte/定制SKU聚簇报告.json",
+        "kia_soul/定制SKU聚簇报告.json",
+        "mini_cooper/定制SKU聚簇报告.json",
+        "mini_countryman/定制SKU聚簇报告.json",
+        "prius/定制SKU聚簇报告.json",
+        "subaru_forester/定制SKU聚簇报告.json",
+        "ford_f150_supercrew_short_bed/定制SKU聚簇报告.json",
+        "ford_f350_crew_short_bed/定制SKU聚簇报告.json",
+        "ford_f250_crew_short_bed/定制SKU聚簇报告.json",
+        "ram1500_crew_short_bed/定制SKU聚簇报告.json",
+        "silverado2500_crew_short_bed/定制SKU聚簇报告.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "代表车型报告",
+      "node": "representative-model",
+      "files": [
+        "代表车型报告.json"
+      ],
+      "pending": []
+    },
+    {
+      "name": "发货单",
+      "node": "link-analysis",
+      "files": [],
+      "pending": [
+        "发货单.csv"
+      ]
+    },
+    {
+      "name": "皮卡链接与发货核对",
+      "node": "link-analysis-pickup",
+      "files": [
+        "链接字段审核.json",
+        "上架链接明细.json",
+        "发货分配核对.json",
+        "SKU发货数量.json",
+        "链接分析报告.json"
+      ],
+      "pending": []
+    }
+  ],
+  "status_contract": "根目录 流水线状态.md 由 scripts/publish_release.py 在每次发布后生成，内容完全由 pipeline.json 与各节点 output/manifest.json 推导；临时工作不得修改，scripts/validate_pipeline_structure.py 会校验其与当前发布状态一致。",
+  "lifecycle_contract": "kind=node/container；lifecycle=active/planned/legacy。容器只表达组织归属；planned与legacy不参与生产发布，不冒充已验证链路。inputs登记正式文件依赖；运行记录登记实际使用的输入。",
+  "interface_contract": {
+    "format": "json",
+    "table_schema": "vehicle-pipeline/table-v1",
+    "policy": "节点间正式接口只读写JSON。表格采用columns+rows字符串矩阵；保留空值、顺序、前导零。人工data和外部源文件不迁移。旧计算引擎仅在隔离临时工作区物化CSV，不跨节点读取CSV。",
+    "run": "python scripts/run_nodes.py --nodes <id>"
+  },
+  "html_contract": {
+    "output": "结果.html",
+    "manifest": "html_manifest.json",
+    "build": "python scripts/build_node_html.py",
+    "policy": "所有登记项目交付HTML最终展示，完整内嵌JSON结果并提供CSV导出。artifacts按版本保存HTML快照及必要数据依据；历史批次不改写。容器/待接入/历史页不表示生产已验证。"
+  },
+  "verification_contract": {
+    "engine_tests": "在隔离兼容工作区从当前JSON物化原计算引擎测试输入；不写正式output。",
+    "historical_test_fixtures": [
+      "nodes/D1.发货评估/artifacts/皮卡/output/pickup_cluster_detail.csv"
+    ]
+  }
+}

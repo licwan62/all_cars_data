@@ -1,0 +1,141 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/X2.尺码簇分析/artifacts/2026-11-12_01_json-interface-migration",
+  "version": "20261112_01",
+  "description": "json-interface-migration",
+  "created_at": "2026-11-12T00:10:09+08:00",
+  "finished_at": "2026-11-12T00:10:12+08:00",
+  "command": [
+    "migrate_json_interfaces.py"
+  ],
+  "inputs": [
+    {
+      "file": "nodes/X2.尺码簇分析/output/manifest.json",
+      "artifact_file": "nodes/X2.尺码簇分析/artifacts/2026-11-12_01_json-interface-migration/input/previous-manifest.json",
+      "sha256": "524383e83db3c69ee8889ff6a2f066eeb621737d3b83f628decc21bc3fc60dc4",
+      "copied_because": "nodes/X2.尺码簇分析/output/manifest.json 未登记 manifest.json"
+    },
+    {
+      "node": "size-cluster-analysis",
+      "path": "nodes/X2.尺码簇分析",
+      "version": "20261009_04",
+      "file": "尺码上限微调分析.xlsx",
+      "versioned_file": "尺码上限微调分析-20261009_04.xlsx",
+      "artifact_file": "nodes/X2.尺码簇分析/artifacts/2026-10-09_04_size-cluster-analysis-release/output/尺码上限微调分析-20261009_04.xlsx",
+      "sha256": "f698994d2d7ab006a31c2c67b1fd54b369cdc70ee5ccfa00a3bc2a0f619f9416"
+    },
+    {
+      "node": "size-cluster-analysis",
+      "path": "nodes/X2.尺码簇分析",
+      "version": "20261009_04",
+      "file": "边界负面影响及手动调整.xlsx",
+      "versioned_file": "边界负面影响及手动调整-20261009_04.xlsx",
+      "artifact_file": "nodes/X2.尺码簇分析/artifacts/2026-10-09_04_size-cluster-analysis-release/output/边界负面影响及手动调整-20261009_04.xlsx",
+      "sha256": "9768a2e2b23fb3833646da30e3e4d41872a89066ae69c3432ce1431ee200e981"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "199c25554240469119fb7e3548bb22a5e9bbafa922ba17f31945490b7fda1d2a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "171006e43cdaac2a9d1bd016629bb7d0e9c78450bbcab5926369599432bc59b6"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "0fddff3db6ff4459b6cd45fa656ab4bd9b1db99336050732bdf86481734df45e",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "e5f04a038f0b4547c95806f3bebf4fbaa6c359d3807545a532a6484f9faca8be"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "54ff302c9372f3f27b1870e0252fd83df7bb86b0a855c64ab61aeac2e7d65f8e"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/X2.尺码簇分析/src/analyze_size_clusters.py",
+        "sha256": "c6421b7cd7464849b0d3b38edfda03eda539e9eb3996bae0b832cbcabd641597"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "尺码上限微调分析.json",
+      "versioned_file": "尺码上限微调分析-20261112_01.json",
+      "artifact_file": "nodes/X2.尺码簇分析/artifacts/2026-11-12_01_json-interface-migration/output/尺码上限微调分析-20261112_01.json",
+      "content_reference": true,
+      "sha256": "3edd98c39f155096273f26e10f95fedd1889372a482d4dad5c680a7a9c747cf8",
+      "bytes": 31198,
+      "rows": null
+    },
+    {
+      "file": "边界负面影响及手动调整.json",
+      "versioned_file": "边界负面影响及手动调整-20261112_01.json",
+      "artifact_file": "nodes/X2.尺码簇分析/artifacts/2026-11-12_01_json-interface-migration/output/边界负面影响及手动调整-20261112_01.json",
+      "content_reference": true,
+      "sha256": "f370f51a20871a056a31dd1687351189a4a7ebb03dc0abba3feef18780c24200",
+      "bytes": 107299,
+      "rows": null
+    },
+    {
+      "file": "manifest.json",
+      "versioned_file": "manifest-20261112_01.json",
+      "artifact_file": "nodes/X2.尺码簇分析/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "content_reference": true,
+      "sha256": "9c9f18443cbb64eeec181f2526af3d42411e3f12483af918833a444ecc59bc2b",
+      "bytes": 6216,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "json-format-migration",
+    "data_recomputed": false
+  }
+}

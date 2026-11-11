@@ -24,6 +24,10 @@ def ranges(values):
 
 
 def read(path):
+    if path.suffix == '.json':
+        from json_interface import load_table
+        table = load_table(path)
+        return [dict(zip(table['columns'], row)) for row in table['rows']]
     with path.open(encoding="utf-8-sig", newline="") as stream:
         return list(csv.DictReader(stream))
 
@@ -39,8 +43,8 @@ def audit(root, destination, previous=None):
     if previous:
         previous = previous.resolve()
     node = root / "nodes/01.整理尺寸库"
-    paths = {"dimensions": node / "output/尺寸库_US.csv", "year_reference": node / "data/data_source/trimslate-vehicles.csv",
-             "market_reference": node / "data/data_source/vehicles.csv", "config": node / "data/build_config.json",
+    paths = {"dimensions": root / "json/dimension-library/尺寸库_US.json", "year_reference": root / "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+             "market_reference": root / "nodes/M0.车型年覆盖/data/data_source/vehicles.csv", "config": node / "data/build_config.json",
              "members": node / "data/us/model_members.json"}
     resolution_path = node / "data/us/year_gap_resolutions.json"
     resolutions = {}

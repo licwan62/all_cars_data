@@ -5,3 +5,12 @@
 
 # Historical candidate hashes identify original bytes on every platform.
 **/data/历史导入/** -text
+
+# Evidence manifest records the canonical raw SHA-256 of this text source.
+nodes/01.整理尺寸库/data/data_source/trimslate-vehicles.csv text eol=lf
+
+# Central interfaces, offline HTML and relocated raw evidence retain exact hashes
+# when checked out on either Windows or a cloud Linux worker.
+/json/** -text
+/nodes/**/*.html -text
+/nodes/M0.车型年覆盖/data/data_source/** -text

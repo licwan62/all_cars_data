@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "replacements": [
+    {
+      "scope": {
+        "MAKE": "Ford",
+        "MODEL": "Ranger",
+        "结构": "Pickup",
+        "代际": "gen3"
+      },
+      "year": "1998-2011",
+      "expected": {
+        "Ford Ranger Pickup 1998-2011 Regular 6 US": {
+          "CAB": "Regular",
+          "BED": "6",
+          "YEAR": "1998-2011",
+          "L-IN": "189.4",
+          "W-IN": "69.4",
+          "H-IN": "67.7"
+        },
+        "Ford Ranger Pickup 1998-2011 SuperCab 6 US": {
+          "CAB": "SuperCab",
+          "BED": "6",
+          "YEAR": "1998-2011",
+          "L-IN": "202.9",
+          "W-IN": "69.4",
+          "H-IN": "67.7"
+        },
+        "Ford Ranger Pickup 1998-2011 SuperCab 7 US": {
+          "CAB": "SuperCab",
+          "BED": "7",
+          "YEAR": "1998-2011",
+          "L-IN": "203.6",
+          "W-IN": "69.4",
+          "H-IN": "67.7"
+        }
+      },
+      "verified_configurations": [
+        [
+          "Regular",
+          "6"
+        ],
+        [
+          "Regular",
+          "7"
+        ],
+        [
+          "SuperCab",
+          "6"
+        ]
+      ],
+      "reason": "同一原厂 CAB/BED 身份按美国车型年和代表外廓分段。",
+      "retirement_reason": "原 SuperCab 7 ft 为错误配置；203.6 in 对应 SuperCab 6 ft。停用旧身份；单排 7 ft 按独立原厂证据补录。",
+      "sources": [
+        {
+          "id": "98OG",
+          "year": "1998",
+          "url": "https://kitchen.manualsonline.com/manuals/mfg/ford/1998_ranger.html?p=152",
+          "note": "1998 Ford USA 车主手册 Vehicle Dimensions，SWB/LWB/SuperCab。"
+        },
+        {
+          "id": "99OG",
+          "year": "1999",
+          "url": "https://tv.manualsonline.com/manuals/mfg/ford/1999_ranger.html?p=205",
+          "note": "1999 Ford USA 车主手册印刷页 205。"
+        },
+        {
+          "id": "00OG",
+          "year": "2000",
+          "url": "https://www.therangerstation.com/resources/manuals/2000_ford_ranger_owners_manual.pdf",
+          "note": "2000 Ford USA 车主手册印刷页 215。1998–2000 手册宽度口径未注明，车高取 4x2。"
+        },
+        {
+          "id": "98CAT",
+          "year": "1998",
+          "url": "https://www.therangerstation.com/resources/pdf_documents/1998_ford_ranger_brochure.pdf",
+          "note": "Ford 1998 美国目录 Dimensions，Regular SWB 和 SuperCab 为 71.8 in，Regular LWB 为 83.8 in。"
+        },
+        {
+          "id": "01BB",
+          "year": "2001",
+          "url": "https://www.scribd.com/document/821756756/f-Series-Bblb-2001",
+          "note": "2001 Ford Body Builders Layout Book 印刷页 92–95、98。Styleside LWB 4x2 为 200.7×69.4×64.9 in。"
+        },
+        {
+          "id": "01CAT",
+          "year": "2001",
+          "url": "https://www.auto-brochures.com/makes/Ford/Ranger/Ford_US%20Ranger_2001.pdf",
+          "note": "Ford 2001 Styleside 外部尺寸表，Regular 6 和 SuperCab 6 的 4x2 列。"
+        },
+        {
+          "id": "02CAT",
+          "year": "2002",
+          "url": "https://www.therangerstation.com/resources/pdf_documents/2002_ford_ranger_brochure.pdf",
+          "note": "Ford 2002 Ranger Dimensions，Regular Cab 和 SuperCab 4x2 空车高 64.9、64.8 in，货斗 6/7 与 6 ft。"
+        },
+        {
+          "id": "02PK",
+          "year": "2002",
+          "url": "https://www.fordf150.net/specs/02ranger.php",
+          "note": "Ford Motor Company 2002 press kit 转录，Regular LWB 4x2 车长 200.7 in、最大宽 69.4 in。"
+        },
+        {
+          "id": "03CAT",
+          "year": "2003",
+          "url": "https://www.therangerstation.com/resources/pdf_documents/2003_ford_ranger_brochure.pdf",
+          "note": "Ford 2003 USA 目录 PDF 第 8 页，取 4x2 栏车宽车高和表列整车长。"
+        },
+        {
+          "id": "04CAT",
+          "year": "2004",
+          "url": "https://xr793.com/wp-content/uploads/2024/05/2004-Ford-Ranger-R.pdf",
+          "note": "Ford 2004 USA 目录印刷页 18、PDF 第 12 页，已目视核对；长斗 200.6 in。保留目录车长，部分配置资料给出 199.5 in。",
+          "sha256": "c31f40b97c5630b70924af5d77fceaf15baf531f34f49eafd2e7adc9e3f43862"
+        },
+        {
+          "id": "05CAT",
+          "year": "2005",
+          "url": "https://www.auto-brochures.com/makes/Ford/Ranger/Ford_US%20Ranger_2005.pdf",
+          "note": "Ford 2005 USA 目录 PDF 第 10 页，已目视核对。Regular 4x2 宽写 64.9 in，与同年车型规格冲突。",
+          "sha256": "1c975bd051384669f110fd71d69276455ced1dc71342fcbe8f9dc0ff5dd37e69"
+        },
+        {
+          "id": "05XL",
+          "year": "2005",
+          "url": "https://www.edmunds.com/ford/ranger/2005/regular-cab/st-100457680/features-specs/",
+          "note": "美规 Regular Cab XLT 4x2 长斗的明确不含镜宽度 69.4 in。"
+        },
+        {
+          "id": "05SPEC",
+          "year": "2005",
+          "url": "https://www.cargurus.com/Cars/2005-Ford-Ranger-Trims-c103",
+          "note": "同年 Regular Cab 4x2 6/7 ft 配置规格列 69.4 in；采用明确配置宽度，不采用目录的 64.9 in。"
+        },
+        {
+          "id": "06CAT",
+          "year": "2006",
+          "url": "https://www.therangerstation.com/resources/pdf_documents/2006_ford_ranger_brochure.pdf",
+          "note": "Ford 2006 USA 目录 PDF 第 7 页。SuperCab 6 长 203.7 in，保留目录原值。"
+        },
+        {
+          "id": "06OG",
+          "year": "2006",
+          "url": "https://www.fordservicecontent.com/Ford_Content/catalog/owner_guides/06ranog1e.pdf",
+          "note": "Ford 2006 USA 车主手册印刷页 243，Regular Cab LWB 总宽 69.4 in。"
+        },
+        {
+          "id": "07CAT",
+          "year": "2007",
+          "url": "https://xr793.com/wp-content/uploads/2019/05/2007-Ford-Ranger.pdf",
+          "note": "Ford 2007 USA 目录 Dimensions。SuperCab 6 目录 203.7 in，另有 Ford 新闻规格 203.6 in。"
+        },
+        {
+          "id": "07PK",
+          "year": "2007",
+          "url": "https://www.blueovaltech.com/2007/2007-ford-ranger-specifications.php",
+          "note": "Ford 2007 新闻规格转录：Styleside Regular LWB 4x2 宽 69.4 in（页面宽高行标签对调，以目录/车型规格交叉识别）。"
+        },
+        {
+          "id": "08CAT",
+          "year": "2008",
+          "url": "https://www.therangerstation.com/resources/pdf_documents/2008_ford_ranger_brochure.pdf",
+          "note": "Ford 2008 USA Dimensions。Regular 6 的 4x4 长 188.9 in；SuperCab 6 的 4x2/4x4 都是 203.6 in。"
+        },
+        {
+          "id": "08BB",
+          "year": "2008",
+          "url": "https://cdn3.race-dezert.com/forum/data/attachment-files/2009/02/239832.2008_Ford_Ranger_Dims.pdf",
+          "note": "Ford 2008 Body Builders Layout Book 印刷页 70–73，Regular LWB 4x2 W103 69.4 in，不含后视镜。"
+        },
+        {
+          "id": "09CAT",
+          "year": "2009",
+          "url": "https://manuals.plus/m/15cf1b4233b61823b96887767a748948657c8d644b4da5356aa8bed2a6264c08",
+          "note": "Ford 2009 USA 目录转录，长斗可配 XL、XLT Regular Cab。"
+        },
+        {
+          "id": "09PK",
+          "year": "2009",
+          "url": "https://www.blueovaltech.com/2009/2009-ford-ranger-dimensions.php",
+          "note": "2009 美国车型规格转录，区分 69.3 in 短斗与 69.4 in 长斗。"
+        },
+        {
+          "id": "10CAT",
+          "year": "2010",
+          "url": "https://www.therangerstation.com/resources/pdf_documents/2010_ford_ranger_brochure.pdf",
+          "note": "Ford 2010 USA 零售目录 PDF 第 9 页，6 ft 车型尺寸与明确不含镜宽度。"
+        },
+        {
+          "id": "10PK",
+          "year": "2010",
+          "url": "https://www.ford-trucks.com/specs/2010-2/2010-ranger-specifications/",
+          "note": "2010 技术规格转录，列 201.4×69.4 in Regular 7 ft；完整页面访问受限，以可读 2010 XL Fleet 规格复核。"
+        },
+        {
+          "id": "10XL",
+          "year": "2010",
+          "url": "https://www.edmunds.com/ford/ranger/2010/st-101193309/features-specs/",
+          "note": "2010 美国 XL Fleet 4x2，货斗 84.6 in，外廓 201.4×69.4×66.2 in，宽不含镜。"
+        },
+        {
+          "id": "11PK",
+          "year": "2011",
+          "url": "https://fr.scribd.com/document/46682611/2011-Ranger-Specs",
+          "note": "Ford 2011 技术规格，Regular 7 ft 标为 fleet only，外廓 201.4×69.4×66.2 in。"
+        },
+        {
+          "id": "11CAT",
+          "year": "2011",
+          "url": "https://www.therangerstation.com/resources/pdf_documents/2011_ford_ranger.pdf",
+          "note": "Ford 2011 USA 零售目录仅列 6 ft，4x2/4x4 分列车宽车高。"
+        }
+      ],
+      "segments": [
+        {
+          "cab": "Regular",
+          "bed": "6",
+          "year": "1998-2000",
+          "dimensions": [
+            "187.5",
+            "70.3",
+            "62.0"
+          ],
+          "sources": [
+            "98OG",
+            "99OG",
+            "00OG",
+            "98CAT"
+          ],
+          "note": "美规车主手册外廓，车高取 4x2，宽度未明确后视镜口径"
+        },
+        {
+          "cab": "Regular",
+          "bed": "6",
+          "year": "2001-2003",
+          "dimensions": [
+            "187.5",
+            "69.4",
+            "64.9"
+          ],
+          "sources": [
+            "01BB",
+            "01CAT",
+            "02CAT",
+            "02PK",
+            "03CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "6",
+          "year": "2004",
+          "dimensions": [
+            "188.6",
+            "69.4",
+            "64.9"
+          ],
+          "sources": [
+            "04CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "6",
+          "year": "2005",
+          "dimensions": [
+            "188.5",
+            "69.4",
+            "66.2"
+          ],
+          "sources": [
+            "05CAT",
+            "05XL",
+            "05SPEC"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "6",
+          "year": "2006-2011",
+          "dimensions": [
+            "189.4",
+            "69.3",
+            "66.2"
+          ],
+          "sources": [
+            "06CAT",
+            "06OG",
+            "07CAT",
+            "07PK",
+            "08CAT",
+            "08BB",
+            "09CAT",
+            "09PK",
+            "10CAT",
+            "10PK",
+            "10XL",
+            "11PK",
+            "11CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "1998-2000",
+          "dimensions": [
+            "200.5",
+            "70.3",
+            "62.4"
+          ],
+          "sources": [
+            "98OG",
+            "99OG",
+            "00OG",
+            "98CAT"
+          ],
+          "note": "美规车主手册外廓，车高取 4x2，宽度未明确后视镜口径"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "2001-2002",
+          "dimensions": [
+            "200.7",
+            "69.4",
+            "64.9"
+          ],
+          "sources": [
+            "01BB",
+            "01CAT",
+            "02CAT",
+            "02PK"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "2003",
+          "dimensions": [
+            "199.5",
+            "69.4",
+            "64.9"
+          ],
+          "sources": [
+            "03CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "2004",
+          "dimensions": [
+            "200.6",
+            "69.4",
+            "64.9"
+          ],
+          "sources": [
+            "04CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "2005",
+          "dimensions": [
+            "200.5",
+            "69.4",
+            "66.2"
+          ],
+          "sources": [
+            "05CAT",
+            "05XL",
+            "05SPEC"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "2006-2007",
+          "dimensions": [
+            "198.4",
+            "69.4",
+            "66.2"
+          ],
+          "sources": [
+            "06CAT",
+            "06OG",
+            "07CAT",
+            "07PK"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "2008-2009",
+          "dimensions": [
+            "201.4",
+            "69.4",
+            "66.2"
+          ],
+          "sources": [
+            "08CAT",
+            "08BB",
+            "09CAT",
+            "09PK"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "Regular",
+          "bed": "7",
+          "year": "2010-2011",
+          "dimensions": [
+            "201.4",
+            "69.4",
+            "66.2"
+          ],
+          "sources": [
+            "10CAT",
+            "10PK",
+            "10XL",
+            "11PK",
+            "11CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸，车队配置"
+        },
+        {
+          "cab": "SuperCab",
+          "bed": "6",
+          "year": "1998-2000",
+          "dimensions": [
+            "202.9",
+            "70.3",
+            "62.4"
+          ],
+          "sources": [
+            "98OG",
+            "99OG",
+            "00OG",
+            "98CAT"
+          ],
+          "note": "美规车主手册外廓，车高取 4x2，宽度未明确后视镜口径"
+        },
+        {
+          "cab": "SuperCab",
+          "bed": "6",
+          "year": "2001-2002",
+          "dimensions": [
+            "202.9",
+            "69.4",
+            "64.8"
+          ],
+          "sources": [
+            "01BB",
+            "01CAT",
+            "02CAT",
+            "02PK"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "SuperCab",
+          "bed": "6",
+          "year": "2003",
+          "dimensions": [
+            "201.7",
+            "69.4",
+            "64.8"
+          ],
+          "sources": [
+            "03CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "SuperCab",
+          "bed": "6",
+          "year": "2004",
+          "dimensions": [
+            "202.9",
+            "69.4",
+            "64.8"
+          ],
+          "sources": [
+            "04CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "SuperCab",
+          "bed": "6",
+          "year": "2005",
+          "dimensions": [
+            "202.7",
+            "69.4",
+            "66.3"
+          ],
+          "sources": [
+            "05CAT",
+            "05XL",
+            "05SPEC"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "SuperCab",
+          "bed": "6",
+          "year": "2006-2007",
+          "dimensions": [
+            "203.7",
+            "69.4",
+            "66.3"
+          ],
+          "sources": [
+            "06CAT",
+            "06OG",
+            "07CAT",
+            "07PK"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        },
+        {
+          "cab": "SuperCab",
+          "bed": "6",
+          "year": "2008-2011",
+          "dimensions": [
+            "203.6",
+            "69.4",
+            "66.3"
+          ],
+          "sources": [
+            "08CAT",
+            "08BB",
+            "09CAT",
+            "09PK",
+            "10CAT",
+            "10PK",
+            "10XL",
+            "11PK",
+            "11CAT"
+          ],
+          "note": "美规 Styleside 4x2 代表尺寸"
+        }
+      ]
+    }
+  ]
+}

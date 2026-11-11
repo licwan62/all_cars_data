@@ -24,6 +24,7 @@ from datetime import datetime
 from pathlib import Path
 
 from artifact_refs import referenced_batches, sha256
+from node_paths import repository_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDE_DIR_NAMES = {".bak", "node_modules", "__pycache__", ".git"}
@@ -176,7 +177,7 @@ def main(argv: list[str] | None = None) -> int:
         total += record["bytes"]
         batch_record = {"batch": src.relative_to(root).as_posix(), "archive_path": str(dest), **record, "local_deleted": False}
         checkpoint = {**entry, "batches": [batch_record]}
-        append_index(root / INDEX_NAME, checkpoint)
+        append_index(repository_metadata(root, INDEX_NAME), checkpoint)
         append_index(dest_root / DEST_INDEX_NAME, checkpoint)
         if file_hashes(src) != record["sha256"]:
             raise ValueError("源批次在归档中变化，保留本地")
@@ -184,7 +185,7 @@ def main(argv: list[str] | None = None) -> int:
         entry["batches"].append({**batch_record, "local_deleted": True})
 
     if not args.dry_run:
-        append_index(root / INDEX_NAME, entry)
+        append_index(repository_metadata(root, INDEX_NAME), entry)
         append_index(dest_root / DEST_INDEX_NAME, entry)
     print(f"{'将归档' if args.dry_run else '已归档'} {len(moves)} 个批次，{total / 2**20:.0f} MB → {dest_root}")
     return 0

@@ -1,0 +1,122 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/X1.尺寸迭代/artifacts/2026-11-12_03_html-result",
+  "version": "20261112_03",
+  "description": "html-result",
+  "created_at": "2026-11-12T00:43:25+08:00",
+  "finished_at": "2026-11-12T00:43:26+08:00",
+  "command": [
+    "organize_project_layout.py",
+    "--apply"
+  ],
+  "inputs": [
+    {
+      "file": "json/dimension-iteration/manifest.json",
+      "artifact_file": "nodes/X1.尺寸迭代/artifacts/2026-11-12_01_html-result/input/data-manifest.json",
+      "sha256": "ff24b67fb4716c81e15c8da75d9411f89e4f9f8141cd336534b3c2c16ebf0d24",
+      "copied_because": "json/dimension-iteration/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ec247d595f72a9eba57c4540c204538f55d4fb5f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/artifact_batch.py"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/content_store.py"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/code/lib/json_interface.py"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "649ca37ad026fd06eb2440b986f5f872ca6c8d16b86b2f349ea1c097fae003db",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/node_paths.py"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84",
+        "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_06_html-result/code/lib/pipeline_contract.py"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/X1.尺寸迭代/src/finalize_jeep_wrangler_release.py",
+        "sha256": "eaa550af3e4b9f9df616f8e8b6e02fa68bfe5a5768ef1b6764cd4acf8d770a1e"
+      },
+      {
+        "file": "nodes/X1.尺寸迭代/src/run_iteration.py",
+        "sha256": "2a8d0475885ed41e4922626af0d3a9c7ab6493438f7718efdd88689eeb0ed99b"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "尺寸迭代工作台.html",
+      "versioned_file": "尺寸迭代工作台-20261112_03.html",
+      "artifact_file": "nodes/X1.尺寸迭代/artifacts/2026-11-12_03_html-result/output/尺寸迭代工作台-20261112_03.html",
+      "content_reference": true,
+      "sha256": "db65d00b9d98eb5fb267c64d8fe0cd0de77a8fc40b722c4b036a05d775eee132",
+      "bytes": 28669,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_03.json",
+      "artifact_file": "nodes/X1.尺寸迭代/artifacts/2026-11-12_03_html-result/output/html_manifest-20261112_03.json",
+      "content_reference": true,
+      "sha256": "e1fda8d5a8b845a1d3463dca818fc4640089fc358843c9ac3f53555ac5612b21",
+      "bytes": 820,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}

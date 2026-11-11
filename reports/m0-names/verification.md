@@ -1,0 +1,94 @@
+# 流水线打通验证
+
+| 节点 | 状态 | 测试 | 重建 |
+| --- | --- | --- | --- |
+| nodes/00.自动化尺寸抓取器 | OK | — | — |
+| nodes/01.整理尺寸库 | OK | — | — |
+| nodes/02.分类结构审核 | OK | — | — |
+| nodes/02.销量评估 | OK | — | — |
+| nodes/02.代码映射 | OK | — | — |
+| nodes/03.车形分类核定 | OK | — | — |
+| nodes/A0.尺码计算 | OK | — | — |
+| nodes/A1.压缩尺寸信息 | OK | — | — |
+| nodes/B0.差评分析 | OK | — | — |
+| nodes/B1.压缩定制评分 | OK | — | — |
+| nodes/F0.定制分析 | OK | — | — |
+| nodes/C1.车型代表分析 | OK | — | — |
+| nodes/D1.发货评估 | OK | — | — |
+| nodes/D2.链接分析/nodes/皮卡 | OK | — | — |
+| nodes/D2.链接分析 | 业务容器 | — | — |
+| nodes/E0.尺寸分析 | OK | — | — |
+| nodes/X1.尺寸迭代 | 待接入 | — | — |
+| nodes/X2.尺码簇分析 | 历史保留 | — | — |
+| nodes/D2.链接分析/nodes/普通 | OK | — | — |
+| nodes/D2.链接分析/nodes/W型车 | 待接入 | — | — |
+| nodes/M0.车型年覆盖 | OK | — | 一致 |
+
+仓库级测试 `tests/`：未运行
+
+## 节点问题
+
+### nodes/03.车形分类核定
+- 说明：上游 dimension-library 的使用版本未经运行记录核实（发布时版本）
+
+### nodes/B1.压缩定制评分
+- 说明：按需待刷新：上游 nodes/A0.尺码计算 已变化（记录 20261101_07，当前 20261112_01）：US/全量/全量表.csv
+
+### nodes/F0.定制分析
+- 说明：按需待刷新：上游 nodes/A0.尺码计算 已变化（记录 20261101_07，当前 20261112_01）：US/全量/全量表.csv
+- 说明：按需待刷新：上游 nodes/02.代码映射 已变化（记录 20261019_02，当前 20261112_01）：尺寸编码映射.csv
+
+### nodes/C1.车型代表分析
+- 说明：按需待刷新：上游 nodes/A0.尺码计算 已变化（记录 20261101_07，当前 20261112_01）：US/全量/全量表.csv
+- 说明：按需待刷新：上游 nodes/A1.压缩尺寸信息 已变化（记录 20261101_03，当前 20261112_01）：US/压缩尺码表.csv
+
+### nodes/D1.发货评估
+- 说明：按需待刷新：上游 nodes/A0.尺码计算 已变化（记录 20261101_07，当前 20261112_01）：US/全量/全量表.csv
+- 说明：按需待刷新：上游 nodes/02.销量评估 已变化（记录 20261101_04，当前 20261112_01）：积加销量.csv
+- 说明：按需待刷新：身份未承接：发货评估身份映射.json 未完整承接 nodes/A0.尺码计算/output/US/全量/全量表.json：缺 1972 个上游当前身份（如 AMC Alliance Sedan 1983 US；AMC Alliance Sedan 1984 US；AMC Alliance Sedan 1985 US；AMC Alliance Sedan 1986 US；AMC Alliance Sedan 1987 US），保留 3 个上游已不存在的身份（如 Ford Ranger Pickup 1998-2011 Regular 6 US；Ford Ranger Pickup 1998-2011 SuperCab 6 US；Ford Ranger Pickup 1998-2011 SuperCab 7 US）
+
+### nodes/D2.链接分析/nodes/皮卡
+- 说明：按需待刷新：上游 nodes/A0.尺码计算 已变化（记录 20261101_07，当前 20261112_01）：US/全量/全量表.csv
+
+### nodes/D2.链接分析
+- 提示：代码引用了未声明为上游的节点 nodes/D1.发货评估（sku_shipment_analysis/build_merged_clusters.py, sku_shipment_analysis/main.py）
+- 说明：无登记交付（pending：无），不代表交付已验证
+
+### nodes/E0.尺寸分析
+- 说明：按需待刷新：上游 nodes/A0.尺码计算 已变化（记录 20261101_07，当前 20261112_01）：US/全量/全量表.csv
+
+### nodes/X1.尺寸迭代
+- 说明：上游 dimension-library、shape-classification、size-calculation 的使用版本未经运行记录核实（发布时版本）
+- 说明：无登记交付（pending：尺寸迭代候选），不代表交付已验证
+
+### nodes/X2.尺码簇分析
+- 说明：上游 size-calculation 的使用版本未经运行记录核实（发布时版本）
+
+### nodes/D2.链接分析/nodes/普通
+- 说明：按需待刷新：上游 nodes/A0.尺码计算 已变化（记录 20261101_07，当前 20261112_01）：US/全量/全量表.csv
+
+### nodes/D2.链接分析/nodes/W型车
+- 提示：代码引用了未声明为上游的节点 nodes/D2.链接分析（src/run.py）
+- 提示：代码引用了未声明为上游的节点 nodes/A0.尺码计算（src/rename_to_new_size_codes.py）
+- 提示：引用的输入路径不存在：src/add_custom_skus_to_compact_release.py: 0915.1-tolerance-550
+- 提示：引用的输入路径不存在：src/add_custom_skus_to_compact_release.py: 0915.2-previous-shrink-current-sizes
+- 提示：引用的输入路径不存在：src/add_custom_skus_to_compact_release.py: 0915.3-compact-plus-custom-skus
+- 说明：无登记交付（pending：W型车链接与发货核对），不代表交付已验证
+
+
+## M0 名称映射专项验收
+
+- M0 单元测试 17 项、仓库测试 107 项通过。
+- M0 fresh 重建的 12 份 JSON 逐字节一致；21 个项目 HTML 校验通过。
+- 浏览器 12 个视图、标准名搜索、名称与年份缺口分列、CSV 导出、固定分母、单行表格、手机布局与历史 HTML 快照验证通过。
+- 00/01 共 68 份规则及当前接口的目录清单和 SHA256 与任务开始时完全相同。
+- 原参考名录、MMY 全集、逐条来源及来源统计与首次 M0 运行字节完全相同。
+- 全量审计：`json/_meta/m0-name-mapping-audit.json`；浏览器审计：`json/_meta/browser-checks/m0-name-mapping.json`。
+
+| 市场 | 分母 | 独立覆盖率 | 含车系对应 | 名称待核 MMY | 已对应年份缺口 |
+|---|---:|---:|---:|---:|---:|
+| US | 26495 | 14.90% | 56.70% | 10631 | 358 |
+| EU | 26495 | 7.60% | 22.43% | 19389 | 1164 |
+| RU | 26495 | 18.49% | 52.25% | 12391 | 261 |
+
+车系对应不能证明具体配置或尺寸已覆盖；已对应年份缺口仍须核实该市场逐年供售。没有自动回补00/01。

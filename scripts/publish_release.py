@@ -16,8 +16,7 @@
 发布时版本（``basis: publish-time``）。auto 节点发布前按 ``identity_coverage`` 核对身份承接，未承接时拒绝发布，
 ``--accept-identity-gaps`` 显式接受并写入 manifest ``checks``。
 
-最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源，并重新生成 ``流水线状态.md``
-（该状态文件只由本脚本写入）。
+最后在仓库根目录写 ``release.json`` 汇总各节点当前版本与 artifact 来源，并更新 Markdown 状态和 HTML 快照。
 
 触发方式（``pipeline.json`` 的 ``line_triggers``）：默认只发布 auto 节点（上游与 A 线）；B/C/D/E/F/X 等按需节点
 不随上游刷新，只在 ``--nodes``、``--lines`` 显式点名或 ``--all`` 时发布。
@@ -45,11 +44,12 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))  # 共享模块 rules_snapshot 在 lib/
 
 from pipeline_contract import publishable
+from json_interface import legacy_metadata, table_row_count
 from content_store import resolve_source, ContentIndex, content_lock
 from artifact_refs import RUN_RECORD, sha256, versioned_name
-from node_paths import load_record  # noqa: E402
+from node_paths import repository_metadata, node_output, node_page, load_record  # noqa: E402
 from identity_coverage import check_node as identity_gaps
-from pipeline_status import is_on_demand, write_status
+from pipeline_status import HTML_NAME, STATUS_NAME, is_on_demand, write_status
 from rules_snapshot import describe_changes, rules_changes, rules_snapshot  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,6 +66,8 @@ class IdentityGapError(ReleaseError):
 
 
 def row_count(path: Path) -> int | None:
+    if path.suffix.lower() == ".json":
+        return table_row_count(path)
     if path.suffix.lower() not in {".csv", ".tsv"}:
         return None
     delimiter = "\t" if path.suffix.lower() == ".tsv" else ","
@@ -227,11 +229,13 @@ def resolve_copied_inputs(root: Path, node: dict, by_id: dict[str, dict], run_in
             resolved.append(item)
             continue
         for upstream_id in node.get("upstream", []):
-            prefix = f"{by_id[upstream_id]['path']}/output/"
-            if not item["file"].startswith(prefix):
+            prefixes = [node_output(root, by_id[upstream_id]).relative_to(root).as_posix() + "/",
+                        f"{by_id[upstream_id]['path']}/output/"]
+            prefix = next((p for p in prefixes if item["file"].startswith(p)), None)
+            if prefix is None:
                 continue
             name = item["file"][len(prefix):]
-            manifest_path = root / prefix / MANIFEST_NAME
+            manifest_path = node_output(root, by_id[upstream_id]) / MANIFEST_NAME
             manifest = load_record(manifest_path, root) if manifest_path.is_file() else {}
             published = next((entry for entry in manifest.get("deliverables", []) if entry["file"] == name), None)
             if published and published["sha256"] == item["sha256"]:
@@ -269,7 +273,7 @@ def upstream_records(root: Path, node: dict, by_id: dict[str, dict], run_inputs:
                 record["versions"] = versions
             records.append(record)
             continue
-        manifest_path = root / upstream["path"] / "output" / MANIFEST_NAME
+        manifest_path = node_output(root, upstream) / MANIFEST_NAME
         if not manifest_path.is_file():
             records.append({"node": upstream_id, "version": None, "basis": "publish-time", "files": []})
             continue
@@ -298,7 +302,7 @@ def check_outputs(root: Path, nodes: list[dict]) -> list[str]:
     errors = []
     for node in nodes:
         for name in node.get("outputs", []):
-            if not (root / node["path"] / "output" / name).is_file():
+            if not (node_output(root, node) / name).is_file():
                 errors.append(f"{node['id']}: output/{name} 不存在；未产出的交付物请移到 pending")
     return errors
 
@@ -379,7 +383,7 @@ def release_reasons(previous: dict | None, deliverables: list[dict], upstream: l
         reasons.append("上游输入变化")
     if "rules" not in previous:
         reasons.append("首次记录规则快照")
-    elif previous["rules"] != rules:
+    elif any(rules_changes(previous["rules"], rules).values()):
         reasons.append(f"规则变化（{describe_changes(rules_changes(previous['rules'], rules))}）")
     if previous.get("pending", []) != node.get("pending", []) or previous.get("notes", []) != node.get("release_notes", []):
         reasons.append("pending/发布说明变化")
@@ -408,7 +412,7 @@ def _release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, re
                  enforce_identity: bool = False, accept_identity_gaps: bool = False) -> dict | None:
     """发布一个节点；交付物、上游、规则与说明均未变化且未 force 时返回 None，沿用当前版本。"""
     project = root / node["path"]
-    output_dir = project / "output"
+    output_dir = node_output(root, node)
     artifacts_dir = project / "artifacts"
     previous_manifest_path = output_dir / MANIFEST_NAME
     previous_manifest = load_record(previous_manifest_path, root) if previous_manifest_path.is_file() else None
@@ -417,10 +421,21 @@ def _release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, re
     current = []
     for name in node.get("outputs", []):
         published = output_dir / name
-        current.append({"file": name, "sha256": sha256(published), "bytes": published.stat().st_size, "rows": row_count(published)})
+        current.append({"file": name, "sha256": sha256(published), "bytes": published.stat().st_size, "rows": row_count(published),
+                        **legacy_metadata(published, node, name)})
     runs = passed_runs(project)
     run_inputs, unverified = run_inputs_for(current, runs)
     upstream = upstream_records(root, node, by_id, run_inputs)
+    if previous_manifest and previous_manifest.get("format_migration") and all(
+        previous.get(i["file"], {}).get("sha256") == i["sha256"] for i in current
+    ) and any(r.get("status", {}).get("purpose") == "json-format-migration" for r in runs):
+        # Format conversion did not rerun business logic. Preserve its actual old
+        # input evidence until a real JSON node run produces these deliverables.
+        real_runs = [r for r in runs if r.get("status", {}).get("transport") == "json"]
+        if not any(any(o.get("sha256") == i["sha256"] and o.get("file") == i["file"]
+                       for o in r.get("outputs", [])) for r in real_runs for i in current):
+            upstream = previous_manifest.get("upstream", [])
+            unverified = previous_manifest.get("checks", {}).get("unverified_deliverables", [])
     rules = rules_snapshot(project)
     reasons = release_reasons(previous_manifest, current, upstream, rules, node)
     if not reasons:
@@ -468,7 +483,8 @@ def _release_node(root: Path, node: dict, by_id: dict[str, dict], today: str, re
         deliverables.append(
             {"file": name, "versioned_file": source["versioned_file"], "artifact_file": source["artifact_file"],
              "content_reference": source.get("content_reference", False),
-             "sha256": item["sha256"], "bytes": item["bytes"], "rows": item["rows"]}
+             "sha256": item["sha256"], "bytes": item["bytes"], "rows": item["rows"],
+             **{key: item[key] for key in ("legacy_file", "legacy_sha256") if key in item}}
         )
     content.close()
     manifest = {
@@ -557,7 +573,7 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False,
     if skipped and not (only or lines):
         print("按需节点未发布（需要时用 --nodes/--lines/--all）：" + "、".join(node["path"] for node in skipped))
     if not dry_run and released:
-        summary_path = root / "release.json"
+        summary_path = repository_metadata(root, "release.json")
         previous = load_record(summary_path, root)["nodes"] if summary_path.is_file() else {}
         previous = {node_id: entry for node_id, entry in previous.items() if node_id in by_id}
         previous.update(
@@ -576,6 +592,10 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False,
             summary_path,
             {"schema_version": 1, "released_at": now.isoformat(timespec="seconds"), "nodes": previous},
         )
+    if not dry_run and (released or not refused):
+        if payload.get("html_contract"):
+            from node_html import build_reports
+            build_reports(root)
         write_status(root)
     if refused:
         raise IdentityGapError("\n".join(refused))
@@ -589,11 +609,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--all", action="store_true", help="默认发布时同时包括按需节点")
     parser.add_argument("--force", action="store_true", help="交付物、上游、规则均未变化也新建发布批次（交付物仍只引用不复制）")
     parser.add_argument("--accept-identity-gaps", action="store_true", help="auto 节点身份未承接时仍发布，缺口写入 manifest checks")
-    parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--status-only", action="store_true", help="不发布，只按当前各节点 manifest 重建 流水线状态.md")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--dry-run", action="store_true")
+    mode.add_argument("--status-only", action="store_true", help="按当前各节点 manifest 重建 Markdown 状态和 HTML 快照")
     args = parser.parse_args(argv)
     if args.status_only:
-        print(f"已更新 {write_status(ROOT).name}")
+        write_status(ROOT)
+        print(f"已更新 {STATUS_NAME}、{HTML_NAME}")
         return 0
     try:
         release_all(
