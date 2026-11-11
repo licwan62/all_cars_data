@@ -1,0 +1,65 @@
+paths:
+  a0_output_dir: ../../work/website/upstream/size-calculation
+  compressed_output_dir: ../../work/website/upstream/size-compression
+  sales_output_dir: ../../work/website/upstream/sales-estimation
+  nas_publish_dir: \\NAS8824B4\Web\car
+ecs_publish:
+  instance_id: i-bp1i9j887jm3w0clzttz
+  region: cn-hangzhou
+  profile: default
+  url: https://47.118.61.79/car/
+input:
+  source: all_cars_data
+  lines:
+  - US
+  - HNT
+  - TM
+  - TM_拆分
+  store:
+    store: '{stem}'
+    label: '{stem}尺码匹配表'
+    sheet: '{stem}尺码匹配'
+    header_row: 1
+    columns: MODEL,版本,YEAR,TYPE,CAB,BED,销量合计,L-MM,W-MM,H-MM,长度余量,SIZE
+  csv:
+    encoding: utf-8-sig
+  header_aliases:
+    S8MAKE: MAKE
+    尺寸组销量: 销量合计
+  required_fields:
+  - 品牌
+  - 前台车型
+  - 年份区间
+  - 最终尺码
+columns:
+  品牌:
+  - MAKE
+  - 品牌
+  前台车型:
+  - MODEL
+  - 前台车型
+  结构:
+  - 结构
+  版本:
+  - 版本
+  年份区间:
+  - YEAR
+  - 年份区间
+  最终尺码:
+  - 确认尺码
+  - 自动尺码
+  - 最终尺码
+  - 对应尺码
+  驾驶室类型:
+  - CAB
+  - 驾驶室类型
+  货斗长度_ft:
+  - BED
+  - 货斗长度_ft
+  子车系:
+  - SUB-MODEL
+  - 子车系
+  分类:
+  - 分类
+defaults:
+  分类: ''

@@ -1,5 +1,14 @@
 # 车型数据流水线
 
+## 网站最终节点（A2）
+
+车型网站已迁入 [nodes/A2.网站发布](nodes/A2.网站发布/README.md)，本项目可独立构建和发布 NAS + 阿里云。
+
+```powershell
+python scripts/website.py build    # 只构建和验收
+python scripts/website.py release  # 构建并发布双端
+```
+
 节点、职责与接口以 `pipeline.json` 为准。维护规则见 `AGENTS.md`。在浏览器打开 [流水线状态.html](流水线状态.html)，可离线查看节点依赖和发布状态。交付物来源明细见 [流水线状态.md](流水线状态.md)。节点刷新并发布后会同步更新这两份状态页。
 
 ## 本机维护看板

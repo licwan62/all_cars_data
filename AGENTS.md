@@ -98,3 +98,12 @@ python scripts/material_catalog.py
 - trimslate-vehicles.csv、vehicles.csv完整原始资料仅由M0/data/data_source维护；01不再维护全集，也不读取M0。01已有Audi试点使用38条冻结专项证据，原始来源SHA保留。
 - M0完整保留参考名录、未知年份和库内观察；参考覆盖率分母不包含仅库内观察；车型级国家线索不能当作逐年市场确认。
 - M0只生成手动回补候选，不写00/01，不执行回补，不构成反向依赖；数据对外发布清单为空。
+
+
+## A2 网站最终节点（2026-11-12）
+
+- `website-publish` / `nodes/A2.网站发布` 为 A 线最终网站交付节点，承接 A0、A1 与销量评估的集中 JSON。其静态模板与前端源码位于自身 `src/`，人工规则位于 `data/`。
+- 使用 `python scripts/website.py build` 本地构建、校验和登记交付；`publish` 发布已验证候选；`release` 构建并发布 NAS + ECS；`ecs-only` 只补同步当前 NAS 版本。普通节点运行不隐式上线。
+- 网站静态包保存在 RunBatch 的不可变批次中，当前 JSON 清单登记包路径、SHA、文件清单及来源。`work/website/public` 仅为可重建预览；不得作为正式数据输入。
+- 网站使用独立部署协议，`public_outputs=[]` 不经 CSV 外部交换通道；保留既有 NAS 发布方 `pipeline_carstable_to_webapp`，以维持归属与 ECS 发布历史。不要用全目录镜像覆盖共享 NAS。
+- 旧网站与外部制图项目已退役为追溯资料，新代码不得添加对这些仓库的运行依赖。

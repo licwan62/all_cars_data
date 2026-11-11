@@ -1,0 +1,13 @@
+enabled: false
+base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+model: qwen3.7-max
+api_key_env: AI_API_KEY
+timeout_seconds: 120
+batch_size: 10
+retries: 2
+enable_thinking: false
+retry_rejected: false
+max_length:
+  type: 16
+  model: 15
+  cab: 12

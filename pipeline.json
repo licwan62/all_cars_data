@@ -30,7 +30,7 @@
     "F": "on_demand",
     "M": "on_demand"
   },
-  "publication_contract": "public_outputs显式登记可导出的JSON表格；NAS发布时转换为CSV，其他JSON及HTML保持内部；本次迁移不发布NAS。",
+  "publication_contract": "public_outputs显式登记可导出的JSON表格；NAS发布时转换为CSV，其他JSON及HTML保持内部；本次迁移不发布NAS。 website-publish以专用scripts/website.py发布静态网站到NAS与ECS，不经CSV交换通道，普通节点运行不上线。",
   "identity_contract": "节点 identity_coverage 声明交付物必须承接的上游身份（默认主键 DIMENSION-ID；mode=equal 要求集合相同，subset 只要求不残留上游已撤销的身份）。scripts/trace_pipeline.py 按上游当前 output 核对：auto 节点未承接即过期，按需节点记为按需待刷新；scripts/publish_release.py 发布 auto 节点前同样核对，未承接时拒绝发布（--accept-identity-gaps 显式接受并把缺口写入 manifest checks）。manifest 的 upstream 优先取运行批次 run.json 实际读取的输入（basis=run），没有运行记录时才记发布时上游版本（basis=publish-time，表示未经运行记录核实）。",
   "nodes": [
     {
@@ -2264,6 +2264,167 @@
       "presentation": {
         "title": "车型年全集与覆盖率",
         "icon": "chart"
+      }
+    },
+    {
+      "id": "website-publish",
+      "path": "nodes/A2.网站发布",
+      "code_dir": "src",
+      "run": [
+        "python src/run.py"
+      ],
+      "tests": "tests",
+      "layer": 6,
+      "line": "A",
+      "index": 2,
+      "role": "final",
+      "upstream": [
+        "size-calculation",
+        "size-compression",
+        "sales-estimation"
+      ],
+      "outputs": [
+        "网站构建清单.json"
+      ],
+      "pending": [],
+      "public_outputs": [],
+      "release_notes": [
+        "网站最终构建节点；独立支持 NAS 与阿里云双端发布，普通运行不自动上线。"
+      ],
+      "kind": "node",
+      "lifecycle": "active",
+      "naming_basis": "A线最终网站构建与双端发布，承接A0/A1及销量JSON。",
+      "inputs": [
+        {
+          "node": "size-calculation",
+          "file": "US/全量/全量表.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_HNT.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺/店铺全量_TM_拆分.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/尺码规则.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/店铺货架.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "US/新旧尺码对应.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/全量/全量表.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "EU/尺码规则.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/全量/全量表.json"
+        },
+        {
+          "node": "size-calculation",
+          "file": "RU/尺码规则.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "US/压缩尺码表.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "US/压缩尺码表_皮卡.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "US/压缩来源.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "HNT/压缩尺码表.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "HNT/压缩尺码表_皮卡.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "HNT/压缩来源.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "TM/压缩尺码表.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "TM/压缩尺码表_皮卡.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "TM/压缩来源.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "TM_拆分/压缩尺码表.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "TM_拆分/压缩尺码表_皮卡.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "TM_拆分/压缩来源.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "EU/压缩尺码表.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "EU/压缩尺码表_皮卡.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "EU/压缩来源.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "RU/压缩尺码表.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "RU/压缩尺码表_皮卡.json"
+        },
+        {
+          "node": "size-compression",
+          "file": "RU/压缩来源.json"
+        },
+        {
+          "node": "sales-estimation",
+          "file": "原子销量.json"
+        }
+      ],
+      "interface_files": {
+        "网站构建清单.json": "网站构建清单.json"
+      },
+      "html_output": "网站构建与发布.html",
+      "output_dir": "json/website-publish",
+      "html_at_root": true,
+      "presentation": {
+        "title": "网站构建与发布",
+        "icon": "globe"
       }
     }
   ],
