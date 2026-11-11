@@ -122861,6 +122861,1167 @@
         ]
       },
       "limit": "明确引用原始名录的历史目录分组，并非新厂家核实；family不等于同车型配置/尺寸或逐年US供售，泛称Turbo/Carrera等歧义项不据此自动批准。"
+    },
+    {
+      "evidence_id": "NEXT-23f501a55a3e1091",
+      "raw_make": "Volkswagen",
+      "raw_model": "Golf R",
+      "make": "Volkswagen",
+      "model": "Golf",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Golf的版本字段明确登记R；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-23f501a55a3e1091",
+      "raw_MM_ID": "MM-80423ec5cc29936473e757df",
+      "reference_years": "2012|2013|2015|2016|2017|2018|2019|2022|2023|2024|2025|2026|2027",
+      "raw_input_name": "Golf-R",
+      "intermediate_mapping_key": "Golf R",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "49893",
+          "raw_make": "Volkswagen",
+          "raw_model": "Golf-R",
+          "raw_year": "2012"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "Diesel",
+            "YEAR": "2015",
+            "DIMENSION-ID": "Volkswagen Golf Diesel Hatchback 2015 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI",
+            "YEAR": "2015-2017",
+            "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2015-2017 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI",
+            "YEAR": "2018-2021",
+            "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2018-2021 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2022-2026 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI/R",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Volkswagen Golf GTI/R Hatchback 2022-2026 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "1999",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 1999 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2000-2006",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2000-2006 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2007-2009",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2007-2009 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2010-2014",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2010-2014 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2016-2017",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2016-2017 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2018-2021",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2018-2021 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2012",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2012 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2018-2019 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2022-2024",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2022-2024 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2025-2026",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2025-2026 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2015-2016",
+            "DIMENSION-ID": "Volkswagen Golf Wagon 2015-2016 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Volkswagen Golf Wagon 2018-2019 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "Diesel",
+            "YEAR": "2015",
+            "DIMENSION-ID": "Volkswagen Golf Diesel Hatchback 2015 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI",
+            "YEAR": "2015-2017",
+            "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2015-2017 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI",
+            "YEAR": "2018-2021",
+            "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2018-2021 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2022-2026 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "GTI/R",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Volkswagen Golf GTI/R Hatchback 2022-2026 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "1999",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 1999 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2000-2006",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2000-2006 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2007-2009",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2007-2009 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2010-2014",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2010-2014 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2016-2017",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2016-2017 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2018-2021",
+            "DIMENSION-ID": "Volkswagen Golf Hatchback 2018-2021 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2012",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2012 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2018-2019 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2022-2024",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2022-2024 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "R",
+            "YEAR": "2025-2026",
+            "DIMENSION-ID": "Volkswagen Golf R Hatchback 2025-2026 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2015-2016",
+            "DIMENSION-ID": "Volkswagen Golf Wagon 2015-2016 US"
+          },
+          {
+            "MAKE": "Volkswagen",
+            "MODEL": "Golf",
+            "版本": "",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Volkswagen Golf Wagon 2018-2019 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Volkswagen",
+          "MODEL": "Golf",
+          "版本": "R",
+          "YEAR": "2012",
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2012 US"
+        },
+        {
+          "MAKE": "Volkswagen",
+          "MODEL": "Golf",
+          "版本": "R",
+          "YEAR": "2018-2019",
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2018-2019 US"
+        },
+        {
+          "MAKE": "Volkswagen",
+          "MODEL": "Golf",
+          "版本": "R",
+          "YEAR": "2022-2024",
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2022-2024 US"
+        },
+        {
+          "MAKE": "Volkswagen",
+          "MODEL": "Golf",
+          "版本": "R",
+          "YEAR": "2025-2026",
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2025-2026 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-fb802ce57f677b21",
+      "raw_make": "Lexus",
+      "raw_model": "RC F",
+      "make": "Lexus",
+      "model": "RC",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型RC的版本字段明确登记RC F；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-fb802ce57f677b21",
+      "raw_MM_ID": "MM-9ffc764f701d99f3ccc2ce59",
+      "reference_years": "2015|2016|2017|2018|2019|2020|2021|2022|2023|2024|2025",
+      "raw_input_name": "RC F",
+      "intermediate_mapping_key": "RC F",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "31207",
+          "raw_make": "Lexus",
+          "raw_model": "RC F",
+          "raw_year": "2015"
+        },
+        {
+          "SOURCE": "vehicles",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/vehicles.csv",
+          "source_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+          "record": "2899",
+          "raw_make": "Lexus",
+          "raw_model": "RC F",
+          "raw_year": ""
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "",
+            "YEAR": "2015-2018",
+            "DIMENSION-ID": "Lexus RC Coupe 2015-2018 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "",
+            "YEAR": "2019-2024",
+            "DIMENSION-ID": "Lexus RC Coupe 2019-2024 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "",
+            "YEAR": "2025",
+            "DIMENSION-ID": "Lexus RC Coupe 2025 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "RC F",
+            "YEAR": "2015-2019",
+            "DIMENSION-ID": "Lexus RC RC F Coupe 2015-2019 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "RC F",
+            "YEAR": "2020-2025",
+            "DIMENSION-ID": "Lexus RC RC F Coupe 2020-2025 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "",
+            "YEAR": "2015-2018",
+            "DIMENSION-ID": "Lexus RC Coupe 2015-2018 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "",
+            "YEAR": "2019-2024",
+            "DIMENSION-ID": "Lexus RC Coupe 2019-2024 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "",
+            "YEAR": "2025",
+            "DIMENSION-ID": "Lexus RC Coupe 2025 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "RC F",
+            "YEAR": "2015-2019",
+            "DIMENSION-ID": "Lexus RC RC F Coupe 2015-2019 US"
+          },
+          {
+            "MAKE": "Lexus",
+            "MODEL": "RC",
+            "版本": "RC F",
+            "YEAR": "2020-2025",
+            "DIMENSION-ID": "Lexus RC RC F Coupe 2020-2025 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Lexus",
+          "MODEL": "RC",
+          "版本": "RC F",
+          "YEAR": "2015-2019",
+          "DIMENSION-ID": "Lexus RC RC F Coupe 2015-2019 US"
+        },
+        {
+          "MAKE": "Lexus",
+          "MODEL": "RC",
+          "版本": "RC F",
+          "YEAR": "2020-2025",
+          "DIMENSION-ID": "Lexus RC RC F Coupe 2020-2025 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-e0b0b390283e93fb",
+      "raw_make": "Jaguar",
+      "raw_model": "XKR",
+      "make": "Jaguar",
+      "model": "XK",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型XK的版本字段明确登记XKR；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-e0b0b390283e93fb",
+      "raw_MM_ID": "MM-ba264b7ea2d71e466ad78570",
+      "reference_years": "2000|2001|2002|2003|2004|2005|2006|2007|2008|2009",
+      "raw_input_name": "XKR",
+      "intermediate_mapping_key": "XKR",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "27979",
+          "raw_make": "Jaguar",
+          "raw_model": "XKR",
+          "raw_year": "2000"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "",
+            "YEAR": "1997-2004",
+            "DIMENSION-ID": "Jaguar XK Convertible 1997-2004 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "",
+            "YEAR": "1997-2004",
+            "DIMENSION-ID": "Jaguar XK Coupe 1997-2004 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2005-2006",
+            "DIMENSION-ID": "Jaguar XK XKR Convertible 2005-2006 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2007-2015",
+            "DIMENSION-ID": "Jaguar XK XKR Convertible 2007-2015 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2005-2006",
+            "DIMENSION-ID": "Jaguar XK XKR Coupe 2005-2006 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2007-2015",
+            "DIMENSION-ID": "Jaguar XK XKR Coupe 2007-2015 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR-S",
+            "YEAR": "2012-2014",
+            "DIMENSION-ID": "Jaguar XK XKR-S Convertible 2012-2014 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR-S",
+            "YEAR": "2012-2014",
+            "DIMENSION-ID": "Jaguar XK XKR-S Coupe 2012-2014 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "",
+            "YEAR": "1997-2004",
+            "DIMENSION-ID": "Jaguar XK Convertible 1997-2004 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "",
+            "YEAR": "1997-2004",
+            "DIMENSION-ID": "Jaguar XK Coupe 1997-2004 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2005-2006",
+            "DIMENSION-ID": "Jaguar XK XKR Convertible 2005-2006 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2007-2015",
+            "DIMENSION-ID": "Jaguar XK XKR Convertible 2007-2015 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2005-2006",
+            "DIMENSION-ID": "Jaguar XK XKR Coupe 2005-2006 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR",
+            "YEAR": "2007-2015",
+            "DIMENSION-ID": "Jaguar XK XKR Coupe 2007-2015 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR-S",
+            "YEAR": "2012-2014",
+            "DIMENSION-ID": "Jaguar XK XKR-S Convertible 2012-2014 US"
+          },
+          {
+            "MAKE": "Jaguar",
+            "MODEL": "XK",
+            "版本": "XKR-S",
+            "YEAR": "2012-2014",
+            "DIMENSION-ID": "Jaguar XK XKR-S Coupe 2012-2014 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Jaguar",
+          "MODEL": "XK",
+          "版本": "XKR",
+          "YEAR": "2005-2006",
+          "DIMENSION-ID": "Jaguar XK XKR Convertible 2005-2006 US"
+        },
+        {
+          "MAKE": "Jaguar",
+          "MODEL": "XK",
+          "版本": "XKR",
+          "YEAR": "2007-2015",
+          "DIMENSION-ID": "Jaguar XK XKR Convertible 2007-2015 US"
+        },
+        {
+          "MAKE": "Jaguar",
+          "MODEL": "XK",
+          "版本": "XKR",
+          "YEAR": "2005-2006",
+          "DIMENSION-ID": "Jaguar XK XKR Coupe 2005-2006 US"
+        },
+        {
+          "MAKE": "Jaguar",
+          "MODEL": "XK",
+          "版本": "XKR",
+          "YEAR": "2007-2015",
+          "DIMENSION-ID": "Jaguar XK XKR Coupe 2007-2015 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-78d158557ed29c43",
+      "raw_make": "Mercedes-Benz",
+      "raw_model": "560SL",
+      "make": "Mercedes-Benz",
+      "model": "SL-Class",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型SL-Class的版本字段明确登记560SL；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-78d158557ed29c43",
+      "raw_MM_ID": "MM-f316e19c5d12b071bc6f6f49",
+      "reference_years": "1986|1987|1988|1989|1992",
+      "raw_input_name": "560SL",
+      "intermediate_mapping_key": "560SL",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "33665",
+          "raw_make": "Mercedes-Benz",
+          "raw_model": "560SL",
+          "raw_year": "1986"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "300 SL",
+            "YEAR": "1992-1993",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 300 SL Convertible 1992-1993 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "300SL",
+            "YEAR": "1957-1963",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 300SL Convertible 1957-1963 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "500 SL",
+            "YEAR": "1992-1993",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 500 SL Convertible 1992-1993 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "560SL",
+            "YEAR": "1986-1989",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 560SL Convertible 1986-1989 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "600 SL",
+            "YEAR": "1993",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 600 SL Convertible 1993 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2003-2010",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2003-2010 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2011-2012",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2011-2012 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2013-2020",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2013-2020 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2022-2026 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1955-1963",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1955-1963 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1963-1971",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1963-1971 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1972-1985",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1972-1985 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1986-1989",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1986-1989 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1990-1991",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1990-1991 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1997-2002",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1997-2002 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2003-2004",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2003-2004 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2005-2012",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2005-2012 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2013-2020",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2013-2020 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2026",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2026 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1954-1957",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Coupe 1954-1957 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "SL320",
+            "YEAR": "1994-1996",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class SL320 Convertible 1994-1996 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "SL500",
+            "YEAR": "1994-1996",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class SL500 Convertible 1994-1996 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "SL600",
+            "YEAR": "1994-1996",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class SL600 Convertible 1994-1996 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "300 SL",
+            "YEAR": "1992-1993",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 300 SL Convertible 1992-1993 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "300SL",
+            "YEAR": "1957-1963",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 300SL Convertible 1957-1963 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "500 SL",
+            "YEAR": "1992-1993",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 500 SL Convertible 1992-1993 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "560SL",
+            "YEAR": "1986-1989",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 560SL Convertible 1986-1989 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "600 SL",
+            "YEAR": "1993",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class 600 SL Convertible 1993 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2003-2010",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2003-2010 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2011-2012",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2011-2012 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2013-2020",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2013-2020 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "AMG",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class AMG Convertible 2022-2026 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1955-1963",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1955-1963 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1963-1971",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1963-1971 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1972-1985",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1972-1985 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1986-1989",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1986-1989 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1990-1991",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1990-1991 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1997-2002",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 1997-2002 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2003-2004",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2003-2004 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2005-2012",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2005-2012 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2013-2020",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2013-2020 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "2026",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Convertible 2026 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "",
+            "YEAR": "1954-1957",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class Coupe 1954-1957 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "SL320",
+            "YEAR": "1994-1996",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class SL320 Convertible 1994-1996 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "SL500",
+            "YEAR": "1994-1996",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class SL500 Convertible 1994-1996 US"
+          },
+          {
+            "MAKE": "Mercedes-Benz",
+            "MODEL": "SL-Class",
+            "版本": "SL600",
+            "YEAR": "1994-1996",
+            "DIMENSION-ID": "Mercedes-Benz SL-Class SL600 Convertible 1994-1996 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Mercedes-Benz",
+          "MODEL": "SL-Class",
+          "版本": "560SL",
+          "YEAR": "1986-1989",
+          "DIMENSION-ID": "Mercedes-Benz SL-Class 560SL Convertible 1986-1989 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-b567f9cb8ad5d9b9",
+      "raw_make": "Cadillac",
+      "raw_model": "XLR-V",
+      "make": "Cadillac",
+      "model": "XLR",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型XLR的版本字段明确登记XLR-V；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-b567f9cb8ad5d9b9",
+      "raw_MM_ID": "MM-05b81eecbafd5c2dccc02f9b",
+      "reference_years": "2006|2007|2008|2009",
+      "raw_input_name": "XLR-V",
+      "intermediate_mapping_key": "XLR-V",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "6562",
+          "raw_make": "Cadillac",
+          "raw_model": "XLR-V",
+          "raw_year": "2006"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Cadillac",
+            "MODEL": "XLR",
+            "版本": "",
+            "YEAR": "2004-2009",
+            "DIMENSION-ID": "Cadillac XLR Convertible 2004-2009 US"
+          },
+          {
+            "MAKE": "Cadillac",
+            "MODEL": "XLR",
+            "版本": "XLR-V",
+            "YEAR": "2006-2009",
+            "DIMENSION-ID": "Cadillac XLR XLR-V Convertible 2006-2009 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Cadillac",
+            "MODEL": "XLR",
+            "版本": "",
+            "YEAR": "2004-2009",
+            "DIMENSION-ID": "Cadillac XLR Convertible 2004-2009 US"
+          },
+          {
+            "MAKE": "Cadillac",
+            "MODEL": "XLR",
+            "版本": "XLR-V",
+            "YEAR": "2006-2009",
+            "DIMENSION-ID": "Cadillac XLR XLR-V Convertible 2006-2009 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Cadillac",
+          "MODEL": "XLR",
+          "版本": "XLR-V",
+          "YEAR": "2006-2009",
+          "DIMENSION-ID": "Cadillac XLR XLR-V Convertible 2006-2009 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-9d36c18f85e549ab",
+      "raw_make": "Infiniti",
+      "raw_model": "EX35",
+      "make": "Infiniti",
+      "model": "EX",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型EX的版本字段明确登记EX35/EX37；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-9d36c18f85e549ab",
+      "raw_MM_ID": "MM-53ce1ea8061c6b04ff7ff407",
+      "reference_years": "2008|2009|2010|2011|2012",
+      "raw_input_name": "EX35",
+      "intermediate_mapping_key": "EX35",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "26515",
+          "raw_make": "Infiniti",
+          "raw_model": "EX35",
+          "raw_year": "2008"
+        },
+        {
+          "SOURCE": "vehicles",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/vehicles.csv",
+          "source_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+          "record": "2424",
+          "raw_make": "Infiniti",
+          "raw_model": "EX35",
+          "raw_year": ""
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Infiniti",
+          "MODEL": "EX",
+          "版本": "EX35/EX37",
+          "YEAR": "2008-2013",
+          "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-3469f4474df73293",
+      "raw_make": "Infiniti",
+      "raw_model": "EX37",
+      "make": "Infiniti",
+      "model": "EX",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型EX的版本字段明确登记EX35/EX37；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-3469f4474df73293",
+      "raw_MM_ID": "MM-f88de797edf7643b0fb5774c",
+      "reference_years": "2013",
+      "raw_input_name": "EX37",
+      "intermediate_mapping_key": "EX37",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "26523",
+          "raw_make": "Infiniti",
+          "raw_model": "EX37",
+          "raw_year": "2013"
+        },
+        {
+          "SOURCE": "vehicles",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/vehicles.csv",
+          "source_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+          "record": "2425",
+          "raw_make": "Infiniti",
+          "raw_model": "EX37",
+          "raw_year": ""
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Infiniti",
+            "MODEL": "EX",
+            "版本": "EX35/EX37",
+            "YEAR": "2008-2013",
+            "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Infiniti",
+          "MODEL": "EX",
+          "版本": "EX35/EX37",
+          "YEAR": "2008-2013",
+          "DIMENSION-ID": "Infiniti EX EX35/EX37 SUV 2008-2013 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
     }
   ]
 }
