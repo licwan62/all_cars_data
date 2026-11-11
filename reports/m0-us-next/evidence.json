@@ -124132,6 +124132,994 @@
         }
       ],
       "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-8ea5f6f8c46daafb",
+      "raw_make": "Jeep",
+      "raw_model": "Grand Cherokee L 2WD",
+      "make": "Jeep",
+      "model": "Grand Cherokee",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Grand Cherokee的版本字段明确登记L；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-8ea5f6f8c46daafb",
+      "raw_MM_ID": "MM-f1e2ad43722db4e62ab4e256",
+      "reference_years": "2021|2022|2023|2024|2025|2026|2027",
+      "raw_input_name": "Grand Cherokee L 2WD",
+      "intermediate_mapping_key": "Grand Cherokee L 2WD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "28653",
+          "raw_make": "Jeep",
+          "raw_model": "Grand Cherokee L 2WD",
+          "raw_year": "2021"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2021-2025",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2021-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2014-2017",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2014-2017 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2018-2019 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2020-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2020-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1993",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1993 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1994-1995",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1994-1995 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1996",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1996 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1997-1998",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1997-1998 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1999-2000",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1999-2000 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2001-2003",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2001-2003 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2004",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2004 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2005-2009",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2005-2009 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2010",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2010 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2011-2013",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2011-2013 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2014-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2014-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2027 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2021-2025",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2021-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2014-2017",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2014-2017 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2018-2019 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2020-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2020-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1993",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1993 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1994-1995",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1994-1995 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1996",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1996 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1997-1998",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1997-1998 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1999-2000",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1999-2000 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2001-2003",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2001-2003 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2004",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2004 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2005-2009",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2005-2009 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2010",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2010 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2011-2013",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2011-2013 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2014-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2014-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2027 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Grand Cherokee",
+          "版本": "L",
+          "YEAR": "2021-2025",
+          "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2021-2025 US"
+        },
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Grand Cherokee",
+          "版本": "L",
+          "YEAR": "2026",
+          "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2026 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-f56ff8b63e1daf1e",
+      "raw_make": "Jeep",
+      "raw_model": "Grand Cherokee L 4WD",
+      "make": "Jeep",
+      "model": "Grand Cherokee",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Grand Cherokee的版本字段明确登记L；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-f56ff8b63e1daf1e",
+      "raw_MM_ID": "MM-95e82aac665368d9a568dc9e",
+      "reference_years": "2021|2022|2023|2024|2025|2026|2027",
+      "raw_input_name": "Grand Cherokee L 4WD",
+      "intermediate_mapping_key": "Grand Cherokee L 4WD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "28662",
+          "raw_make": "Jeep",
+          "raw_model": "Grand Cherokee L 4WD",
+          "raw_year": "2021"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2021-2025",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2021-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2014-2017",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2014-2017 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2018-2019 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2020-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2020-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1993",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1993 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1994-1995",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1994-1995 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1996",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1996 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1997-1998",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1997-1998 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1999-2000",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1999-2000 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2001-2003",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2001-2003 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2004",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2004 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2005-2009",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2005-2009 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2010",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2010 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2011-2013",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2011-2013 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2014-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2014-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2027 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2021-2025",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2021-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "L",
+            "YEAR": "2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2014-2017",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2014-2017 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2018-2019",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2018-2019 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "SRT",
+            "YEAR": "2020-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SRT SUV 2020-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1993",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1993 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1994-1995",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1994-1995 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1996",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1996 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1997-1998",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1997-1998 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "1999-2000",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 1999-2000 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2001-2003",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2001-2003 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2004",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2004 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2005-2009",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2005-2009 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2010",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2010 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2011-2013",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2011-2013 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2014-2021",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2014-2021 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Cherokee",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Cherokee SUV 2027 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Grand Cherokee",
+          "版本": "L",
+          "YEAR": "2021-2025",
+          "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2021-2025 US"
+        },
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Grand Cherokee",
+          "版本": "L",
+          "YEAR": "2026",
+          "DIMENSION-ID": "Jeep Grand Cherokee L SUV 2026 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-c180b11db065cc35",
+      "raw_make": "Jeep",
+      "raw_model": "Grand Wagoneer L 2WD",
+      "make": "Jeep",
+      "model": "Grand Wagoneer",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Grand Wagoneer的版本字段明确登记L；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-c180b11db065cc35",
+      "raw_MM_ID": "MM-d239312a537e740133048b94",
+      "reference_years": "2026|2027",
+      "raw_input_name": "Grand Wagoneer L 2WD",
+      "intermediate_mapping_key": "Grand Wagoneer L 2WD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "28725",
+          "raw_make": "Jeep",
+          "raw_model": "Grand Wagoneer L 2WD",
+          "raw_year": "2026"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer L SUV 2023-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "1984-1991",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 1984-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2027 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer L SUV 2023-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "1984-1991",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 1984-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2027 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Grand Wagoneer",
+          "版本": "L",
+          "YEAR": "2023-2026",
+          "DIMENSION-ID": "Jeep Grand Wagoneer L SUV 2023-2026 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-f318856277640ff4",
+      "raw_make": "Jeep",
+      "raw_model": "Grand Wagoneer L 4WD",
+      "make": "Jeep",
+      "model": "Grand Wagoneer",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Grand Wagoneer的版本字段明确登记L；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-f318856277640ff4",
+      "raw_MM_ID": "MM-fb4d2af2529357e34409a1cb",
+      "reference_years": "2023|2024|2025|2026|2027",
+      "raw_input_name": "Grand Wagoneer L 4WD",
+      "intermediate_mapping_key": "Grand Wagoneer L 4WD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "28727",
+          "raw_make": "Jeep",
+          "raw_model": "Grand Wagoneer L 4WD",
+          "raw_year": "2023"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer L SUV 2023-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "1984-1991",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 1984-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2027 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer L SUV 2023-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "1984-1991",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 1984-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2022-2026",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2022-2026 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Grand Wagoneer",
+            "版本": "",
+            "YEAR": "2027",
+            "DIMENSION-ID": "Jeep Grand Wagoneer SUV 2027 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Grand Wagoneer",
+          "版本": "L",
+          "YEAR": "2023-2026",
+          "DIMENSION-ID": "Jeep Grand Wagoneer L SUV 2023-2026 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-1cfc2b1a92e24039",
+      "raw_make": "Jeep",
+      "raw_model": "Wagoneer L 2WD",
+      "make": "Jeep",
+      "model": "Wagoneer",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Wagoneer的版本字段明确登记L；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-1cfc2b1a92e24039",
+      "raw_MM_ID": "MM-ed6e6785c660427e9ee3b601",
+      "reference_years": "2023|2024|2025",
+      "raw_input_name": "Wagoneer L 2WD",
+      "intermediate_mapping_key": "Wagoneer L 2WD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "28956",
+          "raw_make": "Jeep",
+          "raw_model": "Wagoneer L 2WD",
+          "raw_year": "2023"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer L SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "1963-1991",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 1963-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2022",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2022 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer L SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "1963-1991",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 1963-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2022",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2022 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Wagoneer",
+          "版本": "L",
+          "YEAR": "2023-2025",
+          "DIMENSION-ID": "Jeep Wagoneer L SUV 2023-2025 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
+    },
+    {
+      "evidence_id": "NEXT-118cf75d617904ee",
+      "raw_make": "Jeep",
+      "raw_model": "Wagoneer L 4WD",
+      "make": "Jeep",
+      "model": "Wagoneer",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Wagoneer的版本字段明确登记L；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-118cf75d617904ee",
+      "raw_MM_ID": "MM-d8c056e1ecc2a82f8fdda38e",
+      "reference_years": "2023|2024|2025",
+      "raw_input_name": "Wagoneer L 4WD",
+      "intermediate_mapping_key": "Wagoneer L 4WD",
+      "source_locator_samples": [
+        {
+          "SOURCE": "trimslate",
+          "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+          "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+          "record": "28959",
+          "raw_make": "Jeep",
+          "raw_model": "Wagoneer L 4WD",
+          "raw_year": "2023"
+        }
+      ],
+      "target_US_records": {
+        "json/dimension-library/尺寸库_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer L SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "1963-1991",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 1963-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2022",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2022 US"
+          }
+        ],
+        "json/structure-review/车型结构_US.json": [
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "L",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer L SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "1963-1991",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 1963-1991 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2023-2025",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2023-2025 US"
+          },
+          {
+            "MAKE": "Jeep",
+            "MODEL": "Wagoneer",
+            "版本": "",
+            "YEAR": "2022",
+            "DIMENSION-ID": "Jeep Wagoneer SUV 2022 US"
+          }
+        ]
+      },
+      "exact_variant_support": [
+        {
+          "MAKE": "Jeep",
+          "MODEL": "Wagoneer",
+          "版本": "L",
+          "YEAR": "2023-2025",
+          "DIMENSION-ID": "Jeep Wagoneer L SUV 2023-2025 US"
+        }
+      ],
+      "limit": "证实的是已发布库的版本归属；仅family，不将版本组合当独立配置，也不证明所有参考年份的配置/尺寸/供售。泛称Classic/Turbo不据此自动匹配。"
     }
   ]
 }
