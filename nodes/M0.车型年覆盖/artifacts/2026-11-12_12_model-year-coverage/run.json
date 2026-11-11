@@ -1,0 +1,334 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/M0.车型年覆盖/artifacts/2026-11-12_12_model-year-coverage",
+  "version": "20261112_12",
+  "description": "model-year-coverage",
+  "created_at": "2026-11-12T02:18:48+08:00",
+  "finished_at": "2026-11-12T02:19:15+08:00",
+  "command": [
+    "run.py"
+  ],
+  "inputs": [
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261112_06",
+      "file": "尺寸库_US.json",
+      "versioned_file": "尺寸库_US-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_US-20261112_01.json",
+      "sha256": "10277b44f1fceb7ea6ae93e7668f3f8f661efccf46ee0a2102fa611a799d89ad"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261112_06",
+      "file": "尺寸库_EU.json",
+      "versioned_file": "尺寸库_EU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_EU-20261112_01.json",
+      "sha256": "cf003886f2986234c1e8d116d4e140e1799f6c90d21a6bdccf68f47eac7ac252"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261112_06",
+      "file": "尺寸库_RU.json",
+      "versioned_file": "尺寸库_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_RU-20261112_01.json",
+      "sha256": "45c9d420f9e6c403ad67bcd8340e84f293536832bb4ee87926060e7f903f25c8"
+    },
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261112_06",
+      "file": "车型名称规则.json",
+      "versioned_file": "车型名称规则-20261112_05.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_05_json-node/output/车型名称规则-20261112_05.json",
+      "sha256": "bb1186e7b24d6900480943ac039d955a1aca5a733c4e49f83a908e18f53af1d1"
+    },
+    {
+      "node": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "file": "车型结构_US.json",
+      "versioned_file": "车型结构_US-20261112_01.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/车型结构_US-20261112_01.json",
+      "sha256": "a66c9253ff1a4af615882464196264de094cc4a87cbd2d955ba984f0d9aaf60a"
+    },
+    {
+      "node": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "file": "车型结构_EU.json",
+      "versioned_file": "车型结构_EU-20261112_01.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/车型结构_EU-20261112_01.json",
+      "sha256": "083cb8a39303e991ed9c5be624c6410983f47f93f92729f9af553b9b014e9a1a"
+    },
+    {
+      "node": "structure-review",
+      "path": "nodes/02.分类结构审核",
+      "version": "20261112_01",
+      "file": "车型结构_RU.json",
+      "versioned_file": "车型结构_RU-20261112_01.json",
+      "artifact_file": "nodes/02.分类结构审核/artifacts/2026-11-12_01_json-interface-migration/output/车型结构_RU-20261112_01.json",
+      "sha256": "9c69fba6cc143718e167a3993e9e2f00c3ede23751470a293fd5c603d699827b"
+    }
+  ],
+  "rules": {
+    "data_dir": "nodes/M0.车型年覆盖/data",
+    "git_commit": "155dfb67cbdaa95ece1c5310909d395082641874",
+    "copied": [
+      "data/名称映射.csv",
+      "data/名称映射说明.md"
+    ],
+    "files": [
+      {
+        "file": "data/data_source/trimslate-vehicles.csv",
+        "sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+        "raw_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+        "bytes": 9200154
+      },
+      {
+        "file": "data/data_source/vehicles.csv",
+        "sha256": "4647c58d9ff6fe962568f9990ce7bc16b92f71abaa3e18035ef41d7e818805ee",
+        "raw_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+        "bytes": 1218697
+      },
+      {
+        "file": "data/人工裁决.csv",
+        "sha256": "45ba31b252bedee8a26fc1d5f7586901e47fb164cd0980d75b90ae8205146bb5",
+        "raw_sha256": "45ba31b252bedee8a26fc1d5f7586901e47fb164cd0980d75b90ae8205146bb5",
+        "bytes": 39
+      },
+      {
+        "file": "data/名称映射.csv",
+        "sha256": "e9ef944e858a08ba007a3ac6b9028c0a8ce881e012acc5d3590ceae5dea99a4b",
+        "raw_sha256": "6b25af42d675a368884b61a2e33c09393a8d2003044c79b99b1de76522e618e4",
+        "bytes": 467064,
+        "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-12_12_model-year-coverage/rules/data/名称映射.csv"
+      },
+      {
+        "file": "data/名称映射说明.md",
+        "sha256": "9c515f727fc5c805eb9eefba0a91c0171791f080419103cfc9363078a9f279aa",
+        "raw_sha256": "9c515f727fc5c805eb9eefba0a91c0171791f080419103cfc9363078a9f279aa",
+        "bytes": 5181,
+        "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/rules/data/名称映射说明.md"
+      },
+      {
+        "file": "data/品牌映射.csv",
+        "sha256": "5af69f8bb81365d6da6bb1ba9bca0e4bba66c36dc2b5d6e2d8486825891e6a61",
+        "raw_sha256": "5af69f8bb81365d6da6bb1ba9bca0e4bba66c36dc2b5d6e2d8486825891e6a61",
+        "bytes": 2010
+      },
+      {
+        "file": "data/来源登记.csv",
+        "sha256": "9aa24c56870698cc1bb9e0f8f739bd3ac1fb22c93167206a8f85cb822bfe437a",
+        "raw_sha256": "9aa24c56870698cc1bb9e0f8f739bd3ac1fb22c93167206a8f85cb822bfe437a",
+        "bytes": 343
+      },
+      {
+        "file": "data/统计范围.csv",
+        "sha256": "bee4508ad779be105073089aa32e8fdaf1a872e3ab570110fcb59ea17671beae",
+        "raw_sha256": "bee4508ad779be105073089aa32e8fdaf1a872e3ab570110fcb59ea17671beae",
+        "bytes": 45
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "155dfb67cbdaa95ece1c5310909d395082641874",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      },
+      {
+        "file": "nodes/M0.车型年覆盖/src/mmy_coverage.py",
+        "sha256": "124d4a63589891804fd49ae0bfa38fcda7722edd090e10cfc6dcd62b3a352df4"
+      },
+      {
+        "file": "nodes/M0.车型年覆盖/src/run.py",
+        "sha256": "4b1e2fdca41ce380c20001c83dade93748ea22ca9297d8062819cda2b258d73d",
+        "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_04_model-year-coverage/code/nodes/M0.车型年覆盖/src/run.py"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "车型名录.json",
+      "versioned_file": "车型名录-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/车型名录-20261112_02.json",
+      "content_reference": true,
+      "sha256": "e0038cc3e05625226d5c94cc532373ba19003ffc173638ca5b18028ac948f4e1",
+      "bytes": 3634208,
+      "rows": 24069
+    },
+    {
+      "file": "车型年全集.json",
+      "versioned_file": "车型年全集-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/车型年全集-20261112_02.json",
+      "content_reference": true,
+      "sha256": "0d420a5ad6fcd2af79acba4f4b289391a3d8cc476c44b7b11bc225c73b1b7193",
+      "bytes": 12966351,
+      "rows": 98408
+    },
+    {
+      "file": "来源关联.json",
+      "versioned_file": "来源关联-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/来源关联-20261112_02.json",
+      "content_reference": true,
+      "sha256": "225b74407a5576250349cbbb0a9f7b0c51794a3f5ba1513b8b1fe3a4531deabb",
+      "bytes": 41156096,
+      "rows": 165612
+    },
+    {
+      "file": "覆盖明细.json",
+      "versioned_file": "覆盖明细-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/覆盖明细-20261111_07.json",
+      "content_reference": true,
+      "sha256": "4bc31ec186bfd17a6230f69e3698cf4213eaea5b61d5609bbe0370d0f58a9d4b",
+      "bytes": 44986507,
+      "rows": 80940
+    },
+    {
+      "file": "车型覆盖明细.json",
+      "versioned_file": "车型覆盖明细-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/车型覆盖明细-20261111_07.json",
+      "content_reference": true,
+      "sha256": "6235a73a70c7c890b873344c33349ca6163969201a2a39d861a86bb8e10da4a6",
+      "bytes": 16939555,
+      "rows": 58119
+    },
+    {
+      "file": "覆盖汇总.json",
+      "versioned_file": "覆盖汇总-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/覆盖汇总-20261111_07.json",
+      "content_reference": true,
+      "sha256": "51dca957ea1dac34285f836d829dae3e623303eae78d470fd2160ae54bd72509",
+      "bytes": 94852,
+      "rows": 582
+    },
+    {
+      "file": "回补候选.json",
+      "versioned_file": "回补候选-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/回补候选-20261111_07.json",
+      "content_reference": true,
+      "sha256": "bf423ea879aebf1621d3f0a0beba7923b685396d5e0a7c920d8ea2a8fa5b27ee",
+      "bytes": 31874265,
+      "rows": 80940
+    },
+    {
+      "file": "来源统计.json",
+      "versioned_file": "来源统计-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/来源统计-20261112_02.json",
+      "content_reference": true,
+      "sha256": "2de289016e4aed2899b7d318bc79c6aadb670e020249d52b1e852107dcee1f0c",
+      "bytes": 695,
+      "rows": 2
+    },
+    {
+      "file": "名称未匹配.json",
+      "versioned_file": "名称未匹配-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/名称未匹配-20261111_07.json",
+      "content_reference": true,
+      "sha256": "5daa1fd6c21b8d1dd88dde318e4460fb6d4dd657ac06480e2e40647b7fcf8c86",
+      "bytes": 2903000,
+      "rows": 11017
+    },
+    {
+      "file": "已对应缺口.json",
+      "versioned_file": "已对应缺口-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/已对应缺口-20261111_07.json",
+      "content_reference": true,
+      "sha256": "1e0d163a0768e2b866f35a2d20775662de14b4e2bcc6020e17843c3a2b154507",
+      "bytes": 1204087,
+      "rows": 2429
+    },
+    {
+      "file": "映射影响.json",
+      "versioned_file": "映射影响-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/映射影响-20261111_07.json",
+      "content_reference": true,
+      "sha256": "22bbfbc2f65113a32047a189c85f5c84956a985c57947ef95acc933b0f68f3d0",
+      "bytes": 4034,
+      "rows": 25
+    },
+    {
+      "file": "名称映射审计.json",
+      "versioned_file": "名称映射审计-20261112_12.json",
+      "artifact_file": "nodes/M0.车型年覆盖/artifacts/2026-11-12_12_model-year-coverage/output/名称映射审计-20261112_12.json",
+      "content_reference": true,
+      "sha256": "c12356f5dc8c0f2e8cdef1b34c2d74c91c9c589c208dc77fe5fe947f420bd6ed",
+      "bytes": 510132,
+      "rows": 2568
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "transport": "json",
+    "manual_backfill_only": true,
+    "source_rows": 66952,
+    "rows": {
+      "车型名录.json": 24069,
+      "车型年全集.json": 98408,
+      "来源关联.json": 165612,
+      "覆盖明细.json": 80940,
+      "车型覆盖明细.json": 58119,
+      "覆盖汇总.json": 582,
+      "回补候选.json": 80940,
+      "来源统计.json": 2,
+      "名称未匹配.json": 11017,
+      "已对应缺口.json": 2429,
+      "映射影响.json": 25,
+      "名称映射审计.json": 2568
+    }
+  }
+}

@@ -220,3 +220,17 @@ def test_on_demand_node_is_not_stale_when_upstream_republished(tmp_path, monkeyp
     errors, stale, deferred = trace_pipeline.trace_node(node, by_id, on_demand=True)
     assert (errors, stale) == ([], []) and deferred
     assert trace_pipeline.trace_node(node, by_id)[1]  # 作为自动节点时则为过期
+
+
+def test_explicit_release_builds_only_selected_html(tmp_path, monkeypatch):
+    import node_html
+    repo = make_repo(tmp_path)
+    payload = json.loads((repo / 'pipeline.json').read_text())
+    payload['html_contract'] = {'enabled': True}
+    (repo / 'pipeline.json').write_text(json.dumps(payload))
+    calls = []
+    monkeypatch.setattr(node_html, 'build_reports', lambda root, only: calls.append(only))
+    monkeypatch.setattr(release, 'write_status', lambda root: None)
+    release.release_all(repo, only={'a'})
+    assert calls == [{'a'}]
+    assert not (repo / '01.b/artifacts').exists()

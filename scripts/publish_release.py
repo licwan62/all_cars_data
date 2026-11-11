@@ -595,7 +595,7 @@ def release_all(root: Path, only: set[str] | None = None, dry_run: bool = False,
     if not dry_run and (released or not refused):
         if payload.get("html_contract"):
             from node_html import build_reports
-            build_reports(root)
+            build_reports(root, {node["id"] for node in selected} if only or lines else None)
         write_status(root)
     if refused:
         raise IdentityGapError("\n".join(refused))
