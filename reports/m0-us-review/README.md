@@ -2,7 +2,7 @@
 
 基线提交 `155dfb67cbdaa95ece1c5310909d395082641874`。最终数据版本 `20261112_13`，HTML版本 `20261112_14`。阅读入口：[车型年全集与覆盖率](../../nodes/M0.车型年覆盖/车型年全集与覆盖率.html)。页面内嵌12份JSON，无外部资源依赖；当前版本与不可变HTML归档均经浏览器验证。
 
-追加342条显式family规则：Chevrolet 122、Ford 77、GMC 59、Toyota 70、Dodge 14。原规则行及顺序逐字节保留；未新增品牌别名或跨品牌合并。所有新增关系只进入车系级比较，不视为同配置别名或市场确认。斜杠名称、Ford F250/F-350、Lightning电动皮卡、GMC Savana及非HD重载名称保留待核；不能用缺少明确对应来断言车型不存在。
+追加342条显式family规则：Chevrolet 122、Ford 77、GMC 59、Toyota 70、Dodge 14。原规则行及顺序逐字节保留；未新增品牌别名或跨品牌合并。逐条原名MM_ID、来源SHA/逻辑记录号样本及目标US的DIMENSION-ID/年份见[mapping-evidence.json](mapping-evidence.json)。所有新增关系只进入车系级比较，不视为同配置别名或市场确认。斜杠名称、Ford F250/F-350、Lightning电动皮卡、GMC Savana及非HD重载名称保留待核；不能用缺少明确对应来断言车型不存在。
 
 | US指标 | 基线 | 续作后 |
 |---|---:|---:|
