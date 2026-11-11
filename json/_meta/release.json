@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "released_at": "2026-11-12T02:19:16+08:00",
+  "released_at": "2026-11-12T02:43:15+08:00",
   "nodes": {
     "dimension-crawler": {
       "path": "nodes/00.自动化尺寸抓取器",
@@ -94,8 +94,8 @@
     },
     "size-calculation": {
       "path": "nodes/A0.尺码计算",
-      "version": "20261112_01",
-      "artifact": "nodes/A0.尺码计算/artifacts/2026-11-12_01_json-interface-migration",
+      "version": "20261112_07",
+      "artifact": "nodes/A0.尺码计算/artifacts/2026-11-12_07_size-calculation-release",
       "deliverables": [
         "US/尺码匹配报告.json",
         "US/全量/全量表.json",
@@ -179,8 +179,8 @@
     },
     "size-compression": {
       "path": "nodes/A1.压缩尺寸信息",
-      "version": "20261112_01",
-      "artifact": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_01_json-interface-migration",
+      "version": "20261112_07",
+      "artifact": "nodes/A1.压缩尺寸信息/artifacts/2026-11-12_07_size-compression-release",
       "deliverables": [
         "US/压缩尺码表.json",
         "US/压缩尺码表_皮卡.json",
@@ -275,12 +275,13 @@
     },
     "model-year-coverage": {
       "path": "nodes/M0.车型年覆盖",
-      "version": "20261112_13",
-      "artifact": "nodes/M0.车型年覆盖/artifacts/2026-11-12_13_model-year-coverage-release",
+      "version": "20261112_16",
+      "artifact": "nodes/M0.车型年覆盖/artifacts/2026-11-12_16_model-year-coverage-release",
       "deliverables": [
         "覆盖汇总.json",
         "覆盖明细.json",
         "车型覆盖明细.json",
+        "US已覆盖车型.json",
         "车型名录.json",
         "车型年全集.json",
         "回补候选.json",

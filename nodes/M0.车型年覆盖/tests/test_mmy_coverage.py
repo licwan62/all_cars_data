@@ -48,6 +48,13 @@ def test_group_and_slash_names_do_not_falsely_close_gaps():
     assert all(r['回补方式']=='仅供人工选择；不执行、不写入00/01' for r in result['回补候选.json'])
 
 
+def test_us_covered_models_only_include_independent_reference_matches():
+    result = analyze(*fixture())
+    rows = result['US已覆盖车型.json']
+    assert [(row['REGION'], row['MAKE'], row['MODEL'], row['状态'], row['已覆盖参考年份'])
+            for row in rows] == [('US', 'A', 'M', '独立记录覆盖', '2020')]
+
+
 def test_explicit_exclusion_and_market_confirmation_are_separate():
     args=list(fixture());args[5]=[
         {'make':'A','model':'M','year':'2020','market':'US','action':'confirm_market','basis':'reviewed evidence'},

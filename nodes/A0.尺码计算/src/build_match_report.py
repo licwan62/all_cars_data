@@ -306,6 +306,7 @@ def build_report(region: str, output_dir: Path) -> str:
 
 
 def shape_adjustment_text(frame, rules, parameters):
+    from gray_matching import CONFIG as GRAY_CONFIG, apply_gray_matching
     from shape_adjustment import CONFIG, adjust, load_config, MATCH_COLUMNS
     config = load_config()
     # 从当前正式表的原计算量重算基础结果，再执行同一个调整器，避免报告另写一套条件。
@@ -314,13 +315,16 @@ def shape_adjustment_text(frame, rules, parameters):
         inputs[spec.source_column] = pd.to_numeric(inputs[spec.source_column], errors="coerce")
     base = analysis.SizeMatcher(parameters, rules).apply(inputs)
     adjusted, audit = adjust(base, parameters, rules, config=config)
-    if adjusted["自动尺码"].tolist() != frame["自动尺码"].tolist():
-        raise ValueError("US SHAPE调整报告重算与当前全量表不一致，请先重建US结果")
+    matched, gray_audit = apply_gray_matching(adjusted, parameters, rules)
+    if matched["自动尺码"].tolist() != frame["自动尺码"].tolist():
+        raise ValueError("US 尺码报告重算与当前全量表不一致，请先重建 US 结果")
+    gray_lines = ["", "## 同车型灰区", "",
+                  f"规则：`{relative(GRAY_CONFIG)}`。负长度余量记录实际超过标称上限的毫米数。", "",
+                  *md_table(["DIMENSION-ID", "同配置依据", "基础尺码", "灰区尺码", "超上限 mm"], gray_audit)]
     if not config["enabled"]:
         return ["", "## SHAPE 版型调整提醒", "",
                 f"调整规则：`{relative(CONFIG)}`；**当前已停用（enabled: false）**。", "",
-                "本次仅使用原基础规则进行尺码匹配，SHAPE仅作为展示与研究标签；SHAPE调整记录数为0。"
-                "原调整条件保留在规则文件中，重新启用并重建前不会影响全量表、店铺匹配或TRIM适配器。", ""]
+                "SHAPE仅作为展示与研究标签；SHAPE调整记录数为0。", "", *gray_lines]
     lines = ["", "## SHAPE 版型调整提醒", "",
              f"调整规则：`{relative(CONFIG)}`；基础规则七字段保持不变，先基础匹配，再执行调整。", "",
              f"启用：{config['enabled']}；SHAPE：{', '.join(config['shapes'])}；结构：{', '.join(config['structures'])}；"
@@ -340,7 +344,7 @@ def shape_adjustment_text(frame, rules, parameters):
         lines += ["", "### 保留基础结果的候选", ""]
         headers += ["处理"]
         lines += md_table(headers, [[r[c] for c in headers] for r in skipped])
-    return lines
+    return [*lines, *gray_lines]
 
 
 SCHEMA_VERSION = 1

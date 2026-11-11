@@ -1,0 +1,69 @@
+# 发布报告
+
+- 节点：`model-year-coverage`（`nodes/M0.车型年覆盖`）
+- 版本：`20261112_16`
+- 发布时间：`2026-11-12T02:41:34+08:00`
+- 发布原因：交付物变化：US已覆盖车型.json。
+
+## 规则（data/）
+
+- 与上一版本相同。
+
+## 上游输入依据
+
+- `dimension-library` `20261112_06`：运行批次实际读取，4 个文件。
+- `structure-review` `20261112_01`：运行批次实际读取，3 个文件。
+
+## 交付物与变更
+
+### `覆盖汇总.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/覆盖汇总-20261111_07.json`，未复制。
+
+### `覆盖明细.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/覆盖明细-20261111_07.json`，未复制。
+
+### `车型覆盖明细.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/车型覆盖明细-20261111_07.json`，未复制。
+
+### `US已覆盖车型.json`
+
+- 本版本新增交付物，共 820 行。
+
+### `车型名录.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/车型名录-20261112_02.json`，未复制。
+
+### `车型年全集.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/车型年全集-20261112_02.json`，未复制。
+
+### `回补候选.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/回补候选-20261111_07.json`，未复制。
+
+### `来源关联.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/来源关联-20261112_02.json`，未复制。
+
+### `来源统计.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-12_02_model-year-coverage/output/来源统计-20261112_02.json`，未复制。
+
+### `名称未匹配.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/名称未匹配-20261111_07.json`，未复制。
+
+### `已对应缺口.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/已对应缺口-20261111_07.json`，未复制。
+
+### `映射影响.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-11_07_model-year-coverage/output/映射影响-20261111_07.json`，未复制。
+
+### `名称映射审计.json`
+
+- 内容未变化；引用 `nodes/M0.车型年覆盖/artifacts/2026-11-12_12_model-year-coverage/output/名称映射审计-20261112_12.json`，未复制。

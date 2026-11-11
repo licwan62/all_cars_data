@@ -1,0 +1,159 @@
+{
+  "schema_version": 2,
+  "batch": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_06_html-result",
+  "version": "20261112_06",
+  "description": "html-result",
+  "created_at": "2026-11-12T02:44:09+08:00",
+  "finished_at": "2026-11-12T02:44:11+08:00",
+  "command": [
+    "build_node_html.py",
+    "--nodes",
+    "compression-scoring,custom-analysis,representative-model,sku-clustering,link-analysis-pickup,size-analysis,link-analysis-regular"
+  ],
+  "inputs": [
+    {
+      "node": "link-analysis-pickup",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "version": "20261112_01",
+      "file": "链接字段审核.json",
+      "versioned_file": "链接字段审核-20261112_01.json",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_01_json-interface-migration/output/链接字段审核-20261112_01.json",
+      "sha256": "8ae65e3565d17587615957a384cc5cbc6ffcbe9acafd93b99ab0bef1842dd585"
+    },
+    {
+      "node": "link-analysis-pickup",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "version": "20261112_01",
+      "file": "上架链接明细.json",
+      "versioned_file": "上架链接明细-20261112_01.json",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_01_json-interface-migration/output/上架链接明细-20261112_01.json",
+      "sha256": "b1c2928b991f7dd16dd8a3b81c0ce0fe4720959129581dd91d225244c1ac98fc"
+    },
+    {
+      "node": "link-analysis-pickup",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "version": "20261112_01",
+      "file": "发货分配核对.json",
+      "versioned_file": "发货分配核对-20261112_01.json",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_01_json-interface-migration/output/发货分配核对-20261112_01.json",
+      "sha256": "8bcb55094375a7484f08edf5ab622ae23c64a39d9de0c4610a54cabccaeae1e0"
+    },
+    {
+      "node": "link-analysis-pickup",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "version": "20261112_01",
+      "file": "SKU发货数量.json",
+      "versioned_file": "SKU发货数量-20261112_01.json",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_01_json-interface-migration/output/SKU发货数量-20261112_01.json",
+      "sha256": "d8d617feee5c529af0428eb2e91d721f5f680bf9aaeec0bf71a15a4b56288a45"
+    },
+    {
+      "node": "link-analysis-pickup",
+      "path": "nodes/D2.链接分析/nodes/皮卡",
+      "version": "20261112_01",
+      "file": "链接分析报告.json",
+      "versioned_file": "链接分析报告-20261112_01.json",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_01_json-interface-migration/output/链接分析报告-20261112_01.json",
+      "sha256": "ad1642ebdeff1a99b5dd04569fe4d9033fe2243fb11fc22b53c9755c0bf04bf1"
+    },
+    {
+      "file": "json/link-analysis-pickup/manifest.json",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_01_json-interface-migration/output/manifest-20261112_01.json",
+      "sha256": "a5096feeb0e485a034b3fa2adbd1030cf23febd5d66fd937161c45ab845fb02b",
+      "copied_because": "json/link-analysis-pickup/manifest.json 未登记 manifest.json"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "6bbda528c3402547717d9e35478b352464c8119b",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "1b2bf16b5046219f0017e5db2728408bc1ce4d92a034edf4c2635697120453eb"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "8b9ece155194b38d6fa60f8473ff151bc0b0d60f34c9f46317e0d711d984219a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe",
+        "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_05_json-node/code/lib/node_html.py"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      },
+      {
+        "file": "nodes/D2.链接分析/nodes/皮卡/scripts/run.py",
+        "sha256": "4b195cb4b4bd40265745c4adf0fe7532af583febc07b25fe647581e65b62f365"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "皮卡链接与发货核对.html",
+      "versioned_file": "皮卡链接与发货核对-20261112_06.html",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_06_html-result/output/皮卡链接与发货核对-20261112_06.html",
+      "content_reference": true,
+      "sha256": "1a67a8f4dacce9070c10a0cd14416f077c2895ef80dd20b72cc1a90026f9bb9b",
+      "bytes": 48037,
+      "rows": null
+    },
+    {
+      "file": "html_manifest.json",
+      "versioned_file": "html_manifest-20261112_06.json",
+      "artifact_file": "nodes/D2.链接分析/nodes/皮卡/artifacts/2026-11-12_06_html-result/output/html_manifest-20261112_06.json",
+      "content_reference": true,
+      "sha256": "2d385505e95e0ac63e2dfc6067ad8804cd9f250973c7c18813d577e5321ff313",
+      "bytes": 2760,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "purpose": "html-presentation",
+    "data_verified": false
+  }
+}
