@@ -1,0 +1,158 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants",
+  "version": "20261113_10",
+  "description": "autonomous-default-and-granta-variants",
+  "created_at": "2026-11-13T06:45:23+00:00",
+  "finished_at": "2026-11-13T06:45:41+00:00",
+  "command": [
+    "ru_resume_without_manual_gate.py"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/progress-20261113_09.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/progress-20261113_09.json",
+      "sha256": "c3a13711290d330221e189fe15f69413c8185cde8af3fc06a17ed1f0e7949170"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/method-samples-20261113_09.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/method-samples-20261113_09.json",
+      "sha256": "2f7433fd4f7e0703ccbaaaea9e9a4cb2c81c1c699bc42070cc375424d46f4b85"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "7a62f0f5bd5d0893edde1f4606887e57b1784664",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "working-default.json",
+      "versioned_file": "working-default-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/working-default-20261113_10.json",
+      "content_reference": true,
+      "sha256": "bd53b3a3ca0e1ae830857821c8248b8c5885403f85e17baa108d16a5fb45b577",
+      "bytes": 991,
+      "rows": null
+    },
+    {
+      "file": "granta-identity-crosscheck.json",
+      "versioned_file": "granta-identity-crosscheck-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/granta-identity-crosscheck-20261113_10.json",
+      "content_reference": true,
+      "sha256": "22e4c96f1acbb06ef15d084eab9427818b5e9106baf9c2553c46b12d74a53c82",
+      "bytes": 4966,
+      "rows": null
+    },
+    {
+      "file": "granta-sport-initial-followup.json",
+      "versioned_file": "granta-sport-initial-followup-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/granta-sport-initial-followup-20261113_10.json",
+      "content_reference": true,
+      "sha256": "81504495844f906604db1de7e140930e3480b4ca41b27c793eb92f8e0b49d304",
+      "bytes": 38290,
+      "rows": null
+    },
+    {
+      "file": "granta-accepted-variants.json",
+      "versioned_file": "granta-accepted-variants-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/granta-accepted-variants-20261113_10.json",
+      "content_reference": true,
+      "sha256": "cde0b4b655cac8c31a0a377389b39404f18157b50330a126a640bd4508c93fc6",
+      "bytes": 15947,
+      "rows": null
+    },
+    {
+      "file": "new-generation-request.json",
+      "versioned_file": "new-generation-request-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/new-generation-request-20261113_10.json",
+      "content_reference": true,
+      "sha256": "3eeea8a1fdb9b144b03c47ea8f9dec6c44388f3931827c3f03a1c7d6c2ed286e",
+      "bytes": 2715,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/progress-20261113_10.json",
+      "content_reference": true,
+      "sha256": "beeb9f266fa3e28f550ae095796e086c7be149ea7d09f648008efe3efd96994f",
+      "bytes": 2128280,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/extra/executed-code/ru_resume_without_manual_gate.py"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_resume_without_manual_gate.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/extra/executed-code/ru_resume_without_manual_gate.py",
+      "sha256": "f98b9182f85fc107c63d97ae6f3eb77b5e16f14e0696113b314f3080e1702a76",
+      "bytes": 12031
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "production_state": "ready_to_continue_without_manual_style_gate",
+    "accepted_tasks": 0,
+    "accepted_dimension_records": 2,
+    "generated_images_total": 3
+  }
+}

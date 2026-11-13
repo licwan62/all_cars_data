@@ -1,0 +1,244 @@
+[
+  {
+    "task_id": "RU-51c1a9459b211a89",
+    "dimension_id": "Lada (ВАЗ) Granta Liftback 2011-2018 RU",
+    "scope_rows": [
+      1
+    ],
+    "reviewer": "Codex（按当前任务授权验收，非用户逐张批准）",
+    "reviewed_at": "2026-11-13T06:45:27.941319+00:00",
+    "passed": true,
+    "user_approved": false,
+    "working_policy": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/working-default-20261113_10.json",
+    "source_candidate_id": "RU-51c1a9459b211a89-C001",
+    "source_sha256": "61fa32866638deb5a8192ab46de7ebf743aab9dd96f1948818de5f26979ff222",
+    "source_page": "https://commons.wikimedia.org/wiki/File:2014_Lada_Granta_219170_white_front.jpg",
+    "source_license": {
+      "ImageDescription": "Front view of a white Lada Granta liftback",
+      "DateTimeOriginal": "2026-01",
+      "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Throwawayacc222\" title=\"User:Throwawayacc222\">Throwawayacc222</a>",
+      "LicenseShortName": "CC0",
+      "UsageTerms": "Creative Commons Zero, Public Domain Dedication",
+      "AttributionRequired": "false",
+      "LicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "Restrictions": "",
+      "License": "cc0"
+    },
+    "source_evidence_file": "reports/ru-image-search/artifacts/2026-11-13_08_network-restored-originals-verified/output/candidates-20261113_08.json",
+    "identity_observation": "五门斜背车身、后侧三角窗、四扇侧门、普通版矩形灯与旧格栅、白色车漆及源图轮罩保持；天线尖端、镜壳、两轮完整。灰底、深底实际查看未见明显游离点或残余背景；车窗内饰保留。",
+    "independent_identity_source": "https://en.wikipedia.org/wiki/Lada_Granta",
+    "independent_identity_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/granta-identity-crosscheck-20261113_10.json",
+    "applicability": "Representative ordinary pre-2018 Granta exterior for the specified body in the RU catalog; independent source confirms Russian-market model, five-door body in 2014 and 2018 facelift. Not a claim that every year or every trim has this exact specification.",
+    "exact_model_year": "not proven; not inferred from filename or queue representative year",
+    "photograph_country": "not independently established; not claimed as Russian photo provenance",
+    "request": {
+      "task_id": "RU-51c1a9459b211a89",
+      "dimension_id": "Lada (ВАЗ) Granta Liftback 2011-2018 RU",
+      "scope_rows": [
+        1
+      ],
+      "attempt": "method-sample-02",
+      "generator": "builtin_image_gen",
+      "request_state": "returned",
+      "source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-51c1a9459b211a89-C001/original.jpg",
+      "source_sha256": "61fa32866638deb5a8192ab46de7ebf743aab9dd96f1948818de5f26979ff222",
+      "prompt": "Image 1 is the real identity photograph of the exact ordinary white pre-facelift Lada Granta five-door liftback. Image 2 is an incomplete first catalog sample of this same car, provided only as an editing target. Make a new complete transparent catalog sample of this exact car, keeping its old rectangular headlamps, black two-bar grille and Lada emblem, five-door liftback roof/hatch, four side doors, rain guards, black mirrors and handles, white paint, wheel covers, side creases and right-facing front three-quarter source view. Correct the framing decisively: make the entire car substantially smaller within a roomy landscape canvas, about 80 percent of image width; all bodywork, both wheels, mirrors and the ENTIRE roof antenna including its thin tip must have broad transparent breathing room, at least 8 percent canvas clearance above the antenna and below the tire bottoms. The antenna must be a complete continuous stock antenna, not cropped, doubled or extended out of the frame. Remove any floating fragments, colored specks and pale background fringe outside the silhouette. Keep realistic interior and glass; no transparent holes through windscreen. Clean factory-condition paint; no dirt, rust or unrelated background reflections. Actual RGBA transparency. No road, snow, floor, shadow, reflection, text, watermark or checkerboard. Do not invent Sport/Cross trim, change body type, mirror the vehicle or impose a pickup-style camera. This is a proposed method-validation sample, not a declared final design standard.",
+      "prompt_sha256": "6d3a3a0578afe17ef882b0d35d38cb6d07a83c5ce32c12e873a62fac12e6046e",
+      "transparent_background": true,
+      "visual_standard_status": "method_sample_pending_ru_visual_spec",
+      "input_role": "exact vehicle identity and source camera view; no cross-vehicle reference",
+      "production_accepted": false,
+      "editing_target": "/workspace/ru_picture_producer/来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Liftback/attempt01/imagegen-original.png",
+      "editing_target_sha256": "da73f52023d7e4e52b515d9b4b556bb47bf4f6ed22e16b0f8997a9a72135b22b",
+      "previous_failure": "antenna touches top canvas boundary; insufficient margins",
+      "output_file": "/workspace/ru_picture_producer/来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Liftback/attempt02/imagegen-original.png",
+      "output_sha256": "0c3f5daa4a4b3cd728e87d8d0fc43db7a00b4c820131b737629b5d2e627d94b1",
+      "technical": {
+        "size": [
+          1774,
+          887
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "alpha_bbox": [
+          0,
+          39,
+          1548,
+          857
+        ],
+        "visible_alpha_ge_16_bbox": [
+          214,
+          84,
+          1545,
+          844
+        ]
+      },
+      "review_state": "draft_quality_reviewed_visual_standard_pending",
+      "tool": "image_gen.imagegen",
+      "tool_model": "not exposed by tool; not inferred",
+      "visual_review": {
+        "reviewer": "Codex（来源与方法样张复核）",
+        "draft_quality_passed": true,
+        "production_accepted": false,
+        "observations": "分别在灰底与深灰底实际查看：完整天线尖端、车顶、两轮、镜壳与整车均在画布内；四扇侧门、斜背尾部、后侧三角窗、老式矩形灯组与Granta普通版格栅特征保持。白车清洁，无地面、阴影、重复车体或明显背景残留，玻璃中内饰保留。工具透明预览的浅色零点须与实际合成区分；alpha>=16的可见区域bbox为[214,84,1545,844]，灰/深底未见明显游离碎点。未宣称像素锁定、精确车型年或已取得俄罗斯视觉样例批准。",
+        "technical_note": "alpha>0 bbox[0,39,1548,857]含极低alpha；可见主体边界留白约214/84/229/43px。不以该样张参数替代未确认俄罗斯最终规格。",
+        "review_files": [
+          "/workspace/ru_picture_producer/来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Liftback/attempt02/review-gray.jpg",
+          "/workspace/ru_picture_producer/来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Liftback/attempt02/review-dark.png"
+        ]
+      }
+    },
+    "technical": {
+      "format": "PNG",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ]
+    },
+    "final": {
+      "local_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-51c1a9459b211a89/Granta-Liftback-pre-facelift.png",
+      "logical_path": "outputs/俄罗斯/RU-51c1a9459b211a89/Granta-Liftback-pre-facelift.png",
+      "sha256": "0c3f5daa4a4b3cd728e87d8d0fc43db7a00b4c820131b737629b5d2e627d94b1",
+      "size": 1061694,
+      "object_key": "main_picture_producer/v1/objects/0c/0c3f5daa4a4b3cd728e87d8d0fc43db7a00b4c820131b737629b5d2e627d94b1",
+      "backend_id": "e376451857dee2ecc82b9bedc08d1bbf99687df07e0a55b1dd97f005553cb4dc",
+      "full_readback_sha_verified": true
+    },
+    "visual_evidence": [
+      {
+        "logical_path": "来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Liftback/attempt02/review-dark.png",
+        "sha256": "f281d52a6eade266baa6d197707ad123b062ac82081e72d1ef593b3fd0f746ca",
+        "size": 821688,
+        "object_key": "main_picture_producer/v1/objects/f2/f281d52a6eade266baa6d197707ad123b062ac82081e72d1ef593b3fd0f746ca",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Liftback/attempt02/review-gray.jpg",
+        "sha256": "654e751ea3ef89471569e4e46654d531ebbe1530e84340a6a5f24d67afc0da0a",
+        "size": 92418,
+        "object_key": "main_picture_producer/v1/objects/65/654e751ea3ef89471569e4e46654d531ebbe1530e84340a6a5f24d67afc0da0a",
+        "full_readback_sha_verified": true
+      }
+    ]
+  },
+  {
+    "task_id": "RU-51c1a9459b211a89",
+    "dimension_id": "Lada (ВАЗ) Granta Sedan 2011-2018 RU",
+    "scope_rows": [
+      1
+    ],
+    "reviewer": "Codex（按当前任务授权验收，非用户逐张批准）",
+    "reviewed_at": "2026-11-13T06:45:40.523264+00:00",
+    "passed": true,
+    "user_approved": false,
+    "working_policy": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/working-default-20261113_10.json",
+    "source_candidate_id": "RU-51c1a9459b211a89-C002",
+    "source_sha256": "5554d9220e24910e004e7442b166ac495e552f9681d7295c88a88551615671e6",
+    "source_page": "https://commons.wikimedia.org/wiki/File:2014_Lada_Granta_219010_sedan_silver_front.jpg",
+    "source_license": {
+      "ImageDescription": "Front view of a silver Lada Granta sedan",
+      "DateTimeOriginal": "2025-10-10",
+      "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Throwawayacc222\" title=\"User:Throwawayacc222\">Throwawayacc222</a>",
+      "LicenseShortName": "CC0",
+      "UsageTerms": "Creative Commons Zero, Public Domain Dedication",
+      "AttributionRequired": "false",
+      "LicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "Restrictions": "",
+      "License": "cc0"
+    },
+    "source_evidence_file": "reports/ru-image-search/artifacts/2026-11-13_08_network-restored-originals-verified/output/candidates-20261113_08.json",
+    "identity_observation": "四门三厢独立行李厢轮廓、银色车漆、普通黑镜与黑把手、钢轮、矩形灯、旧格栅银条、圆形雾灯空白盖保持；未误用Liftback或Sport车身。完整天线、前后轮、保险杠均在画布内。灰底与深底实际查看边缘连续，无明显地面、背景残留或重复车体。",
+    "independent_identity_source": "https://en.wikipedia.org/wiki/Lada_Granta",
+    "independent_identity_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/granta-identity-crosscheck-20261113_10.json",
+    "applicability": "Representative ordinary pre-2018 Granta exterior for the specified body in the RU catalog; independent source confirms Russian-market model, five-door body in 2014 and 2018 facelift. Not a claim that every year or every trim has this exact specification.",
+    "exact_model_year": "not proven; not inferred from filename or queue representative year",
+    "photograph_country": "not independently established; not claimed as Russian photo provenance",
+    "request": {
+      "task_id": "RU-51c1a9459b211a89",
+      "dimension_id": "Lada (ВАЗ) Granta Sedan 2011-2018 RU",
+      "scope_rows": [
+        1
+      ],
+      "generator": "builtin_image_gen",
+      "tool_model": "not exposed by tool; not inferred",
+      "request_state": "returned",
+      "attempt": "sedan-01",
+      "source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-51c1a9459b211a89-C002/original.jpg",
+      "source_sha256": "5554d9220e24910e004e7442b166ac495e552f9681d7295c88a88551615671e6",
+      "prompt": "Use this photo as the sole vehicle identity reference. Create a clean photorealistic catalog cutout of this exact ordinary silver pre-facelift Lada Granta four-door SEDAN. Preserve the sedan rear trunk/body, four side doors, rear side window, short roof antenna, plain black mirrors and door handles, plain steel wheels with small center covers, rectangular old-style headlamps with amber indicators, black two-bar grille with Lada emblem and the long silver bar, hood creases, bumper air opening, and plain circular fog-light blanks. No Sport trim, no liftback body, no alloy wheels, no added fog lamps. Keep a right-facing front three-quarter camera view close to the source; show the entire car, all body extremities, both visible tires and the complete roof antenna, with generous transparent margins on every side and above and below. Remove the buildings, white SUV, road, reflections of surroundings, windshield ornament, license text, stains, rust and scratches, restoring a clean factory-condition silver finish without changing trim. Real glass and interior remain, not transparent holes. Actual RGBA transparent background, no floor, no contact shadow or reflection. Clean continuous natural silhouette without fringe or floating fragments. No text, watermark, border or checkerboard. This is produced under a transparent shadow-free working default; do not invent a precise model year.",
+      "prompt_sha256": "7c5ca7c52552fbcf710188e7a8194dc9d8737d68059b2180c385514d74a9d15d",
+      "transparent_background": true,
+      "working_style": "transparent_shadow_free_source_view",
+      "style_basis": "agent working default under authorized production task; not user style approval",
+      "production_accepted": false,
+      "output_file": "/workspace/ru_picture_producer/来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Sedan/attempt01/imagegen-original.png",
+      "output_sha256": "da54faa0eb8aa09bbd4044e3d27f6786180f51a30fda231ab5e7c8228af68503",
+      "technical": {
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          254
+        ],
+        "alpha_ge_16_bbox": [
+          46,
+          36,
+          1467,
+          996
+        ],
+        "alpha_ge_240_bbox": [
+          48,
+          42,
+          1465,
+          994
+        ]
+      }
+    },
+    "technical": {
+      "format": "PNG",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ]
+    },
+    "final": {
+      "local_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-51c1a9459b211a89/Granta-Sedan-pre-facelift.png",
+      "logical_path": "outputs/俄罗斯/RU-51c1a9459b211a89/Granta-Sedan-pre-facelift.png",
+      "sha256": "da54faa0eb8aa09bbd4044e3d27f6786180f51a30fda231ab5e7c8228af68503",
+      "size": 1888472,
+      "object_key": "main_picture_producer/v1/objects/da/da54faa0eb8aa09bbd4044e3d27f6786180f51a30fda231ab5e7c8228af68503",
+      "backend_id": "e376451857dee2ecc82b9bedc08d1bbf99687df07e0a55b1dd97f005553cb4dc",
+      "full_readback_sha_verified": true
+    },
+    "visual_evidence": [
+      {
+        "logical_path": "来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Sedan/attempt01/review-dark.png",
+        "sha256": "6792b0b6a7ec8bdb3dcd6843b9c5436270a431c4e53457137c5d58ccad62a72a",
+        "size": 1218302,
+        "object_key": "main_picture_producer/v1/objects/67/6792b0b6a7ec8bdb3dcd6843b9c5436270a431c4e53457137c5d58ccad62a72a",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/制图试样/RU-51c1a9459b211a89/Sedan/attempt01/review-gray.png",
+        "sha256": "7d55b3a04c4962b7143640387bc4a8784b324d5b6a657c63c2c85e3bfa66e176",
+        "size": 1217645,
+        "object_key": "main_picture_producer/v1/objects/7d/7d55b3a04c4962b7143640387bc4a8784b324d5b6a657c63c2c85e3bfa66e176",
+        "full_readback_sha_verified": true
+      }
+    ]
+  }
+]
