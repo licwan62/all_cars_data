@@ -1,0 +1,460 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations",
+  "version": "20261113_27",
+  "description": "rio-jb-and-russian-fb-facelift-six-configurations",
+  "created_at": "2026-11-13T11:14:32+00:00",
+  "finished_at": "2026-11-13T11:14:33+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch27-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/progress-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/progress-20261113_26.json",
+      "sha256": "9ed591b99a9542456d49c0596d922b1bd79a4f1a9b638c6f5ac513ab4cc287ff"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/current-accepted-configuration-index-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/current-accepted-configuration-index-20261113_26.json",
+      "sha256": "c86527f2a108f3922cc66c5909ff17f6319f7076913fcb542585edc448a71b6f"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/candidates-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/candidates-20261113_26.json",
+      "sha256": "b65c34e9f7ba4fa2ac34ed60a740c6b9a2ca52d0066f22412c927a346621ec4d"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/identity-crosschecks-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/identity-crosschecks-20261113_26.json",
+      "sha256": "5446cb0afa80edbba5045e9ec1f5ca2f11ad75849d9f9a2e14d871a755a81d22"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "17a55420525390ecc7513b063ed03368d70dfff5",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/identity-crosschecks-20261113_27.json",
+      "content_reference": true,
+      "sha256": "019919025c2ac75318311a8b9fe1f3e63d0aee545aeb248a560f0a7a674f751a",
+      "bytes": 6133,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/accepted-configurations-20261113_27.json",
+      "content_reference": true,
+      "sha256": "5176b74ec7d708052cd5a1d0ef3693afdf275e377f618f45fdefdb0f10c7dec6",
+      "bytes": 59695,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/current-accepted-configuration-index-20261113_27.json",
+      "content_reference": true,
+      "sha256": "5324d925880adf5c293ac066a8e4c92d9450c7c7bbca5cfee3f4fcaa34c9f146",
+      "bytes": 1005067,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/nonadopted-history-20261113_27.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/generation-requests-20261113_27.json",
+      "content_reference": true,
+      "sha256": "21614a268a54cd24cdf2986fe1b6a7beb29aea0c712d9b6105b7b7be78b208f3",
+      "bytes": 26296,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/new-source-original-evidence-20261113_27.json",
+      "content_reference": true,
+      "sha256": "6001bba3f998052f42fd1b7deb3c4a92550cd7474c9c47e7013fcf924384a563",
+      "bytes": 21393,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/candidates-20261113_27.json",
+      "content_reference": true,
+      "sha256": "317857303b3fb0be948d0271126c00f6beac1ab3318ac42ae11285bed5ade330",
+      "bytes": 328397,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_27.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/progress-20261113_27.json",
+      "content_reference": true,
+      "sha256": "b269d025ea96c81a1988ecd4a03ff8d6008e5076c065099511a6d5121cf49046",
+      "bytes": 2252139,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru-batch27-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_make_batch27_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_import_kia27.py",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_prepare_kia27.py",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_review_kia27.py",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-six-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-six-source-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-original-3.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-sedan-roof-source.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/results.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/HANDOFF.md",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/flickr-primary-license-excerpts.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/source-map-extract.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/catalog-reference-contact4.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/fb-results.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/HANDOFF.md",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/browser-proof-restart.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/228-prefl-sedan-flickr.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/228-prefl-sedan-flickr.html",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/227-fl-sedan-flickr.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/227-fl-sedan-flickr.html",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/242-jb-hatch-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/243-jb-hatch-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/255-jb-prefl-hatch-rear-original.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/244-jb-hatch-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/245-jb-hatch-page.html",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/249-jb-fl-hatch-original.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/295-fb-fl-photo-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/295-fb-fl-photo-page.html",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/296-fb-fl-photo-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/299-fb-fl-original.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/source-map-extract.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/297-fb-fl-photo-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/297-fb-fl-photo-page.html",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/298-fb-fl-photo-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/300-fb-fl-original.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch27-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru-batch27-review.json",
+      "sha256": "9736a209bb452f9be94d2fa1a1315b0edcfd4880b2d87afc48ab625688c5afc0",
+      "bytes": 14265
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch27_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_make_batch27_review.py",
+      "sha256": "a8bccaf2faa0b7ee3decbd7808eae122e38087e4bc3d6af17fdf62b1689b4111",
+      "bytes": 7470
+    },
+    {
+      "file": "extra/executed-code/ru_import_kia27.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_import_kia27.py",
+      "sha256": "1dba86fa86be73d48b17414f9696962359cdabd1bc931c9fca88d6a08968db4b",
+      "bytes": 3402
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_kia27.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_prepare_kia27.py",
+      "sha256": "fba23a783fda47b2def26ef157bd8dd782c8c0d0d649a59d09f317bbb55994d2",
+      "bytes": 6185
+    },
+    {
+      "file": "extra/executed-code/ru_review_kia27.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/executed-code/ru_review_kia27.py",
+      "sha256": "b0bda3dd2511dc22faee327318b3787da6ffb8f30c7c1340109ebba0aeef1718",
+      "bytes": 1618
+    },
+    {
+      "file": "extra/search-evidence/ru-kia27-six-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-six-frozen.json.gz",
+      "sha256": "f312aad6d36e1031cd88e9e9f1d054ba3e8fda5137a8b9a95ea3068e8a9832c2",
+      "bytes": 4097
+    },
+    {
+      "file": "extra/search-evidence/ru-kia27-six-source-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-six-source-contact.jpg",
+      "sha256": "78d8b5fb0ad506bd1475b5aa154876aa4d5abcfc439aab4627dad31a21d09eb9",
+      "bytes": 279309
+    },
+    {
+      "file": "extra/search-evidence/ru-kia27-original-3.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-original-3.jpg",
+      "sha256": "72ef01871b00e68a432abd52296f9fb884d0f5fd95279d2867fdeb10c2e60506",
+      "bytes": 434145
+    },
+    {
+      "file": "extra/search-evidence/ru-kia27-sedan-roof-source.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/ru-kia27-sedan-roof-source.jpg",
+      "sha256": "e49d7d07392f6b6bf3beff462d5f0a9c22dfbd79e83f14bcbf3b930ebab31bbe",
+      "bytes": 302160
+    },
+    {
+      "file": "extra/search-evidence/results.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/results.json.gz",
+      "sha256": "2a8369885ae9db42a404309019694860b387a19354107464cdb1edba88fb9657",
+      "bytes": 3421
+    },
+    {
+      "file": "extra/search-evidence/HANDOFF.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/HANDOFF.md",
+      "sha256": "2e55e7f80326e608572f701d32df904dfa09639376fcf86d3c05498067935124",
+      "bytes": 1837
+    },
+    {
+      "file": "extra/search-evidence/flickr-primary-license-excerpts.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/flickr-primary-license-excerpts.json.gz",
+      "sha256": "0e66f68fe53665d446e2aa97b3634120301cf4ffeb8865437c58b287c32f8c04",
+      "bytes": 564
+    },
+    {
+      "file": "extra/search-evidence/source-map-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/source-map-extract.json.gz",
+      "sha256": "e43e0749338523e45de35600b26d4a0e1cfc94c3bb038833c7a9d8692b427aab",
+      "bytes": 189
+    },
+    {
+      "file": "extra/search-evidence/catalog-reference-contact4.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/catalog-reference-contact4.jpg",
+      "sha256": "0964f8bc55744a5b28c1ea0d921facab7e140ef3f1905d5353eabd6327343864",
+      "bytes": 105119
+    },
+    {
+      "file": "extra/search-evidence/fb-results.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/fb-results.json.gz",
+      "sha256": "60df593d8594da2a84ce351a9e1485dd98bc59e2f57c629e453dc210d0303ec6",
+      "bytes": 1977
+    },
+    {
+      "file": "extra/search-evidence/HANDOFF.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/HANDOFF.md",
+      "sha256": "2e55e7f80326e608572f701d32df904dfa09639376fcf86d3c05498067935124",
+      "bytes": 1837
+    },
+    {
+      "file": "extra/search-evidence/browser-proof-restart.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/browser-proof-restart.json.gz",
+      "sha256": "4764412c6cdbc5b35b74e0fc1be8e7c6ef8b5dcf383321b83a6e0f54368df088",
+      "bytes": 260
+    },
+    {
+      "file": "extra/search-evidence/228-prefl-sedan-flickr.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/228-prefl-sedan-flickr.json.gz",
+      "sha256": "f6f15417e30904fd3e5b472d3dc153e21561695d667937cba8b0bd18a7a891e4",
+      "bytes": 563
+    },
+    {
+      "file": "extra/search-evidence/228-prefl-sedan-flickr.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/228-prefl-sedan-flickr.html",
+      "sha256": "b45ce8c8abb4994b32ea89807285b224f5d79c5d4a46e7e5aeed6a87782b07c9",
+      "bytes": 154008
+    },
+    {
+      "file": "extra/search-evidence/227-fl-sedan-flickr.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/227-fl-sedan-flickr.json.gz",
+      "sha256": "ddd9cd995837cadb618fbfcf0f55aa88882d9feda9d79cf331edaada87733cdf",
+      "bytes": 479
+    },
+    {
+      "file": "extra/search-evidence/227-fl-sedan-flickr.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/227-fl-sedan-flickr.html",
+      "sha256": "823b4bae8d98eb9dd400f47ff7f6e9db3cc57497a15167e40406cd89793c076f",
+      "bytes": 152530
+    },
+    {
+      "file": "extra/search-evidence/242-jb-hatch-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/242-jb-hatch-page.json.gz",
+      "sha256": "56c3b3f7150672a2f1bbc0de4a96d522117d8a62de41e288e7b82898978bbad8",
+      "bytes": 1134
+    },
+    {
+      "file": "extra/search-evidence/243-jb-hatch-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/243-jb-hatch-page.json.gz",
+      "sha256": "aa12f65559ca597cfc76d8e117554ea85d85f4a56e5d3e42a65ef947cc66e677",
+      "bytes": 308
+    },
+    {
+      "file": "extra/search-evidence/255-jb-prefl-hatch-rear-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/255-jb-prefl-hatch-rear-original.json.gz",
+      "sha256": "bf05e6f9d7274e56ee353519f2ac8e71a9c929f0b170cb44660af7112887e977",
+      "bytes": 308
+    },
+    {
+      "file": "extra/search-evidence/244-jb-hatch-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/244-jb-hatch-page.json.gz",
+      "sha256": "b5acdf9286a53851c5b88696a696f0204b80c07c9745a5b9c1c7a3faf30808ba",
+      "bytes": 1139
+    },
+    {
+      "file": "extra/search-evidence/245-jb-hatch-page.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/245-jb-hatch-page.html",
+      "sha256": "1de13e78a145fe824448dd4d56c98d6e41c5f0ea5feb3a3660933a2063c91797",
+      "bytes": 1878
+    },
+    {
+      "file": "extra/search-evidence/249-jb-fl-hatch-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/249-jb-fl-hatch-original.json.gz",
+      "sha256": "c9cc8aec7e0b5ad99069b0cc4cef9321f414dcb249388e54b0f90e0f03caafc4",
+      "bytes": 308
+    },
+    {
+      "file": "extra/search-evidence/295-fb-fl-photo-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/295-fb-fl-photo-page.json.gz",
+      "sha256": "d1d6248241458d1172371ce1d317b773cd22e7c8d3fca25c0293d056c6f9fda3",
+      "bytes": 1289
+    },
+    {
+      "file": "extra/search-evidence/295-fb-fl-photo-page.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/295-fb-fl-photo-page.html",
+      "sha256": "983114e0f25397abdd940085cc37e38a1f13bc7402d89fe633ca4f51edf4262c",
+      "bytes": 12042
+    },
+    {
+      "file": "extra/search-evidence/296-fb-fl-photo-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/296-fb-fl-photo-page.json.gz",
+      "sha256": "cbf3451a18499926d4421d44286112d53557e3f0af43c4e57ed55392c94ece62",
+      "bytes": 355
+    },
+    {
+      "file": "extra/search-evidence/299-fb-fl-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/299-fb-fl-original.json.gz",
+      "sha256": "b1e9361d3953a177ffe2ebf7400842e803c6f1acdbd3014d2ffcd624929bbe05",
+      "bytes": 306
+    },
+    {
+      "file": "extra/search-evidence/source-map-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/source-map-extract.json.gz",
+      "sha256": "e43e0749338523e45de35600b26d4a0e1cfc94c3bb038833c7a9d8692b427aab",
+      "bytes": 189
+    },
+    {
+      "file": "extra/search-evidence/297-fb-fl-photo-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/297-fb-fl-photo-page.json.gz",
+      "sha256": "abadb2ca672ee72161ce4f192b2039499e33a2ae26d083a4a145a9d68d7ffaba",
+      "bytes": 1257
+    },
+    {
+      "file": "extra/search-evidence/297-fb-fl-photo-page.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/297-fb-fl-photo-page.html",
+      "sha256": "85e298f5aff856c9fd86dcb52cc0e64de3f9c2f114aab06e3aaa0572bfd02c2a",
+      "bytes": 12022
+    },
+    {
+      "file": "extra/search-evidence/298-fb-fl-photo-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/298-fb-fl-photo-page.json.gz",
+      "sha256": "cd3772a296d97e75d14a2dcad2d819f219a87b5a07ad9c87480ce0b8be4b0945",
+      "bytes": 354
+    },
+    {
+      "file": "extra/search-evidence/300-fb-fl-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/extra/search-evidence/300-fb-fl-original.json.gz",
+      "sha256": "8db2f0a8a20b8d993e5a47baf321176fbc0ce2cb29a4d02d7c36876b9315628a",
+      "bytes": 302
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 6,
+    "accepted_configurations_this_batch": 6,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 31,
+    "accepted_configurations_total": 103
+  }
+}
