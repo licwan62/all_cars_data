@@ -1,0 +1,195 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_06_cloud-production-readiness",
+  "version": "20261113_06",
+  "description": "cloud-production-readiness",
+  "created_at": "2026-11-13T05:43:50+00:00",
+  "finished_at": "2026-11-13T05:43:51+00:00",
+  "command": [
+    "-"
+  ],
+  "inputs": [
+    {
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_05_csv-first10-candidates/output/progress-20261113_05.json",
+      "sha256": "8ac5a3f02f84ec63b9c86d34a64c84783cf05d2c37f2baa2dc41c304da2af840",
+      "basis": "immutable resumed checkpoint"
+    },
+    {
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_05_csv-first10-candidates/output/candidates-20261113_05.json",
+      "sha256": "7a97c70a3b785c40d2d42e7622c33bedaac09b5fcf7f1b6c457385d15499c2a1",
+      "basis": "immutable resumed checkpoint"
+    },
+    {
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65",
+      "basis": "immutable resumed checkpoint"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "AGENTS.md",
+      "sha256": "919db321b448b65c7d7b580fa7b40c32d4b47a669bce121baf51c2d398cea09f",
+      "basis": "external repository committed file; no duplicated bytes"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "README.md",
+      "sha256": "a0598766911bdae7e2b8eb3ca16054f4fb678cee6f666b81960723355247aee9",
+      "basis": "external repository committed file; no duplicated bytes"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "脚本/asset_store.py",
+      "sha256": "2b50a4a69723ce7822e8cb5c62b4c54b1dd3a58a1918d8ccf38d0b7b0db8f121",
+      "basis": "external repository committed file; no duplicated bytes"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "资产/目录.json",
+      "sha256": "bced5b95fb95dfae757394ab1d61f20aa3014d82bee7b938c295c5acd3799430",
+      "basis": "external repository committed file; no duplicated bytes"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "资产/本地成品.json",
+      "sha256": "f017d2066d16e595ba9c91de54097af8e94529c46e58337ecddae9aa53e3e41e",
+      "basis": "external repository committed file; no duplicated bytes"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "来源/Vehicle_Reference_Images/Image_Index.csv",
+      "sha256": "725b8bfb7fee1cf87c95741d033e1ed069b790a7d33c1ce90156b63784e4bb08",
+      "basis": "external repository committed file; no duplicated bytes"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "e24f0592795c1a206e5761d1fbb7bedf6c72163c",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_06.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_06_cloud-production-readiness/output/progress-20261113_06.json",
+      "content_reference": true,
+      "sha256": "8e0651384b3fa6328d2f3d4812f28a005b4bf327cdd286b0db52673d5f2bec1b",
+      "bytes": 1732972,
+      "rows": null
+    },
+    {
+      "file": "asset-reuse-audit.json",
+      "versioned_file": "asset-reuse-audit-20261113_06.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_06_cloud-production-readiness/output/asset-reuse-audit-20261113_06.json",
+      "content_reference": true,
+      "sha256": "3530ac7e2bd315bd444d479a9980f7ca0b1af49c4e69876c5bfd47ec0b606edb",
+      "bytes": 164401,
+      "rows": null
+    },
+    {
+      "file": "browser-probe.json",
+      "versioned_file": "browser-probe-20261113_06.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_06_cloud-production-readiness/output/browser-probe-20261113_06.json",
+      "content_reference": true,
+      "sha256": "d8f03678f7b0860e903671800d87560003c9965a23e036a2470ced649d0da2d8",
+      "bytes": 742,
+      "rows": null
+    },
+    {
+      "file": "production-blockers.json",
+      "versioned_file": "production-blockers-20261113_06.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_06_cloud-production-readiness/output/production-blockers-20261113_06.json",
+      "content_reference": true,
+      "sha256": "09e319010e639e484981f48bdda1f58060e4c4f5b196f100a8f415f6148ee6a1",
+      "bytes": 2093,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "scope": "readiness audit and checkpoint only, production blocked",
+    "summary": {
+      "tasks": 1309,
+      "requirements": 2394,
+      "csv_rows": 500,
+      "searched": 10,
+      "candidates": 11,
+      "downloaded": 0,
+      "accepted": 0,
+      "generated": 0,
+      "accepted_dimension_records": 0,
+      "accepted_csv_rows": 0,
+      "remaining_tasks": 1309,
+      "remaining_dimension_records": 2394,
+      "remaining_csv_rows": 500,
+      "unsearched_tasks": 1299,
+      "tasks_with_name_only_reuse_candidates": 31,
+      "managed_name_only_reuse_candidates": 314
+    },
+    "production_status": "blocked_prerequisites",
+    "all_1309_accepted": false
+  }
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "missing_russian_production_workflow",
+    "scope": "all 1309 tasks",
+    "evidence": "main_picture_producer main bfd99908 and master 356f210e contain no data/俄罗斯 or Russia-specific production rules/approved sample index",
+    "recovery": "Push the current Russian rules, ledger, sample references and corresponding asset index to a named repository branch."
+  },
+  {
+    "id": "oss_configuration_unavailable",
+    "scope": "all registered OSS reuse candidates",
+    "evidence": {
+      "get_attempted": false,
+      "downloaded": 0,
+      "decode_verified": 0,
+      "error_type": "OSSConfigurationError",
+      "error": "缺少 config/asset_storage.local.json"
+    },
+    "recovery": "Provide Bucket, Region and HTTPS Endpoint through ignored config/asset_storage.local.json; bind credentials through cloud settings, never chat or Git. Install pinned requirements-storage.txt after configuration is ready. Use existing asset_store backend, full GET SHA and decoder checks."
+  },
+  {
+    "id": "source_network_policy_denied",
+    "scope": "Commons original and alternative source download",
+    "evidence": [
+      {
+        "source": "https://commons.wikimedia.org/wiki/File:2014_Lada_Granta_219170_white_front.jpg",
+        "error": "Page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://commons.wikimedia.org/wiki/File:2014_Lada_Granta_219170_white_front.jpg\nCall log:\n  - navigating to \"https://commons.wikimedia.org/wiki/File:2014_Lada_Granta_219170_white_front.jpg\", waiting until \"domcontentloaded\"\n"
+      },
+      {
+        "source": "https://www.auto.cz/lada-granta-nove-i-jako-liftback-79944",
+        "error": "Page.goto: net::ERR_TUNNEL_CONNECTION_FAILED at https://www.auto.cz/lada-granta-nove-i-jako-liftback-79944\nCall log:\n  - navigating to \"https://www.auto.cz/lada-granta-nove-i-jako-liftback-79944\", waiting until \"domcontentloaded\"\n"
+      }
+    ],
+    "recovery": "Enable needed source domains through managed environment network settings. No available environment request_changes tool in this session. Do not bypass policy."
+  }
+]
