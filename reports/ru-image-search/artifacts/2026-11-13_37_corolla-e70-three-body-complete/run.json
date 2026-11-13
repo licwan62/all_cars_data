@@ -1,0 +1,301 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete",
+  "version": "20261113_37",
+  "description": "corolla-e70-three-body-complete",
+  "created_at": "2026-11-13T12:53:42+00:00",
+  "finished_at": "2026-11-13T12:53:43+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch37-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/progress-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/progress-20261113_36.json",
+      "sha256": "f3b5a4c62d026c9604ab62261cce99281753d4738e590faa588682ee94fa9279"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/current-accepted-configuration-index-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/current-accepted-configuration-index-20261113_36.json",
+      "sha256": "0e538b6c8fc559199c3ce4acf2813005308a4d5a9f2fc8f6b68b2ed103df8f48"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/candidates-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/candidates-20261113_36.json",
+      "sha256": "fd84b756e7132396b8f05cdc0f1d91bc9090b82159c49434007c2a43c1c19d31"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "7d1a7b9d76921a0defc3ad86112d37dc9d122997",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/identity-crosschecks-20261113_37.json",
+      "content_reference": true,
+      "sha256": "a10f6b6c019d0487e95b122945287b0316ebf870ded045dc6f8de3ef5954a398",
+      "bytes": 32370,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/accepted-configurations-20261113_37.json",
+      "content_reference": true,
+      "sha256": "2e3a0b5c3bb214b306a318eb00719a26aa7c807fa1de7d4611620c3f6ab2ab99",
+      "bytes": 31106,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/current-accepted-configuration-index-20261113_37.json",
+      "content_reference": true,
+      "sha256": "32bc9c856f4ae8b382eefc2b7533fb19c7c73aa83a3900b11815565a547c018f",
+      "bytes": 1529234,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/nonadopted-history-20261113_37.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/generation-requests-20261113_37.json",
+      "content_reference": true,
+      "sha256": "afd0ec1e7ac87b751e12f65961fa7ecd1bb713bf61ac0312ba85b14359e9b24d",
+      "bytes": 14501,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/new-source-original-evidence-20261113_37.json",
+      "content_reference": true,
+      "sha256": "c26fefccacfa7b3d9ff92dae8672728acfa945ccb88d28671c2da5075f13fe9d",
+      "bytes": 17299,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/candidates-20261113_37.json",
+      "content_reference": true,
+      "sha256": "47f57944230df41a022ddb56212bd31f45070889aea6e667185606bc5c2d4e05",
+      "bytes": 462993,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/progress-20261113_37.json",
+      "content_reference": true,
+      "sha256": "32f1a42c29e20f78a81361f368fb4a6e743528293eb06678d71fa737cbda267f",
+      "bytes": 2312072,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru-batch37-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_import_corolla37.py",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_prepare_corolla37.py",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_review_corolla37.py",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/ru-corolla37-three-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/corolla-early-five-handoff.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/request.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-002-original-preview.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-002-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-002-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-015-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-015-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-030-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-030-bounded-probe.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch37-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru-batch37-review.json",
+      "sha256": "5dd04129f40be0b1994730a6b2e7c298f71b91b65b64fe9862e2ddad3c1e4fd3",
+      "bytes": 37690
+    },
+    {
+      "file": "extra/executed-code/ru_import_corolla37.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_import_corolla37.py",
+      "sha256": "a452f453c7aed3fcbc097b32c55999037279cd429c3f020d27d52aaf925150db",
+      "bytes": 3229
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_corolla37.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_prepare_corolla37.py",
+      "sha256": "044f02dd48b9d8f4145a744aca67e4b65da5c2075e8812522671f2790d4bfa51",
+      "bytes": 4238
+    },
+    {
+      "file": "extra/executed-code/ru_review_corolla37.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/executed-code/ru_review_corolla37.py",
+      "sha256": "4abac0a88f996d1fe100ea283aef4bbf90cf91ccc58e612b2ee44bf5e5f58326",
+      "bytes": 1633
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla37-three-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/ru-corolla37-three-frozen.json.gz",
+      "sha256": "e020dd74fb1bb3e4d587f4107a67eb05bd63d5e43851cb6a1841c7f231e076ed",
+      "bytes": 3890
+    },
+    {
+      "file": "extra/search-evidence/corolla-early-five-handoff.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/corolla-early-five-handoff.json.gz",
+      "sha256": "568f1a4d5957c396c8dcaa8a714ba58aa0795f9f1045e28cef53698e81bca8d9",
+      "bytes": 539
+    },
+    {
+      "file": "extra/search-evidence/request.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/request.json.gz",
+      "sha256": "2d0b10db08f082a4cc8c476dc3f9c8892bf14acb11025246ec88d5fc688c1247",
+      "bytes": 2176
+    },
+    {
+      "file": "extra/search-evidence/C8-002-original-preview.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-002-original-preview.jpg",
+      "sha256": "6f7d7625b97df53a2cde2794cd2cd78d42066d40bba8420ea12a85e298985516",
+      "bytes": 263259
+    },
+    {
+      "file": "extra/search-evidence/C8-002-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-002-source-page.txt",
+      "sha256": "2e869eedd2e0c1953962ce729b44fba18d3a475790d847cb8a29192b066f96fc",
+      "bytes": 2006
+    },
+    {
+      "file": "extra/search-evidence/C8-002-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-002-bounded-probe.json.gz",
+      "sha256": "08658a21cf371db9b2ce00cff49f34901bce616adfcf25efeeee1c1be49e35cc",
+      "bytes": 1494
+    },
+    {
+      "file": "extra/search-evidence/C8-015-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-015-source-page.txt",
+      "sha256": "65b050bfcfb7f1107ac33807d286ce4e5942372e16596d81ee8dc0e820819cad",
+      "bytes": 2165
+    },
+    {
+      "file": "extra/search-evidence/C8-015-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-015-bounded-probe.json.gz",
+      "sha256": "3e86634e960bd80b6f9bbdadeb62845705d371e18827ceb5e1c824a75c22c36d",
+      "bytes": 1523
+    },
+    {
+      "file": "extra/search-evidence/C8-030-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-030-source-page.txt",
+      "sha256": "87ed6571bdca9b93ee5920dc5a0de952b253b7cae16419929fee8a5f412819be",
+      "bytes": 2039
+    },
+    {
+      "file": "extra/search-evidence/C8-030-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/extra/search-evidence/C8-030-bounded-probe.json.gz",
+      "sha256": "8438dbec0c47fe2139f7af9e8d07c07a60cf5931d44d0d8e04676f151e607620",
+      "bytes": 1499
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 3,
+    "accepted_configurations_this_batch": 3,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 51,
+    "accepted_configurations_total": 156
+  }
+}
