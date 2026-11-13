@@ -1,0 +1,137 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T23:16:35.894346+00:00",
+  "task_id": "RU-249a376af16a05e0",
+  "dimension_id": "Renault Logan Sedan 2009-2015 RU",
+  "source_sha256": "d29ae95f1aa4732910948738dea549385fbe80a1dae2893bd2c054cdb0c8fdbe",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-Chile-candidate-original-129765662.jpg",
+  "judgment": "PASS_IDENTITY_ONLY_RU_ORDINARY_NO_FOG_FRONT_COMBINATION",
+  "narrow_front_applicability_pass": true,
+  "source_ready": false,
+  "generation_count": 0,
+  "scope": "Only positive visible ordinaryI-facelift front/three-horizontal nofog blank-corner applicability to frozenRU2009–2015Sedan. Not complete-source acceptance, mast readiness, sourceVIN/engine/grade certification or permission to generate.",
+  "source_record": {
+    "file": "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-Chile-candidate-original-129765662.jpg",
+    "sha256": "d29ae95f1aa4732910948738dea549385fbe80a1dae2893bd2c054cdb0c8fdbe",
+    "dimensions": [
+      4000,
+      2100
+    ],
+    "bytes": 2652916,
+    "author": "RL GNZLZ",
+    "license": "CC BY-SA2.0",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Renault_Logan_1.6_Expression_2011_(49677027498).jpg",
+    "commons_revision": 1181358921,
+    "source_proof": "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-Chile-candidate-original-proof.json",
+    "photographed_at": "2020-02-04 19:39",
+    "caption_modelyear": "2011; not manufacturing certificate"
+  },
+  "frozen_scope": {
+    "mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "literal": "RU|renault/logan|I Рестайлинг|2009-2015|Sedan|-|-",
+    "raw_csv": "/workspace/all_cars_data/nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_dimensions_with_match_key.csv",
+    "raw_csv_lines_including_header": [
+      60524,
+      60525,
+      60526,
+      60527,
+      60528
+    ],
+    "dimensions_mm": [
+      4288,
+      1740,
+      1534
+    ],
+    "matching_ordinary_reference_row": {
+      "line": 60526,
+      "modification": "1.6 MT (84 hp)"
+    },
+    "qualification": "Positive ordinary body/powertrain family support; no source engine inferred from badge/caption alone."
+  },
+  "independent_RU_positive_chain": [
+    {
+      "url": "https://www.drom.ru/catalog/renault/logan/67079/",
+      "market": "Russia",
+      "phase": "I facelift, Sep2009–Feb2014 ordinary1.6MT Expression",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/logan-fl-nofog-review/RU-Expression-67079.html",
+      "sha256": "fd35cdeeedd06d1034417a8aa8267e60e213e10a762a4c4ef4e4b900cae60051",
+      "actual_read": "Independent actual web technical table and savedcp1251HTML. Front fog lamps explicitly optional; body4288×1740×1534.",
+      "supports": "RU ordinary facelift without fogs exists, including Expression family; family photograph with fogs does not impose fogs as mandatory."
+    },
+    {
+      "url": "https://www.logan-shop.ru/products/bamper_perednii_logan_faza_2_(bez_ptf)_renault_original_8200748275__/",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/logan-fl-nofog-review/RU-genuine-nofog-product.html",
+      "sha256": "2af263aa94bca2e509b729936d688d7af8e46d5a42af32b0cefb4ddee48d8141",
+      "actual_read": "Russianparts specialist explicitly lists Renault original front bumper, Loganphase2, withoutPTF;8200748275/620223580R.",
+      "limitation": "IndependentRussian retailer evidence, not Renault factory PDF. Its own photo np1.jpg is placeholder, excluded as visual proof."
+    },
+    {
+      "url": "https://renozapchast.ru/razdely-kataloga/bamper-perednij-renault-logan-10-original-8200748275-620223580r",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/logan-fl-nofog-review/RU-genuine-bumper-image-parent.html",
+      "sha256": "931c945b6cda533ed7d6f2dbadb6799cda69d8d8367f645a2d4c0f984b1a142d",
+      "photo_url": "https://renozapchast.ru/images/old_2738_01_4957144032.webp",
+      "actual_viewed_image": "/workspace/ru_picture_producer/pilot20/identity_a/logan-fl-nofog-review/RU-genuine-bumper-actual.webp",
+      "photo_sha256": "9b53c8f5a7ccb7a3d214a152d721828b8f52d323dbf651edffcfb3e2fafc2ab5",
+      "photo_dimensions": [
+        588,
+        588
+      ],
+      "actual_view": "No circular fog openings. Same long tapering/trapezoid lower-corner blind outline and three horizontal relief/rib layers as the Chile source. Large central lower aperture and frontfascia transition also correspond.",
+      "evidence_quality": "SeparateRussian seller advertises same Renault original/OES8200748275/620223580R, photo URL actually bound in saved parentHTML. Visual body-part shape evidence, not independently authenticated factory photography or source-car part-number certification.",
+      "metadata_caution": "Page also loosely categorizes Logan2014–18; do not use that modernSEO category as phase proof. Phase2 identity anchored by explicit producttitle/OE cross-reference in independent Logan-shop listing plus actual older bumper shape."
+    }
+  ],
+  "actual_source_comparison": [
+    "Actually viewed source probe full frame: real Renault diamond, largefacelift lamps, black horizontal uppergrille/chromehoodedge, bodycolour ordinary lowerfascia, central black mesh and unpierced three-horizontal side blind; no round fog lenses.",
+    "Actually viewed savedRUfamily Drom bluecar: sharedfacelift front architecture, but roundfog richer example only supports phase/body. It is explicitly not the nofog proof.",
+    "Actually viewedRU8200748275/620223580R partphoto: nofog blind shape with matching horizontal layers. Together with RUfogoptional technical row, this supplies the positive ordinarynofog combination that family resemblance alone lacked.",
+    "No evidence identified that the visible nofog corner itself is a LATAM-exclusive alternate bumper. This conclusion follows positiveRU nofog equipment/body-part shape, not a generic disclaimer or excludingLATAM from consideration."
+  ],
+  "actual_viewed_files": [
+    "/workspace/ru_picture_producer/pilot20/source_d/logan/probe-129765662.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_d/logan/drom-I-FL-identity-only.jpg",
+    "/workspace/ru_picture_producer/pilot20/identity_a/logan-fl-nofog-review/RU-genuine-bumper-actual.webp",
+    "/workspace/ru_picture_producer/pilot20/identity_a/logan-fl-nofog-review/RU-new-Logan-2010-press.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-Chile-mast-native-0.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-Chile-mast-tip-4x.png"
+  ],
+  "supporting_phase_only": [
+    {
+      "url": "https://www.zr.ru/content/amp/articles/124110-novyj_renault_logan_uzhe_v_prodazhe/",
+      "date": "2010-02-10",
+      "actual_image": "/workspace/ru_picture_producer/pilot20/identity_a/logan-fl-nofog-review/RU-new-Logan-2010-press.jpg",
+      "image_sha256": "b6066c2a5a77756751c2e5dc55906be6441dd81e1b28d2a96b8d55f041d829ba",
+      "observation": "Richer ordinaryRU2010facelift press image actually has round fog lenses, so not claimed as nofogshape proof."
+    }
+  ],
+  "excluded_or_unconfirmed": [
+    "ModusLogan.pdf is an accessories brochure of unverified relevant phase; does not establish phase2 nofog shape.",
+    "PartSouq initial cachedOEM result located, but directopen redirected to genericRenaultcatalog; no exact factory diagram actual-view proof claimed.",
+    "Renault factory brochure/PDF for phase2 specificnofog model was not successfully obtained; result relies on independentRUtechnical andRUoriginal-part catalogue/photo evidence."
+  ],
+  "reference_transfer_limits": [
+    "Production primary, if separately cleared, remains licensedChileoriginald29ae...; preserve its exactpaint/wheels/blackmirrorhandles/moldings/actualnofogfront. Do not convertbadge or import anothercar grade.",
+    "All newly downloadedRUcatalog/parts/news photographs are identity-only references; prohibited asImageGeninputs. Do not copy blackunpainted sparepart colour or richRUexample fogs.",
+    "Do not assert source fittedOE8200748275/620223580R, exactRUExpression grade, Russian assembly or everyRUtrim shares this appearance.",
+    "No bumper repaint/redesign or removing/adding fogs to make source fit; positive support is for actual visible sourcefront as-is."
+  ],
+  "independent_mast_gate": {
+    "status": "FOLLOWUP_ACTUAL_VIEW_TIP_AND_BASE_VISIBLE_ADVISORY",
+    "history": "Initial question and original narrow review had unresolvedmast; subsequentD evidence arrived before final handoff and is preserved as followup, not retroactively changing the oldquestion.",
+    "actual_observation": "identity_a independently actually viewed native0 andtip4x afterD handoff: mast can be followed from roofbase to rounded tip; tip lies inside frame with surrounding foliage margin, not a straight cut at picture boundary. No newmast added.",
+    "evidence": [
+      {
+        "file": "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-Chile-mast-native-0.png",
+        "sha256": "15c0be0ebb3b119f62ef9080796d1e2f89e48902b92c2e58811ab2121eff80db"
+      },
+      {
+        "file": "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-Chile-mast-tip-4x.png",
+        "sha256": "e1935b7ff98ab40f8d91b4a9604eab7ce2e75f765ac019cde435d419c39ffea6"
+      }
+    ],
+    "qualification": "Separate accessory observation supports resolving previous tip doubt; D/root still decide entire source quality/readiness. Frontidentitypass itself did not prove mast, and this report does not setready/source_ready_at."
+  },
+  "network_scope": "Boundedonefrontidentityquestion only; no newproductioninputscouting.",
+  "generation_calls": 0,
+  "queue_formal_git_mutation": false
+}
