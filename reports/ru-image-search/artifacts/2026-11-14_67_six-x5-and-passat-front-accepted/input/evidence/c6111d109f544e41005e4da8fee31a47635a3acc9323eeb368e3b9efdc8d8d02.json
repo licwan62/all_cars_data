@@ -1,0 +1,83 @@
+{
+  "request_id": "P1-058",
+  "claim_id": "5910389707df465d84e4e7eb3c100b55",
+  "task_id": "RU-87ec0203b3e49b60",
+  "dimension_id": "Volkswagen Passat Sedan 2005-2010 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-69989157.jpg",
+  "input_sha256": "a60fdd347b2aead94093c4384dc04fc62a404423aedb02698ddd09f1f92db0a3",
+  "input_dimensions": [
+    5023,
+    2529
+  ],
+  "input_role": "fullverifiedfrontsourceoriginal targetcamera morebalancedfront1/2",
+  "source_page": "https://commons.wikimedia.org/wiki/File:2010_Volkswagen_Passat_Highline_TDi_140_2.0_Front.jpg",
+  "source_license": {
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "assigned_at": "2026-11-13T21:12:01.621232+00:00",
+  "material_ready_at": "2026-11-13T21:13:02.539911+00:00",
+  "started_at": "2026-11-13T21:13:08.493627+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-058/deterministic-repair/padded-canvas/PassatB6OrdinarySedan-roomy-transparent.png",
+  "candidate_sha256": "4a94722c3e3044495af1eee10ff029e5532c73d734f9950d7d52b36a40081869",
+  "worker_reviewed_at": "2026-11-13T21:15:40.413313+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root final actual individual acceptance required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-058/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-058/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Unified morebalanced frontquarter B6Sedan no localheadrotation, actualblackpaint/densesilvermultispoke/chromeshield/NOFOGblanks/ordinarybody maintained."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      176,
+      103,
+      1640,
+      840
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 2605,
+    "detached_max_alpha": 2,
+    "bottom_margin_px": 47,
+    "reason": "2605 disconnectedalpha<=2 pixels/bottom47px requirecleanup/roomycanvas, rawtechnicalfalse."
+  },
+  "visual_review": "Actually fullsource front/rear and roofcrops plus localfullresolutionroof resized2xdown inspected, independentAuto.ru B6phase ordinaryfront actualviewed. BlackB6ordinary4doorsedan steppedlamps/roundprojector/chromeshield+horizontalgrille, lowclearamberindicatorstrips and NOFOG blackslats retainednotprimaryroundfogs. Actualdensestraightmultispokesilveralloys/bodyblackmirrorslowclearindicators/bodyhandles/chromewindowanddoorstrip/palegreyinterior. Frontcamera near-sidebodymoreprominent so targetunifiedwholecar weakperspectivefront1/2 notlocalheadturn. No separatelyvisiblemastfinroof, rearwhitepost/paperbackgroundnotfin. UKRHD EUordinary2.0TDI140branchvisiblepositive matchesfrozenbody; noRUfactory/VINengine/buildday/scalarmmcertification. Actualfirst/finalgrayblack inspected: complete rounded tires/bothmirrors/bumper/trunk, no copiedbackground/reflection/floor/shadow/dust. Frontfascia betterbalanced than side-dominantsource, one coherentcamera. Paleinterior steeringposition not separatelycertified; sourceUKRHD explicitlydocumented, outputnotasourceVIN/LHDcertification.",
+  "identity_limits": "UKRHD ordinaryEU B6 source, not Russianassembled/sourceexactVIN/engine/builddate/steeringpositioncertification. Exactbody positiveB6catalogface; primaryroundfogs/wheelsnotcopied intoactualNOFOGsource. FrozenaggregateordinarySedan2005–10 notphotomm recertification.",
+  "dimensions": [
+    1934,
+    1067
+  ],
+  "visible_margins_px": [
+    256,
+    183,
+    214,
+    147
+  ],
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-058/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-058/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-058/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-058/input-oss-proof.json",
+  "auxiliary_input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-058/auxiliary-review-source/input-oss-proof.json",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-058/deterministic-repair/padded-canvas/PassatB6OrdinarySedan-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-058/deterministic-repair/padded-canvas/PassatB6OrdinarySedan-review-black.png",
+  "generation_calls": 1,
+  "paid_repairs": 0,
+  "cost": "unknown",
+  "deterministic_processing": "Only disconnected lowalpha removed, mainRGBA/RGB unchanged; puretransparentcanvas L/R80top80bottom100 translatedRGBA equality true."
+}

@@ -1,0 +1,242 @@
+{
+  "reviewed_at": "2026-11-13T21:20:13.174957+00:00",
+  "reviewer": "identity_a",
+  "task_id": "RU-5302310097da5167",
+  "dimension_id": "Lada (ВАЗ) Granta Liftback 2018-2026 RU",
+  "historical_output_sha256": "7c77c99a0502a94221b67cf252b2e5eb54d36c56c1504315a19bef2f6dda6164",
+  "judgment": "PASS_REFERENCE_APPLICABILITY_WITH_STRICT_COMPONENT_ROLES",
+  "accepted": false,
+  "production_ready": false,
+  "generation_count": 0,
+  "conclusion_zh": "允许将现有3张已授权原件作为按部件分工的联合参考候选：旧侧为唯一车体/颜色/轮/镜/附件主源，两张前图仅各自清楚可见的普通FL前脸半区互补。已实际核同Liftback/2018FL普通前脸、无圆雾灯盲盖配置；不要求同VIN，也不声称同一车。本结论仅reference适用，不是新成图通过或自动付费/重开。root实际看后决定是否一稿小样。",
+  "rule_basis": {
+    "file": "/workspace/main_picture_producer/data/俄罗斯/规则/任务规则.md",
+    "lines": "31–35",
+    "actual_quote_zh": "身份参考只有后方视角时，先补充同车型、同代际、同配置的前方参考，核对前脸和车身，再编译新请求。前后车体必须服从统一相机，实际观察通过后才能采用。每次新尝试绑定输入与输出 SHA 并留存来源。",
+    "application_zh": "当前旧侧亦需前方补证。同配置按实际被引用的前脸部件核对：旧角与两辅助都是普通FL无圆雾灯的盲盖/短肋；颜色/轮型不同不是所引用front部件的差异，但必须明确禁止从aux转移。没有把不完整辅助图冒成完整全车，也不免除完整成图及相机一致性验收。"
+  },
+  "frozen_scope": {
+    "mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "literal_row": [
+      "RU|vaz/granta|I Рестайлинг|2018-2026|Liftback|-|-",
+      "Lada (ВАЗ) Granta Liftback 2018-2026 RU"
+    ],
+    "formal_inches": {
+      "L-IN": "167.3",
+      "W-IN": "66.9",
+      "H-IN": "59.1"
+    },
+    "original_csv_file": "/workspace/all_cars_data/nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_dimensions_with_match_key.csv",
+    "rows": [
+      {
+        "line": 35459,
+        "modification": "1.6 MT (87 hp)",
+        "dimensions_raw": "4250 x 1700 x 1500"
+      },
+      {
+        "line": 35460,
+        "modification": "1.6 MT (90 hp)",
+        "dimensions_raw": "4250 x 1700 x 1500"
+      },
+      {
+        "line": 35461,
+        "modification": "Euro-2 1.6 MT (90 hp)",
+        "dimensions_raw": "4250 x 1700 x 1500"
+      },
+      {
+        "line": 35462,
+        "modification": "1.6 AMT (106 hp)",
+        "dimensions_raw": "4250 x 1700 x 1500"
+      },
+      {
+        "line": 35463,
+        "modification": "1.6 MT (106 hp)",
+        "dimensions_raw": "4250 x 1700 x 1500"
+      },
+      {
+        "line": 35464,
+        "modification": "1.6 AT (98 hp)",
+        "dimensions_raw": "4250 x 1700 x 1500"
+      }
+    ],
+    "scope_limit": "普通Liftback，非Sedan/Cross/Sport/DriveActive；不认定源具体发动机、变速箱或整车grade。"
+  },
+  "source_roles": [
+    {
+      "role": "MASTER_SIDE",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-0-original.jpg",
+      "sha256": "636e32ab6fdd21a5b543545c4b708df3e517b69ce815a26b6d275c994a3d3495",
+      "dimensions": [
+        3894,
+        1643
+      ],
+      "bytes": 367715,
+      "decode_verified": true,
+      "actual_original_viewed": true,
+      "page": "https://commons.wikimedia.org/wiki/File:Lada_Granta_FL_liftback_black_side.jpg",
+      "source_title": "File:Lada Granta FL liftback black side.jpg",
+      "author": "Throwawayacc222",
+      "license": "CC0-1.0 own-work",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "metadata_file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-source-probes.json",
+      "allowed_transfer_zh": [
+        "车身普通FL Liftback轮廓/长斜背/门窗和钣金",
+        "原黑色车漆",
+        "裸黑圆孔钢轮、轮胎及原轮距观感",
+        "原黑色带透明转向条镜壳、黑把手、四窗雨挡",
+        "真实前车顶底座/向后斜长细天线，包括已实看端帽",
+        "可见近侧雾灯盲盖/短横肋作为与辅助前脸交叉限制"
+      ],
+      "forbidden_transfer_zh": [
+        "近纯侧相机不得继续作为新成品机位",
+        "不可凭此图猜不可见完整格栅/远侧灯/前杠正面",
+        "不得沿用旧侧图照片透视后硬贴一个不同相机鼻子"
+      ],
+      "same_individual_car_claim": false,
+      "current_source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3ALada+Granta+FL+liftback+black+side.jpg&oldid=1215402015",
+      "current_license_api_evidence": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-three-source-current-license-api.json"
+    },
+    {
+      "role": "FRONT_LEFT_COMPONENT_AUX",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-1-original.jpg",
+      "sha256": "1045f2ab61b9f6f172b09921759ef84c5a58b0e9fbd3191fa8e388e12a700b3c",
+      "dimensions": [
+        4419,
+        1900
+      ],
+      "bytes": 506595,
+      "decode_verified": true,
+      "actual_original_viewed": true,
+      "page": "https://commons.wikimedia.org/wiki/File:2023_Lada_Granta_liftback_black_front.jpg",
+      "source_title": "File:2023 Lada Granta liftback black front.jpg",
+      "author": "Throwawayacc222",
+      "license": "CC0-1.0 own-work",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "metadata_file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-source-probes.json",
+      "allowed_transfer_zh": [
+        "本原图清楚可见的头灯内部/外形、格栅横条与Lada椭圆徽、镀铬X饰、近侧普通前杠和黑雾灯盲盖/短肋",
+        "与AUX2互补的另一侧前脸布局；只取实际可见区域"
+      ],
+      "forbidden_transfer_zh": [
+        "不得转移银多辐轮/轮胎、较亮或高光漆色、镜壳/把手/雨挡、车顶底座/杆/杆长、车身后半部",
+        "不得把偏侧或裁边状态当作成品相机/完整车体标准",
+        "不得把遮挡/不可见区域写成已直接核对"
+      ],
+      "same_individual_car_claim": false,
+      "current_source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3A2023+Lada+Granta+liftback+black+front.jpg&oldid=1105779061",
+      "current_license_api_evidence": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-three-source-current-license-api.json"
+    },
+    {
+      "role": "FRONT_RIGHT_COMPONENT_AUX",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-2-original.jpg",
+      "sha256": "842d2e14bc2d5c04c12060dd0db57b49869c8b12a192b13615688b7e7838c89b",
+      "dimensions": [
+        3963,
+        2732
+      ],
+      "bytes": 856533,
+      "decode_verified": true,
+      "actual_original_viewed": true,
+      "page": "https://commons.wikimedia.org/wiki/File:2024_Lada_Granta_liftback_black_front.jpg",
+      "source_title": "File:2024 Lada Granta liftback black front.jpg",
+      "author": "Throwawayacc222",
+      "license": "CC0-1.0 own-work",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "metadata_file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-source-probes.json",
+      "allowed_transfer_zh": [
+        "本原图清楚可见的头灯内部/外形、格栅横条与Lada徽、镀铬X饰、近侧黑盲盖+短肋和普通下进气口",
+        "与AUX1互补的另一侧前脸布局；只取实际可见区域"
+      ],
+      "forbidden_transfer_zh": [
+        "不得转移银轮罩/轮胎、轮罩尺寸、漆面反光、镜/把手/雨挡/天线/车顶/后体",
+        "不得从被裁的远侧灯/鼻端直接认证完整front轮廓",
+        "不得照辅助图截掉主车轮/天线或把辅助相机单独拼接到旧侧body"
+      ],
+      "same_individual_car_claim": false,
+      "current_source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3A2024+Lada+Granta+liftback+black+front.jpg&oldid=1109948305",
+      "current_license_api_evidence": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-three-source-current-license-api.json"
+    }
+  ],
+  "actual_front_identity_comparison_zh": [
+    "旧主侧近角可直接看到普通头灯轮廓、银色X饰末端、黑雾灯盲盖和其短水平肋；它不只是完全不可见前脸的车体剪影。",
+    "2023与2024实际原件都是相同普通FL头灯、横条格栅/Lada徽、镀铬X饰与下前杠；各可见近角均黑盲盖/无圆雾灯，能与旧主侧近角交叉对应。",
+    "没有出现Sport运动网格、红线、Cross包围、不同灯形或另一改款鼻脸这类不可转移的配置分歧。",
+    "两辅助的银多辐/银轮罩、镜/把手光泽、天线及裁边确有不同，不作同一整车配置证明；这些部件由主侧锁定。",
+    "AUX1偏侧，AUX2远侧鼻角/灯被画框裁，二者均不能单独当完整正前参考。联合用途是用各自可见相反半区补足前脸结构，未见部分不写成已直接观测。若root实际认为全正脸不足，应继续hold补完整同盲盖前角，而非生成猜测。"
+  ],
+  "antenna_independent_check": {
+    "master_roof_crop": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-old-roof.png",
+    "master_tip_crop": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-old-antenna-tip-6x.png",
+    "actually_viewed": true,
+    "observation": "Actual rounded dark tip visible inside image top by only a few original pixels; full mast and base in old-roofcrop. Tight but not a straight line cut at frame border. Preserve entire real mast, not only base.",
+    "earlier_full_view_uncertainty_resolved": true,
+    "forbidden": "No borrowing cropped auxiliary mast/roof to redefine master antenna; no assumedlength or addingrails."
+  },
+  "other_inspection_images_actually_viewed": [
+    "/workspace/ru_picture_producer/pilot20/source_d/granta-role-old-front-corner.png"
+  ],
+  "independent_reference": {
+    "manifest": "/workspace/ru_picture_producer/pilot20/identity_a/granta-role-review/independent-evidence.json",
+    "family_url": "https://www.drom.ru/catalog/lada/granta/g_2018_8847/",
+    "family_image_file": "/workspace/ru_picture_producer/pilot20/identity_a/granta-role-review/family-reference.jpg",
+    "family_image_actually_viewed": true,
+    "family_finding": "RussianFL2191Liftback/2018onward，4250×1700×1500普通body与Xface；目录称2ndrestyle而AutoRu称Irestyle，按真实2018face/body比对不机械等同label。",
+    "family_image_grade_limit": "Actual familyphoto has ROUNDfoglamps/alloys, onlyphase/body/grille/headlamp reference. Absolutely no transfer of its roundfog equipment or colour/wheels.",
+    "no_fog_text_positive_evidence": [
+      {
+        "url": "https://www.drom.ru/catalog/lada/granta/221909/",
+        "grade": "1.6MTStandart2018–2021",
+        "facts": "Liftback2191/4250×1700×1500/halogenheadlamps/frontfog—/alloywheels—"
+      },
+      {
+        "url": "https://www.drom.ru/catalog/lada/granta/223067/",
+        "grade": "1.6MTClassic2018–2021",
+        "facts": "Liftback2191/4250×1700×1500/frontfog—"
+      }
+    ],
+    "limit": "These text records positively establish ordinary nofog configurations within correctbody/phase; they do not identify the sourceVIN/fullgrade. Bothearly records lackmirrorrepeaters whereas masterhasrepeaters; keepactualmastermirrors, do not claim exactlythesegrade packages. Reference use limited tofrontblankcovergeometry actuallyvisible inmaster/aux.",
+    "role": "Independentcatalogtext/image only identity, never imagegen input."
+  },
+  "compiled_request_constraints_zh": [
+    "为一个统一的前1/3或前1/2透视重建完整同一车体，不保留旧侧相机，不做异相机前鼻拼贴。",
+    "明确输入顺序和部件角色：MASTER为车体/色/轮/镜/雨挡/完整杆；AUX1/AUX2仅实际可见格栅灯杠/无fog盲盖。",
+    "只用三份原始licensedbytes，若加入检视crop也必须绑定其原SHA与crop角色；目录图绝不输入。",
+    "灯/格栅/左右前杠要服从同一镜头，轮/车身同平面，镜/立柱/尾窗/天线投影一致；不能照aux换轮或增圆fog/rails。",
+    "新输出需真透明、全车/轮/镜/天线有余量；绑定新输入/输出SHA和真实调用次数。此报告不把预备提示词或候选当输出验收。"
+  ],
+  "producer_prompt_review_required": true,
+  "root_actual_source_view_required": true,
+  "technical_unknowns": [
+    "是否三参考半区足以约束新相机正前脸由root实际看图终判，A建议足以作一稿reference候选。",
+    "新图的杆比例/完整外轮廓/透明边缘/灯徽一致性必须真图终验，不能用本身份pass替代。"
+  ],
+  "not_authorized_actions": [
+    "不改正式台账/队列/Git",
+    "本次不生成、不上传成品或接受输出",
+    "不声称旧侧输出已经完成前向返修、不新增配置计数"
+  ],
+  "actions": {
+    "formal_ledger_modified": false,
+    "queue_modified": false,
+    "git_modified": false,
+    "imagegen_calls": 0,
+    "network_scope": "Only thisGrantaFL Liftback independent family/nofogtextgap; noothermodelsearch"
+  },
+  "history": {
+    "D_original_gap_report": "/workspace/ru_picture_producer/pilot20/source_d/granta-fl-liftback-front-gap.json",
+    "new_role_scope_zh": "原Dhold是完整同黑钢轮车front替换未找到；本审查改为用户/root授权的部件分工reference适用，不抹除原hold记录，也不把两裁图提升为全车ready。"
+  },
+  "next_action_zh": "root实际审三原件及角色约束后决定是否一稿前1/2小样；如决定调用，producer再检查完整提示词并绑定三SHA。旧验收SHA历史保留，本报告不能自动重开或接受。",
+  "D_final_role_candidate_index": "/workspace/ru_picture_producer/pilot20/source_d/granta-fl-component-role-candidate.json",
+  "current_license_rechecked": {
+    "file": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-three-source-current-license-api.json",
+    "sha256": "f9563c1438bf00bca7cde29f0f8bff1189059eba94c87afccbf97900e3414494",
+    "actual_API_JSON_read": true,
+    "revisions": [
+      "1215402015",
+      "1105779061",
+      "1109948305"
+    ],
+    "licenses_all": "CC0"
+  }
+}
