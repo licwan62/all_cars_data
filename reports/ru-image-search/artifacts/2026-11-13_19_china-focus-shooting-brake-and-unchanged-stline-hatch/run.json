@@ -1,0 +1,392 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch",
+  "version": "20261113_19",
+  "description": "china-focus-shooting-brake-and-unchanged-stline-hatch",
+  "created_at": "2026-11-13T09:32:03+00:00",
+  "finished_at": "2026-11-13T09:32:04+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch19-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/progress-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/progress-20261113_18.json",
+      "sha256": "0ea7257e968d499a4ec08f811dd2d9772599f41b0b2ac93e3e639526142cc809"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/current-accepted-configuration-index-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/current-accepted-configuration-index-20261113_18.json",
+      "sha256": "177ff4f674b0dc05b4e6e5a25960315cde4be1ab8c6f5eadc0826289bc602fbf"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/candidates-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/candidates-20261113_18.json",
+      "sha256": "664e04c3fedeec033a180674cdaa37ab94fe3d69cd95c7d52874d9dc226a59d6"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/identity-crosschecks-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/identity-crosschecks-20261113_16.json",
+      "sha256": "625cecb914af4743467292d73149a72282e14e480dab37bfe5885ef8d93fb709"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "712e28939b60a1f51daabd6ab4f7c50632e1837b",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/identity-crosschecks-20261113_19.json",
+      "content_reference": true,
+      "sha256": "e0d6841edc7f9146c0ee0ff59219669363c31fc350177e586201dfdcde8a9840",
+      "bytes": 2072,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/accepted-configurations-20261113_19.json",
+      "content_reference": true,
+      "sha256": "11f15683c1d842ab4cafe2c510a992f713ee7747317e5d00bac42a288ff5f37f",
+      "bytes": 20642,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/current-accepted-configuration-index-20261113_19.json",
+      "content_reference": true,
+      "sha256": "6226b306dead71f3b9e5b8ed1235a098a42687289510812f82ba29e328073522",
+      "bytes": 470923,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/nonadopted-history-20261113_19.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/generation-requests-20261113_19.json",
+      "content_reference": true,
+      "sha256": "3fdba28af2f5e89e58d8bea76b7288f8f1a19baafa83430e8f235e2a9e413ee3",
+      "bytes": 9048,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/new-source-original-evidence-20261113_19.json",
+      "content_reference": true,
+      "sha256": "db4841be3e1d8ab0beb2ebc789a40a3bdd588c0f3f4ed5220b40063fe00fd319",
+      "bytes": 48241,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/candidates-20261113_19.json",
+      "content_reference": true,
+      "sha256": "412ad7aa5e673c0b5b9f0636bf2f95dc92b130117983d9d54d154693aa4adbd5",
+      "bytes": 177995,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/progress-20261113_19.json",
+      "content_reference": true,
+      "sha256": "446c1a09d323d56b793d3f37c76924fbaef93579a590750a1db926a51a79bb4a",
+      "bytes": 2190369,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru-batch19-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_make_batch19_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_first4.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_more5.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_hatch1.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_stline1.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_prepare_focus19.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_prepare_focus19_hatch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_prepare_focus19_stline.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_review_focus19.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_review_focus19_current.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_focus19_identity.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_focus19_catalog_previews.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_next_vesta_queries19.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_vesta_categories19.py",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-web-observations.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-crosschecks.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-1.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-2.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-3.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-catalog-previews.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-catalog-2.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-catalog-3.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-hatch-jobs.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-next-vesta-queries19.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-vesta-categories19.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "a5f5e6ea0db6e0a040c770b03a2df5d7ae3647e5b472599d80923d156776758b",
+      "bytes": 11694
+    },
+    {
+      "file": "extra/executed-code/ru-batch19-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru-batch19-review.json",
+      "sha256": "f84beff5fd12264c885f8053292a3e4db505cb806b618c249d63f82472781752",
+      "bytes": 9403
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch19_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_make_batch19_review.py",
+      "sha256": "6a923471d5f12ff2ddeab6eb73d2cb5960373c52d3567c896b4b44894ecd1fec",
+      "bytes": 8440
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus19_first4.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_first4.py",
+      "sha256": "88929e5bc3f0f26bda096de441465ba38d44f46feb29a41c8ba07f1e3592a2d4",
+      "bytes": 3385
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus19_more5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_more5.py",
+      "sha256": "cdadd7ae4209d3241a4a6c216bd358789cc0c6fe2d806a406fa9d80885075752",
+      "bytes": 3573
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus19_hatch1.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_hatch1.py",
+      "sha256": "bb31f21d2818d5f6e104b06fe90adb3f696148f56dc9a07efa450e983ba24dc0",
+      "bytes": 3002
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus19_stline1.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_download_focus19_stline1.py",
+      "sha256": "5300b4854a324ddd6093d230b170666691f32dc6ae40a143cbee8898aa3ae8aa",
+      "bytes": 3005
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus19.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_prepare_focus19.py",
+      "sha256": "e84b98d716b27aa682bf0dafb8f44da42fd5c27736ccc5b8aeac57cecb56d37b",
+      "bytes": 2510
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus19_hatch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_prepare_focus19_hatch.py",
+      "sha256": "39b03e131031a7a6c902d4039d540568c95a036378c68db7dbd2cbce305eb480",
+      "bytes": 2503
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus19_stline.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_prepare_focus19_stline.py",
+      "sha256": "0f49de6bed430f56d9c7d09bd5717ee5f286a971de91dfd49279d4d9463fc226",
+      "bytes": 2665
+    },
+    {
+      "file": "extra/executed-code/ru_review_focus19.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_review_focus19.py",
+      "sha256": "7558125c8b0e85ae73fecb849004e3c712170db28b49642b67684b63db0ecbd6",
+      "bytes": 1575
+    },
+    {
+      "file": "extra/executed-code/ru_review_focus19_current.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_review_focus19_current.py",
+      "sha256": "8f59a02c41d98a01f5b31ddc95c08e62d69dcdf89a246ca7b612d740e832619e",
+      "bytes": 1581
+    },
+    {
+      "file": "extra/executed-code/ru_focus19_identity.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_focus19_identity.py",
+      "sha256": "db592a89cbab66c6af929f475205111cf38edd0fe37521e70d7520344cc735a9",
+      "bytes": 1551
+    },
+    {
+      "file": "extra/executed-code/ru_focus19_catalog_previews.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_focus19_catalog_previews.py",
+      "sha256": "f996ff444103a4afd46c982fa0d45e33bef2a36cb5c41574927e4cba0f89466a",
+      "bytes": 787
+    },
+    {
+      "file": "extra/executed-code/ru_next_vesta_queries19.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_next_vesta_queries19.py",
+      "sha256": "2af4b5d13405d4eb54fb94ecc3ad180758580d5bad90d87fcf9c029c8ccc7868",
+      "bytes": 1064
+    },
+    {
+      "file": "extra/executed-code/ru_vesta_categories19.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/executed-code/ru_vesta_categories19.py",
+      "sha256": "8733e2306b429c90dc9203ceb2bcda5847aa953009b99bc8618e1cd9239b71ef",
+      "bytes": 591
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-web-observations.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-web-observations.json.gz",
+      "sha256": "caca0473ab84b544a645e76591e870e683fdbb272f4f8524c5a7b76481ca6363",
+      "bytes": 24902
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-identity-crosschecks.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-crosschecks.json.gz",
+      "sha256": "c3e89a79cea10ed814ae02681cfc29cdd5868e42e3047d6ff0a52e451f03598d",
+      "bytes": 3352
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-identity-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-0.html.gz",
+      "sha256": "80d35f4a7018a8ce281ed56977df0945999c1f6d59d6d68df2294de80e552679",
+      "bytes": 16723
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-identity-1.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-1.html.gz",
+      "sha256": "2ea3438c56ac72c9bd20116b1324b4e59d3e7b52855cfc321cdd89eae57aa2ba",
+      "bytes": 2452
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-identity-2.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-2.html.gz",
+      "sha256": "d20727de3614ef3e1866982e32ca5056f673dd8831e5aa682af000023454dbf2",
+      "bytes": 93089
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-identity-3.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-identity-3.html.gz",
+      "sha256": "b07dc2b74140df86876de9212132587bd74f5272856ecf5de0d4b0a30f97131c",
+      "bytes": 93313
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-catalog-previews.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-catalog-previews.json.gz",
+      "sha256": "394408beec63033ff5414c20e03edfa0e168fef08e2a53a60e5595fa727d2e39",
+      "bytes": 370
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-catalog-2.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-catalog-2.jpg",
+      "sha256": "c6be233c3699f5a0eb463847270c3b7ed6b6eeed54cbf09487cc1d409e57d819",
+      "bytes": 96553
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-catalog-3.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-catalog-3.jpg",
+      "sha256": "c9467a56c6c0454fcf6d79f5b2eab002e2fe477c89a3c4195852ad4d95c0ad54",
+      "bytes": 53636
+    },
+    {
+      "file": "extra/search-evidence/ru-focus19-hatch-jobs.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-focus19-hatch-jobs.json.gz",
+      "sha256": "35e059ad507657b31c6873c7a5a76c307dd9c33f19b4f5960b1b15e7acd5fe6c",
+      "bytes": 2035
+    },
+    {
+      "file": "extra/search-evidence/ru-next-vesta-queries19.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-next-vesta-queries19.json.gz",
+      "sha256": "186976e7d3e61ef55e6b36363aed8707bd8147685cf77d9fd638aace0380df6c",
+      "bytes": 16818
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta-categories19.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/extra/search-evidence/ru-vesta-categories19.json.gz",
+      "sha256": "2ecb1d65843a16d6ad3046c9b69f35011573c8fd526438fe52b130a7d8baee28",
+      "bytes": 177
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 2,
+    "accepted_configurations_this_batch": 2,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 12,
+    "accepted_configurations_total": 49
+  }
+}

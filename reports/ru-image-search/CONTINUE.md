@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_18，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_19，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -116,3 +116,14 @@
 当前累计生成52张，采用47张/47条外观覆盖记录；完整任务12/1309，剩余1297项、2347条记录，CSV完整3/500行、剩余497行。57张不同来源原件已下载/解码/实际查看/OSS备份；7个新请求均返回，所有采用成品及必要过程已完整GET/SHA/字节数/解码校验。外观覆盖不重新认证冻结上游尺寸数字，不改数值或范围。
 
 继续第四代全球改款Sedan及中国市场2020–2022 Hatchback/Sedan/Shooting Brake Wagon。中国Wagon已定位独立社区原图，须下载目视和配置身份核对，不能用欧洲Active代替。持续推进队列，不等待人工样式确认或再次催促，不动老车、范围外俄罗斯和NAS。
+
+
+## 第19批：采用中国Shooting Brake与ST-Line两厢，推进Vesta
+
+新增2次真实请求全部返回并实际来源/灰底/深底查看通过，采用中国独立Shooting Brake白色Wagon和明确ST-Line红色五门Hatchback。Shooting Brake中国宽格栅/标志/灯杠、黑轮眉/银护板及源屋顶附件对应，不拿欧洲Active替代；蓝色车展同型仅辅助身份，未把其顶箱人为抹除。2020改款同期报道明确ST-Line外观保留，目录该代两厢图实看也是ST-Line，采用该配置的泛Hatchback代表外观，不宣称所有基础版均有运动包围。目录图仅身份审计，不作生成输入。
+
+十一张新来源均实际下载/解码/目视/OSS备份；旧镀铬格栅Sedan或Hatchback不因拍摄年较新就当中国小改款。一个普通红色五门准备提示词曾误写ST-Line，实看后在工具调用前取消，原请求和原因保存但不计生成；独立明确ST-Line原件才真正生成。执行器短暂断连，状态复核connected/running后恢复原结果，没有重复请求。
+
+累计生成54张、采用49张/49条外观覆盖，完整任务12/1309，剩余1297项、2345条记录；CSV完整6/500行、剩余494行。68张不同来源原件已核验备份，成品和必要过程完整OSS GET/SHA/字节数/解码通过。当前progress保留旧review_note历史，清理与既有accepted冲突的未核模板描述；历史批次不改。
+
+剩余Focus明确两条：全球第四代改款Sedan2021–2025、中国小改款Sedan2020–2022，分别待来源和适用性，不提前结项。下一项推进RU-4b679a659a638c90 Vesta NG及RU-52084842bd65e581改款前Vesta各车身；已枚举普通/Cross/SW/SW Cross/Sport分类，NG Sport/Sportline不由旧Sport或普通版替代。当前会话继续，不动老车/范围外俄罗斯/NAS。
