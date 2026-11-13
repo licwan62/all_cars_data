@@ -1,0 +1,144 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T22:38:08.979749+00:00",
+  "request_id": "P1-070",
+  "claim_id": "732d1b37e5734db5af8b14df42fdc951",
+  "task_id": "RU-cb2efb0d6a90f01f",
+  "dimension_id": "Ford Focus Hatchback 2020-2022 RU",
+  "plan_id": "VIEW-0049",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-070/deterministic-repair/padded-canvas/FocusChinaSTLineHatchFront-roomy-transparent.png",
+  "candidate_sha256": "2a35a70b74a4172b4629db7e712037e9f2143ea14814354d264d3a4b466bb408",
+  "red_primary_sha256": "2a8b9e390bfa66a2be2f45d46b727632a489ba678d1b01434ec5945e510178e9",
+  "blue_auxiliary_sha256": "ef19e112c51bb64d3ec3cc948b94732dd6b7d767612b9ff94a9c6b3f2b07fa0a",
+  "prior_role_review": "/workspace/ru_picture_producer/pilot20/identity_a/focus-china-hatch-component-role-review.json",
+  "judgment": "PASS_VISUAL_ADVISORY_SMALL_FIN_COMPATIBLE_WITH_NEW_CAMERA",
+  "root_final_acceptance": false,
+  "targeted_paid_repair_recommended_for_fin": false,
+  "summary": "候选紧凑小鳍与红主已见真实小鳍存在相容。新前1/2机位露出小鳍基座并不自动越过角色；当前未见明显夸大实体、错误附件类型或悬空底座，不能仅凭红源遮挡基座就认定需定向付费修复。此为实际视觉相容性建议，绝不认证隐藏红基座/精确高度毫米。",
+  "actual_visual_observations": [
+    "source-red-fin-native-3x实际看：真实浅高光上缘与暗侧面构成小鳍尖，屋顶前缘遮住其下体和基座；不是无天线。该局部没有提供完整红鳍实体高度。",
+    "raw-fin-gray-5x实际看：低紧凑、前缘较直/后缘斜落的小鳍，根部沿黑顶面相接，未出现独立长杆、夸张高翼或漂浮。局部放大不产生关于源隐藏部分的新证据。",
+    "1784×1148灰/黑底完整成品实际看：鳍位于后顶区域，是车顶轮廓上的小附件，视觉尺度与完整Hatch车顶/玻璃/后体相容，没有压过顶线或主导车顶外观。",
+    "源近正面仅小侧投影，候选展开五门侧身并展示后顶，遮挡关系已改变；候选显露更多鳍身/基座可由新相机可见性变化解释。不能用红源露出高度与候选全高做机械像素倍率。",
+    "可见红主配置仍为红漆、灰银宽V/刀片组轮、红镜把手、黑全景顶、原机盖徽/蜂窝/灯/三角fog杠；此次未见蓝车漆轮附件替换。",
+    "root-focus-red-fender-inspection实际看，源翼子板确有原小牌；不能把候选该处stock小牌误当禁用的新增格栅ST标。"
+  ],
+  "basis_explicitly_not_used": [
+    "没有以蓝fin像素相近证明红鳍实体高度或基座。蓝图只保留原批准body/spatial结构辅角色。",
+    "没有把未知红基座当作已拍实的精确形状，也不认证精确附件尺寸/制造年/发动机。",
+    "没有把放大插值或预期车型附件模板当实测证据。"
+  ],
+  "pixel_binding": {
+    "raw_dimensions": [
+      1624,
+      968
+    ],
+    "final_dimensions": [
+      1784,
+      1148
+    ],
+    "pure_canvas_translation": [
+      80,
+      80
+    ],
+    "fin_review_native_region_raw": [
+      430,
+      100,
+      500,
+      160
+    ],
+    "corresponding_final_region": [
+      510,
+      180,
+      580,
+      240
+    ],
+    "fin_region_rgba_exact_equal": false,
+    "approximate_fin_location_raw": "apex around453,115; roof-contact region around450–481,140; coordinates are image locator only, not physical measurement",
+    "source_crop_display_dimensions": [
+      900,
+      660
+    ],
+    "raw_fin_display_dimensions": [
+      950,
+      550
+    ],
+    "enlargement_limit": "3x/5x观察件不增加原件信息；未用它们认证毫米或隐蔽基座。",
+    "fin_region_changed_pixels": 3,
+    "fin_region_changed_pixels_max_raw_alpha": 1,
+    "fin_region_all_RGB_exact_equal": true,
+    "fin_region_all_alpha_ge16_RGBA_exact_equal": true,
+    "qualification": "宽裁区含3个已清理alpha1离散点，所以不得称整个裁区RGBA逐像素完全相等；所有RGB及alpha>=16实体像素保持一致。该差异不改变实际鳍实体。"
+  },
+  "files_and_sha256": [
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P1/P1-070/deterministic-repair/padded-canvas/FocusChinaSTLineHatchFront-roomy-transparent.png",
+      "sha256": "2a35a70b74a4172b4629db7e712037e9f2143ea14814354d264d3a4b466bb408",
+      "dimensions": [
+        1784,
+        1148
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P1/P1-070/P1-070-imagegen-original.png",
+      "sha256": "a9342d4834c9be77c9e89037573b038909ded77c5ad2161b35e5dfb00785238b",
+      "dimensions": [
+        1624,
+        968
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P1/P1-070/source-red-fin-native-3x.png",
+      "sha256": "56aab12b1e49aba6adb9dfb7732b764278f1913e3232eda607570e8bcfb0a26a",
+      "dimensions": [
+        900,
+        660
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P1/P1-070/raw-fin-gray-5x.png",
+      "sha256": "14b3db191da86f6205d9a0cdd5a9d31cde5af0d3459caf3ecc71a97c8bb09e63",
+      "dimensions": [
+        950,
+        550
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P1/P1-070/raw-fin-black-5x.png",
+      "sha256": "c606659ca06cf0dbb52788c45f34fc7bf49acb63c0dea72589ec5cfd05ecf420",
+      "dimensions": [
+        950,
+        550
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-red-primary-restored.jpg",
+      "sha256": "2a8b9e390bfa66a2be2f45d46b727632a489ba678d1b01434ec5945e510178e9",
+      "dimensions": [
+        6868,
+        4095
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "actual_viewed_files": [
+    "/workspace/ru_picture_producer/pilot20/P1/P1-070/source-red-fin-native-3x.png",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-070/raw-fin-gray-5x.png",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-070/deterministic-repair/padded-canvas/FocusChinaSTLineHatchFront-review-gray.png",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-070/deterministic-repair/padded-canvas/FocusChinaSTLineHatchFront-review-black.png",
+    "/workspace/ru_picture_producer/pilot20/root-focus-red-fender-inspection.jpg"
+  ],
+  "remaining_limits": [
+    "只有root实际最终签收后，旧426ae552...才可按正式返修流程替换；本报告不做签收。",
+    "如果root实看认为鳍实体确有过大证据，应按明确部件指令修复；当前独立观察没有这样的正向过大证据。",
+    "当前相容性不将隐藏基座升级为事实测量；不改变先前红主独占外观、蓝辅仅结构的边界。"
+  ],
+  "generation_calls_this_review": 0,
+  "network_calls_this_review": 0,
+  "queue_ledger_git_mutation": false
+}

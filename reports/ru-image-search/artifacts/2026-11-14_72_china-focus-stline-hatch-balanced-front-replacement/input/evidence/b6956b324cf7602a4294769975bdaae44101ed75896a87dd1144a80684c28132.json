@@ -1,0 +1,151 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T22:28:07.217426+00:00",
+  "task_id": "RU-5dde8bd09aff0246",
+  "dimension_id": "Kia Sportage L167.1 W69.4 H66.7 SUV 1993-2006 RU",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-2807569.jpg",
+  "source_sha256": "4e76ff301eabccf86247b97e4093366c8442d98ecec65162c513998873827d2c",
+  "judgment": "PASS_IDENTITY_ONLY_STANDARD_FIVE_DOOR_BODY_BRANCH",
+  "scope": "Positive identity applicability only to frozen ordinary closed five-door I branch, as an early European representative within unsplit1993–2006 scope. Not Grand, not short/open body, not II. This is not a full scalar-specification re-certification or final view/ready approval.",
+  "source": {
+    "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-2807569.jpg",
+    "sha256": "4e76ff301eabccf86247b97e4093366c8442d98ecec65162c513998873827d2c",
+    "dimensions": [
+      1818,
+      1341
+    ],
+    "bytes": 195011,
+    "page": "https://commons.wikimedia.org/wiki/File:Kia_Sportage_front_20070924.jpg",
+    "author": "Rudolf Stricker / Randy43",
+    "license": "CC BY-SA3.0 (also GFDL migration metadata)",
+    "photographed_at": "2007-09-24",
+    "production_date": "unknown; filename date does not establish vehicle modelyear/generation"
+  },
+  "upstream_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+  "raw_source": "/workspace/ru_picture_producer/pilot20/source_c/sportage-frozen-raw-full.json",
+  "branch_mapping": [
+    {
+      "primary_body_label": "Внедорожник 5 дв.",
+      "primary_match_key": "kia/sportage|I|1993-2006|SUV 5-door|-|-",
+      "frozen_mapping_literal": "RU|kia/sportage|I|1993-2006|SUV 5-door|-|-",
+      "dimension_id": "Kia Sportage L167.1 W69.4 H66.7 SUV 1993-2006 RU",
+      "rows_zero_based": [
+        35093,
+        35114
+      ],
+      "dimensions_mm": [
+        4245,
+        1764,
+        1695
+      ],
+      "label": "standard five-door"
+    },
+    {
+      "primary_body_label": "Внедорожник 5 дв. Grand",
+      "primary_match_key": "kia/sportage|I|1993-2006|SUV 5-door|-|Grand",
+      "frozen_mapping_literal": "RU|kia/sportage|I|1993-2006|SUV 5-door|-|Grand",
+      "dimension_id": "Kia Sportage Grand SUV 1993-2006 RU",
+      "rows_zero_based": [
+        35115,
+        35118
+      ],
+      "dimensions_mm": [
+        4435,
+        1764,
+        1695
+      ],
+      "label": "Grand five-door"
+    },
+    {
+      "primary_body_label": "Внедорожник открытый",
+      "primary_match_key": "kia/sportage|I|1993-2006|SUV|-|-",
+      "frozen_mapping_literal": "RU|kia/sportage|I|1993-2006|SUV|-|-",
+      "dimension_id": "Kia Sportage L158.5 W69.4 H65.0 SUV 1993-2006 RU",
+      "rows_zero_based": [
+        35119,
+        35127
+      ],
+      "dimensions_mm": [
+        4025,
+        1764,
+        1650
+      ],
+      "label": "open body"
+    }
+  ],
+  "positive_evidence": [
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/g_1993_5671/",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-i-original.html",
+      "actual_viewed_image": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-i-original-catalog-main.jpg",
+      "image_sha256": "972a09bc2fe0df9d2c2870069775a21b579409f3531eca7d091dfab56a2bedbb",
+      "supports": "Exact early European JA ordinary closed five-door. Actual original grille with multiple thin horizontal bars/red Kia oval, separate rectangular headlamps/corner indicators, older bonnet/bumper/frontwheelarch, fixedroof/door apertures and compact rearquarter match source. No later vertical-rib grille swap."
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/240778/",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-i-standard-240778.html",
+      "saved_sha256": "1164049295407dc64ea4771f74c2e02d0ad915de8c96f7c4c84c68cff21e8745",
+      "supports": "Specific early Europe ordinary2.0MT MRI: five-door, WB2650 and length4245. This independently identifies the standard body branch rather than counting sidewindows.",
+      "dimensions_mm": [
+        4245,
+        1730,
+        1650
+      ],
+      "limit": "Actual direct web extractor errored Unicode; local fullGET200decodedcp1251 and text actually read. Width/height differ from frozen aggregate; see separate data issue."
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/g_1998_9580/",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-i-1998.html",
+      "actual_viewed_image": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-i-1998-catalog-main.jpg",
+      "supports": "Text explicitly separates ordinary five-door, three-door cabriolet and extended Grand/Wagon. Main image has later vertical grille bars/changed bumper and is not copied into early source.",
+      "limit": "Not used as proof of source exact modelyear or as an interchangeable front reference."
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/241186/",
+      "supports": "Grand independent technical table distinguishes extended4435 length and630L cargo from ordinary standard branch; not a source engine certification.",
+      "dimensions_mm": [
+        4435,
+        1764,
+        1650
+      ]
+    }
+  ],
+  "actual_visual_observations": [
+    "Source full-frame bounded1818-native-derived preview actually seen: ordinary fixedroof four side doors/closed five-door SUV, early JA front and compact rearquarter/rearwheel-to-tail section. This is not solely a sidewindow count conclusion: compared exact early JA ordinary catalog front/bonnet/bumper/wheelarch/roofline and technical standard4245 branch.",
+    "Actual silver paint, black mirrors and handles, real steel-looking radial perforated wheels, body side decals, black vertical bumperettes and lower bar remain source features. Catalog red car lacks same bumperettes and has other wheels/mirror paint; no transfer authorized.",
+    "Source early horizontal grille differs from later1998 vertical-rib grille image. Frozen source mapping does not split phase insideI1993–2006, so no claim that this early source depicts a later update.",
+    "No claim made that German photograph equals German factory build, exact engine/gearbox, or every Russian-market exterior. Market/body applicability rests on exact European JA ordinary body evidence and frozen upstream ordinary five-door mapping."
+  ],
+  "data_consistency_issue": {
+    "status": "UNRESOLVED_SCALAR_CATALOG_DIFFERENCE_NOT_BODY_BRANCH_REASSIGNMENT",
+    "frozen_standard_mm": [
+      4245,
+      1764,
+      1695
+    ],
+    "independent_early_EU_standard_mm": [
+      4245,
+      1730,
+      1650
+    ],
+    "interpretation": "The synthetic L167.1/W69.4/H66.7 identifier resolves to upstream ordinary5door, not a named special grade. Evidence positively resolves standardvsGrand/open and earlyJAidentity. It does not prove source physical width1764/height1695; no photo reshaping or silent data correction.",
+    "full_exact_scalar_grade_certified": false,
+    "root_gate": "If current acceptance demands exact source visible-grade equipment producing1764/1695, keep that scalar/grade applicability on hold until a same-phase factory technical table or explicit data-policy decision. Do not report this limited identity pass as that proof."
+  },
+  "excluded_dimensions": [
+    "Kia Sportage Grand SUV 1993-2006 RU",
+    "Kia Sportage L158.5 W69.4 H65.0 SUV 1993-2006 RU"
+  ],
+  "source_preservation": "Primary silver source controls actual wheels/bumperettes/black mirrors and handles/decals/visible roof. Independent catalog photographs are identity only, no ImageGen input; do not replace its nose or attachments.",
+  "actual_viewed_files": [
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Sportage-2807569-bounded.jpg",
+    "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-i-original-catalog-main.jpg",
+    "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-i-1998-catalog-main.jpg"
+  ],
+  "not_done": [
+    "No source ready/enqueue, no finalcamera/completeness acceptance, no generation.",
+    "No formal scalar-data correction or queue/ledger/Git mutation."
+  ],
+  "generation_calls": 0,
+  "queue_ledger_git_mutation": false
+}
