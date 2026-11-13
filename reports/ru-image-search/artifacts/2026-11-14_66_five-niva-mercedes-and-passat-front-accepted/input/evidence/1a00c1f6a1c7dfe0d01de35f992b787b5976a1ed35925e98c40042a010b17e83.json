@@ -1,0 +1,82 @@
+{
+  "request_id": "P1-055",
+  "claim_id": "64a26b88d1bd48e99d50ff5eac50193d",
+  "task_id": "RU-23ea1518b6b822b5",
+  "dimension_id": "Volkswagen Passat Wagon 2014-2020 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-46741121-api-thumbnail.jpg",
+  "input_sha256": "801dbb48525a8e20e96a8477103975fe1d6d98a05a32a792357b64dba0f0516d",
+  "input_dimensions": [
+    1280,
+    856
+  ],
+  "input_role": "1280 API samefile derivative, NOT full original; original429 no retry",
+  "source_page": "https://commons.wikimedia.org/wiki/File:2015_Volkswagen_Passat_(3G_MY16)_132TSI_station_wagon_(2015-11-11)_01.jpg",
+  "source_license": {
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:OSX\" title=\"User:OSX\">OSX</a>",
+    "LicenseShortName": "Public domain",
+    "UsageTerms": "Public domain"
+  },
+  "assigned_at": "2026-11-13T21:00:05.959069+00:00",
+  "material_ready_at": "2026-11-13T21:01:11.344175+00:00",
+  "started_at": "2026-11-13T21:01:16.810730+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-055/deterministic-repair/padded-canvas/PassatB8OriginalWagon-roomy-transparent.png",
+  "candidate_sha256": "d8cbdff1cf6924b28dafb3ab7c1c2d481530db24460c80ca88e6f959bb3ab574",
+  "worker_reviewed_at": "2026-11-13T21:03:52.049385+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root final actual acceptance required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-055/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-055/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Coherent complete ordinaryB8initial longwagon frontquarter, plain halogenlamps/VW/chromebars/ordinaryfogbumper/actual5Vsilveralloys/silverrails maintained; no inflated fin or inventedrod."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1533,
+      1026
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      28,
+      142,
+      1475,
+      906
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 640,
+    "detached_max_alpha": 2,
+    "bottom_margin_px": 120,
+    "reason": "640 disconnectedalpha<=2 pixels require deterministiccleanup; side28px needroomycanvas. Raw technical not pass."
+  },
+  "visual_review": "Actual fullfront/rear and frontroof plus rearfin6x viewed. White ordinary B8initial long estate, plain halogen angularlamps/chrome4bars/VW andordinary horizontalfogbumper match independentB8phase face primary2 though primaryimage Sedan and LEDgrade; wagonbody/frozen4767 andEUordinary1.8 family backedpositiveVWpreviousmodelproof. AU RHDnotRUfactoryidentity, no AUexclusive visiblefascia found. FiveV silverwheels/bodymirrors/clearindicators/whitehandles/chromewindows/silverrails, lowblackfin inreartipapprox438,84/base431..464,108, frontoccluded do notinflate. Bothinput1280samefilederivatives andoriginal429 disclosed. No sourceVIN/buildday/enginecertification. Actual raw and final grayblack viewed: no scene/shadow/stray visible fragments, full rounded tires/mirrors/bumper/rails. Single coherent frontquarternoseRIGHT rather thanrear. Samecarrearfin remains frontoccluded, not inventedheight.",
+  "identity_limits": "AustraliaRHD actualsource not Russianfactorymarketcertification. Frozenordinary1.8estate4767family positive referenced officialpreviousmodel text; exactsourceVINengine/builddate not certified. Independentphaseface primarySedan/LEDgrade only phase/fascia reference, source plain halogen/5Vwheels retained. Front/rear are1280samefile derivatives original429, not fulloriginal.",
+  "dimensions": [
+    1693,
+    1206
+  ],
+  "visible_margins_px": [
+    108,
+    222,
+    138,
+    220
+  ],
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-055/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-055/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-055/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-055/input-oss-proof.json",
+  "auxiliary_input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-055/auxiliary-review-source/input-oss-proof.json",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-055/deterministic-repair/padded-canvas/PassatB8OriginalWagon-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-055/deterministic-repair/padded-canvas/PassatB8OriginalWagon-review-black.png",
+  "generation_calls": 1,
+  "paid_repairs": 0,
+  "cost": "unknown",
+  "deterministic_processing": "Only disconnected alpha<=15 removed; mainRGBA/RGB unchanged, pure transparent L/R80top80bottom100 canvas translatedRGBA equality true."
+}

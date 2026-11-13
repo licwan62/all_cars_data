@@ -282,7 +282,7 @@ def pressure(state):
     ready = sum(i['status'] == 'ready' for i in state['items'])
     if ready >= state['config']['high_watermark']:
         state['enqueue_paused'] = True
-    elif ready < state['config']['low_watermark']:
+    elif ready <= state['config']['low_watermark']:
         state['enqueue_paused'] = False
     return ready
 
@@ -442,7 +442,7 @@ def execute(args):
             elif old.get('source_sha256') == record['source_sha256']:
                 raise ValueError('same-source retry requires --identity-clearance; otherwise provide a different new source SHA')
             if state['enqueue_paused']:
-                raise ValueError('ready inventory paused; retry requeue-held below low watermark')
+                raise ValueError('ready inventory paused; retry requeue-held at or below low watermark')
             reopened_at = now()
             item = copy.deepcopy(record)
             for field in ('worker','claim_id','claimed_at','review','resolutions','retake','retake_history','retry','retry_history','imported_existing','preflight_hold','hold_kind','identity_clearance'):
@@ -493,7 +493,7 @@ def execute(args):
             if old.get('retake') or any(h.get('plan_id') == args.plan_id for h in state.get('retake_history', [])):
                 raise ValueError('duplicate retake: this plan was already reopened')
             if state['enqueue_paused']:
-                raise ValueError('ready inventory paused; retry retake when below low watermark')
+                raise ValueError('ready inventory paused; retry retake at or below low watermark')
             snapshot = copy.deepcopy(old)
             reopened_at = now()
             item = copy.deepcopy(record)

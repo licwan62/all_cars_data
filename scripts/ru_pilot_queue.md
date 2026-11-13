@@ -18,7 +18,7 @@ python /workspace/all_cars_data/scripts/ru_pilot_queue.py submit-review --claim 
 python /workspace/all_cars_data/scripts/ru_pilot_queue.py stats
 ```
 
-Producer loop: claim, produce, submit-review, repeat; no dispatcher needed. Claim returns `{"claim":null,...}` when empty; otherwise use claim_id. Same-worker concurrent calls return its existing producing claim, preventing stacked ownership. Claim order is ascending catalog_rank then enqueue timestamp. 12 ready items pauses new enqueues until ready falls below 6. Duplicates are reported; blocked items must be retried later. Terminal and active items remain for deduplication and do not consume ready inventory.
+Producer loop: claim, produce, submit-review, repeat; no dispatcher needed. Claim returns `{"claim":null,...}` when empty; otherwise use claim_id. Same-worker concurrent calls return its existing producing claim, preventing stacked ownership. Claim order is ascending catalog_rank then enqueue timestamp. 12 ready items pauses new enqueues until ready falls to 6 or below. Duplicates are reported; blocked items must be retried later. Terminal and active items remain for deduplication and do not consume ready inventory.
 
 Result JSON must contain `candidate_file` + `candidate_sha256`, or `output_file` + `output_sha256`; provided pairs are checked against current bytes. Relative artifact paths resolve against result JSON. Optional task_id/dimension_id must match. The tool stores the full result and result-file SHA in state; this transition is only `in_review`, never accepted. Same-result resubmission is idempotent. A changed review cannot overwrite a prior submission.
 

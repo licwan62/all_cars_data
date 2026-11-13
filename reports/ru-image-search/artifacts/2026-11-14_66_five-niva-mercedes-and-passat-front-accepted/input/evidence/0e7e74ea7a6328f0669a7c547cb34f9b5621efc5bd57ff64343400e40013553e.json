@@ -1,0 +1,145 @@
+{
+  "request_id": "P1-056",
+  "claim_id": "d35f230d788243e187cbb8f54f3597cf",
+  "task_id": "RU-f569f92b88483ce1",
+  "dimension_id": "BMW X5 SUV 2006-2010 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-pre/derived-1600.jpg",
+  "input_sha256": "19b94a29b9824b5e21edf9d7771216d8503c5cf09da306f76dabce4cc064d36e",
+  "input_dimensions": [
+    1920,
+    1339
+  ],
+  "input_role": "1920samefilethumbnail derivative NOTfulloriginal; historicalfilename derived1600 doesnotdescribeactual1920",
+  "source_page": "https://commons.wikimedia.org/wiki/File:BMW_X5_(E70)_front.jpg",
+  "source_license": {
+    "name": "CC BY-SA 3.0",
+    "url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "M 93",
+    "adaptation_allowed": true,
+    "attribution_sharealike_required": true,
+    "metadata_evidence": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-pre/api-1600.json"
+  },
+  "queue_claim": {
+    "candidate_id": "SOURCE-E-X5-E70-pre-Germany",
+    "task_id": "RU-f569f92b88483ce1",
+    "dimension_id": "BMW X5 SUV 2006-2010 RU",
+    "scope_rows": [
+      121,
+      122,
+      123
+    ],
+    "catalog_rank": 21,
+    "source_assigned_at": null,
+    "source_ready_at": "2026-11-13T20:15:24.169775+00:00",
+    "source_assignment_evidence": "/workspace/ru_picture_producer/pilot20/source_e_x5/assignment.json",
+    "source_file": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-pre/derived-1600.jpg",
+    "source_sha256": "19b94a29b9824b5e21edf9d7771216d8503c5cf09da306f76dabce4cc064d36e",
+    "source_page": "https://commons.wikimedia.org/wiki/File:BMW_X5_(E70)_front.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/BMW_X5_%28E70%29_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/BMW_X5_%28E70%29_front.jpg/1920px-BMW_X5_%28E70%29_front.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "download_status": "Original URL returned HTML HTTP throttling; same Commons file derivative downloaded and decoded, 1920x1339, not claimed as original.",
+    "source_metadata_file": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-pre/api-1600.json",
+    "source_format": "JPEG derivative",
+    "source_dimensions": [
+      1920,
+      1339
+    ],
+    "source_revision_timestamp": "2009-03-07T19:54:24Z",
+    "license": {
+      "name": "CC BY-SA 3.0",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "M 93",
+      "adaptation_allowed": true,
+      "attribution_sharealike_required": true,
+      "metadata_evidence": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-pre/api-1600.json"
+    },
+    "identity_evidence": {
+      "primary_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "primary_mapping_sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "primary_mapping_row": [
+        "RU|bmw/x5|II (E70)|2006-2010|SUV 5-door|-|-",
+        "BMW X5 SUV 2006-2010 RU"
+      ],
+      "dimension_table_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_RU-20261112_01.json",
+      "dimension_table_sha256": "45c9d420f9e6c403ad67bcd8340e84f293536832bb4ee87926060e7f903f25c8",
+      "dimension_row": [
+        "BMW X5 SUV 2006-2010 RU",
+        "BMW",
+        "X5",
+        "",
+        "",
+        "",
+        "SUV",
+        "II (E70)",
+        "2006-2010",
+        "越野车",
+        "191.1",
+        "76.1",
+        "69.5",
+        "",
+        "",
+        "可入库"
+      ],
+      "original_csv_rows": [
+        121,
+        122,
+        123
+      ],
+      "source_description": "Commons author M 93 BMW X5 image taken 2008-05-14. German D plate and local roadside signage visible, pre-facelift E70 exterior.",
+      "visual": "Downloaded same-file 1920px derivative inspected: full front three-quarter ordinary five-door E70 SUV, pre-facelift front bumper/lamps, BMW hood and wheel badges, silver five-spoke wheels, longitudinal rails with no crossbars, no roof fin or antenna visible. Complete tires and mirrors; no M bumper.",
+      "market_applicability": "German EU pre-facelift E70 standard five-door body; RU primary map RU|bmw/x5|II (E70)|2006-2010|SUV 5-door|-|-. RU dimension has no engine or trim constraint; no claim of Russian registration or exact dimensions."
+    },
+    "status": "producing",
+    "enqueued_at": "2026-11-13T21:03:38.682227+00:00",
+    "retry": {
+      "operation": "requeue-held",
+      "actor": "root",
+      "requeued_at": "2026-11-13T21:03:38.682227+00:00",
+      "previous_claim_id": "6fbb2eaf1fce443a9a4973d9bde55bef",
+      "previous_source_sha256": "19b94a29b9824b5e21edf9d7771216d8503c5cf09da306f76dabce4cc064d36e",
+      "checkpoint_sha256": "1aff939936abbc9337b7aad381f34ebb1cc33dd56eb82744c2de5eae46b67423"
+    },
+    "identity_clearance": {
+      "file": "/workspace/ru_picture_producer/pilot20/root-e70-pre-identity-clearance.json",
+      "sha256": "e8ad13b6ff44d852380e0535b9c1acd209babc4c8597567d4d27a9029bfd303f",
+      "decision": "identity_cleared_zero_generation",
+      "old_claim_id": "6fbb2eaf1fce443a9a4973d9bde55bef",
+      "identity_report_file": "/workspace/ru_picture_producer/pilot20/identity_a/x5-e70-independent-identity-review.json",
+      "identity_report_sha256": "510e5f5617f4307e293ecdcaee7ee147f090db9b2e31b568e24b97dbb9efe35a",
+      "zero_fee_proof_file": "/workspace/ru_picture_producer/pilot20/P1/P1-047/zero-fee-preflight-hold.json",
+      "zero_fee_proof_sha256": "2d732d6395a967b759baf23192db6fb6401823262d5f7fe0a60447354e6d7209"
+    },
+    "worker": "P1",
+    "claim_id": "d35f230d788243e187cbb8f54f3597cf",
+    "claimed_at": "2026-11-13T21:04:15.000633+00:00"
+  },
+  "assigned_at": "2026-11-13T21:04:15.000633+00:00",
+  "material_ready_at": "2026-11-13T21:05:13.542118+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "identity_clearance": {
+    "file": "/workspace/ru_picture_producer/pilot20/root-e70-pre-identity-clearance.json",
+    "sha256": "e8ad13b6ff44d852380e0535b9c1acd209babc4c8597567d4d27a9029bfd303f",
+    "decision": "identity_cleared_zero_generation",
+    "old_claim_id": "6fbb2eaf1fce443a9a4973d9bde55bef",
+    "identity_report_file": "/workspace/ru_picture_producer/pilot20/identity_a/x5-e70-independent-identity-review.json",
+    "identity_report_sha256": "510e5f5617f4307e293ecdcaee7ee147f090db9b2e31b568e24b97dbb9efe35a",
+    "zero_fee_proof_file": "/workspace/ru_picture_producer/pilot20/P1/P1-047/zero-fee-preflight-hold.json",
+    "zero_fee_proof_sha256": "2d732d6395a967b759baf23192db6fb6401823262d5f7fe0a60447354e6d7209"
+  },
+  "visual_precheck": "Actually original1920full/roofcrop and independent A actualRU/EUpre ordinarycatalog images viewed. GreyordinarypreE70SUV/dualroundlamp/chromekidneysblackslats/roundfogs/broadblacklowerbumper/silverbladecornerintakes/silver5broadspokewheels. Bodymirrorblackbase nointegratedindicator/plainbodyhandles/sideblackrubstrips. Two realraisedgreydarkrails/gaps/feet no crossbars; no separately visible rod/fin actualroofcrop, noinvented hiddenaccessory. NotM/Msport/USorange marker. GermanEU ordinary positivevisibleequivalence backed rootidentityclearance/Areport, noexactsourceengine/VIN/buildday orscalarmmcertify. P1-047zeroGENhold retained retryhistory.",
+  "prompt": "Produce a photorealistic clean catalog cutout of the EXACT metallic medium GREY BMW X5 E70 INITIAL ordinary five-door SUV in the reference. Keep one coherent fullcar weakperspective FRONT three-quarter view nose LEFT close to original camera, bothkidneygrilles/twolamps/fullfrontbumper clearly visible and near-side bodydepth/longrearquarter, NOTrear/profile/head-on. Preserve original E70pre double-round-lamp internal housings, blackvertical kidney slats with chrome borders/BMWhoodroundel, ordinary ROUND cornerfoglamps, broad BLACK unpainted central lowerbumper and side blackhorizontal intakes with source SILVER horizontal blade, blackwheelarch/lowerbodycladding, actual SILVER FIVE BROAD SPOKE alloywheels/BMWcentercaps, same tires andsteeringangle, gray bodycolormirrorcaps BLACKlowerbases (NO new mirror indicator strips), graydoorhandles/blacksideprotectivemoulding, source roof contour. Preserve TWO real RAISED dark-grey longitudinal rails with visible openair gap/feet and complete ends. NO crossbars, NO inventedfin/rod/roofrack. Not facelift/M/Msport/USorange marker. Keep actual proportions/trim, do notupgrade lights/wheels/bumper. Remove street/buildings/trees/adjacentcar/pavement/signs and allscene reflections especially treesinhood/windshield/glass, soft neutral studio lighting with smooth metallicpaint and visible quietinterior, nopeople. Blankneutralpale plate no smallinventedtext. Entirefullroundedtires/mirrors/allbumper/railends contained with broad transparent margins at least100px eachside/top/bottom, scale fullcar smallenough notcropped. ActualRGBA alpha0 outsidecar finecleanantialias, nofloor/contactshadow/reflection/halo/glow/detachedalphadust.",
+  "prompt_sha256": "58f6ac6282af9eb88c3106fbc13de9cd50fc925c394b3dc65794ba60ddef1e11",
+  "started_at": "2026-11-13T21:05:18.968633+00:00",
+  "status": "returned_saved_needs_review",
+  "generator_submitted": true,
+  "generation_count": 1,
+  "transparent_background": true,
+  "returned_at": "2026-11-13T21:06:33.488540+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-056/P1-056-imagegen-original.png",
+  "output_sha256": "8b4cb755856893d29b30617b1838f803744408e6823aea87640d49374c5a22c0",
+  "output_dimensions": [
+    1536,
+    1024
+  ]
+}

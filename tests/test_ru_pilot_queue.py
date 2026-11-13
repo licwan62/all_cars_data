@@ -65,17 +65,26 @@ class QueueTests(unittest.TestCase):
         output = self.run_cli('enqueue', '--file', self.file('tasks.json', tasks))
         self.assertEqual(len(output['added']), 12)
         self.assertEqual(len(output['blocked']), 1)
+        self.assertEqual(output['ready'], 12)
+        self.assertTrue(output['enqueue_paused'])  #12 pauses
         extra = self.file('extra.json', tasks[-1])
         evidence = self.file('evidence.json', {'reason': 'test hold'})
         claim = None
-        for _ in range(6):
+        for _ in range(5):
             claim = self.run_cli('claim', '--worker', 'P1')['claim']
             self.run_cli('resolve', '--claim', claim['claim_id'], '--decision', 'hold', '--evidence', evidence, '--actor', 'root')
-        self.assertTrue(self.run_cli('stats')['enqueue_paused'])  # exactly 6 stays paused
+        at_seven = self.run_cli('stats')
+        self.assertEqual(at_seven['ready'], 7)
+        self.assertTrue(at_seven['enqueue_paused'])  #7 does not resume
         self.assertEqual(len(self.run_cli('enqueue', '--file', extra)['blocked']), 1)
         claim = self.run_cli('claim', '--worker', 'P2')['claim']
-        self.assertFalse(self.run_cli('stats')['enqueue_paused'])  # 5 resumes
-        self.assertEqual(len(self.run_cli('enqueue', '--file', extra)['added']), 1)
+        at_six = self.run_cli('stats')
+        self.assertEqual(at_six['ready'], 6)
+        self.assertFalse(at_six['enqueue_paused'])  #6 resumes
+        resumed = self.run_cli('enqueue', '--file', extra)
+        self.assertEqual(len(resumed['added']), 1)
+        self.assertEqual(resumed['ready'], 7)
+        self.assertFalse(resumed['enqueue_paused'])  #stays open until12 after resuming
         result = self.file('result.json', {'task_id': claim['task_id'], 'output_file': self.record['source_file'], 'output_sha256': self.record['source_sha256']})
         bad_result = self.file('bad-result.json', {'output_file': self.record['source_file'], 'output_sha256': '0' * 64})
         self.assertIn('SHA256 mismatch', self.run_cli('submit-review', '--claim', claim['claim_id'], '--result', bad_result, ok=False)['error'])
