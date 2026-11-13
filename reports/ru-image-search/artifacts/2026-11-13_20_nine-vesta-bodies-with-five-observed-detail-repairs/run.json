@@ -1,0 +1,366 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs",
+  "version": "20261113_20",
+  "description": "nine-vesta-bodies-with-five-observed-detail-repairs",
+  "created_at": "2026-11-13T09:49:24+00:00",
+  "finished_at": "2026-11-13T09:49:25+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch20-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/progress-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/progress-20261113_19.json",
+      "sha256": "446c1a09d323d56b793d3f37c76924fbaef93579a590750a1db926a51a79bb4a"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/current-accepted-configuration-index-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/current-accepted-configuration-index-20261113_19.json",
+      "sha256": "6226b306dead71f3b9e5b8ed1235a098a42687289510812f82ba29e328073522"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/candidates-20261113_19.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/candidates-20261113_19.json",
+      "sha256": "412ad7aa5e673c0b5b9f0636bf2f95dc92b130117983d9d54d154693aa4adbd5"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "24460f735703a5ef2a029a150ebe15c448d69c14",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/identity-crosschecks-20261113_20.json",
+      "content_reference": true,
+      "sha256": "9ef9309182870a04421ea27761c520ac1af8ffbf09fd2b80dcd8cf6f42dcd1e2",
+      "bytes": 2028,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/accepted-configurations-20261113_20.json",
+      "content_reference": true,
+      "sha256": "7a5b96b96a6b0a263c189403d31721c58d1d2d83c50543300a29a8db03f43e1b",
+      "bytes": 87944,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/current-accepted-configuration-index-20261113_20.json",
+      "content_reference": true,
+      "sha256": "2bcc4f2ffefcd7f0ed0570b15208cdc4ee6bdfe837c63acf4b8a807270b10edf",
+      "bytes": 558864,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/nonadopted-history-20261113_20.json",
+      "content_reference": true,
+      "sha256": "c4b312764948bf6ccafd14a6e1f7724bdc85574d74b0cf923c7de7aebdf5c858",
+      "bytes": 30634,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/generation-requests-20261113_20.json",
+      "content_reference": true,
+      "sha256": "5b706490b1e5bdb353a0b4884a2684f0a9c813f2643a51653e9e674e0a34260e",
+      "bytes": 58790,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/new-source-original-evidence-20261113_20.json",
+      "content_reference": true,
+      "sha256": "913fb15a2140173c7474f2ee9ab15b97462c4aecb2c546226b1fad278e88fff9",
+      "bytes": 35381,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/candidates-20261113_20.json",
+      "content_reference": true,
+      "sha256": "9c64dc12a7231dc80d276c62c1609e436fa6019f3a8b12254b1e5a2e04defcd7",
+      "bytes": 200530,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_20.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/output/progress-20261113_20.json",
+      "content_reference": true,
+      "sha256": "4bb94f69860bd6a732615b30cbc7a3d3d48236505d4bc9bb5bb518fda94a4992",
+      "bytes": 2200719,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru-batch20-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_make_batch20_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_download_vesta20_nine.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_prepare_vesta20.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_prepare_vesta20_repairs.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_review_vesta20.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_review_vesta20_final.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_vesta20_identity.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_vesta20_wiki_identity.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_vesta_full_categories20.py",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta-full-categories20.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-web-observations.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-official-web-observations.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-identity-crosschecks.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-identity-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-identity-1.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-wiki-identity-crosschecks.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-wiki-identity-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-original-roof-audit.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-2.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-4.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-7.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-8.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-5-full.jpg"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "a5f5e6ea0db6e0a040c770b03a2df5d7ae3647e5b472599d80923d156776758b",
+      "bytes": 11694
+    },
+    {
+      "file": "extra/executed-code/ru-batch20-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru-batch20-review.json",
+      "sha256": "569307a55d5baa9007f80fb88cb0a20164cc2b85205025647e30d6e46a80ee47",
+      "bytes": 10602
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch20_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_make_batch20_review.py",
+      "sha256": "00594f436206d3ee8bc897f657ffacbdba63f2eb8efdc9a0a8c538984e324a22",
+      "bytes": 8914
+    },
+    {
+      "file": "extra/executed-code/ru_download_vesta20_nine.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_download_vesta20_nine.py",
+      "sha256": "faba41a13dd5b7e7607b418947a789abb58fdacb991c17ffbef5d56545cc6850",
+      "bytes": 4151
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_vesta20.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_prepare_vesta20.py",
+      "sha256": "b69e5878e7c9d560cf77d6a1072804c285b7246247f8a545c32ecb55fb9531ae",
+      "bytes": 6602
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_vesta20_repairs.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_prepare_vesta20_repairs.py",
+      "sha256": "d2d3eaf267d005de010528408653783e6e873f61edc15b45d3646d6ea8361e7f",
+      "bytes": 5024
+    },
+    {
+      "file": "extra/executed-code/ru_review_vesta20.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_review_vesta20.py",
+      "sha256": "91dabc9b2ec6cf064a8719052f18d4639383f77baf9b1e8415f7e4657ce0d2e7",
+      "bytes": 1622
+    },
+    {
+      "file": "extra/executed-code/ru_review_vesta20_final.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_review_vesta20_final.py",
+      "sha256": "d61417781e61ad4a20e3a648a0808ff7b0319cb54604c7421955f43bbcc1faa6",
+      "bytes": 1628
+    },
+    {
+      "file": "extra/executed-code/ru_vesta20_identity.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_vesta20_identity.py",
+      "sha256": "0492c5366e0b1824c9ef2754b0dc0f2f2fb1d7c6ed4c4886529a20ce09096abe",
+      "bytes": 1298
+    },
+    {
+      "file": "extra/executed-code/ru_vesta20_wiki_identity.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_vesta20_wiki_identity.py",
+      "sha256": "1a6f81423a52ee167694ca889d9bb780a07c62c36cc503a52ef995645f651016",
+      "bytes": 1260
+    },
+    {
+      "file": "extra/executed-code/ru_vesta_full_categories20.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/executed-code/ru_vesta_full_categories20.py",
+      "sha256": "2e56e74a048ca6fed05265351721b00dd299a4b9495a3336fd99f16ac1b15c3e",
+      "bytes": 1211
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta-full-categories20.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta-full-categories20.json.gz",
+      "sha256": "bb22009db60ac7d21c36cacd263e2db854438b6d0ba10f9f6ea83f6d89a13e7f",
+      "bytes": 49307
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-web-observations.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-web-observations.json.gz",
+      "sha256": "1e6cf895ba6594f844c5b3e4df16c548a3b80c8fe6b2783a33890b9cfaa39fde",
+      "bytes": 9252
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-official-web-observations.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-official-web-observations.json.gz",
+      "sha256": "6e214b9b9063272f1cc49edc47b7335474ce2929d1f549346e2e9aa0296b53c8",
+      "bytes": 275
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-identity-crosschecks.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-identity-crosschecks.json.gz",
+      "sha256": "eaeb33c85423fb24f74c8d41a7edc9fa7ec8fea28737e669b3dd6248d17e5387",
+      "bytes": 243
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-identity-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-identity-0.html.gz",
+      "sha256": "012073974fa3423d490acaa7b9d4ac08a8a047594453bd910550f3866fe485db",
+      "bytes": 14774
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-identity-1.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-identity-1.html.gz",
+      "sha256": "37105656c801eed175d72529a03cee08c6a98919c40a5f4cd0e57f35b41cf5cb",
+      "bytes": 14773
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-wiki-identity-crosschecks.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-wiki-identity-crosschecks.json.gz",
+      "sha256": "aea6e31e902997bfbccf0aed7859e121e4e49462a8b61ea39172b9a54b2f6d06",
+      "bytes": 4518
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-wiki-identity-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-wiki-identity-0.html.gz",
+      "sha256": "34b00b4f833a5393ad74becc7bbf21d220a04b445e3995763a2f3942adbe5bfe",
+      "bytes": 85597
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-original-roof-audit.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-original-roof-audit.jpg",
+      "sha256": "0b839827cb4a2f7475fe9565422f64d09cb14d1c152d3a1fa1ad81cf31b1d981",
+      "bytes": 212856
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-roof-2.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-2.jpg",
+      "sha256": "967f6df3087b7507ef5bd640205209d9484ad8c1f71da05430763d7ee649f0ee",
+      "bytes": 84454
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-roof-4.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-4.jpg",
+      "sha256": "b529471fb72855e3c9440f206c0c17042f6d4d92c554b7be9074b4a0dc56f681",
+      "bytes": 83690
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-roof-7.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-7.jpg",
+      "sha256": "c8c38b0d4c11dc61b1246ce34bb7cbcbb37fbbee7e4f95a28232f59a7c38625f",
+      "bytes": 115436
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-roof-8.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-8.jpg",
+      "sha256": "b955ced5fb3473c430e72cee1da5a59a06e9907305fb1923d2ef454dd8c4605d",
+      "bytes": 71262
+    },
+    {
+      "file": "extra/search-evidence/ru-vesta20-roof-5-full.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_20_nine-vesta-bodies-with-five-observed-detail-repairs/extra/search-evidence/ru-vesta20-roof-5-full.jpg",
+      "sha256": "f00fdbd54d85de2f94f1a6d76fb293237f07108da6ff06b9a2176a047f1bb990",
+      "bytes": 138447
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 14,
+    "accepted_configurations_this_batch": 9,
+    "nonadopted_outputs_preserved": 5,
+    "accepted_tasks_total": 13,
+    "accepted_configurations_total": 58
+  }
+}

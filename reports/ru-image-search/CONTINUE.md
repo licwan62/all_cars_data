@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_19，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_20，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -127,3 +127,14 @@
 累计生成54张、采用49张/49条外观覆盖，完整任务12/1309，剩余1297项、2345条记录；CSV完整6/500行、剩余494行。68张不同来源原件已核验备份，成品和必要过程完整OSS GET/SHA/字节数/解码通过。当前progress保留旧review_note历史，清理与既有accepted冲突的未核模板描述；历史批次不改。
 
 剩余Focus明确两条：全球第四代改款Sedan2021–2025、中国小改款Sedan2020–2022，分别待来源和适用性，不提前结项。下一项推进RU-4b679a659a638c90 Vesta NG及RU-52084842bd65e581改款前Vesta各车身；已枚举普通/Cross/SW/SW Cross/Sport分类，NG Sport/Sportline不由旧Sport或普通版替代。当前会话继续，不动老车/范围外俄罗斯/NAS。
+
+
+## 第20批：Vesta九图验收，五个细节失败稿完整保留
+
+采用NG普通Sedan/SW、Cross Sedan/SW Cross四图；改款前普通Sedan/SW、Cross Sedan/SW Cross及Sport Sedan五图，改款前Vesta任务5/5完整，NG4/8。九个原件均自拍CC0，完整下载/解码/实际来源/灰深底查看/OSS回读核验。真实生成14次（9首稿+5修复），所有请求均返回。
+
+首稿实看发现NG普通车落叶残留/多加小鳍片、旧Cross Sedan短顶件被拉成长杆、旧SW Cross带入背景SUV横架且底部4px、旧Sport Sedan带入邻车前顶天线。原件屋顶局部放大后五次imagegen修复，再次实际灰/深底对照通过；旧SW Cross只保留真实纵轨/黑钢轮，底部72px。蓝普通Sedan原件确有长杆天线，核实后保留，不因其他车为短鳍而删掉。失败首稿/原因/完整请求及过程原件全部备份，不覆盖历史；无程序补车/扩图。
+
+累计生成68张、采用58张/58条外观覆盖，完整任务13/1309，剩余1296项、2336条记录；CSV完整6/500行。77张不同来源已实际核验备份；成品与失败稿/必要过程均私有OSS完整GET/SHA/字节数/解码通过。LADA官方正文403已按实记录，不冒称搜索摘要是官方全文；独立Vesta正文HTTP200和具体社区原件可复核。NG Sport/Sportline的Sedan/Wagon四条继续找图，不用旧Sport或普通版替代。
+
+继续队列RU-109976a2ccc6695d Astra H与RU-3c5d1a913dcfa6c3 Astra G，各3车身要求。六个初选社区原件已下载/解码/OSS备份并实际源图初看，尚未提交生成也不计采用；G Caravan正面原件不清楚显示长载物车身，正查更好前侧视或后视证明。保留Focus两个Sedan缺项和Vesta NG四个运动配置缺项，持续推进，不等用户催促。
