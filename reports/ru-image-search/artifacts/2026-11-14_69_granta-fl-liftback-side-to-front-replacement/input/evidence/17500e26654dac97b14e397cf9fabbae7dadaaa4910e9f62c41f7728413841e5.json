@@ -1,0 +1,89 @@
+{
+  "created_at": "2026-11-13T21:18:48.481038+00:00",
+  "task_id": "RU-5302310097da5167",
+  "dimension_id": "Lada (ВАЗ) Granta Liftback 2018-2026 RU",
+  "scope_rows": [
+    1
+  ],
+  "catalog_rank": 1,
+  "plan_id": "VIEW-0003",
+  "replaces_output_sha256": "7c77c99a0502a94221b67cf252b2e5eb54d36c56c1504315a19bef2f6dda6164",
+  "replaces_source_sha256": "636e32ab6fdd21a5b543545c4b708df3e517b69ce815a26b6d275c994a3d3495",
+  "status": "component_role_candidate_pending_identity_a_and_root_review",
+  "ready": false,
+  "source_ready_at": null,
+  "references": [
+    {
+      "reference_id": "primary_old_side",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-0-original.jpg",
+      "sha256": "636e32ab6fdd21a5b543545c4b708df3e517b69ce815a26b6d275c994a3d3495",
+      "decoded_dimensions": [
+        3894,
+        1643
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:Lada_Granta_FL_liftback_black_side.jpg",
+      "source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3ALada+Granta+FL+liftback+black+side.jpg&oldid=1215402015",
+      "author": "<a href=\"//commons.wikimedia.org/wiki/User:Throwawayacc222\" title=\"User:Throwawayacc222\">Throwawayacc222</a>",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "license_api_evidence": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-three-source-current-license-api.json",
+      "role": "Authoritative whole vehicle identity/body/black paint/bare black round-hole steel wheels/complete black mirrors with clear turn strip/black handles/window rain guards/rear roof long mast. Camera must change for final, not retain pure side.",
+      "limitations": "Near pure side, front full shape not exposed; antenna tip extremely close to top edge but actual6x crop shows full rounded end cap and few-pixel margin."
+    },
+    {
+      "reference_id": "aux_2023_visible_left_front",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-1-original.jpg",
+      "sha256": "1045f2ab61b9f6f172b09921759ef84c5a58b0e9fbd3191fa8e388e12a700b3c",
+      "decoded_dimensions": [
+        4419,
+        1900
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:2023_Lada_Granta_liftback_black_front.jpg",
+      "source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3A2023+Lada+Granta+liftback+black+front.jpg&oldid=1105779061",
+      "author": "<a href=\"//commons.wikimedia.org/wiki/User:Throwawayacc222\" title=\"User:Throwawayacc222\">Throwawayacc222</a>",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "license_api_evidence": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-three-source-current-license-api.json",
+      "role": "Only visible left headlamp, ordinary two horizontal grille bars/Lada oval, chrome X/bare black blank-fog bumper section. No body/color/wheels/roof/accessory transfer.",
+      "limitations": "Side-dominant; far half-face not fully exposed, top antenna tip/part of tires not captured. Not a complete whole-car or final-camera input."
+    },
+    {
+      "reference_id": "aux_2024_visible_right_front",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/granta-black-2-original.jpg",
+      "sha256": "842d2e14bc2d5c04c12060dd0db57b49869c8b12a192b13615688b7e7838c89b",
+      "decoded_dimensions": [
+        3963,
+        2732
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:2024_Lada_Granta_liftback_black_front.jpg",
+      "source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3A2024+Lada+Granta+liftback+black+front.jpg&oldid=1109948305",
+      "author": "<a href=\"//commons.wikimedia.org/wiki/User:Throwawayacc222\" title=\"User:Throwawayacc222\">Throwawayacc222</a>",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "license_api_evidence": "/workspace/ru_picture_producer/pilot20/source_d/granta-role-three-source-current-license-api.json",
+      "role": "Only visible right headlamp, grille/Lada oval and visible ordinary X bumper/black fog blind cover with short horizontal rib. No body/color/wheels/roof/accessory transfer.",
+      "limitations": "Far lamp/nose outer-left frame and parts of tires/antenna tip outside frame. Only visible front components, never claim full whole-car/front input."
+    }
+  ],
+  "positive_front_identity_observation": "All3 actual originals show the ordinary post2018 Granta FL Liftback body family, conventional reflector headlamp/amber outer section, black two-bar grille/Lada oval (fully exposed only on aux), chrome X bumper trim, and black blank fog recess with short horizontal rib and no round foglamp. Old near front corner directly verifies its headlamp and blind-fog bumper, so this is positive visible correspondence rather than generic Granta naming. No Cross arch cladding/DriveActive or Sport bumper is borrowed.",
+  "independent_catalog_evidence": "Identity A is obtaining Drom2018 FL Liftback8847 + ordinary Standart221909/Classic223067 nofog/dimensions. Await actual saved A report; no catalog approval claimed here.",
+  "visible_configuration_differences_not_transferred": {
+    "color": "All3 look black/dark metallic under different light; only old source sets final paint tone.",
+    "wheels": "Old bare black round-hole steel wheels; 2023silver multi-spoke alloys, 2024silver wheel covers. Both aux wheels excluded.",
+    "accessories": "Only old side determines full mirrors/indicator strips, four-window rain guards, black handles, long rear roof mast and no longitudinal rails/crossbars. Aux clipped antenna/wheels never supply missing old geometry.",
+    "vin": "Same author/model family does not prove same vehicle/VIN; no such claim."
+  },
+  "actual_viewed_detail_files": [
+    "/workspace/ru_picture_producer/pilot20/source_d/granta-role-old-front-corner.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/granta-role-2023-front.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/granta-role-2024-front.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/granta-role-old-roof.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/granta-role-old-antenna-tip-6x.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/granta-role-2023-roof.png"
+  ],
+  "old_tip_correction": "Previous source report complete mast claim has now been independently checked in actual6x crop; do not use full-view thumbnails alone.",
+  "camera_role": "Final must be coherent balanced front1/3 or front1/2; neither old side camera nor partial aux image frame is automatically the target. New front references are solely verified front-end identity. Root/producer compiles single camera after role approval.",
+  "unchanged_historical_evidence": "/workspace/ru_picture_producer/pilot20/source_d/granta-fl-liftback-front-gap.json",
+  "source_oss": "Production responsibility only after specific root approval; no new OSS/generation request here.",
+  "formal_queue_git_site_mutation": false
+}

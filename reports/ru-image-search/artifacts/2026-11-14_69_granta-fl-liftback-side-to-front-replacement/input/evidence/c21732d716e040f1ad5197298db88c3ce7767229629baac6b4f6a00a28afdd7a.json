@@ -1,0 +1,154 @@
+{
+  "created_at": "2026-11-13T21:46:44.504340+00:00",
+  "reviewer": "identity_a independent actual-view review",
+  "task_id": "RU-cb2efb0d6a90f01f",
+  "dimension_id": "Ford Focus Hatchback 2020-2022 RU",
+  "plan_id": "VIEW-0049",
+  "replaces_output_sha256": "426ae552b08a27a80f973cdba680df83791503d76d59ab785894a7bcf822c4bc",
+  "verdict": "PASS_REFERENCE_APPLICABILITY_WITH_STRICT_COMPONENT_ROLES",
+  "sufficient_for_one_unified_front_half_reference_proposal": true,
+  "not_ready_or_final_acceptance": true,
+  "scope": "仅既有已认可China ST-Line五门代表外观的部件角色参考适用性；不重新认证冻结标量尺寸、不确认精确年款/发动机/同VIN。",
+  "frozen_mapping": {
+    "file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "literal": "RU|ford/focus|IV Рестайлинг (China Market)|2020-2022|Hatchback 5-door|-|-",
+    "dimension_id": "Ford Focus Hatchback 2020-2022 RU",
+    "frozen_inch_dimensions": [
+      172.4,
+      71.3,
+      57.8
+    ],
+    "raw_csv": "/workspace/all_cars_data/nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_dimensions_with_match_key.csv",
+    "raw_csv_lines": [
+      21247,
+      21248
+    ],
+    "raw_csv_dimensions_mm": [
+      4378,
+      1810,
+      1468
+    ],
+    "raw_csv_versions": [
+      "1.5 MT (122 hp)",
+      "1.5 AT (174 hp)"
+    ],
+    "qualification": "CSV不能证明照片发动机，也不以照片像素复核毫米尺寸；历史验收已明定代表外观而非标量尺寸再认证。"
+  },
+  "independent_identity_evidence": [
+    {
+      "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/identity-crosschecks-20261113_19.json",
+      "supports": "2020 China更新中ST-Line沿用此前设计；Hatch精确目录展示该ST-Line前脸，普通Sedan新前脸另列。"
+    },
+    {
+      "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-13_19_china-focus-shooting-brake-and-unchanged-stline-hatch/output/accepted-configurations-20261113_19.json",
+      "candidate_id": "RU-cb2efb0d6a90f01f-C010",
+      "source_sha256": "2a8b9e390bfa66a2be2f45d46b727632a489ba678d1b01434ec5945e510178e9",
+      "supports": "同一红源已按China五门ST-Line代表外观验收；历史近正面相机旧要求不可沿用为新前视成品通过。"
+    },
+    {
+      "url": "https://autoreview.ru/news/obnovlennyy-ford-focus-sedan-hetchbek-i-universal",
+      "publication_date": "2020-11-20",
+      "offline_proof": "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-archived-autoreview-proof.json",
+      "independent_readback": "已对历史存档实际双层gzip解压读取原文",
+      "logical_html_sha256": "8d97c6e7181e4594edf7e0f6424145f36b36e2722653cd9fcc5d8c2afa57f7cb",
+      "exact_quote": "Однако машины со «спортивным» пакетом ST-Line сохранили прежний дизайн.",
+      "supports": "ST-Line在该2020更新中保留旧设计；不能把普通Sedan新鼻要求套入该Hatch。"
+    },
+    {
+      "url": "https://auto.ae/catalog/ford/focus/2020-2022-iv-facelift-china-market/hatchback-5-dr/",
+      "actual_viewed_image": "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-identity-only-ru-focus19-catalog-2.jpg",
+      "image_sha256": "eddec05fe90a774e2156516b45dc8b3ee70c0a83d6296970d413ab506ebc52ab",
+      "supports": "精确China2020–22五门目录红ST-Line，机盖徽/蜂窝/灯/三角雾灯杠与两授权原件对应。",
+      "limitation": "商业目录轮圈与主源不同；仅身份参考，绝不进入生成参考输入。"
+    }
+  ],
+  "references": [
+    {
+      "reference_id": "red_primary_identity",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-red-primary-restored.jpg",
+      "sha256": "2a8b9e390bfa66a2be2f45d46b727632a489ba678d1b01434ec5945e510178e9",
+      "bytes": 10452880,
+      "decoded_dimensions": [
+        6868,
+        4095
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:FORD_FOCUS_HATCHBACK_ST-LINE_(C519)_China.jpg",
+      "source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFORD+FOCUS+HATCHBACK+ST-LINE+%28C519%29+China.jpg&oldid=1239781004",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Dinkun Chen",
+      "allowed_components": [
+        "主身份：红色China C519 ST-Line五门Hatch；机盖Ford椭圆徽、蜂窝格栅、灯组、三角雾灯角区、原ST-Line下杠",
+        "红漆、红镜壳/把手、原灰银宽V/刀片轮圈及轮胎外观、黑色全景顶、可见侧裙与车身附件",
+        "实际露出的后顶小鲨鱼鳍尖；保留该附件存在，但不测定遮挡的基座/高度"
+      ],
+      "forbidden_inference": [
+        "不能保留近正面作为返修最终相机要求",
+        "不从拍摄日期认证制造年/发动机/精确轮径",
+        "不把鳍基座遮挡当无天线，不添加长杆/行李架/横杆"
+      ]
+    },
+    {
+      "reference_id": "blue_same_configuration_structure_auxiliary",
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-blue-b7y832-original.jpg",
+      "sha256": "ef19e112c51bb64d3ec3cc948b94732dd6b7d767612b9ff94a9c6b3f2b07fa0a",
+      "bytes": 5744118,
+      "decoded_dimensions": [
+        6364,
+        3439
+      ],
+      "source_page": "https://commons.wikimedia.org/wiki/File:FORD_FOCUS_HATCHBACK_ST-LINE_(C519)_China_(2).jpg",
+      "source_revision_url": "https://commons.wikimedia.org/w/index.php?title=File%3AFORD+FOCUS+HATCHBACK+ST-LINE+%28C519%29+China+%282%29.jpg&oldid=1239781013",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Dinkun Chen",
+      "allowed_components": [
+        "同China、同未变ST-Line前脸的五门车身结构：四侧门/门窗分区、后侧窗、屋顶弧线、短后悬、侧裙及相对轮位",
+        "相同机盖徽/蜂窝格栅/LED式灯组/三角雾灯角区和原ST-Line杠的交叉核对",
+        "前方1/2统一相机的车身空间/侧面展开参考；不得把另一辆整车当替换主身份"
+      ],
+      "forbidden_transfer": [
+        "蓝漆、蓝镜壳/把手、蓝车车顶色泽",
+        "蓝车轮圈的具体纹样/轮色/直径取代红源",
+        "蓝车鳍的具体高度/基座/漆色自动套用红车",
+        "牌照、车内物品、背景动态效果",
+        "任何改装ST字标、加装前唇、普通Sedan新鼻、2022第二次改款或Active/Cross特征"
+      ]
+    }
+  ],
+  "license_evidence": "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-role-current-license-api.json",
+  "actual_visual_observation": [
+    "两份完整画幅等比inspection实际看，原件独立SHA重算、PIL完整解码尺寸一致。完整原生大图曾输出超限，不把该失败渲染当实际看图；以全画幅inspection和原件局部细节为本次实际观察。",
+    "红主近正面仍直接显示完整真实前脸：机盖徽/蜂窝格栅/灯/三角雾灯及原ST-Line杠。蓝辅展开同五门Hatch侧身及短后体，前脸与主源同可见配置，无新增ST字标/前唇。",
+    "红/蓝轮局部均宽V/刀片银灰型式，但相似不授权轮圈互换。红轮为主。",
+    "红后顶局部确见小鳍尖，基座被屋顶遮挡；蓝低鳍全形可见，最多支持同类附件/车顶结构，不足实测红鳍基座与实体尺寸。",
+    "两车颜色和拍摄不同，不宣称同VIN；同body/market/phase/已见ST-Line前脸足以在严格部件角色下补结构视角。"
+  ],
+  "actually_viewed_files": [
+    "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-red-primary-restored-inspection.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-blue-b7y832-original-inspection.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-role-red-rear-roof-detail.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-role-blue-rear-roof-detail.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-role-red-near-wheel.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-role-blue-near-wheel.png",
+    "/workspace/ru_picture_producer/pilot20/source_d/focus-china-hatch-identity-only-ru-focus19-catalog-2.jpg"
+  ],
+  "camera_and_review_constraints": [
+    "新成图必须统一前方1/3或1/2，车头及一侧车身清楚；不能继承历史prompt的keep source camera/do not rotate限制。",
+    "红为外观主，蓝仅结构和统一投影辅；禁止拼接一套正面加另一套侧后相机或整车蓝换红。",
+    "保留完整车体、轮胎、镜壳、鳍尖并留透明余量；root逐图实际看才可评最终相机、附件比例、身份一致性。",
+    "若生成后红轮/镜/顶附件被蓝源替换，或鳍基座/高度出现明显臆造，须成图hold；本报告不预先认可这些输出。"
+  ],
+  "commercial_images_generation_input_prohibited": true,
+  "excluded_sources": [
+    "SWV933 modified added ST badge/front lip",
+    "white DD136W different phase",
+    "ordinary China Sedan first-restyle face",
+    "China/Europe second2022 facelift",
+    "Active/Cross"
+  ],
+  "network_requests_this_review": 0,
+  "generation_requests": 0,
+  "queue_formal_git_mutations": false,
+  "root_decides": "本报告建议可作为一稿统一front1/2的足够reference提案；是否安排样稿、source ready和最终accept由root另审，未实施。"
+}
