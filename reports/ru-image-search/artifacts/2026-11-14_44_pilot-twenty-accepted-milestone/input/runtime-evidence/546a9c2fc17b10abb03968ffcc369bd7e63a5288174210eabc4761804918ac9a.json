@@ -1,0 +1,75 @@
+{
+  "request_id": "P1-004",
+  "task_id": "RU-d65829e19cda8ba3",
+  "dimension_id": "Toyota Camry Sedan 1999-2002 RU",
+  "candidate_id": "PILOT20-B-R2-01",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_b/round2-01/source-thumbnail.jpg",
+  "input_sha256": "273ec54e23ec0c64feef6803713aee9fdd2f6fb087a71165d1ab7a078f56f12b",
+  "input_dimensions": [
+    1920,
+    1314
+  ],
+  "input_role": "Same Commons image 1920px derived thumbnail; original full image request429; not claimed original bytes",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_camry_xv20_1.jpg",
+  "input_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Toyota_camry_xv20_1.jpg/1920px-Toyota_camry_xv20_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "source_license": {
+    "name": "CC BY-SA 3.0",
+    "url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author_html": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:MusicUnity&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:MusicUnity (page does not exist)\">MusicUnity</a>",
+    "own_work": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "revision_url": "https://commons.wikimedia.org/wiki/File:Toyota_camry_xv20_1.jpg?oldid=1166103024"
+  },
+  "source_author": "MusicUnity",
+  "distribution_license": "CC BY-SA3.0, source/author/license attribution and adaptation change disclosure retained",
+  "identity_report": "/workspace/ru_picture_producer/pilot20/identity_a/camry-round2-review.json",
+  "identity_report_sha256": "b75e21db6129bd201948a5054b2e0a22005089dcb7e2e71170e613073133479f",
+  "identity_limits": "A reference_identity_pass ordinary European-type XV20 facelift Sedan exterior matches Russian Drom1999–2002 major exterior. Not Gracia Wagon, not certification of Russian original specification, exact market/steering side/year, engine/transmission, annual full range or dimensions. Swedish text not proof Swedish-market original. Preserve actual source wheels/mirrors/headlamp washers/accessories; catalog photo audit only not production input.",
+  "preflight": "Batch38 no accepted Camry for this task; no known in-flight request. Viewed actual1920 input: light silver/champagne four-door Sedan, low front-side facing left, narrow horizontal grille/Toyota badge, rectangular compound headlamp reflectors, trapezoidal foglamp housing, fender amber repeater, bodycolored mirror/handles/rubstrip, original silver oval-hole wheels. Complete visible tires/mirrors/trunk; no visible roof antenna/fin/rails/crossbars.",
+  "assigned_at": null,
+  "material_ready_at": "2026-11-13T16:03:50.800031+00:00",
+  "started_at": "2026-11-13T16:03:50.800031+00:00",
+  "status": "viewpoint_hold",
+  "prompt": "Create an accurate photographic catalog cutout of ONLY the exact light metallic silver/champagne Toyota Camry XV20 facelift four-door SEDAN shown in this reference. This is the source European-type 1999–2002 facelift exterior representative, not a Camry Gracia wagon, not an earlier XV20 or later XV30. Preserve the exact source low front three-quarter camera with the nose facing image LEFT and the car's long right side visible; the front grille and both headlamps must remain visible in a coherent natural whole-car perspective. Preserve the sedan's full separate trunk, four doors/window layout, body-colored mirrors and recessed handles, original side rub strip, front fender small AMBER turn repeater, original silver wheel design with large oval holes, narrow horizontal-bar upper grille and exact Toyota oval badge, original facelift headlamp shape and separate reflectors, original headlamp washer details, broad trapezoidal clear fog-lamp housings, and original front bumper openings. No body kit, no generic sporty wheels, no invented fog lamps or grille redesign. No roof fin, aerial pole, rails or crossbars absent from source. Clean dirt, glare and scenery reflections to neutral photographic reflections while keeping opaque realistic glass/bodywork and original light metallic paint. Remove every license-plate character. Remove the entire landscape, grass, road, sky, ground and all cast/contact shadows. Show the COMPLETE car, all visible tires and mirrors, with generous true transparent margin on all four sides and especially at least80px below the lowest wheel. Output true RGBA PNG, exact clean silhouette with narrow natural antialiasing only. Every outside pixel must be fully alpha zero: no faint alpha dust, isolated dots, roof-edge fragments, white halo, glow, floor, contact shadow, undercar reflection, captions, background, or checkerboard.",
+  "prompt_sha256": "9c37c1fdd6d3d585d99a2e8ed7b41ad68c4624cfa2c0aa11e6fd00529246d967",
+  "transparent_background": true,
+  "generator": "builtin_image_gen",
+  "accepted": false,
+  "returned_at": "2026-11-13T16:05:30.626129+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-004/P1-004-imagegen-original.png",
+  "output_sha256": "5ead0f3071ec9047579ae9c578f349acd7773b0fb211debc71ab454ae09f77eb",
+  "output_size_bytes": 1358944,
+  "technical": {
+    "size": [
+      1827,
+      861
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_ge_16_bbox": [
+      47,
+      133,
+      1781,
+      755
+    ],
+    "all_nonzero_alpha_bbox": [
+      0,
+      74,
+      1784,
+      861
+    ],
+    "margins_px": [
+      47,
+      133,
+      46,
+      106
+    ],
+    "components_8connected": 269,
+    "detached_alpha_pixels": 871,
+    "max_detached_alpha": 1
+  },
+  "coordinator_review": "Gray/source near-side view; insufficient front visible for required front1/3 or1/2. Not accepted. Preserve candidate/OSS, no same-source same-method retry.",
+  "reviewed_at": "2026-11-13T16:10:06.101071+00:00"
+}

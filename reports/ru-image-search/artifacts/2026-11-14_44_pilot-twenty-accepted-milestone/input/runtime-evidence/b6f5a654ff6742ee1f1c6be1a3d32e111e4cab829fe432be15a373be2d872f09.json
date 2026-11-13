@@ -1,0 +1,48 @@
+{
+  "schema": "ru-pilot20-xv70-visible-variant-review-v1",
+  "reviewed_at_utc": "2026-11-13T16:56:33.951673+00:00",
+  "status": "hold_visible_variant_not_supported_by_frozen_requirement",
+  "task_id": "RU-ebfa236c9b0c4ba1",
+  "dimension_id": "Toyota Camry Sedan 2017-2021 RU",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_b/round5-02/source-input.jpg",
+  "source_sha256": "45de2e44358bd3802c3ce58b9ada131351188cde6a7dc2f9082aee060b49b8c6",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Camry_2019_at_Legendy_2019_in_Prague_(cropped).jpg",
+  "input_role": "same Commons file 1920x991 thumbnail/extracted-image derivative; not full original",
+  "source_original_actually_viewed_this_review": true,
+  "observed_visible_variant": [
+    "European XV70 Sedan with blue-edged Toyota front emblem",
+    "HYBRID lettering on the visible front fender",
+    "Ordinary-shaped XV70 grille/headlamps/bumper family is shared, but hybrid identifiers remain visible"
+  ],
+  "frozen_mapping_literal": [
+    "RU|toyota/camry|VIII (XV70)|2017-2021|Sedan|-|-",
+    "Toyota Camry Sedan 2017-2021 RU"
+  ],
+  "evidence": [
+    {
+      "url": "https://newsroom.toyota.eu/2019-the-new-toyota-camry/",
+      "authority": "Toyota Motor Europe manufacturer",
+      "date": "2019-04-15",
+      "finding": "European introduction is specifically New Camry Hybrid, 2.5-litre Hybrid Dynamic Force with THS II and 218 DIN hp; confirms Hybrid is a distinct offered powertrain variant."
+    },
+    {
+      "url": "https://www.drom.ru/catalog/toyota/camry/g_2017_7683/",
+      "authority": "Independent Russia-specific technical catalog",
+      "finding": "Russia XV70 01.2017-03.2021 catalog specifies three gasoline engines: 6AR-FSE 2.0, 2AR-FE 2.5, 2GR-FKS 3.5 and ASV71/ASV70/GSV70 bodies. Listed Russian trims are gasoline; no demonstrated Hybrid applicability in this cited target catalog."
+    },
+    {
+      "file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "finding": "Frozen item has generic Sedan/version empty, but contains no explicit rule or mapping that admits European Hybrid as equivalent to this Russian-family record."
+    }
+  ],
+  "conclusion": "Current evidence confirms source XV70 European Hybrid identity but does not establish its visible variant as applicable to the frozen Russian ordinary Sedan requirement. Keep P2-011/source on hold for this configuration and exclude it from fully-qualified candidate increment. Shared platform/body/fascia and an honest non-Russian-provenance disclaimer are insufficient to bridge the visible Hybrid trim distinction.",
+  "what_is_not_claimed": [
+    "No universal claim that every generic Sedan record always excludes Hybrid; this exact cross-market visible-variant applicability is simply not established.",
+    "No claim that sharing a bumper makes different powertrains mechanically interchangeable.",
+    "Do not relabel source as Russian ASV/GSV or remove/recolour Hybrid identifiers to fabricate equivalence."
+  ],
+  "release_condition": "Use a same-generation, same-facelift verified target-market gasoline/ordinary-visible-variant source, or obtain direct scope/mapping evidence explicitly admitting this Hybrid visible variant to the frozen requirement.",
+  "formal_ledger_changed": false,
+  "git_changed": false,
+  "candidate_registration_note": "Downloaded/decoded/license/source-fullGET facts remain valid and traceable; they do not close requirement identity or approve generated output."
+}

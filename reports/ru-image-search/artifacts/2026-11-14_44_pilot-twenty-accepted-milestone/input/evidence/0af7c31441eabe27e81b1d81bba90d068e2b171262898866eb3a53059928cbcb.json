@@ -1,0 +1,46 @@
+{
+  "request_id": "P1-011-R1",
+  "claim_id": "50d662845efb4e28889640501c856888",
+  "input_file": "/workspace/ru_picture_producer/pilot20/P1/P1-011/P1-011-imagegen-original.png",
+  "input_sha256": "4824707a9eff9cce27bac1fe049e182585eb0b790f37292ddb6487eb4285a617",
+  "reason": "Firstoutput introduces strong reflectedtrees/forest on hood/roof/sideglass, source garage has no suchscene. Targetedreflectioncleanup preservingcar/camera/mesh wheels.",
+  "started_at": "2026-11-13T16:50:17.863335+00:00",
+  "prompt": "Edit this exact dark metallic-gray Camry V20 car cutout. Keep the SAME whole vehicle, front three-quarter camera facing LEFT, every body proportion, rectangular lamps, TOYOTA grille wordmark, black mirrors/trim and exact silver crosshatch mesh wheels. Remove ONLY the strong reflected TREE/FOREST silhouettes visible on the hood, roof, doors and side windows. Replace them with clean neutral soft photographic studio reflections without scenery shapes; do not repaint the car, alter window opacity or delete car details. No visible environment is reflected anywhere. Maintain complete tires/mirrors/bumpers in a roomy transparent frame. Output true RGBA transparency outside the car, NO floor/contact shadow/cast shadow/undercar reflection, halo, glow, background, detached alpha specks or text. Do not turn the car more side-on, redesign it or change the wheel design.",
+  "prompt_sha256": "196f576a4c668d7f75bc3955a55472abbf2852a0c53db438114bab48bf7b29cc",
+  "status": "returned_saved_pending_review",
+  "transparent_background": true,
+  "accepted": false,
+  "returned_at": "2026-11-13T16:51:45.090909+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-011/repair01/P1-011-R1-imagegen-original.png",
+  "output_sha256": "b15bc8c70db8697715af553656c2309de032f7b932f338a3217d80855c0ee6b5",
+  "output_size_bytes": 1642242,
+  "technical": {
+    "size": [
+      1742,
+      903
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_ge_16_bbox": [
+      30,
+      72,
+      1721,
+      894
+    ],
+    "all_nonzero_alpha_bbox": [
+      0,
+      4,
+      1724,
+      903
+    ],
+    "margins_px": [
+      30,
+      72,
+      21,
+      9
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schema": "ru-pilot20-e90-e110-boundary-review-v1",
+  "reviewed_at_utc": "2026-11-13T16:42:49.867652+00:00",
+  "scope": "reference identity/boundary review only; formal ledger untouched",
+  "primary_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+  "primary_mapping_sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+  "literal_mappings": [
+    [
+      "RU|toyota/corolla|VIII (E110) Рестайлинг|1997-2002|Hatchback 3-door|-|-",
+      "Toyota Corolla Hatchback 1997-2002 RU"
+    ],
+    [
+      "RU|toyota/corolla|VIII (E110) Рестайлинг|1997-2002|Liftback|-|-",
+      "Toyota Corolla Liftback 1997-2002 RU"
+    ],
+    [
+      "RU|toyota/corolla|VIII (E110)|1995-2000|Hatchback 3-door|-|-",
+      "Toyota Corolla Hatchback 1995-2000 RU"
+    ],
+    [
+      "RU|toyota/corolla|VIII (E110)|1995-2000|Liftback|-|-",
+      "Toyota Corolla Liftback 1995-2000 RU"
+    ],
+    [
+      "RU|toyota/corolla|VI (E90)|1987-1993|Hatchback 5-door|-|-",
+      "Toyota Corolla Hatchback 1987-1993 RU"
+    ],
+    [
+      "RU|toyota/corolla|VI (E90)|1987-1993|Hatchback 3-door|-|-",
+      "Toyota Corolla Hatchback 1987-1993 RU"
+    ],
+    [
+      "RU|toyota/corolla|VI (E90)|1987-1993|Wagon 5-door|-|-",
+      "Toyota Corolla Wagon 1987-1993 RU"
+    ]
+  ],
+  "judgments": {
+    "E90_Hatch_white_red_combination": {
+      "task_id": "RU-266c63a49081c80c",
+      "dimension_id": "Toyota Corolla Hatchback 1987-1993 RU",
+      "status": "hold_combined_front_reference_not_proven_same_phase",
+      "sources": [
+        {
+          "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3279870.jpg",
+          "sha256": "32423ff16581fd4cd22353921e53305b05d749c14b1748710bdc0a7cd8c09c8f",
+          "observed": "White five-door body and short hatch tail are clear; near-side view has too little frontal grille/bumper exposure to certify the exact front phase. 1991 is a capture-date clue only."
+        },
+        {
+          "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-10695744.jpg",
+          "sha256": "9571968dde90ba645e387fa5e31a4a0dc0807f31d33690a7f372a14edab47466",
+          "observed": "Red three-door original-style Toyota-letter double horizontal grille and rectangular lamps; grass overlaps lower nose. Different door count and not proven same front phase as white car."
+        }
+      ],
+      "conclusion": "Do not transplant red three-door front to white five-door body until phase/exterior equivalence is demonstrated. Prefer a complete own-work same-stage five-door front source or use a separate complete three-door reference with truthful door count.",
+      "mapping_limit": "Frozen generic Hatch merges original Hatchback 3-door and 5-door source identities; this does not make a 3-to-5 door body transplant valid or prove both individual cars share fascia.",
+      "production_inventory_eligible_as_pair": false
+    },
+    "E90_Japan_Wagon": {
+      "task_id": "RU-266c63a49081c80c",
+      "dimension_id": "Toyota Corolla Wagon 1987-1993 RU",
+      "status": "reference_identity_pass_Japan_E90_ordinary_five_door_Wagon",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-114359532.jpg",
+      "source_sha256": "257704b27507b18856b6bc787336a596ceda87f23f1b1f8e8d50b94abf27dff3",
+      "production_inventory_eligible_for_reference_identity": true,
+      "observed": "Long wagon roof and rear quarter window, four side doors, normal-height conventional five-door Wagon body; C-family square emblem/grid grille, rectangular lights/rounded corner lenses and bumper red stripe. Matches manufacturer 1987 Wagon body/front family and dated 1989 Japanese Wagon G Touring catalog image.",
+      "sources": [
+        "https://global.toyota/en/detail/7801075",
+        "https://global.toyota/pages/news/older/images/1987/08/19/002.gif",
+        "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_WAGON/198908/1006680/",
+        "https://gazoo.com/catalog/car_img/10102506/10102506_198908.jpg"
+      ],
+      "limits": [
+        "Use as Japanese E90 ordinary Wagon representative only; do not call Russian original spec or All-Trac/Sprinter Carib tall-body variant.",
+        "Preserve own source grid/red emblem/stripe/wheel details; catalog shared trim image does not certify exact individual mechanical grade.",
+        "Source right rear edge is partly occluded by neighbouring blue vehicle; record this and independently verify generated full-car outline. Do not silently present obstructed source as a completely unobstructed original.",
+        "Exact production year/engine/drivetrain/scalar dimensions not recertified. Queue width anomaly is not authority to change source body."
+      ]
+    },
+    "E110_original": {
+      "task_id": "RU-e98d7209a69d5f35",
+      "dimension_ids": [
+        "Toyota Corolla Hatchback 1995-2000 RU",
+        "Toyota Corolla Liftback 1995-2000 RU"
+      ],
+      "status": "search_boundary_confirmed_no_candidate_acceptance",
+      "mapping_generation": "VIII (E110)",
+      "hatch_body": "Hatchback 3-door",
+      "retrieved_source_catalog": "https://auto.ru/catalog/cars/toyota/corolla/3492901/5110581/",
+      "actual_catalog_image_view": "E110-Hatch-autoru-original.jpg",
+      "observed_front": "European original E110 three-door: separate round primary headlamps and small round turn-signal units, narrow dark grille and lower bumper fogs.",
+      "search_boundary": "Search European 1997-2000 original-stage three-door Hatch for this representative identity; separately search original-stage five-door Liftback for its requirement. Do not search Japanese long Sedan and misclassify it as Hatch due to 4300mm aggregate number.",
+      "limits": "Queue 1995-2000 is a generation aggregation. Manufacturer Europe launch is 1997; no claim this European three-door existed in 1995. 169.3in/4300mm is unresolved scalar/source aggregation, not a body-label rewrite permission."
+    },
+    "E110_facelift": {
+      "task_id": "RU-e9befa6894b5d8ad",
+      "dimension_ids": [
+        "Toyota Corolla Hatchback 1997-2002 RU",
+        "Toyota Corolla Liftback 1997-2002 RU"
+      ],
+      "status": "search_boundary_confirmed_no_candidate_acceptance",
+      "mapping_generation": "VIII (E110) Рестайлинг",
+      "hatch_body": "Hatchback 3-door",
+      "retrieved_source_catalog": "https://auto.ru/catalog/cars/toyota/corolla/3492897/4760769/",
+      "actual_catalog_image_view": "E110-Hatch-autoru-facelift.jpg",
+      "observed_front": "European facelift E110 three-door: twin round reflectors inside joined headlamp housing, larger mesh grille; distinct from separate round-eyed original.",
+      "search_boundary": "Search European 2000-2002 facelift three-door Hatch; separately search same-stage five-door Liftback. Manufacturer UK announced facelift 19 January 2000 and on-sale 1 February 2000.",
+      "limits": "Do not interpret aggregate 1997-2002 heading as this European front existing in 1997, or substitute Japanese 1997 facelift Sedan; exact front and body must match."
+    }
+  },
+  "E110_primary_manufacturer_sources": [
+    {
+      "url": "https://media.toyota.co.uk/new-corolla-in-the-uk-market/",
+      "finding": "UK launch original 23 June 1997, European-specific rounded styling; new family look and three body styles announced 19 Jan 2000, sold 1 Feb 2000: 3dr Hatch, 5dr Liftback, 5dr estate."
+    },
+    {
+      "url": "https://media.toyota.co.uk/vehicles/corolla-1997-2002/",
+      "finding": "Manufacturer eighth-generation European archive identifies Hatchback, Liftback and estate."
+    }
+  ]
+}
