@@ -1,0 +1,184 @@
+[
+  {
+    "task_id": "RU-f961eab16419249b",
+    "dimension_id": "Toyota Corolla GR Hatchback 2022-2026 RU",
+    "candidate_id": "RU-f961eab16419249b-C004",
+    "passed": false,
+    "reason": "鳍后背景竖物误带为细杆，一次imagegen去假杆保留低鳍。",
+    "state": "repaired_not_adopted",
+    "request": {
+      "task_id": "RU-f961eab16419249b",
+      "dimension_id": "Toyota Corolla GR Hatchback 2022-2026 RU",
+      "label": "Corolla-E210-FL-GR",
+      "candidate_id": "RU-f961eab16419249b-C004",
+      "source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-f961eab16419249b-C004/original.jpg",
+      "source_sha256": "0cee3fbdfd9401d0c13d9879fc500e8a7e512bbcfcda35e3050c7b6519c8c156",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2025_Toyota_GR_Corolla_RZ.jpg",
+      "source_license": {
+        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:TTTNIS\" title=\"User:TTTNIS\">TTTNIS</a>",
+        "LicenseShortName": "CC0",
+        "UsageTerms": "Creative Commons Zero, Public Domain Dedication",
+        "LicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "License": "cc0"
+      },
+      "prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Preserve complete car/all visible tires/mirrors/roof rail and antenna tips with useful transparent room. Never copy neighboring-car/background parts. This exact WHITE TOYOTA GR COROLLA FACELIFT FIVE-DOOR WIDEBODY HATCH with BLACK roof. Preserve revised hugeblacklowergrille and tallcorneropenings/horizontalbars, NO OLD ROUND FRONT FOG LAMPS; hood two actual blackventpanels, blackfender verticalvents/blackhandles+mirrors/blackmulti-spokewheels/redbrakecalipers, widearches/sideskirts, actual small darklow rearroof fin only and actual LOW WHITE roof-edge spoiler only (NO raisedwing). FRONT-SIDE nose LEFT. Do NOT copy background pickup longantennas/othervehiclewingparts, the BIG BLACK RAISED WING on the adjacent white Toyota behind belongs to that NEIGHBOR, NOT the target GR Corolla: REMOVE it with background; NO invented longroofrod/rails/raisedwing. Not ordinaryHatch/GRSportkit/initialroundfogfront. Remove neighbourpickups/road/lines/plate lettering/reflections; full car all wheel/mirror/fin/wingtips complete with transparency.",
+      "prompt_sha256": "2bdbdc8c29962d16bcaa2d5833ac8f0601bce945586fc3cd0fb1fc3d27d047d2",
+      "transparent_background": true,
+      "generator": "builtin_image_gen",
+      "tool_model": "not exposed by tool; not inferred",
+      "attempt": "attempt01",
+      "request_state": "returned",
+      "request_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-f961eab16419249b/Corolla-E210-FL-GR/attempt01/request.json",
+      "output_folder": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-f961eab16419249b/Corolla-E210-FL-GR/attempt01",
+      "working_style": "transparent_shadow_free_source_view",
+      "user_style_approval": false,
+      "production_accepted": false,
+      "output_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-f961eab16419249b/Corolla-E210-FL-GR/attempt01/imagegen-original.png",
+      "output_sha256": "8c65bb14d1f8421829ed23a016b3d42cf6708e8b5cbc53e9d28de48fa71f8e9b",
+      "review_state": "pending_actual_visual_review",
+      "technical": {
+        "width": 1776,
+        "height": 886,
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "visible_alpha_ge_16_bbox": [
+          106,
+          96,
+          1712,
+          835
+        ],
+        "visible_margins_px": [
+          106,
+          96,
+          64,
+          51
+        ]
+      }
+    },
+    "assets": [
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-f961eab16419249b/Corolla-E210-FL-GR/attempt01/imagegen-original.png",
+        "sha256": "8c65bb14d1f8421829ed23a016b3d42cf6708e8b5cbc53e9d28de48fa71f8e9b",
+        "size": 1338086,
+        "object_key": "main_picture_producer/v1/objects/8c/8c65bb14d1f8421829ed23a016b3d42cf6708e8b5cbc53e9d28de48fa71f8e9b",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-f961eab16419249b/Corolla-E210-FL-GR/attempt01/review-dark.png",
+        "sha256": "c5d5f317a7934d460d036c64e75dc13cdd9fb63820243619696349f8309462bb",
+        "size": 1039438,
+        "object_key": "main_picture_producer/v1/objects/c5/c5d5f317a7934d460d036c64e75dc13cdd9fb63820243619696349f8309462bb",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-f961eab16419249b/Corolla-E210-FL-GR/attempt01/review-gray.png",
+        "sha256": "4e3779d5bbd53e775546e6bf8c1a27c120a41952507eeba1a41456d3706a820b",
+        "size": 1040408,
+        "object_key": "main_picture_producer/v1/objects/4e/4e3779d5bbd53e775546e6bf8c1a27c120a41952507eeba1a41456d3706a820b",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-f961eab16419249b/Corolla-E210-FL-GR/attempt01/review-comparison.jpg",
+        "sha256": "c2ff74419d82a507ea0177b4ad45aff3842d183fb01b97bd5a8b0e02dc75327a",
+        "size": 88902,
+        "object_key": "main_picture_producer/v1/objects/c2/c2ff74419d82a507ea0177b4ad45aff3842d183fb01b97bd5a8b0e02dc75327a",
+        "full_readback_sha_verified": true
+      }
+    ]
+  },
+  {
+    "task_id": "RU-5044df890a99017c",
+    "dimension_id": "Toyota Corolla Fielder Wagon 2017-2025 RU",
+    "candidate_id": "RU-5044df890a99017c-C002",
+    "passed": false,
+    "reason": "近前胎贴画布底0px，一次imagegen全车缩小完整留白。",
+    "state": "repaired_not_adopted",
+    "request": {
+      "task_id": "RU-5044df890a99017c",
+      "dimension_id": "Toyota Corolla Fielder Wagon 2017-2025 RU",
+      "label": "Corolla-E160-FL2-Fielder",
+      "candidate_id": "RU-5044df890a99017c-C002",
+      "source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-5044df890a99017c-C002/original.jpg",
+      "source_sha256": "c5562a3d39547ca966305bba9e7fd0d726954df372d56329f14aadf24d71ac79",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Fielder_%2718_(2).jpg",
+      "source_license": {
+        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Oq10pass\" title=\"User:Oq10pass\">Oq10pass</a>",
+        "LicenseShortName": "CC0",
+        "UsageTerms": "Creative Commons Zero, Public Domain Dedication",
+        "LicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "License": "cc0"
+      },
+      "prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Preserve complete car/all visible tires/mirrors/roof rail and antenna tips with useful transparent room. Never copy neighboring-car/background parts. This exact BLUE TOYOTA COROLLA FIELDER E160 SECOND FACELIFT2017 ordinary COMPACT WAGON. Preserve longroof/rearcargoquarterglass/fourdoors, actual two darklongitudinalroofrails and rearspoiler, narrowupperchromegrille/headlamps/large horizontalbar lowergrille and SHARP cornerfoglamps, blacksilver wheels/blue mirrors+handles/windowrainguards. FRONT-SIDE nose LEFT. Actual roof has NO visible longantenna/fin: do not add any, preserve rails only; no E210Touring face or GR package. Remove neighbouringkei-cars/tree/road/platelettering and scene reflections, full car/rails/spoilertips/wheels/mirrors complete in roomy transparency.",
+      "prompt_sha256": "15a18acfbd3a46b5324f90d7ad88cb1096e5a5f57b2067f1e7710e241c01fa7d",
+      "transparent_background": true,
+      "generator": "builtin_image_gen",
+      "tool_model": "not exposed by tool; not inferred",
+      "attempt": "attempt01",
+      "request_state": "returned",
+      "request_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-5044df890a99017c/Corolla-E160-FL2-Fielder/attempt01/request.json",
+      "output_folder": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-5044df890a99017c/Corolla-E160-FL2-Fielder/attempt01",
+      "working_style": "transparent_shadow_free_source_view",
+      "user_style_approval": false,
+      "production_accepted": false,
+      "output_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-5044df890a99017c/Corolla-E160-FL2-Fielder/attempt01/imagegen-original.png",
+      "output_sha256": "de069aab27b0015873d60b89f99adbbacdcb55315ef3fdf89b463d4768853108",
+      "review_state": "pending_actual_visual_review",
+      "technical": {
+        "width": 1774,
+        "height": 887,
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "visible_alpha_ge_16_bbox": [
+          86,
+          88,
+          1726,
+          887
+        ],
+        "visible_margins_px": [
+          86,
+          88,
+          48,
+          0
+        ]
+      }
+    },
+    "assets": [
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-5044df890a99017c/Corolla-E160-FL2-Fielder/attempt01/imagegen-original.png",
+        "sha256": "de069aab27b0015873d60b89f99adbbacdcb55315ef3fdf89b463d4768853108",
+        "size": 1650877,
+        "object_key": "main_picture_producer/v1/objects/de/de069aab27b0015873d60b89f99adbbacdcb55315ef3fdf89b463d4768853108",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-5044df890a99017c/Corolla-E160-FL2-Fielder/attempt01/review-dark.png",
+        "sha256": "7eedc304db82284de431b7a64d313adfdbd1d0144f2227f65b29cae0c67ee94f",
+        "size": 1320155,
+        "object_key": "main_picture_producer/v1/objects/7e/7eedc304db82284de431b7a64d313adfdbd1d0144f2227f65b29cae0c67ee94f",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-5044df890a99017c/Corolla-E160-FL2-Fielder/attempt01/review-gray.png",
+        "sha256": "7e07e69b5a45e5b0f3e179fe5a4805918e6761bf40e9841b04d9a3b05d1ac9f9",
+        "size": 1341720,
+        "object_key": "main_picture_producer/v1/objects/7e/7e07e69b5a45e5b0f3e179fe5a4805918e6761bf40e9841b04d9a3b05d1ac9f9",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-5044df890a99017c/Corolla-E160-FL2-Fielder/attempt01/review-comparison.jpg",
+        "sha256": "3215109e681dd093720a046cd272517047136fe1041d428e1add1b9d8787ca89",
+        "size": 105823,
+        "object_key": "main_picture_producer/v1/objects/32/3215109e681dd093720a046cd272517047136fe1041d428e1add1b9d8787ca89",
+        "full_readback_sha_verified": true
+      }
+    ]
+  }
+]

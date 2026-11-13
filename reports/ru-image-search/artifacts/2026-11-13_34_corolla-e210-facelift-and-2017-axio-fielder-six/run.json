@@ -1,0 +1,399 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six",
+  "version": "20261113_34",
+  "description": "corolla-e210-facelift-and-2017-axio-fielder-six",
+  "created_at": "2026-11-13T12:29:06+00:00",
+  "finished_at": "2026-11-13T12:29:08+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch34-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/progress-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/progress-20261113_33.json",
+      "sha256": "2429477ceaeeb025bceb0d482737320ca1dbfa000559a431b8b5931589acfc36"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/current-accepted-configuration-index-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/current-accepted-configuration-index-20261113_33.json",
+      "sha256": "7a054a6d702583cb101937b418ba99bde65bc4852e0d35903f0a3281d7b44a0d"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/candidates-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/candidates-20261113_33.json",
+      "sha256": "73c22473a91ab290b1ae5d232dcfc5e9005e8ccd3627ffbc1cc23b58ea87fa90"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "f169a9f1027fa73656a3ee3ae8330ec307a0f8b9",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/identity-crosschecks-20261113_34.json",
+      "content_reference": true,
+      "sha256": "da02dfb6b666fc04f4e177283df5a8beeedbee4fae047735e1b2ddc1a9777fd6",
+      "bytes": 91799,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/accepted-configurations-20261113_34.json",
+      "content_reference": true,
+      "sha256": "f46969023171022f3f5936ab891e0b926c5e802599b9ed2e7a34a6ffd62d13a5",
+      "bytes": 58980,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/current-accepted-configuration-index-20261113_34.json",
+      "content_reference": true,
+      "sha256": "792117e5b361ab01939556f339aec2d023c6e4f01059a992545753ce919c55e9",
+      "bytes": 1389126,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/nonadopted-history-20261113_34.json",
+      "content_reference": true,
+      "sha256": "16c5ee6639f327d800b8322d8686bda66283740b9480beac61a0c2556adcbbee",
+      "bytes": 12996,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/generation-requests-20261113_34.json",
+      "content_reference": true,
+      "sha256": "f018bbb074b04a657fa2756e42e08e5ac399679b98890a719523f3bb7edaeef5",
+      "bytes": 34525,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/new-source-original-evidence-20261113_34.json",
+      "content_reference": true,
+      "sha256": "87339abc1eab1f049b6e1bc9d21e5f80009a23f769cbac5834d5aac6919a5ef1",
+      "bytes": 32989,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/candidates-20261113_34.json",
+      "content_reference": true,
+      "sha256": "0c0eaf00fc963f7567c88ac526663d97a3a1ec30849601e3ea1f847af023625f",
+      "bytes": 427710,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_34.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/output/progress-20261113_34.json",
+      "content_reference": true,
+      "sha256": "63750aea3643a7892f149ca6c3a0f633c11802c62a92b06eabdc0076cee62f0e",
+      "bytes": 2296364,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru-batch34-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_import_corolla34.py",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_prepare_corolla34.py",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_review_corolla34.py",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-six-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-source-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-roof-close.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-gr-rear-detail.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/c7-2017-independent-review.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/corolla-next-four-handoff.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/SEARCH-GUIDE.md",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/corolla-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/CONTINUE.md",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/results.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-roof-analysis-crop.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-fin-analysis-detail.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-027-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-027-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7S-028-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7S-028-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-002-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-002-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-002-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-002-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-016-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-016-bounded-probe.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch34-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru-batch34-review.json",
+      "sha256": "092091c954ddaf7b59f529b540d7522c8d94748176a5d5653e528f75deca2b30",
+      "bytes": 101994
+    },
+    {
+      "file": "extra/executed-code/ru_import_corolla34.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_import_corolla34.py",
+      "sha256": "6d6f5881697b645b3daa88e7ee0f11c2496e7f00c9eaf714cfdeacc4a481b7bb",
+      "bytes": 3290
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_corolla34.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_prepare_corolla34.py",
+      "sha256": "5deb09c834e6c1f739268339ffd0651f8bf33e6bebe3928b20c6a27d1c4b6f02",
+      "bytes": 5884
+    },
+    {
+      "file": "extra/executed-code/ru_review_corolla34.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/executed-code/ru_review_corolla34.py",
+      "sha256": "460869a86dda40de599b5a7ab7156217df33ca7098bdac5faa5aa45f41d6bfd3",
+      "bytes": 1633
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla34-six-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-six-frozen.json.gz",
+      "sha256": "9c9fb3b5ff394c604a217c100b31aafb18f5945a819b1221848168b1f381148c",
+      "bytes": 5581
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla34-source-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-source-contact.jpg",
+      "sha256": "d714b40a0199e0e53f4cd578a2073ed2e9a928d51d86a97274b2464f67adea1a",
+      "bytes": 426024
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla34-roof-close.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-roof-close.jpg",
+      "sha256": "de9bd81d9de0938f842065da214f3bf7de21781b8c36edad857b62a1c9e52c76",
+      "bytes": 173180
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla34-gr-rear-detail.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/ru-corolla34-gr-rear-detail.jpg",
+      "sha256": "f915407f9cc68157413f768dc915c195023a8cbeb8fd0f6e47b6c8c40a3a81f4",
+      "bytes": 221069
+    },
+    {
+      "file": "extra/search-evidence/c7-2017-independent-review.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/c7-2017-independent-review.json.gz",
+      "sha256": "ccc37fb9da35a15888afd0f56da893c456feac09f64c007528eae94350bb1e4a",
+      "bytes": 1228
+    },
+    {
+      "file": "extra/search-evidence/corolla-next-four-handoff.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/corolla-next-four-handoff.json.gz",
+      "sha256": "169f91c57718c944dc31bcc43f29d52b87a67ec345fa7059ea76d821ae5348ac",
+      "bytes": 9627
+    },
+    {
+      "file": "extra/search-evidence/SEARCH-GUIDE.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/SEARCH-GUIDE.md",
+      "sha256": "6611e168de92858b077168726e779b904c01d06a65508660370486ff3663e99e",
+      "bytes": 1775
+    },
+    {
+      "file": "extra/search-evidence/corolla-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/corolla-applicability.json.gz",
+      "sha256": "eb065d8e1663f20aca4f97dd7dc2038c39a892a870cb6ef67e033d0cec4d055b",
+      "bytes": 28015
+    },
+    {
+      "file": "extra/search-evidence/CONTINUE.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/CONTINUE.md",
+      "sha256": "5467e3d6e67c35aac6ff3c5e9ca16ea44f5933d213950e9db38ec5efeeda2fee",
+      "bytes": 1358
+    },
+    {
+      "file": "extra/search-evidence/results.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/results.json.gz",
+      "sha256": "59437d49accc3853eae43c51a63e632525eeab89ee920fc3aef1dd58cd17f434",
+      "bytes": 10019
+    },
+    {
+      "file": "extra/search-evidence/C7F-013-roof-analysis-crop.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-roof-analysis-crop.jpg",
+      "sha256": "9f9f25928e155378caea87046afbc9f11e2246b356683f12e6691ca6e124b2ce",
+      "bytes": 168599
+    },
+    {
+      "file": "extra/search-evidence/C7F-013-fin-analysis-detail.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-fin-analysis-detail.jpg",
+      "sha256": "67897870cd26f4b45fa7d50c46b76f4d574b835a90ca572a8c82abb5dbca1375",
+      "bytes": 56758
+    },
+    {
+      "file": "extra/search-evidence/C7F-013-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-source-page.txt",
+      "sha256": "5e5464f953c6ece9b57d7ae86d0da43c9fcd0baed6270cb038c226905e13c3e1",
+      "bytes": 3132
+    },
+    {
+      "file": "extra/search-evidence/C7F-013-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-013-bounded-probe.json.gz",
+      "sha256": "96b5f4e86d6308d78093fb37f5190f75b95cd26a7740b8f9e2f625c0120d1f72",
+      "bytes": 1533
+    },
+    {
+      "file": "extra/search-evidence/C7F-027-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-027-source-page.txt",
+      "sha256": "5057d8ebfe37692c2c4a19f9485e4c91d3ed53d79a007188573249fd584b4aad",
+      "bytes": 1958
+    },
+    {
+      "file": "extra/search-evidence/C7F-027-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-027-bounded-probe.json.gz",
+      "sha256": "8d9936f9b39dc34d97e45a80c5b9459fc5cd10a35260a76accb10bae238d88f0",
+      "bytes": 1526
+    },
+    {
+      "file": "extra/search-evidence/C7S-028-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7S-028-source-page.txt",
+      "sha256": "60abd7b13bee61af936ecbebcc12ddc3d7f2b46c46e572e0b289be521108c7f2",
+      "bytes": 1877
+    },
+    {
+      "file": "extra/search-evidence/C7S-028-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7S-028-bounded-probe.json.gz",
+      "sha256": "2b205c2b260cb7920d6acd618699e1721ea94cfa868cf47b9795c6f6daacfaaf",
+      "bytes": 1500
+    },
+    {
+      "file": "extra/search-evidence/C7F-002-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-002-source-page.txt",
+      "sha256": "07652e5214ffa59b3544d71063c1ee26d3ecd3c80f1e5c28aec1b5113aa802d4",
+      "bytes": 2042
+    },
+    {
+      "file": "extra/search-evidence/C7F-002-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7F-002-bounded-probe.json.gz",
+      "sha256": "de91190a854ff44c199a398d06c4ec962d022bb58741a46ef6e9e2b3dad62d26",
+      "bytes": 1497
+    },
+    {
+      "file": "extra/search-evidence/C7-002-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-002-source-page.txt",
+      "sha256": "daf2876a8eb0970ffa3f5169cb51792103a3b6f21ee629873a26695c9cdb4612",
+      "bytes": 1467
+    },
+    {
+      "file": "extra/search-evidence/C7-002-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-002-bounded-probe.json.gz",
+      "sha256": "d6d813d56ba00fa9fad23d1b81d79f3806e1191257b2fed54325316e30679c0c",
+      "bytes": 1498
+    },
+    {
+      "file": "extra/search-evidence/C7-016-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-016-source-page.txt",
+      "sha256": "8511f2dece2646321bfefe8e31719c9ffb448f026d3da222f938b915894b3d3c",
+      "bytes": 2014
+    },
+    {
+      "file": "extra/search-evidence/C7-016-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_34_corolla-e210-facelift-and-2017-axio-fielder-six/extra/search-evidence/C7-016-bounded-probe.json.gz",
+      "sha256": "f294388c742fd9de6a952239307485decbee1fe1b1154d5578036829a00328af",
+      "bytes": 1502
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 8,
+    "accepted_configurations_this_batch": 6,
+    "nonadopted_outputs_preserved": 2,
+    "accepted_tasks_total": 46,
+    "accepted_configurations_total": 142
+  }
+}
