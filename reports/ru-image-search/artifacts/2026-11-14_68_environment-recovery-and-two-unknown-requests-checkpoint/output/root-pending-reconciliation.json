@@ -1,0 +1,82 @@
+{
+  "observed_at": "2026-11-13T21:41:44.794885+00:00",
+  "reviewer": "root",
+  "status": "two_unknown_requests_held_continue_unrelated_configurations",
+  "global_actual_generation_count": null,
+  "output_or_acceptance_claimed": false,
+  "retry_allowed": false,
+  "instruction": "Recover/check each existing unknown request before any new paid call for its exact task/DIM; zero-generation self-hold or identity-clearance cannot override unknown submissions. Continue other queue configurations.",
+  "items": [
+    {
+      "observed_at": "2026-11-13T19:48:25.024503+00:00",
+      "task_id": "RU-37d239705c8393f5",
+      "dimension_id": "BMW 5 серии Wagon 2013-2017 RU",
+      "claim_id": "5a9173b3a52f4a7d8bf80d9a9adfa3f5",
+      "status": "hold_needs_reconciliation_interrupted_tool_unknown",
+      "output_sha256": null,
+      "retry_allowed": false,
+      "instruction": "Recover/check the existing unknown request before any new paid call for this configuration; continue unrelated configurations. No result/output or acceptance claimed.",
+      "evidence": [
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_58_five-tiguan-rav4-and-bmw-long-front-accepted/input/root-pending-reconciliation/request.json",
+          "sha256": "cb3cc73c1bc9f8a0163ed0d60f4187a2b42742f88156b6e367c6a2f10aab10c7",
+          "bytes": 14686
+        },
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_58_five-tiguan-rav4-and-bmw-long-front-accepted/input/root-pending-reconciliation/interruption-proof.json",
+          "sha256": "f6c1dbef8969832ae9a21745c493b46df24a968c5b2c71eb1bb4ba6b1f06f0cb",
+          "bytes": 578
+        }
+      ]
+    },
+    {
+      "observed_at": "2026-11-13T21:41:44.794885+00:00",
+      "task_id": "RU-87ec0203b3e49b60",
+      "dimension_id": "Volkswagen Passat Wagon 2005-2010 RU",
+      "claim_id": "144a0f2a9afc4d8c9d946c594ba83f42",
+      "source_sha256": "8329855b98e0c747ec033a896b6540f7505383dfd8b111797856f2e1f0df7d6b",
+      "status": "hold_needs_reconciliation_interrupted_tool_unknown",
+      "output_sha256": null,
+      "retry_allowed": false,
+      "tool_result": "aborted by user after22.9s, as observed by producer; not a user cancellation of the ongoing project",
+      "request_submitted_at": "2026-11-13T21:22:29.179629+00:00",
+      "recovery": "Producer checked retained stores/request directory/tool metadata: no result bytes/output/jobID/status recovery API. Sources fullGET/SHA/decode verified separately, never treated as generation success.",
+      "evidence": [
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_68_environment-recovery-and-two-unknown-requests-checkpoint/input/p1-060-unknown/request.json",
+          "sha256": "7e79d83947e182a924426a04112465babf3d42091b00964f73223086ed4d0060",
+          "bytes": 10896
+        },
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_68_environment-recovery-and-two-unknown-requests-checkpoint/input/p1-060-unknown/interruption-proof.json",
+          "sha256": "ab0b8ba6bcd5b6fb17ff4215852dedb2f270dd2739f9dacd0d68604ae539e0c0",
+          "bytes": 1934
+        },
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_68_environment-recovery-and-two-unknown-requests-checkpoint/input/p1-060-unknown/input-oss-proof.json",
+          "sha256": "a4cf3dc4c6f1144c9d53791a62ff4c32efd2d71597b2d5c8ae1f611f0fc4f7fa",
+          "bytes": 1304
+        },
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_68_environment-recovery-and-two-unknown-requests-checkpoint/input/p1-060-unknown/raw-original-backup/input-oss-proof.json",
+          "sha256": "8d1ebabd2215ca69517e86cb8243346337cb652b1caa0c3aeff24aadcb1a5f35",
+          "bytes": 1257
+        },
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_68_environment-recovery-and-two-unknown-requests-checkpoint/input/p1-060-unknown/auxiliary-review-source/input-oss-proof.json",
+          "sha256": "49e09f28910a9cf23fafac0553e6f7802e1476862427f7bfe7d449c777fefb63",
+          "bytes": 1260
+        },
+        {
+          "file": "reports/ru-image-search/artifacts/2026-11-14_68_environment-recovery-and-two-unknown-requests-checkpoint/input/p1-060-unknown/root-resolved-runtime-hold.json",
+          "sha256": "b9624d87ca9185f0094c22fe0291f5cb8c8c0ca07273baac0da8feda3f0e77d6",
+          "bytes": 5813
+        }
+      ]
+    }
+  ],
+  "prior_single_unknown_record": {
+    "file": "reports/ru-image-search/artifacts/2026-11-14_58_five-tiguan-rav4-and-bmw-long-front-accepted/output/root-pending-reconciliation.json",
+    "sha256": "2b2833d7ca131a345ccff299fcd360b6635e77523e4df19385a51bdb82f7af5e"
+  }
+}

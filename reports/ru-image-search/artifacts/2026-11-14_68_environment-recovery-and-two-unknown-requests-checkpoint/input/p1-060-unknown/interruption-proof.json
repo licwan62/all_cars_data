@@ -1,0 +1,42 @@
+{
+  "request_id": "P1-060",
+  "claim_id": "144a0f2a9afc4d8c9d946c594ba83f42",
+  "task_id": "RU-87ec0203b3e49b60",
+  "dimension_id": "Volkswagen Passat Wagon 2005-2010 RU",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-189406260-first-frame.png",
+  "source_sha256": "8329855b98e0c747ec033a896b6540f7505383dfd8b111797856f2e1f0df7d6b",
+  "prompt_sha256": "48f173eececc4a785be19c1cb0ff7f6c46771eff46af7ebcd20bde6650912e94",
+  "request_started_at": "2026-11-13T21:22:29.179629+00:00",
+  "recorded_at": "2026-11-13T21:36:06.188013+00:00",
+  "request_before_reconciliation_sha256": "5fa9c4b2c4d2255ec848f0bfb8bf388903930faa050bbf5d903a07875f889df9",
+  "actual_tool_result": "aborted by user after 22.9s",
+  "generation_submitted": true,
+  "generation_calls_submitted": 1,
+  "result_status": "unknown",
+  "returned_output_observed": false,
+  "output_file": null,
+  "output_sha256": null,
+  "job_id": null,
+  "recovery_attempts": [
+    {
+      "time": "2026-11-13T21:36:06.188013+00:00",
+      "action": "Checked retained functions.store p1_060_generated/p1_060_prompt",
+      "result": "both absent after environment/runtime restart"
+    },
+    {
+      "time": "2026-11-13T21:36:06.188013+00:00",
+      "action": "Read actual request.json and recursive request directory",
+      "result": "submitted at21:22:29.179629+00:00, no output PNG/base64/result file, only source mastcrop and preflight records"
+    },
+    {
+      "time": "2026-11-13T21:36:06.188013+00:00",
+      "action": "Inspected available tool metadata for image generation job/history/status recovery",
+      "result": "No imagegen retrieval/history/status API or jobID exposed"
+    }
+  ],
+  "allow_retry": false,
+  "count_as_generation_success": false,
+  "cost": "unknown",
+  "accepted": false,
+  "note": "Real interrupted submitted request, not zero-generation preflight. Root reconciliation/hold required; no paid duplicate submission."
+}
