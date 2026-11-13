@@ -110,6 +110,173 @@ def validate(args):
                 candidates_path=candidates_path, candidates_raw=candidates_raw)
 
 
+def json_nodes(value):
+    if isinstance(value, dict):
+        yield value
+        for item in value.values():
+            yield from json_nodes(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from json_nodes(item)
+
+
+def prepare_optional(data, args):
+    data['registered_candidates'] = None
+    data['metrics'] = None
+    if getattr(args, 'metrics_report', None):
+        metrics_path = local(args.metrics_report)
+        raw, metrics = rawjson(metrics_path)
+        safe = metrics['safe_next_batch_increment']
+        checkpoint_sha = digest(data['cp_raw'])
+        if safe.get('based_on_checkpoint_sha256') != checkpoint_sha:
+            raise ValueError('metrics safe delta is not bound to the current checkpoint SHA')
+        proposed = safe['proposed_cumulative']['generated']
+        delta = proposed - data['progress']['counts']['generated']
+        if delta < 0 or safe.get('delta_from_current_verified_subtotal') != delta or safe.get('generated') != delta:
+            raise ValueError('metrics safe generation delta does not reconcile to current checkpoint')
+        if metrics.get('coverage_audit', {}).get('global_generation_total', 'missing') is not None:
+            raise ValueError('metrics must preserve global actual generation unknown')
+        scope = load_scope(data['cp_path'])
+        seen_ids, seen_shas = set(), set()
+        for request in metrics['requests']:
+            if (request['task_id'], request['dimension_id']) not in scope:
+                raise ValueError('metrics request outside frozen scope')
+            request_path = local(request['request_file'])
+            request_raw = request_path.read_bytes()
+            if digest(request_raw) != request['request_file_sha256']:
+                raise ValueError('metrics request JSON changed; regenerate metrics snapshot')
+            data['evidence'][str(request_path)] = request_raw
+            if request['outcome'] != 'returned':
+                continue
+            h = request['output_sha256']
+            if h in seen_shas or request['request_id'] in seen_ids:
+                raise ValueError('metrics returned raw outputs/requests are not deduplicated')
+            if digest(local(request['output_file']).read_bytes()) != h:
+                raise ValueError('metrics returned raw output SHA mismatch')
+            seen_shas.add(h)
+            seen_ids.add(request['request_id'])
+        if metrics['baseline38']['generated'] + len(seen_shas) != proposed:
+            raise ValueError('metrics covered subtotal is not baseline plus verified raw outputs')
+        data['evidence'][str(metrics_path)] = raw
+        data['metrics'] = metrics
+        data['metrics_path'] = metrics_path
+    if not getattr(args, 'register_accepted_sources', False):
+        return
+    from PIL import Image
+    candidates = copy.deepcopy(json.loads(data['candidates_raw']))
+    next_id = {}
+    for c in candidates:
+        match = re.fullmatch(r'(.+)-C(\d+)', c['candidate_id'])
+        if match:
+            next_id[match[1]] = max(next_id.get(match[1], 0), int(match[2]))
+    by_sha = {}
+    for c in candidates:
+        by_sha.setdefault(c.get('download', {}).get('sha256'), []).append(c)
+    for entry in data['entries']:
+        h = entry['source_sha256']
+        known = by_sha.get(h, [])
+        candidate = next((c for c in known if c['task_id'] == entry['task_id']), None)
+        if known and candidate is None:
+            raise ValueError('existing source SHA belongs to another task; explicit applicability reconciliation required')
+        if candidate is None:
+            receipts = []
+            # Only root-signed evidence_files are eligible, never an unrelated final proof.
+            for filename in entry['evidence_files']:
+                for node in json_nodes(json.loads(data['evidence'][str(local(filename))])):
+                    exact = node.get('full_get_sha256') == h and node.get('full_get_decoded') is True
+                    decoded_receipt = (node.get('sha256') == h and node.get('full_get_sha_verified') is True
+                                       and isinstance(node.get('decoded'), dict) and bool(node['decoded']))
+                    if exact or decoded_receipt:
+                        receipts.append({'evidence_file': str(local(filename)), 'receipt': copy.deepcopy(node)})
+            if not receipts:
+                raise ValueError(f'accepted source lacks exact-source-SHA decoded full-GET receipt: {h}')
+            source_path = local(entry['source_file'])
+            with Image.open(source_path) as image:
+                image.verify()
+            task_id = entry['task_id']
+            next_id[task_id] = next_id.get(task_id, 0) + 1
+            candidate = {'candidate_id': f'{task_id}-C{next_id[task_id]:03d}', 'task_id': task_id,
+                'applicable_original_records': [], 'scope_rows': [], 'source_page': entry['source_page'],
+                'license': copy.deepcopy(entry['source_license']),
+                'identity_observation': entry['identity_observation'],
+                'source_input_type': 'unknown', 'actual_input_type': 'unknown',
+                'declared_source_input_type': entry.get('source_input_type'),
+                'input_classification_note': 'No original/full-resolution classification inferred from local decode or full GET; preserve unknown.',
+                'download': {'local_file': str(source_path), 'sha256': h, 'bytes': source_path.stat().st_size,
+                    'decode_verified': True, 'status': 'verified_source', 'oss_full_get_evidence': receipts},
+                'visual_verified': True, 'accepted': False, 'production_accepted': False,
+                'registration_basis': 'Root-signed acceptance, verified local source SHA and decoded exact-source full-GET evidence',
+                'candidate_aliases': []}
+            candidates.append(candidate)
+            by_sha.setdefault(h, []).append(candidate)
+        alias = entry.get('source_candidate_id')
+        if alias and alias != candidate['candidate_id']:
+            candidate.setdefault('candidate_aliases', []).append(alias)
+        if entry['dimension_id'] not in candidate.setdefault('applicable_original_records', []):
+            candidate['applicable_original_records'].append(entry['dimension_id'])
+        candidate['scope_rows'] = sorted(set(candidate.get('scope_rows', [])) | set(entry['scope_rows']))
+        entry['source_candidate_id'] = candidate['candidate_id']
+    data['registered_candidates'] = candidates
+
+
+def apply_optional(data, progress, index, accepted):
+    if data.get('registered_candidates') is not None:
+        candidates = data['registered_candidates']
+        by_sha = {c.get('download', {}).get('sha256'): c for c in candidates}
+        for entry in accepted:
+            candidate = by_sha[entry['source_sha256']]
+            task = next(t for t in progress['tasks'] if t['id'] == entry['task_id'])
+            for field in ('candidate_ids', 'downloaded_candidate_ids'):
+                if candidate['candidate_id'] not in task.setdefault(field, []):
+                    task[field].append(candidate['candidate_id'])
+        counts = progress['counts']
+        downloaded = [c for c in candidates if c.get('download', {}).get('sha256')]
+        counts.update(candidates=len(candidates), downloaded=len(downloaded), downloaded_candidate_images=len(downloaded),
+            decoded_candidate_images=sum(c.get('download', {}).get('decode_verified') is True for c in candidates),
+            visually_reviewed_candidate_images=sum(c.get('visual_verified') is True for c in candidates),
+            tasks_with_downloaded_sources=len({c['task_id'] for c in downloaded}))
+        counts['oss_source_backups_full_readback_verified'] = sum(
+            c.get('download', {}).get('oss', {}).get('full_readback_sha_verified') is True
+            or bool(c.get('download', {}).get('oss_full_get_evidence')) for c in candidates)
+        counts['original_fullres_global_record_count'] = None
+        progress.setdefault('count_definitions', {}).update({
+            'candidates': 'Registered source records, including declared thumbnail/fallback and unknown input classes.',
+            'oss_source_backups_full_readback_verified': 'Source full-GET receipts only; new entries require exact source SHA plus decoded receipt.',
+            'oss_original_backups_full_readback_verified': 'Historical counter retained; new unknown-class sources never counted as originals.',
+            'tasks_with_downloaded_originals': 'Historical scope retained; no original/fullres classification inferred for new entries.'})
+        progress['pilot_publication_pending_reconciliation']['candidate_counts'] = 'Root-accepted sources registered with verified source receipts; original/fullres global count unknown.'
+    metrics = data.get('metrics')
+    if metrics:
+        safe = metrics['safe_next_batch_increment']
+        proposed = safe['proposed_cumulative']
+        progress['counts'].update(generated=proposed['generated'], generated_images=proposed['generated_images'],
+                                  generated_tasks=proposed['generated_tasks'])
+        progress.setdefault('count_definitions', {}).update({
+            'generated': 'Covered verified subtotal baseline38 plus SHA-listed P1/P2 raw outputs, excluding alpha/padding; not exact global actual.',
+            'generated_images': 'Same covered verified subtotal; global actual remains unknown.'})
+        progress.setdefault('production_execution', {}).update(
+            generation_requests_submitted_total=proposed['generation_requests_submitted_total'],
+            unknown_requests=proposed['unknown_requests'], generation_snapshot_at=metrics['snapshot_completed_at'],
+            unknown_requests_scope='Listed P1/P2 snapshot only; later requests excluded; coordinator unknown count null.',
+            global_actual_generation_count=None, coordinator_unreconciled_attempt_count=None)
+        progress['generation_reconciliation'] = {'covered_verified_output_subtotal': proposed['generated'],
+            'global_actual_generation_count': None, 'coordinator_unreconciled_attempt_count': None,
+            'generation_snapshot_at': metrics['snapshot_completed_at'],
+            'metrics_report_sha256': digest(local(data['metrics_path']).read_bytes())}
+        if 'pilot_generation_count_pending_reconciliation' in progress:
+            progress.setdefault('legacy_reconciliation_notes', []).append({
+                'field': 'pilot_generation_count_pending_reconciliation',
+                'previous_value': progress['pilot_generation_count_pending_reconciliation'],
+                'superseded_at_generation_snapshot': metrics['snapshot_completed_at']})
+        progress['pilot_generation_count_pending_reconciliation'] = {
+            'status': 'Covered snapshot reconciled; global actual remains unknown',
+            'covered_verified_generation_subtotal': proposed['generated'],
+            'generation_snapshot_at': metrics['snapshot_completed_at'],
+            'global_actual_generation_count': None, 'coordinator_unreconciled_attempt_count': None,
+            'subsequent_worker_requests': 'Excluded; reconcile separately'}
+        progress['pilot_publication_pending_reconciliation']['generation_counts'] = 'Covered snapshot reconciled; global actual/coordinator call count unknown.'
+
+
 def build(data, batch_path, version):
     progress = copy.deepcopy(data['progress'])
     acceptance_file = pathref(batch_path / 'output' / f'accepted-configurations-{version}.json')
@@ -143,15 +310,27 @@ def build(data, batch_path, version):
         'generation_counts': 'pending; prior counts retained, no attempts inferred from acceptance',
         'candidate_counts': 'pending; candidate ledger retained unchanged',
         'previous_progress': pathref(data['progress_path'])}
-    return progress, data['index'] + accepted, accepted
+    index = data['index'] + accepted
+    apply_optional(data, progress, index, accepted)
+    return progress, index, accepted
 
 
 def execute(args):
     data = validate(args)
+    prepare_optional(data, args)
     preview, _, _ = build(data, Path('/DRY-RUN'), 'DRY-RUN')
     summary = {'dry_run': args.dry_run, 'accepted_count': len(data['entries']),
                'counts_before': data['progress']['counts'], 'counts_after': preview['counts'],
                'checkpoint_updated': False, 'pending': ['generation_counts', 'candidate_counts']}
+    if data.get('metrics'):
+        summary['pending'].remove('generation_counts')
+        summary['generation_delta'] = data['metrics']['safe_next_batch_increment']['delta_from_current_verified_subtotal']
+    if data.get('registered_candidates') is not None:
+        summary['pending'].remove('candidate_counts')
+        summary['registered_source_delta'] = len(data['registered_candidates']) - len(json.loads(data['candidates_raw']))
+    summary['global_actual_generation_count'] = None
+    if data['cp_path'].read_bytes() != data['cp_raw']:
+        raise ValueError('checkpoint changed during validation; retry')
     if args.dry_run:
         return summary
     batch = RunBatch.create(local(args.artifacts), args.description, day=date.fromisoformat(args.day))
@@ -187,6 +366,14 @@ def execute(args):
     write(batch.directory / 'input' / 'root-acceptance.json', data['inputs_raw'])
     for entry in accepted:
         entry['evidence_snapshot_refs'] = [ref for ref in evidence_refs if ref['source_file'] in [str(local(entry['review_file'])), *[str(local(p)) for p in entry['evidence_files']]]]
+    generation_requests_path = None
+    if data.get('metrics'):
+        request_snapshot = copy.deepcopy(data['metrics']['requests'])
+        by_sha = {r['sha256']: r['artifact_file'] for r in evidence_refs}
+        for request in request_snapshot:
+            request['request_evidence_artifact_file'] = by_sha[request['request_file_sha256']]
+        generation_requests_path = output('generation-requests.json', request_snapshot)
+    candidate_path = output('candidates.json', data['registered_candidates']) if data.get('registered_candidates') is not None else None
     acceptance_path = output('accepted-configurations.json', accepted)
     progress_path = output('progress.json', progress)
     index_path = output('current-accepted-configuration-index.json', index)
@@ -196,6 +383,11 @@ def execute(args):
     proposal.update(batch=pathref(batch.directory), progress_file=pathref(progress_path),
                     progress_sha256=digest(progress_path.read_bytes()), acceptance_file=pathref(index_path),
                     last_batch_acceptance_file=pathref(acceptance_path), production_state='pilot_queue_continuing')
+    if candidate_path is not None:
+        proposal['candidate_file'] = pathref(candidate_path)
+    if generation_requests_path is not None:
+        proposal['last_generation_requests_file'] = pathref(generation_requests_path)
+        proposal['generation_snapshot_at'] = data['metrics']['snapshot_completed_at']
     proposal_path = output('checkpoint-proposal.json', proposal)
     write(batch.directory / 'run.json', (json.dumps({
         'schema': 'ru-pilot-root-publication/v1', 'created_at': datetime.now(timezone.utc).isoformat(),
@@ -218,6 +410,8 @@ def main():
     parser.add_argument('--artifacts', default=str(REPO / 'reports/ru-image-search/artifacts'))
     parser.add_argument('--day', default=date.today().isoformat())
     parser.add_argument('--description', default='pilot-root-reviewed')
+    parser.add_argument('--metrics-report', help='Current-checkpoint-SHA-bound runtime metrics report')
+    parser.add_argument('--register-accepted-sources', action='store_true', help='Register only root-signed accepted sources with exact source full-GET receipts')
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
     if not re.fullmatch(r'[a-z0-9-]+', args.description):
