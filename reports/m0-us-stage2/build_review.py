@@ -1,0 +1,24 @@
+"""Build the related read-only audit, without changing M0 business output."""
+import csv
+import json
+from pathlib import Path
+
+O = Path(__file__).resolve().parent
+rows = list(csv.DictReader((O / 'review-ledger.csv').open(encoding='utf-8-sig')))
+summary = json.loads((O / 'summary.json').read_text())
+template = '''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M0 US 6190项审查</title>
+<style>body{font:14px system-ui;margin:24px;color:#142231;background:#f7f9fb}h1{font-size:24px}.cards{display:flex;gap:12px;flex-wrap:wrap}.card{background:white;padding:16px;border:1px solid #d7dfe8;border-radius:8px;min-width:140px}.card b{display:block;font-size:26px}p{line-height:1.6}select,input,button{padding:8px;margin:5px 8px 5px 0;max-width:100%}.scroll{overflow:auto;background:white}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:8px;border-bottom:1px solid #e3e8ee;white-space:nowrap}th{background:#eaf0f6}a{color:#1457a8}#status{margin:10px 0}@media(max-width:600px){body{margin:12px}.card{min-width:110px}}</style>
+<h1>M0 US 固定6190项审查</h1><div class="cards" id="cards"></div>
+<p id="versions"></p><p>审查覆盖与正式名称对应分开计数。库内当前口径无对应记录不等于市场无车型；组合成员仍待核，不计独立覆盖。此页为关联审查报告，无新增逐年市场确认。</p>
+<p><a href="README.md">说明与证据边界</a> · <a href="summary.json">统计JSON</a> · <a href="baseline-identities.csv">冻结6190身份</a> · <a href="../../nodes/M0.车型年覆盖/车型年全集与覆盖率.html">正式M0结果</a></p>
+<label>品牌 <select id="make"><option value="">全部</option></select></label><label>车型 <input id="model" placeholder="车型名或身份搜索"></label><label>年份 <select id="year"><option value="">全部</option></select></label><label>结论 <select id="conclusion"><option value="">全部</option></select></label><button id="export">导出筛选CSV</button><div id="status"></div><div class="scroll"><table><thead><tr><th>品牌</th><th>车型</th><th>年份</th><th>审查结论</th><th>正式状态</th><th>MMY_ID</th><th>模型证据</th></tr></thead><tbody id="body"></tbody></table></div><button id="prev">上一页</button><button id="next">下一页</button>
+<script>const rows=__ROWS__,summary=__SUMMARY__;const $=id=>document.getElementById(id);let filtered=rows,page=0;const size=100;
+function cell(text){const td=document.createElement('td');td.textContent=text;return td}
+for(const [label,key] of [['已核查','reviewed_unique_MMY'],['正式名称已对应','formal_resolved_unique_MMY'],['已核查仍待裁决','reviewed_unresolved_unique_MMY'],['未核查','not_reviewed_unique_MMY'],['固定US分母','fixed_US_denominator']]){const c=document.createElement('div');c.className='card';c.append(document.createTextNode(label));const b=document.createElement('b');b.textContent=summary[key].toLocaleString();c.append(b);$('cards').append(c)}
+$('versions').textContent=`数据 ${summary.data_version} · HTML ${summary.html_version} · 原10631队列正式累计 ${summary.original_queue_formal_completed} · 本阶段不足500尾批 ${summary.formal_resolved_unique_MMY}`;
+for(const [id,key] of [['make','MAKE'],['year','YEAR'],['conclusion','conclusion']])for(const v of [...new Set(rows.map(r=>r[key]))].sort()){const o=document.createElement('option');o.value=v;o.textContent=v;$(id).append(o)}
+function refresh(reset=true){if(reset)page=0;const q=$('model').value.toLowerCase();filtered=rows.filter(r=>(!$('make').value||r.MAKE===$('make').value)&&(!$('year').value||r.YEAR===$('year').value)&&(!$('conclusion').value||r.conclusion===$('conclusion').value)&&(!q||[r.MODEL,r.MMY_ID,r.MM_ID].join(' ').toLowerCase().includes(q)));$('body').replaceChildren();for(const r of filtered.slice(page*size,(page+1)*size)){const tr=document.createElement('tr');for(const k of ['MAKE','MODEL','YEAR','conclusion','current_formal_status','MMY_ID'])tr.append(cell(r[k]));const td=cell('');const a=document.createElement('a');a.href=r.evidence;a.textContent=r.MM_ID;td.append(a);tr.append(td);$('body').append(tr)}$('status').textContent=`筛选 ${filtered.length} / 固定任务 ${rows.length}，第 ${page+1} / ${Math.max(1,Math.ceil(filtered.length/size))} 页`;$('prev').disabled=page===0;$('next').disabled=(page+1)*size>=filtered.length}
+for(const id of ['make','year','conclusion'])$(id).onchange=()=>refresh();$('model').oninput=()=>refresh();$('prev').onclick=()=>{page--;refresh(false)};$('next').onclick=()=>{page++;refresh(false)};
+$('export').onclick=()=>{const keys=Object.keys(rows[0]),escape=v=>'"'+String(v).replaceAll('"','""')+'"';const csv='\\ufeff'+[keys,...filtered.map(r=>keys.map(k=>r[k]))].map(r=>r.map(escape).join(',')).join('\\r\\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='M0-US-审查筛选.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};refresh();</script></html>'''
+(O / 'review.html').write_text(template.replace('__ROWS__', json.dumps(rows, ensure_ascii=False).replace('</', '<\\/')).replace('__SUMMARY__', json.dumps(summary, ensure_ascii=False)))
+print('review.html', len(rows), 'fixed identities')

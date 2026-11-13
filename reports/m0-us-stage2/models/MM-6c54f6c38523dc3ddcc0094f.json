@@ -648,12 +648,12 @@
       ]
     }
   },
-  "conclusion": "证据不足（候选关系未裁决）",
+  "conclusion": "正式名称已对应（去向见逐MMY formal_after）",
   "missing_evidence": "GMC / Hummer EV SUV MT Tires 3X原名到明确US目标的可引用身份关系；参考年份2025的适用范围；现有目录国家线索无年份",
   "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
   "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
   "new_market_confirmations": 0,
-  "formal_resolved": false,
+  "formal_resolved": true,
   "identities": [
     {
       "MMY_ID": "MMY-75da087e70a83b523ba84c72",
@@ -680,9 +680,9 @@
       "01_DIMENSION-ID": "",
       "02_DIMENSION-ID": "",
       "裁决依据": "",
-      "review_conclusion": "证据不足（候选关系未裁决）",
-      "review_status": "已核查仍无法裁决",
-      "formal_resolved": false,
+      "review_conclusion": "车系级记录覆盖（配置未核）",
+      "review_status": "正式名称已对应",
+      "formal_resolved": true,
       "source_year_records": [
         "21611"
       ],
@@ -709,7 +709,56 @@
           ],
           "candidate_same_year_hits": 2
         }
+      },
+      "pre_tail_review_conclusion": "证据不足（候选关系未裁决）",
+      "formal_after": {
+        "MMY_ID": "MMY-75da087e70a83b523ba84c72",
+        "MM_ID": "MM-6c54f6c38523dc3ddcc0094f",
+        "REGION": "US",
+        "MAKE": "GMC",
+        "MODEL": "Hummer EV SUV MT Tires 3X",
+        "YEAR": "2025",
+        "SOURCE": "trimslate",
+        "状态": "车系级记录覆盖（配置未核）",
+        "01状态": "车系级记录覆盖（配置未核）",
+        "02原始状态": "车系级记录覆盖（配置未核）",
+        "映射前状态": "车型缺口／名称待核",
+        "标准MAKE": "GMC",
+        "标准MODEL": "Hummer SUV",
+        "映射层级": "family",
+        "映射依据": "STAGE2-20261113：两库Hummer SUV记录结构SUV、参考车型明确写2024/2026 GMC Hummer EV SUV；排除结构Pickup的Hummer EV记录；基本名称为alias，轮胎/2X/3X等仅family；现有发布记录命名核对，非新外部/逐年市场核实；见reports/m0-us-stage2/tail-evidence.json及models/MM-6c54f6c38523dc3ddcc0094f.json",
+        "缺口解释": "车系归属不证明配置、车身或尺寸一致",
+        "年份范围": "评估年内",
+        "计入分母": "是",
+        "市场依据": "车型年市场未核",
+        "国家线索": "",
+        "车辆类别线索": "",
+        "01_DIMENSION-ID": "GMC Hummer SUV SUV 2024-2026 US",
+        "02_DIMENSION-ID": "GMC Hummer SUV SUV 2024-2026 US",
+        "裁决依据": ""
       }
     }
-  ]
+  ],
+  "pre_tail_conclusion": "证据不足（候选关系未裁决）",
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "GMC",
+    "MODEL": "Hummer SUV",
+    "relation": "family",
+    "basis": "STAGE2-20261113：两库Hummer SUV记录结构SUV、参考车型明确写2024/2026 GMC Hummer EV SUV；排除结构Pickup的Hummer EV记录；基本名称为alias，轮胎/2X/3X等仅family；现有发布记录命名核对，非新外部/逐年市场核实；见reports/m0-us-stage2/tail-evidence.json及models/MM-6c54f6c38523dc3ddcc0094f.json",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
 }
