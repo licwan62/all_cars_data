@@ -1,0 +1,119 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T22:25:36.584194+00:00",
+  "source": {
+    "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-72952434.jpg",
+    "sha256": "7ef7555df3ff68ebc4eeb34310f22a7a2a61e635134ed8c8f7c03447863e7957",
+    "dimensions": [
+      4519,
+      2436
+    ],
+    "format": "JPEG"
+  },
+  "rear": {
+    "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-72952435.jpg",
+    "sha256": "7c43ee2b6ba5362bde68fa502e267f9b0d245c34b37f682d3c64295ac9fb9ee2",
+    "dimensions": [
+      4463,
+      2511
+    ],
+    "format": "JPEG"
+  },
+  "original_source_sha256": "7ef7555df3ff68ebc4eeb34310f22a7a2a61e635134ed8c8f7c03447863e7957",
+  "task_id": "RU-6883934f6c7ad5a4",
+  "dimension_id": "Kia Sportage SUV 2008-2010 RU",
+  "judgment": "PRECISE_HOLD_2008_SECOND_UPDATE_PHASE_MISMATCH",
+  "source_phase": "2007 European minor update / UK MY2008 style: single chrome horizontal mesh grille, earlier clear lower headlamp strip, rectangular fog lamp plus horizontal corner ribs. Not the later2008 update with new angular/amber lamp corner and round fog lamps.",
+  "current_target": {
+    "mapping_literal": "RU|kia/sportage|II Рестайлинг|2008-2010|SUV 5-door|-|-",
+    "raw_rows_zero_based": [
+      35064,
+      35078
+    ],
+    "dimensions_mm": [
+      4350,
+      1800,
+      1695
+    ],
+    "actual_primary_image": "/workspace/ru_picture_producer/pilot20/source_c/previews/primary-Sportage-6.jpg",
+    "actual_independent_image": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-km-2008-catalog-main.jpg",
+    "limitation": "Image shows a visibly different headlamp and bumper/fog configuration. This is not merely2WD grade or optional fog absence."
+  },
+  "alternative_positive": {
+    "task_id": "RU-cb22d8e653cbecc2",
+    "dimension_id": "Kia Sportage SUV 2004-2008 RU",
+    "judgment": "PASS_IDENTITY_ONLY_2007_MINOR_UPDATE_WITHIN_FROZEN_II_2004_2008",
+    "mapping_literal": "RU|kia/sportage|II|2004-2008|SUV 5-door|-|-",
+    "matching_raw_row_zero_based": 35089,
+    "raw_modification": "2.0d AT (140 hp)",
+    "dimensions_mm": [
+      4350,
+      1840,
+      1730
+    ],
+    "basis": "Original aggregate explicitly includes2WD140hp diesel automatic, positively documented in the2007 European update; Drom2007 exact front image matches source grille/lamp/fog/ordinarybody and exact2WDauto213354 table gives4350×1840×1730. Not bound only by overlapping2008caption.",
+    "not_done": "No queue reassignment or ready/enqueue; C/root must explicitly elect this alternative and retain early-update disclosure."
+  },
+  "independent_references": [
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/g_2007_5674/",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-km-2007.html",
+      "actual_viewed_image": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-km-2007-catalog-main.jpg",
+      "facts": "Europe2007 minor update, new grille/darker lamps/bodycolour bumpers. Actual image matches single horizontal grille+earlier lamp+rectangularfog body.",
+      "limits": "Cup/Champ generic European grading is not UK XE certification; do not replace source trim/wheels."
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/213354/",
+      "facts": "2008 Jan–Mar2.0CRDi AT2WD140hp, five-door,4350×1840×1730. Actual technical page read.",
+      "limits": "Powertrain/body-scope support only; source not claimed to be Cup or VIN certified."
+    },
+    {
+      "url": "https://www.drom.ru/catalog/kia/sportage/g_2008_5675/",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-km-2008.html",
+      "actual_viewed_image": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-km-2008-catalog-main.jpg",
+      "facts": "Second2008 update has new lamps and roundfog in trapezoidcorners, changed lower bumper. This image matches primary6 stage, not source."
+    },
+    {
+      "url": "https://www.carmanualsonline.info/amp/kia-sportage-2008-je-2-g-owner-s-manual/?srch=dimensions",
+      "publisher": "Kia2008JE owner manual mirrored",
+      "saved_html": "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/kia-2008-manual-dimensions.html",
+      "manual_page": 342,
+      "facts": "Length4350; width1800/1840 footnote side garnish; height1695/1730 footnote roofrack. Dimensions differences are documented equipment/measurement distinctions, not evidence that any2WD grille can cover majorFL.",
+      "limits": "Mirrored text read and saved; not a source-car measurement or exact UK build-sheet."
+    },
+    {
+      "url": "https://www.autobild.de/artikel/facelift-kia-sportage-763208.html",
+      "date": "2008-08-11",
+      "facts": "Contemporary report independently describes new front/rear bumper, round fog recesses and changed headlamps for autumn2008/MY2009; phase support only."
+    }
+  ],
+  "bounded_discovery_not_relied_as_full_read": [
+    {
+      "url": "https://www.easier.com/9983-kia-announces-2008-sportage-and-picanto-model-ranges.html",
+      "status": "Search cached excerpt read, direct web timed out; shellGET503. Do not claim full article downloaded.",
+      "use": "Only corroborating2007 UK release context; core result rests on saved Drom exact stage images/text and manual."
+    },
+    {
+      "url": "https://www.kia.sk/sk/clanok/sedemrocna-zaruka-na-novy-model-kia-sportage",
+      "status": "Search cache shows2008 early update text, direct open redirects login; no logged-in access and no successful photo claim."
+    }
+  ],
+  "actual_viewed": [
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Sportage-72952434-raw-review.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Sportage-72952435-raw-review.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Sportage-72952434-roof-review.png",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/primary-Sportage-6.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/primary-Sportage-7.jpg",
+    "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-km-2007-catalog-main.jpg",
+    "/workspace/ru_picture_producer/pilot20/identity_a/sportage-review/drom-km-2008-catalog-main.jpg"
+  ],
+  "source_preservation": "If explicitly retargeted to old aggregate, preserve blue paint, actual XE-type earlier front, wheels, bodycolour mirrors, real roof hardware/mast. Rear is same-event identity only. Never add late round fogs/amber headlamp corners or remove side garnish to force a data match.",
+  "commercial_reference_images": "Identity only; none may enter generation inputs.",
+  "source_dates_separate": {
+    "caption_modelyear": "2008",
+    "photographed": "2018-09-16",
+    "production_date": "unverified"
+  },
+  "generation_calls_this_review": 0,
+  "queue_ledger_git_mutation": false
+}

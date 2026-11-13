@@ -1,0 +1,155 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T22:16:43.798198+00:00",
+  "task_id": "RU-96499a0e83f89d44",
+  "dimension_id": "Volkswagen Passat Alltrack Wagon 2011-2015 RU",
+  "claim_id": "28a607c612fc4f29994ed51e103e1536",
+  "verdict": "PASS_VISUAL_ADVISORY_REPAIR01_K_SHAPE_SUPPORTED",
+  "root_final_acceptance": false,
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/padded.png",
+  "candidate_sha256": "29f7a5e83b8bfce9256f2aa7c25abc1566db3c952d449bcd5a54bc73d53b8186",
+  "original_source_sha256": "761a4f93a74e5148dcb53f6ee1c70db09dd8863ddf88ac305e65fee8b72cde18",
+  "summary": "R1完整词更支持ALLTRACK，末字可见左主干及向右上下两支的K形结构；未见足以认定明确错字而必须repair02的证据。建议root按R1整体及原生像素终审，不因期望词自动通过。",
+  "actual_observations": [
+    "首稿与R1铭牌8倍最近邻观察件均实际看。首稿末字上下暗部连接使其容易看成S/X；R1末字左侧暗主干较连续，右上/右下有分支，K形结构更明显。",
+    "原始source铭牌局部实际看，末尾C后为有左主干和右侧两斜支的K。R1与该结构相容；不是只依据车型应写ALLTRACK反推。",
+    "R1原生70×35裁区实际看，铭牌本身约50px宽且字高仅数个像素，正常整体显示末字仍会糊成近6/G状；故字形结论为有限分辨率下的独立视觉建议，非高清逐笔排版认证。",
+    "灰/深底1683×1050整体实际看，前方1/2、长顶Wagon车身和可见轮胎/镜/双轨/鳍完整，未见本轮铭牌修复导致大范围前脸/轮/车身身份改变或裁断；本次未重新认证全部历史身份、原厂附件精确毫米比例。"
+  ],
+  "pixel_provenance": [
+    {
+      "label": "first",
+      "parent": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/attempt01.png",
+      "crop_box": [
+        1435,
+        535,
+        1505,
+        570
+      ],
+      "crop_native_size": [
+        70,
+        35
+      ],
+      "existing_inspection_is_exact_nearest8": true,
+      "native_file": "/workspace/ru_picture_producer/pilot20/identity_a/alltrack-badge-review/first-native-badge.png"
+    },
+    {
+      "label": "repair01",
+      "parent": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/attempt01.png",
+      "crop_box": [
+        1435,
+        535,
+        1505,
+        570
+      ],
+      "crop_native_size": [
+        70,
+        35
+      ],
+      "existing_inspection_is_exact_nearest8": true,
+      "native_file": "/workspace/ru_picture_producer/pilot20/identity_a/alltrack-badge-review/repair01-native-badge.png"
+    },
+    {
+      "label": "source",
+      "parent": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-38716803.jpg",
+      "crop_box": [
+        3130,
+        1270,
+        3250,
+        1370
+      ],
+      "crop_native_size": [
+        120,
+        100
+      ],
+      "native_file": "/workspace/ru_picture_producer/pilot20/identity_a/alltrack-badge-review/source-native-badge-region.png"
+    }
+  ],
+  "pixel_method": "既有560×280 inspection已逐像素证实等于同一attempt01[1435,535,1505,570]70×35裁区的8倍NEAREST；未用插值、锐化、OCR补字或重绘。Source仅另取原件[3130,1270,3250,1370]120×100原生裁区及8倍NEAREST观察。",
+  "files_and_sha256": [
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/attempt01.png",
+      "sha256": "85b681d13f4fd449b110fe33237b2b8dfb041e910d848ea7c8a7bfc36163c161",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/attempt01.png",
+      "sha256": "c37e9795a629b4312b170145bb463eb123ddb4afa75f47239d1a13771e01f09c",
+      "size": [
+        1671,
+        941
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/padded.png",
+      "sha256": "7647d1cbcc53e93d4055909daab2c886eb5e4a544a91475406c59e964745c2fd",
+      "size": [
+        1681,
+        1046
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/padded.png",
+      "sha256": "29f7a5e83b8bfce9256f2aa7c25abc1566db3c952d449bcd5a54bc73d53b8186",
+      "size": [
+        1683,
+        1050
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/badge-inspection.png",
+      "sha256": "a2161aa006ed71249ee9e834807da1172493201e7cb2587f310f4d8f7c1511af",
+      "size": [
+        560,
+        280
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/badge-inspection.png",
+      "sha256": "6261ba454144099425c6d0ef4bff1a934f4136de3dd5e793a0d6991b9ed48c9a",
+      "size": [
+        560,
+        280
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-38716803.jpg",
+      "sha256": "761a4f93a74e5148dcb53f6ee1c70db09dd8863ddf88ac305e65fee8b72cde18",
+      "size": [
+        4128,
+        2322
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "actually_viewed": [
+    "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/badge-inspection.png",
+    "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/badge-inspection.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/alltrack-badge-review/repair01-native-badge.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/alltrack-badge-review/source-badge-region-nearest8.png",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Passat-38716803-raw-review.jpg",
+    "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/padded-gray.jpg",
+    "/workspace/ru_picture_producer/pilot20/P2/P2-065-Passat-B7-Alltrack/repair01/padded-dark.jpg"
+  ],
+  "limits": [
+    "若root在相同实际像素中仍不能确认末K，可保留低分辨待定；本报告不把模糊自动判错并授权收费重试。",
+    "不以8倍放大制造额外细节；不声称源与成品字体每笔完全一致。",
+    "原首稿和R1历史保留，report不替换producer review或root签收。"
+  ],
+  "generation_calls_this_review": 0,
+  "network_calls_this_review": 0,
+  "existing_generation_history": {
+    "producer_reported_generations": 2,
+    "repairs": 1
+  },
+  "queue_ledger_git_mutation": false
+}
