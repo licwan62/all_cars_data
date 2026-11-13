@@ -1,0 +1,31 @@
+{
+  "reviewer": "root",
+  "recorded_at": "2026-11-13T23:15:16.566675+00:00",
+  "current_front": {
+    "configurations": 262,
+    "tasks": 80,
+    "csv_rows": 4
+  },
+  "scope_totals": {
+    "configurations": 2394,
+    "tasks": 1309,
+    "csv_rows": 500
+  },
+  "note": "Current counts must follow independently recomputed immutable batch75 progress; no search or in_review candidate is acceptance.",
+  "root_source_roof_hold_file": "reports/ru-image-search/artifacts/2026-11-14_75_four-gte-mercedes-stepway-and-early-niva-front-accepted/output/root-p1-075-roof-hold.json",
+  "unknown_request_count": 2,
+  "unknown_policy": "P1-034 and P1-060 unresolved; no retry including source swaps; formal register retained.",
+  "website_last_confirmed": {
+    "formal_batch": 72,
+    "current_front_configurations": 246,
+    "complete_tasks": 70,
+    "complete_rows": 4,
+    "retakes": 34,
+    "source_commit": "f0ee9156ee5b7e8760a1ba9f0b87f3c0982ceac7",
+    "deployment_id": "appgdep_6af798358120819181b4bba3bb1ae76f",
+    "version_id": "appgprj_6af754461b188191938bf90c882d92ba~appgver_5b5d691563688191a9b5198d1f57d597",
+    "status": "succeeded",
+    "updated_at": "2026-11-13T23:07:47.155491+00:00"
+  },
+  "wake_protocol": "After actual enqueue added>0, source checks producer actual completed state plus no in-flight request; followup_task wakes idle worker to atomic claim, no hardcoded duplicate assignment. Source immediately continues next model. Root remains sole formal acceptance and Git writer."
+}
