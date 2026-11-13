@@ -1,0 +1,79 @@
+{
+  "request_id": "P1-041",
+  "claim_id": "f3da2b32d482458db6149c7d3b0235f9",
+  "task_id": "RU-b50e0d234f4d3cd0",
+  "dimension_id": "Volkswagen Tiguan SUV 2020-2025 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-95777122.jpg",
+  "input_sha256": "94a4afdf38326e8ef737ea2d1a9d0095d5f6979608ed7951bdee40656994797e",
+  "input_dimensions": [
+    4611,
+    2866
+  ],
+  "input_role": "full original FRONT production camera",
+  "source_page": "https://commons.wikimedia.org/wiki/File:2020_Volkswagen_Tiguan_Life_facelift_Front.jpg",
+  "source_license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+  },
+  "assigned_at": "2026-11-13T19:51:20.302126+00:00",
+  "material_ready_at": "2026-11-13T19:52:48.869995+00:00",
+  "started_at": "2026-11-13T19:52:48.869995+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-041/deterministic-repair/padded-canvas/TiguanShortFacelift-roomy-transparent.png",
+  "candidate_sha256": "2399137a05f541a75aab2f5e280e6eb01bbd82922c4c44c5b1c00702927cc069",
+  "worker_reviewed_at": "2026-11-13T19:55:20.029907+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root final individual acceptance required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-041/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-041/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Actual first grayblack show full short ordinaryLife facelift5door frontquarter/actual plainlowerbumper/notAllspaceorRLine; complete silverwheels/roofrails/compactblackfin and neutralfinish."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1680,
+      936
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      88,
+      99,
+      1591,
+      903
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 750,
+    "detached_max_alpha": 2,
+    "bottom_margin_px": 33,
+    "reason": "Disconnected alpha<=2 dust plus bottom33px needed authorized cleanup and canvaspadding, not raw technicalfirstpass."
+  },
+  "visual_review": "Actually full4611front/full4496rear plus frontroof/rearfin originalcrops, raw/final grayblack viewed. GreyblueordinaryLifeSHORT5door with shortquarterglass/overhang, actual angularLEDlamp housings and mostlyblackhorizontal uppergrille/slimchromeborders/genuineVW, PLAIN widehorizontal loweropening thinchromestrip andblackangularouterrecesses retained notRLineorAllspacebumper. Actualsilverwideangularsplitspokes/greybodymirrorindicators/handles/blackarchlowertrim/chromelowerdoorline, two metallicgrey/silver longrails no crossbars. Compactblackrearcenterfin naturallypartlyhidden byrails/roof notlongrod orheightinflated. Coherent FRONT quarter noseLEFT, bothlamps/grille/sideclear; fullroundedtires/mirrors/roof withinframe. Neutralglass/paint withoutshowroomscene/shadow/fringe.",
+  "identity_limits": "UK Europe RHD ordinaryLife factory independent2020PDFp6/RLinep8+actualLife4509x1839modelpositive evidence /source_c/tiguan-II-FL-Life-positive-applicability.json; rootconditionalpass met. Modelheight1684includingrails vsfrozen1675 diff9mm explicitly retained no scalarrecertification. Sourceactualengine/VIN/exactmanufactureyear unknown; photo2020-10-30 not independently VINyear. NotRussianfactoryorigin. CC BY-SA4.0 Vauxford author/source/license and AI adaptation notice/sharealike retained.",
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-041/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-041/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-041/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-041/input-oss-proof.json",
+  "auxiliary_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-041/auxiliary-source/input-oss-proof.json",
+  "dimensions": [
+    1840,
+    1116
+  ],
+  "margins_px": [
+    168,
+    179,
+    169,
+    133
+  ],
+  "method": "One fullfront+samecarrearaux generation;750disconnectedalpha<=2 pixels removed only, allRGB/maincarRGBA unchanged;transparentpad80/80/80/100 noresize.",
+  "tool_cost": "unknown; no monetary receipt"
+}
