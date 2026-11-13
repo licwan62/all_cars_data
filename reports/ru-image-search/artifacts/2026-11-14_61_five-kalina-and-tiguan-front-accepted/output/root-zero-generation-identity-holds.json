@@ -1,0 +1,65 @@
+{
+  "actor": "root",
+  "observed_at": "2026-11-13T20:24:08.151806+00:00",
+  "generation_count_for_each": 0,
+  "status": "independent_applicability_pending_continue_other_queue",
+  "items": [
+    {
+      "task_id": "RU-f569f92b88483ce1",
+      "dimension_id": "BMW X5 SUV 2006-2010 RU",
+      "claim_id": "6fbb2eaf1fce443a9a4973d9bde55bef",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-pre/derived-1600.jpg",
+      "source_sha256": "19b94a29b9824b5e21edf9d7771216d8503c5cf09da306f76dabce4cc064d36e",
+      "status": "hold"
+    },
+    {
+      "task_id": "RU-fd645f53dbcb2bac",
+      "dimension_id": "BMW X5 SUV 2010-2013 RU",
+      "claim_id": "74283c06a3bd49c5ac153f030ef5497a",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-fl/original.jpg",
+      "source_sha256": "69311f44b100d8dacd81b5f749081e0e0ef6289c4a36c422ce113c9531dffb04",
+      "status": "hold"
+    },
+    {
+      "task_id": "RU-9f515cb586329251",
+      "dimension_id": "Mercedes-Benz E-Класс Sedan 1995-1999 RU",
+      "claim_id": "bdc14dc54ef84b68bfec04c058d2bea1",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/mercedes-e/w210-pre-ordinary/same-file-thumbnail.jpg",
+      "source_sha256": "65bc613cfc315a8616fc7c4366d7b6cf5c93b82c32bf718360ecdee16f7be2e9",
+      "status": "hold"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-14_61_five-kalina-and-tiguan-front-accepted/input/root-zero-generation-holds/0-zero-fee-preflight-hold.json",
+      "sha256": "2d732d6395a967b759baf23192db6fb6401823262d5f7fe0a60447354e6d7209",
+      "runtime_source": "/workspace/ru_picture_producer/pilot20/P1/P1-047/zero-fee-preflight-hold.json"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-14_61_five-kalina-and-tiguan-front-accepted/input/root-zero-generation-holds/1-preflight-hold.json",
+      "sha256": "c999ed31eb3ec8155129243661b341a5d121f32fe83faa5ca17485926e9a6cff",
+      "runtime_source": "/workspace/ru_picture_producer/pilot20/P2/P2-052-BMW-X5-E70-FL/preflight-hold.json"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-14_61_five-kalina-and-tiguan-front-accepted/input/root-zero-generation-holds/2-zero-fee-preflight-pending.json",
+      "sha256": "0162560cea4d8047170ffad1baea8d09b31c72fc15e68a7c4ed82e187fbb8e10",
+      "runtime_source": "/workspace/ru_picture_producer/pilot20/P1/P1-048/zero-fee-preflight-pending.json"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-14_61_five-kalina-and-tiguan-front-accepted/input/root-zero-generation-holds/3-ready.json",
+      "sha256": "c4e8950b20a2985f81245f3592a8d848330b36995f16d91090027cab3c72fdf4",
+      "runtime_source": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-pre/ready.json"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-14_61_five-kalina-and-tiguan-front-accepted/input/root-zero-generation-holds/4-ready.json",
+      "sha256": "670a119ad9ead29433657f10f2eca637279cd90bc91366dea6870695a175ebbf",
+      "runtime_source": "/workspace/ru_picture_producer/pilot20/source_e_x5/e70-fl/ready.json"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-14_61_five-kalina-and-tiguan-front-accepted/input/root-zero-generation-holds/5-remaining-holds.json",
+      "sha256": "ca75c710a2d811963c8426871cfde771c2b1d7328f01ac18ee6bbafcd162ca2e",
+      "runtime_source": "/workspace/ru_picture_producer/pilot20/source_e_x5/remaining-holds.json"
+    }
+  ],
+  "instruction": "No fee incurred; no accepted output. Resume source identity proof, then explicit root release; never replay these as accepted."
+}

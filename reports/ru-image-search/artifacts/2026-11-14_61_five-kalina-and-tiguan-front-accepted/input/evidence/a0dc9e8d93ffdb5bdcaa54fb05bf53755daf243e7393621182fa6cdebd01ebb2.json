@@ -1,0 +1,79 @@
+{
+  "request_id": "P1-042",
+  "claim_id": "05394fcdca33475ca7ce71a068041fc3",
+  "task_id": "RU-76390fadd9a41353",
+  "dimension_id": "Volkswagen Tiguan L SUV 2020-2026 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-124026312.jpg",
+  "input_sha256": "324dda79f1b9e912f86fb7dc85b0669009f3330604269ade7949c0f2db125029",
+  "input_dimensions": [
+    4032,
+    2520
+  ],
+  "input_role": "full original FRONT productioncamera ChinaL explicit branch",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Volkswagen_Tiguan_L_Facelift_Shishi_01_2022-09-23.jpg",
+  "source_license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:JamesYoung8167\" class=\"mw-redirect\" title=\"User:JamesYoung8167\">JamesYoung8167</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+  },
+  "assigned_at": "2026-11-13T19:55:20.128047+00:00",
+  "material_ready_at": "2026-11-13T19:56:53.373634+00:00",
+  "started_at": "2026-11-13T19:56:53.373634+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-042/deterministic-repair/padded-canvas/TiguanLChinaFacelift-roomy-transparent.png",
+  "candidate_sha256": "44157858b49837b8e9a7dd1e832bca0f8f872848a5d4e4bc352005dc006a84b9",
+  "worker_reviewed_at": "2026-11-13T19:59:18.569299+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root final individual acceptance required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-042/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-042/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Actual raw composites show completeblackordinaryChinaLFL long5door/frontquarter, silverCframebumper/windmillwheels/rails and lowfin tip consistent withfrontsourceocclusion; no rearcamera copy."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1586,
+      992
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      33,
+      127,
+      1539,
+      919
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 5560,
+    "detached_max_alpha": 1,
+    "bottom_margin_px": 73,
+    "reason": "Disconnected alpha1dust and bottom73px needcleanup/padding; not unchanged rawtechnicalpass."
+  },
+  "visual_review": "Actually full4032front/rear and localroof/fin crops plus raw/finalgrayblack viewed. ExactChinaLordinaryfaceliftlongbody/quarterglass/overhang, blackpaint withsmoothedneutralhighlights, genuineSILVER VW emblem/broadchromegrille/angularheadlamps/ordinarySILVER OUTER C-FRAMEbumper notRLine. Actualblack-silverwindmillwheels/blackmirrorindicators/chromehandleandwindowlowerdoortrim/blackarchcladding, dualsilverlongrails no crossbars, visible darkroofpanelseams. Realblackcompactfin smalltopnaturallyexposedaboverail withbasehiddennotheightinflated; auxshowswholefin. Coherent FRONT quarter noseRIGHT bothlamps/grille/sideclear, complete roundedtires/mirrors/bumper/roof. No scene/shadow/visiblefringe.",
+  "identity_limits": "Explicit frozenChinaMarketL branch4733x1839x1673 normal330TSIfamily via SAICselfoperatedmodelpositive /source_c/tiguan-L-positive-body-applicability.json andfrozen78118; notEUAllspace/shortTiguan/RLine4735/1859. ActualsourceSAIC/TIGUANL/330TSIrear badge supportsbody butnotVIN/exactengine/grade/manufactureyear. Photo2022-09-23 vs yearunknown. No scalarrecertification. CC BY-SA4.0 JamesYoung8167 author/source/license plusAIadaptation/sharealike retained.",
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-042/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-042/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-042/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-042/input-oss-proof.json",
+  "auxiliary_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-042/auxiliary-source/input-oss-proof.json",
+  "dimensions": [
+    1746,
+    1172
+  ],
+  "margins_px": [
+    113,
+    207,
+    127,
+    173
+  ],
+  "method": "One fullfront+samecarrearauxgen;5560disconnectedalpha1pixelscleared only, allRGB/maincarRGBA unchanged;transparentpad80/80/80/100 noresize.",
+  "tool_cost": "unknown; no monetary tool receipt"
+}
