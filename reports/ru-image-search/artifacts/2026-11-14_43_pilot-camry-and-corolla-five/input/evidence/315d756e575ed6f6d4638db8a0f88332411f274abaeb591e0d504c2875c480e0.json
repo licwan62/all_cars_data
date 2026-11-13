@@ -1,0 +1,52 @@
+{
+  "request_id": "P1-009-R1",
+  "claim_id": "78cbfd914bab417c89c5466e4a877b2f",
+  "input_files": [
+    "/workspace/ru_picture_producer/pilot20/P1/P1-009/P1-009-imagegen-original.png",
+    "/workspace/ru_picture_producer/pilot20/source_b/round4-01/source-thumbnail.jpg"
+  ],
+  "input_sha256s": [
+    "bcd5c235816b23158cc75bf9cbb66c49d611c69d7abfe16ab1c133e036d5746b",
+    "68131c292c7c72b41632440460215661c5c8637bc6f50aa597b90d312fb08616"
+  ],
+  "reason": "Firstoutput nearfront tire touches/clips lastcanvasrow, alpha>=16bbox bottom887 equalsheight887, lastrow alpha194. Purepadding cannot fix croppedwheel; targeted imagegen reframing with complete sourcewheel evidence.",
+  "started_at": "2026-11-13T16:39:52.791819+00:00",
+  "prompt": "Repair the FRAMING of the exact light ivory-silver Japanese Camry V40 sedan in image1. Image2 is the verified original photograph for exact identity and complete tire reference only. The near front tire in image1 touches/cuts at the bottom canvas. Make the SAME whole car about20percent SMALLER within a roomy transparent canvas, with at least100pixels of true transparent breathing room BELOW the complete tire and useful space above roof and beyond both bumpers. Both tires/mirrors/fullroof/rearbumper must be complete. Keep precisely the strong front three-quarter camera facing RIGHT; no side-view drift, no mirroring, no car stretching or perspective change. Preserve all original body proportions, thin chrome horizontal grille with narrow upright GOLD CREAM SHIELD badge (not Toyotaoval), exact V40 lamps/rectangular fogs, original wheelcovers/rainvisors and all details. The second source shows the complete tire, use it to preserve its natural rounded contour. Clean neutral reflections and blank plate. Output only the complete SAME car cutout as true RGBA on totally TRANSPARENT background. No floor, exterior cast/contact shadow, undercar reflection, halo, glow or detached alpha noise.",
+  "prompt_sha256": "1daadd086f8583ab926be75287b99eae16cf61ed6b53409fa9c98c1eb922765b",
+  "status": "returned_saved_pending_review",
+  "transparent_background": true,
+  "accepted": false,
+  "returned_at": "2026-11-13T16:41:07.434452+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-009/repair01/P1-009-R1-imagegen-original.png",
+  "output_sha256": "882561ef895d6872349a962a083df2df69b6b52299364eda63fbab3afcafb5d7",
+  "output_size_bytes": 1166536,
+  "technical": {
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_ge_16_bbox": [
+      230,
+      147,
+      1575,
+      825
+    ],
+    "all_nonzero_alpha_bbox": [
+      219,
+      2,
+      1647,
+      827
+    ],
+    "margins_px": [
+      230,
+      147,
+      199,
+      62
+    ]
+  }
+}
