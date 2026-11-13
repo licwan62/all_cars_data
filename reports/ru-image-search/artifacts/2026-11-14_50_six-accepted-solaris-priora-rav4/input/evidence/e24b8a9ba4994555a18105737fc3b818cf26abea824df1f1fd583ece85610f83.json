@@ -1,0 +1,77 @@
+{
+  "task_id": "RU-30abfabb224b36c2",
+  "dimension_id": "Toyota RAV4 L167.1 W70.3 H66.1 SUV 2003-2006 RU",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-2890415.jpg",
+  "source_sha256": "a5df48f96ea8ca7ff8ca727cd802302683dc91e3e0bada4c63488c35bd6eb4fa",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_RAV4_front_20071009.jpg",
+  "license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Randy43\" title=\"User:Randy43\">Rudolf Stricker</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 3.0",
+    "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 3.0"
+  },
+  "scope_rows": [
+    205,
+    206,
+    207
+  ],
+  "catalog_rank": 19,
+  "source_assigned_at": "2026-11-13T17:31:05.529015+00:00",
+  "source_ready_at": "2026-11-13T17:46:38.637085+00:00",
+  "identity_evidence": {
+    "generation": "II XA20facelift2003–2006",
+    "body": "five-door SUV, four side doors+reartailgate; notshortthree-door",
+    "market_and_variant": "EuropeanD4Dstyle verifiedfitsfrozengeneric5doorrequirement, becauseupstreamactuallyincludes2.0dAT/MT116hp4WD; notsimplynon-Russian-specdisclaimer",
+    "independent_identity_review": {
+      "file": "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variant-review.json",
+      "sha256": "930e2e1082f8db1c2fd2f5af10a1da3498a8d99aec7c35278e05de6bd06a70f2",
+      "decision": "pass_reference_identity_Europe_facelift_5door_D4D_representative",
+      "positive_target_grade_scope": "冻结原始/迁移上游明确包含2.0d MT116hp4WD及AT条目；本次只按厂家独立确认的2.0D4D欧洲五门柴油外观代表，不认证个体变速箱/动力/VIN。",
+      "specific_upstream_diesel_json_pointers": [
+        "$/rows/72251",
+        "$/rows/72252"
+      ],
+      "positive_independent_evidence": [
+        {
+          "url": "https://media.toyota.co.uk/2004-model-year-toyota-rav4-gets-the-x-factor/",
+          "published": "2003-09-29",
+          "finding": "2004modelyear facelift从2003-10销售；明确新格栅/杠/灯/雾灯，五门XT2/XT3/XT4皆有2.0D4D。"
+        },
+        {
+          "url": "https://media.toyota.co.uk/images/rav4-5-door-d-4d-2001-2006/",
+          "gallery_title": "RAV4 5-Door D-4D (2001–2006)",
+          "actual_viewed_images": [
+            "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variants/b31-e1659437733704.jpg",
+            "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variants/c39.jpg",
+            "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variants/ba17.jpg"
+          ],
+          "finding": "三张官方前方图均5door/同改款横中条格栅/圆雾灯/机盖勺，c39底部明确ToyotaRAV4D4D Issued12/2004，证明本源进气勺是目标含有的真实柴油配置外观。"
+        }
+      ],
+      "limits": [
+        "限RU-30ab...所列长五门改款配置的D4D式代表，不覆盖短三门或2000–03原款。",
+        "保留真机盖勺/圆雾灯/轨，不换成primary平机盖，不抄厂家轮型/颜色。",
+        "不认证精确生产年、发动机/变速箱、grade或本源标量实测。厂家UK规格全车长4265与冻结原数据4245口径存在20mm差异，四门/柴油外观适用依据来自目标明确列柴油及同阶段官方外观；本次不重认证或修改冻结尺寸，未将尺寸差当作某个独立柴油套件的证据。",
+        "所有厂家/primary图仅身份参考，生产仍只可用sourceC许可源，源OSS及成品技术验收另行完成。"
+      ]
+    },
+    "source_record": "/workspace/ru_picture_producer/pilot20/source_c/rav4-xa20-more-front-downloads.json",
+    "visual_review": {
+      "reviewer": "source_c",
+      "reviewed_at": "2026-11-13T17:46:38.637085+00:00",
+      "original_actually_viewed": true,
+      "observation": "黑XA20改款长五门SUV，真实中央hood进气勺/单粗中横条meshToyota格栅/更新灯壳内外上圆灯、圆雾灯，四侧门/长后货窗/顶纵轨。朝左前，全车胎镜轮廓在源内但后身前向透视压缩，生成需整体相机一致并核五门长度。原像素roofcrop确认真倾斜短杆及银色端帽完整在源内近上缘，保留杆/帽/轨，不删勺不抄primary平盖。行人/伞车/树影非部件。",
+      "roof_pixel_evidence": "/workspace/ru_picture_producer/pilot20/source_c/previews/rav4-xa20-d4d-roof-check.jpg"
+    },
+    "four_timepoints": {
+      "model_year": "Exactmanufactureyearunknown; target2003–06phase andD4DbodylinkedbyAofficial12/2004image, notphotodate",
+      "photographed": "2007-10-09",
+      "commons_file_timestamp": "2007-10-09T18:23:12Z",
+      "current_downloaded": "2026-11-13T17:31:12.204138+00:00",
+      "source_assigned_at": "2026-11-13T17:31:05.529015+00:00",
+      "source_ready_at": "2026-11-13T17:46:38.637085+00:00"
+    },
+    "limits": "Preserve realD4Dhoodscoop/antenna/rails; noindividualengine/transmission/VINcertification. UK4265mmandfrozen4245mm20mmdiscrepancyretainedasAexception, notrecertified orhandcorrected. OfficialcomparisonimagesneverinputtoImageGen."
+  }
+}

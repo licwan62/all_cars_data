@@ -1,0 +1,76 @@
+{
+  "request_id": "P1-022",
+  "claim_id": "f249e5fceae142c99004a1c1b4a9cffa",
+  "task_id": "RU-0b496955d93e24e7",
+  "dimension_id": "Hyundai Solaris Sedan 2014-2017 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_d/solaris-02-original.jpg",
+  "input_sha256": "21edb76c3c47c08f7a1f67d2dad81ce8bd9157990fd47b8cdd2841715857300d",
+  "input_dimensions": [
+    2247,
+    1048
+  ],
+  "source_page": "https://commons.wikimedia.org/wiki/File:2014-2017_Hyundai_Solaris_Sedan_(front).jpg",
+  "source_license": {
+    "identifier": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Self-Proclaimed-Car-Enthusiast&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Self-Proclaimed-Car-Enthusiast (page does not exist)\">Self-Proclaimed-Car-Enthusiast</a>",
+    "revision": "https://commons.wikimedia.org/w/index.php?oldid=864428288"
+  },
+  "assigned_at": "2026-11-13T18:00:01.118069+00:00",
+  "material_ready_at": "2026-11-13T18:01:14.169402+00:00",
+  "started_at": "2026-11-13T18:01:14.169402+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-022/repair01/deterministic-repair/padded-canvas/SolarisFaceliftSedan-roomy-transparent.png",
+  "candidate_sha256": "b0a670c9f58395af88d7682d1bdfc419a3c216c4852bd4b0f7f66ce6644de708",
+  "worker_reviewed_at": "2026-11-13T18:06:22.403449+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "Coordinator finalindividualacceptance required.",
+  "raw_visual_first_draft_pass": false,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-022/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-022/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Firstrawidentity/body/frontcameraacceptable, butpaint hadcloud-shapedoutdoorsceneryreflections notneutralstudio; one paidtargetedrepair removedcloudforms."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1721,
+      914
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      29,
+      22,
+      1674,
+      908
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 488,
+    "detached_max_alpha": 2,
+    "bottom_margin_px": 6,
+    "reason": "Disconnected lowalpha dust and insufficient transparentbottommargin; deterministicclean/pad not counted unchangedrawpass."
+  },
+  "visual_review": "Actuallyviewedsource2247/roofcrop, rawfirstgrayblack andfinalgrayblack. Correct RBRfaceliftSedan fourdoors/separatetrunk, sourcewheels, graymirrors/handles/clearrepeaters, sweptlamps/twochromebars/Hyundaioval/horizontalDRLfogs retained. Frontcamera coherent andmorefrontal than source. Realshortrearroofslantwhip/base retained, sourceDcorrection independentlysupports; all tiresround/full. R1replacedcloudpaintreflectionswithsmoothneutralsoftbox, noexternalshadow/sceneryorvisiblealphafringe.",
+  "source_identity_supplement": "/workspace/ru_picture_producer/pilot20/source_d/solaris-identity-supplement.json",
+  "identity_limits": "RussianSolaris phase representative; Finlandphotolocation separate, photograph2017 notexactmanufacture/VIN proof.",
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-022/repair01/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-022/repair01/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-022/repair01/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-022/input-oss-proof.json",
+  "dimensions": [
+    1881,
+    1094
+  ],
+  "margins_px": [
+    108,
+    97,
+    124,
+    106
+  ],
+  "method": "One initialgen+one source-backed reflectionrepair. R1remove127disconnectedalpha1pixels only, allmainRGBAunchanged; puretransparentpad noresampling."
+}

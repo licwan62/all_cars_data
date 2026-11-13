@@ -1,0 +1,83 @@
+{
+  "request_id": "P1-021",
+  "claim_id": "ebc89db1b303485d9e3e39a491fe42c3",
+  "task_id": "RU-30abfabb224b36c2",
+  "dimension_id": "Toyota RAV4 L167.1 W70.3 H66.1 SUV 2003-2006 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-2890415.jpg",
+  "input_sha256": "a5df48f96ea8ca7ff8ca727cd802302683dc91e3e0bada4c63488c35bd6eb4fa",
+  "input_dimensions": [
+    1530,
+    1242
+  ],
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_RAV4_front_20071009.jpg",
+  "source_license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Randy43\" title=\"User:Randy43\">Rudolf Stricker</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 3.0",
+    "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 3.0"
+  },
+  "assigned_at": "2026-11-13T17:56:58.810831+00:00",
+  "material_ready_at": "2026-11-13T17:57:41.225146+00:00",
+  "started_at": "2026-11-13T17:57:41.225146+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-021/deterministic-repair/padded-canvas/RAV4XA20D4D-roomy-transparent.png",
+  "candidate_sha256": "287d4550cee54a588d15117f4abd7148b927de80ac7d7e92261d0d638bfbbcfd",
+  "worker_reviewed_at": "2026-11-13T17:59:42.851893+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "Ready for coordinator finalindividualacceptance; worker does not approve.",
+  "visual_review": "Actuallyviewedsource1530x1242andindependentroofcrop thenlosslessfinalgray/black. Clear5doorlongbody andscoop, faceliftmeshbar/Toyotaoval, compoundlamps/roundfogs, 5spokealloys andsourcebodymoldings remain; longrails andslantantenna/silvercap intact. Complete3visibletires insideframe withroundedoutlines, frontquarterfront/sidesinglecamera, nomodelcrossbaradded. Firsttoolrawdisplayglow washiddenRGB, properalpha-composites showclearflatbackground; removeddisconnectedlowalphaonly. Sourcehoodtreesremoved forstudiohighlights, sourcewindscreenstickerretained.",
+  "identity_limits": "Preserve realD4Dhoodscoop/antenna/rails; noindividualengine/transmission/VINcertification. UK4265mmandfrozen4245mm20mmdiscrepancyretainedasAexception, notrecertified orhandcorrected. OfficialcomparisonimagesneverinputtoImageGen.",
+  "positive_identity_review": {
+    "file": "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variant-review.json",
+    "sha256": "930e2e1082f8db1c2fd2f5af10a1da3498a8d99aec7c35278e05de6bd06a70f2",
+    "decision": "pass_reference_identity_Europe_facelift_5door_D4D_representative",
+    "positive_target_grade_scope": "冻结原始/迁移上游明确包含2.0d MT116hp4WD及AT条目；本次只按厂家独立确认的2.0D4D欧洲五门柴油外观代表，不认证个体变速箱/动力/VIN。",
+    "specific_upstream_diesel_json_pointers": [
+      "$/rows/72251",
+      "$/rows/72252"
+    ],
+    "positive_independent_evidence": [
+      {
+        "url": "https://media.toyota.co.uk/2004-model-year-toyota-rav4-gets-the-x-factor/",
+        "published": "2003-09-29",
+        "finding": "2004modelyear facelift从2003-10销售；明确新格栅/杠/灯/雾灯，五门XT2/XT3/XT4皆有2.0D4D。"
+      },
+      {
+        "url": "https://media.toyota.co.uk/images/rav4-5-door-d-4d-2001-2006/",
+        "gallery_title": "RAV4 5-Door D-4D (2001–2006)",
+        "actual_viewed_images": [
+          "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variants/b31-e1659437733704.jpg",
+          "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variants/c39.jpg",
+          "/workspace/ru_picture_producer/pilot20/identity_a/rav4-xa20-variants/ba17.jpg"
+        ],
+        "finding": "三张官方前方图均5door/同改款横中条格栅/圆雾灯/机盖勺，c39底部明确ToyotaRAV4D4D Issued12/2004，证明本源进气勺是目标含有的真实柴油配置外观。"
+      }
+    ],
+    "limits": [
+      "限RU-30ab...所列长五门改款配置的D4D式代表，不覆盖短三门或2000–03原款。",
+      "保留真机盖勺/圆雾灯/轨，不换成primary平机盖，不抄厂家轮型/颜色。",
+      "不认证精确生产年、发动机/变速箱、grade或本源标量实测。厂家UK规格全车长4265与冻结原数据4245口径存在20mm差异，四门/柴油外观适用依据来自目标明确列柴油及同阶段官方外观；本次不重认证或修改冻结尺寸，未将尺寸差当作某个独立柴油套件的证据。",
+      "所有厂家/primary图仅身份参考，生产仍只可用sourceC许可源，源OSS及成品技术验收另行完成。"
+    ]
+  },
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-021/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-021/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-021/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-021/input-oss-proof.json",
+  "dimensions": [
+    1696,
+    1204
+  ],
+  "margins_px": [
+    171,
+    108,
+    140,
+    110
+  ],
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "method": "Single source-backedimagegen, only7799disconnectedpixelsmaxalpha2cleared; allmainRGBAunchanged; puretransparentcanvaspad noresampling."
+}
