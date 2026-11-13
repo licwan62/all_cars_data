@@ -164,6 +164,15 @@ def execute(args):
         verify_source(records[0], base)
         verify_scope(records[0], load_scope(args.checkpoint))
         plan = load_plan(args.retake_plan, args.plan_file)
+    if args.command == 'requeue-held':
+        source_record_sha256 = hashlib.sha256(Path(args.file).resolve().read_bytes()).hexdigest()
+        base, records = read_records(args.file)
+        if len(records) != 1:
+            raise ValueError('requeue-held accepts exactly one complete new source record')
+        verify_source(records[0], base)
+        verify_scope(records[0], load_scope(args.checkpoint))
+        if any(records[0].get(k) for k in ('retake', 'plan_id', 'replaces_sha256', 'replaces_output_sha256')):
+            raise ValueError('requeue-held is only for ordinary configurations; planned retakes require reopen-retake')
     result = None
     if args.command == 'submit-review':
         result_path = Path(args.result).resolve(strict=True)
@@ -205,6 +214,51 @@ def execute(args):
                 pressure(state)
             output = {'added': added, 'duplicates': duplicates, 'blocked': blocked,
                       'enqueue_paused': state['enqueue_paused'], 'ready': pressure(state)}
+        elif args.command == 'requeue-held':
+            record = records[0]
+            key = identity(record)
+            formal = current_state(args.checkpoint)
+            requirement = formal['requirements'].get(key)
+            if requirement is None or key in formal['by_key'] or requirement.get('state') == 'accepted':
+                raise ValueError('requeue-held requires an unaccepted ordinary configuration in current formal scope')
+            if set(record['scope_rows']) != set(requirement['scope_rows']):
+                raise ValueError('requeue-held scope_rows must exactly match current requirement')
+            matches = [i for i in state['items'] if identity(i) == key]
+            if len(matches) != 1 or matches[0]['status'] != 'hold':
+                raise ValueError('requeue-held requires exactly one current hold item; active/ready/done cannot be overwritten')
+            old = matches[0]
+            if old.get('retake') or old.get('plan_id'):
+                raise ValueError('requeue-held cannot reopen a planned retake')
+            if args.expected_claim is not None and old.get('claim_id') != args.expected_claim:
+                raise ValueError('stale expected claim: current hold ownership changed')
+            if args.expected_source_sha256 is not None and old.get('source_sha256') != args.expected_source_sha256:
+                raise ValueError('stale expected source SHA: current hold input changed')
+            if old.get('source_sha256') == record['source_sha256']:
+                raise ValueError('requeue-held requires a different new source SHA')
+            if state['enqueue_paused']:
+                raise ValueError('ready inventory paused; retry requeue-held below low watermark')
+            reopened_at = now()
+            item = copy.deepcopy(record)
+            for field in ('worker','claim_id','claimed_at','review','resolutions','retake','retake_history','retry','retry_history','imported_existing'):
+                item.pop(field, None)
+            item.update(status='ready', enqueued_at=reopened_at,
+                retry={'operation':'requeue-held','actor':args.actor,'requeued_at':reopened_at,
+                    'previous_claim_id':old.get('claim_id'),'previous_source_sha256':old.get('source_sha256'),
+                    'checkpoint_sha256':formal['checkpoint_sha256']})
+            if formal['cp_path'].read_bytes() != formal['cp_raw']:
+                raise ValueError('checkpoint changed while requeuing held source; retry')
+            if hashlib.sha256(Path(args.file).resolve().read_bytes()).hexdigest() != source_record_sha256:
+                raise ValueError('new source handoff changed during requeue; retry')
+            state.setdefault('retry_history', []).append({'operation':'requeue-held','actor':args.actor,
+                'task_id':key[0],'dimension_id':key[1],'requeued_at':reopened_at,
+                'previous_hold_item':copy.deepcopy(old),'new_source_sha256':item['source_sha256'],
+                'new_source_record_file':str(Path(args.file).resolve()),
+                'new_source_record_sha256':source_record_sha256, 'new_source_record':copy.deepcopy(record),
+                'expected_claim':args.expected_claim,'expected_source_sha256':args.expected_source_sha256})
+            state['items'][state['items'].index(old)] = item
+            output = {'status':'ready','task_id':key[0],'dimension_id':key[1],
+                'previous_claim_id':old.get('claim_id'),'source_sha256':item['source_sha256'],
+                'ready':pressure(state),'enqueue_paused':state['enqueue_paused']}
         elif args.command == 'reopen-retake':
             record = records[0]
             formal = current_state(args.checkpoint)
@@ -329,6 +383,12 @@ def main():
     withdraw.add_argument('--task', required=True)
     withdraw.add_argument('--dimension', required=True)
     withdraw.add_argument('--evidence', required=True)
+    retry = commands.add_parser('requeue-held', help='root-only new-source retry of one held unaccepted ordinary configuration')
+    retry.add_argument('--actor', choices=('root',), required=True)
+    retry.add_argument('--file', required=True)
+    expected = retry.add_mutually_exclusive_group(required=True)
+    expected.add_argument('--expected-claim')
+    expected.add_argument('--expected-source-sha256')
     reopen = commands.add_parser('reopen-retake', help='root-only explicit planned rear-to-front reopening of one done item')
     reopen.add_argument('--actor', choices=('root',), required=True)
     reopen.add_argument('--file', required=True)
