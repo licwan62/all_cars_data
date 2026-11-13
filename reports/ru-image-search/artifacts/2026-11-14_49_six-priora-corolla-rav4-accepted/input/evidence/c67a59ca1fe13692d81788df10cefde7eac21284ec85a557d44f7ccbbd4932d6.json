@@ -1,0 +1,87 @@
+{
+  "request_id": "P1-019",
+  "claim_id": "ab5ae35dbef14b928de9d5173a655ac6",
+  "task_id": "RU-008d9d751b050ab6",
+  "dimension_id": "Toyota RAV4 L145.9 W66.7 H65.0 SUV 1994-2000 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-200271861.jpg",
+  "input_sha256": "c37a2eb326278a7dcea21ea0504b6d12252ba405544a4c060e21b2f8ffc0b672",
+  "input_dimensions": [
+    6016,
+    4016
+  ],
+  "input_role": "full verified source original",
+  "source_page": "https://commons.wikimedia.org/wiki/File:1994_Toyota_RAV4_(SXA10)_2-Door_Wagon.jpg",
+  "source_license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Coolalabright&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Coolalabright (page does not exist)\">Coolalabright</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "UsageTerms": "Creative Commons Attribution 4.0"
+  },
+  "queue_claim": {
+    "task_id": "RU-008d9d751b050ab6",
+    "dimension_id": "Toyota RAV4 L145.9 W66.7 H65.0 SUV 1994-2000 RU",
+    "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-200271861.jpg",
+    "source_sha256": "c37a2eb326278a7dcea21ea0504b6d12252ba405544a4c060e21b2f8ffc0b672",
+    "source_page": "https://commons.wikimedia.org/wiki/File:1994_Toyota_RAV4_(SXA10)_2-Door_Wagon.jpg",
+    "license": {
+      "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Coolalabright&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Coolalabright (page does not exist)\">Coolalabright</a>",
+      "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "LicenseShortName": "CC BY 4.0",
+      "LicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "UsageTerms": "Creative Commons Attribution 4.0"
+    },
+    "scope_rows": [
+      205,
+      206,
+      207
+    ],
+    "catalog_rank": 19,
+    "identity_evidence": {
+      "generation": "I XA10/SXA10",
+      "body": "short hard-top three-door SUV, two side doors+rear tailgate; not longfive-door orsoft-top",
+      "market": "Japan ToyotaAutomobileMuseum specimen; no Russianfactoryspec assertion",
+      "frozen_mapping": {
+        "file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+        "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+        "literal": "RU|toyota/rav_4|I (XA10)|1994-2000|SUV 3-door|-|-",
+        "target": "Toyota RAV4 L145.9 W66.7 H65.0 SUV 1994-2000 RU"
+      },
+      "primary_specimen_identity": "Actualmanufacturerexhibitfrontplate readsTOYOTA RAV4 1994; exhibitplacardvisiblebottomright namesRAV4 SXA10型. Matches shortthree-doorphoto body and frozenI(XA10)3-door ratherthan inferringbodyfrom scalar145.9.",
+      "source_record": "/workspace/ru_picture_producer/pilot20/source_c/rav4-xa10-front-downloads.json",
+      "visual_review": {
+        "reviewer": "source_c",
+        "time": "2026-11-13T17:07:36.700597+00:00",
+        "original_fullframe_preview_viewed": true,
+        "observation": "红第一代XA10短三门硬顶SUV，一侧一门/短货窗/陡后尾、初发矩形大灯/小圆孔mesh上格栅/琥珀杠灯，黑镜把手/灰防擦包围/银五孔轮。前真镀铬护杠+BOSCH黄辅灯/车侧RAV4图形均在源，不认证为特殊版本，不从普通版添改；保持该实物附件。朝右前，整车胎镜与护杠完整；前轮展台轮挡/说明牌/邻车非车体，生成移除。未见长杆鳍不添。"
+      },
+      "four_timepoints": {
+        "model_year": "1994 actualmanufacturerexhibitlabel/sourcecaption, not individualVIN proof",
+        "photographed": "2025-11-05 11:26:26",
+        "commons_file_timestamp": "2026-09-26T06:03:21Z",
+        "current_downloaded": "2026-11-13T17:05:24.625237+00:00"
+      },
+      "limits": "No engine/drivetrain/grade or scalar dimensions certification. Sourceequipmentexactroleidentityreference; no assertion of factory versuspostfitbullbar status. Source24MPoriginal6016x4016 preserved, previewseparate."
+    },
+    "status": "producing",
+    "enqueued_at": "2026-11-13T17:07:36.752300+00:00",
+    "worker": "P1",
+    "claim_id": "ab5ae35dbef14b928de9d5173a655ac6",
+    "claimed_at": "2026-11-13T17:50:34.595534+00:00"
+  },
+  "assigned_at": "2026-11-13T17:50:34.595534+00:00",
+  "material_ready_at": "2026-11-13T17:51:37.882194+00:00",
+  "started_at": "2026-11-13T17:51:37.882194+00:00",
+  "status": "returned_saved_needs_review",
+  "prompt": "Create a precise photorealistic catalog cutout of ONLY this red 1994 first-generation Toyota RAV4 XA10/SXA10 SHORT THREE-DOOR HARDTOP SUV. Use the reference front three-quarter/half viewpoint, nose pointing RIGHT, showing rectangular early headlamps, perforated small-hole upper grille, amber bumper lamps and near side, with coherent whole-car perspective. Preserve short wheelbase, two side doors plus rear tailgate, short rear cargo windows, steep rear, red paint with gray lower cladding/bumper, black mirrors and door handles, amber front fender repeater, actual silver five-opening wheels and tires, exact front chrome tubular bullbar with BLACK rubber lower bumper pads and the TWO YELLOW BOSCH auxiliary lamps with their real black guards and BOSCH markings, and original turquoise RAV4 side graphic. These are visible source vehicle accessories: do not omit, substitute or certify them as factory trim. Keep real badges, auxiliary-lamp BOSCH labels and side graphic; erase ONLY the front exhibition license plate text and leave a plain white plate. Keep closed hardtop roof and source rear upper hardware; do not add unsupported antenna masts, roof rails, crossbars, spare wheel on roof or soft top. Remove exhibit wheel blocks, floor, plaques, furniture, wall screens, neighboring cars and ALL external cast/contact shadows and undercar ground reflections. Replace yellow museum illumination and busy environmental reflections with clean neutral studio softbox highlights on red paint/chrome, retain realistic opaque glass/interior, no background scenery in windows. Render COMPLETE original tires, mirrors, roof and bullbar without cropping and with ample true transparent space on ALL sides; place vehicle somewhat smaller than full canvas so bottom wheel arcs are clearly rounded and above canvas edge. Actual RGBA PNG with fully transparent background, fine antialiasing only at car edges, no bright halo, detached pixels, ground, checkerboard or shadow.",
+  "prompt_sha256": "11e2167e5f9652afa1c567b981eb7ec81156cda8567d8b699e0cd8d50aed3abe",
+  "transparent_background": true,
+  "generator": "builtin_image_gen",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "visual_precheck": "Viewed actual6016x4016 source at1500px. Short3door hardtop, strongfrontquarter; red/gray, Toyota original early lamps/grille; real tubularchrome bullbar and2yellowBOSCHlamps, sidegraphic; no source mast/rails/crossbars. Complete tires except museum wheelblock atnearcontact to remove. Plate exhibit1994 notVIN proof. Japanese museum notRussianfactoryspec. No scalar dimension certification.",
+  "returned_at": "2026-11-13T17:52:55.283043+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-019/P1-019-imagegen-original.png",
+  "output_sha256": "efa6dc5eb2312fcbf220018bd2e64cd3cea172f8c561f1845808d7aec5c13957",
+  "output_size_bytes": 1572976
+}

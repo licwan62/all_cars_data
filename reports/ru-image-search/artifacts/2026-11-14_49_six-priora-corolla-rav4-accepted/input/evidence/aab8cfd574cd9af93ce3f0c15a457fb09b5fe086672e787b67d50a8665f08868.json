@@ -1,0 +1,115 @@
+{
+  "request_id": "P2-022-Corolla-E110-FL-Hatch-repair01",
+  "claim_id": "b6eded71112c4dbfbfd11f03084277f0",
+  "task_id": "RU-e9befa6894b5d8ad",
+  "dimension_id": "Toyota Corolla Hatchback 1997-2002 RU",
+  "scope_rows": [
+    29,
+    33,
+    35,
+    37,
+    38
+  ],
+  "input_file": "/workspace/ru_picture_producer/pilot20/P2/P2-022-Corolla-E110-FL-Hatch/candidate.png",
+  "input_sha256": "1f9be0834928f3a83b6ee16e5ee8d35f4a995c07700587b85d3c4d99c81eb450",
+  "input_dimensions": [
+    1505,
+    888
+  ],
+  "input_role": "Commons original JPEG1505x888",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota-Corolla-2001-European-Facelift-Hatchback.jpg",
+  "source_times": {
+    "model_year": "2000–2001 primarycaption clue, noVIN; European2000facelift withinfrozenaggregate1997–2002, not1997newfaceclaim",
+    "photographed": "7/4/06 (source ambiguous numeric date retained; not normalized to guessed day/month)",
+    "commons_file_timestamp": "2007-10-05T19:45:25Z",
+    "current_downloaded": "2026-11-13T16:54:27.164907+00:00"
+  },
+  "license": {
+    "Artist": "WEKS",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "Public domain",
+    "UsageTerms": "Public domain",
+    "Permission": "All Rights Released"
+  },
+  "adaptation_terms": "WEKS own-work PublicDomain/AllRightsReleased; retain source and changes.",
+  "adaptation_changes": "AI cleantransparentcutout, scenery/reflections/platecharacters removed, genuine washerblocks/rod/partopenwindow retained.",
+  "identity_evidence": {
+    "generation": "E110Europe2000–2002faceliftrepresentative",
+    "body": "short three-door Hatchback, not five-doorLiftback",
+    "market": "EuropeFinland explicitlyprimarydescription, sameEuropeanfrontfamilyasfrozencatalog",
+    "primary_description": "2000-2001 Toyota Corolla (European facelift hatchback) photographed in Southern Finland.",
+    "independent_phase_boundary": {
+      "file": "/workspace/ru_picture_producer/pilot20/identity_a/e90-e110-boundaries.json",
+      "judgment": "E110_facelift",
+      "catalog_image": "/workspace/ru_picture_producer/pilot20/identity_a/E110-Hatch-autoru-facelift.jpg",
+      "official_source": "https://media.toyota.co.uk/new-corolla-in-the-uk-market/"
+    },
+    "source_record": "/workspace/ru_picture_producer/pilot20/source_c/e110-facelift-1269770.json",
+    "visual_review": {
+      "reviewer": "source_c",
+      "time": "2026-11-13T16:55:09.234873+00:00",
+      "original_actually_viewed": true,
+      "observation": "银欧E110改款短三门Hatch，两长侧门/短尾与大独立后窗，连体双圆反射器主灯壳/外小转向灯/宽横格Toyota徽、低横口/两黑角盖/真实前杠双黑洗灯块、银多辐轮/车色镜把手侧条、真短顶杆。朝右前，全车胎镜杆尖完整，近侧前窗半开按源保留；源低光不能声称高细节。与AFL目录连体双圆灯家族相符，不混1997初发单独圆灯脸。"
+    },
+    "four_timepoints": {
+      "model_year": "2000–2001 primarycaption clue, noVIN; European2000facelift withinfrozenaggregate1997–2002, not1997newfaceclaim",
+      "photographed": "7/4/06 (source ambiguous numeric date retained; not normalized to guessed day/month)",
+      "commons_file_timestamp": "2007-10-05T19:45:25Z",
+      "current_downloaded": "2026-11-13T16:54:27.164907+00:00"
+    },
+    "limits": "Own-workWEKS AllRightsReleased/PD-user currentgrant. No exactgrade,washerpackage,engine,manufacturingyear or scalar dimensions certified; preserve actualsourceequipment."
+  },
+  "source_preflight": "Actualoriginal1505x888 viewed: silver short3doorHatch, connected twinroundreflector darkhousing/cornerlamps, widehorizontalgrille centerToyotaellipse, actualdoubleblackbumperwasherblocks, silvermultispokewheels and trim, halfopen nearfrontwindow and realshortfrontroofrod. Fulltires/mirrors/tip; dimsource fine detail limit retained. No LS/engine badge invented.",
+  "reuse_check": "Exclusiveclaim; distinct FL task from P2-020 originalstage; no source or generatedfront mixing.",
+  "prompt": "Edit image1 ONLY to correct its overlong ROOF ANTENNA to the actual very short stubby diagonal rod in image2 original. Current image1 rod is about110 pixels long for1450pixel car; actual source rod is only about35pixels for1400pixelcar. SHORTEN THE ROD TO ONE THIRD current length, retain tiny actual blackbase and gentle rearwardlean in same rooflocation. Final rod extends only about30to40pixels abovebase, not longwhip, not sharkfin and not entirelydeleted. Preserve ALL other car identity/perspective/framing: silver EuropeanfaceliftE110 three-door Hatch, joined twinround headlamp housing/centergrilleToyotaellipse, true blackdoublebumperwasherblocks, multispokewheels/fulltires, halfopenfrontwindow, mirrors and body. Genuine transparent background with no floor/shadow/glow; whole car within clear80pxmargins, no croppedparts. Do not add engine or trim badge.",
+  "prompt_sha256": "77a8710bcc7501f71fd013a4e62cd1e042a40106f1ba0a2188adc50c260dec78",
+  "generator": "builtin_image_gen",
+  "transparent_background": true,
+  "state": "visually_reviewed_pending_oss",
+  "production_accepted": false,
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T17:48:07.846880+00:00",
+    "request_submitted_utc": "2026-11-13T17:48:07.846880+00:00",
+    "result_returned_utc": "2026-11-13T17:48:49Z",
+    "review_completed_utc": "2026-11-13T17:49:54.753117+00:00"
+  },
+  "output_file": "/workspace/ru_picture_producer/pilot20/P2/P2-022-Corolla-E110-FL-Hatch/repair01/attempt01.png",
+  "output_sha256": "d2d1a2b752dcb705777c1dc0701d6274cd13c24b79b19f2e256c1f10e6c547b4",
+  "technical": {
+    "raw_sha256": "d2d1a2b752dcb705777c1dc0701d6274cd13c24b79b19f2e256c1f10e6c547b4",
+    "clean_sha256": "df57a518b789250d27ddaf14aca7bd637a1a998575ffa84228f86a739a34e7c9",
+    "padded_sha256": "b5c83676f7703a4392c359875649e3d1a39e9d0c31b773ff58f2eab38462dfe3",
+    "removed_pixels": 4940,
+    "removed_max_alpha": 4,
+    "vehicle_rgba_unchanged": true,
+    "padding_left_top_right_bottom": [
+      25,
+      0,
+      36,
+      12
+    ],
+    "exact_translation_rgba_equal": true,
+    "size": [
+      1597,
+      1036
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "bbox": [
+      80,
+      155,
+      1517,
+      936
+    ],
+    "margins": [
+      80,
+      155,
+      80,
+      100
+    ]
+  },
+  "failure_observation": "Source shortroofrod about35px on1400px car; generated rod about110px on1450px car, overlong. Body/lamps/washerblocks/tires otherwise pass.",
+  "source_original_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-1269770.jpg"
+}
