@@ -1,0 +1,59 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_07_oss-config-recovered",
+  "version": "20261113_07",
+  "description": "oss-config-recovered",
+  "created_at": "2026-11-13T05:50:45+00:00",
+  "finished_at": "2026-11-13T05:50:46+00:00",
+  "command": [
+    "-"
+  ],
+  "inputs": [
+    {
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_06_cloud-production-readiness/output/progress-20261113_06.json",
+      "sha256": "8e0651384b3fa6328d2f3d4812f28a005b4bf327cdd286b0db52673d5f2bec1b",
+      "basis": "prior production checkpoint retained, readiness updated separately"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "生产/老车续作_20261113/本轮执行报告.json",
+      "basis": "actual prior endpoint and allowed-host evidence"
+    },
+    {
+      "repository": "https://github.com/licwan62/main_picture_producer",
+      "git_commit": "bfd99908f93635e4aba1e3d6f95297dde114dc25",
+      "file": "资产/配置测试/20261107-150145-8b68a72a.json",
+      "basis": "prior verified backend identity"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "6032c02bb562f92e97befa54b4f5fbfdc46763b9",
+    "files": []
+  },
+  "outputs": [
+    {
+      "file": "oss-recovery.json",
+      "versioned_file": "oss-recovery-20261113_07.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_07_oss-config-recovered/output/oss-recovery-20261113_07.json",
+      "content_reference": true,
+      "sha256": "770a0bb687796dd9fcbe5e35649fbddaee3e72a484bd27697db65ae5c2aa36d3",
+      "bytes": 2387,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "scope": "configuration recovery verified; asset GET blocked",
+    "config_restored": true,
+    "get_attempted": true,
+    "downloaded": false,
+    "accepted_images": 0
+  }
+}
