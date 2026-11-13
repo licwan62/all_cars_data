@@ -1,0 +1,562 @@
+{
+  "description": "corolla-e160-2012-and-e140-original-six-bodies",
+  "actual_visual_review_complete": true,
+  "jobs_file": "/workspace/scratch/ru-corolla36-accept-jobs.json",
+  "generation_job_files": [
+    "/workspace/scratch/ru-corolla36-jobs.json",
+    "/workspace/scratch/ru-corolla36-repair-jobs.json",
+    "/workspace/scratch/ru-corolla36-axio-repair-jobs.json"
+  ],
+  "source_manifest_files": [
+    "/workspace/scratch/ru-corolla36-six-sources.json"
+  ],
+  "existing_source_manifest_files": [],
+  "observations": [
+    "棕日规E160初发Axio四门紧凑三厢，垂直镀铬格栅/矩形灯/普通下口/银合金轮和同色镜把手对应，保持朝右前侧，无源可见鳍杆不新增。首稿C族徽误换Toyota三椭圆已保留失败，单次修复恢复源C族银黑徽。源/灰深底实际核整车轮胎镜完整底40px，无场景残片/外投影；2012官方发布照片仅身份核，不作许可源。",
+    "紫E160初发Fielder Aerotourer族长顶Wagon，侧窗/门/纵轨、真实后短杆与低spoiler、小上格栅/圆雾灯/运动裙边/源小多辐轮对应，朝右前侧，不代2015或E210。源轮运动轻糊如实记录不作OEM认证，源黄挂件保留。源/灰深底实际核完整胎镜轨杆留边，无场景残片/外投影。",
+    "蓝灰E170全球初发Sedan，三水平上镀铬条/大角灯/圆雾灯黑角饰/长三厢/银多辐轮/雨挡对应，朝右前侧；无源可见天线，不复制后方白Van鳍架。源/灰深底实际核全车胎镜完整，去石地草丝/邻车树影牌字，无明显残片/外投影；不冒日规Axio。",
+    "灰E140全球原款四门Sedan，旧大上扬灯/黑横格栅/下口黑角空白盖/银轮罩/同色镜把手对应，保持源近侧前视朝左，无新增屋顶附件。实际源/灰深底核全车轮胎镜完整有留边，去公园石地树反光/牌字，无明显场景碎片或外投影。",
+    "白E140原Axio紧凑Sedan，保持真实后侧视朝左/尾朝右，矩形红清尾灯/完整尾箱/AXIO与Toyota尾徽/银轮罩/白镜把手对应，不凭空展示前脸。Flickr2008年3月上传先于2008年10月改款独立界定。源/灰深底实际核全胎镜完整，无新增鳍杆，去帐篷红毯/临时彩贴/牌字，无明显残片或外投影。",
+    "银E140原Fielder长顶Wagon，原方灯/两排网格与横镀铬条/C族徽/普通黑雾灯空白盖/银轮罩/雨挡对应，朝右前侧。放大源确认后侧屋顶短细杆真实，纠正初始无天线注释，保留该杆。首稿误换Toyota徽已保留失败，单次修复恢复C族徽。源/灰深底实际核整车胎镜杆完整留边，去邻车绿桶地面脏污，无明显碎片/外投影；alpha最高254原生保留。"
+  ],
+  "scratch_result_file": "/workspace/scratch/ru-corolla36-accepted.json",
+  "nonadopted": [
+    {
+      "job_file": "/workspace/scratch/ru-corolla36-jobs.json",
+      "index": 0,
+      "reason": "Source Corolla C-family grille emblem changed to Toyota triple ellipse; directed badge repair accepted. Actual roof aerial ownership separately corrected from enlarged source.",
+      "state": "repaired_not_adopted"
+    },
+    {
+      "job_file": "/workspace/scratch/ru-corolla36-jobs.json",
+      "index": 5,
+      "reason": "Source Corolla C-family grille emblem changed to Toyota triple ellipse; directed badge repair accepted. Actual roof aerial ownership separately corrected from enlarged source.",
+      "state": "repaired_not_adopted"
+    }
+  ],
+  "expected_previous_generated": 163,
+  "expected_previous_accepted": 147,
+  "expected_complete_tasks": 50,
+  "last_completed_task": "RU-d8ecb0d87bff666a",
+  "next_task_id": "RU-78e420853a31e4fc",
+  "unused_source_observations": {},
+  "input_refs": [
+    "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json"
+  ],
+  "identity_crosschecks": {
+    "published_source_lineage": {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "literal_rows": [
+        {
+          "task_id": "RU-91466377e9191e9b",
+          "dimension_id": "Toyota Corolla Axio Sedan 2012-2016 RU",
+          "source_page": "https://www.flickr.com/photos/83468718@N06/35976477340/"
+        },
+        {
+          "task_id": "RU-91466377e9191e9b",
+          "dimension_id": "Toyota Corolla Fielder Wagon 2012-2016 RU",
+          "source_page": "https://www.flickr.com/photos/130382521@N04/39252781025/"
+        },
+        {
+          "task_id": "RU-91466377e9191e9b",
+          "dimension_id": "Toyota Corolla Sedan 2012-2016 RU",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_(20160707).jpg"
+        },
+        {
+          "task_id": "RU-d8ecb0d87bff666a",
+          "dimension_id": "Toyota Corolla Sedan 2006-2010 RU",
+          "source_page": "https://www.flickr.com/photos/37691369@N08/48971521857/"
+        },
+        {
+          "task_id": "RU-d8ecb0d87bff666a",
+          "dimension_id": "Toyota Corolla Axio Sedan 2006-2010 RU",
+          "source_page": "https://www.flickr.com/photos/37804160@N00/2365776276/"
+        },
+        {
+          "task_id": "RU-d8ecb0d87bff666a",
+          "dimension_id": "Toyota Corolla Fielder Wagon 2006-2010 RU",
+          "source_page": "https://platesmania.com/ru/nomer22955340"
+        }
+      ]
+    },
+    "frozen_selected_sources": [
+      {
+        "worker": "B",
+        "local_id": "B-R8-E160-680",
+        "task_id": "RU-91466377e9191e9b",
+        "dimension_id": "Toyota Corolla Axio Sedan 2012-2016 RU",
+        "source_page": "https://www.flickr.com/photos/83468718@N06/35976477340/",
+        "original_url": "https://live.staticflickr.com/4421/35976477340_f030461ac0_o.jpg",
+        "author": "Rutger van der Maar",
+        "author_profile_id": "83468718@N06",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "license_text": "Actual current per-photo rel=license anchors plus same-photo ImageObject checked; attribution,license-link,changes indication; share-alike for BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/680-primary-excerpt.json",
+        "actual_model": "E1602012initial nonhybrid Axio sedan representative exterior",
+        "identity_evidence": "A13 actual viewed official2012May11 launchAxio1.5Luxel image matches vertical grille/lights/lowintake/body; source-specific match now supported. Noengine/trimcertification. Do not bind E140.",
+        "source_quality_notes": "Whole car/visible tires/bumpers/mirrors/roof inside image. Brown darkpaint with strong background reflections;1200x761 original. E160identity supported by A13 actual officialcomparison; no grade certification.",
+        "view": "front three-quarter; nose right",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-35976477340-original.jpg",
+        "width": 1200,
+        "height": 761,
+        "sha256": "7a987140386a05f0dbeda2988477ddb932b5e656f8012a9df013faa116f96879",
+        "sha1": "a6d184bb750db02ada1e0e9651b003fda391869c",
+        "original_bytes": 510103,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/680-corolla-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/680-corolla-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/700-corolla-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/680-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round12/b8-candidate-followup-and-a11-caution.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round13/b8-e1602012-official-photo-review.json"
+        ]
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-E160-685",
+        "task_id": "RU-91466377e9191e9b",
+        "dimension_id": "Toyota Corolla Fielder Wagon 2012-2016 RU",
+        "source_page": "https://www.flickr.com/photos/130382521@N04/39252781025/",
+        "original_url": "https://live.staticflickr.com/4753/39252781025_bba34a599f_o.jpg",
+        "author": "Shadman Samee",
+        "author_profile_id": "130382521@N04",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "license_text": "Actual current per-photo rel=license anchors plus same-photo ImageObject checked; attribution,license-link,changes indication; share-alike for BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/685-primary-excerpt.json",
+        "actual_model": "E1602012 initial Fielder exterior supported by A independent actual-view comparison to A7 catalog; NOT E140. Purple car has side skirts/modified-looking wheels and rolling motion blur, exact grade/postfit unknown.",
+        "identity_evidence": "E1602012 initial Fielder exterior supported by A independent actual-view comparison to A7 catalog; NOT E140. Purple car has side skirts/modified-looking wheels and rolling motion blur, exact grade/postfit unknown.",
+        "source_quality_notes": "Whole car and visible tires/bumpers/mirrors/roof within image; actual source original viewed. E1602012 initial Fielder exterior supported by A independent actual-view comparison to A7 catalog; NOT E140. Purple car has side skirts/modified-looking wheels and rolling motion blur, exact grade/postfit unknown.",
+        "view": "front three-quarter; nose right",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-39252781025-original.jpg",
+        "width": 2000,
+        "height": 1314,
+        "sha256": "08e15df3bd2c1f3c16833a1e2157a5a07a1c2b22b65ab1e61ba6e383368a4354",
+        "sha1": "aacc2defe6ff54f580aab79b308247b68972047d",
+        "original_bytes": 1785500,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/685-corolla-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/685-corolla-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/705-corolla-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/685-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round12/b8-candidate-followup-and-a11-caution.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round13/b8-e1602012-official-photo-review.json"
+        ]
+      },
+      {
+        "worker": "C",
+        "local_id": "C7N-012",
+        "task_id": "RU-91466377e9191e9b",
+        "dimension_id": "Toyota Corolla Sedan 2012-2016 RU",
+        "source_title": "File:2014 Toyota Corolla Altis 2.0 G ZRE173R (20160707).jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_(20160707).jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg/960px-2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4200,
+        "height": 2363,
+        "author": "オーバードライブ83",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "license_text": "Creative Commons Attribution-Share Alike 4.0",
+        "identity_evidence": "Actual viewed graphite global E170 Corolla Altis2.0G sedan, initial broad upper headlamp/grille band, old lower grille/fog corner matching E170pre-facelift. Specific2014ZRE173R source label. Not compact Axio/JDM narrow sedan.",
+        "photograph_date": "2016-07-07 16:33:23",
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C7N-012-original.jpg",
+        "sha256": "a1e59df99190d892db822d299d84d138e19331f1aa99d4c302c54e68f12f40aa",
+        "download_status": "bounded_Commons_original_sha1_bytes_dimensions_decode_verified",
+        "review_status": "candidate_only",
+        "search_query": "Toyota Corolla sedan 2014 E170",
+        "browser_search_page": "https://commons.wikimedia.org/w/index.php?title=Special:Search&search=Toyota%20Corolla%20sedan%202014%20E170&ns6=1&limit=20",
+        "source_metadata": {
+          "size": 6297920,
+          "width": 4200,
+          "height": 2363,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg/960px-2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 800,
+          "thumbheight": 450,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg/1920px-2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg/960px-2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 800,
+            "height": 450,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg/1920px-2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_%2820160707%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:2014_Toyota_Corolla_Altis_2.0_G_ZRE173R_(20160707).jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=91009481",
+          "sha1": "293847459907c25d74e8b7317dab70973577208e",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2020-06-07 09:52:39",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "2014 Toyota Corolla Altis 2.0 G ZRE173R (20160707)",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Taken with Canon EOS 600D|Self-published work|Grey Toyota sedans|2014 Toyota automobiles|Toyota Corolla Altis (E170)",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "2014 Toyota Corolla Altis 2.0 G (ZRE173R)",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2016-07-07 16:33:23",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%89%E3%83%A9%E3%82%A4%E3%83%9683\" title=\"User:オーバードライブ83\">オーバードライブ83</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "sha1": "293847459907c25d74e8b7317dab70973577208e",
+        "file_bytes": 6297920,
+        "original_decode_verified": true,
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-012-original-preview.jpg",
+        "actual_source_page_status": 200,
+        "actual_source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-012-source-page.txt",
+        "actual_source_page_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-012-source-page.png",
+        "source_page_images_deliberately_not_loaded": "Images blocked to prevent incidental extra original requests; actual original reviewed from downloaded file.",
+        "actual_view_image_review": true,
+        "response_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-012-bounded-probe.json",
+        "identity_reference_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+        "candidate_qualification": "preferred_original_pending_root_review",
+        "quality_note": "Full four-door body/tires/mirrors complete; dappled tree shade on roof and hood, round fog light apertures/source wheels preserved.",
+        "photo_specific_license_evidence": {
+          "source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-012-source-page.txt",
+          "source_page_status": 200,
+          "author": "オーバードライブ83",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "basis": "Actual file page and imageinfo extmetadata; attribution and ShareAlike preserved where applicable."
+        },
+        "frozen_requirement": {
+          "DIMENSION-ID": "Toyota Corolla Sedan 2012-2016 RU",
+          "YEAR": "2012-2016",
+          "结构": "Sedan",
+          "版本": "",
+          "CAB": "",
+          "BED": "",
+          "L-IN": "181.9",
+          "W-IN": "69.9",
+          "H-IN": "57.7",
+          "scope_rows": [
+            28,
+            30,
+            31,
+            39
+          ]
+        }
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-C001",
+        "task_id": "RU-d8ecb0d87bff666a",
+        "dimension_id": "Toyota Corolla Sedan 2006-2010 RU",
+        "source_page": "https://www.flickr.com/photos/37691369@N08/48971521857/",
+        "original_url": "https://live.staticflickr.com/65535/48971521857_baf80bf329_o.jpg",
+        "author": "RL GNZLZ",
+        "author_profile_id": "37691369@N08",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "license_text": "Actual current per-photo rel=license anchors plus same-photo ImageObject checked; attribution,license-link,changes indication; share-alike for BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/820-primary-excerpt.json",
+        "actual_model": "Global E140/E150 original sedan; rounded lamp units, two broad upper grille bars and original bumper. Photographer2009XLi label, actual exterior checked against A11/A12 phase reference.",
+        "identity_evidence": "Global E140/E150 original sedan; rounded lamp units, two broad upper grille bars and original bumper. Photographer2009XLi label, actual exterior checked against A11/A12 phase reference.",
+        "source_quality_notes": "Whole subject visible including both visible tires, mirrors, bumpers. Uneven cobbled slope near lower tire edge; mild reflections. Frozen aggregate years preserved.",
+        "view": "front three-quarter; nose left",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-48971521857-original.jpg",
+        "width": 3000,
+        "height": 1700,
+        "sha256": "58a0c3506002459dd6d4eff2da42a25cf959e006224a06818a6495cbc625f8e0",
+        "sha1": "beeaea0a2f3e61f2cc917d356946e57e1f22f552",
+        "original_bytes": 2136331,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/820-selected-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/820-selected-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/890-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/820-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/results.json"
+        ]
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-C004",
+        "task_id": "RU-d8ecb0d87bff666a",
+        "dimension_id": "Toyota Corolla Axio Sedan 2006-2010 RU",
+        "source_page": "https://www.flickr.com/photos/37804160@N00/2365776276/",
+        "original_url": "https://live.staticflickr.com/2136/2365776276_5b9813d502_o.jpg",
+        "author": "Mike W.",
+        "author_profile_id": "37804160@N00",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "license_text": "Actual current per-photo rel=license anchors plus same-photo ImageObject checked; attribution,license-link,changes indication; share-alike for BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/683-primary-excerpt.json",
+        "actual_model": "E140 original JDM Corolla Axio sedan, rear-side view with Axio badge, initial red rear lamps and small clear corner.",
+        "identity_evidence": "Actual original and Flickr body reviewed independently by A/B. Primary Flickr page says UploadedMarch27,2008 and TakenJanuary12,2008; upload upper bound precedes Drom10.2008 facelift. Do not use E140 grille orientation alone; frozen aggregate years retained.",
+        "source_quality_notes": "Whole car and visible tires/bumpers/mirror/roof within frame; front fascia not visible from rear-side view. Indoor reflections and background exhibition; whole outline suitable for same-angle representation.",
+        "view": "rear three-quarter; nose left",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-2365776276-original.jpg",
+        "width": 2706,
+        "height": 1832,
+        "sha256": "6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+        "sha1": "4971003c2d44a4e19e8b7f92a59b33dfa32c5650",
+        "original_bytes": 947289,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/683-corolla-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/683-corolla-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/703-corolla-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/683-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round12/drom-axio-crosscheck.json"
+        ],
+        "photograph_date": "2008-01-12",
+        "uploaded_date": "2008-03-27"
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-C008",
+        "task_id": "RU-d8ecb0d87bff666a",
+        "dimension_id": "Toyota Corolla Fielder Wagon 2006-2010 RU",
+        "source_page": "https://platesmania.com/ru/nomer22955340",
+        "original_url": "https://img03.platesmania.com/231022/o/22955340.jpg",
+        "author": "gleb / Platesmania",
+        "author_profile_id": "555",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "license_text": "Все опубликованные мною фотографии доступны по лицензии Creative Commons Attribution 4.0 International (CC BY 4.0), если не указано иное. Historicalauthor grant applies to own photos, unless otherwise stated; actual specific author/caption checked and noexception observed. Attribution original photo URL+Platesmania active link+licenselink+changes indication.",
+        "license_verification_status": "primary_author_historical_blanket_grant_with_photo_specific_author_and_exception_check",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1282-plates-license-excerpt.json",
+        "actual_model": "E140 original Fielder representative; straighter inner edge squared lamps/transversemeshgrille and original bumper match actually viewed Drom2006 phase. A14 independent original+both2006/2008catalog comparison supports pre.",
+        "identity_evidence": "E140 original Fielder representative; straighter inner edge squared lamps/transversemeshgrille and original bumper match actually viewed Drom2006 phase. A14 independent original+both2006/2008catalog comparison supports pre.",
+        "source_quality_notes": "Whole car/visible tires/bumpers/mirrors/roof within frame. Mild road dirt and windshield reflections, background parkedcars separate. Blank cornerfog covers retained asgrade variation; no inference from grillestylealone.",
+        "view": "front three-quarter; nose right",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-plates-22955340-original.jpg",
+        "width": 1440,
+        "height": 1080,
+        "sha256": "0ab101383ba69ac37ca26c1420480445d75f1897aff4590a68e781f889109fdb",
+        "sha1": "53b72249becb370374b31002a6e31d85b1f81119",
+        "original_bytes": 365114,
+        "download_status": "downloaded_actual_observed_foto_o_original_http200_bytes_sha_dimensions_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1282-fielder-source.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1282-fielder-source.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1283-fielder-source.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1352-fielder-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1282-plates-license-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/license-recovery.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/permission-20260722124852.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round14/b8-two-fielder-original-reviews.json"
+        ]
+      }
+    ],
+    "independent_identity_reviews": [
+      {
+        "schema": "a14-fielder-original-identity-review-v1",
+        "at": 1794572404.1939406,
+        "independent_drom_period_references": [
+          {
+            "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1280-drom-phase.json",
+            "url": "https://www.drom.ru/catalog/toyota/corolla_fielder/g_2006_1034/",
+            "status": 200,
+            "actual_text_read_excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиToyotaCorolla FielderХарактеристики Toyota Corolla Fielder 2006, универсал, 2 поколение, E140 октябрь 2006 - сентябрь 2008\nToyota Corolla Fielder 2006, универсал, 2 поколение, E140 (10.2006 - 09.2008) - технические характеристики и комплектации\nРынок сбыта: Япония. Правый руль\nРазвернуть фотографии \nВторая генерация Corolla Fielder была запущена одновременно с десятым поколением седана Corolla Axio (140-й кузов). По своим габаритам и техническим данным Fielder отлично подходит для тех владельцев, кому необходим по-настоящему универсальный автомобиль — не только для горо",
+            "image": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/drom-fielder-2006-reference.jpg",
+            "image_sha256": "d4b6d4da7f3315a0db6f99122a923fcb8f5352ddd37ad11c991bf8a9a11cd875",
+            "actual_image_viewed": true,
+            "production_eligible": false
+          },
+          {
+            "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1281-drom-phase.json",
+            "url": "https://www.drom.ru/catalog/toyota/corolla_fielder/g_2008_4646/",
+            "status": 200,
+            "actual_text_read_excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиToyotaCorolla FielderХарактеристики Toyota Corolla Fielder рестайлинг 2008, универсал, 2 поколение, E140 октябрь 2008 - апрель 2012\nToyota Corolla Fielder рестайлинг 2008, универсал, 2 поколение, E140 (10.2008 - 04.2012) - технические характеристики и комплектации\nРынок сбыта: Япония. Правый руль\nРазвернуть фотографии \nВторая генерация Corolla Fielder была запущена одновременно с десятым поколением седана Corolla Axio (140-й кузов). По своим габаритам и техническим данным Fielder отлично подходит для тех владельцев, кому необходим по-настоящему универсальный автомобиль ",
+            "image": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/drom-fielder-2008-reference.jpg",
+            "image_sha256": "a9a2ee9df35419588a3f37e3eebef1147082926fae8a278ed8bbddac88d80a01",
+            "actual_image_viewed": true,
+            "production_eligible": false
+          }
+        ],
+        "rows": [
+          {
+            "photo_id": "22955340",
+            "task_id": "RU-d8ecb0d87bff666a",
+            "dimension_id": "Toyota Corolla Fielder Wagon 2006-2010 RU",
+            "actual_original_viewed": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-plates-22955340-original.jpg",
+            "sha256": "0ab101383ba69ac37ca26c1420480445d75f1897aff4590a68e781f889109fdb",
+            "identity_supported": true,
+            "observation": "Actualsilveroriginalviewed, fullE140Fielderlongroof/five-doorbody. Boxedlamphousing/straightinner-edge and horizontalmeshgrille matchDrom2006original representative; different fromDrom2008moreupsweptsharpinnerlampandnewbumper. Blacklowcornerblank/basegradeversusDromroundfogkeptasgradevariation, notsoleproof. Independent supportsoriginalE140Fielder representative. Priorpreviewhold upgraded using actualoriginal+twospecificperiodreferences."
+          },
+          {
+            "photo_id": "28131126",
+            "task_id": "RU-6fc2caabccaf49bc",
+            "dimension_id": "Toyota Corolla Fielder Wagon 2000-2004 RU",
+            "actual_original_viewed": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-plates-28131126-original.jpg",
+            "sha256": "da3c6a6c46425c427b862c1605a9b5ebf49ff2ab9ff846717a355c243785e73c",
+            "identity_supported": true,
+            "observation": "Actualwhiteoriginalviewed, JapaneseE120Fielderlongroofandround-edgedheadlampcluster/originalovalCorollameshgrille matchA11originalFielderbody. SupportsE120originalFielder representative. Darkwheel/side-skirttrimorpostfit unknown kept, nofactorysportgradeorengineclaim; rootqualitydecision separate."
+          }
+        ],
+        "scope": "Representative exterior identityonly, noVIN/engine/numericdimensioncertification. Bmustretainphoto-specificglebownership/date/permissionexceptions; Adoesnotgrantlicense."
+      },
+      {
+        "schema": "a13-e1602012-official-photo-review-v1",
+        "at": 1794571687.3824155,
+        "task_id": "RU-91466377e9191e9b",
+        "official_reused_release": "2012-05-11 Toyota redesigned Japanese Corolla Axio sedan/Fielderstationwagon, body/trim explicitly captioned. Fullpage capture reused without repeat request. Two previouslyuncaptured300x200 officialimages actuallydownloadeddecodedviewed.",
+        "references": [
+          {
+            "file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r13-official2012-1.jpg",
+            "sha256": "7164b1a7e5090277de4cc0a7ad7686d23ad0fa195a1f489efb3bb75b53d92dac",
+            "actual_downloaded_decoded_viewed": true,
+            "source_page": "https://global.toyota/en/detail/150876",
+            "source_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-axio-fielder2012-official.json",
+            "production_eligible": false,
+            "license": "Toyota copyrighted press image, identityonly"
+          },
+          {
+            "file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r13-official2012-2.jpg",
+            "sha256": "28266e6eb42e79d76fbefa18559a34787f9b05d9ef5bd1d9c851d62d7fd05b3b",
+            "actual_downloaded_decoded_viewed": true,
+            "source_page": "https://global.toyota/en/detail/150876",
+            "source_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-axio-fielder2012-official.json",
+            "production_eligible": false,
+            "license": "Toyota copyrighted press image, identityonly"
+          }
+        ],
+        "brownAxio": {
+          "file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-35976477340-original.jpg",
+          "sha256": "7a987140386a05f0dbeda2988477ddb932b5e656f8012a9df013faa116f96879",
+          "actual_original_viewed": true,
+          "identity_supported_for": "Toyota Corolla Axio Sedan 2012-2016 RU",
+          "observation": "Brown35976477340 vertical-chrome-grille, headlamps/lowerhorizontalintakeandanglefinshape/body matchesofficial2012 Axio1.5Luxel representative. SupportsE160initialfamily, notE140. DoesnotcertifyLuxel/engine/VIN/year fromphotograph."
+        },
+        "purpleFielder": {
+          "file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-39252781025-original.jpg",
+          "identity_supported": "E160initialFielderbody per actualpreview reviewed; official2012 Fielder1.8SAerotourer has same upperlightgrille/biglowerhorizontalgrille/roundfog/bodykitshape. Wheelsdifferent; noengine/trimclaim. Originalquality rootreview required."
+        }
+      },
+      {
+        "photo_id": "2365776276",
+        "task_id": "RU-d8ecb0d87bff666a",
+        "dimension_id": "Toyota Corolla Axio Sedan 2006-2010 RU",
+        "source_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-2365776276-original.jpg",
+        "sha256": "6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+        "actual_source_image_viewed": true,
+        "actual_flickr_source_capture_read": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/683-corolla-photo.json",
+        "uploaded_on": "2008-03-27",
+        "taken_on": "2008-01-12",
+        "independent_catalog_period": "DromE140original10.2006–09.2008, facelift10.2008–04.2012; actual pages read in drom-axio-crosscheck.json",
+        "identity_supported": true,
+        "basis": "Actual full rear/side of white fourdoorE140Axio, clear Axio rearbadge, mostlyred rearlamps/smallclearinnercorner. RealFlickr uploadMarch2008 is an upperbound beforeOctober2008 facelift; does not rely on mutableEXIFalone. Supports representative originalE140Axio exterior; noVIN/engine/numeric certification.",
+        "license_status": "Bphoto-specific license evidence remains authoritative; Aidentityreview does not replace it.",
+        "production_quality": "Root quality review required; rear3quarter kept, no fabricated front"
+      }
+    ],
+    "roof_annotation_correction": "E140 Fielder enlarged original reveals rear-roof short whip: retain it. Initial NO antenna prompt annotation was wrong; actual badge-only repair overrides it.",
+    "limitations": "Representative exterior identity only; no scalar/engine/VIN/OEMwheel certification. All source/gray/dark actually reviewed. Eight native outputs preserved incl two rejected badge variants; no pixel editing."
+  },
+  "archive_code_files": [
+    "/workspace/scratch/ru_import_corolla36.py",
+    "/workspace/scratch/ru_prepare_corolla36.py",
+    "/workspace/scratch/ru_review_corolla36.py",
+    "/workspace/scratch/ru_review_corolla36_accept.py",
+    "/workspace/scratch/ru_prepare_corolla36_repair.py",
+    "/workspace/scratch/ru_prepare_corolla36_axio_repair.py"
+  ],
+  "archive_json_files": [
+    "/workspace/scratch/ru-corolla36-six-frozen.json",
+    "/workspace/scratch/ru-corolla36-source-contact.jpg",
+    "/workspace/scratch/ru-corolla36-roof-close.jpg",
+    "/workspace/scratch/ru-corolla36-fielder-roof-detail.jpg",
+    "/workspace/scratch/ru-corolla36-fielder-badge-detail.jpg",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round14/b8-two-fielder-original-reviews.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round13/b8-e1602012-official-photo-review.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round12/b8-axio-original-2008-upper-bound-review.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/680-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/685-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/820-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/683-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1282-plates-license-excerpt.json"
+  ],
+  "report_body": "# Corolla E1602012与E140原款六体\n\n两整族六配置逐源、灰深底实际核验。真实生成8次，六张采用；棕Axio与银Fielder各首稿误换C族徽，分别单次定向修复，失败原生输出保留。Fielder放大源确认真实后顶短杆，纠正初始无杆观察并保留。白Axio保持真实后侧视，不要求凭空前脸。原件及最终/过程精确字节私有OSS完整GET/SHA/字节/解码核验。"
+}

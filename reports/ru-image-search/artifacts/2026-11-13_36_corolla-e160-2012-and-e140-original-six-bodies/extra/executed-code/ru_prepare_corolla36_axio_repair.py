@@ -1,0 +1,10 @@
+import json,hashlib
+from pathlib import Path
+p=Path('/workspace/scratch/ru-corolla36-jobs.json');j=json.loads(p.read_text())[0];old=dict(j);r=json.loads(Path(j['request_file']).read_text());f=Path(r['output_file'])
+reason='Actual brown E160 Axio source has Corolla C-family oval grille badge, generated Toyota triple ellipse is wrong; repair badge only.'
+Path(j['output_folder'],'review-failure.json').write_text(json.dumps(dict(passed=False,reason=reason,output_sha256=r['output_sha256']),ensure_ascii=False,indent=2)+'\n')
+j.update(attempt='attempt02',request_state='prepared',output_folder=j['output_folder'].replace('attempt01','attempt02'),request_file=j['request_file'].replace('attempt01','attempt02'),original_job_index=0,prior_failed_request_file=old['request_file'],prior_failed_output_file=str(f),prior_failed_output_sha256=r['output_sha256'],edit_input_file=str(f),referenced_image_paths=[str(f),j['source_file']],referenced_input_sha256=[r['output_sha256'],j['source_sha256']])
+j['prompt']='Image1 is generated brown Corolla Axio cutout. Image2 is actual original licensed identity reference. Correct ONLY upper grille central badge: restore actual Corolla C-family oval silver badge with black center and stylized horizontal C motif shown in image2. It is NOT the Toyota three overlapping ellipses. Preserve original vertical chrome grille slats, rectangular lamps, lower bumper, brown fourdoor sedan proportions, silver alloys, mirrors and handles, actual nose RIGHT front-side camera. Keep the roof smooth without aerial, fin or rails. Whole unchanged car all tires and mirrors fully inside transparent margins. True native RGBA transparency, no shadow, glow, floor, road, background fragments, plate characters or watermark. Do not mirror or invent unseen end.'
+
+j['prompt_sha256']=hashlib.sha256(j['prompt'].encode()).hexdigest();Path(j['output_folder']).mkdir(parents=True,exist_ok=True);Path(j['request_file']).write_text(json.dumps(j,ensure_ascii=False,indent=2)+'\n');Path('/workspace/scratch/ru-corolla36-axio-repair-jobs.json').write_text(json.dumps([j],ensure_ascii=False,indent=2)+'\n')
+print(reason)

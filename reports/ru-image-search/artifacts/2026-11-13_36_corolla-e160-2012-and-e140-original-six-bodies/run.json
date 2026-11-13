@@ -1,0 +1,343 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies",
+  "version": "20261113_36",
+  "description": "corolla-e160-2012-and-e140-original-six-bodies",
+  "created_at": "2026-11-13T12:48:33+00:00",
+  "finished_at": "2026-11-13T12:48:34+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch36-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_35_corolla-2015-four-bodies-and-china-2025-sedan/output/progress-20261113_35.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_35_corolla-2015-four-bodies-and-china-2025-sedan/output/progress-20261113_35.json",
+      "sha256": "360b911d74a8e8aef526a92bdabe93244070f1bb153420fd05ce4bd845bf0803"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_35_corolla-2015-four-bodies-and-china-2025-sedan/output/current-accepted-configuration-index-20261113_35.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_35_corolla-2015-four-bodies-and-china-2025-sedan/output/current-accepted-configuration-index-20261113_35.json",
+      "sha256": "cc5e2db9e34e7eaea6f49c34823a78fb354d50f9713e2a1f899c4a6ba018d2da"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_35_corolla-2015-four-bodies-and-china-2025-sedan/output/candidates-20261113_35.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_35_corolla-2015-four-bodies-and-china-2025-sedan/output/candidates-20261113_35.json",
+      "sha256": "fb921ad53ee0739549e86281989a532c1d6f1096f0987333e3539844b9e3f167"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "dbaa91615f1ba544b24e8a62bc24d66192aa2660",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/identity-crosschecks-20261113_36.json",
+      "content_reference": true,
+      "sha256": "42f5c9764d3fb5a0f5db47eeb11d6e7d6e47ed46099e29bf66c50b7fce32a0f2",
+      "bytes": 35300,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/accepted-configurations-20261113_36.json",
+      "content_reference": true,
+      "sha256": "81773b0c1f2913f91c3563f88d832b312ab3582941294d72ed32d3d38a876d7a",
+      "bytes": 58946,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/current-accepted-configuration-index-20261113_36.json",
+      "content_reference": true,
+      "sha256": "0e538b6c8fc559199c3ce4acf2813005308a4d5a9f2fc8f6b68b2ed103df8f48",
+      "bytes": 1498131,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/nonadopted-history-20261113_36.json",
+      "content_reference": true,
+      "sha256": "6841faec5d38a0bbf0110f7efc6d7046b93c12ae606d46ab85b6c64c22aa1ccd",
+      "bytes": 13453,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/generation-requests-20261113_36.json",
+      "content_reference": true,
+      "sha256": "7587767075ee13ece5f4535b82eda4bc74b6ad6df83fc23e69299236951847cc",
+      "bytes": 35143,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/new-source-original-evidence-20261113_36.json",
+      "content_reference": true,
+      "sha256": "ac3438c2b19bd0cabec2d5af9150c6008f58bec1c5d99f0c38bd3f65efa806fc",
+      "bytes": 22951,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/candidates-20261113_36.json",
+      "content_reference": true,
+      "sha256": "fd84b756e7132396b8f05cdc0f1d91bc9090b82159c49434007c2a43c1c19d31",
+      "bytes": 455274,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_36.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/progress-20261113_36.json",
+      "content_reference": true,
+      "sha256": "f3b5a4c62d026c9604ab62261cce99281753d4738e590faa588682ee94fa9279",
+      "bytes": 2308837,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru-batch36-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_import_corolla36.py",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_prepare_corolla36.py",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_review_corolla36.py",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_review_corolla36_accept.py",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_prepare_corolla36_repair.py",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_prepare_corolla36_axio_repair.py",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-six-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-source-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-roof-close.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-fielder-roof-detail.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-fielder-badge-detail.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/b8-two-fielder-original-reviews.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/b8-e1602012-official-photo-review.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/b8-axio-original-2008-upper-bound-review.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/680-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/685-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/820-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/683-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/1282-plates-license-excerpt.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch36-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru-batch36-review.json",
+      "sha256": "42792d2bc0f6ef6109e835d25e1f12c392f596de3a580aa64a1d9173c556318b",
+      "bytes": 42117
+    },
+    {
+      "file": "extra/executed-code/ru_import_corolla36.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_import_corolla36.py",
+      "sha256": "97b2f79004ad08317fd2e5788018cdd0c5671921a546017f15663d9007ed1cd1",
+      "bytes": 3289
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_corolla36.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_prepare_corolla36.py",
+      "sha256": "0681d14d6d7cd29db39d13b5e7668e69859c209bdb05537fe707e5402b07a7da",
+      "bytes": 6198
+    },
+    {
+      "file": "extra/executed-code/ru_review_corolla36.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_review_corolla36.py",
+      "sha256": "385aa7ee8def2109a1548e1f6fb949409f17d64a72bf0c68f5b03632d6c28422",
+      "bytes": 1626
+    },
+    {
+      "file": "extra/executed-code/ru_review_corolla36_accept.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_review_corolla36_accept.py",
+      "sha256": "13a223f128b13d235296129a3f1ad13d19ec891db33e2ae502ef2feeeca03c14",
+      "bytes": 1633
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_corolla36_repair.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_prepare_corolla36_repair.py",
+      "sha256": "ad2eb5507d43b05f9d90117173db574a1e79aea0a817ceae274943fd2f5ee98f",
+      "bytes": 2555
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_corolla36_axio_repair.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/executed-code/ru_prepare_corolla36_axio_repair.py",
+      "sha256": "b4c42867b74e9cdb6892736e805754ea0feb9824a0466a7f1dd92b190dbed295",
+      "bytes": 2127
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla36-six-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-six-frozen.json.gz",
+      "sha256": "fa6e8033d64a636542bd354bc994996ae2b828e69ea42295486ddf3c06fddde4",
+      "bytes": 5117
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla36-source-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-source-contact.jpg",
+      "sha256": "74ec5cf9cce8618894046a7d34dd54c8d66007606d5077a8c5629c03b06d209f",
+      "bytes": 448771
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla36-roof-close.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-roof-close.jpg",
+      "sha256": "bfa6a542d874b8a0b2636ead36d5e02ffb6e117dd15a99d4402b4fed07a97bc1",
+      "bytes": 237855
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla36-fielder-roof-detail.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-fielder-roof-detail.jpg",
+      "sha256": "6f12a6a0f5e26710bf08177ea85c00158ec468dd3ec9bdf60770d601412d5b31",
+      "bytes": 132400
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla36-fielder-badge-detail.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/ru-corolla36-fielder-badge-detail.jpg",
+      "sha256": "ba3b473ccd14b2ba80ed7f64f192a4b219210585ac0ae19dc2d2b990a3168731",
+      "bytes": 18226
+    },
+    {
+      "file": "extra/search-evidence/b8-two-fielder-original-reviews.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/b8-two-fielder-original-reviews.json.gz",
+      "sha256": "6e78b1ac81c972fcf8198f2b00e8c0f3a5ab210652919ad0b8cba59cd9348d6a",
+      "bytes": 1889
+    },
+    {
+      "file": "extra/search-evidence/b8-e1602012-official-photo-review.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/b8-e1602012-official-photo-review.json.gz",
+      "sha256": "48390a65ba9089e0871016199635a6e746a1342e4f695fbf342b91453f9ea510",
+      "bytes": 1051
+    },
+    {
+      "file": "extra/search-evidence/b8-axio-original-2008-upper-bound-review.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/b8-axio-original-2008-upper-bound-review.json.gz",
+      "sha256": "f58cad93f052d8f8a1f942165d9a80dea2625087e25a98b63da861b196079be4",
+      "bytes": 746
+    },
+    {
+      "file": "extra/search-evidence/680-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/680-primary-excerpt.json.gz",
+      "sha256": "4453726d67ea6a4bd9d52d32a9d538b0774bb8844fa5cec464974b0a550e609b",
+      "bytes": 774
+    },
+    {
+      "file": "extra/search-evidence/685-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/685-primary-excerpt.json.gz",
+      "sha256": "5786ab2b62dcec6aa16ebb66e0f88d4964190e3e4c71eda68d21df7794097ee9",
+      "bytes": 779
+    },
+    {
+      "file": "extra/search-evidence/820-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/820-primary-excerpt.json.gz",
+      "sha256": "d4ebf1ff453326251a5face763061ae84c22191f2cd25a9d4d3387e6403ba879",
+      "bytes": 763
+    },
+    {
+      "file": "extra/search-evidence/683-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/683-primary-excerpt.json.gz",
+      "sha256": "8967fa0ef7a6822b7ebb3a83288d15977be6145bda060bac52597f9655e52ae8",
+      "bytes": 777
+    },
+    {
+      "file": "extra/search-evidence/1282-plates-license-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/extra/search-evidence/1282-plates-license-excerpt.json.gz",
+      "sha256": "7d7f46ded95a91af0b975ee5d9df2552ef6902902bbf71e84f28e96d0b22aebe",
+      "bytes": 895
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 8,
+    "accepted_configurations_this_batch": 6,
+    "nonadopted_outputs_preserved": 2,
+    "accepted_tasks_total": 50,
+    "accepted_configurations_total": 153
+  }
+}
