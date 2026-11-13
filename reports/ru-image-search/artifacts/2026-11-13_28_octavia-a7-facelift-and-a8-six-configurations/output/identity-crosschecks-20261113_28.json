@@ -1,0 +1,464 @@
+{
+  "published_source_lineage": {
+    "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+    "literal_rows": [
+      [
+        "RU|skoda/octavia|IV (A8)|2019-2026|Liftback|-|-",
+        "Skoda Octavia Liftback 2019-2026 RU"
+      ],
+      [
+        "RU|skoda/octavia|IV (A8)|2019-2026|Wagon 5-door|-|-",
+        "Skoda Octavia Wagon 2019-2026 RU"
+      ],
+      [
+        "RU|skoda/octavia|IV (A8)|2019-2026|Wagon 5-door|-|Scout",
+        "Skoda Octavia Scout Wagon 2019-2026 RU"
+      ],
+      [
+        "RU|skoda/octavia|III (A7) Рестайлинг|2017-2023|Liftback|-|-",
+        "Skoda Octavia Liftback 2017-2023 RU"
+      ],
+      [
+        "RU|skoda/octavia|III (A7) Рестайлинг|2017-2023|Wagon 5-door|-|-",
+        "Skoda Octavia Wagon 2017-2023 RU"
+      ],
+      [
+        "RU|skoda/octavia|III (A7) Рестайлинг|2017-2023|Wagon 5-door|-|Scout",
+        "Skoda Octavia Scout Wagon 2017-2023 RU"
+      ]
+    ]
+  },
+  "a7_a8_official_and_catalog": {
+    "schema": "ru-octavia-applicability-v1",
+    "created_at_unix": 1794566458.0426633,
+    "review_status": "candidate_only",
+    "frozen_tasks_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/frozen-tasks.json",
+    "source_map_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/来源映射_RU-octavia-extract.json",
+    "source_fields": [
+      {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/auto_ru_dimensions_with_match_key-octavia-extract.json",
+        "sha256": "4ea27504d2934026542c5bbf8797cc3a460b2d33c907d1260ddf14bf78684a7e"
+      },
+      {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/auto_ru_model_sales_with_match_key-octavia-extract.json",
+        "sha256": "b49b865fe14389ad3f50704fd5c7171d56d6f3c8629a97b64b1d199d01003151"
+      },
+      {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/来源映射_RU-octavia-extract.json",
+        "sha256": "bda57b7dfd19ea1f13f82ea27e9d0db1e4f7bae54b4960d847e6d887f8b637dd"
+      }
+    ],
+    "actual_visual_reference_records": [
+      {
+        "worker": "A",
+        "local_id": "r3-a7fl-lift",
+        "task_id": "RU-0707cfcb8ed49c8b",
+        "dimension_id": "Skoda Octavia Liftback 2017-2023 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/20898195/20898233/",
+        "original_url": "https://avatars.avto.ru/get-verba/3587101/2a000001905a1ef0afedc5cd5a79c995b7e0/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7fl-lift-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a7fl-lift.json",
+          "actual_visual_observation": "实际灰色A7改款Liftback：短尾厢盖与斜后窗，2017改款分开的内外四眼头灯。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7fl-lift-gallery.webp",
+        "sha256": "fc725dbbc062f1b232e2e53b0873243b0edf6ef82285faa68e747da2a5d86057",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r3-a7fl-wagon",
+        "task_id": "RU-0707cfcb8ed49c8b",
+        "dimension_id": "Skoda Octavia Wagon 2017-2023 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/20898195/20898245/",
+        "original_url": "https://avatars.avto.ru/get-verba/787013/2a000001609356d08a732e9c51108e3c8151/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7fl-wagon-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a7fl-wagon.json",
+          "actual_visual_observation": "实际灰色A7改款Combi旅行车：长车顶与旅行车尾部，四眼头灯；普通车身色轮拱，无Scout粗黑轮眉。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7fl-wagon-gallery.webp",
+        "sha256": "fd4b3aef06e52b651ab1ac28d27edbe51736a679a6b9e723a09625b6ec6b92ab",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r3-a7fl-scout",
+        "task_id": "RU-0707cfcb8ed49c8b",
+        "dimension_id": "Skoda Octavia Scout Wagon 2017-2023 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/20898195/20960322/",
+        "original_url": "https://avatars.avto.ru/get-verba/937147/2a00000160919ea8d7dde4ee9fdaafc71d0b/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7fl-scout-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a7fl-scout.json",
+          "actual_visual_observation": "实际白色A7改款Scout旅行车：四眼头灯、黑轮眉/侧裙和银色护板式下保险杠。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7fl-scout-gallery.webp",
+        "sha256": "ac77288ed0964ca08a6a3996aab766b0253f72bdbda71109fbfce1656d604590",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r3-a8-lift",
+        "task_id": "RU-2ced1e85ff306fb6",
+        "dimension_id": "Skoda Octavia Liftback 2019-2026 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/21713968/21714014/",
+        "original_url": "https://avatars.avto.ru/get-verba/3587101/2a00000190b70f578e59b759925030dfc7b8/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8-lift-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a8-lift.json",
+          "actual_visual_observation": "实际蓝色原款A8 Liftback：斜后窗与短尾厢盖，细长连续头灯，无A7四眼分离。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8-lift-gallery.webp",
+        "sha256": "8c54612c3966cb5e9fa5e6f746021a7f375aac6ca43a3dd34456b14d8e4152ee",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r3-a8-wagon",
+        "task_id": "RU-2ced1e85ff306fb6",
+        "dimension_id": "Skoda Octavia Wagon 2019-2026 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/21713968/21714056/",
+        "original_url": "https://avatars.avto.ru/get-verba/1672712/2a000001718de38ecfbba6121029cbd7d7c4/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8-wagon-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a8-wagon.json",
+          "actual_visual_observation": "实际银色原款A8 Combi旅行车：长车顶与大后侧窗，细长原款A8头灯，普通车身色轮拱。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8-wagon-gallery.webp",
+        "sha256": "a424331d3f84fe34eff342875b5f6ffde0071e49a0c0e2f898d574fc07f323a9",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r3-a8-scout",
+        "task_id": "RU-2ced1e85ff306fb6",
+        "dimension_id": "Skoda Octavia Scout Wagon 2019-2026 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/21713968/22615899/",
+        "original_url": "https://avatars.avto.ru/get-verba/216201/2a00000176517b69a1b5412a1e48f67bb87e/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8-scout-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a8-scout.json",
+          "actual_visual_observation": "实际蓝色原款A8 Scout旅行车：细长连续头灯、黑轮眉/侧裙、银色下护板与后视镜。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8-scout-gallery.webp",
+        "sha256": "3244b3a5aaaa55f897b906b091336ba5b119d1723525d628751fce93e08e05c4",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r3-a8fl-lift",
+        "task_id": "RU-fbae9da3d33f24c2",
+        "dimension_id": "Skoda Octavia Liftback 2024-2026 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/23915291/23915335/",
+        "original_url": "https://avatars.avto.ru/get-verba/3587101/2a0000018e74a5a5fe8a0ebd8d0c130709b1/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8fl-lift-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a8fl-lift.json",
+          "actual_visual_observation": "实际灰色2024改款A8 Liftback：改动的格栅/保险杠和更尖锐的箭头式灯光轮廓；与原款A8年份重叠不能互代。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a8fl-lift-gallery.webp",
+        "sha256": "18d17521a4abf5df06728ff2d655ea4fc289c7076510fb472058fad733b6af66",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r3-a7pre-scout",
+        "task_id": "RU-ad23b6048d7c421b",
+        "dimension_id": "Skoda Octavia Scout Wagon 2013-2017 RU",
+        "source_page": "https://auto.ru/catalog/cars/skoda/octavia/9338208/20194865/",
+        "original_url": "https://avatars.avto.ru/get-verba/787013/2a000001609d5f9fc96af3f0774e59d9a5d2/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7pre-scout-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "Identity reference only. No open adaptation license established.",
+        "photograph_date": "unknown",
+        "model_year": "frozenrepresentativefamily;photodateunknown",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-a7pre-scout.json",
+          "actual_visual_observation": "实际蓝色A7改款前Scout旅行车：每侧整体矩形头灯，黑轮眉/侧裙与银色下护板；不是2017四眼改款。"
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r3-a7pre-scout-gallery.webp",
+        "sha256": "b18da4d634a564aad9e7cb3217b105f6db30b04f38a032f00190b02eaf997218",
+        "download_status": "actual HTTP 200 decoded catalog rendition; original master status not established",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      }
+    ],
+    "actual_official_text_evidence": [
+      {
+        "capture_id": "r3-octavia-official2017",
+        "url": "https://www.skoda-storyboard.com/en/press-kits/skoda-octavia-bestseller-in-new-top-shape-following-comprehensive-revisions/",
+        "http_status": 200,
+        "visited_at_unix": 1794566383.1774611,
+        "excerpt": "Stories\nMedia Room\nEN\nCZ\nDE\nNews\nPress Kits\nModels\nFabia\nScala\nOctavia\nSuperb\nKamiq\nKaroq\nKodiaq\nEpiq\nPeaq\nElroq\nEnyaq\nImages\nVideos\nCompany\nManagement\nBrand Group CORE (BGC)\n#ExploreSkoda podcast\nŠkoda Motorsport\nNewsletter\nCompany Logo\nMobile App\nContacts\nŠkodapedia\nAll\nAll\nStories\nNews\nPress Kits\nImages\nVideos\n7. 2. 2017\nŠKODA OCTAVIA: bestseller in new top shape following comprehensive revisions\n\n› Modified design with additional headlights and clean-cut lines for the ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI\n› Familiar generous interior space with higher-quality materials and refined controls\n› Wide range of engines: four TSI petrol engines, four TDI diesel engines, a 1.4-l TSI G-TEC engine for the CNG-drive variant, power outputs ranging from 63 kW (86 PS) to 135 kW (184 PS), DSG transmissions for almost all engines, all-wheel drive available for top-of-the-range engines\n› Dynamic Chassis Control allows suspension to be adjusted, with a choice of three modes\n› Five new driver assistance systems increase comfort and safety\n› New infotainment systems with capacitive displays in a glass design\n› ŠKODA Connect: mobile online services provide a high level of information, entertainment, comfort and assistance\n› Additional ‘Simply Clever’ features for everyday practicality, typical of the brand\n\n\nMladá Boleslav / Porto, 6th February 2017 – The ŠKODA OCTAVIA begins the third decade of its success story with proven strengths and new qualities. Comprehensive revisions give the Czech car manufacturer’s bestseller a particularly striking design, a refined ambiance in the familiar generously sized interior and optimised driving characteristics. Nine engines, including a CNG variant, are available for the ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI. When coupled with the 110 kW (150 PS) TDI engine, the optional 7-speed DSG gearbox can also be combined with all-wheel drive for the first time. Dynamic Chassis Control is available and the range of driver assistance systems has also been extended. A new generation of infotainment systems enables the use of the ŠKODA Connect online services. The upgrade of the compact car segment models is completed by additional ‘Simply Clever’ features.\n\nOriginal\n1920px\nShow more\n\nNew design features for a distinctive appearance\nThe ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI combine the typical strengths of the brand and contribute considerably to the Czech car manufacturer’s growth with more than 5 million cars sold to date. Following its comprehensive revisions, the third generation of the model that was originally introduced in 1996 once again presents itself in top shape, both visually and in terms of technology. In addition to its larger-than-average interior and its exceptional value for money, the ŠKODA OCTAVIA now offers even more of the safety and comfort features found in higher segments, strengthening its excellent position within the compact car segment.\nThe design modifications made as part of the comprehensive model upgrade give the ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI a distinctive appearance, characterised in particular by the front section with its wide radiator grille. Additional lighting units within the headlights, with a crystalline look, and wider honeycomb air inlets provide them with more of a presence and create a masculine, dynamic and emotive overall impression. The outer headlights produce the dipped beam and the high beam shines from the inner headlights, tapered towards the radiator grille. Newly developed full-LED headlights are available from the Ambition trim level upwards.\n\nThe side view of the ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI is characterised by precise and clean-cut lines leading all the way to the rear section. The redesigned rear bumper appears powerful and bold with its subtle contours. The use of LED technology for the rear light cluster lends the characteristic C-shaped tail light the appearance of a homogeneous lighting surface.\n\nAs part of the model upgrade, the outer dimensions of the ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI have changed slightly. The hatchback has grown in length by 11 mm to 4,670 mm; the estate has grown by 8 mm to 4,667 mm. The rear track is 20 or 30 mm longer, depending on the engine variant. The wheelbase, which remains at 2,686 mm, is unusually long for a vehicle in the compact car segment. From these outer dimensions, ŠKODA engineers have created an interior where the amount of space for passengers and luggage far exceeds the usual dimensions found in this segment. Occupants enjoy generous, leg-, elbow and headroom in the front and rear. The boot capacity of the hatchback, which has a large tailgate hinged at the roof, is 590 l (1,580 l with the rear seats folded down). In the estate, it is a whopping 610 l, which can be expanded to up to 1,740 l if necessary.\n\nThe interior of the ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI impresses not only with its generous dimensions and great clarity, but also with its high-quality materials and new features. The revised multifunction displays are clear and easy to read. The type of information displayed on their screen varies according to the trim level. The air conditioning controls have also been visually refined. The door trims are now available with additional ambient lighting as an option. Slim LED lighting units at the upper edge of the trim strips emit a discreet, atmospheric light which can be set to one of ten different colours.\n\n  \n\n \n\nWide range of engines, DSG transmissions and all-wheel drive\nThe revised ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI models are launched with a choice of nine engines: four TSI petrol, four TDI diesel and one CNG engine. The power outputs range from 63 kW (86 PS) to 135 kW (184 PS). The modern drivetrains contribute to the fact that all of the compact car’s variants have a good balance of driving performance, consumption and emissions. They feature a manual gearbox with 5 or 6 speeds or automatic DSG gearboxes with 6 or 7 speeds.\n\nThe TSI engines have a turbocharger and direct petrol injection. The 1.2-l TSI engine with four cylinders and a power output of 63 kW (86 PS) is the entry-level variant and is combined with a 5-speed manual gearbox. The engine with the smallest capacity in the range has a power output of 85 kW (115 PS). The 1.0-l TSI engine with three cylinders is available with a 6-speed manual or a 7-speed DSG gearbox.\n\nThe 1.4-l TSI G-TEC engine is a particularly efficient variant which, as a bivalent engine, can run on both CNG and petrol, and offers a power output of 81 kW (110 PS). In CNG drive and when combined with the 7-speed DSG, the ŠKODA OCTAVIA and ŠKODA OCTAVIA COMBI have CO2 emissions of 98 and 99 g/km respectively with this engine. As a pure petrol engine, the 1.4-l TSI produces 110 kW (150 PS). The 1.8-l TSI engine is the top-performing petrol engine with a power output of 132 kW (180 PS).\n\nTurbocharging and high-pressure direct injection with Common rail technology are features shared by the TDI engines for the ŠKODA OCTAVIA and the ŠKODA OCTAVIA COMBI. Both four-cylinder engines with a capacity of 1.6 and 2.0 l respectively are available with two performance levels. The entry-level 1.6-l TDI engine provides 66 kW (90 PS) and is combined with a 5-speed manual gearbox. A 7-speed DSG is available as an alternative to the manual gearbox for the second variant of the 1.6-l diesel engine, which now has a power output of 85 kW (115 PS). In this combination, the combined fuel consumption of ",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-octavia-official2017.json",
+        "sha256": "3e06ce665f4921c8b9d246786dde691c87e2d32a801434b6d2f96ca3248121b2"
+      },
+      {
+        "capture_id": "r3-octavia-official2020",
+        "url": "https://www.skoda-storyboard.com/en/press-releases/lifestyle-estate-in-its-3rd-generation-the-new-skoda-octavia-scout/",
+        "http_status": 200,
+        "visited_at_unix": 1794566388.1708565,
+        "excerpt": "Stories\nMedia Room\nEN\nCZ\nDE\nSR\nNews\nPress Kits\nModels\nFabia\nScala\nOctavia\nSuperb\nKamiq\nKaroq\nKodiaq\nEpiq\nPeaq\nElroq\nEnyaq\nImages\nVideos\nCompany\nManagement\nBrand Group CORE (BGC)\n#ExploreSkoda podcast\nŠkoda Motorsport\nNewsletter\nCompany Logo\nMobile App\nContacts\nŠkodapedia\nAll\nAll\nStories\nNews\nPress Kits\nImages\nVideos\n10. 6. 2020\nLifestyle estate in its 3rd generation: The new ŠKODA OCTAVIA SCOUT\n\n› Boasting off-road virtues, the new-generation OCTAVIA continues the SCOUT models’ success story\n› Multifunctional lifestyle estate with a rugged appearance and 15 mm more ground clearance\n› Even more spacious and the first OCTAVIA SCOUT with front-wheel drive on request\n\nMladá Boleslav, 10 June 2020 – The new generation of the ŠKODA OCTAVIA includes a new OCTAVIA SCOUT. The success story of this COMBI variant – featuring rugged details, off-road flair, increased ground clearance and all-wheel drive – began in 2007 and the model is set to write the next chapter, now that the brand’s bestseller is in its fourth generation. In addition to its emotive design, the multifunctional lifestyle estate offers even more space than its predecessor and is now also available with front-wheel drive as an option.\n\nWhether it be a family holiday, the big weekly shop or a trip to the country with a mountain bike in the boot: the new ŠKODA OCTAVIA SCOUT, available exclusively as an estate, is the perfect vehicle for many occasions. Featuring the Rough-Road package as standard, including underbody protection and 15 mm more ground clearance, the OCTAVIA SCOUT is ideally suited to off-road driving too and is a popular choice for towing a caravan, horse box or boat trailer. When fitted with a 2.0 TDI engine producing 147 kW (200 PS), it can even pull a braked trailer weighing up to 2,000 kg.\n\nAn OCTAVIA for any occasion boasting plenty of space\nLike its OCTAVIA siblings, the SCOUT – which at 4,703 mm and 1,829 mm is now 16 mm longer and 15 mm wider respectively – offers an even more generous amount of space than its predecessor. The largest boot capacity in the segment to date has increased by a further 30 l to 640 l. The SCOUT can be ordered with innovative full LED Matrix headlights, which are making their OCTAVIA debut and allow drivers to have the high beam on at all times.\n\nEfficient TDI and TSI engines and, for the first time, front-wheel drive\nA new, EVO-generation 2.0 TDI with a power output of 147 kW (200 PS) and 400 Nm of torque is celebrating its premiere in the OCTAVIA SCOUT – it is the most powerful diesel in the history of the model range to date. What’s more, in addition to four-wheel drive, ŠKODA is now also offering its lifestyle estate with front-wheel drive. Customers can now opt for a 2.0 TDI with an output of 85 kW (115 PS), a 1.5 TSI delivering 110 kW (150 PS) – both of which are equipped with a manual 6‑speed transmission – or an e-TEC version of the 1.5 TSI featuring a 7-speed DSG and mild hybrid technology. Alternatively, there is also the choice of one of the two range-topping engines – a 2.0 TSI producing 140 kW (190 PS) and a 2.0 TDI delivering 147 kW (200 PS) – or the 2.0 TDI offering 110 kW (150 PS), all of which come with all-wheel drive and a 7-speed DSG as standard.\n\nRugged appearance with SCOUT-typical details\nDistinct front and rear bumpers, each with aluminium-look underbody protection, and additional black plastic trims on the wheel arches, side sills and at the bottom of the doors protect the OCTAVIA SCOUT’s body and provide it with a distinct appearance. This is rounded off by the standard 18-inch silver-coloured Braga alloy wheels or the optionally available 19-inch Manaslu alloys. The front and rear diffusers, roof rails and window frames come in a silver finish, as do the housings of the electrically adjustable, folding and heated wing mirrors that include an automatic dimming function. The OCTAVIA SCOUT is equipped with LED fog lights as standard and bears exclusive SCOUT badges on its front wings.\n\nA SCOUT feel in the redesigned interior\nThe ŠKODA OCTAVIA’s new interior concept provides a new sense of spaciousness and improved ease of operation in the SCOUT variant too. The redesigned dashboard is modular and arranged in different levels, featuring a large, free-standing central display measuring up to 10 inches. The centre console is adorned with chrome detailing, which can also be found on the new door trims and handles. SCOUT-specific decorative trims on the dashboard as well as ThermoFlux seats and SCOUT logos on the front seats provide special visual touches in the interior. The OCTAVIA SCOUT’s pedals feature an aluminium finish, whilst its upholstery, steering wheel, armrests and dashboard all come with contrasting Tabor Brown stitching.\n\nThe world premiere of the brand-new OCTAVIA SCOUT and detailed information about it as well as other new features in the OCTAVIA family will follow in early July.\n\nAdditional info\nMedia contacts\nDownload Media Box\nImages\n+1\nTags\n2020\nCOMBI\nOCTAVIA\nSCOUT\nMedia Box\n5 images, 1 PDF\n10. 6. 2020\n200610-The-new-ŠKODA-OCTAVIA-SCOUT\n10. 6. 2020\nThe new ŠKODA OCTAVIA SCOUT\n10. 6. 2020\nThe new ŠKODA OCTAVIA SCOUT\n10. 6. 2020\nThe new ŠKODA OCTAVIA SCOUT\n10. 6. 2020\nThe new ŠKODA OCTAVIA SCOUT\n10. 6. 2020\nThe new ŠKODA OCTAVIA SCOUT\n \nFacebook\n \nInstagram\n \nYouTube\n \nWhatsApp\nContacts\nŠkoda Corporate Communications\nŠkoda Product Communications\nSubscribe\n\nTo stay up-to-date with all the latest press information and events, please enter your email below\n\nSubmit\nHereby I give my consent to the processing of my personal data for the purposes of sending information about products, services and events related to Škoda Auto.\nManage subscription\nCompany\n\nThe Company's principal business activities are the development, production and sale of Škoda cars, components, genuine parts and accessories, and the provision of servicing.\n\n\"Without consent from Škoda Auto a.s., third parties are only allowed to use all published content - to an adequate extent - for press, Internet, film, radio and TV news, all that without limitations in terms of territory and time; however, such use must not be in conflict with legitimate interests of Škoda Auto a.s.\"\n\n© Škoda Auto a.s. 2026\n\nRSS RSS (News)",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-octavia-official2020.json",
+        "sha256": "1a0a3cfd470f935ff3ea658df0c60a962938f3d9ac192c42d42b49392b5103cc"
+      },
+      {
+        "capture_id": "r3-octavia-official2024",
+        "url": "https://www.skoda-storyboard.com/en/press-kits/skoda-octavia-media-launch-press-kit/exterior-visual-fine-tuning-as-well-as-advanced-headlight-design-and-technology/",
+        "http_status": 200,
+        "visited_at_unix": 1794566390.733963,
+        "excerpt": "Stories\nMedia Room\nEN\nCZ\nSK\nSR\nNews\nPress Kits\nModels\nFabia\nScala\nOctavia\nSuperb\nKamiq\nKaroq\nKodiaq\nEpiq\nPeaq\nElroq\nEnyaq\nImages\nVideos\nCompany\nManagement\nBrand Group CORE (BGC)\n#ExploreSkoda podcast\nŠkoda Motorsport\nNewsletter\nCompany Logo\nMobile App\nContacts\nŠkodapedia\nAll\nAll\nStories\nNews\nPress Kits\nImages\nVideos\n Introduction\nChapters \n14. 5. 2024\nExterior: Visual fine-tuning as well as advanced headlight design and technology\n\n› More dynamic look: redesigned front and rear aprons and updated Škoda grille\n› Better lighting output: more powerful second-generation LED Matrix beam headlights with more advanced functionality\n› New logos and lettering: in line with the updated Škoda brand identity\n\nMladá Boleslav, 14 May 2024 – New aprons and a revised Škoda grille lend the Octavia a fresh look. The advanced, second-generation LED Matrix beam headlights with new Crystallinium elements and 36 individual matrix segments deliver even better illumination of the road ahead, while effectively shielding oncoming road users from headlight glare.\n\n“The refreshed look of the Octavia sharpens the character of our best-seller and ensures an even more distinguished product identity. The redesigned front instantly provides an even more dynamic look, thanks to distinctive aprons and sharply drawn, striking headlights. They create a new light signature and contain two LED modules featuring the new Crystallinium element for added effect.”\n\nOliver Stefani, Head of Škoda Auto Design\n\nNew front and rear aprons and a slightly longer body\nImproved and more progressive headlights and rear lights for better visibility and safety\nExclusive colours and new wheels\n\nFollow us at X.com/skodaautonews for all the latest news. Find out all about the Octavia with #SkodaOctavia.\n \n \n\nExplore the new ‘What’s up, Škoda?’ channel: go.skoda.eu/whatsapp\n\nVítězslav Kodym\nHead of Product Communications\nP +420 604 292 131\nvitezslav.kodym@skoda-auto.cz\n\nAnežka Boudná\nSpokesperson Product Communications\nP +420 734 298 801\nanezka.boudna@skoda-auto.cz\n\nAdditional info\nMedia contacts\nDownload Media Box\nImages\n+107\nTags\n2024\nEXTERIOR\nOCTAVIA\nMedia Box\n111 images, 3 PDFs\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia Combi\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia Sportline\n9. 5. 2024\nŠkoda Octavia\n14. 5. 2024\nŠkoda Octavia | Infographic Exterior\n14. 5. 2024\nOctavia_Exterior\n14. 5. 2024\nŠkoda Octavia | Infographic Lights\n14. 5. 2024\nOctavia_Lights\n14. 5. 2024\n02_Press_Kit_Skoda_Octavia_ML_Exterior\nShow more\n \nFacebook\n \nInstagram\n \nYouTube\n \nWhatsApp\nContacts\nŠkoda Corporate Communications\nŠkoda Product Communications\nSubscribe\n\nTo stay up-to-date with all the latest press information and events, please enter your email below\n\nSubmit\nHereby I give my consent to the processing of my personal data for the purposes of sending information about products, services and events related to Škoda Auto.\nManage subscription\nCompany\n\nThe Company's principal business activities are the development, production and sale of Škoda cars, components, genuine parts and accessories, and the provision of servicing.\n\n\"Without consent from Škoda Auto a.s., third parties are only allowed to use all published content - to an adequate extent - for press, Internet, film, radio and TV news, all that without limitations in terms of territory and time; however, such use must not be in conflict with legitimate interests of Škoda Auto a.s.\"\n\n© Škoda Auto a.s. 2026\n\nRSS RSS (News)",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-octavia-official2024.json",
+        "sha256": "758d3c8b50e7e3cfe2dd8a8c500a439590d24a2caa411afee7828841ea0a16b5"
+      },
+      {
+        "capture_id": "r3-octavia-official-scout-history",
+        "url": "https://www.skoda-storyboard.com/en/press-releases/virtual-premiere-of-octavia-rs-and-octavia-scout/",
+        "http_status": 200,
+        "visited_at_unix": 1794566366.8211365,
+        "excerpt": "Stories\nMedia Room\nEN\nCZ\nDE\nNews\nPress Kits\nModels\nFabia\nScala\nOctavia\nSuperb\nKamiq\nKaroq\nKodiaq\nEpiq\nPeaq\nElroq\nEnyaq\nImages\nVideos\nCompany\nManagement\nBrand Group CORE (BGC)\n#ExploreSkoda podcast\nŠkoda Motorsport\nNewsletter\nCompany Logo\nMobile App\nContacts\nŠkodapedia\nAll\nStories\nNews\nPress Kits\nImages\nVideos\n3. 7. 2020\nVirtual premiere of OCTAVIA RS and OCTAVIA SCOUT\n\n› ŠKODA OCTAVIA is one of the most successful model families in the world with around 400,000 units produced annually\n› Five drive systems to choose from: new OCTAVIA is available as a petrol, diesel, CNG, and with two hybrid technologies\n› New EVO-generation 2.0 TDI is making its debut in the OCTAVIA SCOUT: most powerful diesel in OCTAVIA history generates 147 kW (200 PS) and 400 Nm of torque\n\n\n  \nVirtual premiere of OCTAVIA RS and OCTAVIA SCOUT\nThe approximately 90-minute livestream will include a 30-minute vehicle presentation with statements from Bernhard Maier (ŠKODA AUTO CEO), Christian Strube (ŠKODA AUTO Board Member for Technical Development) and Oliver Stefani (Head of ŠKODA AUTO Design) as well as four technical workshops on the topics of the OCTAVIA RS, OCTAVIA SCOUT, drivetrain strategy and connectivity.\n\nMladá Boleslav, 3 July 2020 – The ŠKODA OCTAVIA is the heart of the Czech brand and tops the bestseller lists in numerous European countries. A rugged SCOUT and two further sporty RS variants have now been added to the fourth-generation OCTAVIA portfolio. By electrifying the powertrain with new mild hybrid technology and two OCTAVIA iV plug-in hybrids, ŠKODA has reduced the OCTAVIA’s CO2 emissions even further. The iV variants of the bestseller can travel up to 60 km in the WLTP cycle without producing any emissions; the combustion engines have also continuously been optimised. They are now even more efficient. Furthermore, ŠKODA has lowered nitrogen oxide emissions from the new EVO generation of diesel engines by about 80 per cent using the ‘twin dosing’ process. With a choice of two body variants, front- or all-wheel drive, manual or DSG transmission as well as five drive systems – petrol, diesel, CNG, mild hybrid and plug-in hybrid – every ŠKODA OCTAVIA customer will find their perfect match. The centrepiece of the OCTAVIA’s all-wheel drive system is a sixth-generation electronically controlled multi-plate clutch, which – among other things – is significantly lighter than its predecessor following a comprehensive technical update.\n\nBernhard Maier, ŠKODA AUTO CEO, said, “The new generation of the OCTAVIA is one of the most important model updates for ŠKODA this year and is a key part of what is currently the biggest product campaign in our company’s history. We have refined our icon’s core virtues even further and have also taken another major step forward in terms of design, connectivity and safety. I am convinced that we will win the hearts of our customers once again with this great overall package.”\n\nThe success story of the ŠKODA OCTAVIA began in 1959. As the brand’s eighth model since the Second World War and the eighth to feature ultra-modern independent suspension for all wheels, it was given a name meaning ‘the eighth’ in Latin, a name which has since become synonymous with the entire brand. Next came the first OCTAVIA COMBI estate variant in 1961, which was produced until 1971. A total of 360,000 OCTAVIAs were built, including more than 54,000 units of the OCTAVIA COMBI. The first generation of the modern-day edition made its debut in April 1996. The unmistakable hatchback with a large tailgate was followed in March 1998 by the even more spacious OCTAVIA COMBI, which was particularly successful in Europe. By November 2010, 970,000 hatchbacks and more than 470,000 COMBIs had been sold. In 2004, the second modern day generation was launched. Of this, 1.7 million hatchbacks and 870,000 estates had rolled off the assembly line by 2013. The third generation introduced in November 2012 was also a huge success – a total of more than 2.5 million customers had opted for this OCTAVIA by spring 2020. Since 1959, ŠKODA has produced more than seven million OCTAVIAs.\n\nBestseller in many markets and produced in five different countries\nUp to 400,000 OCTAVIAs are now produced per year and it tops the list of bestsellers in numerous markets. The ŠKODA icon has already been the chart-topping vehicle in its homeland of the Czech Republic 30 times and it has also been listed at the top in seven other countries, including Poland, Austria, Switzerland and Finland. In Germany, the OCTAVIA’s second-largest sales market in the world, it has been the number-one import vehicle for many years. The OCTAVIA COMBI, which is the bestselling estate car in Europe, plays a major part in this. The chartbuster is the brand’s only vehicle to be produced in five different countries: in addition to the Czech Republic and China, it also rolls off the lines in Russia, Kazakhstan and India.\n\nA successful big family\nJust like in previous generations, the almost coupé-like hatchback, featuring a large tailgate, and the COMBI, now with an even larger boot (640 l), are key members of the fourth generation of the OCTAVIA family too. With a drag coefficient (cd) from 0.24 for the hatchback and 0.26 for the COMBI, both OCTAVIA body variants are amongst the most aerodynamic cars in the world in their respective segments. The OCTAVIA SCOUT is exclusively available as an estate, offering rugged body enhancements and a Rough-Road package with raised ground clearance as standard. The two OCTAVIA plug-in hybrids bear the abbreviation ‘iV’: the OCTAVIA iV has a total power output of 150 kW (204 PS) and the OCTAVIA RS iV delivers 180 kW (245 PS). Including the 180-kW (245 PS) 2.0 TSI and the 147-kW (200-PS) 2.0 TDI, there are now three powertrains available for the fourth generation of the sporty, top-of-the-range RS model. The two OCTAVIA variants with mild hybrid technology bear the e-TEC designation, while the OCTAVIA G-TEC is specifically designed to run on eco-friendly natural gas (CNG).\n\nŠKODA OCTAVIA SCOUT: Rugged estate with off-road styling\nŠKODA OCTAVIA RS: A sporty trio\nDrive systems: Plug-in hybrid, mild hybrid, diesel, petrol and CNG engines\nConnectivity and safety: Modern infotainment, first head-up display and new assistance systems\n\nHermann Prax\nHead of Product Communications\nT +420 734 298 173\nhermann.prax@skoda-auto.cz\n\nZbyněk Straškraba\nSpokesperson – Product Communications\nT +420 326 811 785\nzbynek.straskraba@skoda-auto.cz\n\nFollow us at https://twitter.com/skodaautonews for the latest news. Find out all about the new ŠKODA OCTAVIA with #SkodaOctavia.\n\nMEET THE WHOLE OCTAVIA FAMILY\n\nAdditional info\nMedia contacts\nDownload Media Box\nImages\n+99\nTags\n2020\nG-TEC\nOCTAVIA\nRS\nSCOUT\nMedia Box\n8 videos, 103 images, 23 PDFs\n3. 7. 2020\nPresentation OCTAVIA SCOUT I Video\n3. 7. 2020\nPresentation OCTAVIA RS I Video\n3. 7. 2020\nPresentation drivetrain strategy I Video\n3. 7. 2020\nPresentation Connectivity and Infotainment I Video\n3. 7. 2020\nVirtual premiere of OCTAVIA RS and OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT - Infographic\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n10. 6. 2020\nThe new ŠKODA OCTAVIA SCOUT\n10. 6. 2020\nThe new ŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 2020\nŠKODA OCTAVIA SCOUT\n3. 7. 20",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/r3-octavia-official-scout-history.json",
+        "sha256": "b14d68a8f8476c7212136bf8ca1eb06d9a699de5d2cc6a99bffad9f25eefb605"
+      }
+    ],
+    "boundaries": [
+      "保留冻结聚合年。A7改款2017–2023、原款A8 2019–2026和A8改款2024–2026是独立来源族，不因年段重叠而互代。",
+      "Scout在来源ID是Wagon 5-door的显式body_version；不能仅凭行李架判Scout，不能用Liftback或RS/Sportline替。2024改款冻结任务没有Scout要求。",
+      "官方Octavia hatchback指车顶铰接大尾门，对应冻结Liftback；Combi对应Wagon，不是另一种短尾掀背。",
+      "官方2020 Scout标题第三代指Scout第三次产品化，正文明确其基础是Octavia第四代A8，不能据标题绑A7。",
+      "后续A5 Scout需核对A5代际和改款外观；A4任务没有Scout；经典Type985的来源ID是Wagon 3-door，不能用现代5门Combi。"
+    ],
+    "license_text": "Skoda Storyboard actual footer: Without consent from Škoda Auto a.s., third parties are only allowed to use all published content - to an adequate extent - for press, Internet, film, radio and TV news, all that without limitations in terms of territory and time; however, such use must not be in conflict with legitimate interests of Škoda Auto a.s. This scopednewspermissionisnotCCorproductionadaptationapproval.",
+    "scope": "身份参考，不是尺寸重认证或生产批准；没有正式台账写入。"
+  },
+  "old_blue_binding_hold": {
+    "schema": "ru-source-body-applicability-v1",
+    "created_at_unix": 1794568038.2738812,
+    "local_id": "C3F-001-independent-body-review",
+    "candidate_source_page": "https://www.flickr.com/photos/charles79/52091446929/",
+    "task_id": "RU-2ced1e85ff306fb6",
+    "proposed_dimension_id": "Skoda Octavia Liftback 2019-2026 RU",
+    "review_status": "candidate_only",
+    "decision": "still_unknown_body_binding_hold",
+    "decision_scope": "支持原款Octavia A8外观族，但当前证据不足以独立确认Liftback或排除Combi；不改变正式状态、不生成。",
+    "original": {
+      "local_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C3F-001-52091446929-original.jpg",
+      "width": 6000,
+      "height": 4000,
+      "manifest_sha256": "67796f450abe5843c0425b02f65742b512cee92eb62230434677b8fab0970e8c",
+      "actual_readonly_sha256": "67796f450abe5843c0425b02f65742b512cee92eb62230434677b8fab0970e8c",
+      "actually_viewed_full_original_preview": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/C3F-001-independent-full-preview.jpg",
+      "actually_viewed_subject_crop": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round3-alternative/C3F-001-subject-inspection.jpg"
+    },
+    "observations": [
+      "独立看完整6000×4000原件缩览及C的原像素车体局部。近正前与少量左侧角度能确认原款A8前脸，车顶后缘、完整后侧窗、C/D柱与尾部轮廓没有充分展示。",
+      "车顶没有可见行李架不能证明Liftback；拍摄或标题2022不能证明车身。没有使用这两项作为判定依据。",
+      "实际Flickr源页完整标题为Škoda Octavia IV 1.0 TSI EVO e-TEC (2022)。完整说明列Launch1996、GenerationFourth2019起、发动机、功率、变速箱、前驱与地点，未明确写Liftback/Hatchback/Saloon/Combi/Estate/Wagon。",
+      "公开photostream上下文访问HTTP200，但捕获的可见内容只有流入口与分页，未出现可证为同一辆蓝车的其它角度。",
+      "同账号Octavia公开检索HTTP200显示129结果计数，但本次实际渲染捕获没有结果图/标题链接可供核同车。不能据此断言账号没有其它角度，也不能把不同蓝车默认为同车。"
+    ],
+    "source_page_actual_evidence": [
+      {
+        "capture_id": "r6-flickr-photo",
+        "url": "https://www.flickr.com/photos/charles79/52091446929/",
+        "http_status": 200,
+        "visited_at_unix": 1794567952.411564,
+        "title": "Škoda Octavia IV 1.0 TSI EVO e-TEC (2022) | Launch: 1996 Gen… | Flickr",
+        "actual_text": "This website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. To learn more, view the following link: Privacy PolicyCookie Policy\n\nYour preferences are saved across the devices where you're signed in, and may differ from the choices you make here.\n\nExplore\nLog In\nSign Up\n←\n→\nBack to photostream\nCharles\n\nusf1fan2\n\nŠkoda Octavia IV 1.0 TSI EVO e-TEC (2022)\n\nLaunch: 1996\n\nGeneration: Fourth (2019 - )\n\nEngines: 1,0 litre turbo R3 (petrol)\n\nPower: 110 PS\n\nGearbox: 7 speed DKG\n\nLayout: front engine, front drive\n\nLocation: Dalwhinnie, Scotland (U.K.)\n\n137 views\n 1 fave\n 0 comments\nUploaded on May 22, 2022\nTaken on April 20, 2022\nSign Up\nLanguage\nEnglish\nSmugMug Films\nYouTube Channel\nQuick links\nAbout\nJobs\nBlog\nAdvertise\nDevelopers\nCookies\nGuidelines\nHelp\nReport\nPolicies\nLegal\nPrivacy\nTerms\n© 2026\nConnecting people through photography.",
+        "files": [
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-flickr-photo.json",
+            "sha256": "934a5d43dfaea950dcf8d1632d263cf58b0837888989340648de1b9f41c8465c"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-flickr-photo.html",
+            "sha256": "88f7c7684fd87014a87358b1b2391611cc7f90129747e88e68d568c66cfb7d6a"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-flickr-photo.png",
+            "sha256": "b6ec59c2de1e290f5d754cce6c0d2501d1ff013329dac5aa203ddf771fda1358"
+          }
+        ]
+      },
+      {
+        "capture_id": "r6-photostream-context",
+        "url": "https://www.flickr.com/photos/charles79/with/52091446929/",
+        "http_status": 200,
+        "visited_at_unix": 1794567975.3344603,
+        "title": "Charles | Flickr",
+        "actual_text": "Explore\nLog In\nSign Up\nCharles\nFollow\n\nusf1fan2\n\n450 Followers•304 Following\n\n133,590 Photos\n\nJoined 2009\n\nAbout\nPhotostream\nAlbums\nFaves\nGalleries\nGroups\n 1 2 3 4 5 6 7 ••• 1335 1336 \nSign Up\nLanguage\nEnglish\nSmugMug Films\nYouTube Channel\nQuick links\nAbout\nJobs\nBlog\nAdvertise\nDevelopers\nCookies\nGuidelines\nHelp\nReport\nPolicies\nLegal\nPrivacy\nTerms\n© 2026\nConnecting people through photography.",
+        "files": [
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-photostream-context.json",
+            "sha256": "5fe8a9e449021db919f93400639d200f6359f66b6d4ce38b08e43e3944b6c803"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-photostream-context.html",
+            "sha256": "74db4d615657e59a3ba2300e3439931eb0ed730540d6904d7ba0e1df7cdd3555"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-photostream-context.png",
+            "sha256": "16585dda50e2513e693b0488c79d95a3b422f06836df015906e55497ada68a2f"
+          }
+        ]
+      },
+      {
+        "capture_id": "r6-author-octavia-search",
+        "url": "https://www.flickr.com/search/?user_id=43494963@N03&text=Octavia",
+        "http_status": 200,
+        "visited_at_unix": 1794567995.6335902,
+        "title": "Search: Octavia | Flickr",
+        "actual_text": "Upgrade to Flickr Pro to hide these ads\n\nExplore\nCharles\nPhotos\nLog In\nSign Up\nPhotos\nPeople\nGroups\nAdvanced\n\nOrientation\n\nMinimum size\n\nS\nM\nL\n\nDate taken\n\nFrom\nTo\n\nContent\n\nPhotos, Videos\n\nSearch in\n\nAll\nTags\n\nRelevant\n\n \n \n\nAny license\n\nSafeSearch on\n\nSponsored images from\n\nLIMITED DEAL: 20% off with code FLICKR20\n\nView more\n\nUpgrade to Flickr Pro to hide these ads\n\nView all 129\nCharles’s photos\n\nSponsored images from\n\nLIMITED DEAL: 20% off with code FLICKR20\n\nView more\n\nUpgrade to Flickr Pro to hide these ads\n\nSponsored images from\n\nLIMITED DEAL: 20% off with code FLICKR20\n\nView more\n\nUpgrade to Flickr Pro to hide these ads\n\nAbout Jobs Blog Advertise Developers Guidelines Help Privacy Legal Terms Cookies \nEnglish",
+        "files": [
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-author-octavia-search.json",
+            "sha256": "06b56995035e65d7aea3ac423b1192c296780596fd38f6c843a99634e856a014"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-author-octavia-search.html",
+            "sha256": "09a585190ea2bb69adc48e58e2a219a6a6fdc04f801c44b71d5c65dde940ee28"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round6/r6-author-octavia-search.png",
+            "sha256": "f164cf3d7ece539f7522bd209c7ac81de6c97585f244722974904b0bde217ffa"
+          }
+        ]
+      }
+    ],
+    "same_vehicle_sequence_evidence": "not established; no same-car rear/side-angle photo identified in actual captured content",
+    "license_scope": "原记录CC BY2.0可改编授权与车身身份分开；本轮不重新审批授权。",
+    "recommended_next_action": "维持此候选Liftback绑定hold；优先用能清楚展示尾部/后侧窗的独立原件。若今后找到同车序列，需实际照片同车证据再复核。",
+    "state_writes": "none; original untouched; no OSS/checkpoint/production index/Git writes"
+  },
+  "new_white_liftback": [
+    {
+      "worker": "C",
+      "local_id": "C4A8-010",
+      "task_id": "RU-2ced1e85ff306fb6",
+      "dimension_id": "Skoda Octavia Liftback 2019-2026 RU",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/53037766065/",
+      "original_url": "https://www.flickr.com/photo_download.gne?size=o&id=53037766065&secret=d2a7b95ea4",
+      "original_sizes_page": "https://www.flickr.com/photos/juanelo242a/53037766065/sizes/o/",
+      "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round4/C4A8-010-preview.jpg",
+      "width": 5352,
+      "height": 2838,
+      "author": "RL GNZLZ (Flickr user juanelo242a)",
+      "license_name": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/deed.en",
+      "license_text": "Actual Flickr photo-page anchors title CC BY-SA2.0 point to this exact license. Original-sizes page says all sizes available under Creative Commons. Attribution, link to license/change indication and ShareAlike must be preserved in adapted delivery.",
+      "source_title": "Skoda Octavia 1.4 TSi Ambition 2023",
+      "identity_evidence": "Full original photograph actually viewed: white fourth-generation originalA8 liftback, unmistakable sloped rear glass and short rear deck, A8 narrow angular rear lamps/Skoda spaced lettering and ordinarypainted arches. Complete closed four-side-door car without longCombi roof orScout cladding. Source2023 model label and taken2023-06-06 predates2024facelift; catalogA8 family appearance corroborated by A applicability reference. Not A7, Combi,Scout,RS orA8facelift2024.",
+      "identity_reference_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round3/octavia-applicability.json",
+      "view": "rear three-quarter, nose image-right",
+      "photograph_date": "2023-06-06",
+      "model_year_source_label": "2023",
+      "model_year_note": "Source2023 label distinct from photo date; exact manufacture date not asserted, frozen2019-2026 range preserved.",
+      "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C4A8-010-53037766065-original.jpg",
+      "sha256": "1f50b86e3596513b00efcf825d87064690a1ad4c3eca465c83f9be8ec8b21ac1",
+      "file_bytes": 3857731,
+      "original_decode_verified": true,
+      "download_status": "Flickr_Original_link_downloaded_size_header_decode_verified",
+      "review_status": "candidate_only",
+      "candidate_qualification": "preferred_clear_liftback_original_pending_root_review",
+      "actual_source_page_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round4/fl-file-0.png",
+      "source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round4/fl-file-0.txt",
+      "license_link_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round4/flickr-files.json",
+      "original_sizes_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round4/a8-flickr-sizes-original.png",
+      "response_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round4/a8-original-download.json",
+      "production_note": "Retain actual rear-side view, do not rotate to fabricated front-side. Background dealership imagery does not cross/obscure target body.",
+      "limited_host_status": "No upload.wikimedia.org original requests in this round.",
+      "dedup_against_checkpoint_manifest": {
+        "candidate_file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/candidates-20261113_26.json",
+        "source_page_already_present": false,
+        "sha256_already_present": false
+      }
+    }
+  ],
+  "root_actual_review": "Root actually viewed all6 original subjects and all6 source/gray+dark composites. Source side/rear cameras retained. A7four-eye/A8pre2024 lamps and Scout cladding/rails/skidplate/body variant checked. Flickr photo-specific CC-SA2 anchors independently read. Commons5 rawAPI SHA1/bytes/dimensions rechecked; Flickr1 exactSHA256/declaredbytes/size+decode checked, normalized metadata is explicitly not Commons API.",
+  "limited_source": "Original C3IV020 download429 was stopped and not adopted. Blue alternative actualpage/title/profile and fullphoto independent A/root reviews cannot bind Liftback; remainshold, not generated. Newwhite separateFlickr fullrear-side original establishes body, without changing queue scope or relabelling unknown source.",
+  "limitations": "Frozen representative exterior, no exact scalar dimensions/engine/factory wheel universal claim; Scout thirdproductgeneration official wording maps fourthgenerationOctavia, not A7 automatically."
+}
