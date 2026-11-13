@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_17，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_18，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -107,3 +107,12 @@
 当前累计生成45张、采用40张/40条外观覆盖记录，完整任务9/1309；剩余1300项、2354条记录；CSV完整3/500行、剩余497行。51张来源已下载/解码/实际查看/OSS备份，所有采用成品完整GET/SHA/字节数/解码通过，无未知生成请求。新增通用归档脚本只消费明确传入的真实目视观察，不自动认车或批准；本批review配置及代码在不可变extra中。
 
 下一批已检索北美第一代改款前Hatchback/Sedan/Wagon，以及中国第四代2020–2022来源。注意中国市场任务原始要求为2020–2022 Hatchback/Sedan/Shooting Brake Wagon，并非直接等同欧洲2021改款；Shooting Brake于2020年11月在中国推出、前脸重制，现有Wikipedia原文及精确Commons中国Wagon分类可核。不能自动复用欧洲Active Wagon或把2022车型年份当对应中国细分改款。第四代全球改款Sedan也仍缺，需要独立适用性证明。首代两时期各两个数字编码Hatchback仍逐条待核。当前会话持续执行，不等用户再次催促。
+
+
+## 第18批：来源谱系明确首代三门/五门，继续第四代剩余配置
+
+正式来源映射_RU（发布清单20261112_06）和不可变归档原件SHA一致，直接列明首代改款前/后W66.9/H56.3为Hatchback 3-door、W67.0/H57.5为5-door；四条来源ID原文已冻结，不再根据高度猜门数。新生成并实际源图/灰底/深底查看通过欧洲首代两时期三门/五门4图、北美首代改款前ZX3/Sedan/Wagon3图，新增完整任务3项。两个五门既有原件重新SHA/完整OSS读回核验后复用，没有重复下载或重生先前成品；旧宽泛适用性绑定保留历史并收窄到5-door。银色2003候选实际为五门，不用于三门，不修改车门制造假车型。
+
+当前累计生成52张，采用47张/47条外观覆盖记录；完整任务12/1309，剩余1297项、2347条记录，CSV完整3/500行、剩余497行。57张不同来源原件已下载/解码/实际查看/OSS备份；7个新请求均返回，所有采用成品及必要过程已完整GET/SHA/字节数/解码校验。外观覆盖不重新认证冻结上游尺寸数字，不改数值或范围。
+
+继续第四代全球改款Sedan及中国市场2020–2022 Hatchback/Sedan/Shooting Brake Wagon。中国Wagon已定位独立社区原图，须下载目视和配置身份核对，不能用欧洲Active代替。持续推进队列，不等待人工样式确认或再次催促，不动老车、范围外俄罗斯和NAS。

@@ -1,0 +1,306 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures",
+  "version": "20261113_18",
+  "description": "first-generation-focus-door-lineage-and-three-task-closures",
+  "created_at": "2026-11-13T09:22:52+00:00",
+  "finished_at": "2026-11-13T09:22:53+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch18-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/progress-20261113_17.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/progress-20261113_17.json",
+      "sha256": "550ae7593fb6367918d42912a0de1d194f3fb1497cbc9d861b1ff3d325334139"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/current-accepted-configuration-index-20261113_17.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/current-accepted-configuration-index-20261113_17.json",
+      "sha256": "c6f01a5263c51a12e50314ca880de4fc60c1fac41170a01f7248c0fefc026c6b"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/candidates-20261113_17.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/candidates-20261113_17.json",
+      "sha256": "5f1794976db7b40d4fb753f986679945b9ac90c6eb5e5967024f2f9acf413d17"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    },
+    {
+      "file": "json/dimension-library/manifest.json",
+      "artifact_file": "json/dimension-library/manifest.json",
+      "sha256": "7ef69eea2cabc150bb5d1f83b776c15c9fe48df28065e86286ea51636f1ca65d"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/identity-crosschecks-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/identity-crosschecks-20261113_16.json",
+      "sha256": "625cecb914af4743467292d73149a72282e14e480dab37bfe5885ef8d93fb709"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "592081110eb3f293f19fe8a98422aea90f771ff2",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/identity-crosschecks-20261113_18.json",
+      "content_reference": true,
+      "sha256": "bf9aced1e656eed01cc55d45db3db4091706ea9a950ad4d54651d37538edb88a",
+      "bytes": 1655,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/accepted-configurations-20261113_18.json",
+      "content_reference": true,
+      "sha256": "b41603167691a969e5a352f3bf1c2d4f10b91b50ed4e6c921acd4e32aeae6b2e",
+      "bytes": 69194,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/current-accepted-configuration-index-20261113_18.json",
+      "content_reference": true,
+      "sha256": "177ff4f674b0dc05b4e6e5a25960315cde4be1ab8c6f5eadc0826289bc602fbf",
+      "bytes": 450284,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/nonadopted-history-20261113_18.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/generation-requests-20261113_18.json",
+      "content_reference": true,
+      "sha256": "66f78aad1cf719b64a965412be2d446b3a01aac9cfe062f8a77f4b5b8c578954",
+      "bytes": 30682,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/new-source-original-evidence-20261113_18.json",
+      "content_reference": true,
+      "sha256": "d456f363af4fd1f83828ad1eb458f22c85e502c8fcaa9cbe8a1e546dbeb290cf",
+      "bytes": 24515,
+      "rows": null
+    },
+    {
+      "file": "reverified-existing-source-evidence.json",
+      "versioned_file": "reverified-existing-source-evidence-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/reverified-existing-source-evidence-20261113_18.json",
+      "content_reference": true,
+      "sha256": "c8a2cd44a6e39ee7ca8d8d0104e59ee7b94804ccad66b32dd5ce233de24399b7",
+      "bytes": 8540,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/candidates-20261113_18.json",
+      "content_reference": true,
+      "sha256": "664e04c3fedeec033a180674cdaa37ab94fe3d69cd95c7d52874d9dc226a59d6",
+      "bytes": 152568,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_18.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/progress-20261113_18.json",
+      "content_reference": true,
+      "sha256": "0ea7257e968d499a4ec08f811dd2d9772599f41b0b2ac93e3e639526142cc809",
+      "bytes": 2179831,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru-batch18-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_make_batch18_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_prepare_focus18.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_download_focus18_new5.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_download_focus18_fl3door.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_refresh_focus18_five_door.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_review_focus18.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_frozen_job_state.py",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-search.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-three-door-search.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-fl3door-search.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-china-wagon-category.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "6b84b0d99cc82dd3026d4c1e531fcc5e7f69a44daa19cab37f177f549500d20e",
+      "bytes": 11271
+    },
+    {
+      "file": "extra/executed-code/ru-batch18-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru-batch18-review.json",
+      "sha256": "5d6a008725cf97520bd49bdf01feb5cfb43255b9ccc314d382d68c633f1c2bac",
+      "bytes": 8312
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch18_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_make_batch18_review.py",
+      "sha256": "86e88cc550ae6db7d81a4ad6ff7bdfaa3f50e822b310d3d3eb22cd9f334ff93a",
+      "bytes": 7377
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus18.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_prepare_focus18.py",
+      "sha256": "727aee2512d11aa8cdbcbe327d9094487e7f29e0b5d71e97cd74e57a2b1a0894",
+      "bytes": 6937
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus18_new5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_download_focus18_new5.py",
+      "sha256": "4f0d9c86e4a6b72fbb4877829a2faf77c2bd045ffc13c46b74c76c2dba976f14",
+      "bytes": 3560
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus18_fl3door.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_download_focus18_fl3door.py",
+      "sha256": "ca1c103c558a0befb661f69035d8b7e8c395ffb88af9608471ad27a55383274d",
+      "bytes": 3044
+    },
+    {
+      "file": "extra/executed-code/ru_refresh_focus18_five_door.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_refresh_focus18_five_door.py",
+      "sha256": "f34c23de71e53ae0b82a01aa01404fe47cb7144b5d7e88972ce0c59557c48443",
+      "bytes": 2106
+    },
+    {
+      "file": "extra/executed-code/ru_review_focus18.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_review_focus18.py",
+      "sha256": "57493f47fa4f62e330bbba889c79c43ca6f0c04ed8ab4cd2ab24a1e66760484a",
+      "bytes": 1576
+    },
+    {
+      "file": "extra/executed-code/ru_frozen_job_state.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/executed-code/ru_frozen_job_state.py",
+      "sha256": "21d9c886b4db370a18a40298395b2914b7002c89bc209ec15bbfa69b9c7f3965",
+      "bytes": 1018
+    },
+    {
+      "file": "extra/search-evidence/ru-focus18-search.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-search.json.gz",
+      "sha256": "d294a4a8464954dabe93ae28ea88274c8fa2b37adfcd2930f49c0868c3f4fe64",
+      "bytes": 11595
+    },
+    {
+      "file": "extra/search-evidence/ru-focus18-three-door-search.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-three-door-search.json.gz",
+      "sha256": "28501073566d8ade696110c6ceec28cdc2c8a66e50c2ed45b1d493072f065890",
+      "bytes": 20010
+    },
+    {
+      "file": "extra/search-evidence/ru-focus18-fl3door-search.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-fl3door-search.json.gz",
+      "sha256": "fb28583a0d028a4143923f1b573dad325a4345d54609e5ad5fc69b5908b1a76d",
+      "bytes": 2767
+    },
+    {
+      "file": "extra/search-evidence/ru-focus18-china-wagon-category.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/extra/search-evidence/ru-focus18-china-wagon-category.json.gz",
+      "sha256": "fa469d0af13ddbad37668ffaffb124707f1def784a4fd576d326e71176ae9e04",
+      "bytes": 1400
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 7,
+    "accepted_configurations_this_batch": 7,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 12,
+    "accepted_configurations_total": 47
+  }
+}
