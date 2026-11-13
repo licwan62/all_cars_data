@@ -1,0 +1,46 @@
+{
+  "request_id": "P1-014-R1",
+  "claim_id": "f0f5f1bd7bde4eea81541b88e9017fd7",
+  "input_file": "/workspace/ru_picture_producer/pilot20/P1/P1-014/P1-014-imagegen-original.png",
+  "input_sha256": "37b2ef9c155a519dc8d2f54bfb14d5be4428c7b516029a4cfe721961f5a43d14",
+  "reason": "Firstoutputintroduces recognizable outdoor treeline silhouettes in lowerblackbody/reflections, sourcewarmshowroom. One targetedneutralreflectioncleanup, allJapanHybridbadges/car/camerapreserved; tirescompletewith5pxhighalphabottomgap so no croppedwheelclaim.",
+  "started_at": "2026-11-13T17:09:26.913392+00:00",
+  "prompt": "Edit this exact BLACK Japanese Camry AVV50 Hybrid cutout while preserving ALL car identity and geometry: same strong front three-quarter camera facing LEFT, original blue Toyota hybrid badge and HYBRID fender emblem, chrome grille/fog surrounds/lower lip, lamps, multi-spoke wheels, mirrors, handles and complete tires. Remove every recognizable reflected TREE/TREELINE/OUTDOOR LANDSCAPE silhouette on the lower front bumper, front fenders, doors and windows. Replace those scenic reflections with only broad, smooth, neutral softbox highlights on glossy BLACK paint and neutral opaque glass; no new scenery reflection anywhere. Do not repaint, change camera, redesign details, mirror or change wheel design. Keep the full car inside a roomy transparent frame, with extra empty space below all tires and beyond all body extremes. Output TRUE transparent RGBA, no actual external background, floor, cast/contact shadow, undercar reflection, glow/halo, detached pixels or text. Retain all original chrome and blue hybrid identity exactly.",
+  "prompt_sha256": "1daa7ef7ed71402c12746ccd8df2a0bf462d15783577dfcc82e750147ac513cc",
+  "status": "returned_saved_pending_review",
+  "transparent_background": true,
+  "accepted": false,
+  "returned_at": "2026-11-13T17:11:04.378658+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-014/repair01/P1-014-R1-imagegen-original.png",
+  "output_sha256": "e562f30720ec1eecdaa0191a0c6d8ee42e26861c20e94799f00e9f3628b11502",
+  "output_size_bytes": 1687977,
+  "technical": {
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_ge_16_bbox": [
+      40,
+      80,
+      1741,
+      882
+    ],
+    "all_nonzero_alpha_bbox": [
+      0,
+      40,
+      1744,
+      887
+    ],
+    "margins_px": [
+      40,
+      80,
+      33,
+      5
+    ]
+  }
+}

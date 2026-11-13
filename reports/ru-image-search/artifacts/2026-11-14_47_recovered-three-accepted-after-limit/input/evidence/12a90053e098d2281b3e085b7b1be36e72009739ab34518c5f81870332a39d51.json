@@ -1,0 +1,44 @@
+{
+  "reviewed_at": "2026-11-13T17:10:29.594156+00:00",
+  "task_id": "RU-3513b1c8cad9b7e1",
+  "dimension_id": "Toyota Corolla Sedan 1966-1970 RU",
+  "decision": "pass_door_count_and_E10_Sedan_family_identity",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-63427015.jpg",
+  "source_sha256_computed": "ddaed29dbf71dc32b353fc90c1c422980d0aab2e9a77b8332ba178ed0f1dac58",
+  "source_actual_dimensions": [
+    2508,
+    1850
+  ],
+  "actual_original_viewed": true,
+  "actual_door_count": 4,
+  "door_count_evidence": "近侧可见前后两扇独立侧门、前把手约(1980,545)及后把手约(2060,450)、两门分缝与B柱，后门后接独立后翼子板/尾箱；不是仅依据KE10常识或来源题名。",
+  "source_primary_caption": "KE10F型トヨタ・カローラ4ドアセダン1100デラックスをフロントから撮影。",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_4-Door_Sedan_1100_Deluxe_(KE10F)_front.jpg",
+  "local_source_metadata_files": [
+    "/workspace/ru_picture_producer/pilot20/source_c/handoff-e10e20-sedans.json",
+    "/workspace/ru_picture_producer/pilot20/source_c/e10e20-downloads.json"
+  ],
+  "frozen_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+  "frozen_mapping_sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+  "frozen_mapping_row": [
+    "RU|toyota/corolla|i (E10)|1966-1970|Sedan|-|-",
+    "Toyota Corolla Sedan 1966-1970 RU"
+  ],
+  "frozen_requires_exact_door_count": false,
+  "frozen_door_count_finding": "原映射仅Sedan，没有2-door或4-door限定；既不能据generic Sedan强制四门，也不能因初发KE10常见两门排除该四门源。",
+  "independent_manufacturer_evidence": [
+    {
+      "url": "https://www.toyota-global.com/company/history_of_toyota/75years/vehicle_lineage/car/id60003154/index.html",
+      "finding": "Toyota75年史初代Corolla车辆系谱：1966-11初发2门Sedan，1967-05增加4门Sedan。"
+    },
+    {
+      "url": "https://global.toyota/en/detail/62516/",
+      "published": "2013-09-05",
+      "finding": "Toyota官方历史里程碑再次列1967年5月增加四门Sedan和light van。"
+    }
+  ],
+  "year_limit": "四门E10处于该1966–1970代际聚合范围；不能把此源称1966年四门首发或依据2017拍摄日推生产年。精确制造年/VIN未认证。",
+  "production_gate_limit": "本次只解除门数/同代Sedan身份疑问。高前机位的后体压缩、最终目标视角、完整轮廓和移除展览绳桩等仍由P2/root验收；源不足以承接所需视角时不得凭身份pass强行生成。",
+  "formal_ledger_changed": false,
+  "git_changed": false
+}
