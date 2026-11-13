@@ -1,0 +1,138 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_01_ru-image-search",
+  "version": "20261113_01",
+  "description": "ru-image-search",
+  "created_at": "2026-11-13T13:13:23+08:00",
+  "finished_at": "2026-11-13T13:13:27+08:00",
+  "command": [
+    "build_ru_image_search.py"
+  ],
+  "inputs": [
+    {
+      "node": "dimension-library",
+      "path": "nodes/01.整理尺寸库",
+      "version": "20261112_06",
+      "file": "尺寸库_RU.json",
+      "versioned_file": "尺寸库_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/尺寸库_RU-20261112_01.json",
+      "sha256": "45c9d420f9e6c403ad67bcd8340e84f293536832bb4ee87926060e7f903f25c8"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261112_04",
+      "file": "RU/auto_ru_dimensions_with_match_key.json",
+      "versioned_file": "RU/auto_ru_dimensions_with_match_key-20261112_01.json",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/output/RU/auto_ru_dimensions_with_match_key-20261112_01.json",
+      "sha256": "d90625a55f3d4b35fabc7105df93a78cd2ec4204dfd97a55521f1b65fd0d511f"
+    },
+    {
+      "node": "dimension-crawler",
+      "path": "nodes/00.自动化尺寸抓取器",
+      "version": "20261112_04",
+      "file": "RU/auto_ru_catalog_rank.json",
+      "versioned_file": "RU/auto_ru_catalog_rank-20261112_01.json",
+      "artifact_file": "nodes/00.自动化尺寸抓取器/artifacts/2026-11-12_01_json-interface-migration/output/RU/auto_ru_catalog_rank-20261112_01.json",
+      "sha256": "5ee9bd40b5f1a4e8a0c692d00dd397fa6f9eeda9ee837a09d06259ec280615ba"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "75b3b9547660202709242672c28a7a367f920c5a",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "732277aabd92c00bc7e4a227819a60e36f4fa074d6c278bc6a75b38ec443ef69"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "8141f2bb254c7695f4946ce65bb4ef94554b9bc9e4f5167b11207caf828b8c41"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "72ca5b6f20db4cbaa7f0d528d9f7a37eabbf294fc706dabffd59a713c58b74b4"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "15fe6b656434986a57bf037cc885632b1efdea66571f92c4139e5a47bc4e4a44"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "6bc0d0f60c9ee6a3e53f237a68572ab596116cdb8ba5059057e09e743ff5b139"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "c2a80869017ba2a68e73f7eb754ce6f0714b74a55be743b657bb4a4c7b7ae6e8"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "89b81c0e5c8c4a9f3aa226eb86fc1bd4ea65cf547f6cd6a1eb7d7a10865e0515"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "0e43c0763737043207e57a2dfbb811aed0798182d9964891b01adc6de1d23d84"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "18da1f56f69fa04d53de595e691fecb81f604bb1b6db667a787e443097c26725"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "7eb9f174b1ca80b93522c22af54b7dfbf32b099f04b4361530f29ad3514b18b6"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "找图队列.json",
+      "versioned_file": "找图队列-20261113_01.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_01_ru-image-search/output/找图队列-20261113_01.json",
+      "content_reference": true,
+      "sha256": "12afca062f4a86f96a3022fbcc98a2975a313d76e4ac25521c7b47569af58123",
+      "bytes": 12177127,
+      "rows": null
+    },
+    {
+      "file": "俄罗斯车型找图.html",
+      "versioned_file": "俄罗斯车型找图-20261113_01.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_01_ru-image-search/output/俄罗斯车型找图-20261113_01.html",
+      "content_reference": true,
+      "sha256": "6fd79786edbefcf1870c1fa9c8065b49ad818dd5b50ff1696c4ed8db40a8dd1b",
+      "bytes": 3377373,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "summary": {
+      "dimension_records": 13617,
+      "catalog_records": 4870,
+      "unique_dimension_models": 4757,
+      "generation_searches": 9712,
+      "catalog_only_searches": 117,
+      "total_initial_searches": 9829,
+      "missing_generation_records": 3228,
+      "multi_configuration_tasks": 2745,
+      "verified_images": 0
+    },
+    "validation": "all dimension IDs exactly once; all catalog rows covered; representative years within every member range"
+  }
+}
