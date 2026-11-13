@@ -1,0 +1,115 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T23:29:23.732531+00:00",
+  "task_id": "RU-706cea325df77a5b",
+  "dimension_id": "BMW 3 серии Sedan 2018-2022 RU",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-92832394.jpg",
+  "source_sha256": "70812b6d4a0aaf81b698cbc0aa249b2ba14e2ae98e0a46cbf86c10ea67f66294",
+  "auxiliary_rear_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-aux-92832395.jpg",
+  "auxiliary_rear_sha256": "49ce8c0c71a4010f44603b866641739ddd76fce9fb04fd9114c089684c988757",
+  "judgment": "PRECISE_HOLD_NORMAL_SE_1442_APPLICABILITY_UNRESOLVED",
+  "source_ready": false,
+  "generation_count": 0,
+  "front_body_identity": "POSITIVE_ORDINARY_G20_BASE_SE_FRONT_ARCHITECTURE_NOT_PHASE_OR_M_KIT_ERROR",
+  "summary": "Source ordinarypreLCIG20/UKcaption318dSE front positively matches OEMBASE exterior. Frozen1442 and official2018launch1442 are real evidence, but laterexact318dtechnical1435 exists beyond the M-looking generic diagram. No factory explanation of7mm or explicitnormalUKSE1442technical specification was established. Maintainhold on frozenheight/grade applicability, not on basicphase/body/ordinaryfront.",
+  "frozen": {
+    "mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "literal": "RU|bmw/3er|VII (G2x)|2018-2022|Sedan|-|-",
+    "requirement_in": [
+      185.4,
+      71.9,
+      56.8
+    ],
+    "raw_source": "/workspace/ru_picture_producer/pilot20/source_c/bmw3-frozen-raw-full.json",
+    "raw_row_zero_based": 6078,
+    "raw_modification": "318d 2.0d AT (150 hp)",
+    "dimensions_mm": [
+      4709,
+      1827,
+      1442
+    ],
+    "note": "Exactrow318d2.0dAT150hp, versionemptydoesnotwaivevisiblegradeorheightgate."
+  },
+  "source_identity": {
+    "front_original_sha256": "70812b6d4a0aaf81b698cbc0aa249b2ba14e2ae98e0a46cbf86c10ea67f66294",
+    "front_dimensions": [
+      4681,
+      2318
+    ],
+    "front_bytes": 5177094,
+    "rear_original_sha256": "49ce8c0c71a4010f44603b866641739ddd76fce9fb04fd9114c089684c988757",
+    "rear_dimensions": [
+      5112,
+      2358
+    ],
+    "rear_bytes": 5501479,
+    "front_page": "https://commons.wikimedia.org/wiki/File:2019_BMW_318d_SE_Automatic_2.0_Front.jpg",
+    "rear_page": "https://commons.wikimedia.org/wiki/File:2019_BMW_318d_SE_Automatic_2.0_Rear.jpg",
+    "author": "Vauxford",
+    "license": "CC BY-SA4.0 ownwork",
+    "caption": "2019BMW318dSEAutomatic2.0 takenWarwick",
+    "photographed": "2020-08-01",
+    "modelyear_or_build_certified": false,
+    "actual_observation": "Actualfullframe front/rearreview renderings: silverordinary four-doorG20 independentboot, blackT-shapedlowercorner inserts/normalcenterintake and faceliftnotchanged lamps, bodycolourmirrorshandles, multiraywheels, lowwhitefin visible rear; no observedMfrontpackage. Source rear is same-event body/accessory reference, not manufacture/VIN proof."
+  },
+  "evidence": [
+    {
+      "kind": "LocalactualOEMbrochurePDF+actualrenderedpages",
+      "file": "/workspace/ru_picture_producer/pilot20/source_c/BMW-G20-201907-OEM-brochure.pdf",
+      "sha256": "b36eb011698f16fe21ca47b6c29abcf0a02e8559d9766ef094aff4b704b44c02",
+      "p24_actual_render": "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW-G20-OEM-base-spread-p12.png",
+      "p43_actual_render": "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW-G20-OEM-technical-spread-p21.png",
+      "positive": "P24BASEactual ordinaryfront bumper matches source blackT/corner architecture, normalrearbody.",
+      "unresolved": "P43generictechnicaldiagram marks1435 beside M-looking front drawing; no per-trimLWH table or7mmexplanation.",
+      "publication_correction": "Filename201907comesfromOEMdirectoryURL, not a verified2019finalpublicationdate. ActualPDFfooter ©BMWAG2018, literal wenttopress09/03/2018, printedGermany2018; equipment/technical text contains expected03/2019,07/2019 andprovisionalfigures.",
+      "suspension_text": "Actualtext says M Sport suspension approximately10mm lower. This is not evidence of a7mm cause."
+    },
+    {
+      "kind": "SavedcompleteactualwebtooltextfromC, independentlyreadbyA",
+      "url": "https://www.press.bmwgroup.com/czech/article/detail/T0285562CS/nov%C3%A9-bmw-%C5%99ady-3-sedan?language=cs",
+      "date": "2018-10-02",
+      "file": "/workspace/ru_picture_producer/pilot20/source_c/BMW-G20-Czech-20181002-successful-web-read.txt",
+      "sha256": "d45bcccd6141fb4d969c812ced2456bf38abf36777d9c905052a6793bf72b2b0",
+      "actual_text_location": "L87",
+      "facts": "GeneralnewG203SeriesSedan introduction explicitly4709length/1827width/1442height.",
+      "limit": "Generalgenerationlaunchdimensions, not exactUK318dSE/suspensiontechnicaltable. A live directopen nowredirectsnewnewsroom; no falseclaimA freshoriginalpageGET."
+    },
+    {
+      "kind": "Officialprecise318dPDFindexedsearchcache, not downloadedbinary",
+      "url": "https://www.press.bmwgroup.com/global/article/attachment/T0299451EN/437354",
+      "title": "BMWMediaInformation03/2019,thenewBMW3SeriesSedan318d,P11",
+      "facts": "Specific318dSedanbody table lists length/width/heightunladen4709/1827/1435;4doors/5seats,WB2851.",
+      "raw_cache_file": "/workspace/ru_picture_producer/pilot20/identity_a/g20-se-review/official-318d-search-cache-raw.json",
+      "limit": "Searchcacheactualtextread; liveopenandurllibGETredirectnewsroomHTML. No actualPDFbinary/fullpagevisual or factoryfootnote explanation claimed.",
+      "corroborating_official_indexed_urls": [
+        "https://www.press.bmwgroup.com/czech/article/attachment/T0299456CS/436276",
+        "https://www.press.bmwgroup.com/deutschland/article/attachment/T0299453DE/437353"
+      ],
+      "consequence": "1435cannotbedismissedsolelybecausegenericp43showsMfront;exact318dmanufacturerindexedtablealsohas1435. DoesnotproveUKSEsourcephysicalheight1435."
+    }
+  ],
+  "download_status_proof": "/workspace/ru_picture_producer/pilot20/identity_a/g20-se-review/official-exact-318d-downloads.json",
+  "actually_viewed": [
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW3-92832394-raw-review.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW3-92832395-raw-review.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW-G20-OEM-base-spread-p12.png",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW-G20-OEM-technical-spread-p21.png"
+  ],
+  "non_adopted_inferences": [
+    "M Sport lower10mm doesnotexplain7mm.",
+    "Didnotinfer7mmantenna/finorDINload/tyre/publicationconversion withoutfactorydefinition.",
+    "Genericversionempty,nonMface,matchingmodelnameorordinarySEcaptiondoesnotclearheightissue.",
+    "ThirdpartySE1442listingsandthirdparty1435/1442heightlabelsnotusedtoreconciletwofactoryvalues."
+  ],
+  "precise_hold_release_conditions": [
+    "FactorytechnicaldocumentexplicitlyforordinaryUK318dSEmatchingfrozen4709×1827×1442, or factorymeasurementdefinition/correctiondemonstrating1435and1442arenotdifferentincompatibleconfigurations for thissource/frozenbranch.",
+    "Ifrootresolvesupstreamdatapolicyseparately, retainbothfactoryvalues, do not altervehicleheight/photoorformalrawdimensions inthisreview."
+  ],
+  "limitations": [
+    "No realcarheightmeasurement, engine/VINorbuildyearcertification.",
+    "No source-ready/enqueue or generationauthorization; newOEM/newsreferencesidentityonly, notgenerationinput.",
+    "Holdisdata/gradeapplicability, notAMG/M-stylephaseerror; ordinaryBASEpositiveevidenceisretained."
+  ],
+  "generation_calls_this_review": 0,
+  "queue_ledger_git_mutations": false
+}
