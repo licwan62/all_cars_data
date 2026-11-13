@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_05_csv-first10-candidates",
+  "version": "20261113_05",
+  "description": "csv-first10-candidates",
+  "created_at": "2026-11-13T05:25:42+00:00",
+  "finished_at": "2026-11-13T05:25:43+00:00",
+  "command": [
+    "-"
+  ],
+  "inputs": [
+    {
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65",
+      "source_commit": "e31aebfc",
+      "basis": "verified scoped queue"
+    },
+    {
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_04_csv-search-start/output/progress-20261113_04.json",
+      "sha256": "289a2017022514acef0c353ba49fc06a157b5ec8f650f3f1c95b93c75cb72c7b",
+      "basis": "previous immutable checkpoint"
+    },
+    {
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_04_csv-search-start/output/candidates-20261113_04.json",
+      "sha256": "49dfb785afd4011b7ff2d4e9a7f39087b666a5c9f07d832ccb6fce218f7c50a0",
+      "basis": "previous immutable checkpoint"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "5321944390c7cc8e61deaf9ac5247ec2a8312c07",
+    "files": []
+  },
+  "outputs": [
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_05.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_05_csv-first10-candidates/output/progress-20261113_05.json",
+      "content_reference": true,
+      "sha256": "8ac5a3f02f84ec63b9c86d34a64c84783cf05d2c37f2baa2dc41c304da2af840",
+      "bytes": 1213687,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_05.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_05_csv-first10-candidates/output/candidates-20261113_05.json",
+      "content_reference": true,
+      "sha256": "7a97c70a3b785c40d2d42e7622c33bedaac09b5fcf7f1b6c457385d15499c2a1",
+      "bytes": 21061,
+      "rows": null
+    },
+    {
+      "file": "download-attempts.json",
+      "versioned_file": "download-attempts-20261113_05.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_05_csv-first10-candidates/output/download-attempts-20261113_05.json",
+      "content_reference": true,
+      "sha256": "daf161f5bf5d7118621263fe3d5a806af429456c1de4dba7c11dd87739195444",
+      "bytes": 6968,
+      "rows": null
+    },
+    {
+      "file": "source-failures.json",
+      "versioned_file": "source-failures-20261113_05.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_05_csv-first10-candidates/output/source-failures-20261113_05.json",
+      "content_reference": true,
+      "sha256": "636e5d15a33bb7312e94cfa959ad6b89b69a6f0bdff9994001e5d6fc7189d113",
+      "bytes": 1002,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "scope": "candidate registration and truthful download attempts only",
+    "summary": {
+      "tasks": 1309,
+      "requirements": 2394,
+      "csv_rows": 500,
+      "searched": 10,
+      "candidates": 11,
+      "downloaded": 0,
+      "accepted": 0
+    },
+    "image_acceptance": "none; originals blocked by network policy",
+    "first_ten_complete": false
+  }
+}
