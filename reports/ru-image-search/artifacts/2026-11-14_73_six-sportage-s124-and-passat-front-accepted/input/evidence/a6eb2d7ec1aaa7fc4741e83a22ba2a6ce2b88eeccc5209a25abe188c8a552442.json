@@ -1,0 +1,83 @@
+{
+  "request_id": "P1-068",
+  "claim_id": "1b2fc4227b954c68a9d88828adf9d3e7",
+  "task_id": "RU-4780bf83a59e3aa9",
+  "dimension_id": "Kia Sportage SUV 2018-2022 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-77840494.jpg",
+  "input_sha256": "e990f2df78b2f5260a60b3af9fbc77f828286448c78710c5be0eb63a1be89ee1",
+  "input_dimensions": [
+    4362,
+    2478
+  ],
+  "input_role": "fullverifiedsourceoriginalfrontcamera",
+  "source_page": "https://commons.wikimedia.org/wiki/File:2019_Kia_Sportage_2_CRDi_ISG_S-A_1.6_Front.jpg",
+  "source_license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "assigned_at": "2026-11-13T22:08:43.531720+00:00",
+  "material_ready_at": "2026-11-13T22:13:23.399947+00:00",
+  "started_at": "2026-11-13T22:13:33.920456+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-068/deterministic-repair/padded-canvas/SportageQLFacelift-roomy-transparent.png",
+  "candidate_sha256": "36f9aa69df470e4a1cd4d5fd8124713755e7bf65fe407d18d27a503d6e0b4a5b",
+  "worker_reviewed_at": "2026-11-13T22:15:53.595379+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root final actual individual acceptance required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-068/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-068/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Actualfrontquarter bothlamps/fullgrille/completeSUV coherentcamera, originalordinaryfaceliftprojector/fogchrome/petalwheels/whiteindicator-mirrors andsilverrails maintained; toolinlinewhitepatches absent actualRGBA composites."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1664,
+      945
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      50,
+      92,
+      1617,
+      918
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 5548,
+    "detached_max_alpha": 1,
+    "bottom_margin_px": 27,
+    "reason": "5548 disconnectedalpha1 pixels andbottom27px require controlledcleanup/transparentpadding; rawtechnicalfalse."
+  },
+  "visual_review": "Actually front/fullrear/frontroof/native2xrearfin and independent QLfacelift primary viewed. White ordinarySUV matchingfrontarchitecture but sourceprojectors/petalwheels retained notprimaryLEDgrade. RaisedSILVERrails noXbars, rearfin white tipapprox(3304,202) base(3126..3318,294) complete on4661x2561 rear; frontlow/selfoccluded noheightinflation. UKRHDgrade2 caption supportsordinaryEUfamily notVINenginepower/gearing/buildday/RUassembly/physicalmmcertification. Actualraw/finalgrayblack viewed completebothprojectorlamps/grille/fogC/longchrome/nosideonly, roundedtires/mirrors/rails complete. Fin naturallyhiddenfront lowroofcontour notraised/invented. No evidentconnectedscene/floor/shadow/coloredstrayentity afteralpha-onlycleanup. Finalrootcamera/accessoryedge acceptance remains pending.",
+  "identity_limits": "UKRHD grade2CRDi1.6caption vs exactfrozen1.6d136MT/AMT4485x1855x1645family positive, noVINenginepower/gearing/buildday/RUassembly orphysicalmmcertification. Sourceprojectorgrade/petalwheels preservednotprimaryLED/wheelgrade; rearreviewonly no rearviewgeneration. CCBYSA4VauxfordcreditShareAlike retained.",
+  "dimensions": [
+    1824,
+    1125
+  ],
+  "visible_margins_px": [
+    130,
+    172,
+    127,
+    127
+  ],
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-068/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-068/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-068/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-068/input-oss-proof.json",
+  "auxiliary_input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-068/auxiliary-review-source/input-oss-proof.json",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-068/deterministic-repair/padded-canvas/SportageQLFacelift-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-068/deterministic-repair/padded-canvas/SportageQLFacelift-review-black.png",
+  "generation_calls": 1,
+  "paid_repairs": 0,
+  "cost": "unknown",
+  "deterministic_processing": "Onlydisconnectedalpha<=15 clear mainRGBA/allRGB unchanged; puretransparentcanvasL/R80top80bottom100 translatedRGBA identical."
+}
