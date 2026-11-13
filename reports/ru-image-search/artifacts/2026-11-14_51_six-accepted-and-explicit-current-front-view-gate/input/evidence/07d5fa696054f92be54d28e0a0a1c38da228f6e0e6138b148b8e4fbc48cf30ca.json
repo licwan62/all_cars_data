@@ -1,0 +1,101 @@
+{
+  "request_id": "P1-024",
+  "claim_id": "a3172ffd9a964c4c97a23163458291cf",
+  "task_id": "RU-8ca323fadd4370e2",
+  "dimension_id": "Toyota RAV4 SUV 2012-2015 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-64811209.jpg",
+  "input_sha256": "7ed34851817987e40d38a3c88d99caf6addab1f84d55804c714a5ebde784d11d",
+  "input_dimensions": [
+    3887,
+    2245
+  ],
+  "source_page": "https://commons.wikimedia.org/wiki/File:2013_Toyota_RAV4_Invincible_D-4D_Automatic_2.2_Front.jpg",
+  "source_license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+  },
+  "auxiliary_sources": [
+    {
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-64811207.jpg",
+      "source_sha256": "7490b8e4b13dbef3fbac0e274f0fc735074b90dad66d8a8f7e040812f70a5f5b",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2013_Toyota_RAV4_Invincible_D-4D_Automatic_2.2_Rear.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/2013_Toyota_RAV4_Invincible_D-4D_Automatic_2.2_Rear.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": {
+        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "LicenseShortName": "CC BY-SA 4.0",
+        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+      },
+      "role": "samevehicle rear/roofidentityonly, neverrearviewtarget",
+      "decoded": {
+        "size": [
+          3809,
+          2206
+        ],
+        "format": "JPEG",
+        "mode": "RGB"
+      },
+      "photographed_at": "2017-12-13 11:47:39",
+      "pair_basis": "sameVauxfordcaption/year/grade, samecolour/wheels/scene; captured38secondslater"
+    }
+  ],
+  "assigned_at": "2026-11-13T18:09:56.125011+00:00",
+  "material_ready_at": "2026-11-13T18:11:04.153216+00:00",
+  "started_at": "2026-11-13T18:11:04.153216+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-024/repair01/deterministic-repair/padded-canvas/RAV4XA40Original-roomy-transparent.png",
+  "candidate_sha256": "142736dfeb1c8cf1f5f0af182b54d33bc8dac6e0ff89bc49f83ffb85bba07ed7",
+  "worker_reviewed_at": "2026-11-13T18:15:02.474346+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "Coordinator finalindividualacceptance required.",
+  "raw_visual_first_draft_pass": false,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-024/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-024/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Identity/frontcamera/roofaccessories coherent but nearestfronttire reachesbottomedge and lackscompletecleararc. One source-backed wholecarreframing R1 needed; not rawpass."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1650,
+      953
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      4,
+      2,
+      1633,
+      953
+    ],
+    "tires_cropped": true,
+    "bottom_margin_px": 0,
+    "reason": "Bodyhighalpha toucheslastrow andantennaonly2pxfromtop, so cannotfixpossibleclippedtiresbycanvaspadding. Rawhistoryretained."
+  },
+  "visual_review": "Actuallyviewedfront3887/rear3809at1500 plusoriginalpixelroofcrop, rawfirstgrayblack andfinalgrayblack. R1vehicle20%smaller withcomplete3tires/antenna ampleinsideframe; correcttaupeXA40initial5doorlongbody/Vmeshgrille/longheadlamps/roundfogs/Toyotaoval, silverspokes/blackarch/lowercladding/silverlowerlip, silverlongitudinalrails/blackactualwhip notfin. Rearinputusedonlysamecarroof/bodyaccessoryidentity, finalfronttarget staysfrontquarter. Smoothneutralstudiopaint, noexternalshadow/scenery/alphafringe.",
+  "identity_limits": "No exactindividualmanufactureyear/enginepower/drivetrain/safetygrade/scalardimensionscertification. Preserveactualsourcewheels/mirrors/rails/antenna, notofficialcomparisontrim. RearpairnotVINidentitycertification, visual+timestampmatchonly.",
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-024/repair01/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-024/repair01/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-024/repair01/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-024/input-oss-proof.json",
+  "auxiliary_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-024/auxiliary-source/input-oss-proof.json",
+  "dimensions": [
+    1810,
+    1133
+  ],
+  "margins_px": [
+    298,
+    236,
+    315,
+    198
+  ],
+  "method": "Initialgen+one source-backed reframingrepair. R1only891disconnectedpixelsmaxalpha2cleared allmainRGBAunchanged; puretransparentcanvaspad noresampling."
+}

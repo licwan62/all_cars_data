@@ -20,6 +20,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / 'lib'))
 from artifact_batch import RunBatch
 from ru_pilot_queue import DEFAULT_CHECKPOINT, load_scope
+from ru_pilot_front_gate import prepare as prepare_front_gate, apply as apply_front_gate
 from ru_pilot_retake import DEFAULT_RETAKE_PLAN, load_plan, current_state, validate_old, validate_front, report as retake_report
 
 
@@ -56,8 +57,8 @@ def validate(args):
         raise ValueError('acceptance index must be a list')
     inputs_path = local(args.file)
     inputs_raw, entries = rawjson(inputs_path)
-    if not isinstance(entries, list) or not entries:
-        raise ValueError('input must be a nonempty root acceptance JSON list')
+    if not isinstance(entries, list) or (not entries and not getattr(args, 'front_view_gate', None)):
+        raise ValueError('input must be a nonempty root acceptance JSON list (empty allowed only for explicit --front-view-gate audit)')
     existing = {(a['task_id'], a['dimension_id']) for a in index}
     if len(existing) != len(index):
         raise ValueError('current index contains duplicate task/dimension keys')
@@ -148,6 +149,8 @@ def json_nodes(value):
 def prepare_optional(data, args):
     data['registered_candidates'] = None
     data['metrics'] = None
+    if getattr(args, 'front_view_gate', None):
+        prepare_front_gate(data, args.front_view_gate)
     if getattr(args, 'metrics_report', None):
         metrics_path = local(args.metrics_report)
         raw, metrics = rawjson(metrics_path)
@@ -357,6 +360,9 @@ def build(data, batch_path, version):
     else:
         index = data['index'] + accepted
     apply_optional(data, progress, index, accepted)
+    if data.get('front_view_gate'):
+        index = copy.deepcopy(index)
+        apply_front_gate(data, progress, index, accepted)
     plan = data.get('retake_plan')
     if plan is None:
         try:
@@ -376,7 +382,8 @@ def execute(args):
     summary = {'dry_run': args.dry_run, 'accepted_count': len(data['entries']),
                'counts_before': data['progress']['counts'], 'counts_after': preview['counts'],
                'checkpoint_updated': False, 'replacement_count': len(data['entries']) if data.get('replacement') else 0,
-               'front_retakes': preview.get('front_retake_reconciliation'), 'pending': ['generation_counts', 'candidate_counts']}
+               'front_retakes': preview.get('front_retake_reconciliation'),
+               'current_front_view': preview.get('current_front_view_revalidation', {}).get('summary'), 'pending': ['generation_counts', 'candidate_counts']}
     if data.get('metrics'):
         summary['pending'].remove('generation_counts')
         summary['generation_delta'] = data['metrics']['safe_next_batch_increment']['delta_from_current_verified_subtotal']
@@ -434,6 +441,8 @@ def execute(args):
         output('replacement-events.json', [e['replacement'] | {'task_id': e['task_id'], 'dimension_id': e['dimension_id']} for e in accepted])
     if progress.get('front_retake_reconciliation'):
         output('front-retake-reconciliation.json', progress['front_retake_reconciliation'])
+    if progress.get('current_front_view_revalidation'):
+        output('current-front-view-revalidation.json', progress['current_front_view_revalidation'])
     acceptance_path = output('accepted-configurations.json', accepted)
     progress_path = output('progress.json', progress)
     index_path = output('current-accepted-configuration-index.json', index)
@@ -473,6 +482,7 @@ def main():
     parser.add_argument('--replacement', action='store_true', help='Explicit root planned rear-to-front replacement; never adds accepted configurations')
     parser.add_argument('--retake-plan', default=DEFAULT_RETAKE_PLAN)
     parser.add_argument('--plan-file')
+    parser.add_argument('--front-view-gate', help='Root-provided current-SHA front1/3 or1/2 camera revalidation gate')
     parser.add_argument('--metrics-report', help='Current-checkpoint-SHA-bound runtime metrics report')
     parser.add_argument('--register-accepted-sources', action='store_true', help='Register only root-signed accepted sources with exact source full-GET receipts')
     parser.add_argument('--dry-run', action='store_true')

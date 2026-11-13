@@ -1,0 +1,373 @@
+{
+  "at": "2026-11-13T18:34:08.242717+00:00",
+  "worker": "source_b",
+  "scope": "Offline audit only; no new network/source inventory",
+  "current_all_delivery_viewpoint_requirement": "complete front1/3 or front1/2 only; historical side/rear source retained as historical hold, not current pass",
+  "ready_manifests_checked": [
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e34/sedan/ready.json",
+      "task_id": "RU-10054d1e3785cac3",
+      "dimension_id": "BMW 5 серии Sedan 1987-1996 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e34/sedan/original.jpg",
+      "source_sha256": "e4fb78486f2e7e3bd69cca3add8100f2b08441018f673dd81d139c88c89a6beb",
+      "sha_matches_manifest": true,
+      "decode": [
+        2226,
+        1221,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected full preview and roof crop. Complete front 1/3 view with front fascia and long visible side, four-door sedan body, intact roofline, bumpers and wheels. Preserve red finish, mesh-style wheels and actual trim. Roof crop inspected; do not invent accessories from the background.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "in_review",
+          "enqueued_at": "2026-11-13T18:12:14.422380+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:12:14.368690+00:00",
+      "source_assigned_at": "2026-11-13T18:04:02.105094+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e34/wagon/ready.json",
+      "task_id": "RU-10054d1e3785cac3",
+      "dimension_id": "BMW 5 серии Wagon 1987-1996 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e34/wagon/original.jpg",
+      "source_sha256": "2a34a001ade768ef05c6e0b95d0fc877748ec3c2c104b13c6a8e4fefd8929f00",
+      "sha_matches_manifest": true,
+      "decode": [
+        2608,
+        1448,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected full original preview and roof crop: complete front 1/2 view, bumper corners, complete wheels and five-door long estate silhouette. Two longitudinal black roof rails clearly visible with complete ends; no crossbars to invent. Preserve blue finish, visible circular-hole wheel covers and actual clear indicators. Background cars/poles are not source-vehicle accessories.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "in_review",
+          "enqueued_at": "2026-11-13T18:12:56.519887+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:12:56.452453+00:00",
+      "source_assigned_at": "2026-11-13T18:04:02.105094+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-fl/ready.json",
+      "task_id": "RU-6a7422f08614e385",
+      "dimension_id": "BMW 5 серии Sedan 2000-2004 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-fl/original.jpg",
+      "source_sha256": "8b5a6c1cd6944b0657b2f6f4b4a72a02ac220c7d410cba1657f4ecf3cd495ad3",
+      "sha_matches_manifest": true,
+      "decode": [
+        2016,
+        1184,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected full front 1/2 view and roof crop. Complete gray sedan, full roofline, side silhouette and wheels, intact bumper. Retain actual wheel/molding design and roof detail. Background cars/poles excluded from subject.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "in_review",
+          "enqueued_at": "2026-11-13T18:16:11.881081+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:16:11.839565+00:00",
+      "source_assigned_at": "2026-11-13T18:13:48.396655+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-pre/ready.json",
+      "task_id": "RU-354f790806fed044",
+      "dimension_id": "BMW 5 серии Sedan 1995-2000 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-pre/original.jpg",
+      "source_sha256": "644197603f15dd6f3400a0b333bcbee8439f6382ed0faaa4f83fa1f4f444439e",
+      "sha_matches_manifest": true,
+      "decode": [
+        1563,
+        897,
+        "RGB"
+      ],
+      "viewpoint_gate": "hold_lamp_identity_not_viewpoint",
+      "actual_visual_observation": "Actually inspected complete front 1/2 and roof crop. Entire silver sedan including bumper corners, four-door side, rear trunk and full visible wheels; complete roofline. Preserve actual body-colored moldings/chrome trim and actual wheel design; background antennas and cars must not be attached to subject.",
+      "effective_override": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-pre/applicability-override.json",
+      "queue_states": [
+        {
+          "status": "ready",
+          "enqueued_at": "2026-11-13T18:28:16.351127+00:00",
+          "source_sha_matches": false
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:15:57.145778+00:00",
+      "source_assigned_at": "2026-11-13T18:13:48.396655+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-pre-replacement/ready.json",
+      "task_id": "RU-354f790806fed044",
+      "dimension_id": "BMW 5 серии Sedan 1995-2000 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-pre-replacement/original.jpg",
+      "source_sha256": "8bdc36237618e002d61daef2cb9627539398267e44f263e6ad78144bf4287978",
+      "sha_matches_manifest": true,
+      "decode": [
+        2388,
+        1400,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete front1/2 image, full roof crop and enlarged lamp/bumper crop. Entire silver sedan roof/trunk, bumper corners and visible wheels intact. Preserve visibly ribbed early lenses, amber corner and side repeater, black moldings, actual wheels and sunroof. No speculative antenna from background.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "ready",
+          "enqueued_at": "2026-11-13T18:28:16.351127+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:22:45.292202+00:00",
+      "source_assigned_at": "2026-11-13T18:13:48.396655+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/wagon-fl/ready.json",
+      "task_id": "RU-6a7422f08614e385",
+      "dimension_id": "BMW 5 серии Wagon 2000-2004 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/wagon-fl/original.jpg",
+      "source_sha256": "a1281aeb84769860f4024a0f28ef7d45609e01b89bc551f42f23b0fdab15d5d9",
+      "sha_matches_manifest": true,
+      "decode": [
+        2061,
+        1212,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete front 1/2 view and roof crop. Full silver estate body, bumper corners, wheels and roof outline. Two actual black longitudinal rails with visible complete ends; no transverse roof bars. Retain actual multispoke wheel design, clear indicators, headlamp washer covers and bumper sensor circles.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "in_review",
+          "enqueued_at": "2026-11-13T18:17:00.537510+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:17:00.494113+00:00",
+      "source_assigned_at": "2026-11-13T18:13:48.396655+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/wagon-pre/ready.json",
+      "task_id": "RU-354f790806fed044",
+      "dimension_id": "BMW 5 серии Wagon 1995-2000 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/wagon-pre/original.jpg",
+      "source_sha256": "fd7b4cb251350ecba9543169ce1b082070bbdf3e86d99cfbd5cbce435e677b08",
+      "sha_matches_manifest": true,
+      "decode": [
+        2220,
+        1424,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete front 1/2 source and roof crop. Full bumper, visible wheels and entire long five-door estate/roof outline. Roof is visibly plain without raised longitudinal rails in this source; no roof rack to add. Preserve pale silver finish, amber corners, black rub strip and multispoke wheels.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "in_review",
+          "enqueued_at": "2026-11-13T18:16:45.381787+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:16:45.336654+00:00",
+      "source_assigned_at": "2026-11-13T18:13:48.396655+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/e12-fl/ready.json",
+      "task_id": "RU-12bb7ef0e612befa",
+      "dimension_id": "BMW 5 серии Sedan 1976-1981 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/e12-fl/original.jpg",
+      "source_sha256": "271f748e80d203f78eb597f0f6722642851a860d395e043610ba93f886cddf82",
+      "sha_matches_manifest": true,
+      "decode": [
+        948,
+        572,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete original948×572 front1/2 and roof crop. Entire dark-blue four-door sedan, full roof/trunk, bumper corners and visible wheels. Plain chrome/rubber bumper without special aerodynamic apron. Preserve steel-style wheels, chrome mirror/bodytrim, grille520 text. No overhead/background objects to invent as roof accessories.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "ready",
+          "enqueued_at": "2026-11-13T18:23:56.618754+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:23:56.575159+00:00",
+      "source_assigned_at": "2026-11-13T18:17:27.628790+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/e12-pre/ready.json",
+      "task_id": "RU-fb63065bb3c32120",
+      "dimension_id": "BMW 5 серии Sedan 1972-1976 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/e12-pre/original.jpg",
+      "source_sha256": "2bac8ff7cd32416a39edae81cb66c99ce0fc65d5878e4d008ff5ed4fcfdedd66",
+      "sha_matches_manifest": true,
+      "decode": [
+        1403,
+        843,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected original preview and roof crop. Complete front1/2 white sedan, full bumper/wheels/roof/trunk with space around silhouette. Preserve small actual wing-mounted fitting and original chrome/black bumper, steel wheels with BMW hubcaps, chrome mirror and body trim. Adjacent cars not part of input vehicle.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "producing",
+          "enqueued_at": "2026-11-13T18:21:26.237686+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:21:26.170704+00:00",
+      "source_assigned_at": "2026-11-13T18:17:27.628790+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/e28/ready.json",
+      "task_id": "RU-c2c189217d3d366e",
+      "dimension_id": "BMW 5 серии Sedan 1981-1988 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/e28/original.jpg",
+      "source_sha256": "5df1bd84de31c27f4f69dd2480854f7f2c779a4f83e641339bbc1a7a2a85817d",
+      "sha_matches_manifest": true,
+      "decode": [
+        1614,
+        1086,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete front 1/2 image and roof crop: entire ordinary sedan, full roof/trunk, bumper and visible wheels. Dark metallic finish and actual chrome/rubber bumper retained. No background fence poles or tree branches attached as accessories.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "producing",
+          "enqueued_at": "2026-11-13T18:20:28.584778+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:20:28.543771+00:00",
+      "source_assigned_at": "2026-11-13T18:17:27.628790+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/sedan-fl/ready.json",
+      "task_id": "RU-5ef1e35a89d5e94f",
+      "dimension_id": "BMW 5 серии Sedan 2007-2010 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/sedan-fl/same-file-thumbnail.jpg",
+      "source_sha256": "551637c278775e0c0dafb3feb4ea01c37f290e2759a91c0304116aa1bcec6ee5",
+      "sha_matches_manifest": true,
+      "decode": [
+        1920,
+        1186,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete front1/2 same-file1920 input and roof crop. Entire gray sedan roof/trunk, bumper corners and visible wheels intact. Preserve actual wheels, ring lamps, chrome lower rail, washer covers and sensor circles. No landscape branches attached as accessories.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "ready",
+          "enqueued_at": "2026-11-13T18:29:04.256406+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:29:04.182320+00:00",
+      "source_assigned_at": "2026-11-13T18:24:40.410422+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/sedan-pre/ready.json",
+      "task_id": "RU-dec6fcb644ab8425",
+      "dimension_id": "BMW 5 серии Sedan 2003-2007 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/sedan-pre/original.jpg",
+      "source_sha256": "140f24ab3f8ad60ea3d7d52c9162531359294fae178433c72d9beaf7d58af22c",
+      "sha_matches_manifest": true,
+      "decode": [
+        1893,
+        1158,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected full front1/2 original and roof crop. Complete dark sedan including roof/trunk, bumper corners and full visible wheels. Preserve actual five-spoke wheels, chrome window edging, headlamp washer covers and actual roof details; neighboring cars/roof rails are not subject accessories.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "ready",
+          "enqueued_at": "2026-11-13T18:28:03.597713+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:28:03.548779+00:00",
+      "source_assigned_at": "2026-11-13T18:24:40.410422+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/wagon-fl-ordinary/ready.json",
+      "task_id": "RU-5ef1e35a89d5e94f",
+      "dimension_id": "BMW 5 серии Wagon 2007-2010 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/wagon-fl-ordinary/same-file-thumbnail.jpg",
+      "source_sha256": "436ab827f7ac8a0f8cf79a29afe4297ab5427c1f402d35f81a83acc5b92d7264",
+      "sha_matches_manifest": true,
+      "decode": [
+        1920,
+        1085,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete front1/3 same-file1920 input and roof crop. Full gray Touring body, bumper ends, wheels and roof outline intact. Two raised longitudinal rails with complete ends, no transverse roof bars. Preserve actual wheel/lamps/trim. Source has visible HansBrandenburg dealer door lettering; this is source-vehicle livery, not an engine/grade identity proof. Surrounding Mini/building are background.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "ready",
+          "enqueued_at": "2026-11-13T18:32:10.935149+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:32:10.836359+00:00",
+      "source_assigned_at": "2026-11-13T18:24:40.410422+00:00"
+    },
+    {
+      "manifest": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/wagon-pre/ready.json",
+      "task_id": "RU-dec6fcb644ab8425",
+      "dimension_id": "BMW 5 серии Wagon 2003-2007 RU",
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/wagon-pre/same-file-thumbnail.jpg",
+      "source_sha256": "b6ec3d18cab2fcd80689f39be9417df7e5fe2bf24858f9454ad0e96f3db3c4ac",
+      "sha_matches_manifest": true,
+      "decode": [
+        1280,
+        824,
+        "RGB"
+      ],
+      "viewpoint_gate": "actual_complete_front_one_third_or_half_inspected",
+      "actual_visual_observation": "Actually inspected complete front1/2 same-file1280 input and roof crop. Full estate/roof, bumper corners and visible wheels intact. Two actual longitudinal roof rails with complete ends visible; no crossbars. Preserve gray finish, wheels and early lamp/bumper arrangement. Neighboring sedan and background poles excluded.",
+      "effective_override": null,
+      "queue_states": [
+        {
+          "status": "ready",
+          "enqueued_at": "2026-11-13T18:30:21.663458+00:00",
+          "source_sha_matches": true
+        }
+      ],
+      "source_ready_at": "2026-11-13T18:30:21.596145+00:00",
+      "source_assigned_at": "2026-11-13T18:24:40.410422+00:00"
+    }
+  ],
+  "known_unqueued_hold_sources": [
+    "/workspace/ru_picture_producer/pilot20/source_b/bmw-e60/wagon-fl/hold.json"
+  ],
+  "replacement_ready_needs_root_atomic_handling": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e39/sedan-pre-replacement/ready.json",
+  "mandatory_prior_corrections": [
+    "/workspace/ru_picture_producer/pilot20/source_b/round4-03/roof-observation-correction.json",
+    "/workspace/ru_picture_producer/pilot20/source_b/priora/pre-01/handle-observation-correction.json",
+    "/workspace/ru_picture_producer/pilot20/source_b/priora/pre-05/roof-antenna-observation-correction.json"
+  ],
+  "pause": {
+    "reason": "root totalready+stagedrepair>=12",
+    "f10_state": "assignment and19candidatepreviews only; no fullsource no ready no enqueue",
+    "resume": "waitroot low6 notification"
+  },
+  "formal_ledger_touched": false
+}

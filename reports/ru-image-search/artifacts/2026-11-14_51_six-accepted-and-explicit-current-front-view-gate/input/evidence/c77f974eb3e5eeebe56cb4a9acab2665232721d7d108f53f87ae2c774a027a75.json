@@ -1,0 +1,158 @@
+{
+  "request_id": "P2-032-BMW-E28-Sedan-repair01",
+  "claim_id": "1122f3fc22d043959433de4de80f0a86",
+  "task_id": "RU-c2c189217d3d366e",
+  "dimension_id": "BMW 5 серии Sedan 1981-1988 RU",
+  "scope_rows": [
+    40,
+    41,
+    42,
+    45
+  ],
+  "input_file": "/workspace/ru_picture_producer/pilot20/P2/P2-032-BMW-E28-Sedan/candidate.png",
+  "input_sha256": "d673946e3ff463f87cc4d516330c909a8dac8b36cac6897ec440a7ae7929e7f9",
+  "input_dimensions": [
+    1614,
+    1086
+  ],
+  "input_role": "Commons original JPEG1614x1086",
+  "source_page": "https://commons.wikimedia.org/wiki/File:BMW_E28_front_20071012.jpg",
+  "source_times": {
+    "model_year": "E28ordinaryEuropephase1981-87cataloguewithin1981-88aggregate, exactyearunknown",
+    "photographed": "2007-10-12",
+    "commons_file_timestamp": "2007-10-12T21:21:39Z",
+    "current_downloaded": "2026-11-13T18:18:54.332196+00:00"
+  },
+  "license": {
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Randy43\" title=\"User:Randy43\">Rudolf Stricker</a>",
+    "LicenseShortName": "CC BY-SA 3.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
+    "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "adaptation_terms": "Rudolf Stricker own-work CC BY-SA3 attribution/source/license/changes, adaptation sharedsameCC BY-SA3.",
+  "adaptation_changes": "AI cleantransparentcutout, autumnleaves/scene/reflections/stickers/hangingtag/platecharactersremoved, actualwheels/trim/tinyrearfenderaerialbase kept.",
+  "identity_evidence": {
+    "status": "pass_E28_ordinary_Europe_sedan",
+    "primary_rows": [
+      [
+        "RU|bmw/5er|II (E28)|1981-1988|Sedan|-|-",
+        "BMW 5 серии Sedan 1981-1988 RU"
+      ]
+    ],
+    "primary_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "primary_mapping_sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+    "catalog_evidence": [
+      {
+        "url": "https://www.drom.ru/catalog/bmw/5-series/g_1981_8062/",
+        "text": "Европа 06.1981 - 12.1987 E28 Седан",
+        "file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/catalog-1.jpg",
+        "sha256": "c2595f7a8d2aea2653e91082272eb9d463c76d2c5b13a5fb13d22055b7c0b063",
+        "image_url": "https://s.auto.drom.ru/i24217/c/photos/fullsize/bmw/5-series/gen473_bmw_5-series_783213.jpg",
+        "role": "identity_only_not_generation_input"
+      },
+      {
+        "url": "https://www.drom.ru/catalog/bmw/5-series/g_1976_8061/",
+        "text": "Европа 08.1976 - 06.1981 E12 Седан",
+        "file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/catalog-2.jpg",
+        "sha256": "779d9cb5d611563e33c51bc98e01431d7cff25b983f47636f953f95d39bf9ecb",
+        "image_url": "https://s.auto.drom.ru/i24217/c/photos/fullsize/bmw/5-series/gen473_bmw_5-series_783086.jpg",
+        "role": "identity_only_not_generation_input"
+      },
+      {
+        "url": "https://www.drom.ru/catalog/bmw/5-series/g_1972_8060/",
+        "text": "Европа 08.1972 - 07.1976 E12 Седан",
+        "file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/catalog-3.jpg",
+        "sha256": "1a64f4a1be74576c55c38d85dcac1ccdd340ad0f0c78ce124d67cbdbb1d7fc17",
+        "image_url": "https://s.auto.drom.ru/i24217/c/photos/fullsize/bmw/5-series/gen473_bmw_5-series_782853.jpg",
+        "role": "identity_only_not_generation_input"
+      }
+    ],
+    "visual_comparison": "Ordinary European E28 four-door sedan: low forward-raked narrow kidney and four round lamp arrangement, low amber indicator blocks below ordinary chrome/rubber bumper, rectangular sedan roof/trunk correspond to 06.1981–12.1987 Europe E28 catalog. No M535/M5 aerodynamic apron or Alpina treatment. Preserve actual blank low fog area and actual wheels; catalog optional fog lamps not transplanted. Exact engine/year unknown."
+  },
+  "source_preflight": "Actualfulloriginal and EuropeanE28catalog-1 viewed: ordinarydarkmetallicfourdoorSedan/chromerubberbumper/fourroundlamps/narrowkidneys/loweramberrectangles/nooptionalfoogs. Real silverdish/bottlecap smallouterholeswheels/blackmirrorshandles/brightwindowtrim, no roofrod/rails/fin; tinyrearwingantennabase nearoriginalx47y216 separatelykept, notbackgroundfencepost. Fulltires/mirrors/bodyends.",
+  "reuse_check": "Exclusiveclaim/no earlier P2-032request; ordinarysource notM535/M5/Alpina, catalogueoptionsnotinput.",
+  "prompt": "Tiny localcorrection to image1 ONLY: retracted antenna peg on REAR SIDE FENDER at farleftbodycorner is too tall/thick. Sourceimage2 genuinepeg is about10to12px high for1500pxcar, image1 mistakenly23px. SHORTEN visiblepeg AND slim/flattenthebulkybase to HALF currentheight, finalonly10-12pixels totalabovefender, lowSILVER RETRACTED AERIALBASE, notpot-shapedblackknob and notlongrod. Retain realpeg donotdelete, no roofmast/sharkfin. Preserveotherimage1 parts: ordinarydarkbluegreenmetallicBMW E28fourdoorSedan/fourroundlamps/narrowkidneyBMWhoodbadge/chromerubberbumper withloweramberblocks/blankfogareas, silverbottlecapcircleholewheels/blackmirrorshandles/brightwindowtrim/fulltires and existingframing/perspective. No M535/M5kit or extraaccessories. TrueRGBAtransparentbackground no floor/shadow/glow; wholecar/fulltires/mirrors within80pxclearborders. Onlypegscale correction, no otherbody changes.",
+  "prompt_sha256": "cd36c9891551bc0d2c13224fa737ebfd20d175aaf26251534110670a65af1da0",
+  "generator": "builtin_image_gen",
+  "transparent_background": true,
+  "state": "visually_reviewed_pending_oss",
+  "production_accepted": false,
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T18:32:59.257319+00:00",
+    "request_submitted_utc": "2026-11-13T18:32:59.257319+00:00",
+    "result_returned_utc": "2026-11-13T18:34:03Z",
+    "review_completed_utc": "2026-11-13T18:35:32.667619+00:00"
+  },
+  "output_file": "/workspace/ru_picture_producer/pilot20/P2/P2-032-BMW-E28-Sedan/repair01/attempt01.png",
+  "output_sha256": "9a28258e82059a77728bde13c842297c67e95b16c5f8215606d992f917c85e98",
+  "technical": {
+    "raw_sha256": "9a28258e82059a77728bde13c842297c67e95b16c5f8215606d992f917c85e98",
+    "clean_sha256": "098357230ddfd82d3f8ba5d2146d34c924aeac996e08a46c85b003a65d41b56e",
+    "padded_sha256": "c74cb645f6d0f9f76a6f00a6284195abaafce64ea500d5c82e11d253b49f44d6",
+    "removed_pixels": 1312,
+    "removed_max_alpha": 3,
+    "vehicle_rgba_unchanged": true,
+    "padding_left_top_right_bottom": [
+      63,
+      0,
+      61,
+      24
+    ],
+    "exact_translation_rgba_equal": true,
+    "size": [
+      1660,
+      1048
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "bbox": [
+      80,
+      122,
+      1580,
+      948
+    ],
+    "margins": [
+      80,
+      122,
+      80,
+      100
+    ]
+  },
+  "first_draft_gate": {
+    "raw_visual_first_draft_pass": false,
+    "raw_visual_first_draft_evidence": {
+      "gray": "/workspace/ru_picture_producer/pilot20/P2/P2-032-BMW-E28-Sedan/raw01-gray.jpg",
+      "dark": "/workspace/ru_picture_producer/pilot20/P2/P2-032-BMW-E28-Sedan/raw01-dark.jpg",
+      "actually_viewed_at": "2026-11-13T18:32:59.257319+00:00",
+      "reason": "Body/front/completewheelreviewpass, but actualequal4xdetail sourcepeg~11pxhigh vs generated~23px, visiblebaseoverlarge~2x; actual feature mustbeshortened, notdeleted."
+    },
+    "raw_technical_first_draft_pass": false,
+    "raw_technical_first_draft_evidence": {
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha": [
+        0,
+        254
+      ],
+      "raw_alpha_bbox": [
+        0,
+        0,
+        1524,
+        1024
+      ],
+      "raw_alpha_margins": [
+        0,
+        0,
+        12,
+        0
+      ],
+      "reason": "Detachedlowalphaspecks and insufficientmaincarleft/right/bottomclearance; deterministiccleanup/padding separate."
+    }
+  },
+  "source_original_file": "/workspace/ru_picture_producer/pilot20/source_b/bmw-e12-e28/e28/original.jpg"
+}

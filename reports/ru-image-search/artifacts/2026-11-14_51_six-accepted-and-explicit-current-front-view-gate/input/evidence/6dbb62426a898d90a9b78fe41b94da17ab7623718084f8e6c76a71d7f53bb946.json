@@ -1,0 +1,60 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T18:34:47.783302+00:00",
+  "request_id": "P1-026",
+  "plan_id": "REAR-0114",
+  "task_id": "RU-8c0d5fac93c27774",
+  "dimension_id": "Ford Focus Sedan 2004-2007 RU",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-026/repair02/deterministic-repair/padded-canvas/FocusZX4Front-roomy-transparent.png",
+  "candidate_sha256": "46c3109538bd151e12ceb05b0d6936c41aa7d617817d43abcba269f16ad2e4ab",
+  "front_source_sha256": "9637901b187937dd28773e45235aae33f6b38dac5d6013a8ae7a774cbf5abe18",
+  "rear_source_sha256": "8065617394bbf7ac9ad79fcd6358b2dff0013ccdcbe48e6c5d9953fcd81e2604",
+  "replaces_historical_output_sha256": "c4bd940e3f1d1a09318d596883681a0d42c98a1d373d072eb498ac14eaf8c184",
+  "recommendation": "PASS_ADVISORY_ACCESSORY_VISUAL_REVIEW",
+  "accepted": false,
+  "formal_acceptance_authority": "root actual final review; this report changes no ledger or queue",
+  "conclusion_zh": "独立建议R2可进入root终验；未见足以判为实体天线明显放大的视觉证据，不延续仅因全车包络像素比而hold。该建议不等于正式接受，也不是标定后的物理尺寸证明。",
+  "actually_viewed": [
+    "/workspace/ru_picture_producer/pilot20/identity_a/rear-retake-sample/ZX4-same-car-front-original.jpg",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-026/source-roof-inspection.png",
+    "/workspace/ru_picture_producer/pilot20/root-retake-recovery/rear-source.jpg",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-026/repair02/deterministic-repair/padded-canvas/FocusZX4Front-review-gray.png",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-026/repair02/deterministic-repair/padded-canvas/FocusZX4Front-review-black.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/p1-026-r2-roof-inspection.png"
+  ],
+  "actual_visual_observations_zh": [
+    "前原件确为长而细的后倾天线；有锥形橡胶座、短粗带纹下节、连续细长上杆及尖端。原件背景树枝不能当作杆件延长，也不能漏掉混在背景中的细杆。",
+    "恢复的真实后原件再次显示同蓝色ZX4 SE四门独立尾箱、黑把手/镜、独特细多辐轮和侧裙锈蚀；前后两源同车配对有实际图像支持。后原件也显示真实长细杆，并非短鲨鱼鳍。",
+    "R2灰底/黑底全图及3倍车顶检视图中，杆座贴合前车顶，短粗下节清楚，向细上杆过渡连续；上段仍是细杆，端帽虽比背景中原件更显眼，但没有整段被放成粗棒、双杆或截断。",
+    "R2在车顶和风挡附近的观感为合理长细天线；没有首稿所描述的与车体争夺尺度的超长观感。杆尖及轮胎/镜/车尾完整留在画布内。",
+    "R2保持北美改款ZX4网格镀铬边Ford格栅、扫形灯、橙色侧标、黑下角壳体、四门/尾箱及原细多辐轮；本次未观察到由天线修复引出的明显前脸/车体身份改变。"
+  ],
+  "projection_assessment_zh": [
+    "约425/3600与230/1390都是二维投影长度除以全车左右包络，不是同一实体宽度的标定测量。R2更偏正前方，车侧纵向投影较短，而车顶杆件处于不同深度，不能把比值增大约四成直接等同实体加长四成。",
+    "作为局部交叉检查，原件座到尖的竖向跨度约280px，R2约125px，局部缩放约0.45；风挡可见竖向跨度由原件约500px到R2约200px，约0.40。两者接近，远小于仅以全车横向包络推定的夸张程度。数值为人工读图的近似，不是相机标定。",
+    "原件与R2的座、粗下节和细上杆占整杆的关系大体一致。横向后倾投影和端帽轮廓仍有生成差异，不能证明逐毫米还原；现有实际视觉没有显示必须以实体比例错误拒收的明显幅度。",
+    "因此相机/投影变化足以使当前像素比具有合理解释；本报告只作视觉可接受建议，不声称已解出真实杆长或完整相机姿态。"
+  ],
+  "inspection_crop": {
+    "path": "/workspace/ru_picture_producer/pilot20/identity_a/p1-026-r2-roof-inspection.png",
+    "from": "/workspace/ru_picture_producer/pilot20/P1/P1-026/repair02/deterministic-repair/padded-canvas/FocusZX4Front-review-gray.png",
+    "crop_box": [
+      820,
+      220,
+      1100,
+      410
+    ],
+    "display_scale": 3,
+    "purpose": "inspection only; no production image modified"
+  },
+  "metadata_read": [
+    "/workspace/ru_picture_producer/pilot20/P1/P1-026/review-recommendation.json",
+    "/workspace/ru_picture_producer/pilot20/source_d/zx4-replacement-source-ready.json",
+    "/workspace/ru_picture_producer/pilot20/root-retake-recovery/zx4-source-pair-review.json"
+  ],
+  "limits_and_next_action_zh": [
+    "root仍须实际终验并独立决定accept/hold；本建议不覆盖OSS/alpha/台账检查，也不追认初稿或R1。",
+    "本请求已1次生成+2次收费修复，保持三次上限，不请求第四次生成。若root最终仍认为比例偏大，独立hold并保留全部真实历史，不继续付费修。",
+    "REAR-0114是既有同配置的前方返修，不新增配置计数；旧rear历史验收SHA必须保留。本报告不修改正式台账、队列或Git。"
+  ]
+}
