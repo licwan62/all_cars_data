@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_14，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_15，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -80,3 +80,12 @@
 当前准确累计：生成24张、采用22张、22条尺寸记录；完整任务5/1309，剩余1304项、2372条尺寸记录；CSV完整3/500行、剩余497行。新8张来源包括6张主参考、1张同车前视辅助、1张因车身标签冲突未采用的候选，均独立保存证据，不以标签冲突图生成两厢。Focus Hatchback采用明确后视，同车前视仅辅助完整天线，不凭前脸猜车尾；作者/许可含CC BY-SA3.0德国版完整保留。独立Wikipedia和Drom实读支持代际/车身/毫米尺寸，聚合年份与实际投产时间分别记录。
 
 第13批REPORT的CSV数量旧句错误由第14批prior-report-correction和上段勘误明确纠正，历史字节不改写。所有24个生成请求均已返回，结果未知0。下一项首代Focus存在两个不同尺寸的Hatchback要求，先核对具体外观/市场/车门差异，不擅自一图覆盖二者；可继续其他独立配置。无人工样式等待、不动老车/范围外俄罗斯/NAS、不宣称结束聊天后继续后台生图。
+
+
+## 第15批：用户要求持续推进
+
+用户最新明确“不要断，持续推进列表”，不做完单批就结束等待。当前累计生成30张、采用24张/24条要求、完整任务5/1309；剩余1304项、2370条要求，CSV完整3/500行。新增采用第四代改款前Active Hatchback、普通Style Wagon，两张成品与原始/灰深底证据已经OSS完整读回。
+
+首代改款前/后Sedan及Wagon四张新候选已返回并实际视觉通过，原件/过程/对照均备份，但未计尺寸覆盖：俄罗斯目录Sedan4382×1700×1440mm、Wagon4454×1700×1461mm，与冻结队列171.7×66.9×56.3in、174.7×67.0×58.1in不同，Wikipedia也有不同口径。第15批identity-dimension-crosschecks保存4个俄罗斯body目录与4个具体规格页原文/URL，不能将代际车身识别冒领为精确尺寸一致。继续追溯来源ID（RU|ford/focus|I或Iрестайлинг|年份|Sedan/Wagon5-door）和测量/市场口径；如适用性证明，优先复用四张现有候选而非重生。两个时期各两条Hatchback变体仍未擅并。该冲突独立记录，继续下一配置，不要求用户先修复。
+
+全部30次实际生成均已返回，无结果未知请求。下一批继续第四代普通Hatchback/Sedan、改款后Active Wagon/Hatchback/Sedan及欧洲第二代缺项；已开始精确分类检索，尚未计新增下载或采用。老车、范围外俄罗斯及NAS仍不处理。当前会话内持续执行，不将此描述为结束会话后有常驻后台。
