@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_15，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_16，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -89,3 +89,12 @@
 首代改款前/后Sedan及Wagon四张新候选已返回并实际视觉通过，原件/过程/对照均备份，但未计尺寸覆盖：俄罗斯目录Sedan4382×1700×1440mm、Wagon4454×1700×1461mm，与冻结队列171.7×66.9×56.3in、174.7×67.0×58.1in不同，Wikipedia也有不同口径。第15批identity-dimension-crosschecks保存4个俄罗斯body目录与4个具体规格页原文/URL，不能将代际车身识别冒领为精确尺寸一致。继续追溯来源ID（RU|ford/focus|I或Iрестайлинг|年份|Sedan/Wagon5-door）和测量/市场口径；如适用性证明，优先复用四张现有候选而非重生。两个时期各两条Hatchback变体仍未擅并。该冲突独立记录，继续下一配置，不要求用户先修复。
 
 全部30次实际生成均已返回，无结果未知请求。下一批继续第四代普通Hatchback/Sedan、改款后Active Wagon/Hatchback/Sedan及欧洲第二代缺项；已开始精确分类检索，尚未计新增下载或采用。老车、范围外俄罗斯及NAS仍不处理。当前会话内持续执行，不将此描述为结束会话后有常驻后台。
+
+
+## 第16批：图片适用性与数值审计分开，继续执行
+
+新增7次真实请求（6配置+1次Hatchback轮胎底边留白修复），全部已返回。采用第四代改款前普通Hatchback、改款后Active Wagon/Hatchback、欧洲第二代改款前Sedan/Wagon/Hatchback；第二代三配置完整完成。首稿Hatchback触底退回保留，第二稿来源/灰底/深底实看完整，底部42px。Wagon近前黑钢轮/近后银轮盖的源车组合如实保留。9张新原件包含6主参考、1同车后视证明红色改款两厢、2因代际/改款不能证明而未用的候选；没有用2022文件名代替改款认定。
+
+核对原任务规则及第10批工作默认后，确认当前验收的是每条记录对应的代表性车型外观，不重新证明上游全部尺寸数字。第15批将额外尺寸数值一致性审计作为普通Sedan/Wagon图片门槛过严。第16批working-default-scope-clarification明确该解释，代理决定不冒称用户新增批准。四张已实际视觉通过且代际/DFW或DNW车身/改款清楚的首代候选本批原样复用、登记成品及新验收，不重生；原俄罗斯目录与冻结数值差异继续作为未解决数据问题保留，不改数字，不宣称已验证尺寸物理正确。两时期各两条数字编码Hatchback版本仍未证明具体外观适用，分别待核，不借此擅自共图。
+
+当前累计生成37张、采用34张/34条外观覆盖记录；完整任务6/1309，剩余1303项、2360条记录，CSV完整3/500行。所有成品及必要过程证据已OSS完整GET/SHA/字节数/解码通过。旧批次不反改，以当前checkpoint的progress/acceptance/working_policy为准。下一批持续查第四代Sedan、北美第一代改款Hatchback/Wagon及欧洲第二代改款三车身；无未知生成请求，不等待用户催促，不动老车/范围外俄罗斯/NAS。

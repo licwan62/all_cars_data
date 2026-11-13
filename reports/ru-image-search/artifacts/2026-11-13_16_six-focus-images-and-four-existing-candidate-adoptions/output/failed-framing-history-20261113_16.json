@@ -1,0 +1,111 @@
+{
+  "passed": false,
+  "sha256": "25d32a2216d37a2192f57653b888cfb620cc362008a45e143fd266c64c49a077",
+  "reason": "前轮底部可见轮廓被画布截住；alpha>=16的9个轮胎像素接触最后一行。不得计采用，需要完整轮胎和底部透明留白。",
+  "technical": {
+    "width": 1762,
+    "height": 893,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_alpha_ge_16_bbox": [
+      47,
+      6,
+      1726,
+      893
+    ],
+    "visible_margins_px": [
+      47,
+      6,
+      36,
+      0
+    ]
+  },
+  "reviewer": "Codex",
+  "source_identity_passed": true,
+  "request": {
+    "task_id": "RU-954c3cc91ce65928",
+    "dimension_id": "Ford Focus Hatchback 2004-2008 RU",
+    "label": "Focus-II-Hatchback",
+    "candidate_id": "RU-954c3cc91ce65928-C003",
+    "source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-954c3cc91ce65928-C003/original.jpg",
+    "source_sha256": "58224089514e157f32e9855e93a5df9a69f3d2d09fe743f55c44cb2641e10ffb",
+    "source_page": "https://commons.wikimedia.org/wiki/File:2005_Ford_Focus_Ghia_1.6_Front.jpg",
+    "source_license": {
+      "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+      "LicenseShortName": "CC BY-SA 4.0",
+      "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
+      "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "License": "cc-by-sa-4.0"
+    },
+    "prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year. This is the DARK BLUE European second-generation PRE-FACELIFT Ford Focus FIVE-DOOR HATCHBACK Ghia, not the sedan or wagon. Preserve its short hatch body, four side doors, rear quarter-window/roof contour, source fine multi-spoke silver wheels, blue mirrors/handles, chrome upper grille border and original fog lamp/bumper trim. No ST/RS badges or body kit, no roof rails or longer wagon roof. Keep source front three-quarter camera with nose toward left and the full thin roof antenna.",
+    "prompt_sha256": "b51b27dda1fe7d53dc0d133d358c06c57879c956e6381db4efef66e2355c90c7",
+    "transparent_background": true,
+    "generator": "builtin_image_gen",
+    "tool_model": "not exposed by tool; not inferred",
+    "attempt": "attempt01",
+    "request_state": "returned",
+    "request_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-954c3cc91ce65928/Focus-II-Hatchback/attempt01/request.json",
+    "output_folder": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-954c3cc91ce65928/Focus-II-Hatchback/attempt01",
+    "working_style": "transparent_shadow_free_source_view",
+    "user_style_approval": false,
+    "production_accepted": false,
+    "output_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-954c3cc91ce65928/Focus-II-Hatchback/attempt01/imagegen-original.png",
+    "output_sha256": "25d32a2216d37a2192f57653b888cfb620cc362008a45e143fd266c64c49a077",
+    "review_state": "pending_actual_visual_review",
+    "technical": {
+      "width": 1762,
+      "height": 893,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha_ge_16_bbox": [
+        47,
+        6,
+        1726,
+        893
+      ],
+      "visible_margins_px": [
+        47,
+        6,
+        36,
+        0
+      ]
+    }
+  },
+  "assets": [
+    {
+      "logical_path": "来源/俄罗斯/自主续作/RU-954c3cc91ce65928/Focus-II-Hatchback/attempt01/imagegen-original.png",
+      "sha256": "25d32a2216d37a2192f57653b888cfb620cc362008a45e143fd266c64c49a077",
+      "size": 1719959,
+      "object_key": "main_picture_producer/v1/objects/25/25d32a2216d37a2192f57653b888cfb620cc362008a45e143fd266c64c49a077",
+      "full_readback_sha_verified": true
+    },
+    {
+      "logical_path": "来源/俄罗斯/自主续作/RU-954c3cc91ce65928/Focus-II-Hatchback/attempt01/review-dark.png",
+      "sha256": "93b76d97475240a9e86dd52021038b1b78453c89f48764fe39e0bf178ef24524",
+      "size": 1369581,
+      "object_key": "main_picture_producer/v1/objects/93/93b76d97475240a9e86dd52021038b1b78453c89f48764fe39e0bf178ef24524",
+      "full_readback_sha_verified": true
+    },
+    {
+      "logical_path": "来源/俄罗斯/自主续作/RU-954c3cc91ce65928/Focus-II-Hatchback/attempt01/review-gray.png",
+      "sha256": "803527a5d4fa6acd15fde13429c9288f1cce1f3d15055c25d010afa696767053",
+      "size": 1384324,
+      "object_key": "main_picture_producer/v1/objects/80/803527a5d4fa6acd15fde13429c9288f1cce1f3d15055c25d010afa696767053",
+      "full_readback_sha_verified": true
+    },
+    {
+      "logical_path": "来源/俄罗斯/自主续作/RU-954c3cc91ce65928/Focus-II-Hatchback/attempt01/review-comparison.jpg",
+      "sha256": "c42b3c9b19f83e4f5fee59175281d8db1d3ed9a5b7ed0b43b18da671f62e63bc",
+      "size": 91767,
+      "object_key": "main_picture_producer/v1/objects/c4/c42b3c9b19f83e4f5fee59175281d8db1d3ed9a5b7ed0b43b18da671f62e63bc",
+      "full_readback_sha_verified": true
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions",
+  "version": "20261113_16",
+  "description": "six-focus-images-and-four-existing-candidate-adoptions",
+  "created_at": "2026-11-13T08:48:48+00:00",
+  "finished_at": "2026-11-13T08:48:49+00:00",
+  "command": [
+    "ru_accept_focus_remaining.py"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/progress-20261113_15.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/progress-20261113_15.json",
+      "sha256": "a16385cd364f8435920e8d10abf46e88198c4cb46a0a8a7f4286ca12203724eb"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/current-accepted-configuration-index-20261113_15.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/current-accepted-configuration-index-20261113_15.json",
+      "sha256": "6329656210c26c6f127dab8a6df02ee9fc59c2e2ab23a295f487432762e1df0d"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/candidates-20261113_15.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/candidates-20261113_15.json",
+      "sha256": "ce9657a1c7c1cde582607bd59225360ac1893e0d2e73f8d47283e77bff832e8f"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/working-default-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/working-default-20261113_10.json",
+      "sha256": "bd53b3a3ca0e1ae830857821c8248b8c5885403f85e17baa108d16a5fb45b577"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/identity-dimension-crosschecks-20261113_15.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/identity-dimension-crosschecks-20261113_15.json",
+      "sha256": "1da18050472b2168b7b38b9a8124798e96a6cbfafe9e689467614dfcb8061862"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ea4a994ad2e6e797efa87d38588674f67b609a6f",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "working-default-scope-clarification.json",
+      "versioned_file": "working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "content_reference": true,
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242",
+      "bytes": 1979,
+      "rows": null
+    },
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/identity-crosschecks-20261113_16.json",
+      "content_reference": true,
+      "sha256": "625cecb914af4743467292d73149a72282e14e480dab37bfe5885ef8d93fb709",
+      "bytes": 23864,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/accepted-configurations-20261113_16.json",
+      "content_reference": true,
+      "sha256": "7f59a6ffabf2c5fc3c5c4bcee7d9a8c12ceff9400c52f246d39a5ef3e4befd97",
+      "bytes": 98773,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/current-accepted-configuration-index-20261113_16.json",
+      "content_reference": true,
+      "sha256": "8b781e6a4641335759b031f352eb1e0cdf9cb202ac319ec90365a46b49fe63c7",
+      "bytes": 323855,
+      "rows": null
+    },
+    {
+      "file": "failed-framing-history.json",
+      "versioned_file": "failed-framing-history-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/failed-framing-history-20261113_16.json",
+      "content_reference": true,
+      "sha256": "f4f72fe962781016e7b432f0c2f65518c57b76c941a0a7906006593155169636",
+      "bytes": 5991,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/generation-requests-20261113_16.json",
+      "content_reference": true,
+      "sha256": "2ad853daae5d3d39d24aae4f05808e09dae41998a5ef7d85d65054b7efe27770",
+      "bytes": 27423,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/new-source-original-evidence-20261113_16.json",
+      "content_reference": true,
+      "sha256": "1ad5decf0e183836da3a129ac27cb88389d6a60a3457dca7fdbb42f9bce9be3e",
+      "bytes": 36465,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/candidates-20261113_16.json",
+      "content_reference": true,
+      "sha256": "02647ddf4e93e108e608282a404536d5e3845da0c776a3715aee4ce05bcba436",
+      "bytes": 118476,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/progress-20261113_16.json",
+      "content_reference": true,
+      "sha256": "ffe42e827442a097d9df10095a369ea11c4fae5b6a0d2b41122c9a6b4e9c2c2b",
+      "bytes": 2165238,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_focus4_more_sources.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_download_focus_remaining6.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_download_focus_remaining_replacements.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_download_focus_fl_hatch_proof.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_prepare_focus_remaining6.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_prepare_focus_hatch_reframe.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_review_focus_remaining6.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_review_focus_remaining_current.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_focus_remaining_identity.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_accept_focus_remaining.py",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/search-evidence/ru-focus4-more-categories.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/search-evidence/ru-focus2-wagon-category.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/identity-pages/focus-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/identity-pages/focus-1.html.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_focus4_more_sources.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_focus4_more_sources.py",
+      "sha256": "6fc40611e523ba40d493f3cafcc739035051618947091a31bfba322fa66616a3",
+      "bytes": 1113
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus_remaining6.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_download_focus_remaining6.py",
+      "sha256": "029307727714f6eb47a7ad39b6cf239b4ce216fca141b0a38ec97fe7a6494944",
+      "bytes": 3683
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus_remaining_replacements.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_download_focus_remaining_replacements.py",
+      "sha256": "8ffa74ff97249869c76eec04e0b62ce2682da7233cd71f7f4870b1e52ff0e492",
+      "bytes": 3160
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus_fl_hatch_proof.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_download_focus_fl_hatch_proof.py",
+      "sha256": "b773a557448aa89b300252a8e90c16ea43611e5ea7e04b3177b9e6ce15eb7f2d",
+      "bytes": 3011
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus_remaining6.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_prepare_focus_remaining6.py",
+      "sha256": "7f3adbdac373c97ef23ae0e8685c7d11b060449d3991a8339ff741c5b2ef5b99",
+      "bytes": 5479
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus_hatch_reframe.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_prepare_focus_hatch_reframe.py",
+      "sha256": "496abc51ffe3108e2a23924fbbcdedf7420983278e422fddc10151dd58f2d0bb",
+      "bytes": 2274
+    },
+    {
+      "file": "extra/executed-code/ru_review_focus_remaining6.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_review_focus_remaining6.py",
+      "sha256": "1625d7aa05590b05073ded5bf0233a1eb5f73b6f8a1e65b6160779101e50aadf",
+      "bytes": 1594
+    },
+    {
+      "file": "extra/executed-code/ru_review_focus_remaining_current.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_review_focus_remaining_current.py",
+      "sha256": "40e4e8835bfdf25e424e63dfe02bad2e833dec8959b086e6e84a3c087fcd543b",
+      "bytes": 1610
+    },
+    {
+      "file": "extra/executed-code/ru_focus_remaining_identity.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_focus_remaining_identity.py",
+      "sha256": "455433fb253f4bbc418ebf7a46c8096c47ac065341fce496dcb1bc97751b075e",
+      "bytes": 1378
+    },
+    {
+      "file": "extra/executed-code/ru_accept_focus_remaining.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/executed-code/ru_accept_focus_remaining.py",
+      "sha256": "3841e1c8f58e9209c79b2c9ac4783977bb06f9b0480c85b75de52fc6f166b4cb",
+      "bytes": 19406
+    },
+    {
+      "file": "extra/search-evidence/ru-focus4-more-categories.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/search-evidence/ru-focus4-more-categories.json.gz",
+      "sha256": "239ed7fafd84772f4153496acf40ba3e7ffe53fc017cb74110ed58094718e4c6",
+      "bytes": 71446
+    },
+    {
+      "file": "extra/search-evidence/ru-focus2-wagon-category.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/search-evidence/ru-focus2-wagon-category.json.gz",
+      "sha256": "1545a1f0cfd858793ce2f907bf1701bb2f12550b671536e1b9da9125547c4987",
+      "bytes": 32351
+    },
+    {
+      "file": "extra/identity-pages/focus-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/identity-pages/focus-0.html.gz",
+      "sha256": "fc52764aef3546e00759697779949300419032bdc5fbc274d0a6e2881100a001",
+      "bytes": 63132
+    },
+    {
+      "file": "extra/identity-pages/focus-1.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/extra/identity-pages/focus-1.html.gz",
+      "sha256": "85a76368270408cebfb11e57244fe91227d049ce334047598ce49accc83ec439",
+      "bytes": 55121
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 7,
+    "new_configuration_images_adopted": 6,
+    "existing_candidates_adopted": 4,
+    "failed_framing_preserved": 1,
+    "accepted_tasks_total": 6,
+    "accepted_configurations_total": 34
+  }
+}
