@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前自主续作及成品验收见 2026-11-13_10，全范围初步查询、既有资产读取及前两次方法样张见 2026-11-13_09；11张原件与来源目视证据见 2026-11-13_08。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_11，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，前11张原件证据见 2026-11-13_08。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -48,3 +48,11 @@
 普通Liftback与Sedan的采用图、来源/输入/输出SHA、独立车型资料、实际观察和当前成品对象key均在第10批 `granta-accepted-variants`。该验收证明指定车身的代表性外观，不证明精确车型年、照片拍摄国家或每个配置年份；独立社区资料支持俄罗斯市场、2014五门车身及2018改款边界。
 
 优先继续首项Sport独立素材；追加一次查询所得Drive Active、发动机、特技/改装及投产/博物馆线索未被采用。单项身份/配置缺口独立保留，不阻塞其他可核实配置。累计3次生成均已返回，不重发旧请求；11张原件和307个既有内容可按对象key/SHA恢复，3036来源页仅作检索线索。全部1309项实际验收后暂停；当前无全局人工样式等待，也没有宣称聊天结束后存在自动生图后台。
+
+## 第11批当前进度
+
+用户追问“推进了没”后，真实新增5次请求并全部返回；原图/候选对照、灰底、深底均实际逐张查看，5个配置通过并完成私有OSS完整GET/SHA/字节数/解码复核：改款Granta普通Liftback、北美第二代Focus Sedan、第三代改款前Focus Hatchback、第四代改款前Focus Active Wagon、北美第一代改款Focus Sedan。
+
+累计生成8张，采用7张、覆盖7条尺寸记录；北美第二代Focus Sedan为首个整项完成，当前完整任务1/1309，剩余1308项、2387条尺寸记录，500行尚无整行全部覆盖。其余图片只是各自多配置任务的一部分。当前验收索引为checkpoint的acceptance_file，保留原2张与本批5张；来源作者/许可、提示词、输入/输出SHA及具体观察完整记录。源发动机线索不一致只保留为未知，不伪造动力配置；该单配置任务的175.0×67.8×58.6英寸独立资料一致。
+
+第一轮Commons全文查询没有穷尽图库：改用网页检索获得精确文件名，已确认存在2014年量产Granta Sport、改款Sport Sedan/Liftback及Drive Active的CC0原图。这些仅为后续下载核验入口，不能在实际下载和查看前计为已生成/已采用；不要继续以旧“只有Drive Active/赛车线索”作为无法找到Sport的结论。

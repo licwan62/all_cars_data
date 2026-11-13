@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task",
+  "version": "20261113_11",
+  "description": "five-configurations-first-complete-task",
+  "created_at": "2026-11-13T07:31:04+00:00",
+  "finished_at": "2026-11-13T07:31:05+00:00",
+  "command": [
+    "ru_accept_ready5.py"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/progress-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/progress-20261113_10.json",
+      "sha256": "beeb9f266fa3e28f550ae095796e086c7be149ea7d09f648008efe3efd96994f"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/granta-accepted-variants-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/granta-accepted-variants-20261113_10.json",
+      "sha256": "cde0b4b655cac8c31a0a377389b39404f18157b50330a126a640bd4508c93fc6"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/working-default-20261113_10.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_10_autonomous-default-and-granta-variants/output/working-default-20261113_10.json",
+      "sha256": "bd53b3a3ca0e1ae830857821c8248b8c5885403f85e17baa108d16a5fb45b577"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "8741b58719db590c281e657fb45c25e6700104d8",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_11.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/identity-crosschecks-20261113_11.json",
+      "content_reference": true,
+      "sha256": "dae5ff4e5b218f1e9052b11a28e82a9fae4473c8785624b4025afe4abd3291b1",
+      "bytes": 1926,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_11.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/accepted-configurations-20261113_11.json",
+      "content_reference": true,
+      "sha256": "22c4d2bacf945e6b56df3f4a6460eb9eaa630b66a28504e866ca55d96bf1a565",
+      "bytes": 47460,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_11.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/generation-requests-20261113_11.json",
+      "content_reference": true,
+      "sha256": "2b4a6d0d8059b550f594900361e366a08d9076756445714ecc41409c2b7d45d7",
+      "bytes": 20245,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_11.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/current-accepted-configuration-index-20261113_11.json",
+      "content_reference": true,
+      "sha256": "91ad41967b982d6e4c129fce96fad482e185bee111c78bd55bfb32e6b582f352",
+      "bytes": 63404,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_11.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/progress-20261113_11.json",
+      "content_reference": true,
+      "sha256": "6ecabe66e9941a071d902ac74675c0d9328022963b10b0acd3cdbc1355608b4a",
+      "bytes": 2133218,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_prepare_ready_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_ready_batch_state.py",
+    "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_prepare_ready_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_prepare_ready_batch.py",
+      "sha256": "c9936303392fad1c8ff4ffca544c88c4416cfc04bd1613e48dd3da29e27aa4e1",
+      "bytes": 5328
+    },
+    {
+      "file": "extra/executed-code/ru_ready_batch_state.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_ready_batch_state.py",
+      "sha256": "9836875be04f1cdd7f7816c30e089c1a0322cabd7f131c4ad006842e59879e54",
+      "bytes": 979
+    },
+    {
+      "file": "extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b",
+      "bytes": 13856
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 5,
+    "accepted_configurations_this_batch": 5,
+    "accepted_tasks_total": 1,
+    "accepted_configurations_total": 7
+  }
+}
