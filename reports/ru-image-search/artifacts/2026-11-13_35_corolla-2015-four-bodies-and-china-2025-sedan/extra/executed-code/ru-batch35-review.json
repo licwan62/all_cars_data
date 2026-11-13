@@ -1,0 +1,1385 @@
+{
+  "description": "corolla-2015-four-bodies-and-china-2025-sedan",
+  "actual_visual_review_complete": true,
+  "jobs_file": "/workspace/scratch/ru-corolla35-jobs.json",
+  "generation_job_files": [
+    "/workspace/scratch/ru-corolla35-jobs.json"
+  ],
+  "source_manifest_files": [
+    "/workspace/scratch/ru-corolla35-five-sources.json"
+  ],
+  "existing_source_manifest_files": [],
+  "observations": [
+    "白FAW全球E170族改款四门Sedan，细角灯/水平上镀铬翼格栅、宽横条下口/黑竖角饰与圆雾灯、银黑多辐轮/白镜把手/天窗/长三厢对应，朝左前侧视，不代日规Axio或E210。屋顶无可见天线不新增。实际源/灰深底核全车轮胎镜完整，底37px，去邻白红车/湿道路/车侧反光/牌字，牌固定孔不作乱码；无明显场景残片或外投影。",
+    "深蓝日规E160 Axio2015一改普通Hybrid三厢，尖上灯/镀铬翼格栅与蓝徽、宽横条梯形低口/圆角空白盖、银轮罩/深镜把手/雨挡和紧凑三厢对应，保持朝右前侧视，非2017尖雾灯框或W×B网格。实际源/灰深底核整车轮胎镜完整，底10px整胎未切如实保留，无源可见天线不新增；清轻擦痕/店椅/地面牌字及电线反射，无明显残片/外投影。",
+    "银Toyota Corolla iM五门短Hatch，Toyota标/锐投射灯橙角/网格上口/六边下口/角黑口和运动侧裙、黑银角辐轮/同色镜把手/真实银白鳍与低spoiler对应，原高前侧朝右，非Scion标或E210/GR/Fielder。实际源/灰深底核整车轮胎镜鳍/低spoiler完整，侧最小20px据实，去旁SUV/落叶路面/牌框字和场景反光，无明显碎片或外投影。",
+    "白中国E210二改Sedan，新C形极薄头灯/细上连续条、简洁同色上杠与机盖标/低梯形下口/黑竖角和源小白灯、银多辐轮/白镜把手/长三厢对应，朝右前侧视，保留实际前黄灯亮状态及半开前窗/雨刷位置，无源可见鳍杆不新增。实际源/灰深底核全车轮胎镜完整，清湿路/邻车建筑树反光/牌字，无明显残片/外投影，alpha最高254保留；照片标签与冻结2025–2026聚合分别记录。",
+    "橙红日规E160 Fielder2015一改普通Wagon，长载物窗/四侧门/黑纵轨/低后spoiler/雨挡、镀铬翼格栅/源灯与宽横条低口/圆角空白盖、银轮罩/同色镜把手对应，保持朝右前侧视，非2017尖角/网格或E210Touring。原提示bluehybrid-style不据此认证动力，输出蓝Toyota标与源实际色反映对应。实际源/灰深底核全车轮胎镜轨完整，底21px整胎未切，无新增鳍杆；去旁蓝车/墙地线/牌字反光，无明显残片/外投影。"
+  ],
+  "scratch_result_file": "/workspace/scratch/ru-corolla35-accepted.json",
+  "nonadopted": [],
+  "expected_previous_generated": 158,
+  "expected_previous_accepted": 142,
+  "expected_complete_tasks": 48,
+  "last_completed_task": "RU-ab6aa6d032a1ab8d",
+  "next_task_id": "RU-91466377e9191e9b",
+  "unused_source_observations": {},
+  "input_refs": [
+    "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json"
+  ],
+  "identity_crosschecks": {
+    "published_source_lineage": {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "literal_rows": [
+        [
+          "RU|toyota/corolla|XII (E210) Рестайлинг 2|2025-2026|Sedan|-|-",
+          "Toyota Corolla Sedan 2025-2026 RU"
+        ],
+        [
+          "RU|toyota/corolla|XI (E160, E170, E180) Рестайлинг 1|2015-2019|Sedan|-|-",
+          "Toyota Corolla Sedan 2015-2019 RU"
+        ],
+        [
+          "RU|toyota/corolla|XI (E160, E170, E180) Рестайлинг 1|2015-2019|Sedan|-|Axio",
+          "Toyota Corolla Axio Sedan 2015-2019 RU"
+        ],
+        [
+          "RU|toyota/corolla|XI (E160, E170, E180) Рестайлинг 1|2015-2019|Wagon 5-door|-|Fielder",
+          "Toyota Corolla Fielder Wagon 2015-2019 RU"
+        ],
+        [
+          "RU|toyota/corolla|XI (E160, E170, E180) Рестайлинг 1|2015-2019|Hatchback 5-door|-|iM",
+          "Toyota Corolla iM Hatchback 2015-2019 RU"
+        ]
+      ]
+    },
+    "frozen_selected_sources": [
+      {
+        "worker": "C",
+        "local_id": "C7E-002",
+        "task_id": "RU-581f6855618ebd41",
+        "dimension_id": "Toyota Corolla Sedan 2015-2019 RU",
+        "source_title": "File:2017 FAW-Toyota Corolla (facelift).jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:2017_FAW-Toyota_Corolla_(facelift).jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/2017_FAW-Toyota_Corolla_%28facelift%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/2017_FAW-Toyota_Corolla_%28facelift%29.jpg/960px-2017_FAW-Toyota_Corolla_%28facelift%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 6063,
+        "height": 3632,
+        "author": "User3204",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "license_text": "Creative Commons Attribution-Share Alike 4.0",
+        "identity_evidence": "Actual viewed white FAW-Toyota Corolla global E170 facelift sedan; slim upper grille/headlamps, horizontal lower intake with round fog lamps in vertical outer black trims, matches A2015global facelift face. Not narrow compact Axio. Source title2017 and photo2023 separate.",
+        "photograph_date": "2023-06-23 13:14:31",
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C7E-002-original.jpg",
+        "sha256": "7997cb6424f1367a0b22fdfd2b744c0b30ee35af363f581bfc0a70ca18e68e21",
+        "download_status": "bounded_Commons_original_sha1_bytes_dimensions_decode_verified",
+        "review_status": "candidate_only",
+        "search_query": "Toyota Corolla facelift 2017 sedan",
+        "browser_search_page": "https://commons.wikimedia.org/w/index.php?title=Special:Search&search=Toyota%20Corolla%20facelift%202017%20sedan&ns6=1&limit=20",
+        "source_metadata": {
+          "size": 4210506,
+          "width": 6063,
+          "height": 3632,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/2017_FAW-Toyota_Corolla_%28facelift%29.jpg/960px-2017_FAW-Toyota_Corolla_%28facelift%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 800,
+          "thumbheight": 479,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/2017_FAW-Toyota_Corolla_%28facelift%29.jpg/1920px-2017_FAW-Toyota_Corolla_%28facelift%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/2017_FAW-Toyota_Corolla_%28facelift%29.jpg/960px-2017_FAW-Toyota_Corolla_%28facelift%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 800,
+            "height": 479,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/2017_FAW-Toyota_Corolla_%28facelift%29.jpg/1920px-2017_FAW-Toyota_Corolla_%28facelift%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/2017_FAW-Toyota_Corolla_%28facelift%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:2017_FAW-Toyota_Corolla_(facelift).jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=133776919",
+          "sha1": "2f5e9786ca15919f961c8a88fe9a271c5448c346",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2023-06-30 10:46:25",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "2017 FAW-Toyota Corolla (facelift)",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Toyota automobiles in China|Self-published work|White Toyota sedans|Toyota Corolla (E180, China)|Automobiles in Zhuhai",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "​一輛一汽豐田卡羅拉，拍攝於中國廣東省珠海市香洲區",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2023-06-23 13:14:31",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:User3204\" title=\"User:User3204\"><b><span style=\"padding:3px; color:#0A45AD;border-radius:2px;\">User<span style=\"color: #000;background-color:#0A45AD;padding:2px;border-radius:2px;color:#FFFFFF\">3204</span></span></b></a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "sha1": "2f5e9786ca15919f961c8a88fe9a271c5448c346",
+        "file_bytes": 4210506,
+        "original_decode_verified": true,
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7E-002-original-preview.jpg",
+        "actual_source_page_status": 200,
+        "actual_source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7E-002-source-page.txt",
+        "actual_source_page_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7E-002-source-page.png",
+        "source_page_images_deliberately_not_loaded": "Images blocked to prevent incidental extra original requests; actual original reviewed from downloaded file.",
+        "actual_view_image_review": true,
+        "response_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7E-002-bounded-probe.json",
+        "identity_reference_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+        "candidate_qualification": "preferred_original_pending_root_review",
+        "quality_note": "Whole sedan complete, wet source reflections/raindrops; front wheel and mirror clear, background vehicle outside body contour. Source-specific China build identity retained.",
+        "photo_specific_license_evidence": {
+          "source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7E-002-source-page.txt",
+          "source_page_status": 200,
+          "author": "User3204",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "basis": "Actual file page and imageinfo extmetadata; attribution and ShareAlike preserved where applicable."
+        },
+        "frozen_requirement": {
+          "DIMENSION-ID": "Toyota Corolla Sedan 2015-2019 RU",
+          "YEAR": "2015-2019",
+          "结构": "Sedan",
+          "版本": "",
+          "CAB": "",
+          "BED": "",
+          "L-IN": "181.9",
+          "W-IN": "69.9",
+          "H-IN": "57.7",
+          "scope_rows": [
+            28,
+            30,
+            31,
+            39
+          ]
+        }
+      },
+      {
+        "worker": "C",
+        "local_id": "C7P-011",
+        "task_id": "RU-581f6855618ebd41",
+        "dimension_id": "Toyota Corolla Axio Sedan 2015-2019 RU",
+        "source_title": "File:Toyota Corolla Axio Hybrid '15 (1).jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Axio_Hybrid_%2715_(1).jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg/960px-Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3781,
+        "height": 1890,
+        "author": "Oq10pass",
+        "license_name": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "license_text": "Creative Commons Zero, Public Domain Dedication",
+        "identity_evidence": "Actual viewed dark Japanese compact Axio Hybrid sedan, 2015 facelift large trapezoidal horizontal intake with round outer corner blank, distinct from2017 spear corner. Author explicitly April2015 release, matches A2015Axio catalog.",
+        "photograph_date": "2025-03-11 10:13:00",
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C7P-011-original.jpg",
+        "sha256": "69e116596e56763dda6a524c7339fe026b6a739d29e95c4683d79968a5e02481",
+        "download_status": "bounded_Commons_original_sha1_bytes_dimensions_decode_verified",
+        "review_status": "candidate_only",
+        "search_query": "Toyota Corolla Axio 2015",
+        "browser_search_page": "https://commons.wikimedia.org/w/index.php?title=Special:Search&search=Toyota%20Corolla%20Axio%202015&ns6=1&limit=20",
+        "source_metadata": {
+          "size": 1624244,
+          "width": 3781,
+          "height": 1890,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg/960px-Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 800,
+          "thumbheight": 400,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg/1920px-Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg/960px-Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 800,
+            "height": 400,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg/1920px-Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Toyota_Corolla_Axio_Hybrid_%2715_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Axio_Hybrid_%2715_(1).jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=167666165",
+          "sha1": "803dc71c620c4eb979a6891a4724fb977de6d347",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2025-06-14 18:56:24",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Toyota Corolla Axio Hybrid '15 (1)",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "CC-Zero|Self-published work|Black Toyota sedans|Toyota Corolla Axio Hybrid (E160)",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "A photo of the Toyota Corolla, released in April 2015.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2025-03-11 10:13:00",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Oq10pass\" title=\"User:Oq10pass\">Oq10pass</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Zero, Public Domain Dedication",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "sha1": "803dc71c620c4eb979a6891a4724fb977de6d347",
+        "file_bytes": 1624244,
+        "original_decode_verified": true,
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-011-original-preview.jpg",
+        "actual_source_page_status": 200,
+        "actual_source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-011-source-page.txt",
+        "actual_source_page_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-011-source-page.png",
+        "source_page_images_deliberately_not_loaded": "Images blocked to prevent incidental extra original requests; actual original reviewed from downloaded file.",
+        "actual_view_image_review": true,
+        "response_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-011-bounded-probe.json",
+        "identity_reference_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+        "candidate_qualification": "preferred_original_pending_root_review",
+        "quality_note": "Full car contour/tires; source minor lower front lip scuff/side reflections and rain visors visible. Preserve source condition; root assesses suitability.",
+        "photo_specific_license_evidence": {
+          "source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-011-source-page.txt",
+          "source_page_status": 200,
+          "author": "Oq10pass",
+          "license": "CC0",
+          "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "basis": "Actual file page and imageinfo extmetadata; attribution and ShareAlike preserved where applicable."
+        },
+        "frozen_requirement": {
+          "DIMENSION-ID": "Toyota Corolla Axio Sedan 2015-2019 RU",
+          "YEAR": "2015-2019",
+          "结构": "Sedan",
+          "版本": "Axio",
+          "CAB": "",
+          "BED": "",
+          "L-IN": "173.2",
+          "W-IN": "66.7",
+          "H-IN": "58.1",
+          "scope_rows": [
+            28,
+            30,
+            31,
+            39
+          ]
+        }
+      },
+      {
+        "worker": "C",
+        "local_id": "C7P-040",
+        "task_id": "RU-581f6855618ebd41",
+        "dimension_id": "Toyota Corolla iM Hatchback 2015-2019 RU",
+        "source_title": "File:2017 Toyota Corolla iM in Classic Silver Metallic, Front Right, 2024-03-12.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic,_Front_Right,_2024-03-12.jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg/960px-2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 3453,
+        "height": 2080,
+        "author": "Elise240SX",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "license_text": "Creative Commons Attribution-Share Alike 4.0",
+        "identity_evidence": "Actual viewed silver Toyota-badged Corolla iM five-door short Hatch, six-sided lower intake and honeycomb side pockets/factory aero kit match official2017iM and A reference; not Scion badge or E210 Hatch.",
+        "photograph_date": "2024-03-12 15:04:20",
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C7P-040-original.jpg",
+        "sha256": "5e2cd655231ba2e280fbc2a2232cb56df75ba05c2b8078523af72c2bc2eba458",
+        "download_status": "bounded_Commons_original_sha1_bytes_dimensions_decode_verified",
+        "review_status": "candidate_only",
+        "search_query": "Toyota Corolla iM 2017",
+        "browser_search_page": "https://commons.wikimedia.org/w/index.php?title=Special:Search&search=Toyota%20Corolla%20iM%202017&ns6=1&limit=20",
+        "source_metadata": {
+          "size": 4144780,
+          "width": 3453,
+          "height": 2080,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg/960px-2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 800,
+          "thumbheight": 482,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg/1920px-2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg/960px-2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 800,
+            "height": 482,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg/1920px-2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic%2C_Front_Right%2C_2024-03-12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:2017_Toyota_Corolla_iM_in_Classic_Silver_Metallic,_Front_Right,_2024-03-12.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=146332999",
+          "sha1": "e393ceb92413ccc77f7eb4ffa53aa5187e5066bb",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2024-03-13 01:55:09",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "2017 Toyota Corolla iM in Classic Silver Metallic, Front Right, 2024-03-12",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Self-published work|Images with extracted images|Silver Toyota hatchbacks|Toyota Corolla iM|2017 Toyota automobiles|Automobiles in Sault Ste. Marie, Ontario",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "2017 Toyota Corolla iM photographed in Sault Ste. Marie, Ontario, Canada.",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2024-03-12 15:04:20",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:Elise240SX\" title=\"User:Elise240SX\">Elise240SX</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "sha1": "e393ceb92413ccc77f7eb4ffa53aa5187e5066bb",
+        "file_bytes": 4144780,
+        "original_decode_verified": true,
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-040-original-preview.jpg",
+        "actual_source_page_status": 200,
+        "actual_source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-040-source-page.txt",
+        "actual_source_page_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-040-source-page.png",
+        "source_page_images_deliberately_not_loaded": "Images blocked to prevent incidental extra original requests; actual original reviewed from downloaded file.",
+        "actual_view_image_review": true,
+        "response_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-040-bounded-probe.json",
+        "identity_reference_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+        "candidate_qualification": "preferred_original_pending_root_review",
+        "quality_note": "Full contour, mirrors and all source wheels preserved. Ground grass behind car does not crop tires; Toyota badges visible; source-native black front plate bracket.",
+        "photo_specific_license_evidence": {
+          "source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-040-source-page.txt",
+          "source_page_status": 200,
+          "author": "Elise240SX",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "basis": "Actual file page and imageinfo extmetadata; attribution and ShareAlike preserved where applicable."
+        },
+        "frozen_requirement": {
+          "DIMENSION-ID": "Toyota Corolla iM Hatchback 2015-2019 RU",
+          "YEAR": "2015-2019",
+          "结构": "Hatchback",
+          "版本": "iM",
+          "CAB": "",
+          "BED": "",
+          "L-IN": "170.5",
+          "W-IN": "69.3",
+          "H-IN": "55.3",
+          "scope_rows": [
+            29,
+            33,
+            35,
+            37,
+            38
+          ]
+        }
+      },
+      {
+        "worker": "C",
+        "local_id": "C7N-004",
+        "task_id": "RU-ab6aa6d032a1ab8d",
+        "dimension_id": "Toyota Corolla Sedan 2025-2026 RU",
+        "source_title": "File:Toyota Corolla XII facelift 001.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_XII_facelift_001.jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Toyota_Corolla_XII_facelift_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyota_Corolla_XII_facelift_001.jpg/960px-Toyota_Corolla_XII_facelift_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 2797,
+        "height": 2098,
+        "author": "JustAnotherCarDesigner",
+        "license_name": "CC0",
+        "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "license_text": "Creative Commons Zero, Public Domain Dedication",
+        "identity_evidence": "Actual viewed white China E210 second facelift sedan, C-shaped thin front lamps/continuous thin upper bar and smooth simplified bumper with low horizontal intake; same distinct nose as A2025China catalog. Source title2026/model and photograph2026Jan separated from frozen2025-2026.",
+        "photograph_date": "2026-01-30 11:54:11",
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C7N-004-original.jpg",
+        "sha256": "460f5d24520bb70e3e909df757656d23958df6c9545c78012eef92bef953368f",
+        "download_status": "bounded_Commons_original_sha1_bytes_dimensions_decode_verified",
+        "review_status": "candidate_only",
+        "search_query": "Toyota Corolla China 2026 facelift",
+        "browser_search_page": "https://commons.wikimedia.org/w/index.php?title=Special:Search&search=Toyota%20Corolla%20China%202026%20facelift&ns6=1&limit=20",
+        "source_metadata": {
+          "size": 2071838,
+          "width": 2797,
+          "height": 2098,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyota_Corolla_XII_facelift_001.jpg/960px-Toyota_Corolla_XII_facelift_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 800,
+          "thumbheight": 600,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyota_Corolla_XII_facelift_001.jpg/1920px-Toyota_Corolla_XII_facelift_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyota_Corolla_XII_facelift_001.jpg/960px-Toyota_Corolla_XII_facelift_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 800,
+            "height": 600,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Toyota_Corolla_XII_facelift_001.jpg/1920px-Toyota_Corolla_XII_facelift_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Toyota_Corolla_XII_facelift_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_XII_facelift_001.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=182719102",
+          "sha1": "2228147e97e2214e1cca4e8a95745f8a73071dc7",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2026-01-30 03:58:16",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Toyota Corolla XII facelift 001",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "CC-Zero|Self-published work|White Toyota sedans|Toyota Corolla (E210, China)",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Toyota Corolla XII facelift (2026)",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2026-01-30 11:54:11",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:JustAnotherCarDesigner&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:JustAnotherCarDesigner (page does not exist)\">JustAnotherCarDesigner</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Zero, Public Domain Dedication",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "sha1": "2228147e97e2214e1cca4e8a95745f8a73071dc7",
+        "file_bytes": 2071838,
+        "original_decode_verified": true,
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-004-original-preview.jpg",
+        "actual_source_page_status": 200,
+        "actual_source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-004-source-page.txt",
+        "actual_source_page_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-004-source-page.png",
+        "source_page_images_deliberately_not_loaded": "Images blocked to prevent incidental extra original requests; actual original reviewed from downloaded file.",
+        "actual_view_image_review": true,
+        "response_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-004-bounded-probe.json",
+        "identity_reference_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+        "candidate_qualification": "preferred_original_pending_root_review",
+        "quality_note": "Full car and tires in frame; front yellowish light accent is source-native, wet road, closed body. CC0 specific file, source author JustAnotherCarDesigner.",
+        "photo_specific_license_evidence": {
+          "source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-004-source-page.txt",
+          "source_page_status": 200,
+          "author": "JustAnotherCarDesigner",
+          "license": "CC0",
+          "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "basis": "Actual file page and imageinfo extmetadata; attribution and ShareAlike preserved where applicable."
+        },
+        "frozen_requirement": {
+          "DIMENSION-ID": "Toyota Corolla Sedan 2025-2026 RU",
+          "YEAR": "2025-2026",
+          "结构": "Sedan",
+          "版本": "",
+          "CAB": "",
+          "BED": "",
+          "L-IN": "185.4",
+          "W-IN": "70.1",
+          "H-IN": "56.5",
+          "scope_rows": [
+            28,
+            30,
+            31,
+            39
+          ]
+        }
+      },
+      {
+        "worker": "C",
+        "local_id": "C7P-014",
+        "task_id": "RU-581f6855618ebd41",
+        "dimension_id": "Toyota Corolla Fielder Wagon 2015-2019 RU",
+        "source_title": "File:2015-2017 Toyota Corolla Fielder 1.5G 2WD DBA-NRE161G (20220911).jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_(20220911).jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg/960px-2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 4674,
+        "height": 2333,
+        "author": "オーバードライブ83",
+        "license_name": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "license_text": "Creative Commons Attribution-Share Alike 4.0",
+        "identity_evidence": "Actual viewed orange-red Japanese E160 Fielder wagon, long roof/roofrails/rear side window and2015 large trapezoidal lower intake with round side blank. Photo-specific author title states2015-2017 Fielder1.5G2WD DBA-NRE161G, distinct2017new corner.",
+        "photograph_date": "2022-09-11 17:58:39",
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C7P-014-original.jpg",
+        "sha256": "2172c8d55fe87a813f050f4126ae37c1dbd793678fab8a83d61ef55525c118d8",
+        "download_status": "bounded_Commons_original_sha1_bytes_dimensions_decode_verified",
+        "review_status": "candidate_only",
+        "search_query": "Toyota Corolla Fielder 2015",
+        "browser_search_page": "https://commons.wikimedia.org/w/index.php?title=Special:Search&search=Toyota%20Corolla%20Fielder%202015&ns6=1&limit=20",
+        "source_metadata": {
+          "size": 6374160,
+          "width": 4674,
+          "height": 2333,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg/960px-2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 800,
+          "thumbheight": 399,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg/1920px-2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg/960px-2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 800,
+            "height": 399,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg/1920px-2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_%2820220911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:2015-2017_Toyota_Corolla_Fielder_1.5G_2WD_DBA-NRE161G_(20220911).jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=167949640",
+          "sha1": "fb8c46cc14cee11d90157dfe99227471fa375cc9",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2025-06-18 12:20:13",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "2015-2017 Toyota Corolla Fielder 1.5G 2WD DBA-NRE161G (20220911)",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Taken with Sony DSC-W810|Self-published work|Orange Toyota station wagons|Toyota Corolla Fielder (E160)",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "2015-2017 Toyota Corolla Fielder 1.5G 2WD (DBA-NRE161G)",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2022-09-11 17:58:39",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/wiki/User:%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%89%E3%83%A9%E3%82%A4%E3%83%9683\" title=\"User:オーバードライブ83\">オーバードライブ83</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC BY-SA 4.0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Attribution-Share Alike 4.0",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "true",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "https://creativecommons.org/licenses/by-sa/4.0",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc-by-sa-4.0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "sha1": "fb8c46cc14cee11d90157dfe99227471fa375cc9",
+        "file_bytes": 6374160,
+        "original_decode_verified": true,
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-014-original-preview.jpg",
+        "actual_source_page_status": 200,
+        "actual_source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-014-source-page.txt",
+        "actual_source_page_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-014-source-page.png",
+        "source_page_images_deliberately_not_loaded": "Images blocked to prevent incidental extra original requests; actual original reviewed from downloaded file.",
+        "actual_view_image_review": true,
+        "response_capture": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-014-bounded-probe.json",
+        "identity_reference_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+        "candidate_qualification": "preferred_original_pending_root_review",
+        "quality_note": "Complete tires/mirrors/body contour; underpass light mixed but all body details visible, rain visors and rails source-native.",
+        "photo_specific_license_evidence": {
+          "source_page_text": "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-014-source-page.txt",
+          "source_page_status": 200,
+          "author": "オーバードライブ83",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "basis": "Actual file page and imageinfo extmetadata; attribution and ShareAlike preserved where applicable."
+        },
+        "frozen_requirement": {
+          "DIMENSION-ID": "Toyota Corolla Fielder Wagon 2015-2019 RU",
+          "YEAR": "2015-2019",
+          "结构": "Wagon",
+          "版本": "Fielder",
+          "CAB": "",
+          "BED": "",
+          "L-IN": "173.2",
+          "W-IN": "66.7",
+          "H-IN": "58.1",
+          "scope_rows": [
+            29,
+            32,
+            34
+          ]
+        }
+      }
+    ],
+    "source_guide": {
+      "schema": "ru-corolla-next-four-handoff-v1",
+      "created_at_unix": 1794570696.030354,
+      "review_status": "candidate_only",
+      "tasks": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/frozen-tasks.json",
+      "raw_source_mapping": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/source-map-extract.json",
+      "configuration_records": [
+        {
+          "worker": "A",
+          "local_id": "r7-e210-2025-sedan",
+          "task_id": "RU-ab6aa6d032a1ab8d",
+          "dimension_id": "Toyota Corolla Sedan 2025-2026 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/24984598/24984626/",
+          "original_url": "https://avatars.avto.ru/get-verba/997355/2a0000019bdb28bc030aa7aa8216282f6542/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e210-2025-sedan-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立开放改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "保留冻结聚合年，不能当具体子版本投产/照片拍摄年。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-e210-2025-sedan.json",
+            "actual_visual_observation": "2025中国第二次改款目录灰色三厢车，新C形前灯/横向细灯带与简洁前杠，与常见原款/2022Sporty均不同；不是下一代概念车。"
+          },
+          "view": "front three-quarter",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e210-2025-sedan-gallery.webp",
+          "sha256": "6042d4e62b6943221b3da74a02022c0ccebe062b3a3d15c766b542b665c09718",
+          "download_status": "actual HTTP 200 decoded and viewed catalog rendition; not established original master",
+          "review_status": "candidate_only",
+          "production_eligible": false,
+          "evidence_reuse_round": "round7",
+          "evidence_reuse_manifest": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/results.json",
+          "evidence_reuse_manifest_sha256": "659282043d0dfd1eedd09e23127649e99651c6c4848d6d8298ad8765cce1bcaf"
+        },
+        {
+          "worker": "A",
+          "local_id": "r7-e160-2015-axio",
+          "task_id": "RU-581f6855618ebd41",
+          "dimension_id": "Toyota Corolla Axio Sedan 2015-2019 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/20807898/20810056/",
+          "original_url": "https://avatars.avto.ru/get-verba/3587101/2a00000180947f3de0d1121067602d56cb41/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2015-axio-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立开放改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "保留冻结聚合年，不能当具体子版本投产/照片拍摄年。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-e160-2015-axio.json",
+            "actual_visual_observation": "2015Axio目录浅蓝三厢车，巨大梯形下进气口和细上部灯格栅连接，明显不同2012。"
+          },
+          "view": "front three-quarter",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2015-axio-gallery.webp",
+          "sha256": "61d766079161a8f4508f7c4d7eb7b2d3f9e53124631d20866a7971c0485336d9",
+          "download_status": "actual HTTP 200 decoded and viewed catalog rendition; not established original master",
+          "review_status": "candidate_only",
+          "production_eligible": false,
+          "evidence_reuse_round": "round7",
+          "evidence_reuse_manifest": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/results.json",
+          "evidence_reuse_manifest_sha256": "659282043d0dfd1eedd09e23127649e99651c6c4848d6d8298ad8765cce1bcaf"
+        },
+        {
+          "worker": "A",
+          "local_id": "r7-e160-2015-fielder",
+          "task_id": "RU-581f6855618ebd41",
+          "dimension_id": "Toyota Corolla Fielder Wagon 2015-2019 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/20807898/20810107/",
+          "original_url": "https://avatars.avto.ru/get-verba/1604130/2a00000180987aa40f1b06642c8b3056956d/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2015-fielder-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立开放改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "保留冻结聚合年，不能当具体子版本投产/照片拍摄年。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-e160-2015-fielder.json",
+            "actual_visual_observation": "2015Fielder目录紫黑旅行车，大梯形下进气/网格和全新较窄灯部组合；图为运动外观等级，不把配置细节都当全系标准。"
+          },
+          "view": "front three-quarter",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2015-fielder-gallery.webp",
+          "sha256": "1f2e70e0c770bb44042f88834e3aecd5c31d7341840ebf57f61c0e3319df7388",
+          "download_status": "actual HTTP 200 decoded and viewed catalog rendition; not established original master",
+          "review_status": "candidate_only",
+          "production_eligible": false,
+          "evidence_reuse_round": "round7",
+          "evidence_reuse_manifest": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/results.json",
+          "evidence_reuse_manifest_sha256": "659282043d0dfd1eedd09e23127649e99651c6c4848d6d8298ad8765cce1bcaf"
+        },
+        {
+          "worker": "A",
+          "local_id": "r7-e160-2017-axio",
+          "task_id": "RU-5044df890a99017c",
+          "dimension_id": "Toyota Corolla Axio Sedan 2017-2025 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/23804209/23804243/",
+          "original_url": "https://avatars.avto.ru/get-verba/1030388/2a0000018c6d599f8e1910ee918ab6e2532d/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2017-axio-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立开放改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "保留冻结聚合年，不能当具体子版本投产/照片拍摄年。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-e160-2017-axio.json",
+            "actual_visual_observation": "2017Axio目录浅色三厢，大下格栅/重新修整的前杠外角，官方明确再次修改格栅/前杠；与2015相近须细核实际原件。"
+          },
+          "view": "front three-quarter",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2017-axio-gallery.webp",
+          "sha256": "4dad0a762191d710b73523d35ba81273e89767239d60a293f7e18ea316248db6",
+          "download_status": "actual HTTP 200 decoded and viewed catalog rendition; not established original master",
+          "review_status": "candidate_only",
+          "production_eligible": false,
+          "evidence_reuse_round": "round7",
+          "evidence_reuse_manifest": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/results.json",
+          "evidence_reuse_manifest_sha256": "659282043d0dfd1eedd09e23127649e99651c6c4848d6d8298ad8765cce1bcaf"
+        },
+        {
+          "worker": "A",
+          "local_id": "r7-e160-2017-fielder",
+          "task_id": "RU-5044df890a99017c",
+          "dimension_id": "Toyota Corolla Fielder Wagon 2017-2025 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/23804209/23804406/",
+          "original_url": "https://avatars.avto.ru/get-verba/997355/2a0000018c6de0236c8792fafc623f41abd9/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2017-fielder-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立开放改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "保留冻结聚合年，不能当具体子版本投产/照片拍摄年。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-e160-2017-fielder.json",
+            "actual_visual_observation": "2017Fielder目录深蓝长车顶旅行车，细上格栅/中央宽网格下进气与改动前杠；不同等级网格/包围变化须和官方等级说明分开。"
+          },
+          "view": "front three-quarter",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e160-2017-fielder-gallery.webp",
+          "sha256": "80b6bd594a015d8f42ce503cc183ee0419ef6bbc0455495494a5f45ed6ae0b96",
+          "download_status": "actual HTTP 200 decoded and viewed catalog rendition; not established original master",
+          "review_status": "candidate_only",
+          "production_eligible": false,
+          "evidence_reuse_round": "round7",
+          "evidence_reuse_manifest": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/results.json",
+          "evidence_reuse_manifest_sha256": "659282043d0dfd1eedd09e23127649e99651c6c4848d6d8298ad8765cce1bcaf"
+        },
+        {
+          "worker": "A",
+          "local_id": "r7-e210fl-gr-boundary",
+          "task_id": "RU-f961eab16419249b",
+          "dimension_id": "Toyota Corolla GR Hatchback 2022-2026 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/24068012/24068016/",
+          "original_url": "https://avatars.avto.ru/get-verba/1535139/2a0000019542ca8f8aa43812c4609b22ee84/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e210fl-gr-boundary-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立开放改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "保留冻结聚合年，不能当具体子版本投产/照片拍摄年。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/r7-e210fl-gr-boundary.json",
+            "actual_visual_observation": "改款聚合GR目录深灰五门宽体，新前杠有更大两侧竖开口/中央横条且无原款圆雾灯，区别原款聚合GR目录的初发前杠。"
+          },
+          "view": "front three-quarter",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r7-e210fl-gr-boundary-gallery.webp",
+          "sha256": "f30385ea22cd09899c5f231910b7b32004ef4e6d8cdc0c15a8ec44635207ac59",
+          "download_status": "actual HTTP 200 decoded and viewed catalog rendition; not established original master",
+          "review_status": "candidate_only",
+          "production_eligible": false,
+          "evidence_reuse_round": "round7",
+          "evidence_reuse_manifest": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/results.json",
+          "evidence_reuse_manifest_sha256": "659282043d0dfd1eedd09e23127649e99651c6c4848d6d8298ad8765cce1bcaf"
+        },
+        {
+          "worker": "A",
+          "local_id": "r10-e210fl-hatch",
+          "task_id": "RU-f961eab16419249b",
+          "dimension_id": "Toyota Corolla Hatchback 2022-2026 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/24068012/24073758/",
+          "original_url": "https://avatars.avto.ru/get-verba/997355/2a00000195c4dd6b209f51eef4830d39accf/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-e210fl-hatch-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立生产改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "冻结聚合年不是每子版本出厂年或照片日期。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-hatch.json",
+            "actual_visual_observation": "实际青绿改款E210短尾Hatch：大网格下进气、改动灯组/灯光内部结构。五门短后部可见；同前脸不能当Touring或GR。"
+          },
+          "view": "front three-quarter except Touring near frontal",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-e210fl-hatch-gallery.webp",
+          "sha256": "5975ad353e1522a7047dd962e1e71c5ffe61ceeab835b7d490fa2f627ae37d58",
+          "download_status": "actual HTTP 200 decoded and independently viewed catalog rendition",
+          "review_status": "candidate_only",
+          "production_eligible": false
+        },
+        {
+          "worker": "A",
+          "local_id": "r10-e210fl-sporty",
+          "task_id": "RU-f961eab16419249b",
+          "dimension_id": "Toyota Corolla Sporty Sedan 2022-2026 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/24068012/24079331/",
+          "original_url": "https://avatars.avto.ru/get-verba/1672712/2a00000196253b4210a360098a145aa9eb13/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-e210fl-sporty-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立生产改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "冻结聚合年不是每子版本出厂年或照片日期。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-sporty.json",
+            "actual_visual_observation": "实际红色改款Sporty Sedan：清楚四门三厢/短尾厢、大梯形网格下进气与改动灯组；不是Hatch或GR Hatch。"
+          },
+          "view": "front three-quarter except Touring near frontal",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-e210fl-sporty-gallery.webp",
+          "sha256": "79e111acdd2ae134fc4aec3782c73e5045aacaf1f4d1ad94e76ae88c093b43f8",
+          "download_status": "actual HTTP 200 decoded and independently viewed catalog rendition",
+          "review_status": "candidate_only",
+          "production_eligible": false
+        },
+        {
+          "worker": "A",
+          "local_id": "r10-e210fl-touring",
+          "task_id": "RU-f961eab16419249b",
+          "dimension_id": "Toyota Corolla Touring Wagon 2022-2026 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/24068012/24077578/",
+          "original_url": "https://avatars.avto.ru/get-verba/1604130/2a00000196108b1d42c0f3071048c88ddc7d/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-e210fl-touring-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立生产改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "冻结聚合年不是每子版本出厂年或照片日期。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-touring.json",
+            "actual_visual_observation": "实际目录Touring近正前图片示改款灯组与网格前杠，目录明确Wagon Touring；本张自身后部不足，不单凭它给不明来源前视图定Wagon，找图需补后侧窗/长顶。"
+          },
+          "view": "front three-quarter except Touring near frontal",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-e210fl-touring-gallery.webp",
+          "sha256": "fe49260b4cca83cf667f7fa75069f22bc706f4feec9da2b7f19a6baeca8250ec",
+          "download_status": "actual HTTP 200 decoded and independently viewed catalog rendition",
+          "review_status": "candidate_only",
+          "production_eligible": false
+        },
+        {
+          "worker": "A",
+          "local_id": "r10-2015-global-sedan",
+          "task_id": "RU-581f6855618ebd41",
+          "dimension_id": "Toyota Corolla Sedan 2015-2019 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/20807898/20807943/",
+          "original_url": "https://avatars.avto.ru/get-verba/787013/2a000001609669aa0e807ae88ff3b59bbad7/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-2015-global-sedan-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立生产改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "冻结聚合年不是每子版本出厂年或照片日期。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-global-sedan.json",
+            "actual_visual_observation": "实际深灰全球E170改款Sedan：细长上部灯格栅、横向下进气与两侧小圆灯，车体明显长于日规紧凑Axio；不是Axio巨大梯形口。"
+          },
+          "view": "front three-quarter except Touring near frontal",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-2015-global-sedan-gallery.webp",
+          "sha256": "892d5206a93c1db1904632992f84ca12f22e57e0e81b76486f93d7835776d0b2",
+          "download_status": "actual HTTP 200 decoded and independently viewed catalog rendition",
+          "review_status": "candidate_only",
+          "production_eligible": false
+        },
+        {
+          "worker": "A",
+          "local_id": "r10-2015-im-hatch",
+          "task_id": "RU-581f6855618ebd41",
+          "dimension_id": "Toyota Corolla iM Hatchback 2015-2019 RU",
+          "source_page": "https://auto.ru/catalog/cars/toyota/corolla/20807898/23543317/",
+          "original_url": "https://avatars.avto.ru/get-verba/1030388/2a00000186ff30af948a8891956e1413eaca/cattouch",
+          "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-2015-im-hatch-gallery.webp",
+          "width": 640,
+          "height": 480,
+          "author": "unknown; Auto.ru catalog",
+          "license_name": "unknown",
+          "license_url": null,
+          "license_text": "仅身份参考，未建立生产改编许可。",
+          "photograph_date": "unknown",
+          "model_year_note": "冻结聚合年不是每子版本出厂年或照片日期。",
+          "identity_evidence": {
+            "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-im-hatch.json",
+            "actual_visual_observation": "实际红色Corolla iM五门Hatch：尖锐细上灯/窄格栅、六边形下口、侧角蜂窝口与车身套件；区别E2102018 Hatch和Fielder旅行车。"
+          },
+          "view": "front three-quarter except Touring near frontal",
+          "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r10-2015-im-hatch-gallery.webp",
+          "sha256": "f187989cc1ab53561ac43da20703225cb4929a95d37612e385575bae0b024ca7",
+          "download_status": "actual HTTP 200 decoded and independently viewed catalog rendition",
+          "review_status": "candidate_only",
+          "production_eligible": false
+        }
+      ],
+      "reused_identity_evidence": {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+        "sha256": "abece10cbd98647bf8b16d5860aef7e0c09372ba1aaae95341ed10e2585bd026",
+        "note": "复用已足够的GR/2025中国二改/2012至2017AxioFielder厂家与目录证据，无重复网络查询。"
+      },
+      "new_actual_pages": [
+        {
+          "capture_id": "r10-2015-global-sedan",
+          "url": "https://auto.ru/catalog/cars/toyota/corolla/20807898/20807943/",
+          "http_status": 200,
+          "title": "Toyota Corolla XI (E160, E170, E180) 1 рестайлинг, Седан - технические характеристики, модельный ряд, комплектации, модификации, полный список моделей, кузова Тойота Королла",
+          "visited_at_unix": 1794570622.6052318,
+          "files": [
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-global-sedan.json",
+              "sha256": "59102289c50d1a4cce9bfd232e6aef30b5b8b30e0071ab36bda10bc214c80c12"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-global-sedan.html",
+              "sha256": "d53cbd8674c795d6954bf9d701949cb53b483f9fc702660a8a33f7dfe8c8bfec"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-global-sedan.png",
+              "sha256": "1d422c3d807a157f2c53a7024b02867b0d5f953dc0832014dfc58b6da5cb34cd"
+            }
+          ]
+        },
+        {
+          "capture_id": "r10-eu2023-official",
+          "url": "https://newsroom.toyota.eu/toyota-announces-the-new-2023-corolla/",
+          "http_status": 403,
+          "title": "403 Forbidden",
+          "visited_at_unix": 1794570627.4124305,
+          "files": [
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-eu2023-official.json",
+              "sha256": "d8ebd8700a1bf8344b431b88db9fac964395b5003ea610ce320c18299332f6bc"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-eu2023-official.html",
+              "sha256": "7288e7fc5f15845eadf0696d940c0ed029dc5be956673b5fd083c7b15060a2cf"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-eu2023-official.png",
+              "sha256": "40bea69b143df1281bf33cad598db9ab244d6490b337adf5b601c0f6f8eff0e9"
+            }
+          ]
+        },
+        {
+          "capture_id": "r10-e210fl-touring",
+          "url": "https://auto.ru/catalog/cars/toyota/corolla/24068012/24077578/",
+          "http_status": 200,
+          "title": "Toyota Corolla XII (E210) рестайлинг, Универсал 5 дв. Touring - технические характеристики, модельный ряд, комплектации, модификации, полный список моделей, кузова Тойота Королла",
+          "visited_at_unix": 1794570620.305544,
+          "files": [
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-touring.json",
+              "sha256": "ffed6a342941f2b8e6752ff2f024114096fcc786dfb194a2b961450b59ea28b5"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-touring.html",
+              "sha256": "6a3d2aa3397aae65c8c9a3d7f9673388dc5986dd5794d208fc65d4c56642531e"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-touring.png",
+              "sha256": "cc162489dbb507b69d876da072bbee57427bf1b95acc81fa7ce010446155c0c8"
+            }
+          ]
+        },
+        {
+          "capture_id": "r10-e210fl-hatch",
+          "url": "https://auto.ru/catalog/cars/toyota/corolla/24068012/24073758/",
+          "http_status": 200,
+          "title": "Toyota Corolla XII (E210) рестайлинг, Хэтчбек 5 дв. - технические характеристики, модельный ряд, комплектации, модификации, полный список моделей, кузова Тойота Королла",
+          "visited_at_unix": 1794570612.2310212,
+          "files": [
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-hatch.json",
+              "sha256": "55bbd0fae5aeecf03da205c28647a3f4b227119c2d1f4c73f6fa9a593d3b1708"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-hatch.html",
+              "sha256": "94367aab5cf61032aec4d5da47c5b79e6a5ea03de58211fe8852c346422eef0d"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-hatch.png",
+              "sha256": "946dead6322e5dae6ff4c4835d4f94467b0f23d32e7721c1d425590e908cb038"
+            }
+          ]
+        },
+        {
+          "capture_id": "r10-im2017-official",
+          "url": "https://pressroom.toyota.com/toyota-corollaim-joins-toyota-lineup-for-added-fun-and-function/",
+          "http_status": 200,
+          "title": "Toyota Corolla iM Joins Toyota Lineup for Added Fun and Function - Toyota USA Newsroom",
+          "visited_at_unix": 1794570630.3521447,
+          "files": [
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-im2017-official.json",
+              "sha256": "ba52195c644b211b6e1fea67b580984dcee5bf261038658df8070af93a1d1347"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-im2017-official.html",
+              "sha256": "12bae39aeee787f303da7a03e6e28484c1acd31adad26c8f6f9ee287344d33ab"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-im2017-official.png",
+              "sha256": "435fb26b76af77870ee9cb3651b84b1b6964d2bfb11443d1054262de772ddaf0"
+            }
+          ]
+        },
+        {
+          "capture_id": "r10-2015-im-hatch",
+          "url": "https://auto.ru/catalog/cars/toyota/corolla/20807898/23543317/",
+          "http_status": 200,
+          "title": "Toyota Corolla XI (E160, E170, E180) 1 рестайлинг, Хэтчбек 5 дв. iM - технические характеристики, модельный ряд, комплектации, модификации, полный список моделей, кузова Тойота Королла",
+          "visited_at_unix": 1794570624.728437,
+          "files": [
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-im-hatch.json",
+              "sha256": "a98d76791fdb97946fe4ed0064647b1bfd70a8516eaccb17fcba8653cd5e546d"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-im-hatch.html",
+              "sha256": "5ebf8d543c45632ba0ec76b44b183ad3ae36711d60bb1b3d3bee5ed9383a75fc"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-2015-im-hatch.png",
+              "sha256": "e651b67ddac1ad03fd5728b8b54264460e4c495e64b784c606efa937d003185b"
+            }
+          ]
+        },
+        {
+          "capture_id": "r10-e210fl-sporty",
+          "url": "https://auto.ru/catalog/cars/toyota/corolla/24068012/24079331/",
+          "http_status": 200,
+          "title": "Toyota Corolla XII (E210) рестайлинг, Седан Sporty - технические характеристики, модельный ряд, комплектации, модификации, полный список моделей, кузова Тойота Королла",
+          "visited_at_unix": 1794570618.081646,
+          "files": [
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-sporty.json",
+              "sha256": "1c29fdc116d4928aec3f584e17a81e437e705ba0368a50f2d9ac660625eb47d8"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-sporty.html",
+              "sha256": "77861aefb227a3a0d3d434bcec09db7bef1cd430fa21632efaa53e2832a8399d"
+            },
+            {
+              "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/r10-e210fl-sporty.png",
+              "sha256": "22762e490ddb4db0b1ce0f27b2d69cbafa0f22d2b0c30548aeb69520a27c08d9"
+            }
+          ]
+        }
+      ],
+      "new_official_im_text": {
+        "url": "https://pressroom.toyota.com/toyota-corollaim-joins-toyota-lineup-for-added-fun-and-function/",
+        "http_status": 200,
+        "actual_excerpt": "PRODUCT\nCORPORATE\nINNOVATION\nMOTORSPORTS\nABOUT\nBRANDS\nTAKATA RECALL\n0\nPRODUCT\nCORPORATE\nINNOVATION\nMOTORSPORTS\nABOUT\nBRANDS\n\nHOME > CORPORATE > LATEST NEWS\n\nLATEST NEWS\nToyota Corolla iM Joins Toyota Lineup for Added Fun and Function\nAugust 17, 2016\nSporty and versatile 5-door design\nStand-out safety with standard Toyota Safety Sense-C\nHigh fun factor and fuel efficiency estimates: 28 city/36 hwy/31 combined for CVTi-S\nChoice of 6-speed stick shift or advanced CVTi-S with 7-step shifting\nRoomy cabin with premium amenities\nSophisticated chassis for sophisticated moves\n\n2017 Toyota Corolla iM Product Information\n\nFor Corolla buyers looking to hatch up some great adventures, the iM is the perfect addition to the line-up. With its versatile hatchback, the new 2017 Corolla iM has plenty of room to handle gear for new excursions. Add in the iM’s fun-to-drive, high-style, high-content and high-MPG features, plus an outstanding price, and this new model is ready to roll out of showrooms.\n\nThe Corolla iM’s cabin is roomy, refined, versatile and high-tech equipped. The 1.8-liter DOHC Valvematic engine is eager to rev and very easy on gas. The chassis, with sophisticated double-wishbone rear suspension and standard 17-inch alloy wheels, smooths out urban bumps and tames adventurous curves. For more hands-on driving fun, a 6-speed stick shift is also available.\n             \nSafety and Sensibility\nFor 2017, the iM comes with standard Toyota Safety Sense™ C (TSS-C), as well as eight standard airbags, including a driver’s knee airbag and a front passenger seat cushion airbag. The TSS-C package features three proprietary active safety technologies and combines a camera and laser beam for enhanced performance and reliability. With Lane Departure Alert, Automatic High Beams and a Pre-Collision System, TSS-C can help prevent or mitigate collisions in a wide range of vehicle speeds.\n \nDesign: The Look of iM\nThe iM puts its best face forward with a hexagon lower grille, sharp-eyed headlights and side bezels with a honeycomb mesh pattern. That aerodynamic expression carries into the profile, which conveys dynamic movement from the lower front to the rear. A “swoosh line” rendered in steel.\n           \nDetailing on the Corolla iM belies the affordable pricing. The piano black grille treatment, standard sporty body aero kit, LED daytime running lights and taillights leave an unmistakable signature. Also, the color selection gives the design tremendous visual pop: Blizzard Pearl, Classic Silver Metallic, Black Sand Pearl, Barcelona Red Metallic, Spring Green Metallic and Electric Storm Blue.\n \nIt’s a Gas\nGas prices come down. Gas prices go back up. Compact car buyers like to avoid pain at the pump no matter what. The iM offers a sweet spot of performance and efficiency, and is rated by the EPA an estimated 28 city/36 hwy/31 combined for the CVTi-S model and 27 city/35 hwy/30 combined for the six-speed manual.\n\nThen comes the fun side. The 137 horsepower 1.8-liter 4-cylinder engine uses Valvematic continuously variable valve timing (lift and phasing) technology to offer a broad torque curve, so the iM feels responsive in all situations.\n\nFor driving purists, the iM has a standard 6-speed stick shift that’s a slick shift, making for an engaging and active driving experience. Got hills? Both the manual and automatic iM models come standard with Hill Start Assist, which helps prevent roll-back when pulling away from a stop sign or traffic light on an incline.\n\nThe optional automatic is also perfectly suited to the 1.8-liter engine. It’s an intelligent Continuously Variable Transmission that’s been sport-tuned for driving pleasure. That’s why it’s called the CVTi-S. Not all CVTs operate as responsively as the CVTi-S in the iM. This one has both a Sport Mode as well as manual shifting capability with seven stepped shift points.\n\nIn Sport mode, the CVTi-S alters shift points and also provides a livelier feel through the electric power steering programming and accelerator responsiveness. G AI-SHIFT logic detects lateral G force during cornering and maintains engine speed by restricting unnecessary shift changes.\n\nUsing the console shifter, the driver can make fast, sequential shifts through the transmission’s seven predefined steps, accompanied by the familiar sense of positive shift engagement. The 4.2-inch TFT multi-information display within the instrument cluster displays M mode activity, including the “gear” position, and other vehicle information.\n \nIt’s Got the Moves\nIn the iM, instant gratification behind the wheel will turn to long-term love down the road. Driving enthusiasts know well the value of a high-strength body structure and a sophisticated four-wheel independent suspension. The iM checks those boxes by using ample high-strength steel and special reinforcements in the structure. And it goes further, making the rear suspension the double-wishbone type, a design offering the added benefit of not impinging on cargo room.       \n\nAdd in standard 17-inch alloy wheels with fat 225/45R17 tires, and the iM delivers a tight, taut road feel and a compliant ride quality. The Electronic Power Steering (EPS) system makes low-speed maneuvering a breeze and provides good feel and less assistance at highway speeds. It also helps boost fuel efficiency because the system consumes power only when assist is needed.\n \nPremium Interior without the Premium Price\nInside, it will be love at first seating in the standard bolstered front sport seats. They fit the body like a glove and also integrate a Whiplash Injury Lessening (WIL) structure for occupant protection.\n\nHigh quality materials abound throughout the iM cabin, where the layered dashboard design combines sports car-inspired instrument panel styling with easy to reach, easy-to-use controls. Borrowing ideas from the luxury car realm, the Corolla iM keeps noise outside with an acoustic layer windshield, foam-type insulation and floor silencer sheets.\n\nThe iM’s premium feel on the road is matched by a lengthy roster of premium amenities which all come standard. Start with versatility, which comes from the 60/40 fold-down rear seats and standard cargo cover. A roomy glove box and console box are augmented by numerous front door pockets and storage bins throughout. \n\nThe iM naturally comes with high-grade standard multimedia system. The 6-speaker Pioneer sound system will play from a variety of sources, including iPods, of course, and other devices. It’s controlle"
+      },
+      "rules": [
+        "四任务11要求独立，所有body_version保留原字段。GR、Sporty、Touring、Axio、Fielder、iM不是同一车型别名。",
+        "改款E210 GR按目录新前杠（无初发圆雾灯、两侧大竖开口/多横条）找后期版本；聚合2022起点不意味着所有2022 GR都是该新杠。原款GR圆雾灯供另任务，不重复跨绑。",
+        "普通改款Hatch/Touring前脸很接近，必须看完整后侧窗/车顶/尾部确认短尾Hatch或长车顶Wagon。近正前候选无可靠车身说明/侧后图应hold。",
+        "2025中国二改Sedan用C形前灯/贯穿细灯带、新简洁前杠作为区别；不拿2025欧规普通微调、CorollaCross、下一代概念车替。",
+        "2017Axio/Fielder要核前杠/格栅再次修改，不仅比拍摄年。W×B专用网格/黑配色不等于改款年份，普通与运动等级需区分。",
+        "2015改款1同时含全球Sedan、日规Axio/Fielder和iM。全球Sedan非Axio，Fielder非E210Touring，iM非E210Hatch；照片标题Corolla不足以确定配置。",
+        "2017官方Corolla iM为五门Hatch，六边形下口/蜂窝侧口/标配空气动力套件。Scion iM同平台历史来源不能直接改Toyota徽标来冒Toyota标识；先核具体源车身份并由根决定适用，不私自改品牌。"
+      ],
+      "failure_note": "Toyota EU2023发布页本轮实际403，保留失败；不把搜索摘要当实际已读正文。新目录及USA iM官方均实际成功。",
+      "workflow_limits": "仅身份参考。不下载Commons原件，不媒体图生产，不写Git/OSS/checkpoint/正式资产状态。完成后停止A浏览器搜索待下一项。"
+    },
+    "limitations": "2015 aggregate globalE170facelift and Japanese2015Axio/Fielder/iM eachbody separate; China2025newC-lamp another frozen task. Photo/modelyear separate; no scalar/OEMwheel/engine/VIN certification. Native bottoms10/21px fulltires accepted without fixedcanvas gate. All5 source/gray/dark actually viewed; no repairs thisbatch."
+  },
+  "archive_code_files": [
+    "/workspace/scratch/ru_import_corolla35.py",
+    "/workspace/scratch/ru_prepare_corolla35.py",
+    "/workspace/scratch/ru_review_corolla35.py"
+  ],
+  "archive_json_files": [
+    "/workspace/scratch/ru-corolla35-five-frozen.json",
+    "/workspace/scratch/ru-corolla35-source-contact.jpg",
+    "/workspace/scratch/ru-corolla35-roof-close.jpg",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/corolla-next-four-handoff.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round10/SEARCH-GUIDE.md",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round7/corolla-applicability.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/CONTINUE.md",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7E-002-source-page.txt",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7E-002-bounded-probe.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-011-source-page.txt",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-011-bounded-probe.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-040-source-page.txt",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-040-bounded-probe.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-004-source-page.txt",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7N-004-bounded-probe.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-014-source-page.txt",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-c/round7/C7P-014-bounded-probe.json"
+  ],
+  "report_body": "# Corolla2015四体和中国2025二改Sedan\n\n新增采用5张，两任务完整；真实生成5次全部返回无返修。五源/成图/灰深底逐张实际查看，所有原件/过程/成品私有OSS完整GET/SHA/字节/解码核验。\n\n2015日规Axio/Fielder圆外角空白盖与2017尖雾灯框区分，globalE170Sedan与日规紧凑车分别核；iM保留Toyota标与真实鳍。中国二改新C形薄灯与细上条按实际源，保留源黄灯亮、半开窗与雨刷；不把最新照片年当年款证据。Axio底10px/Fielder底21px整胎未裁据实保留，无固定画布数值门槛。"
+}
