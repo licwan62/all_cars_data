@@ -1,0 +1,184 @@
+{
+  "published_source_lineage": {
+    "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+    "literal_rows": [
+      [
+        "RU|ford/focus|IV Рестайлинг|2021-2025|Sedan|-|-",
+        "Ford Focus Sedan 2021-2025 RU"
+      ],
+      [
+        "RU|vaz/vesta|I Рестайлинг (NG)|2022-2026|Sedan|-|Sportline",
+        "Lada (ВАЗ) Vesta Sportline Sedan 2022-2026 RU"
+      ],
+      [
+        "RU|vaz/vesta|I Рестайлинг (NG)|2022-2026|Wagon 5-door|-|SW Sportline",
+        "Lada (ВАЗ) Vesta SW Sportline Wagon 2022-2026 RU"
+      ]
+    ]
+  },
+  "focus_applicability": {
+    "schema": "ru-search-identity-evidence-v1",
+    "worker": "A",
+    "created_at_unix": 1794565854.9395325,
+    "task_id": "RU-7c89ff08e7f863ea",
+    "dimension_id": "Ford Focus Sedan 2021-2025 RU",
+    "review_status": "candidate_only",
+    "conclusion": "Actual catalog chain supports China second-facelift 2022 Sedan as a member of the queued ordinary IV facelift 2021–2025 Sedan representative family. This is lineage/applicability evidence, not production acceptance or dimensional recertification.",
+    "queue_generation": "IV Рестайлинг",
+    "sources": [
+      {
+        "capture_id": "a-focus-drom-mapping",
+        "url": "https://www.drom.ru/catalog/ford/focus/",
+        "title": "Форд Фокус технические характеристики. Ford Focus комплектации и цены фото",
+        "http_status": 200,
+        "visited_at_unix": 1794565683.8700285,
+        "files": [
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-drom-mapping.json",
+            "sha256": "44efc9000496ebffabc7c8e92b1c0e5a95853e4d4c1de1b568fbf3ea1321e3b2"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-drom-mapping.html",
+            "sha256": "6e036ae54c685e2e5a812b0ed7ca69d1aa3c0f75ced32789358c910b06da505c"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-drom-mapping.png",
+            "sha256": "7c3402d169035f338b4ee1e39b99c2e4e97062511649740ded72e3887c722a92"
+          }
+        ]
+      },
+      {
+        "capture_id": "a-focus-drom-2022-sedan",
+        "url": "https://www.drom.ru/catalog/ford/focus/g_2022_23272/",
+        "title": "Ford Focus рестайлинг 2022, 2023, 2024, седан, 4 поколение, IV технические характеристики и комплектации",
+        "http_status": 200,
+        "visited_at_unix": 1794565712.0623224,
+        "files": [
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-drom-2022-sedan.json",
+            "sha256": "ca5d6df52e545986fb34283bf7d20f84e10b574d192317d88a42636c63314424"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-drom-2022-sedan.html",
+            "sha256": "58ba5062720df9e556d05134738671aca0a1f54833d8d1a0c1ef4b065546cb28"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-drom-2022-sedan.png",
+            "sha256": "80515562378549d9d1485e45ace653ed3bb84149eb82ee590559823ba42bcbb7"
+          }
+        ]
+      },
+      {
+        "capture_id": "a-focus-auto-ru-mapping",
+        "url": "https://auto.ru/catalog/cars/ford/focus/23075960/23994038/specifications/23994038_23994108_23994046/",
+        "title": "Технические характеристики Ford Focus S (1.5 AT, 177 л.с.), 4 поколение рестайлинг (2021 – 2025), Седан | Auto.ru",
+        "http_status": 200,
+        "visited_at_unix": 1794565690.0794568,
+        "files": [
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-auto-ru-mapping.json",
+            "sha256": "c8034a270ef6561deb2b45eeb3bda1b580b83903dadcb4b6e15ca8364d523433"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-auto-ru-mapping.html",
+            "sha256": "89fb0aa920c4b6912ad61d86540e9829c8906e59ea4ea01d0bfd9047be55699c"
+          },
+          {
+            "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/a-focus-auto-ru-mapping.png",
+            "sha256": "08aac06e97402a86e6536bac6b74ae7714b9ddf22e415469185708678674d9e8"
+          }
+        ]
+      }
+    ],
+    "drom_direct_links_to_detail": [
+      {
+        "text": "Китай\n06.2022 - 06.2024 \nСедан",
+        "url": "https://www.drom.ru/catalog/ford/focus/g_2022_23272/"
+      }
+    ],
+    "drom_main_excerpt": "Ford Focus, IV, 2021 - 2025\n4 поколение, рестайлинг\nКитай\n06.2022 - 06.2024 \nСедан\nКитай\n06.2022 - 06.2024 \nХэтчбек 5 дв.\nЕвропа\n10.2021 - 11.2025 \nCEW\nУниверсал, Гибрид\nЕвропа\n10.2021 - 11.2025 \nCEW\nХэтчбек 5 дв., Гибрид\n",
+    "drom_detail_excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиFordFocusХарактеристики Ford Focus рестайлинг 2022, седан, 4 поколение, IV июнь 2022 - июнь 2024\nFord Focus рестайлинг 2022, седан, 4 поколение, IV (06.2022 - 06.2024) - технические характеристики и комплектации\nРынок сбыта: Китай.\nРазвернуть фотографии \nКитайское подразделение Changan Ford провело серьезную «работу над ошибками», представив обновленную версию Ford Focus четвертого поколения, призванную исправить ключевые недостатки и повысить падающий спрос. Главной технической особенностью стал полный отказ от трехцилиндровых двигателей в пользу четырехцилиндрового силового агрегата, причем единственного теперь в предложенной линейке. Кроме того, «Фокусу» подправили внешность. Передняя часть стала более динамичной и агрессивной — увеличенная решетка радиатора в черной рамке, объединенная с фарами, сложная отделка бампера с острыми «клыками» по бокам.\n\nИнтерьеру Ford Focus 2022 достались минимальные изменения. Например, поворотный селектор автоматической коробки передач заменен на традиционный рычаг. Мультимедийная система еще в модели 2021 года получила 12,3-дюймовый сенсорный экран мультимедийной системы SYNC+ с поддержкой 4G, голосового управления и интеграцией с сервисами Baidu, а также дистанционного управления через смартфон. Однако для седана сохранили вариант с 8-дюймовой мультимедиа, а также простой кондиционер в комплектации со сниженной ценой. При этом во всех версиях «Фокус-седан» есть светодиодная оптика, система бесключевого доступа для передних дверей. В зависимости от версии к оснащению седана добавляются подрулевые лепестки, спортивные сиденья, пакет обвеса, 18-дюймовые колесные диски в сочетании с красными тормозными суппортами. В некоторых опциях оснащение упростили — например, нет беспроводной зарядки и задних воздушных дефлекторов. Но зато, например, появилась аудиосистема B&O с десятью динамиками, которая стала опцией вместо стандартных шести динамиков.\n\nПод капотом обновленного седана Focus 2022 для Китая установлен 1,5-литровый четырехцилиндровый турбированный двигатель EcoBoost, развивающий максимальную мощность 177 лошадиных сил. Его пиковый крутящий момент в 243 Нм доступен в диапазоне от 1750 до 4500 об/мин. В спортивном режиме с функцией Overboost крутящий момент может кратковременно увеличиваться до 270 Нм. В паре с двигателем работает исключительно 6-ступенчатая автоматическая трансмиссия с гидротрансформатором, разработанная совместно Ford, General Motors и ZF. Эта комбинация позволяет седану Focus разгоняться от 0 до 100 км/ч за 7,9 секунды и до максимальных 220 км/ч. Расход топлива в смешанном цикле (по методике WLTC) заявлен на уровне 6,4-7,05 литров на 100 километров.\n\nБазовую версию «Фокуса» продолжают оснащать упрощенной задней подвеской с торсионной балкой. Для более дорогих комплектаций применяется многорычажная подвеска типа SLA (Short Long Arm) с длинными и короткими рычагами, также",
+    "auto_ru_excerpt": "Авто.ру\nРазместить объявление\nВойти\nЛегковые\nМото\nКомтранс\nКаталог\nОтчёты\nБортжурнал\nЖурнал\nДилеры\nПродажа автомобилейКаталогFordFocusIV РестайлингСеданХарактеристики\n8 фотографий\nFord Focus IV Рестайлинг\n3.8\n1 отзыв\nСедан\n2021 — 2025\nХэтчбек 5 дв.\nУниверсал 5 дв. Active\nСедан\nСедан C-класса, передний привод. Механика, робот и автомат. Бензиновые и дизельные двигатели мощностью от 95 до 177 лошадиных сил.\nО модели\nХарактеристики\nКомплектации\nСравнить\nПоделиться\nТехнические характеристики\nМодификация\nОбъем\n1.5 л\nМощность\n177 л.с.\nКоробка\nАвтомат \nТип двигателя\nБензиновый \nТопливо\nАИ-92 \nПривод\nПередний \nРазгон\n7.9 с\nРасход\n6.4 л\nРазмеры кузова\nВысота\n1467 мм\nДлина\n4664 мм\nШирина\n1824 мм\nОбщая информация\nСтрана марки \nСША \nКласс автомобиля \nC \nКоличество дверей \n4 \nКоличество мест \n5 \nРасположение руля \nЛевый \nРазмеры\nДлина \n4664 мм\nШирина \n1824 мм\nВысота \n1467 мм\nКолёсная база \n2705 мм\nШирина передней колеи \n1572 мм\nШирина задней колеи \n1548 мм\nРазмер колёс \n205/60 R16 \nОбъём и масса\nОбъем багажника мин/макс \n511 л\nОбъём топливного бака \n53 л\nСнаряженная масса \n1338 кг\nПолная масса \n1748 кг\nДвигатель\nТип двигателя \nБензиновый \nРасположение двигателя \nПереднее, поперечное \nОбъем двигателя \n1499 см³\nТип наддува \nТурбонаддув \nМаксимальная мощность \n177 л.с. (130 кВт) при 6000 об/мин \nМаксимальный крутящий момент \n243 Н⋅м при 1750 - 4500 об/мин \nРасположение цилиндров \nРядное \nКоличество цилиндров \n4 \nЧисло клапанов на цилиндр \n4 \nСистема питания двигателя \nНепосредственный впрыск (прямой) \nКод двигателя \nCAF479WQ6 \nМетодика расчета расхода \nWLTP \nГРМ \nDOHC \nТрансмиссия\nКоробка передач \nАвтомат \nКоличество передач \n6 \nТип привода \nПередний \nЭксплуатационные показатели\nМаксимальная скорость \n220 км/ч\nРазгон до 100 км/ч \n7.9 с\nРасход топлива, город/трасса/смешанный \n-/-/6.4 л/100 км\nМарка топлива \nАИ-92 \nЭкологический класс \nEuro 6 \nПодвеска и тормоза\nТип передней подвески \nНезависимая, пружинная \nТип задней подвески \nПолунезависимая, пружинная \nПередние тормоза \nДисковые вентилируемые \nЗадние тормоза \nДисковые \nИнтересное про Ford Focus IV Рестайлинг\nFord Focus IV Рестайлинг с пробегом\nНовые Ford Focus IV Рестайлинг\nДилеры Ford Focus IV Рестайлинг\nВидео о Ford Focus IV Рестайлинг\nЧитайте о Ford Focus IV Рестайлинг\nПоказать все\nРазместить рекламуДля Бизнеса\nПомощьСтань частью команды\nО проектеАналитика Авто.ру\nСаша КотовОформить ОСАГОРассчитать Каско\nООО «Авто.ру»\nПользовательское соглашение\nПолитика конфиденциальности\nИТ-аккредитация\nФинансовым организациям\nНа и",
+    "catalog_image": {
+      "id": "a-download-auto-ru-front",
+      "action": "download",
+      "at": 1794565742.858603,
+      "http_status": 200,
+      "url": "https://avatars.avto.ru/get-verba/787013/2a00000190b5cd71c6093131c85905b7db1a/cattouch",
+      "content_type": "image/webp",
+      "file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/catalog-auto-ru-sedan-front.jpg",
+      "bytes": 48150,
+      "sha256": "39d8be3a56552c02f89ffbf1872943380c7f079400875d95649d50efdde7124d"
+    },
+    "catalog_image_use": "Identity visual reference only; 640x480 catalog rendition, no production adaptation license established.",
+    "existing_candidate": {
+      "candidate_id": "RU-7c89ff08e7f863ea-C006",
+      "source_page": "https://commons.wikimedia.org/wiki/File:FORD_FOCUS_SEDAN_China_(3).jpg",
+      "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-7c89ff08e7f863ea-C006/original.jpg",
+      "manifest_sha256": "44e87e263b155674adc995d8f9855c1ffd93f3854a6fc659e0ccf1369722ff27",
+      "actual_sha256_readonly": "44e87e263b155674adc995d8f9855c1ffd93f3854a6fc659e0ccf1369722ff27",
+      "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/existing-c006-community-preview.jpg",
+      "preview_sha256": "582181ce8a6d46aaa3e596ee516ba763e74136cb7f2f628f92bba247e47cc707",
+      "not_redownloaded": true
+    },
+    "actual_visual_observation": {
+      "C006": "White four-door notchback sedan. Narrow angular headlamps, black honeycomb wide grille with Ford badge inside, bonnet/headlamp/grille junction and side window profile correspond to the Chinese 2022 second facelift. Lower bumper is simpler than catalog ST-Line image.",
+      "Auto_ru": "Blue four-door sedan with same headlamp outline, wide honeycomb grille/badge-in-grille and hood interface; sporty S/ST-Line style lower bumper and wheels differ from C006 trim.",
+      "decision_scope": "Trim-specific bumper difference does not exclude the ordinary Sedan family; do not bind C006 to ST-Line specifically. This does not make C006 suitable for China 2020–2022 first facelift Sedan."
+    },
+    "license_note": "C006 retained manifest identifies Dinkun Chen, CC BY-SA 4.0, original photograph date2025-04-07. Root should validate attribution/adaptation and final output independently."
+  },
+  "focus_root_independent_review": "Root read actual captured Drommain→China2022Sedan link and Auto.ru genericIVFL2021–2025 page text, verified SHA of all9 captures, actually viewed existing white original and downloaded blue catalog identity reference. Earlier applicability hold was lack of catalog proof, now resolved; ordinary trim only. Catalog media is not production input.",
+  "sportline_primary_author_grant": {
+    "worker": "B",
+    "author": "gleb",
+    "author_id": "555",
+    "exact_grant_ru": "Все опубликованные мною фотографии доступны по лицензии Creative Commons Attribution 4.0 International (CC BY 4.0), если не указано иное.",
+    "grant_translation_en": "All photographs published by me are available under Creative Commons Attribution 4.0 International (CC BY 4.0), unless otherwise stated.",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "archived_timestamp_utc": "2026-07-22T12:48:52Z",
+    "archive_url": "https://web.archive.org/web/20260722124852/https://platesmania.com/newforum/index.php?app=core&module=members&controller=profile&id=555&tab=field_core_pfield_15",
+    "raw_archive_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/permission-20260722124852.html",
+    "raw_archive_sha256": "74be9c6ec5f3e6f8b0d8b6ec0d6fe96f1442bde3656008c11860eb90a2f1a22a",
+    "http_status": 200,
+    "browser_title": "gleb - PlatesMania.com",
+    "browser_response_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/40-archived-permission-browser.json",
+    "author_chain": [
+      {
+        "local_id": "B003",
+        "photo_page": "https://platesmania.com/ru/nomer28811716",
+        "photo_page_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/16-sportline-sedan-source.html",
+        "author_anchor_matches": [
+          [
+            "/user555",
+            "gleb"
+          ]
+        ],
+        "author_profile_id": "555",
+        "photo_specific_license_exception_observed": false
+      },
+      {
+        "local_id": "B004",
+        "photo_page": "https://platesmania.com/ru/nomer27514467",
+        "photo_page_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/17-sportline-wagon-source.html",
+        "author_anchor_matches": [
+          [
+            "/user555",
+            "gleb"
+          ]
+        ],
+        "author_profile_id": "555",
+        "photo_specific_license_exception_observed": false
+      }
+    ],
+    "commons_review_status": "License review needed; no Commons reviewer action has been performed or claimed",
+    "qualification": "Historical primary-author blanket grant recovered, including unless-otherwise-stated qualifier. Current migrated profile contains no CC statement. No photo-specific license exception observed on inspected source pages; this is an observation of pages at retrieval, not a certification of every historical edit. Root must independently review before adoption.",
+    "attribution_proposal": "Photo: gleb / Platesmania, CC BY 4.0; credit original photo URL and license URL; record alterations for any generated or edited derivative.",
+    "grant_region_actual_browser_screenshot": "/workspace/scratch/ru-parallel-search-20261113/worker-b/permission-grant-browser.png",
+    "grant_region_browser_response": "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/45-permission-anchor-return.json",
+    "screenshot_sha256": "cc42031f85d23e0957e7747a5539cf9e8b274a5c45865fb17d43773bae88295d"
+  },
+  "sportline_root_independent_review": "Root SHA-verified archived HTML, read exact Russian grant with qualifier and CC BY4 link, actually viewed browser grant screenshot; read each original photo page /user555 gleb anchor and body/captions, no third-party photographer or photo-specific exception observed. Existing Commons review-needed flag is preserved and no reviewer action claimed. Source credits+license+adaptation disclosure remain in final metadata.",
+  "limitations": "Representative exterior only; not scalar dimensions/precise engine/exact year/Russian photograph-location certification. Vesta2026 147hp Sport and SW Sport remain unfilled, Sportline does not cover them."
+}

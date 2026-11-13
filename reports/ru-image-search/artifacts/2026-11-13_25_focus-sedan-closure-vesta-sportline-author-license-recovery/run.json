@@ -1,0 +1,387 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery",
+  "version": "20261113_25",
+  "description": "focus-sedan-closure-vesta-sportline-author-license-recovery",
+  "created_at": "2026-11-13T10:52:04+00:00",
+  "finished_at": "2026-11-13T10:52:06+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch25-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/progress-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/progress-20261113_24.json",
+      "sha256": "daa7079a75916576b4fcafb8c6f371d7eb0de97d44bf2d43ce5d7a9533b69c83"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/current-accepted-configuration-index-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/current-accepted-configuration-index-20261113_24.json",
+      "sha256": "742697265a1d54026d0d67c25c8cebc3ff3e05a2c280e35fc1dbcd7e6f215576"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/candidates-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/candidates-20261113_24.json",
+      "sha256": "6a5e7234bf588c511ebb3d775fc1e1d98d062b8297e5261ff3e7c07768ca7caf"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "7ddab70eee4605f482eb3fceb33402ec2be97ea1",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/identity-crosschecks-20261113_25.json",
+      "content_reference": true,
+      "sha256": "963da8e573c98231a411f08fa2b24de4a85c088b419627c40cd7fc06b0b4d13e",
+      "bytes": 21644,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/accepted-configurations-20261113_25.json",
+      "content_reference": true,
+      "sha256": "de48dbabd4a808b1f65ca32c4182e4843c456f71d68ace4b7a45cc6756407914",
+      "bytes": 30893,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/current-accepted-configuration-index-20261113_25.json",
+      "content_reference": true,
+      "sha256": "c1013afa05a116f146213de471cd33b76038be19d31acf35f279bb1001bf1382",
+      "bytes": 857102,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/nonadopted-history-20261113_25.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/generation-requests-20261113_25.json",
+      "content_reference": true,
+      "sha256": "0c04d6f507a02c96bee720310e7324d78b73aaa9d0d6a979aa6a5dee279e103b",
+      "bytes": 13703,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/new-source-original-evidence-20261113_25.json",
+      "content_reference": true,
+      "sha256": "f36ea4f39f760c80ef28f43d0c80edc26543455cd39ad734e43b3165a5616d68",
+      "bytes": 18159,
+      "rows": null
+    },
+    {
+      "file": "reverified-existing-source-evidence.json",
+      "versioned_file": "reverified-existing-source-evidence-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/reverified-existing-source-evidence-20261113_25.json",
+      "content_reference": true,
+      "sha256": "c0ca42a41ba5203546f34bf72be1e38b1ebaccb213c5fbfb7f3b58ff16588bf0",
+      "bytes": 4754,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/candidates-20261113_25.json",
+      "content_reference": true,
+      "sha256": "512df626d3cf343556b3ea4def195e558f842f54f89d4a5df0a3c9914eea983c",
+      "bytes": 291154,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/progress-20261113_25.json",
+      "content_reference": true,
+      "sha256": "ee449df99b228ffd441700bc34c6d7b79434e8ccf0ed669e408398b7e20db2e1",
+      "bytes": 2235318,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru-batch25-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_make_batch25_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_import_sources25.py",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_prepare_focus_vesta25.py",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_review_focus_vesta25.py",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/ru-parallel-B-sportline-frozen25.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/ru-sportline-contact25.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/focus-sedan-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/existing-c006-community-preview.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/catalog-auto-ru-sedan-front.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/license-recovery.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/permission-20260722124852.html",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/permission-grant-browser.png",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/permission-grant-excerpt.png",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/16-sportline-sedan-source.html",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/17-sportline-wagon-source.html",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-mapping.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-mapping.html",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-mapping.png",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-2022-sedan.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-2022-sedan.html",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-2022-sedan.png",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-auto-ru-mapping.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-auto-ru-mapping.html",
+    "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-auto-ru-mapping.png"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch25-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru-batch25-review.json",
+      "sha256": "3bded8f57cd2ebf50e767e9190d2b53efb797dd860c1086cfc96511314df707a",
+      "bytes": 28228
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch25_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_make_batch25_review.py",
+      "sha256": "26e96a88eeb6f450020f7624db9e32c68707d1dd20948a26d8d9ab558223a149",
+      "bytes": 6557
+    },
+    {
+      "file": "extra/executed-code/ru_import_sources25.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_import_sources25.py",
+      "sha256": "56d14c5bfd47306e79a1777e84f85f2c4c7720c9bcd71374da4ae4584c82cf84",
+      "bytes": 3562
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus_vesta25.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_prepare_focus_vesta25.py",
+      "sha256": "ce688dd02114930e59f5d10af5a4dcc21edd07071890626a64b9a95d7b8b58bb",
+      "bytes": 4793
+    },
+    {
+      "file": "extra/executed-code/ru_review_focus_vesta25.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/executed-code/ru_review_focus_vesta25.py",
+      "sha256": "a6ef3b10a4715ea6bb026ed5822d071794a822fe34a768cd010c8f987a78bf8f",
+      "bytes": 1634
+    },
+    {
+      "file": "extra/search-evidence/ru-parallel-B-sportline-frozen25.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/ru-parallel-B-sportline-frozen25.json.gz",
+      "sha256": "8bdd472e366229c9b32d58f052ba29be198c6f7b6645540454145c16dd69b0fc",
+      "bytes": 2632
+    },
+    {
+      "file": "extra/search-evidence/ru-sportline-contact25.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/ru-sportline-contact25.jpg",
+      "sha256": "cf7006762c21071c749f27a8f38722421c9f96662df64a124fc7fea5be2623c0",
+      "bytes": 172363
+    },
+    {
+      "file": "extra/search-evidence/focus-sedan-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/focus-sedan-applicability.json.gz",
+      "sha256": "a3c982bf2e7aa100aed31f93933a5f36478d4c8ca977c29f03e1b435508fd273",
+      "bytes": 6099
+    },
+    {
+      "file": "extra/search-evidence/existing-c006-community-preview.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/existing-c006-community-preview.jpg",
+      "sha256": "dc9a514a1dc57529860648a658bd213bb82508bb881b4db2bf6fa38e670cb721",
+      "bytes": 158874
+    },
+    {
+      "file": "extra/search-evidence/catalog-auto-ru-sedan-front.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/catalog-auto-ru-sedan-front.jpg",
+      "sha256": "6d452ca6fc8d949238a991e7c2b3418e6fff75e6c0ca80b8a2adbc9023e4ccc9",
+      "bytes": 48183
+    },
+    {
+      "file": "extra/search-evidence/license-recovery.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/license-recovery.json.gz",
+      "sha256": "1831e026dee1de80c0a8e278fc45049e96a4657c128039dc0fd77fbcf94dfdbf",
+      "bytes": 1302
+    },
+    {
+      "file": "extra/search-evidence/permission-20260722124852.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/permission-20260722124852.html",
+      "sha256": "092d32f7bf49f1b5686adb75c58c3528f7cdd2f0ede9e09d5ff070415ce783e3",
+      "bytes": 19288
+    },
+    {
+      "file": "extra/search-evidence/permission-grant-browser.png",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/permission-grant-browser.png",
+      "sha256": "ba7eb54179fdb6186ed3f67fe9dad106cc216bcf0d1b564dbad717f8ce39f36d",
+      "bytes": 100752
+    },
+    {
+      "file": "extra/search-evidence/permission-grant-excerpt.png",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/permission-grant-excerpt.png",
+      "sha256": "143e6aa266ef85f94f68b888f0a3b198d4f9c3ccc0cd59b9733f66ab5b4e207c",
+      "bytes": 26271
+    },
+    {
+      "file": "extra/search-evidence/16-sportline-sedan-source.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/16-sportline-sedan-source.html",
+      "sha256": "c8ca28a0a3ee633e4609a38bc3fb073b9a884555f45bf73e203fc56894ab379a",
+      "bytes": 11931
+    },
+    {
+      "file": "extra/search-evidence/17-sportline-wagon-source.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/17-sportline-wagon-source.html",
+      "sha256": "1e6b283bda2bb0d66874a25020606025b7f6ec402635d550a65d8101c3891f7c",
+      "bytes": 12061
+    },
+    {
+      "file": "extra/search-evidence/a-focus-drom-mapping.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-mapping.json.gz",
+      "sha256": "c82d2fea6348fa55301a4c858355a43fe8d62a288afa9b7052701a839eb5c89b",
+      "bytes": 8038
+    },
+    {
+      "file": "extra/search-evidence/a-focus-drom-mapping.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-mapping.html",
+      "sha256": "cefb9281aef2d03a7e12febb23e8d866ca69fc4f0c7d8769a22e2289d4870997",
+      "bytes": 34740
+    },
+    {
+      "file": "extra/search-evidence/a-focus-drom-mapping.png",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-mapping.png",
+      "sha256": "175e95a315f83ec3790a244b2288be65f78397876ab1f15bff950d68f4cc9cb0",
+      "bytes": 491108
+    },
+    {
+      "file": "extra/search-evidence/a-focus-drom-2022-sedan.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-2022-sedan.json.gz",
+      "sha256": "76de6cf14102d79e4f2a0d6706bc395ab352b7f6a5a75ef5eef6574673026472",
+      "bytes": 11670
+    },
+    {
+      "file": "extra/search-evidence/a-focus-drom-2022-sedan.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-2022-sedan.html",
+      "sha256": "af45f8e752cc59c348f22aebc4e08cc84d082104db10af38de08b5d9686e6ae1",
+      "bytes": 35773
+    },
+    {
+      "file": "extra/search-evidence/a-focus-drom-2022-sedan.png",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-drom-2022-sedan.png",
+      "sha256": "27646775953f33e57c6994fa97d0050ada6c5b798661391bd0d31c576164f865",
+      "bytes": 538606
+    },
+    {
+      "file": "extra/search-evidence/a-focus-auto-ru-mapping.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-auto-ru-mapping.json.gz",
+      "sha256": "0abeda7e302c1ce15ea9dbd3bc5b3698226de277b25ac7a42201016709d3a5ee",
+      "bytes": 3681
+    },
+    {
+      "file": "extra/search-evidence/a-focus-auto-ru-mapping.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-auto-ru-mapping.html",
+      "sha256": "040931bd0524926c106e02e417d7304c7b7e5f7aaec894090ec7ee685f6e939c",
+      "bytes": 17175
+    },
+    {
+      "file": "extra/search-evidence/a-focus-auto-ru-mapping.png",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/extra/search-evidence/a-focus-auto-ru-mapping.png",
+      "sha256": "5e64b1806cac575ad9cc8b8f6889e1483df739c2f7aba14772144b8935fef832",
+      "bytes": 388435
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 3,
+    "accepted_configurations_this_batch": 3,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 24,
+    "accepted_configurations_total": 88
+  }
+}
