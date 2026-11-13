@@ -1,0 +1,313 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures",
+  "version": "20261113_24",
+  "description": "astra-k-f-l-nine-configurations-four-task-closures",
+  "created_at": "2026-11-13T10:47:10+00:00",
+  "finished_at": "2026-11-13T10:47:11+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch24-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/progress-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/progress-20261113_23.json",
+      "sha256": "0ff6b16d8810bc052f8888823de31d46768cabf48b576923b1b49c6ac9e1a3ff"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/current-accepted-configuration-index-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/current-accepted-configuration-index-20261113_23.json",
+      "sha256": "1e2f34eaf74ad45c433bbf0d408a3a79f917885e80cfef8f2b7be5c14183213f"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/candidates-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/candidates-20261113_23.json",
+      "sha256": "bed9ffde2fa19b086cb2f9b22ddb31488de4dcb30ec0b55982d917504d4f459a"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/identity-crosschecks-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/identity-crosschecks-20261113_22.json",
+      "sha256": "9275dc4f7aba84a4d375e4833b4cff9aab2f0e4a59546cccebc395dc84841cb8"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "6cb15a4b7b2e34a35e79c4286cc4e068d3ae40bd",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/identity-crosschecks-20261113_24.json",
+      "content_reference": true,
+      "sha256": "effc9dfaa0c2a81956a55d014365eb1beb209d8d2e3285d4a06db1df06367a47",
+      "bytes": 20259,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/accepted-configurations-20261113_24.json",
+      "content_reference": true,
+      "sha256": "c7f606d8accfb5ccab5f73e80f124260ae669c4c5ed6ae063695a54719283b1e",
+      "bytes": 86720,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/current-accepted-configuration-index-20261113_24.json",
+      "content_reference": true,
+      "sha256": "742697265a1d54026d0d67c25c8cebc3ff3e05a2c280e35fc1dbcd7e6f215576",
+      "bytes": 826212,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/nonadopted-history-20261113_24.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/generation-requests-20261113_24.json",
+      "content_reference": true,
+      "sha256": "7edb44ad87fdc248cb93da12f2629ea054dd64d9e4c81ec085062a71f6d96974",
+      "bytes": 37829,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/new-source-original-evidence-20261113_24.json",
+      "content_reference": true,
+      "sha256": "2884609ec4b7284db397a5835d12215371543960108e1157d0103442b3009fc7",
+      "bytes": 52500,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/candidates-20261113_24.json",
+      "content_reference": true,
+      "sha256": "6a5e7234bf588c511ebb3d775fc1e1d98d062b8297e5261ff3e7c07768ca7caf",
+      "bytes": 284582,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_24.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/output/progress-20261113_24.json",
+      "content_reference": true,
+      "sha256": "daa7079a75916576b4fcafb8c6f371d7eb0de97d44bf2d43ce5d7a9533b69c83",
+      "bytes": 2231639,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru-batch24-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_make_batch24_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_review_parallel_c24.py",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_import_parallel_c24.py",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_prepare_astra24.py",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_review_astra24.py",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_astra24_identity.py",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-parallel-C-frozen24.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-parallel-C-contact24.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-astra24-identity-crosschecks.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-astra24-identity-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-astra24-identity-1.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/C062-file-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/browser-proof.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/HANDOFF.md"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch24-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru-batch24-review.json",
+      "sha256": "8b8c4ef923c0aa6312b23ead3ec91f124dcdaf45dde74a22b3c16b867134d752",
+      "bytes": 29269
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch24_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_make_batch24_review.py",
+      "sha256": "ea2d6791fedd30f9ae444db8299ac975e7230088027b74edea3b9adbd951b476",
+      "bytes": 8427
+    },
+    {
+      "file": "extra/executed-code/ru_review_parallel_c24.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_review_parallel_c24.py",
+      "sha256": "17f000cf46a115e93ffadea72913123a10f2fc97667f7511c8073c6666e76493",
+      "bytes": 760
+    },
+    {
+      "file": "extra/executed-code/ru_import_parallel_c24.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_import_parallel_c24.py",
+      "sha256": "5ccd07bda10274ad71fb9152019eb7742656d0347b707cccc2e875a67a66c8c0",
+      "bytes": 2837
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_astra24.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_prepare_astra24.py",
+      "sha256": "13df8170ee11b8752f07fc107887bc4922cff1358985ebd741cc0d4a8a2a3b5a",
+      "bytes": 7223
+    },
+    {
+      "file": "extra/executed-code/ru_review_astra24.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_review_astra24.py",
+      "sha256": "08607570cd430101b5505b13743cc8f632de9eb1f7d8690e7e7b300cc25a106e",
+      "bytes": 1622
+    },
+    {
+      "file": "extra/executed-code/ru_astra24_identity.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/executed-code/ru_astra24_identity.py",
+      "sha256": "79460481c605cbb6fa9610a25578ace8d3d7d833c7e42d8e6ca742bf42d4b30b",
+      "bytes": 1042
+    },
+    {
+      "file": "extra/search-evidence/ru-parallel-C-frozen24.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-parallel-C-frozen24.json.gz",
+      "sha256": "d3d429ba41865ccff88a86339b9f939288d26b9565b611085e9797c851aa4961",
+      "bytes": 7180
+    },
+    {
+      "file": "extra/search-evidence/ru-parallel-C-contact24.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-parallel-C-contact24.jpg",
+      "sha256": "a7de35b31d45d24b466140dd7d902af34ae598d73e4b6d30c8c6feefacdabb22",
+      "bytes": 361394
+    },
+    {
+      "file": "extra/search-evidence/ru-astra24-identity-crosschecks.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-astra24-identity-crosschecks.json.gz",
+      "sha256": "71c952c6450f3c10fb8204befa69f18a8405334a032be3f0b5bfbfaa7a2b7b30",
+      "bytes": 5493
+    },
+    {
+      "file": "extra/search-evidence/ru-astra24-identity-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-astra24-identity-0.html.gz",
+      "sha256": "acb8231cf265847ec92f3cfb9cbff2bc9ff3ca3e3462324db45914f069fb77b7",
+      "bytes": 38993
+    },
+    {
+      "file": "extra/search-evidence/ru-astra24-identity-1.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/ru-astra24-identity-1.html.gz",
+      "sha256": "271bed21cca197fe7c3741c703678a6bd554930ddeee0275bca4b8572d454180",
+      "bytes": 47940
+    },
+    {
+      "file": "extra/search-evidence/C062-file-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/C062-file-page.txt",
+      "sha256": "fc75e0d131bb6477bac82f4a41502677156bd6559fffd850bdabc8c6ddedeb80",
+      "bytes": 1643
+    },
+    {
+      "file": "extra/search-evidence/browser-proof.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/browser-proof.json.gz",
+      "sha256": "4f66570e18a7b6fdd1b6245baeb3d540e3af1caecd5720bd1cac7c57495fef2b",
+      "bytes": 278
+    },
+    {
+      "file": "extra/search-evidence/HANDOFF.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_24_astra-k-f-l-nine-configurations-four-task-closures/extra/search-evidence/HANDOFF.md",
+      "sha256": "523319b00d7a14753b8fc283b8d35cc414bbebe033a38286c96da5eda987698c",
+      "bytes": 989
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 9,
+    "accepted_configurations_this_batch": 9,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 23,
+    "accepted_configurations_total": 85
+  }
+}
