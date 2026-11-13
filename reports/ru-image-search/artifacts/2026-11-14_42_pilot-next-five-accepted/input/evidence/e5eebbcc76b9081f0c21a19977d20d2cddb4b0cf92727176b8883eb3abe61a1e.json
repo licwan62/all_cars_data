@@ -1,0 +1,37 @@
+{
+  "schema": "ru-pilot20-runx-original-identity-appendix-v1",
+  "reviewed_at_utc": "2026-11-13T16:08:55.702272+00:00",
+  "task_id": "RU-6fc2caabccaf49bc",
+  "dimension_id": "Toyota Corolla Runx Hatchback 2000-2004 RU",
+  "candidate_source": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-2055786.jpg",
+  "candidate_source_sha256": "d4e3a7b8bcd787066077376f47e0462597ee57c89b730208041117586d54279c",
+  "status": "reference_identity_pass_Japan_E120_original_Runx_five_door_generic_requirement",
+  "evidence": [
+    {
+      "url": "https://www.toyota.co.jp/jpn/company/history/75years/vehicle_lineage/car/id60004276/index.html",
+      "type": "manufacturer historical model account",
+      "finding": "Japan first-generation Corolla Runx launched 24 January 2001, two-box five-door hatchback; FF or V-flex full-time 4WD for 1.5; NZE121/NZE124/ZZE123 family."
+    },
+    {
+      "url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_RUNX/200101/1009407/",
+      "type": "manufacturer dated historical configuration catalog",
+      "finding": "January 2001 X TA-NZE124; five-door hatchback; full-time 4WD. Text independently confirms a 4WD variant existed at initial launch."
+    },
+    {
+      "url": "https://gazoo.com/catalog/car_img/10101052/10101052_200101.jpg",
+      "type": "manufacturer catalog-linked launch-era front picture",
+      "local_file": "/workspace/ru_picture_producer/pilot20/identity_a/Runx-200101-catalog-front.jpg",
+      "sha256": "4a62ee10a409a4c4b2c821e16210c9483fffbd52897b428df6183886be614fc2",
+      "finding": "Actual downloaded image viewed: five-door short two-box body, rounder initial lamp outline, C-family badge mesh grille, initial bumper front family. Catalog image is a representative/shared trim picture; do not copy its alloy wheels/aero/mirror equipment."
+    }
+  ],
+  "actual_visual_observation": "C-new-2055786 actually viewed: five-door short hatchback, initial rounded two-reflector front lamps, C-family badge black mesh grille, early bumper with narrow lower slots and black side blanks, visible 4WD side decal; body, lamp and grille family agrees with dated manufacturer launch picture.",
+  "frozen_requirement_mapping": "Generic Runx Hatchback requirement has no engine/gearbox/drive sub-constraint; Japan E120 original Runx five-door is within that representative configuration. 4WD being offered at launch supports preserving observed decal without excluding this from generic Runx.",
+  "limits": [
+    "Toyota actual launch 2001-01-24; frozen queue start 2000 is aggregate/source label, not proven Runx production in 2000.",
+    "No blanket all-years exterior equivalence; do not relabel original front as 2002/2004 facelift or Allex, or expand to three-door overseas Corolla.",
+    "Visible 4WD decal is an observed source feature, not chassis/VIN/engine/driveline certification of this individual car. No mechanical specifications or dimensions recertified.",
+    "Keep Japanese-market provenance; do not claim Russian original specification.",
+    "This appendix approves source/requirement identity. Parent coordinator retains generated P1-003 technical/visual acceptance and exact output SHA binding."
+  ]
+}

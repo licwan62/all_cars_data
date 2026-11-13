@@ -1,0 +1,139 @@
+{
+  "schema": "ru-pilot20-camry-round2-identity-review-v1",
+  "reviewed_at_utc": "2026-11-13T16:03:06.762490+00:00",
+  "scope": "reference eligibility only; no image generation, formal ledger change or Git commit",
+  "source_list": "/workspace/ru_picture_producer/pilot20/source_b/round2-fallback-candidates.json",
+  "source_list_sha256": "ff193882203e5e6a8ae2238c868ff5621890168c5d3bce643a39cc03a4eeacaf",
+  "results": [
+    {
+      "candidate_id": "PILOT20-B-R2-01",
+      "task_id": "RU-d65829e19cda8ba3",
+      "dimension_id": "Toyota Camry Sedan 1999-2002 RU",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_camry_xv20_1.jpg",
+      "input_file": "/workspace/ru_picture_producer/pilot20/source_b/round2-01/source-thumbnail.jpg",
+      "input_sha256": "273ec54e23ec0c64feef6803713aee9fdd2f6fb087a71165d1ab7a078f56f12b",
+      "input_type": "same_Commons_file_1920px_derivative_not_full_original",
+      "source_attribution": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:MusicUnity&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:MusicUnity (page does not exist)\">MusicUnity</a>",
+      "license": "CC BY-SA 3.0",
+      "original_full_resolution_status": "not_claimed_downloaded; original failure retained by source_b",
+      "catalog": {
+        "url": "https://www.drom.ru/catalog/toyota/camry/g_1999_8369/",
+        "image_url": "https://s.auto.drom.ru/i24221/c/photos/fullsize/toyota/camry/gen473_toyota_camry_810327.jpg",
+        "catalog_text": "         Россия       08.1999 - 01.2002         MCV20, SXV20  Седан   ",
+        "evidence_file": "/workspace/ru_picture_producer/pilot20/source_b/drom-3.jpg",
+        "sha256": "5bf20f6f5b1bd062a367a74276aec2fdf8e1654ba6613689f50f6a91cd2a2d05",
+        "role": "independent Russian catalog visual audit only; not licensed generation input",
+        "retrieved_at": "2026-11-13T15:53:34.555113+00:00"
+      },
+      "checks": {
+        "source_sha_verified": true,
+        "catalog_photo_sha_verified": true,
+        "actual_source_and_catalog_visually_viewed": true
+      },
+      "status": "reference_identity_pass_ready_for_production_of_exact_generic_Sedan_only",
+      "production_inventory_eligible": true,
+      "observed_correspondence": [
+        "XV20 facelift ordinary four-door Sedan body and independent trunk",
+        "redesigned narrow chrome-edge horizontal grille",
+        "separate high/low lamp elements and clear corner lens",
+        "body-colour rounded front bumper and split wide lower intake",
+        "large clear trapezoidal fog-light apertures",
+        "amber fender repeater, body-colour mirror and handles"
+      ],
+      "market_limit": "Source has Swedish-language description naming year 2000, not a certificate of Swedish original sales specification. Visible European-type front matches the Russia-labelled XV20 facelift catalog. Keep provenance truthful; do not call original Russian-spec vehicle.",
+      "configuration_limit": "Only Toyota Camry Sedan 1999-2002 RU in RU-d65829e19cda8ba3; no Gracia Wagon coverage. Source wheel/washer/accessory details stay unchanged. No engine, gearbox, steering-side, exact manufacturing year, all-year identity or dimensions certification.",
+      "additional_source": "https://media.toyota.co.uk/americas-best-selling-car-gets-better-for-britain/",
+      "reason": "Independent Russian catalog explicitly identifies restyled XV20 08.1999-01.2002 and changed grille/bumper/fogs/two-bulb headlamp units. Source actual front corresponds; Toyota UK 10 Dec 1999 manufacturer release independently describes the same facelift front changes."
+    },
+    {
+      "candidate_id": "PILOT20-B-R2-02",
+      "task_id": "RU-d3b95f46a12333b8",
+      "dimension_id": "Toyota Camry Sedan 2004-2006 RU",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2005_Toyota_Camry_XLE_01.jpg",
+      "input_file": "/workspace/ru_picture_producer/pilot20/source_b/round2-02/source-thumbnail.jpg",
+      "input_sha256": "c9adc212b0c0234fd54989ede4664739bc5da410df7c8be789ad9b3fcc21ccd6",
+      "input_type": "same_Commons_file_1920px_derivative_not_full_original",
+      "source_attribution": "<a href=\"https://en.wikipedia.org/wiki/User:Brad_E._Williams\" class=\"extiw\" title=\"wikipedia:User:Brad E. Williams\">Brad E. Williams</a> at <a href=\"https://en.wikipedia.org/wiki/\" class=\"extiw\" title=\"wikipedia:\">English Wikipedia</a>",
+      "license": "Public domain",
+      "original_full_resolution_status": "not_claimed_downloaded; original failure retained by source_b",
+      "catalog": {
+        "url": "https://www.drom.ru/catalog/toyota/camry/g_2004_7839/",
+        "image_url": "https://s.auto.drom.ru/i24213/c/photos/fullsize/toyota/camry/gen473_toyota_camry_756634.jpg",
+        "catalog_text": "         Россия       07.2004 - 03.2006         ACV30L, MCV30L  Седан   ",
+        "evidence_file": "/workspace/ru_picture_producer/pilot20/source_b/drom-5.jpg",
+        "sha256": "5208c2f769fae01f14a1dc4b8f87d1ef1d6afc17e5edcf6e0a112a20dd13d034",
+        "role": "independent Russian catalog visual audit only; not licensed generation input",
+        "retrieved_at": "2026-11-13T15:53:39.116119+00:00"
+      },
+      "checks": {
+        "source_sha_verified": true,
+        "catalog_photo_sha_verified": true,
+        "actual_source_and_catalog_visually_viewed": true
+      },
+      "status": "hold_market_front_lighting_mismatch",
+      "production_inventory_eligible": false,
+      "observed_correspondence": [
+        "XV30 facelift Sedan basic silhouette and grille family are identifiable"
+      ],
+      "observed_differences": [
+        "Source North-American XLE headlamp outer corner visibly contains amber marker/reflector",
+        "Source visible front fender lacks the amber side repeater shown on Russia-labelled catalog photo",
+        "Source multi-reflector lamp internals do not prove equivalence to catalog-described Russian xenon headlamp equipment"
+      ],
+      "fog_lamp_conclusion": "Fog lamps exist in both. Current Russian catalog photo is only 473x355 and too oblique/dark to establish identical lens/insert internals. A specific fog-shape mismatch is NOT proven; fog equivalence remains unverified.",
+      "reason": "Being a 2005 facelift XLE does not establish Russia 2004-2006 front configuration. Visible market lighting differences and unresolved fog/headlamp equivalence prevent release. Do not delete amber markers/add fender repeater or relabel US image as Russian-spec to force eligibility.",
+      "release_condition": "Use a same-generation, same-facelift Russian/European front reference with correctly evidenced side repeater and lamps, or obtain direct requirement-specific equivalence evidence; production remains hold for this source."
+    },
+    {
+      "candidate_id": "PILOT20-B-R2-03",
+      "task_id": "RU-5097ddee08e7d011",
+      "dimension_id": "Toyota Camry Sedan 1996-2000 RU",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1997_Toyota_Camry_V6_Automatic_3.0.jpg",
+      "input_file": "/workspace/ru_picture_producer/pilot20/source_b/round2-03/source-thumbnail.jpg",
+      "input_sha256": "092f984ad7e9799023758ac2c233f90e03d6759aab29289f8f7d8182f5e0d863",
+      "input_type": "same_Commons_file_1920px_derivative_not_full_original",
+      "source_attribution": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+      "license": "CC BY-SA 4.0",
+      "original_full_resolution_status": "not_claimed_downloaded; original failure retained by source_b",
+      "catalog": {
+        "url": "https://www.drom.ru/catalog/toyota/camry/g_1996_8370/",
+        "image_url": "https://s.auto.drom.ru/i24221/c/photos/fullsize/toyota/camry/gen473_toyota_camry_810336.jpg",
+        "catalog_text": "         Россия       08.1996 - 03.2000         MCV20, SXV20  Седан   ",
+        "evidence_file": "/workspace/ru_picture_producer/pilot20/source_b/drom-2.jpg",
+        "sha256": "1d7819206390216f574e7e5d96fc2da40854ccee0bdba3a95dd3b4690fd7316d",
+        "role": "independent Russian catalog visual audit only; not licensed generation input",
+        "retrieved_at": "2026-11-13T15:53:32.332821+00:00"
+      },
+      "checks": {
+        "source_sha_verified": true,
+        "catalog_photo_sha_verified": true,
+        "actual_source_and_catalog_visually_viewed": true
+      },
+      "status": "reference_identity_pass_ready_for_production_of_exact_generic_Sedan_only",
+      "production_inventory_eligible": true,
+      "observed_correspondence": [
+        "XV20 pre-facelift ordinary four-door Sedan body and independent trunk",
+        "narrow chrome horizontal grille with Toyota badge",
+        "single main reflector lens plus separate clear corner lens",
+        "pre-facelift horizontal front bumper strip and narrow split lower intake",
+        "small rectangular front fog lamps",
+        "amber fender repeater and chrome side protection strip"
+      ],
+      "market_limit": "Source says 1997 Camry V6 photographed in UK. It is not a Russian original specification certificate. Visible European-type front corresponds to Russia-labelled XV20 original catalog; retain source attribution and vehicle details.",
+      "configuration_limit": "Only Toyota Camry Sedan 1996-2000 RU in RU-5097ddee08e7d011; never Gracia Sedan or Gracia Wagon. Preserve source alloys/mirrors/sunroof/accessories; do not infer Russian SX/DX mechanical trim or swap wheel design to catalog photo. Exact steering-side, year, drivetrain and dimensions not certified.",
+      "additional_source": "https://media.toyota.co.uk/americas-best-selling-car-gets-better-for-britain/",
+      "reason": "Russia-labelled catalog 08.1996-03.2000 identifies original XV20 Sedan. Actual source grille, original lamp design, rectangular fogs and bumper match visible catalog. Manufacturer UK facelift release independently separates later larger fogs/four bulbs from earlier front."
+    }
+  ],
+  "counts": {
+    "reviewed": 3,
+    "production_inventory_eligible": 2,
+    "hold": 1
+  },
+  "common_limits": [
+    "Drom Russia-labelled catalog is independent visual/model-range evidence, not a licensed generation input or full homologation certificate.",
+    "Use only listed generic Sedan requirement; no implicit expansion to Gracia, Wagon or all task requirements.",
+    "1920px derivatives are actual viewed inputs; do not count as recovered full-resolution originals.",
+    "A passed reference identity is not final generated-image acceptance."
+  ]
+}
