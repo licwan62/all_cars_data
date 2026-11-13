@@ -1,0 +1,504 @@
+{
+  "published_source_lineage": {
+    "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+    "literal_rows": [
+      [
+        "RU|kia/rio|IV Рестайлинг (Global market)|2020-2023|Hatchback 5-door|-|-",
+        "Kia Rio Hatchback 2020-2023 RU"
+      ],
+      [
+        "RU|kia/rio|IV Рестайлинг (Global market)|2020-2023|Sedan|-|-",
+        "Kia Rio Sedan 2020-2023 RU"
+      ],
+      [
+        "RU|kia/rio|IV|2017-2020|Sedan|-|-",
+        "Kia Rio IV Sedan 2017-2020 RU"
+      ],
+      [
+        "RU|kia/rio|IV|2017-2020|Hatchback 5-door|-|X-Line",
+        "Kia Rio X-Line Hatchback 2017-2020 RU"
+      ],
+      [
+        "RU|kia/rio|III Рестайлинг|2015-2017|Sedan|-|Global",
+        "Kia Rio Global Sedan 2015-2017 RU"
+      ],
+      [
+        "RU|kia/rio|III Рестайлинг|2015-2017|Sedan|-|-",
+        "Kia Rio Sedan 2015-2017 RU"
+      ],
+      [
+        "RU|kia/rio|III Рестайлинг|2015-2017|Hatchback 5-door|-|-",
+        "Kia Rio Hatchback 2015-2017 RU"
+      ],
+      [
+        "RU|kia/rio|III|2011-2015|Sedan|-|-",
+        "Kia Rio Sedan 2011-2015 RU"
+      ],
+      [
+        "RU|kia/rio|III|2011-2015|Hatchback 5-door|-|-",
+        "Kia Rio Hatchback 2011-2015 RU"
+      ]
+    ]
+  },
+  "rio_market_families": {
+    "schema": "ru-rio-applicability-v1",
+    "created_at_unix": 1794566216.9309807,
+    "review_status": "candidate_only",
+    "scope": "representative-family identification, not numeric re-certification or production acceptance",
+    "frozen_tasks_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/frozen-tasks.json",
+    "source_map_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/source-map-extract.json",
+    "actual_source_map_rows": [
+      {
+        "来源ID": "RU|kia/rio|IV Рестайлинг|2020-2022|Sedan|-|-",
+        "DIMENSION-ID": "Kia Rio Sedan 2020-2022 RU"
+      },
+      {
+        "来源ID": "RU|kia/rio|IV Рестайлинг|2020-2022|Hatchback 5-door|-|X",
+        "DIMENSION-ID": "Kia Rio X Hatchback 2020-2022 RU"
+      },
+      {
+        "来源ID": "RU|kia/rio|IV Рестайлинг (Global market)|2020-2023|Hatchback 5-door|-|-",
+        "DIMENSION-ID": "Kia Rio Hatchback 2020-2023 RU"
+      },
+      {
+        "来源ID": "RU|kia/rio|IV Рестайлинг (Global market)|2020-2023|Sedan|-|-",
+        "DIMENSION-ID": "Kia Rio Sedan 2020-2023 RU"
+      },
+      {
+        "来源ID": "RU|kia/rio|III Рестайлинг|2015-2017|Sedan|-|Global",
+        "DIMENSION-ID": "Kia Rio Global Sedan 2015-2017 RU"
+      },
+      {
+        "来源ID": "RU|kia/rio|III Рестайлинг|2015-2017|Sedan|-|-",
+        "DIMENSION-ID": "Kia Rio Sedan 2015-2017 RU"
+      },
+      {
+        "来源ID": "RU|kia/rio|III Рестайлинг|2015-2017|Hatchback 5-door|-|-",
+        "DIMENSION-ID": "Kia Rio Hatchback 2015-2017 RU"
+      }
+    ],
+    "source_files": [
+      {
+        "path": "/workspace/all_cars_data/json/dimension-library/来源映射_RU.json",
+        "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+      },
+      {
+        "path": "/workspace/all_cars_data/json/dimension-crawler/RU/auto_ru_dimensions_with_match_key.json",
+        "sha256": "d90625a55f3d4b35fabc7105df93a78cd2ec4204dfd97a55521f1b65fd0d511f"
+      },
+      {
+        "path": "/workspace/all_cars_data/json/dimension-crawler/RU/auto_ru_model_sales_with_match_key.json",
+        "sha256": "963aa1fc8da02d5d5677e6ebb130eb6a25d70e0bf5717d752b7fc420c8e137eb"
+      }
+    ],
+    "catalog_main_links": [
+      {
+        "text": "",
+        "url": "https://auto.ru/catalog/cars/kia/rio/24037138/24037236/"
+      },
+      {
+        "text": "Седан",
+        "url": "https://auto.ru/catalog/cars/kia/rio/24037138/24037236/"
+      },
+      {
+        "text": "Хэтчбек 5 дв.",
+        "url": "https://auto.ru/catalog/cars/kia/rio/24037138/24037144/"
+      },
+      {
+        "text": "",
+        "url": "https://auto.ru/catalog/cars/kia/rio/22500704/22500752/"
+      },
+      {
+        "text": "Седан",
+        "url": "https://auto.ru/catalog/cars/kia/rio/22500704/22500752/"
+      },
+      {
+        "text": "Хэтчбек 5 дв. X",
+        "url": "https://auto.ru/catalog/cars/kia/rio/22500704/22646504/"
+      },
+      {
+        "text": "",
+        "url": "https://auto.ru/catalog/cars/kia/rio/25133420/25133467/"
+      },
+      {
+        "text": "Хэтчбек 3 дв.",
+        "url": "https://auto.ru/catalog/cars/kia/rio/25133420/25133467/"
+      },
+      {
+        "text": "Хэтчбек 5 дв.",
+        "url": "https://auto.ru/catalog/cars/kia/rio/25133420/25133469/"
+      },
+      {
+        "text": "Седан",
+        "url": "https://auto.ru/catalog/cars/kia/rio/25133420/25133436/"
+      },
+      {
+        "text": "",
+        "url": "https://auto.ru/catalog/cars/kia/rio/20508999/20511785/"
+      },
+      {
+        "text": "Седан",
+        "url": "https://auto.ru/catalog/cars/kia/rio/20508999/20511785/"
+      },
+      {
+        "text": "Хэтчбек 5 дв.",
+        "url": "https://auto.ru/catalog/cars/kia/rio/20508999/20550766/"
+      }
+    ],
+    "actual_visual_configurations": [
+      {
+        "worker": "A",
+        "local_id": "r2-rio-iv-global-sedan",
+        "task_id": "RU-11b8c158cc39c227",
+        "dimension_id": "Kia Rio Sedan 2020-2023 RU",
+        "source_page": "https://auto.ru/catalog/cars/kia/rio/24037138/24037236/",
+        "original_url": "https://avatars.avto.ru/get-verba/937147/2a00000193211fdef0c3a0160eb19cb1daf5/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-global-sedan-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "No open adaptation license established; identity reference only.",
+        "photograph_date": "unknown",
+        "model_year": "2020-2023",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-iv-global-sedan.json",
+          "actual_visual_observation": "Global IV facelift Sedan: actual catalog image has compact upright headlamps, small tiger-nose grille and large lower mesh intake; corner airinlets; distinguish Russian FB facelift."
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-global-sedan-gallery.webp",
+        "sha256": "871f48fc34524293b692e27c01e356f15f503696988a1a6b0dc2efdf2eb1647e",
+        "download_status": "actual_http200_decoded; catalog rendition, not a verified photographic original/master",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r2-rio-iv-global-hatch",
+        "task_id": "RU-11b8c158cc39c227",
+        "dimension_id": "Kia Rio Hatchback 2020-2023 RU",
+        "source_page": "https://auto.ru/catalog/cars/kia/rio/24037138/24037144/",
+        "original_url": "https://avatars.avto.ru/get-verba/1672712/2a00000192f89410e7ba5fc06885e7d84ae2/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-global-hatch-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "No open adaptation license established; identity reference only.",
+        "photograph_date": "unknown",
+        "model_year": "2020-2023",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-iv-global-hatch.json",
+          "actual_visual_observation": "Global YB five-door facelift: actual red catalog car, short hatch rear; small connecting upper grille; large lower intake and round corner lamp; not raised Rio X."
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-global-hatch-gallery.webp",
+        "sha256": "9bb1b0585ca38702aa2d12f9aa7470f1c2345a6b6bb2b977ad2f8fcb1a6ffc8d",
+        "download_status": "actual_http200_decoded; catalog rendition, not a verified photographic original/master",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r2-rio-iv-rus-sedan",
+        "task_id": "RU-6855904aaf90ee9f",
+        "dimension_id": "Kia Rio Sedan 2020-2022 RU",
+        "source_page": "https://auto.ru/catalog/cars/kia/rio/22500704/22500752/",
+        "original_url": "https://avatars.avto.ru/get-verba/997355/2a00000190ba69d57c1df917d0ae6b6478f9/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-rus-sedan-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "No open adaptation license established; identity reference only.",
+        "photograph_date": "unknown",
+        "model_year": "2020-2022",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-iv-rus-sedan.json",
+          "actual_visual_observation": "Russian FB facelift Sedan: actual red catalog and official cars match long grille/headlamp band and hooked downward outer headlamp light signature, vertical dark bumper insert and triangular foglamp pocket."
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-rus-sedan-gallery.webp",
+        "sha256": "0cbbb241ef564ab8590457c85732a687631d4432b026f4315f72aac314117043",
+        "download_status": "actual_http200_decoded; catalog rendition, not a verified photographic original/master",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r2-rio-iv-rus-x",
+        "task_id": "RU-6855904aaf90ee9f",
+        "dimension_id": "Kia Rio X Hatchback 2020-2022 RU",
+        "source_page": "https://auto.ru/catalog/cars/kia/rio/22500704/22646504/",
+        "original_url": "https://avatars.avto.ru/get-verba/787013/2a00000190b677e67c3eb08a4d22996a59aa/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-rus-x-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "No open adaptation license established; identity reference only.",
+        "photograph_date": "unknown",
+        "model_year": "2020-2022",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-iv-rus-x.json",
+          "actual_visual_observation": "Russian Rio X facelift: actual blue catalog car matches official blue X, downward outer headlamp signature, roofrails, raised black wheelarch/body cladding, distinct lower bumper, five-door hatch."
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iv-rus-x-gallery.webp",
+        "sha256": "8bd5e7b3278f8d2c6cd3f1f1fee712e6c6f2e6f1184e141a0d2d0c525732968a",
+        "download_status": "actual_http200_decoded; catalog rendition, not a verified photographic original/master",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r2-rio-iii-global-sedan",
+        "task_id": "RU-8843ed400916ff73",
+        "dimension_id": "Kia Rio Global Sedan 2015-2017 RU",
+        "source_page": "https://auto.ru/catalog/cars/kia/rio/25133420/25133436/",
+        "original_url": "https://avatars.avto.ru/get-verba/17687643/2a000001a1107a8de6f4731fcc5bb85e98ec/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iii-global-sedan-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "No open adaptation license established; identity reference only.",
+        "photograph_date": "unknown",
+        "model_year": "2015-2017",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-iii-global-sedan.json",
+          "actual_visual_observation": "Global UB facelift Sedan: actual red catalog car has different global headlamp/body and narrow upper grille, broad horizontal lower intake and corner round foglamps; not Russian QB facelift."
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iii-global-sedan-gallery.webp",
+        "sha256": "9714c8c831180f708450c9656c1bd50c4e2a3c51a55609eda94f6917a8019f0a",
+        "download_status": "actual_http200_decoded; catalog rendition, not a verified photographic original/master",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r2-rio-iii-rus-sedan",
+        "task_id": "RU-8843ed400916ff73",
+        "dimension_id": "Kia Rio Sedan 2015-2017 RU",
+        "source_page": "https://auto.ru/catalog/cars/kia/rio/20508999/20511785/",
+        "original_url": "https://avatars.avto.ru/get-verba/787013/2a000001609d5479a0967b4477866c44342e/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iii-rus-sedan-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "No open adaptation license established; identity reference only.",
+        "photograph_date": "unknown",
+        "model_year": "2015-2017",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-iii-rus-sedan.json",
+          "actual_visual_observation": "Russian QB facelift Sedan: actual white catalog car has larger black central upper grille with chromed frame, projector-shaped headlights, slim lower bumper and slim horizontal LED strip in foglamp region."
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iii-rus-sedan-gallery.webp",
+        "sha256": "8dc54c54491da5d6c221cb0191ec6fa36481e5ec88efb69ed2c99e40906b03ba",
+        "download_status": "actual_http200_decoded; catalog rendition, not a verified photographic original/master",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      },
+      {
+        "worker": "A",
+        "local_id": "r2-rio-iii-rus-hatch",
+        "task_id": "RU-8843ed400916ff73",
+        "dimension_id": "Kia Rio Hatchback 2015-2017 RU",
+        "source_page": "https://auto.ru/catalog/cars/kia/rio/20508999/20550766/",
+        "original_url": "https://avatars.avto.ru/get-verba/216201/2a000001609cefc50be3f68d11a53e60c5f4/cattouch",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iii-rus-hatch-gallery.webp",
+        "width": 640,
+        "height": 480,
+        "author": "unknown; Auto.ru catalog",
+        "license_name": "unknown",
+        "license_url": null,
+        "license_text": "No open adaptation license established; identity reference only.",
+        "photograph_date": "unknown",
+        "model_year": "2015-2017",
+        "identity_evidence": {
+          "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-iii-rus-hatch.json",
+          "actual_visual_observation": "Russian QB five-door facelift: actual blue catalog car has same Russian facelift frontal family as Sedan plus short hatch rear; global UB five-door must not substitute based on2015–2017 date."
+        },
+        "view": "front three-quarter",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r2-rio-iii-rus-hatch-gallery.webp",
+        "sha256": "514c286ebc7a692c503e00e842e5ebd83f0bfe31cf1fd039dc612ff7fbde541f",
+        "download_status": "actual_http200_decoded; catalog rendition, not a verified photographic original/master",
+        "review_status": "candidate_only",
+        "production_eligible": false
+      }
+    ],
+    "actual_text_evidence": [
+      {
+        "capture_id": "r2-rio-rus-official",
+        "source_page": "https://www.kia.ru/press/news/184/",
+        "http_status": 200,
+        "excerpt": "5\nГлавнаяНовостиKIA представляет обновленный седан Rio\n14 сентября 2020 г.\nKIA представляет обновленный седан Rio\n\nМосква, 14 сентября 2020 г. – KIA Motors Russia & CIS HQ представляет обновленный седан Rio. Эта модель уже 4 года подряд уверенно занимает 1 место по популярности среди всех моделей иностранных марок на российском рынке и является самым узнаваемым автомобилем в своем классе. С момента появления модели Rio российские клиенты приобрели уже около 900 000 этих автомобилей. удерживает звание лидера российского рынка легковых иномарок. Вместе с тем, лидерство требует постоянного развития.\n\nОбновленный Rio разрабатывался в тесном сотрудничестве с российской штаб-квартирой бренда, на основе изучения обратной связи с потребителями. Все основные качества модели, которые так полюбились сотням тысяч клиентов, были сохранены. KIA Rio сохраняет великолепное соотношение цены и качества, он привлекает доступностью содержания и обслуживания, надежностью. При этом автомобиль предлагает один из наиболее высоких в сегменте уровней оснащения, хорошие динамические и ходовые характеристики, высокую степень комфорта. Теперь Rio ориентирован на еще более широкую аудиторию – он адресован и молодежи, выбирающих себе первый автомобиль, и опытным автолюбителям, ценящим надежность и комфорт и уже хорошо знакомым с брендом KIA и высоким качеством его продукции.\n\nРазработкой облика обновленного Rio занимался дизайнер Олег Сон, известный своими прогрессивными проектами для европейских автомобильных брендов. Rio сохранил свои основные и безошибочно узнаваемые черты классического седана, но его дизайн стал динамичнее и четче. При этом каждый элемент в облике автомобиля имеет максимальную функциональность. За счет новой формы бамперов Rio стал на 20 мм длиннее, остальные габаритные размеры не изменились, как и дорожный просвет в 160 мм – также учитывающий специфику российской эксплуатации.\n\nПроверенные технические решения и интенсивные испытания\n\nМоторная гамма включает проверенные временем и великолепно зарекомендовавшие себя двигатели – 1,4-литровый семейства Kappa (100 л.с., 132 Н*м) и 1,6-литровый семейства Gamma (123 л.с., 156 Н*м). Оба двигателя имеют систему распределенного впрыска топлива, оснащены системой изменения фаз газораспределения, адаптированы к работе на бензине А92. Оба двигателя могут агрегатироваться как с 6-ступенчатой механической трансмиссией, так и с 6-ступенчатой автоматической (гидромеханической).\n\nНесколько предсерийных экземпляров обновленного Rio за время испытательного пробега суммарно преодолели без малого 350 000 км, в том числе по сложным покрытиям: разбитом асфальте, ухабистых, гравийных и булыжных дорогах. Были проверены все основные системы, отдельную часть программы посвятили проверке эксплуатации в непростых российских условиях. Особое внимание было уделено холодному пуску (при температурах до -35оС), приспособленности противоугонных устройств, коррозионной устойчивости кузова.\n\nKIA Rio великолепно подготовлен для эксплуатации в российских условиях, учтена специфика возможной работы автомобиля в самых разных регионах – от жарких южных до северных, с суровым климатом. В сотрудничестве с российской штаб-квартирой в конструкции седана предусмотрен ряд решений, направленных именно на адаптацию к российским условиям.\n\nОбновленный Rio будет по-прежнему иметь дорожный просвет 160 мм, при этом вне зависимости от комплектации устанавливаются передние брызговики, а кузов и днище обрабатываются специальным антикоррозионным покрытием. Автомобиль оснащается аккумулятором увеличенной до 60 А*ч емкости, увеличенный срок службы предусмотрен для ламп основных фар. Для пассажиров второго ряда предусмотрены дополнительные воздуховоды системы отопления и вентиляции.\n\nНезаметная, но важная модернизация была проведена с системой стеклоомывания. Емкость бачка для омывающей жидкости стала еще больше (5,3 л вместо 4,6 л), он легко вмещает стандартную канистру. При этом на время распыления омывающей жидкости система вентиляции автоматически переключается в режим рециркуляции воздуха, что защищает от попадания постороннего запаха в салон.\n\nПо сравнению с предшественником, стала лучше и шумоизоляция. Немного изменена конструкция сайлент-блоков подвески, добавлены текстильные подкрылки в арках задних колес, увеличена площадь звукопоглощающего покрытия багажника. В результате удалось снизить уровень ударных шумов на 1 дБ, а высокочастотных дорожных – на 0,7 дБ.\n\nЕще современнее и совершеннее\n\nОбновленный Rio стал современнее в пл",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-rus-official.json",
+        "capture_sha256": "063258bdcf95fcb37a2bdaf8815900e241969b0867716cb7384cc4f05bae94a1"
+      },
+      {
+        "capture_id": "r2-rio-x-official",
+        "source_page": "https://www.kia.ru/press/news/199/",
+        "http_status": 200,
+        "excerpt": "5\nГлавнаяНовостиKIA раскрывает облик обновленного Rio X\n26 октября 2020 г.\nKIA раскрывает облик обновленного Rio X\n\nKIA Motors Russia & CIS HQ раскрывает внешний вид обновленного Rio X. Вслед за седаном Rio он получил яркий экстерьер и расширенное оснащение. Новое имя – Rio X указывает на особую роль кросс-хэтчбека в линейке бренда и призвано сделать акцент на качествах, присущих кроссоверам.\n\nRio X был разработан специально для России с учетом обратной связи от экспертов и российских автовладельцев. Если на стадии запуска модели в конце 2017 года, доля версии X‑line в структуре продаж Rio ожидалась на уровне 30%, то в 2020 году на кросс-хэтчбек приходится уже 50% от всех проданных Rio.\n\nК такому высокому результату модель привел ее уникальный характер, в котором сочетаются качества компактного автомобиля и кроссовера. При небольших габаритах дорожный просвет у Rio X достигает 195 мм и дает автомобилю преимущества при езде как в городе, так и на природе.\n\nУникальное сочетание характеристик и большой успех модели на рынке позволяют занять особое место среди автомобилей KIA и благодаря этому выйти за пределы стайлинг-пакета или особой модификации, превратившись в самостоятельную модель с собственным именем.\n\nКак и седан Rio, Rio X получил ряд обновлений дизайна. Хэтчбек стал выглядеть более уверенным и агрессивным. В передней части автомобиля изменения коснулись бампера, решетки радиатора и световых приборов. Более острые преломления линий, более объемный бампер и новые штрихи в дизайне фар подчеркивают фирменный тигриный облик. Экспрессивный вид создается также за счет увеличенного воздухозаборника и более геометрически четкого оформления противотуманных огней. \n\nДоработаны элементы и в задней части: бампер дополнен выразительными гранями, а дизайн противотуманных фар повторяет оформление спереди. В задних фонарях\nRio X отчетливо заметен новый дизайн световой подписи.\n\nБолее подробная информация о Rio X будет предоставлена ближе к дате официальной премьеры модели.\n\n \n\nБудьте в курсе\nЖурнал\nВсе статьи\nИнтеллектуальный круиз-контроль (SCC): что это такое и как р...\nУзнайте, как устроена система и какие задачи водителя она берёт на себя\nТехнологии\nчитать 6 минут\nЗа рулём по стране огней: автопутешествие по ...\nПроложили самый живописный маршрут по Азербайджану с Kia K5. П...\nВдохновение\nчитать 6 минут\nПо дорогам Кыргызстана: путешествие на Kia ...\nОт Бишкека до Каракола: большой маршрут по Кыргызстану на Kia Sport...\nВдохновение\nчитать 6 минут\nПутешествуем на Kia Sportage по Узбекистану: маршр...\nKia Sportage снова в деле. В статье рассказываем как прошло путешествие по У...\nВдохновение\nчитать 7 минут\nПора ехать в Казахстан: путешествие на Kia ...\nКак прошло путешествие по Казахстану на Kia Sportage? Рассказываем в...\nВдохновение\nчитать 7 минут\nОбновленный утильсбор с 1 января 2026 года в России\nИндексация утильсбора в 2026 году. Узнайте о новой индексации и нюансах пе...\nАвто тренды\nчитать 6 минут\nГлавные изменения для водителей с 1 сентября 2025 года\nНовые штрафы и госпошлины: рассказываем про все важные нововвед...\nАвто тренды\nчитать 8 минут\nТормозные колодки: стоит ли экономить?\nБережём тормозные колодки: 3 способа продлить их эксплуатацию\nДело в деталях\nчитать 6 минут\nИзменения штрафов с 1 января 2025 года для автомобилистов\nКакие изменения в системе штрафов вступили в силу с 1 января 2025 года и к че...\nАвто тренды\nчитать 7 минут\nХолодный приём: запускаем двигатель в мороз\nЧто делать, если автомобиль не заводится, а до ближайшего сервиса д...\nДело в деталях\nчитать 6 минут\nМодели\nМаркетплейс\nAвто в наличии\nДилеры\nВыбор и покупка\nЗапись на тест-драйв\nТрейд-ин\nВыбрать конфигурацию\nАвтомобили по подписке\nОтчет по VIN\nВладельцам\nОнлайн-запись на сервис\nЗапчасти и аксессуары\nМоторное масло\nKia Гарантия +\nПриложение Kia\nБренд Kia\nНовый бренд Kia\nДизайн\nИстория Киа\nТехнологии\nЖурнал\nСкачать приложение Kia\nИнформационная линия Kia\n8 800 301 08 80\nЧат с Kia\nООО «Киа Россия и СНГ» (115054, г. Москва, Валовая ул., д. 26) ведет деятельность на территории РФ в соответствии с законодательством РФ. Реализуемые товары доступны к получению на территории РФ. Мониторинг потребительского поведения субъектов, находящихся за пределами РФ, не ведется. Информация о соответствующих моделях и комплектациях и их наличии, ценах, возможных выгодах и условиях приобретения доступна у дилеров Kia. Товар сертифицирован. Не является публичной офертой.\nОбратная связь\nПравовая информация\nОбработка персональных данных\nСообщить об ошибке на сайте\n© 2026",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-x-official.json",
+        "capture_sha256": "c076412185589857510905d733dfc314d92d79b5b7d60ffec87e6bfc2fbd2806"
+      },
+      {
+        "capture_id": "r2-rio-qb-2015-drom",
+        "source_page": "https://www.drom.ru/catalog/kia/rio/g_2015_1627/",
+        "http_status": 200,
+        "excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиKiaRioХарактеристики Kia Rio рестайлинг 2015, хэтчбек 5 дв., 3 поколение, QB июнь 2015 - сентябрь 2017\nKia Rio рестайлинг 2015, хэтчбек 5 дв., 3 поколение, QB (06.2015 - 09.2017) - технические характеристики и комплектации\nРынок сбыта: Россия.\nРазвернуть фотографии \nПродажи обновленной версии хэтчбека Kia Rio третьего поколения (QB) начались в апреле 2015 года. Rio получил измененную внешность с новой оптикой, бамперами и дизайном колесных дисков. Задние фонари можно заказать в светодиодном варианте. В интерьере хэтчбека появились качественные материалы, как отметили в Kia, «более привлекательные внешне и тактильно». В салоне также поменялись приборная панель, оформление дисплея мультимедийной системы, органы управления климатом и дизайн рулевого колеса. В дорогих комплектациях колонку теперь можно регулировать не только по углу наклона, но и по вылету, что позволяет добиться более комфортного положения за рулем. Обновленный список комплектаций и опций для обновленного хэтчбека был составлен с учетом потребительского спроса — теперь Kia предлагает самые популярные среди российских покупателей решения и максимально продуманные варианты оснащения. Нововведениями в списке дополнительного оборудования Рио стали подогрев форсунок стеклоомывателя, датчик света и электрообогрев лобового стекла. Силовые установки машины остались прежними — выбрать можно из бензиновых моторов объемом 1,4 или 1,6 литра (107 или 123 л.с.).\n\nСтандартом для всех версий хэтчбека Kia Rio с 2015 года является следующее оснащение: окрашенные в цвет кузова детали экстерьера (зеркала, бамперы, ручки дверей), водительское кресло с регулировкой по высоте, передние стеклоподъемники с электроприводом, функция тройного срабатывания указателей поворота при однократном нажатии. Стартовой для хэтчбека является комплектация «Comfort Кондиционер», включающая стальные диски 15\" с колпаками, ДХО, руль с регулировкой по высоте, трехструйные форсунки стеклоомывателя, боковые электрозеркала с подогревом. Комплектация «Comfort Аудио» помимо радио/CD/MP3 и USB добавляет мультифункциональный руль, отделку кожей рулевого колеса и ручки КПП, подогрев руля, передних сидений и лобового стекла в зоне стоянки стеклоочистителей. Эта же комплектация («Comfort Аудио») — базовая при оснащении 1,6-литровым мотором. С повышением оснащения до уровня Luxe покупатель получает легкосплавные диски 15'', светодиодные ДХО, линзованные фары, противотуманки, приборную панель Supervision, климат-контроль, задние стеклоподъемники, ключ ДУ, а до уровня Prestige — подогрев лобового стекла и форсунок стеклоомывателя, передний подлокотник, органайзер в багажнике. Комплектация Premium (с АКПП) добавляет задние LED-фонари, интерфейс Bluetooth, бесключевой доступ и запуск двигателя кнопкой. А Premium Navi — навигационную систему с 7'' дисплеем.\n\nВ третьем поколении Rio получил двигатели объемом 1,4 и 1,6 литра. Базовый мотор рестайлинговой версии хэтчбека мощностью 107 л.с. в комплектации «Comfort Кондиционер» оснащается пятиступенчатой «механикой», а в комплектации «Comfort Аудио» возможен выбор «механики» или четырехступенчатого «автомата». Характеристики данного мотора обеспечивают хэтчбеку ускорение 0-100 км/ч за 11,6 секунды с МКПП и за 13.6 секунды с АКПП. Комбинированный расход бензина: 6,0 и 6,4 л/100 км. Двигатель 1.6 имеет существенно большую мощность — 123 л.с. — и предлагается для обновленного хэтчбека Rio (QB), начиная с версии «Comfort Аудио», давая возможность выбора шестиступенчатой «механики» (не выше версии «Prestige») или шестиступенчатого «автомата». В зависимости от трансмиссии, спринт с места до 100 км/ч за 10,3 и 11,2 секунды, средний расход 5,9 и 6,4 л/100 км.\n\nRio третьего поколения основан на платформе Hyundai Accent, с колесной базой 2570 мм. Передняя подвеска независимая, Макферсон, задняя — полузависимая. Длина кузова хэтчбека — 4125 мм, ширина — 1700 мм, высота — 1470 мм. Минимальный радиус разворота — 5,2 метра. Дорожный просвет в 160 мм все еще остается отличным показателем для наших дорог. Есть и другие несомненные плюсы российской «оптимизации» — увеличенный до 4 литров бачок омывателя, аккумулятор большой мощности и адаптированная система холодного пуска, более эффективный отопитель, передние и задние брызговики, обработка кузова и днища автомобиля антикоррозионным покрытием, пластиковая защита картера и защитная обработка радиатора от агресси",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-qb-2015-drom.json",
+        "capture_sha256": "ec319f9300e5450119ddd7a5939a41e5ca4afa255ca20548d8b7090a6dc7388a"
+      },
+      {
+        "capture_id": "r2-k2-2015-drom",
+        "source_page": "https://www.drom.ru/catalog/kia/k2/g_2015_19112/",
+        "http_status": 200,
+        "excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиKiaK2Характеристики Kia K2 рестайлинг 2015, хэтчбек 5 дв., 1 поколение, QB апрель 2015 - ноябрь 2017\nKia K2 рестайлинг 2015, хэтчбек 5 дв., 1 поколение, QB (04.2015 - 11.2017) - технические характеристики и комплектации\nРынок сбыта: Китай.\nKia K2 первого поколения велся в Китае с 2011 года совместным предприятием с Dongfeng. Модель 2015 года предлагает немного обновленную внешность. Ее освежили прежде всего за счет переработанной передней части: новая решетка радиатора стала визуально выше и теперь с другим рисунком, фары получили линзовые модули, по-другому оформлены противотуманки в бампере, рядом с которыми добавлены ходовые огни. Изменен также нижний воздухозаборник — с тонкой хромированной декоративной полосой. Подверглись доработке задние фонари и бампер. Большинство версий оснащены 1,4-литровым мотором, для «премиум»-вариантов седана и хэтчбека предложен 1,6-литровый мотор.\n\nВ салоне Kia K2 изменений немного. Дизайн передней панели остался практически прежним, но модифицировано управление кондиционером на центральной консоли, появилось новое рулевое колесо. В базовой комплектации, как обычно, предлагался стандартный тканевый салон и простая аудиосистема с четырьмя динамиками, электрические стеклоподъемники, кондиционер. В более дорогих версиях можно было получить обивку сидений из искусственной кожи, мультимедиа с сенсорным экраном и разъемами USB и AUX, электрический люк на крыше. В топовой комплектации седан предлагал доступ в салон без ключа, запуск двигателя кнопкой, задний подлокотник, кожаную оплетку руля.\n\nПредложение по двигателям осталось прежним. В Kia K2 устанавливались два бензиновых мотора: 1,4-литровый мощностью 107 л.с. и 1,6-литровый мощностью 123 л.с. Их крутящий момент — 135 и 155 Нм соответственно. Младший двигатель работает в паре с 5-ступенчатой механической коробкой передач или 4-ступенчатым «автоматом». Более мощные 1,6-литровые версии поставлялись с автоматической КПП. Для Kia K2 заявлена максимальная скорость 170-175 км/ч. Средний расход топлива у 1,4-литровой версии составляет около 5,9–6,5 литров на 100 км. \n\nГабариты K2 после рестайлинга изменились незначительно. У седана длина кузова — 4378 мм, а у хэтчбека — 4128 мм. Ширина и высота — те же 1700 мм и 1460 мм, что и до рестайлинга. Колесная база — 2570 мм. \n\nАвтомобиль базируется на платформе Hyundai-Kia PB, на которой построены и другие субкомпактные модели альянса. Напомним, что, по сути, K2 является адаптированным для китайского рынка вариантом Kia Rio того же поколения, лишь с некоторыми отличиями в оснащении. Подвеска простая: спереди стойки МакФерсон, сзади полузависимая балка. Настройки ходовой обеспечивают баланс между управляемостью и комфортом. Объем багажника — 500 литров у четырехдверного седана и 389 литров у хэтчбека.\n\nСистемы безопасности китайских Kia K2 после рестайлинга получили небольшие корректировки. В стандартное оснащение по-прежнему входят две фронтальные подушки безопасности, антиблокировочная система тормозов ABS с системой распределения тормозных усилий EBD. В более дорогих версиях теперь доступны в качестве опции боковые подушки безопасности и шторки для защиты головы (на оба ряда). Но системы стабилизации по-прежнему нет. В зависимости от комплектации в K2 могут быть установлены крепления детских кресел, дневные ходовые огни. Задний парковочный радар — стандарт у большинства моделей.\n\nОбновленный Kia K2 считается успешным и в 2015-2016 годах оставался в Китае одной из самых популярных моделей в своем классе. Пользователи отмечают умеренную цену, неплохое оснащение и экономичные, надежные моторы. Тем не менее K2 не выделялся какими-то особыми характеристиками. В числе его минусов называют жестковатую подвеску, плохую шумоизоляцию, устаревший «автомат». В 2017 году в Китае выходит второе поколение Kia K2.\nЧитать полностью \nКомплектации и цены Kia K2 (QB) хэтчбек 5 дв.\n\nСкоро тут появятся комплектации\n\nОставить комментарий\nДля того, чтобы добавить комментарий, пожалуйста, авторизуйтесь:\nТекст комментария: (Внимание! Грубые и нецензурные комментарии будут удалены)\nДобавить фотографии\n\nДобавить фото\nДобавить комментарий\nЗапчасти на Kia K2, 1 поколение\nKia K2\nПродажа Kia K2\nОтзывы Kia K2\nЗапчасти на Kia K2\nВы смотрите раздел: Каталог Киа К2 рестайлинг 2015, хэтчбек 5 дв., 1 поколение, QB (04.2015 - 11.2017) – Комплектации и технические характеристики.\nБольше информации о Киа К2 в раздела",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-k2-2015-drom.json",
+        "capture_sha256": "aeb02d649ab4f46656c649c0011c475f3eeb1b7a1f3960ec05c4d2090274a739"
+      },
+      {
+        "capture_id": "r2-rio-china2017-difference",
+        "source_page": "https://www.drom.ru/catalog/kia/rio/g_2016_7311/",
+        "http_status": 200,
+        "excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиKiaRioХарактеристики Kia Rio 2016, седан, 4 поколение, FB ноябрь 2016 - декабрь 2020\nKia Rio 2016, седан, 4 поколение, FB (11.2016 - 12.2020) - технические характеристики и комплектации\nРынок сбыта: Россия.\nРазвернуть фотографии \nKia Rio четвертого поколения для российского рынка практически воспроизводит модель K2 для Китая, которая выпускается с осени 2016 года. Правда, у «россиянина» есть небольшие стилистические отличия от «китайца». В частности, задняя площадка под номер перенесена с крышки багажника на бампер, а спереди появились бампер и решетка радиатора другой формы. В салоне единственное отличие заключается в другой аудиосистеме. С «европейским» Rio авто не имеет ничего общего. По ходовой части и силовой структуре кузова Kia Rio / K2 унифицирован с новым Hyundai Solaris / Verna. Пропорции кузова остались как у предшествующей модели, но формы стали менее напряженными и более плавными. Среди особенностей внешнего вида — фары в стиле «старшего» Kia Cee’d и объединенные катафотом задние фонари. Новая модель, как и Rio предыдущего образца, выпускается в РФ по технологии полного цикла, включающей сварку и окраску кузовов, с уровнем локализации 47%. Оснащается новый Rio бензиновыми двигателями объемом 1,4 (100 л.с.) и 1,6 л (123 л.с.), оба двигателя комплектуют только 6-ступенчатыми коробками передач — механической или автоматической.\n\nСтандартом для всех версий седана являются окрашенные в цвет кузова корпуса зеркал и ручки дверей, электропривод и подогрев зеркал, запасное колесо на стальном диске 15\", регулировка руля по высоте, регулировка высоты водительского сиденья, передние электростеклоподъемники, кондиционер, электроусилитель руля. Самая простая комплектация Classic предложит стальные диски 15\" с декоративными колпаками, дневные ходовые огни (DRL), тканевую обивку сидений, 4 динамика. В версии Classic Audio устанавливается аудиосистема (радио, USB и AUX) и подогрев передних сидений. В комплектации Comfort автомобиль дооснащен подогревом руля, отделкой кожей рулевого колеса и ручки КПП, регулировкой рулевой колонки по вылету, ключом ДУ, а также задними электростеклоподъемниками. За 6-ступенчатый «автомат» придется доплатить. Для машин с мотором 1.6 доступны комплектации Comfort, Luxe, Prestige и Premium. Luxe отличается от Comfort наличием климат-контроля. Комплектация Prestige доступна только для машин с «автоматом». Относительно Luxe она доукомплектована подогревом лобового стекла и форсунок стеклоомывателя, подогревом задних сидений, легкосплавными дисками, передними фарами с линзами. Максимальное оснащение седана Premium предлагается с отделкой кресел искусственной кожей, системой бесключевого доступа, навигацией и другим оборудованием.\n\nКак и прежде, модель выпускается с бензиновыми двигателями объемом 1,4 и 1,6 л., но с корректировками по мощности. Так, например, по сравнению с уходящей моделью 1,4-литровый мотор «потерял» 7 л.с., и теперь выдает ровно 100 л.с. мощности (и 132 Нм крутящего момента). Это сделали ради снижения налогового бремени на будущих владельцев. Оборудованный механикой данный мотор обеспечивает ускорение с места до 100 км/ч за 12,2 секунды и комбинированный расход — 5,7 л/100 км. С «автоматом» этот же двигатель разгоняет Kia Rio до 100 км/ч за 12,9 секунды, комбинированный расход бензина составляет 6,4 л/100 км. Более мощный мотор развивает 123 л.с. (151 Нм). С механической коробкой передач спринт с места до 100 км/ч займет 10,3 секунды, комбинированный расход составит 6 л/100км. Для версии с автоматической коробкой передач эти же показатели — 11,2 секунды и 6,6 л/100 км.\n\nПлатформа, силовая структура кузова и двигатели нового Rio унифицированы с Hyundai Solaris второго поколения. Передняя подвеска независимая, Макферсон, задняя — полузависимая. Длина, ширина, высота Rio составляют 4400, 1740 и 1470 мм соответственно. Колесная база измеряется 2600 мм. То есть новинка на 23 мм длиннее и на 40 мм шире уходящей модели, а колесная база у нее длиннее на 30 мм. Ширина в салоне выросла на 18 мм, а расстояние между рядами сидений — на 24 мм. На дороге поведение нового Kia Rio должно быть более «драйверским», чем у предыдущей модели. Ради этой цели конструкторы сделали более широкой переднюю и заднюю колею и увеличили кастор, то есть продольный угол наклона оси поворота передних колес (с 4,1 до 4,6 градуса). Вместо гидроусилителя руля теперь устанавливается электриче",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-china2017-difference.json",
+        "capture_sha256": "5ce1506fa7674689765898d93e0c526552b4a2b4c358c303b52f5ebf3f48350d"
+      }
+    ],
+    "china_cautions": [
+      "III2015: ChinaK2 and RussianRio share QB model family; actualDromK2text describes updated grille/projectorlights/DRLs. Sharedfamily alone is not proof any K2 photograph matches Russian target: compare actual fascia, body, lamps and branding per original.",
+      "IV2017 lineage: Drom actualbodytext says RussianRioFB based on ChineseK2 but grille/frontbumper differ and rearlicenseplateposition differs. Therefore ChineseK2 cannot be automatically used for Russian2020facelift nor globalYB; need exact visual applicability evidence.",
+      "The2015 Global label is an explicit source body_version onSedan, while ordinarySedan/Hatch remain RussianQB taskfamily. Entiretask is not a single globalmodel."
+    ],
+    "failures": [
+      "EU Kia press host tunnel failure; US Kia page and initial Auto.ru specification requests were interrupted by page navigation after error. Retained failed records, then actualbody-specific Auto.ru pages succeededHTTP200."
+    ],
+    "license_note": "All new official/catalog images unknown adaptation rights. No production or OSS/Git/index writes."
+  },
+  "excluded_misbound_early_hatch": {
+    "schema": "ru-qb-hatch-rear-applicability-v1",
+    "created_at_unix": 1794566874.4537072,
+    "review_status": "candidate_only",
+    "candidate": "C2C-010",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Moscow,_Khoroshovskoe_32k1_Aug_2024_07.jpg",
+    "existing_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C2C-010-Moscow,_Khoroshovskoe_32k1_Aug_2024_07.jpg",
+    "original_sha256_readonly": "8f58620d220c24f078c0e86eccfd1182f5ec67f0599d3ec2ccb062a9e44c5979",
+    "manifest_sha256": "8f58620d220c24f078c0e86eccfd1182f5ec67f0599d3ec2ccb062a9e44c5979",
+    "photograph_date": "2024-08-09 15:29:36",
+    "photograph_date_not_used_as_model_year": true,
+    "target_proposed": "Kia Rio Hatchback 2011-2015 RU",
+    "decision_for_proposed_target": "exclude_pre_facelift_representative",
+    "supported_alternative_family": "Kia Rio Hatchback 2015-2017 RU / RU-8843ed400916ff73",
+    "decision_scope": "可见外观代表族判断，不是出厂年份/VIN认证，也不是生产验收通过。原车是否后期换杠无法由照片证明。",
+    "independently_viewed_original": true,
+    "actual_visual_observations": [
+      "C2C-010后杠下部有覆盖整个中央牌照区下缘的大面积黑色饰板，底部多个竖向扩散器筋；两侧反光片细长红色，靠下有银色边条。",
+      "2015改款俄QB Hatch目录后视图（r4-fl-gallery-2）具有同构黑色大下饰板、竖筋和两侧银边反光片。",
+      "改款前俄QB Hatch目录后侧图（r4-pre-gallery-3）后杠下部较简洁，车身色后杠下部和小中央黑区，无2015同组大黑饰板、竖筋、反光片银边结构。",
+      "C2C-010尾灯保留大白色下条；2015目录图是可选LED尾灯红色结构。灯泡/LED配置差异不能单独作为前后改款断言；结论主要依赖后杠可见结构。",
+      "原件前翼子板有银色装饰、轮圈也可能因配置/改装而变化；本次不把它们当决定性依据。"
+    ],
+    "limitations": [
+      "尾灯配置差异、车辆更换车身部件的可能性意味着不能声称已证明其生产日期。",
+      "候选车体为俄QB五门Hatch可见明确；改款前任务不宜采用该原件当前可见后杠作为标准外观。",
+      "试驾/经销商广告清除规则不影响车身代际判断；本候选亦有经销商牌框，未因此否定身份。"
+    ],
+    "references": [
+      {
+        "label": "Auto.ru俄QB Hatch2011–2015改款前",
+        "actual_page_url": "https://auto.ru/catalog/cars/kia/rio/7694524/7887992/",
+        "http_status": 200,
+        "visited_at_unix": 1794566814.6517522,
+        "title": "Kia Rio 3 поколение, Хэтчбек 5 дв. - технические характеристики, модельный ряд, комплектации, модификации, полный список моделей, кузова Киа Рио",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/r4-rio-qb-pre-hatch.json",
+        "capture_sha256": "bb3c0767e7945be62b03075fe5da0adb845a47d58a5474f8b704ef2cfca0df47",
+        "html_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/r4-rio-qb-pre-hatch.html",
+        "html_sha256": "bad79891bde2f27b78aab8c53b1b32978c875881176ad074efd5546ee4219c3b",
+        "screenshot_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/r4-rio-qb-pre-hatch.png",
+        "screenshot_sha256": "cec24a245b94258af5e71e12c5ca38f4e8135b2d32bb2ab110faea858bab1e18",
+        "actual_image_download_record": {
+          "id": "r4-pre-gallery-3",
+          "action": "download",
+          "at": 1794566828.223663,
+          "http_status": 200,
+          "url": "https://avatars.avto.ru/get-verba/787013/2a000001609d014446fdb556ba3f2f8821bf/cattouch",
+          "content_type": "image/jpeg",
+          "file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r4-pre-gallery-3.webp",
+          "bytes": 60324,
+          "sha256": "8efda57744cf583cc15fcba0c9ebe9c44605053fbd4c5d558fd41cf27b754aac"
+        },
+        "actual_reference_image_sha256": "8efda57744cf583cc15fcba0c9ebe9c44605053fbd4c5d558fd41cf27b754aac",
+        "image_use": "仅身份对照，目录图片改编授权未知。"
+      },
+      {
+        "label": "Auto.ru俄QB Hatch2015–2017改款",
+        "actual_page_url": "https://auto.ru/catalog/cars/kia/rio/20508999/20550766/",
+        "http_status": 200,
+        "visited_at_unix": 1794566144.373672,
+        "title": "Kia Rio 3 поколение рестайлинг, Хэтчбек 5 дв. - технические характеристики, модельный ряд, комплектации, модификации, полный список моделей, кузова Киа Рио",
+        "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/r2-rio-iii-rus-hatch.json",
+        "capture_sha256": "f9e64bd100eb24f0b7dbe20f5ca573a9f6ef41a7a51de7ca89a1babee44ab960",
+        "html_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/r2-rio-iii-rus-hatch.html",
+        "html_sha256": "35ffbb117b68041ebcc736984193daa9f767b1becdad1e4b6b40a7840c18c849",
+        "screenshot_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/r2-rio-iii-rus-hatch.png",
+        "screenshot_sha256": "a1b33b09b3c9c212dceb3dd3fdf1a640f73980ad3bd84653ce2c419ef5f814b6",
+        "actual_image_download_record": {
+          "id": "r4-fl-gallery-2",
+          "action": "download",
+          "at": 1794566819.2526622,
+          "http_status": 200,
+          "url": "https://avatars.avto.ru/get-verba/787013/2a000001609d4caa3718ed3bafc6ac6a4262/cattouch",
+          "content_type": "image/jpeg",
+          "file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/downloads/r4-fl-gallery-2.webp",
+          "bytes": 25794,
+          "sha256": "53628da9e91e6943e9c3cf6bfc1ec0ed7639b73018e3e80008802ef6314dae22"
+        },
+        "actual_reference_image_sha256": "53628da9e91e6943e9c3cf6bfc1ec0ed7639b73018e3e80008802ef6314dae22",
+        "image_use": "仅身份对照，目录图片改编授权未知。"
+      }
+    ],
+    "files": [
+      {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/C2C-010-independent-preview.jpg",
+        "sha256": "5e3168607e529bbf61c82de3af05c6abcb27adf3b87298ad9c39ac9fd72d0dfc"
+      },
+      {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/candidate-rear-detail.jpg",
+        "sha256": "05728a8ea18aced2d02ac0353e10ed522691a1c0bc47f86a9e82c800be675c1b"
+      },
+      {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/pre-contact.jpg",
+        "sha256": "9d6dab5747d3710b9fc1abc359fcbb470adf1499a9091fde0ee29601c737cc11"
+      },
+      {
+        "path": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round4/fl-contact.jpg",
+        "sha256": "0c6e262069a7c7442a04d3eca9a5cef06ada05fad946a519d309e5cd250fb780"
+      }
+    ],
+    "optional_LED_corroboration": {
+      "source_page": "https://www.drom.ru/catalog/kia/rio/g_2015_1627/",
+      "http_status": 200,
+      "capture_file": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round2/r2-rio-qb-2015-drom.json",
+      "capture_sha256": "ec319f9300e5450119ddd7a5939a41e5ca4afa255ca20548d8b7090a6dc7388a",
+      "actual_excerpt": "Продажи обновленной версии хэтчбека Kia Rio третьего поколения (QB) начались в апреле 2015 года. Rio получил измененную внешность с новой оптикой, бамперами и дизайном колесных дисков. Задние фонари можно заказать в светодиодном варианте. В интерьере хэтчбека появились качественные материалы, как отметили в Kia, «более привлекательные внешне и тактильно». В салоне также поменялись приборная панель, оформление дисплея мультимедийной системы, органы управления климатом и дизайн рулевого колеса. В "
+    }
+  },
+  "root_review": "Root actually viewed all9 originals, A actual seven-catalog visual contact, and all9 source/gray+dark composites. QB rear candidate C2C010 is FL not preFL; not imported as early requirement. Source metadata/author grants retained. GlobalYB AmericanSedan and BritishHatch regional/trim differences preserved, not merged into RussianFB.",
+  "source_license_verification": "C5 Commons API metadata plus actual source file pages; B3 gleb primary photo/user555 chain with previously independently recovered historical CC BY4 grant, no third-party author/individual exception observed; B1 Flickr photo-specific rel=license CC BY-SA2 anchors and actual original-size model. Normalized B license label CC BY4.0→CC BY 4.0 only, raw frozen manifest unchanged.",
+  "download_limit": "Shared upload.wikimedia.org429 observed in parallel workers; stopped original endpoint, used already downloaded originals or original photography sites. Failed responses never decoded/adopted, no guessed Retry-After.",
+  "limitations": "Frozen representative body/generation/version exterior only, not scalar dimension or precise engine/photo-country certification."
+}

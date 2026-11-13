@@ -1,0 +1,649 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures",
+  "version": "20261113_26",
+  "description": "rio-nine-configurations-four-task-closures",
+  "created_at": "2026-11-13T11:06:10+00:00",
+  "finished_at": "2026-11-13T11:06:11+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch26-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/progress-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/progress-20261113_25.json",
+      "sha256": "ee449df99b228ffd441700bc34c6d7b79434e8ccf0ed669e408398b7e20db2e1"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/current-accepted-configuration-index-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/current-accepted-configuration-index-20261113_25.json",
+      "sha256": "c1013afa05a116f146213de471cd33b76038be19d31acf35f279bb1001bf1382"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/candidates-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/candidates-20261113_25.json",
+      "sha256": "512df626d3cf343556b3ea4def195e558f842f54f89d4a5df0a3c9914eea983c"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/identity-crosschecks-20261113_25.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_25_focus-sedan-closure-vesta-sportline-author-license-recovery/output/identity-crosschecks-20261113_25.json",
+      "sha256": "963da8e573c98231a411f08fa2b24de4a85c088b419627c40cd7fc06b0b4d13e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "bd1047d8fe9345db37290496e36a62be23650ebf",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/identity-crosschecks-20261113_26.json",
+      "content_reference": true,
+      "sha256": "5446cb0afa80edbba5045e9ec1f5ca2f11ad75849d9f9a2e14d871a755a81d22",
+      "bytes": 69838,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/accepted-configurations-20261113_26.json",
+      "content_reference": true,
+      "sha256": "0f26dcbf9530b150525dec33b39d289759daeb07cfe44667043f3c5d54a2ac6d",
+      "bytes": 88276,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/current-accepted-configuration-index-20261113_26.json",
+      "content_reference": true,
+      "sha256": "c86527f2a108f3922cc66c5909ff17f6319f7076913fcb542585edc448a71b6f",
+      "bytes": 945375,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/nonadopted-history-20261113_26.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/generation-requests-20261113_26.json",
+      "content_reference": true,
+      "sha256": "b80b58ed838923c967c30ed5360c9b86ec62ff1ad2735b62c0067f3515fdeef8",
+      "bytes": 38941,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/new-source-original-evidence-20261113_26.json",
+      "content_reference": true,
+      "sha256": "b0009af27a38f3c30bc2283b596c1f5d46e399b25ce6e07e568ccbc70887aa4b",
+      "bytes": 42445,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/candidates-20261113_26.json",
+      "content_reference": true,
+      "sha256": "b65c34e9f7ba4fa2ac34ed60a740c6b9a2ca52d0066f22412c927a346621ec4d",
+      "bytes": 313456,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_26.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/output/progress-20261113_26.json",
+      "content_reference": true,
+      "sha256": "9ed591b99a9542456d49c0596d922b1bd79a4f1a9b638c6f5ac513ab4cc287ff",
+      "bytes": 2245312,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru-batch26-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_make_batch26_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_import_kia26.py",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_import_kia26_extra.py",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_prepare_kia26.py",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_review_kia26.py",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_review_kia26_final.py",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-frozen-sources.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-extra-two-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-sources-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-extra-two-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-QB-roof-source.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/rio-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/rio-catalog-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/C2C-010-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/results.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/HANDOFF.md",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/HANDOFF.md",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ub-fl-sedan-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/146-gleb-hatch-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/147-gleb-hatch-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/160-gleb-hatch-original.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/171-gleb-sedan-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/172-gleb-sedan-page.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/182-gleb-sedan-original.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/273-ub-fl-red-sedan-photo.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/276-ub-fl-red-sedan-original.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/274-qb-prefl-white-hatch-photo.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/275-qb-prefl-white-hatch-full.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/277-qb-prefl-white-hatch-original.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-sedan.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-sedan-gallery-download.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-sedan-gallery-download.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-hatch-gallery-download.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-x-official.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-spec.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-global-spec.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/auto_ru_model_sales_with_match_key-rio-extract.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-auto-main.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-k2-2015-drom.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-global-official.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-sedan-gallery-download.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-qb-2015-drom.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/results.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-china2017-difference.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-sedan.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-global-sedan-gallery-download.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-download-x-front.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-hatch-gallery-download.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/navigation-index.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-sedan.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-global-sedan.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/auto_ru_dimensions_with_match_key-rio-extract.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/frozen-tasks.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-hatch.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-rus-official.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-hatch.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-us-sedan.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-x.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/来源映射_RU-rio-extract.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-x-gallery-download.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-download-rus-front.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/source-map-extract.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch26-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru-batch26-review.json",
+      "sha256": "51617d42e56f2a216699f2636b9e56f137640431d08ac9f76899d7c46c5ebb2d",
+      "bytes": 82925
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch26_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_make_batch26_review.py",
+      "sha256": "cc2318827e2f94c57b7d5f75efc916e33818bae14f8b425ed96a3a213aacb852",
+      "bytes": 8902
+    },
+    {
+      "file": "extra/executed-code/ru_import_kia26.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_import_kia26.py",
+      "sha256": "bb1a5acf3c5b8b69109d5aaff6bb73f24df2b9602e8faf72f58bea7bfcad84d9",
+      "bytes": 3347
+    },
+    {
+      "file": "extra/executed-code/ru_import_kia26_extra.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_import_kia26_extra.py",
+      "sha256": "5ba9324debabafea05163c89722702fcc798b7cf68405c4cfdb723cc3fa9a3dd",
+      "bytes": 3406
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_kia26.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_prepare_kia26.py",
+      "sha256": "5e398ecc827e3dac6324bb294d529a5f90808c4640da2d661cf431496b74a2c9",
+      "bytes": 6492
+    },
+    {
+      "file": "extra/executed-code/ru_review_kia26.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_review_kia26.py",
+      "sha256": "cadff6ead41777f144db866f1f93761703be874a3b183237f9c0d4efc9b2b53f",
+      "bytes": 1618
+    },
+    {
+      "file": "extra/executed-code/ru_review_kia26_final.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/executed-code/ru_review_kia26_final.py",
+      "sha256": "eec0b95bcbd91a6e6559480ccb6b06899ca45393b3846202dd4b32c8d74c28f0",
+      "bytes": 1624
+    },
+    {
+      "file": "extra/search-evidence/ru-kia26-frozen-sources.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-frozen-sources.json.gz",
+      "sha256": "da58a84dfce006d2b9585c5b33acf98fc4ac350d7b01fc5db496fdbc122ca3ca",
+      "bytes": 6884
+    },
+    {
+      "file": "extra/search-evidence/ru-kia26-extra-two-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-extra-two-frozen.json.gz",
+      "sha256": "6ae6ef77d8969137404e79dc1b539143ce3ba53b65eb8babbcf6dee956e0d8ab",
+      "bytes": 2229
+    },
+    {
+      "file": "extra/search-evidence/ru-kia26-sources-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-sources-contact.jpg",
+      "sha256": "ee54dada06b0b7ebe14d4d660c3a2b81a576a04b01a2fe1712de01f0d9320266",
+      "bytes": 312767
+    },
+    {
+      "file": "extra/search-evidence/ru-kia26-extra-two-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-extra-two-contact.jpg",
+      "sha256": "61b001845db04aa1963e00ded30d82b3ac1d398e7ba558c6274c6561538df796",
+      "bytes": 201838
+    },
+    {
+      "file": "extra/search-evidence/ru-kia26-QB-roof-source.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ru-kia26-QB-roof-source.jpg",
+      "sha256": "e2bac5fb33def42d6ded6bf4b3a19f61be6747a4d4fb57eecac6bdba406baa6c",
+      "bytes": 664632
+    },
+    {
+      "file": "extra/search-evidence/rio-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/rio-applicability.json.gz",
+      "sha256": "b2f2045db0927cd71f2e543f6c0924002c95334679bcb7867ceb0941ed7eea7e",
+      "bytes": 15546
+    },
+    {
+      "file": "extra/search-evidence/rio-catalog-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/rio-catalog-contact.jpg",
+      "sha256": "b92c6b2de84d724eb87e704547a7c3db6d734bbf041b7e3e636b747fd8886585",
+      "bytes": 193116
+    },
+    {
+      "file": "extra/search-evidence/C2C-010-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/C2C-010-applicability.json.gz",
+      "sha256": "82b0ef729338d5b3cdb25a42206c251ccfb16a98b0068e5a7cc95b3b1c3da2c1",
+      "bytes": 3415
+    },
+    {
+      "file": "extra/search-evidence/results.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/results.json.gz",
+      "sha256": "3bf120e1e517cc2b98adfd59c86005389bf62dc5b1ca015d5321136d0d818843",
+      "bytes": 1997
+    },
+    {
+      "file": "extra/search-evidence/HANDOFF.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/HANDOFF.md",
+      "sha256": "2eff12c108a9c6620ad390818f877404e2f8707ef5429850616f6ef8813892ee",
+      "bytes": 1323
+    },
+    {
+      "file": "extra/search-evidence/HANDOFF.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/HANDOFF.md",
+      "sha256": "2eff12c108a9c6620ad390818f877404e2f8707ef5429850616f6ef8813892ee",
+      "bytes": 1323
+    },
+    {
+      "file": "extra/search-evidence/ub-fl-sedan-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/ub-fl-sedan-primary-excerpt.json.gz",
+      "sha256": "c5ad007262cebdb1f29d6d52e9281bbd692cadf8fdf676e71ec5ae7cfe780f59",
+      "bytes": 429
+    },
+    {
+      "file": "extra/search-evidence/146-gleb-hatch-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/146-gleb-hatch-page.json.gz",
+      "sha256": "29c5db66a213884eae783f041c20326d51b8935b3c48745d4f879ba9a71082f6",
+      "bytes": 1222
+    },
+    {
+      "file": "extra/search-evidence/147-gleb-hatch-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/147-gleb-hatch-page.json.gz",
+      "sha256": "5701b433fa35c563e2cfb1cc1b29a368d23bb778839457bff9b06352fd7183d0",
+      "bytes": 340
+    },
+    {
+      "file": "extra/search-evidence/160-gleb-hatch-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/160-gleb-hatch-original.json.gz",
+      "sha256": "9ce1bbaddb36cbac08ea6f58e0d1662096d687ff125d4eacd95624641a7a0a16",
+      "bytes": 309
+    },
+    {
+      "file": "extra/search-evidence/171-gleb-sedan-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/171-gleb-sedan-page.json.gz",
+      "sha256": "407c99cb180fbd1b0b127dd8c15167d902d3a8b7970757f2e753a660c30d8bda",
+      "bytes": 1222
+    },
+    {
+      "file": "extra/search-evidence/172-gleb-sedan-page.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/172-gleb-sedan-page.json.gz",
+      "sha256": "169a0adb00f6351cb25d472c1b85661530d7653178c32ddb528dd9db18e3d372",
+      "bytes": 330
+    },
+    {
+      "file": "extra/search-evidence/182-gleb-sedan-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/182-gleb-sedan-original.json.gz",
+      "sha256": "8a0a08ddf8fbf5c8cdba7ce1bf819b3a93a7bf05fe13f94588e8ad607971a8f6",
+      "bytes": 306
+    },
+    {
+      "file": "extra/search-evidence/273-ub-fl-red-sedan-photo.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/273-ub-fl-red-sedan-photo.json.gz",
+      "sha256": "8a60df95d2d0771997022b9f91dd9ef795de14a394be32ce375ca26991385e94",
+      "bytes": 486
+    },
+    {
+      "file": "extra/search-evidence/276-ub-fl-red-sedan-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/276-ub-fl-red-sedan-original.json.gz",
+      "sha256": "5774cec099053fa81212f0cf12280c5b2e375483ee5e65332305b2a0456300b8",
+      "bytes": 318
+    },
+    {
+      "file": "extra/search-evidence/274-qb-prefl-white-hatch-photo.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/274-qb-prefl-white-hatch-photo.json.gz",
+      "sha256": "65840a26f240143e234417853eca7528e5f606ca8f6cbf4c4670d210cb947f95",
+      "bytes": 1221
+    },
+    {
+      "file": "extra/search-evidence/275-qb-prefl-white-hatch-full.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/275-qb-prefl-white-hatch-full.json.gz",
+      "sha256": "0e1a3138f8d50d228e12ee94687311f0cacb460981a5a506f11d10ed30d843a1",
+      "bytes": 327
+    },
+    {
+      "file": "extra/search-evidence/277-qb-prefl-white-hatch-original.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/277-qb-prefl-white-hatch-original.json.gz",
+      "sha256": "ad5a7fbbc1b2453cfabdb8fc75ab9c388d2fded8435966e8305f176d7c14973f",
+      "bytes": 309
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-rus-sedan.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-sedan.json.gz",
+      "sha256": "34e8685ccac4c1e40fb8a3fc132a3a702ed3a62f9dda7ac39c722c19eb344f9d",
+      "bytes": 4803
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-rus-sedan-gallery-download.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-sedan-gallery-download.json.gz",
+      "sha256": "76ce9e482e9e7bf8e40f19f440663038da039e4ea40c74864d03d88341d2ac1e",
+      "bytes": 317
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-global-sedan-gallery-download.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-sedan-gallery-download.json.gz",
+      "sha256": "e88c6d8cbb69b5a1e6ebe5942c3b86e1f06d2af67186f3e6b42578fdd25c8d61",
+      "bytes": 317
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-global-hatch-gallery-download.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-hatch-gallery-download.json.gz",
+      "sha256": "36ab937bc149a45c2c660911a8ace216251e89be05767277c555f6b09e09945a",
+      "bytes": 317
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-x-official.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-x-official.json.gz",
+      "sha256": "287e02be54a14e7d29926b401ebcacb49fb279907a84c0aa09d5ec290a2a7e0f",
+      "bytes": 4584
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-rus-spec.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-spec.json.gz",
+      "sha256": "1953cf275cd3283aa985a1cca0bb58337569fad5e211915f6b8b09ef1d7f3599",
+      "bytes": 258
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-global-spec.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-global-spec.json.gz",
+      "sha256": "73eb47255bc22977590345da364a39198ae4bbc208a4060e869f597363270eb1",
+      "bytes": 284
+    },
+    {
+      "file": "extra/search-evidence/auto_ru_model_sales_with_match_key-rio-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/auto_ru_model_sales_with_match_key-rio-extract.json.gz",
+      "sha256": "e9dd8b534742b66d0ced0241ade6357d260218d3c8a39acc45342dc5522c56af",
+      "bytes": 935
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-auto-main.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-auto-main.json.gz",
+      "sha256": "ec1043ec76d879777e71c440c839bc043575ee929b9165977e02d9002fdc3315",
+      "bytes": 4497
+    },
+    {
+      "file": "extra/search-evidence/r2-k2-2015-drom.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-k2-2015-drom.json.gz",
+      "sha256": "40ff603650b3b1e683b16482f921a46b8789d6aa8643c3f64249241f8ae98982",
+      "bytes": 5212
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-global-official.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-global-official.json.gz",
+      "sha256": "3e51ab530da600d4861d93ab5b26d193d548ddaa4a6975594ebd2e7b56a4ad44",
+      "bytes": 280
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-rus-sedan-gallery-download.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-sedan-gallery-download.json.gz",
+      "sha256": "9504066fbd16316854f9fe9154fc598574bf590d89bddb884585ab77bc01c526",
+      "bytes": 316
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-qb-2015-drom.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-qb-2015-drom.json.gz",
+      "sha256": "10ab316f5e5f399a2ca913e0a861adea44baa3f1678b5228c10e7007a6da94cc",
+      "bytes": 17753
+    },
+    {
+      "file": "extra/search-evidence/results.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/results.json.gz",
+      "sha256": "3bf120e1e517cc2b98adfd59c86005389bf62dc5b1ca015d5321136d0d818843",
+      "bytes": 1997
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-china2017-difference.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-china2017-difference.json.gz",
+      "sha256": "28f3aefcfc7ce7c862ac9111a780178b27db6b449db7a9f3bf4b2a4a0f7948ef",
+      "bytes": 19659
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-global-sedan.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-sedan.json.gz",
+      "sha256": "013eeb6ce46f890dd7394b3340af725ba58b86921f31c867b250cc9e7444f00a",
+      "bytes": 3698
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-global-sedan-gallery-download.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-global-sedan-gallery-download.json.gz",
+      "sha256": "ce4ae08d67fc74e5f221520f692acba2c325d571d13c49277a05e9bda5c9739d",
+      "bytes": 320
+    },
+    {
+      "file": "extra/search-evidence/r2-download-x-front.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-download-x-front.json.gz",
+      "sha256": "1b54b0a16fe55253436b74c97c21b0e0a81e195dde095ccd9be5f64c8ade163f",
+      "bytes": 285
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-rus-hatch-gallery-download.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-hatch-gallery-download.json.gz",
+      "sha256": "05a22c684b50059dbe21dcf6c27c43e134fce8d475841d569fc0de304f6e435b",
+      "bytes": 315
+    },
+    {
+      "file": "extra/search-evidence/navigation-index.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/navigation-index.json.gz",
+      "sha256": "4739c7f3879405fb24d175dbb11f44e1e57b3373c5fbd96818fc9c285207d3e4",
+      "bytes": 3500
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-rus-sedan.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-sedan.json.gz",
+      "sha256": "612b5cfefaad8adb3fe22607cd200587dfb9d4c6eea709fb0323a84df43d3c5b",
+      "bytes": 4816
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-global-sedan.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-global-sedan.json.gz",
+      "sha256": "f882b3f983829f783d80e5ec1b088affe13c2482b1420880e908f738eaf79c6d",
+      "bytes": 3828
+    },
+    {
+      "file": "extra/search-evidence/auto_ru_dimensions_with_match_key-rio-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/auto_ru_dimensions_with_match_key-rio-extract.json.gz",
+      "sha256": "a899c3a5d07a835850f48c920942e683aa91fc5855e541452b5ceba101cd35b5",
+      "bytes": 2475
+    },
+    {
+      "file": "extra/search-evidence/frozen-tasks.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/frozen-tasks.json.gz",
+      "sha256": "f97d2177e3eea0bc9db4e84841ef6693f030851522b5f29882eba67b89004ec7",
+      "bytes": 869
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iii-rus-hatch.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iii-rus-hatch.json.gz",
+      "sha256": "2627c17f7c0c6f82275e44a541cbffd7cb10263e614153d0ad1f19832e974b53",
+      "bytes": 4701
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-rus-official.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-rus-official.json.gz",
+      "sha256": "20d16ab8983e93975589a17dbfba1dbf3c6f1f1ebe1342e3d45c47812fdd40b5",
+      "bytes": 9817
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-global-hatch.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-global-hatch.json.gz",
+      "sha256": "0da6cc0ace00ad9279da5429fdc5942598e24eaee90659ee59797f7ad2c75b51",
+      "bytes": 3854
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-us-sedan.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-us-sedan.json.gz",
+      "sha256": "361bcbe5a8c752641e38698b28d9712e4d646368fb19ca7e366c5ba706b9f3e7",
+      "bytes": 254
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-rus-x.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-x.json.gz",
+      "sha256": "fec76264aeae33e677bf4b228077aa8f90a45f13a0bad05353a7fd2e48e47496",
+      "bytes": 4802
+    },
+    {
+      "file": "extra/search-evidence/来源映射_RU-rio-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/来源映射_RU-rio-extract.json.gz",
+      "sha256": "d15254cd9d142b950433cb8d1c0efb328352fa04db90c0f4d6eb2a68dead445f",
+      "bytes": 22
+    },
+    {
+      "file": "extra/search-evidence/r2-rio-iv-rus-x-gallery-download.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-rio-iv-rus-x-gallery-download.json.gz",
+      "sha256": "9d13daa102b47f3620862b1a5c73d9af75329b1b04ad88ef494d036486735887",
+      "bytes": 314
+    },
+    {
+      "file": "extra/search-evidence/r2-download-rus-front.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/r2-download-rus-front.json.gz",
+      "sha256": "219b1f661788a4587d40528bf5914ef8e3da206ca086bbf8b12f95554de17326",
+      "bytes": 285
+    },
+    {
+      "file": "extra/search-evidence/source-map-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_26_rio-nine-configurations-four-task-closures/extra/search-evidence/source-map-extract.json.gz",
+      "sha256": "d1dcd49bdfbceee51676ee6cbf84560c2f515061fbecf27530de8446c8dc6a37",
+      "bytes": 241
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 9,
+    "accepted_configurations_this_batch": 9,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 28,
+    "accepted_configurations_total": 97
+  }
+}
