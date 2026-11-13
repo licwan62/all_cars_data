@@ -1,0 +1,850 @@
+{
+  "MAKE": "Pontiac",
+  "MODEL": "Safari Wagon",
+  "MM_ID": "MM-366e8ac1b0a113e9a2973da9",
+  "MMY_count": 3,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Pontiac",
+    "MODEL": "Safari Wagon",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 41421,
+      "MM_ID": "MM-366e8ac1b0a113e9a2973da9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "41422",
+      "raw_make": "Pontiac",
+      "raw_model": "Safari Wagon",
+      "raw_year": "1987",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 5.0 L"
+    },
+    {
+      "association_row_1based": 41422,
+      "MM_ID": "MM-366e8ac1b0a113e9a2973da9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "41423",
+      "raw_make": "Pontiac",
+      "raw_model": "Safari Wagon",
+      "raw_year": "1988",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 5.0 L"
+    },
+    {
+      "association_row_1based": 41423,
+      "MM_ID": "MM-366e8ac1b0a113e9a2973da9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "41424",
+      "raw_make": "Pontiac",
+      "raw_model": "Safari Wagon",
+      "raw_year": "1989",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 5.0 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4263,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "pontiac",
+      "make_name": "Pontiac",
+      "model_slug": "grand-safari",
+      "model_name": "Grand Safari",
+      "body_types": "hatchback|wagon",
+      "countries": "fi|nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "car/pontiac/grandsafari",
+      "mass_popularity_decile": "7"
+    },
+    {
+      "record": 4271,
+      "match_reason": [
+        "目录别名/历史slug相等线索",
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "pontiac",
+      "make_name": "Pontiac",
+      "model_slug": "safari",
+      "model_name": "Safari",
+      "body_types": "hatchback|wagon",
+      "countries": "nl|no|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "car/pontiac/safari-wagon",
+      "mass_popularity_decile": "7"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "pontiac",
+      "same_brand_rows_examined": 217,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 24,
+      "candidates": [
+        {
+          "row_1based": 3523,
+          "DIMENSION-ID": "Pontiac Astre Safari Wagon 1975-1977 US",
+          "MODEL": "Astre",
+          "YEAR": "1975-1977",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Astre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3550,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1971 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1971",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3551,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1972 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1972",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3552,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1973 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1973",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3553,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1974-1976 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1974-1976",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3554,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1977 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1977",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3555,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1978 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1978",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3556,
+          "DIMENSION-ID": "Pontiac Bonneville Hatchback 1958 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3557,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1961-1964 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1961-1964",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3558,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1965-1968 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1965-1968",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3559,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1969 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1969",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3560,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1970 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1970",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3561,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1977-1981 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1977-1981",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3649,
+          "DIMENSION-ID": "Pontiac Grand Safari 455-4 V8 Wagon 1974-1975 US",
+          "MODEL": "Grand Safari",
+          "YEAR": "1974-1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词safari，但Safari Wagon到Grand Safari缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3650,
+          "DIMENSION-ID": "Pontiac Grand Safari 455-4 V8 Wagon 1976 US",
+          "MODEL": "Grand Safari",
+          "YEAR": "1976",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词safari，但Safari Wagon到Grand Safari缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3670,
+          "DIMENSION-ID": "Pontiac LeMans Coupe 1978 US",
+          "MODEL": "LeMans",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3678,
+          "DIMENSION-ID": "Pontiac LeMans Hatchback 1978 US",
+          "MODEL": "LeMans",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3694,
+          "DIMENSION-ID": "Pontiac LeMans Sedan 1978 US",
+          "MODEL": "LeMans",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3704,
+          "DIMENSION-ID": "Pontiac LeMans Tempest/Safari Wagon 1963 US",
+          "MODEL": "LeMans",
+          "YEAR": "1963",
+          "match_reason": [
+            "版本词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3709,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1973 US",
+          "MODEL": "LeMans",
+          "YEAR": "1973",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3710,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1974 US",
+          "MODEL": "LeMans",
+          "YEAR": "1974",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3711,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1975-1976 US",
+          "MODEL": "LeMans",
+          "YEAR": "1975-1976",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3712,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1979 US",
+          "MODEL": "LeMans",
+          "YEAR": "1979",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3713,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1980 US",
+          "MODEL": "LeMans",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 22,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "pontiac",
+      "same_brand_rows_examined": 217,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 24,
+      "candidates": [
+        {
+          "row_1based": 3523,
+          "DIMENSION-ID": "Pontiac Astre Safari Wagon 1975-1977 US",
+          "MODEL": "Astre",
+          "YEAR": "1975-1977",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Astre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3550,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1971 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1971",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3551,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1972 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1972",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3552,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1973 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1973",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3553,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1974-1976 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1974-1976",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3554,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1977 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1977",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3555,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1978 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1978",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3556,
+          "DIMENSION-ID": "Pontiac Bonneville Hatchback 1958 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3557,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1961-1964 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1961-1964",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3558,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1965-1968 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1965-1968",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3559,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1969 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1969",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3560,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1970 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1970",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3561,
+          "DIMENSION-ID": "Pontiac Bonneville Safari Wagon 1977-1981 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1977-1981",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3649,
+          "DIMENSION-ID": "Pontiac Grand Safari 455-4 V8 Wagon 1974-1975 US",
+          "MODEL": "Grand Safari",
+          "YEAR": "1974-1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词safari，但Safari Wagon到Grand Safari缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3650,
+          "DIMENSION-ID": "Pontiac Grand Safari 455-4 V8 Wagon 1976 US",
+          "MODEL": "Grand Safari",
+          "YEAR": "1976",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词safari，但Safari Wagon到Grand Safari缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3670,
+          "DIMENSION-ID": "Pontiac LeMans Coupe 1978 US",
+          "MODEL": "LeMans",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3678,
+          "DIMENSION-ID": "Pontiac LeMans Hatchback 1978 US",
+          "MODEL": "LeMans",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3694,
+          "DIMENSION-ID": "Pontiac LeMans Sedan 1978 US",
+          "MODEL": "LeMans",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3704,
+          "DIMENSION-ID": "Pontiac LeMans Tempest/Safari Wagon 1963 US",
+          "MODEL": "LeMans",
+          "YEAR": "1963",
+          "match_reason": [
+            "版本词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3709,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1973 US",
+          "MODEL": "LeMans",
+          "YEAR": "1973",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3710,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1974 US",
+          "MODEL": "LeMans",
+          "YEAR": "1974",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3711,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1975-1976 US",
+          "MODEL": "LeMans",
+          "YEAR": "1975-1976",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3712,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1979 US",
+          "MODEL": "LeMans",
+          "YEAR": "1979",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3713,
+          "DIMENSION-ID": "Pontiac LeMans Wagon 1980 US",
+          "MODEL": "LeMans",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Safari Wagon 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 22,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Pontiac / Safari Wagon原名到明确US目标的可引用身份关系；参考年份1987|1988|1989的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-821fb47415f8d202ec1fdf76",
+      "MM_ID": "MM-366e8ac1b0a113e9a2973da9",
+      "REGION": "US",
+      "MAKE": "Pontiac",
+      "MODEL": "Safari Wagon",
+      "YEAR": "1987",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Pontiac",
+      "标准MODEL": "Safari Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "41422"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 5.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-0598abf2c821be97f91effce",
+      "MM_ID": "MM-366e8ac1b0a113e9a2973da9",
+      "REGION": "US",
+      "MAKE": "Pontiac",
+      "MODEL": "Safari Wagon",
+      "YEAR": "1988",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Pontiac",
+      "标准MODEL": "Safari Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "41423"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 5.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-9ec5a70030853c7b6585e772",
+      "MM_ID": "MM-366e8ac1b0a113e9a2973da9",
+      "REGION": "US",
+      "MAKE": "Pontiac",
+      "MODEL": "Safari Wagon",
+      "YEAR": "1989",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Pontiac",
+      "标准MODEL": "Safari Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "41424"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 5.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

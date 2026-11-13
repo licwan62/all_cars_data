@@ -1,0 +1,1477 @@
+{
+  "MAKE": "Pontiac",
+  "MODEL": "G6 GT/GTP Convertible",
+  "MM_ID": "MM-70c60793889fe0e85431f105",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Pontiac",
+    "MODEL": "G6 GT/GTP Convertible",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 41166,
+      "MM_ID": "MM-70c60793889fe0e85431f105",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "41167",
+      "raw_make": "Pontiac",
+      "raw_model": "G6 GT/GTP Convertible",
+      "raw_year": "2006",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S4), 6 cyl, 3.5 L"
+    },
+    {
+      "association_row_1based": 41167,
+      "MM_ID": "MM-70c60793889fe0e85431f105",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "41168",
+      "raw_make": "Pontiac",
+      "raw_model": "G6 GT/GTP Convertible",
+      "raw_year": "2006",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S4), 6 cyl, 3.9 L"
+    },
+    {
+      "association_row_1based": 41168,
+      "MM_ID": "MM-70c60793889fe0e85431f105",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "41169",
+      "raw_make": "Pontiac",
+      "raw_model": "G6 GT/GTP Convertible",
+      "raw_year": "2007",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S4), 6 cyl, 3.9 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4257,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "pontiac",
+      "make_name": "Pontiac",
+      "model_slug": "g3",
+      "model_name": "G3",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "car/pontiac/g3-wave|car/pontiac/g3-wave-5",
+      "mass_popularity_decile": ""
+    },
+    {
+      "record": 4258,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "pontiac",
+      "make_name": "Pontiac",
+      "model_slug": "g5",
+      "model_name": "G5",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "car/pontiac/g5-xfe",
+      "mass_popularity_decile": ""
+    },
+    {
+      "record": 4259,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "pontiac",
+      "make_name": "Pontiac",
+      "model_slug": "g6",
+      "model_name": "G6",
+      "body_types": "suv",
+      "countries": "ca|ch|fi|nl|no|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "7"
+    },
+    {
+      "record": 4260,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "pontiac",
+      "make_name": "Pontiac",
+      "model_slug": "g8",
+      "model_name": "G8",
+      "body_types": "sedan",
+      "countries": "ca|fi|nl|us",
+      "regions": "eu|na",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "9"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "pontiac",
+      "same_brand_rows_examined": 217,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 48,
+      "candidates": [
+        {
+          "row_1based": 3526,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1957 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3527,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1958 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3528,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1959-1960 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1959-1960",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3529,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1961 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1961",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3530,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1962 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1962",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3531,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1963 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3532,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1964 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3533,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1965-1968 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1965-1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3534,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1969 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3535,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1970 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1970",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3536,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1971-1976 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1971-1976",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3541,
+          "DIMENSION-ID": "Pontiac Bonneville Coupe 1969 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3554,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1977 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1977",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3555,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1978 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3575,
+          "DIMENSION-ID": "Pontiac Bonneville Sedan 1982 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3585,
+          "DIMENSION-ID": "Pontiac Firebird Convertible 1968 US",
+          "MODEL": "Firebird",
+          "YEAR": "1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3586,
+          "DIMENSION-ID": "Pontiac Firebird Convertible 1969 US",
+          "MODEL": "Firebird",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3588,
+          "DIMENSION-ID": "Pontiac Firebird Coupe 1968 US",
+          "MODEL": "Firebird",
+          "YEAR": "1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3590,
+          "DIMENSION-ID": "Pontiac Firebird Trans Am Convertible 1994-1997 US",
+          "MODEL": "Firebird",
+          "YEAR": "1994-1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3591,
+          "DIMENSION-ID": "Pontiac Firebird Trans Am Convertible 1998-2002 US",
+          "MODEL": "Firebird",
+          "YEAR": "1998-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3601,
+          "DIMENSION-ID": "Pontiac Firebird Trans Am Coupe 1998-2002 US",
+          "MODEL": "Firebird",
+          "YEAR": "1998-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3602,
+          "DIMENSION-ID": "Pontiac G3 Hatchback 2009 US",
+          "MODEL": "G3",
+          "YEAR": "2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：G6 GT/GTP Convertible 与 G3；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 3603,
+          "DIMENSION-ID": "Pontiac G5 Coupe 2007-2009 US",
+          "MODEL": "G5",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：G6 GT/GTP Convertible 与 G5；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 3604,
+          "DIMENSION-ID": "Pontiac G6 Convertible 2006-2009 US",
+          "MODEL": "G6",
+          "YEAR": "2006-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 G6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3605,
+          "DIMENSION-ID": "Pontiac G6 Sedan 2005-2010 US",
+          "MODEL": "G6",
+          "YEAR": "2005-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 G6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3606,
+          "DIMENSION-ID": "Pontiac G8 Fastback 2008-2009 US",
+          "MODEL": "G8",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：G6 GT/GTP Convertible 与 G8；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 3607,
+          "DIMENSION-ID": "Pontiac GTO Convertible 1964 US",
+          "MODEL": "GTO",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 GTO仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3608,
+          "DIMENSION-ID": "Pontiac GTO Convertible 1965-1967 US",
+          "MODEL": "GTO",
+          "YEAR": "1965-1967",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 GTO仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3645,
+          "DIMENSION-ID": "Pontiac Grand Prix Coupe 2002 US",
+          "MODEL": "Grand Prix",
+          "YEAR": "2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Grand Prix仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3652,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1963 US",
+          "MODEL": "LeMans",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3653,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1964-1966 US",
+          "MODEL": "LeMans",
+          "YEAR": "1964-1966",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3654,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1967 US",
+          "MODEL": "LeMans",
+          "YEAR": "1967",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3655,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1968 US",
+          "MODEL": "LeMans",
+          "YEAR": "1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3659,
+          "DIMENSION-ID": "Pontiac LeMans Coupe 1964 US",
+          "MODEL": "LeMans",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3681,
+          "DIMENSION-ID": "Pontiac LeMans Sedan 1964 US",
+          "MODEL": "LeMans",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3699,
+          "DIMENSION-ID": "Pontiac LeMans Tempest LeMans Convertible 1962 US",
+          "MODEL": "LeMans",
+          "YEAR": "1962",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3701,
+          "DIMENSION-ID": "Pontiac LeMans Tempest/LeMans Convertible 1963 US",
+          "MODEL": "LeMans",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3717,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 1995-1996 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1995-1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3718,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 1997 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3719,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 1998-2000 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3720,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 2001-2005 US",
+          "MODEL": "Sunfire",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3721,
+          "DIMENSION-ID": "Pontiac Sunfire Coupe 1995-1996 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1995-1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3722,
+          "DIMENSION-ID": "Pontiac Sunfire Coupe 1997-2005 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1997-2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3725,
+          "DIMENSION-ID": "Pontiac Sunfire Sedan 1999-2000 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1999-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3728,
+          "DIMENSION-ID": "Pontiac Vibe Hatchback 2003-2008 US",
+          "MODEL": "Vibe",
+          "YEAR": "2003-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Vibe仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3729,
+          "DIMENSION-ID": "Pontiac Vibe Hatchback 2009-2010 US",
+          "MODEL": "Vibe",
+          "YEAR": "2009-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Vibe仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4788,
+          "DIMENSION-ID": "Pontiac Montana MPV 2005 US",
+          "MODEL": "Montana",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Montana仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4820,
+          "DIMENSION-ID": "Pontiac Montana MPV 2006 US",
+          "MODEL": "Montana",
+          "YEAR": "2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Montana仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 48,
+      "non_US_candidate_hits": 8,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 10009,
+          "DIMENSION-ID": "Pontiac G4 Coupe 2005-2010 RU",
+          "MODEL": "G4",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10010,
+          "DIMENSION-ID": "Pontiac G4 Sedan 2005-2010 RU",
+          "MODEL": "G4",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10011,
+          "DIMENSION-ID": "Pontiac G5 Coupe 2004-2010 RU",
+          "MODEL": "G5",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10012,
+          "DIMENSION-ID": "Pontiac G5 Sedan 2004-2010 RU",
+          "MODEL": "G5",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10013,
+          "DIMENSION-ID": "Pontiac G6 Convertible 2004-2009 RU",
+          "MODEL": "G6",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10014,
+          "DIMENSION-ID": "Pontiac G6 Coupe 2004-2009 RU",
+          "MODEL": "G6",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10015,
+          "DIMENSION-ID": "Pontiac G6 Sedan 2004-2009 RU",
+          "MODEL": "G6",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10016,
+          "DIMENSION-ID": "Pontiac G8 Sedan 2007-2009 RU",
+          "MODEL": "G8",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "pontiac",
+      "same_brand_rows_examined": 217,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 48,
+      "candidates": [
+        {
+          "row_1based": 3526,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1957 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3527,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1958 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3528,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1959-1960 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1959-1960",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3529,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1961 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1961",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3530,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1962 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1962",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3531,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1963 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3532,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1964 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3533,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1965-1968 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1965-1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3534,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1969 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3535,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1970 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1970",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3536,
+          "DIMENSION-ID": "Pontiac Bonneville Convertible 1971-1976 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1971-1976",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3541,
+          "DIMENSION-ID": "Pontiac Bonneville Coupe 1969 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3554,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1977 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1977",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3555,
+          "DIMENSION-ID": "Pontiac Bonneville Grand Safari Wagon 1978 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1978",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3575,
+          "DIMENSION-ID": "Pontiac Bonneville Sedan 1982 US",
+          "MODEL": "Bonneville",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Bonneville仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3585,
+          "DIMENSION-ID": "Pontiac Firebird Convertible 1968 US",
+          "MODEL": "Firebird",
+          "YEAR": "1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3586,
+          "DIMENSION-ID": "Pontiac Firebird Convertible 1969 US",
+          "MODEL": "Firebird",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3588,
+          "DIMENSION-ID": "Pontiac Firebird Coupe 1968 US",
+          "MODEL": "Firebird",
+          "YEAR": "1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3590,
+          "DIMENSION-ID": "Pontiac Firebird Trans Am Convertible 1994-1997 US",
+          "MODEL": "Firebird",
+          "YEAR": "1994-1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3591,
+          "DIMENSION-ID": "Pontiac Firebird Trans Am Convertible 1998-2002 US",
+          "MODEL": "Firebird",
+          "YEAR": "1998-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3601,
+          "DIMENSION-ID": "Pontiac Firebird Trans Am Coupe 1998-2002 US",
+          "MODEL": "Firebird",
+          "YEAR": "1998-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Firebird仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3602,
+          "DIMENSION-ID": "Pontiac G3 Hatchback 2009 US",
+          "MODEL": "G3",
+          "YEAR": "2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：G6 GT/GTP Convertible 与 G3；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 3603,
+          "DIMENSION-ID": "Pontiac G5 Coupe 2007-2009 US",
+          "MODEL": "G5",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：G6 GT/GTP Convertible 与 G5；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 3604,
+          "DIMENSION-ID": "Pontiac G6 Convertible 2006-2009 US",
+          "MODEL": "G6",
+          "YEAR": "2006-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 G6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3605,
+          "DIMENSION-ID": "Pontiac G6 Sedan 2005-2010 US",
+          "MODEL": "G6",
+          "YEAR": "2005-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 G6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3606,
+          "DIMENSION-ID": "Pontiac G8 Fastback 2008-2009 US",
+          "MODEL": "G8",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：G6 GT/GTP Convertible 与 G8；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 3607,
+          "DIMENSION-ID": "Pontiac GTO Convertible 1964 US",
+          "MODEL": "GTO",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 GTO仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3608,
+          "DIMENSION-ID": "Pontiac GTO Convertible 1965-1967 US",
+          "MODEL": "GTO",
+          "YEAR": "1965-1967",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 GTO仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3645,
+          "DIMENSION-ID": "Pontiac Grand Prix Coupe 2002 US",
+          "MODEL": "Grand Prix",
+          "YEAR": "2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Grand Prix仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3652,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1963 US",
+          "MODEL": "LeMans",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3653,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1964-1966 US",
+          "MODEL": "LeMans",
+          "YEAR": "1964-1966",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3654,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1967 US",
+          "MODEL": "LeMans",
+          "YEAR": "1967",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3655,
+          "DIMENSION-ID": "Pontiac LeMans Convertible 1968 US",
+          "MODEL": "LeMans",
+          "YEAR": "1968",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3659,
+          "DIMENSION-ID": "Pontiac LeMans Coupe 1964 US",
+          "MODEL": "LeMans",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3681,
+          "DIMENSION-ID": "Pontiac LeMans Sedan 1964 US",
+          "MODEL": "LeMans",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3699,
+          "DIMENSION-ID": "Pontiac LeMans Tempest LeMans Convertible 1962 US",
+          "MODEL": "LeMans",
+          "YEAR": "1962",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3701,
+          "DIMENSION-ID": "Pontiac LeMans Tempest/LeMans Convertible 1963 US",
+          "MODEL": "LeMans",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 LeMans仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3717,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 1995-1996 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1995-1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3718,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 1997 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3719,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 1998-2000 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3720,
+          "DIMENSION-ID": "Pontiac Sunfire Convertible 2001-2005 US",
+          "MODEL": "Sunfire",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3721,
+          "DIMENSION-ID": "Pontiac Sunfire Coupe 1995-1996 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1995-1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3722,
+          "DIMENSION-ID": "Pontiac Sunfire Coupe 1997-2005 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1997-2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3725,
+          "DIMENSION-ID": "Pontiac Sunfire Sedan 1999-2000 US",
+          "MODEL": "Sunfire",
+          "YEAR": "1999-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Sunfire仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3728,
+          "DIMENSION-ID": "Pontiac Vibe Hatchback 2003-2008 US",
+          "MODEL": "Vibe",
+          "YEAR": "2003-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Vibe仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3729,
+          "DIMENSION-ID": "Pontiac Vibe Hatchback 2009-2010 US",
+          "MODEL": "Vibe",
+          "YEAR": "2009-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Vibe仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4788,
+          "DIMENSION-ID": "Pontiac Montana MPV 2005 US",
+          "MODEL": "Montana",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Montana仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4820,
+          "DIMENSION-ID": "Pontiac Montana MPV 2006 US",
+          "MODEL": "Montana",
+          "YEAR": "2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "G6 GT/GTP Convertible 与 Montana仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 48,
+      "non_US_candidate_hits": 8,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 10009,
+          "DIMENSION-ID": "Pontiac G4 Coupe 2005-2010 RU",
+          "MODEL": "G4",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10010,
+          "DIMENSION-ID": "Pontiac G4 Sedan 2005-2010 RU",
+          "MODEL": "G4",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10011,
+          "DIMENSION-ID": "Pontiac G5 Coupe 2004-2010 RU",
+          "MODEL": "G5",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10012,
+          "DIMENSION-ID": "Pontiac G5 Sedan 2004-2010 RU",
+          "MODEL": "G5",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10013,
+          "DIMENSION-ID": "Pontiac G6 Convertible 2004-2009 RU",
+          "MODEL": "G6",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10014,
+          "DIMENSION-ID": "Pontiac G6 Coupe 2004-2009 RU",
+          "MODEL": "G6",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10015,
+          "DIMENSION-ID": "Pontiac G6 Sedan 2004-2009 RU",
+          "MODEL": "G6",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10016,
+          "DIMENSION-ID": "Pontiac G8 Sedan 2007-2009 RU",
+          "MODEL": "G8",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Pontiac / G6 GT/GTP Convertible原名到明确US目标的可引用身份关系；参考年份2006|2007的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-7c18eea3c7d65c570bb279cf",
+      "MM_ID": "MM-70c60793889fe0e85431f105",
+      "REGION": "US",
+      "MAKE": "Pontiac",
+      "MODEL": "G6 GT/GTP Convertible",
+      "YEAR": "2006",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Pontiac",
+      "标准MODEL": "G6 GT/GTP Convertible",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "41167",
+        "41168"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S4), 6 cyl, 3.5 L",
+        "Auto (S4), 6 cyl, 3.9 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-c0453c7713708781d2c076ec",
+      "MM_ID": "MM-70c60793889fe0e85431f105",
+      "REGION": "US",
+      "MAKE": "Pontiac",
+      "MODEL": "G6 GT/GTP Convertible",
+      "YEAR": "2007",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Pontiac",
+      "标准MODEL": "G6 GT/GTP Convertible",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "41169"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S4), 6 cyl, 3.9 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

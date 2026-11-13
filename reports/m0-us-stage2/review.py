@@ -56,6 +56,27 @@ def locator(p, row, number):
             '参考车型': row['参考车型'], '备注': row['备注']}
 
 
+def candidate_assessment(raw, candidate, catalog_links):
+    """Separate useful identity leads from token-search noise, without approving either."""
+    a, b = compact(raw), compact(candidate['MODEL'])
+    same_stem = (len(a) >= 3 and b.startswith(a)) or (len(b) >= 3 and a.startswith(b))
+    shared_words = {t for t in tokens(raw) & tokens(candidate['MODEL']) if len(t) >= 3 and not t.isdigit()}
+    catalog = any('目录别名/历史slug相等线索' in v['match_reason']
+                  and compact(v['model_name']) == b for v in catalog_links)
+    designation_a = re.match(r'([a-z]+)([0-9]+)', a)
+    designation_b = re.match(r'([a-z]+)([0-9]+)', b)
+    mismatch = bool(designation_a and designation_b and designation_a.group() != designation_b.group())
+    if mismatch:
+        return '已排除检索噪声', f'型号字母/编号不同：{raw} 与 {candidate["MODEL"]}；共享数字或字母不能转移车型身份'
+    if same_stem or shared_words or catalog:
+        reasons = []
+        if same_stem: reasons.append('完整型号主干包含')
+        if shared_words: reasons.append('具体车型词' + '|'.join(sorted(shared_words)))
+        if catalog: reasons.append('原始目录历史归属')
+        return '身份关系仍待证据', '、'.join(reasons) + f'，但{raw}到{candidate["MODEL"]}缺少批准关系及必要车身/代际范围；不据此映射'
+    return '已排除检索噪声', f'{raw} 与 {candidate["MODEL"]}仅单字符、泛称、版本或参考词重合，无同车型身份依据'
+
+
 coverage = table(R / 'json/model-year-coverage/覆盖明细.json')
 us = [r for r in coverage if r['REGION'] == 'US' and r['计入分母'] == '是']
 pending = [r for r in us if r['状态'].startswith('名称未匹配')]
@@ -135,9 +156,12 @@ put(O / 'priority.json', {
     'review_order': [{'MAKE': b, 'MODEL': m, 'MMY': len(groups[b, m])} for b, m in priority]})
 models_out = O / 'models'; models_out.mkdir(exist_ok=True)
 brand_filter = sys.argv[1] if len(sys.argv) > 1 else None
+last_brand = None
 for make, model in priority:
     if brand_filter and make != brand_filter:
         continue
+    if make != last_brand:
+        print('REVIEW', make, brand_counts[make], flush=True); last_brand = make
     rows = groups[make, model]
     mm = rows[0]['MM_ID']
     pair, target_make, target_model, relation, basis = names.resolve(make, model)
@@ -170,9 +194,10 @@ for make, model in priority:
             if candidate_words & tokens(e['版本']): why.append('版本词命中，仅检索')
             if candidate_words & tokens(e['参考车型']): why.append('参考车型词命中，仅检索')
             if why:
+                assessment, exclusion = candidate_assessment(model, e, source_matches)
                 candidates.append({'row_1based': e['row_1based'], 'DIMENSION-ID': e['DIMENSION-ID'],
                                    'MODEL': e['MODEL'], 'YEAR': e['YEAR'], 'match_reason': why,
-                                   'exclusion': '尚无批准规则将原名完整身份连至此记录；词/版本命中不能证明车身、代际或年份同一'})
+                                   'assessment': assessment, 'exclusion': exclusion})
         nonus = []
         for region in ['EU', 'RU']:
             for e in bybrand[owner + ':' + region].get(pair[0], []):
@@ -185,13 +210,15 @@ for make, model in priority:
                         'same_brand_inventory_reference': f'inventory.json.gz → {owner}:US，按resolved_brand筛选',
                         'exact_resolved_name_hits': len(exact), 'exact_rows': exact,
                         'candidate_hits': len(candidates), 'candidates': candidates,
+                        'identity_candidate_hits': sum(c['assessment'] == '身份关系仍待证据' for c in candidates),
+                        'excluded_search_noise_hits': sum(c['assessment'] == '已排除检索噪声' for c in candidates),
                         'non_US_candidate_hits': len(nonus), 'non_US_candidates': nonus}
     rules = [dict(csv_record=i, **r) for i, r in enumerate(mappings, 2)
              if key(names.brand(r['raw_make'])[0]) == pair[0]
              and (key(r['raw_model']) == key(model) or key(r['model']) == pair[1])]
     member_rules = [g for g in membership['groups'] if key(g['make']) == pair[0]
                     and (key(g['model']) == pair[1] or any(key(m['model']) == pair[1] for m in g['members']))]
-    has_candidates = any(s['candidate_hits'] or s['exact_resolved_name_hits'] for s in scans.values())
+    has_candidates = any(s['identity_candidate_hits'] or s['exact_resolved_name_hits'] for s in scans.values())
     conclusion = '证据不足（候选关系未裁决）' if has_candidates else '经核对库内无对应记录（当前名称规则口径）'
     model_doc = {'MAKE': make, 'MODEL': model, 'MM_ID': mm, 'MMY_count': len(rows),
                  'review_method': '本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准',
@@ -224,13 +251,29 @@ for make, model in priority:
         for owner in ['01', '02']:
             status, ids = indices[owner].match(pair, int(r['YEAR']))
             candidate_rows = scans[owner]['candidates']
-            year_matches = [e['DIMENSION-ID'] for e in candidate_rows if int(r['YEAR']) in years(e['YEAR'])]
+            year_matches = [e['DIMENSION-ID'] for e in candidate_rows if e['assessment'] == '身份关系仍待证据' and int(r['YEAR']) in years(e['YEAR'])]
             per_year[owner] = {'approved_name_match_status': status, 'approved_name_DIMENSION_ID': ids,
                                'candidate_same_year_DIMENSION_IDs': year_matches,
                                'candidate_same_year_hits': len(year_matches)}
             assert status in {'车型缺口／名称待核', '名称待核'}, (make, model, r, per_year)
+        source_year = [x for x in sources[mm] if x['raw_year'] == r['YEAR']]
+        user_evidence = []
+        if make == 'Ford' and model in {'E-350', 'E-450'}:
+            if r['YEAR'] in {'2022', '2026'}:
+                user_evidence.append({'evidence_year': r['YEAR'], 'scope': 'E-Series Cutaway',
+                                      'source_body_contains_Cutaway': any('cutaway' in x['配置或身份'].casefold() for x in source_year),
+                                      'result': '用户证据年份命中；仍缺US同车身目标，不能替代其他车身或跨年推广'})
+            else:
+                user_evidence.append({'result': '2022/2026用户Cutaway证据不覆盖本MMY年份'})
+        if make == 'Ford' and model in {'F-350', 'F-450', 'F-550'}:
+            user_evidence.append({'evidence_year': '2020',
+                                  'source_body_contains_Chassis': any('chassis' in x['配置或身份'].casefold() for x in source_year),
+                                  'result': '2020用户Chassis Cab证据仅当年及对应底盘；原名同年可能混合车身，不批准全局映射' if r['YEAR'] == '2020' else '2020用户Chassis Cab证据不覆盖本MMY年份'})
         model_doc['identities'].append({**r, 'review_conclusion': conclusion,
                                        'review_status': '已核查仍无法裁决', 'formal_resolved': False,
+                                       'source_year_records': [x['record'] for x in source_year],
+                                       'source_year_body_or_trim': sorted({x['配置或身份'] for x in source_year}),
+                                       'user_evidence_year_scope_check': user_evidence,
                                        'current_checks': per_year})
     put(models_out / (mm + '.json'), model_doc)
 

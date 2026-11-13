@@ -1,0 +1,1176 @@
+{
+  "MAKE": "Chrysler",
+  "MODEL": "Executive Sedan/Limousine",
+  "MM_ID": "MM-3f1119aa43199622eb7d517e",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Chrysler",
+    "MODEL": "Executive Sedan/Limousine",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 11838,
+      "MM_ID": "MM-3f1119aa43199622eb7d517e",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "11839",
+      "raw_make": "Chrysler",
+      "raw_model": "Executive Sedan/Limousine",
+      "raw_year": "1984",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 3-spd, 4 cyl, 2.6 L, (FFS)"
+    },
+    {
+      "association_row_1based": 11839,
+      "MM_ID": "MM-3f1119aa43199622eb7d517e",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "11840",
+      "raw_make": "Chrysler",
+      "raw_model": "Executive Sedan/Limousine",
+      "raw_year": "1984",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 3-spd, 4 cyl, 2.6 L, CA model"
+    },
+    {
+      "association_row_1based": 11840,
+      "MM_ID": "MM-3f1119aa43199622eb7d517e",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "11841",
+      "raw_make": "Chrysler",
+      "raw_model": "Executive Sedan/Limousine",
+      "raw_year": "1985",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 3-spd, 4 cyl, 2.6 L"
+    }
+  ],
+  "vehicles_catalog_checks": [],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "chrysler",
+      "same_brand_rows_examined": 159,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 44,
+      "candidates": [
+        {
+          "row_1based": 1387,
+          "DIMENSION-ID": "Chrysler 200 Sedan 2011-2014 US",
+          "MODEL": "200",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1388,
+          "DIMENSION-ID": "Chrysler 200 Sedan 2015-2017 US",
+          "MODEL": "200",
+          "YEAR": "2015-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1390,
+          "DIMENSION-ID": "Chrysler 200 Series Sedan 2011-2014 US",
+          "MODEL": "200 Series",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1391,
+          "DIMENSION-ID": "Chrysler 200 Series Sedan 2015-2017 US",
+          "MODEL": "200 Series",
+          "YEAR": "2015-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1425,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2001-2006 US",
+          "MODEL": "Sebring",
+          "YEAR": "2001-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1426,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2007 US",
+          "MODEL": "Sebring",
+          "YEAR": "2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1427,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2008-2009 US",
+          "MODEL": "Sebring",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1428,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2010 US",
+          "MODEL": "Sebring",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5583,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1990 US",
+          "MODEL": "Imperial",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5584,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1991 US",
+          "MODEL": "Imperial",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5585,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1992 US",
+          "MODEL": "Imperial",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5586,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1993 US",
+          "MODEL": "Imperial",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5591,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1990 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5592,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1991 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5593,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1992 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5594,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1993 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5595,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1994 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5596,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1949 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1949",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5597,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1950 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1950",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5598,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1951 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1951",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5599,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1952 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1952",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5600,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1953 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1953",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5601,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1954 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1954",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5607,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1979 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1979",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5608,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1980 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5609,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1981 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1981",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5610,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1982 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5611,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1983 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1983",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5612,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1984 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5613,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1985 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1985",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5614,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1986 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1986",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5615,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1987 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1987",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5616,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1989 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1989",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5617,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1990 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5618,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1991 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5619,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1992 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5620,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1993 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5621,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1994 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5622,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1995 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1995",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5623,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1996 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5644,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1953 US",
+          "MODEL": "Windsor",
+          "YEAR": "1953",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5645,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1954 US",
+          "MODEL": "Windsor",
+          "YEAR": "1954",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5646,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1956 US",
+          "MODEL": "Windsor",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5647,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1957 US",
+          "MODEL": "Windsor",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 44,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "chrysler",
+      "same_brand_rows_examined": 159,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 44,
+      "candidates": [
+        {
+          "row_1based": 1387,
+          "DIMENSION-ID": "Chrysler 200 Sedan 2011-2014 US",
+          "MODEL": "200",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1388,
+          "DIMENSION-ID": "Chrysler 200 Sedan 2015-2017 US",
+          "MODEL": "200",
+          "YEAR": "2015-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1390,
+          "DIMENSION-ID": "Chrysler 200 Series Sedan 2011-2014 US",
+          "MODEL": "200 Series",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1391,
+          "DIMENSION-ID": "Chrysler 200 Series Sedan 2015-2017 US",
+          "MODEL": "200 Series",
+          "YEAR": "2015-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 200 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1425,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2001-2006 US",
+          "MODEL": "Sebring",
+          "YEAR": "2001-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1426,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2007 US",
+          "MODEL": "Sebring",
+          "YEAR": "2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1427,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2008-2009 US",
+          "MODEL": "Sebring",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1428,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2010 US",
+          "MODEL": "Sebring",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5583,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1990 US",
+          "MODEL": "Imperial",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5584,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1991 US",
+          "MODEL": "Imperial",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5585,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1992 US",
+          "MODEL": "Imperial",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5586,
+          "DIMENSION-ID": "Chrysler Imperial Sedan 1993 US",
+          "MODEL": "Imperial",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Imperial仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5591,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1990 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5592,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1991 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5593,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1992 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5594,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1993 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5595,
+          "DIMENSION-ID": "Chrysler LeBaron Sedan 1994 US",
+          "MODEL": "LeBaron",
+          "YEAR": "1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 LeBaron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5596,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1949 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1949",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5597,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1950 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1950",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5598,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1951 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1951",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5599,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1952 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1952",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5600,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1953 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1953",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5601,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1954 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1954",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5607,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1979 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1979",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5608,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1980 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5609,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1981 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1981",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5610,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1982 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5611,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1983 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1983",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5612,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1984 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5613,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1985 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1985",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5614,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1986 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1986",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5615,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1987 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1987",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5616,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1989 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1989",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5617,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1990 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5618,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1991 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5619,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1992 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5620,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1993 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5621,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1994 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5622,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1995 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1995",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5623,
+          "DIMENSION-ID": "Chrysler New Yorker Sedan 1996 US",
+          "MODEL": "New Yorker",
+          "YEAR": "1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 New Yorker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5644,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1953 US",
+          "MODEL": "Windsor",
+          "YEAR": "1953",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5645,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1954 US",
+          "MODEL": "Windsor",
+          "YEAR": "1954",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5646,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1956 US",
+          "MODEL": "Windsor",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5647,
+          "DIMENSION-ID": "Chrysler Windsor Sedan 1957 US",
+          "MODEL": "Windsor",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Executive Sedan/Limousine 与 Windsor仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 44,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Chrysler / Executive Sedan/Limousine原名到明确US目标的可引用身份关系；参考年份1984|1985的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-9533aa9cace7c3034513bc14",
+      "MM_ID": "MM-3f1119aa43199622eb7d517e",
+      "REGION": "US",
+      "MAKE": "Chrysler",
+      "MODEL": "Executive Sedan/Limousine",
+      "YEAR": "1984",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Chrysler",
+      "标准MODEL": "Executive Sedan/Limousine",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "11839",
+        "11840"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 3-spd, 4 cyl, 2.6 L, (FFS)",
+        "Auto 3-spd, 4 cyl, 2.6 L, CA model"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-69d8888eb4b196052e02c1f4",
+      "MM_ID": "MM-3f1119aa43199622eb7d517e",
+      "REGION": "US",
+      "MAKE": "Chrysler",
+      "MODEL": "Executive Sedan/Limousine",
+      "YEAR": "1985",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Chrysler",
+      "标准MODEL": "Executive Sedan/Limousine",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "11841"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 3-spd, 4 cyl, 2.6 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

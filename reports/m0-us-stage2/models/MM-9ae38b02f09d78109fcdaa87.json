@@ -1,0 +1,293 @@
+{
+  "MAKE": "BMW",
+  "MODEL": "750il/750il Protection",
+  "MM_ID": "MM-9ae38b02f09d78109fcdaa87",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "BMW",
+    "MODEL": "750il/750il Protection",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 3786,
+      "MM_ID": "MM-9ae38b02f09d78109fcdaa87",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "3787",
+      "raw_make": "BMW",
+      "raw_model": "750il/750il Protection",
+      "raw_year": "2000",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 5-spd, 12 cyl, 5.4 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 5861,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "motorcycle",
+      "make_slug": "bmw",
+      "make_name": "BMW",
+      "model_slug": "f750",
+      "model_name": "F750",
+      "body_types": "",
+      "countries": "au|gb|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "2",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5862,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "motorcycle",
+      "make_slug": "bmw",
+      "make_name": "BMW",
+      "model_slug": "f750gs",
+      "model_name": "F750GS",
+      "body_types": "",
+      "countries": "ch|es|fi|lu|nl|ua",
+      "regions": "eu",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bmw",
+      "same_brand_rows_examined": 298,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 6,
+      "candidates": [
+        {
+          "row_1based": 243,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1987-1994 US",
+          "MODEL": "7 Series",
+          "YEAR": "1987-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 244,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1995-2001 US",
+          "MODEL": "7 Series",
+          "YEAR": "1995-2001",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 245,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2002-2008 US",
+          "MODEL": "7 Series",
+          "YEAR": "2002-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 246,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2009-2015 US",
+          "MODEL": "7 Series",
+          "YEAR": "2009-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 247,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2016-2022 US",
+          "MODEL": "7 Series",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 248,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2023-2026 US",
+          "MODEL": "7 Series",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 6,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bmw",
+      "same_brand_rows_examined": 298,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 6,
+      "candidates": [
+        {
+          "row_1based": 243,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1987-1994 US",
+          "MODEL": "7 Series",
+          "YEAR": "1987-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 244,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1995-2001 US",
+          "MODEL": "7 Series",
+          "YEAR": "1995-2001",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 245,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2002-2008 US",
+          "MODEL": "7 Series",
+          "YEAR": "2002-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 246,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2009-2015 US",
+          "MODEL": "7 Series",
+          "YEAR": "2009-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 247,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2016-2022 US",
+          "MODEL": "7 Series",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 248,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2023-2026 US",
+          "MODEL": "7 Series",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "750il/750il Protection 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 6,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "BMW / 750il/750il Protection原名到明确US目标的可引用身份关系；参考年份2000的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-512253008719ea22ab634084",
+      "MM_ID": "MM-9ae38b02f09d78109fcdaa87",
+      "REGION": "US",
+      "MAKE": "BMW",
+      "MODEL": "750il/750il Protection",
+      "YEAR": "2000",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "BMW",
+      "标准MODEL": "750il/750il Protection",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "3787"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 5-spd, 12 cyl, 5.4 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1121 @@
+{
+  "MAKE": "smart",
+  "MODEL": "EQ fortwo (coupe)",
+  "MM_ID": "MM-2b9ddc5742bac8b03d3fb1e6",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "smart",
+    "MODEL": "EQ fortwo (coupe)",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 45052,
+      "MM_ID": "MM-2b9ddc5742bac8b03d3fb1e6",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45053",
+      "raw_make": "smart",
+      "raw_model": "EQ fortwo (coupe)",
+      "raw_year": "2019",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (A1)"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4727,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "smart",
+      "make_name": "Smart",
+      "model_slug": "coupe",
+      "model_name": "Coupe",
+      "body_types": "hatchback",
+      "countries": "ch|fi|no|nz|ua",
+      "regions": "eu|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    },
+    {
+      "record": 4730,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "smart",
+      "make_name": "Smart",
+      "model_slug": "eq-forfour",
+      "model_name": "EQ Forfour",
+      "body_types": "sedan",
+      "countries": "ch|es|fi|il|lu|nl|no|ua",
+      "regions": "as|eu",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 4731,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "smart",
+      "make_name": "Smart",
+      "model_slug": "eq-fortwo",
+      "model_name": "EQ Fortwo",
+      "body_types": "coupe",
+      "countries": "ch|es|fi|il|lu|nl|no|ua|us",
+      "regions": "as|eu|na",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 4735,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "smart",
+      "make_name": "Smart",
+      "model_slug": "fortwo",
+      "model_name": "Fortwo",
+      "body_types": "hatchback",
+      "countries": "au|ca|ch|de|es|fi|gb|il|lu|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "3",
+      "aliases": "Fortwo Coupe|Fortwo Cabrio",
+      "former_ids": "car/smart/for-two",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 4736,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "smart",
+      "make_name": "Smart",
+      "model_slug": "fortwo-brabus",
+      "model_name": "Fortwo Brabus",
+      "body_types": "hatchback",
+      "countries": "ch|lu",
+      "regions": "eu",
+      "global_popularity_decile": "10",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    },
+    {
+      "record": 4744,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "smart",
+      "make_name": "Smart",
+      "model_slug": "roadster-coupe",
+      "model_name": "Roadster-Coupe",
+      "body_types": "convertible",
+      "countries": "ch|fi|lu|nl|no",
+      "regions": "eu",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 4745,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "smart",
+      "make_name": "Smart",
+      "model_slug": "roadster-coupe-brabus",
+      "model_name": "Roadster-Coupe Brabus",
+      "body_types": "convertible",
+      "countries": "fi|lu|nl|no",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "5"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "smart",
+      "same_brand_rows_examined": 12,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 12,
+      "candidates": [
+        {
+          "row_1based": 4755,
+          "DIMENSION-ID": "smart fortwo Coupe 2013 US",
+          "MODEL": "fortwo",
+          "YEAR": "2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4756,
+          "DIMENSION-ID": "smart fortwo Coupe 2014 US",
+          "MODEL": "fortwo",
+          "YEAR": "2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4757,
+          "DIMENSION-ID": "smart fortwo Coupe 2017 US",
+          "MODEL": "fortwo",
+          "YEAR": "2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4785,
+          "DIMENSION-ID": "smart fortwo Coupe 2008 US",
+          "MODEL": "fortwo",
+          "YEAR": "2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4786,
+          "DIMENSION-ID": "smart fortwo Coupe 2012 US",
+          "MODEL": "fortwo",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4809,
+          "DIMENSION-ID": "smart fortwo Coupe 2009 US",
+          "MODEL": "fortwo",
+          "YEAR": "2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4810,
+          "DIMENSION-ID": "smart fortwo Coupe 2010 US",
+          "MODEL": "fortwo",
+          "YEAR": "2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4811,
+          "DIMENSION-ID": "smart fortwo Coupe 2011 US",
+          "MODEL": "fortwo",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4812,
+          "DIMENSION-ID": "smart fortwo Coupe 2015 US",
+          "MODEL": "fortwo",
+          "YEAR": "2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4813,
+          "DIMENSION-ID": "smart fortwo Coupe 2016 US",
+          "MODEL": "fortwo",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4814,
+          "DIMENSION-ID": "smart fortwo Coupe 2018 US",
+          "MODEL": "fortwo",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4815,
+          "DIMENSION-ID": "smart fortwo Coupe 2019 US",
+          "MODEL": "fortwo",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 12,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 36,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 24840,
+          "DIMENSION-ID": "Smart Fortwo A453 L2695 W1663 H1552 Convertible 2017-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24841,
+          "DIMENSION-ID": "Smart Fortwo A453 L2695 W1663 H1553 Convertible 2017-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24842,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2015-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2015-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24843,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2016-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24844,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2004-2007 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2004-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24845,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2007-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24846,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2008-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24847,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2009-2011 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24848,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2009-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24849,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2010-2012 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24850,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2010-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24851,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2011-2012 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24852,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2013-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24853,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2014-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24854,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2016-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24855,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2017-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24856,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2004-2006 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2004-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24857,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2004-2007 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2004-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24858,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2007-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24859,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2008-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24860,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2009-2011 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24861,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2009-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24862,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2010-2012 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24863,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2010-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24864,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2011-2012 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24865,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2012-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24866,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2013-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11049,
+          "DIMENSION-ID": "Smart Fortwo Convertible 1998-2004 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11050,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2003-2007 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11051,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2007-2015 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2007-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11052,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2014-2024 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2014-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11053,
+          "DIMENSION-ID": "Smart Fortwo Crossblade Roadster 1998-2004 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11054,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 1998-2004 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11055,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 2003-2007 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11056,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 2007-2015 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2007-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11057,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 2014-2024 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2014-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "smart",
+      "same_brand_rows_examined": 12,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 12,
+      "candidates": [
+        {
+          "row_1based": 4755,
+          "DIMENSION-ID": "smart fortwo Coupe 2013 US",
+          "MODEL": "fortwo",
+          "YEAR": "2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4756,
+          "DIMENSION-ID": "smart fortwo Coupe 2014 US",
+          "MODEL": "fortwo",
+          "YEAR": "2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4757,
+          "DIMENSION-ID": "smart fortwo Coupe 2017 US",
+          "MODEL": "fortwo",
+          "YEAR": "2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4785,
+          "DIMENSION-ID": "smart fortwo Coupe 2008 US",
+          "MODEL": "fortwo",
+          "YEAR": "2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4786,
+          "DIMENSION-ID": "smart fortwo Coupe 2012 US",
+          "MODEL": "fortwo",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4809,
+          "DIMENSION-ID": "smart fortwo Coupe 2009 US",
+          "MODEL": "fortwo",
+          "YEAR": "2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4810,
+          "DIMENSION-ID": "smart fortwo Coupe 2010 US",
+          "MODEL": "fortwo",
+          "YEAR": "2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4811,
+          "DIMENSION-ID": "smart fortwo Coupe 2011 US",
+          "MODEL": "fortwo",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4812,
+          "DIMENSION-ID": "smart fortwo Coupe 2015 US",
+          "MODEL": "fortwo",
+          "YEAR": "2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4813,
+          "DIMENSION-ID": "smart fortwo Coupe 2016 US",
+          "MODEL": "fortwo",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4814,
+          "DIMENSION-ID": "smart fortwo Coupe 2018 US",
+          "MODEL": "fortwo",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4815,
+          "DIMENSION-ID": "smart fortwo Coupe 2019 US",
+          "MODEL": "fortwo",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词fortwo，但EQ fortwo (coupe)到fortwo缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 12,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 36,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 24840,
+          "DIMENSION-ID": "Smart Fortwo A453 L2695 W1663 H1552 Convertible 2017-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24841,
+          "DIMENSION-ID": "Smart Fortwo A453 L2695 W1663 H1553 Convertible 2017-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24842,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2015-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2015-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24843,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2016-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24844,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2004-2007 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2004-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24845,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2007-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24846,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2008-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24847,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2009-2011 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24848,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2009-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24849,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2010-2012 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24850,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2010-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24851,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2011-2012 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24852,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2013-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24853,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2014-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24854,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2016-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24855,
+          "DIMENSION-ID": "Smart Fortwo Coupe 2017-2026 EU",
+          "MODEL": "Fortwo",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24856,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2004-2006 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2004-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24857,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2004-2007 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2004-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24858,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2007-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24859,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2008-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24860,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2009-2011 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24861,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2009-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24862,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2010-2012 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24863,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2010-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24864,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2011-2012 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24865,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2012-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 24866,
+          "DIMENSION-ID": "Smart Fortwo cabrio Convertible 2013-2026 EU",
+          "MODEL": "Fortwo cabrio",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11049,
+          "DIMENSION-ID": "Smart Fortwo Convertible 1998-2004 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11050,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2003-2007 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11051,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2007-2015 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2007-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11052,
+          "DIMENSION-ID": "Smart Fortwo Convertible 2014-2024 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2014-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11053,
+          "DIMENSION-ID": "Smart Fortwo Crossblade Roadster 1998-2004 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11054,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 1998-2004 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11055,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 2003-2007 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11056,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 2007-2015 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2007-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11057,
+          "DIMENSION-ID": "Smart Fortwo Hatchback 2014-2024 RU",
+          "MODEL": "Fortwo",
+          "YEAR": "2014-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "smart / EQ fortwo (coupe)原名到明确US目标的可引用身份关系；参考年份2019的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-a73dac1b08ae3f5b8c73cf60",
+      "MM_ID": "MM-2b9ddc5742bac8b03d3fb1e6",
+      "REGION": "US",
+      "MAKE": "smart",
+      "MODEL": "EQ fortwo (coupe)",
+      "YEAR": "2019",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "smart",
+      "标准MODEL": "EQ fortwo (coupe)",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "45053"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (A1)"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "smart fortwo Coupe 2019 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "smart fortwo Coupe 2019 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ]
+}

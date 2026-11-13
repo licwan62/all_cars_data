@@ -1,0 +1,1569 @@
+{
+  "MAKE": "MINI",
+  "MODEL": "Cooper Countryman Coupe",
+  "MM_ID": "MM-8c3d77a15999c9e1faba7880",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "MINI",
+    "MODEL": "Cooper Countryman Coupe",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 36400,
+      "MM_ID": "MM-8c3d77a15999c9e1faba7880",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "36401",
+      "raw_make": "MINI",
+      "raw_model": "Cooper Countryman Coupe",
+      "raw_year": "2013",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S6), 4 cyl, 1.6 L"
+    },
+    {
+      "association_row_1based": 36401,
+      "MM_ID": "MM-8c3d77a15999c9e1faba7880",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "36402",
+      "raw_make": "MINI",
+      "raw_model": "Cooper Countryman Coupe",
+      "raw_year": "2013",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 6-spd, 4 cyl, 1.6 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 3637,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "mini",
+      "make_name": "Mini",
+      "model_slug": "cooper",
+      "model_name": "Cooper",
+      "body_types": "hatchback",
+      "countries": "ar|au|ca|ch|de|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "2",
+      "aliases": "MINI Hatch|MINI Hardtop",
+      "former_ids": "car/mini/coopper-s|car/mini/hatch",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 3638,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "mini",
+      "make_name": "Mini",
+      "model_slug": "countryman",
+      "model_name": "Countryman",
+      "body_types": "suv",
+      "countries": "ar|au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "2",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "mini",
+      "same_brand_rows_examined": 52,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 50,
+      "candidates": [
+        {
+          "row_1based": 2659,
+          "DIMENSION-ID": "MINI Clubman Wagon 2008-2014 US",
+          "MODEL": "Clubman",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2660,
+          "DIMENSION-ID": "MINI Clubman Wagon 2016-2023 US",
+          "MODEL": "Clubman",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2661,
+          "DIMENSION-ID": "MINI Clubman Wagon 2024 US",
+          "MODEL": "Clubman",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2662,
+          "DIMENSION-ID": "MINI Convertible Convertible 2005-2008 US",
+          "MODEL": "Convertible",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2663,
+          "DIMENSION-ID": "MINI Convertible Convertible 2009-2010 US",
+          "MODEL": "Convertible",
+          "YEAR": "2009-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2664,
+          "DIMENSION-ID": "MINI Convertible Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2665,
+          "DIMENSION-ID": "MINI Convertible Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2666,
+          "DIMENSION-ID": "MINI Convertible Convertible 2024 US",
+          "MODEL": "Convertible",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2667,
+          "DIMENSION-ID": "MINI Convertible Convertible 2025-2026 US",
+          "MODEL": "Convertible",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2668,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2669,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2670,
+          "DIMENSION-ID": "MINI Cooper 2dr Hatchback 2014 US",
+          "MODEL": "Cooper",
+          "YEAR": "2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2671,
+          "DIMENSION-ID": "MINI Cooper 2dr Hatchback 2015-2023 US",
+          "MODEL": "Cooper",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2672,
+          "DIMENSION-ID": "MINI Cooper 2dr Hatchback 2025-2026 US",
+          "MODEL": "Cooper",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2673,
+          "DIMENSION-ID": "MINI Cooper 2dr S Hatchback 2024 US",
+          "MODEL": "Cooper",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2674,
+          "DIMENSION-ID": "MINI Cooper 2dr SE Hatchback 2024 US",
+          "MODEL": "Cooper",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2675,
+          "DIMENSION-ID": "MINI Cooper 4dr Hatchback 2015-2023 US",
+          "MODEL": "Cooper",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2676,
+          "DIMENSION-ID": "MINI Cooper 4dr S Hatchback 2024 US",
+          "MODEL": "Cooper",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2677,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2002-2006 US",
+          "MODEL": "Cooper",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2678,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2007-2010 US",
+          "MODEL": "Cooper",
+          "YEAR": "2007-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2679,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2011-2013 US",
+          "MODEL": "Cooper",
+          "YEAR": "2011-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2680,
+          "DIMENSION-ID": "MINI Cooper SE Hatchback 2020-2024 US",
+          "MODEL": "Cooper SE",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词cooper，但Cooper Countryman Coupe到Cooper SE缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2681,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2016 US",
+          "MODEL": "Countryman",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2682,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2018 US",
+          "MODEL": "Countryman",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2683,
+          "DIMENSION-ID": "MINI Countryman SUV 2011-2015 US",
+          "MODEL": "Countryman",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2684,
+          "DIMENSION-ID": "MINI Countryman SUV 2017-2024 US",
+          "MODEL": "Countryman",
+          "YEAR": "2017-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2685,
+          "DIMENSION-ID": "MINI Countryman SUV 2025-2026 US",
+          "MODEL": "Countryman",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2686,
+          "DIMENSION-ID": "MINI Coupe Coupe 2012-2015 US",
+          "MODEL": "Coupe",
+          "YEAR": "2012-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词coupe，但Cooper Countryman Coupe到Coupe缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2687,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2002-2006 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2688,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2007-2008 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2689,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2009 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2690,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2010 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2691,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2011 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2692,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2012 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2012",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2693,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2013 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2694,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2014-2015 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2014-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2695,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2016-2019 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2016-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2696,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2020 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2697,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2021-2024 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2698,
+          "DIMENSION-ID": "MINI Hardtop 4dr Hatchback 2015 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2699,
+          "DIMENSION-ID": "MINI Hardtop 4dr Hatchback 2016-2024 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2016-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2700,
+          "DIMENSION-ID": "MINI Hatchback 2dr Cooper SE Hatchback 2020-2024 US",
+          "MODEL": "Hatchback",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hatchback仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2701,
+          "DIMENSION-ID": "MINI Hatchback 2dr Hatchback 2002-2006 US",
+          "MODEL": "Hatchback",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hatchback仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2702,
+          "DIMENSION-ID": "MINI Hatchback 2dr Hatchback 2007-2013 US",
+          "MODEL": "Hatchback",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hatchback仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2705,
+          "DIMENSION-ID": "MINI Paceman JCW ALL4 Crossover 2016 US",
+          "MODEL": "Paceman",
+          "YEAR": "2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Paceman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2706,
+          "DIMENSION-ID": "MINI Paceman SUV 2013-2015 US",
+          "MODEL": "Paceman",
+          "YEAR": "2013-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Paceman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2707,
+          "DIMENSION-ID": "MINI Roadster Convertible 2012-2014 US",
+          "MODEL": "Roadster",
+          "YEAR": "2012-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2708,
+          "DIMENSION-ID": "MINI Roadster JCW Convertible 2015 US",
+          "MODEL": "Roadster",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4631,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2027 US",
+          "MODEL": "Cooper",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4632,
+          "DIMENSION-ID": "MINI Countryman SUV 2027 US",
+          "MODEL": "Countryman",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 19,
+      "excluded_search_noise_hits": 31,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 8208,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8209,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8210,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8211,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8212,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8213,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8214,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8215,
+          "DIMENSION-ID": "Mini Countryman S SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8216,
+          "DIMENSION-ID": "Mini Countryman SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8217,
+          "DIMENSION-ID": "Mini Countryman SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8218,
+          "DIMENSION-ID": "Mini Countryman SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8219,
+          "DIMENSION-ID": "Mini Countryman SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8220,
+          "DIMENSION-ID": "Mini Coupe Cooper S Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8221,
+          "DIMENSION-ID": "Mini Coupe Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8222,
+          "DIMENSION-ID": "Mini Coupe JCW Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "mini",
+      "same_brand_rows_examined": 52,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 50,
+      "candidates": [
+        {
+          "row_1based": 2659,
+          "DIMENSION-ID": "MINI Clubman Wagon 2008-2014 US",
+          "MODEL": "Clubman",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2660,
+          "DIMENSION-ID": "MINI Clubman Wagon 2016-2023 US",
+          "MODEL": "Clubman",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2661,
+          "DIMENSION-ID": "MINI Clubman Wagon 2024 US",
+          "MODEL": "Clubman",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2662,
+          "DIMENSION-ID": "MINI Convertible Convertible 2005-2008 US",
+          "MODEL": "Convertible",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2663,
+          "DIMENSION-ID": "MINI Convertible Convertible 2009-2010 US",
+          "MODEL": "Convertible",
+          "YEAR": "2009-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2664,
+          "DIMENSION-ID": "MINI Convertible Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2665,
+          "DIMENSION-ID": "MINI Convertible Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2666,
+          "DIMENSION-ID": "MINI Convertible Convertible 2024 US",
+          "MODEL": "Convertible",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2667,
+          "DIMENSION-ID": "MINI Convertible Convertible 2025-2026 US",
+          "MODEL": "Convertible",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2668,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2669,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2670,
+          "DIMENSION-ID": "MINI Cooper 2dr Hatchback 2014 US",
+          "MODEL": "Cooper",
+          "YEAR": "2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2671,
+          "DIMENSION-ID": "MINI Cooper 2dr Hatchback 2015-2023 US",
+          "MODEL": "Cooper",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2672,
+          "DIMENSION-ID": "MINI Cooper 2dr Hatchback 2025-2026 US",
+          "MODEL": "Cooper",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2673,
+          "DIMENSION-ID": "MINI Cooper 2dr S Hatchback 2024 US",
+          "MODEL": "Cooper",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2674,
+          "DIMENSION-ID": "MINI Cooper 2dr SE Hatchback 2024 US",
+          "MODEL": "Cooper",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2675,
+          "DIMENSION-ID": "MINI Cooper 4dr Hatchback 2015-2023 US",
+          "MODEL": "Cooper",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2676,
+          "DIMENSION-ID": "MINI Cooper 4dr S Hatchback 2024 US",
+          "MODEL": "Cooper",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2677,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2002-2006 US",
+          "MODEL": "Cooper",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2678,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2007-2010 US",
+          "MODEL": "Cooper",
+          "YEAR": "2007-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2679,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2011-2013 US",
+          "MODEL": "Cooper",
+          "YEAR": "2011-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2680,
+          "DIMENSION-ID": "MINI Cooper SE Hatchback 2020-2024 US",
+          "MODEL": "Cooper SE",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词cooper，但Cooper Countryman Coupe到Cooper SE缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2681,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2016 US",
+          "MODEL": "Countryman",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2682,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2018 US",
+          "MODEL": "Countryman",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2683,
+          "DIMENSION-ID": "MINI Countryman SUV 2011-2015 US",
+          "MODEL": "Countryman",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2684,
+          "DIMENSION-ID": "MINI Countryman SUV 2017-2024 US",
+          "MODEL": "Countryman",
+          "YEAR": "2017-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2685,
+          "DIMENSION-ID": "MINI Countryman SUV 2025-2026 US",
+          "MODEL": "Countryman",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2686,
+          "DIMENSION-ID": "MINI Coupe Coupe 2012-2015 US",
+          "MODEL": "Coupe",
+          "YEAR": "2012-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词coupe，但Cooper Countryman Coupe到Coupe缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2687,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2002-2006 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2688,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2007-2008 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2689,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2009 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2690,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2010 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2691,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2011 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2692,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2012 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2012",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2693,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2013 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2694,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2014-2015 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2014-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2695,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2016-2019 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2016-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2696,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2020 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2697,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2021-2024 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2698,
+          "DIMENSION-ID": "MINI Hardtop 4dr Hatchback 2015 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2699,
+          "DIMENSION-ID": "MINI Hardtop 4dr Hatchback 2016-2024 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2016-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2700,
+          "DIMENSION-ID": "MINI Hatchback 2dr Cooper SE Hatchback 2020-2024 US",
+          "MODEL": "Hatchback",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hatchback仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2701,
+          "DIMENSION-ID": "MINI Hatchback 2dr Hatchback 2002-2006 US",
+          "MODEL": "Hatchback",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hatchback仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2702,
+          "DIMENSION-ID": "MINI Hatchback 2dr Hatchback 2007-2013 US",
+          "MODEL": "Hatchback",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Hatchback仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2705,
+          "DIMENSION-ID": "MINI Paceman JCW ALL4 Crossover 2016 US",
+          "MODEL": "Paceman",
+          "YEAR": "2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Paceman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2706,
+          "DIMENSION-ID": "MINI Paceman SUV 2013-2015 US",
+          "MODEL": "Paceman",
+          "YEAR": "2013-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Paceman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2707,
+          "DIMENSION-ID": "MINI Roadster Convertible 2012-2014 US",
+          "MODEL": "Roadster",
+          "YEAR": "2012-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2708,
+          "DIMENSION-ID": "MINI Roadster JCW Convertible 2015 US",
+          "MODEL": "Roadster",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Cooper Countryman Coupe 与 Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4631,
+          "DIMENSION-ID": "MINI Cooper Hatchback 2027 US",
+          "MODEL": "Cooper",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词cooper，但Cooper Countryman Coupe到Cooper缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4632,
+          "DIMENSION-ID": "MINI Countryman SUV 2027 US",
+          "MODEL": "Countryman",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但Cooper Countryman Coupe到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 19,
+      "excluded_search_noise_hits": 31,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 8208,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8209,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8210,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8211,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8212,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8213,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8214,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8215,
+          "DIMENSION-ID": "Mini Countryman S SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8216,
+          "DIMENSION-ID": "Mini Countryman SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8217,
+          "DIMENSION-ID": "Mini Countryman SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8218,
+          "DIMENSION-ID": "Mini Countryman SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8219,
+          "DIMENSION-ID": "Mini Countryman SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8220,
+          "DIMENSION-ID": "Mini Coupe Cooper S Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8221,
+          "DIMENSION-ID": "Mini Coupe Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8222,
+          "DIMENSION-ID": "Mini Coupe JCW Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "MINI / Cooper Countryman Coupe原名到明确US目标的可引用身份关系；参考年份2013的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-a27d0e53c23fb8171636f3b8",
+      "MM_ID": "MM-8c3d77a15999c9e1faba7880",
+      "REGION": "US",
+      "MAKE": "MINI",
+      "MODEL": "Cooper Countryman Coupe",
+      "YEAR": "2013",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "MINI",
+      "标准MODEL": "Cooper Countryman Coupe",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "36401",
+        "36402"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S6), 4 cyl, 1.6 L",
+        "Man 6-spd, 4 cyl, 1.6 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "MINI Cooper Hatchback 2011-2013 US",
+            "MINI Countryman SUV 2011-2015 US",
+            "MINI Coupe Coupe 2012-2015 US"
+          ],
+          "candidate_same_year_hits": 3
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "MINI Cooper Hatchback 2011-2013 US",
+            "MINI Countryman SUV 2011-2015 US",
+            "MINI Coupe Coupe 2012-2015 US"
+          ],
+          "candidate_same_year_hits": 3
+        }
+      }
+    }
+  ]
+}

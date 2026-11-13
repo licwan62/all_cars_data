@@ -1,0 +1,839 @@
+{
+  "MAKE": "Daihatsu",
+  "MODEL": "Charade E",
+  "MM_ID": "MM-cdcbdd59bcda0104aa2fe848",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Daihatsu",
+    "MODEL": "Charade E",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 12463,
+      "MM_ID": "MM-cdcbdd59bcda0104aa2fe848",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "12464",
+      "raw_make": "Daihatsu",
+      "raw_model": "Charade E",
+      "raw_year": "1989",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 4 cyl, 1.3 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 1114,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "daihatsu",
+      "make_name": "Daihatsu",
+      "model_slug": "charade",
+      "model_name": "Charade",
+      "body_types": "hatchback",
+      "countries": "au|ch|fi|gb|il|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "2"
+    },
+    {
+      "record": 1115,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "daihatsu",
+      "make_name": "Daihatsu",
+      "model_slug": "charade-cg",
+      "model_name": "Charade Cg",
+      "body_types": "hatchback",
+      "countries": "nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    },
+    {
+      "record": 1116,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "daihatsu",
+      "make_name": "Daihatsu",
+      "model_slug": "charade-cs",
+      "model_name": "Charade Cs",
+      "body_types": "hatchback",
+      "countries": "nl|no|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "7"
+    },
+    {
+      "record": 1117,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "daihatsu",
+      "make_name": "Daihatsu",
+      "model_slug": "charade-gt-ti",
+      "model_name": "Charade GT Ti",
+      "body_types": "hatchback",
+      "countries": "nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    },
+    {
+      "record": 1118,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "daihatsu",
+      "make_name": "Daihatsu",
+      "model_slug": "charade-xte",
+      "model_name": "Charade Xte",
+      "body_types": "hatchback",
+      "countries": "nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "7"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "daihatsu",
+      "same_brand_rows_examined": 3,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 39,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 5935,
+          "DIMENSION-ID": "Daihatsu Charade i 3dr Hatchback 1981-1983 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5936,
+          "DIMENSION-ID": "Daihatsu Charade i 3dr facelift Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5937,
+          "DIMENSION-ID": "Daihatsu Charade i 3dr prefl Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5938,
+          "DIMENSION-ID": "Daihatsu Charade i 5dr Hatchback 1981-1983 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5939,
+          "DIMENSION-ID": "Daihatsu Charade i 5dr facelift Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5940,
+          "DIMENSION-ID": "Daihatsu Charade i 5dr prefl Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5941,
+          "DIMENSION-ID": "Daihatsu Charade ii Hatchback 1985-1987 EU",
+          "MODEL": "Charade ii",
+          "YEAR": "1985-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5942,
+          "DIMENSION-ID": "Daihatsu Charade ii facelift Hatchback 1983-1987 EU",
+          "MODEL": "Charade ii",
+          "YEAR": "1983-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5943,
+          "DIMENSION-ID": "Daihatsu Charade ii prefl Hatchback 1983-1987 EU",
+          "MODEL": "Charade ii",
+          "YEAR": "1983-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5944,
+          "DIMENSION-ID": "Daihatsu Charade iii G100 L3610 W1600 H1385 Hatchback 1987-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5945,
+          "DIMENSION-ID": "Daihatsu Charade iii G100 L3610 W1615 H1385 Hatchback 1987-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5946,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1987-1990 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1987-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5947,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1988-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5948,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1988-1993 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5949,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1989-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5950,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1990-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5951,
+          "DIMENSION-ID": "Daihatsu Charade iii Sedan 1990-1993 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5952,
+          "DIMENSION-ID": "Daihatsu Charade iv 3dr Hatchback 1993-2000 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5953,
+          "DIMENSION-ID": "Daihatsu Charade iv 5dr Hatchback 1993-2000 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5954,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1993-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1993-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5955,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1994-1996 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5956,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1996-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5957,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1997-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1997-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5958,
+          "DIMENSION-ID": "Daihatsu Charade iv Sedan 1994-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1994-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5959,
+          "DIMENSION-ID": "Daihatsu Charade iv Sedan 1994-2001 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1994-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5960,
+          "DIMENSION-ID": "Daihatsu Charade viii Hatchback 2011-2026 EU",
+          "MODEL": "Charade viii",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2843,
+          "DIMENSION-ID": "Daihatsu Charade Hatchback 1977-1983 RU",
+          "MODEL": "Charade",
+          "YEAR": "1977-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2844,
+          "DIMENSION-ID": "Daihatsu Charade Hatchback 1983-1987 RU",
+          "MODEL": "Charade",
+          "YEAR": "1983-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2845,
+          "DIMENSION-ID": "Daihatsu Charade Hatchback 1987-1993 RU",
+          "MODEL": "Charade",
+          "YEAR": "1987-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2846,
+          "DIMENSION-ID": "Daihatsu Charade L148.8 W63.8 H54.7 Hatchback 1993-1995 RU",
+          "MODEL": "Charade",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2847,
+          "DIMENSION-ID": "Daihatsu Charade L148.8 W63.8 H54.7 Hatchback 1995-2000 RU",
+          "MODEL": "Charade",
+          "YEAR": "1995-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2848,
+          "DIMENSION-ID": "Daihatsu Charade L147.6 W63.8 H54.5 Hatchback 1993-1995 RU",
+          "MODEL": "Charade",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2849,
+          "DIMENSION-ID": "Daihatsu Charade L148.8 W63.8 H54.5 Hatchback 1995-2000 RU",
+          "MODEL": "Charade",
+          "YEAR": "1995-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2850,
+          "DIMENSION-ID": "Daihatsu Charade Sedan 1987-1993 RU",
+          "MODEL": "Charade",
+          "YEAR": "1987-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2851,
+          "DIMENSION-ID": "Daihatsu Charade Sedan 1993-1995 RU",
+          "MODEL": "Charade",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2852,
+          "DIMENSION-ID": "Daihatsu Charade Sedan 1995-2000 RU",
+          "MODEL": "Charade",
+          "YEAR": "1995-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2910,
+          "DIMENSION-ID": "Daihatsu Mira e:S Hatchback 2011-2013 RU",
+          "MODEL": "Mira e:S",
+          "YEAR": "2011-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2911,
+          "DIMENSION-ID": "Daihatsu Mira e:S Hatchback 2013-2017 RU",
+          "MODEL": "Mira e:S",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2912,
+          "DIMENSION-ID": "Daihatsu Mira e:S Hatchback 2017-2023 RU",
+          "MODEL": "Mira e:S",
+          "YEAR": "2017-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "daihatsu",
+      "same_brand_rows_examined": 3,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 39,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 5935,
+          "DIMENSION-ID": "Daihatsu Charade i 3dr Hatchback 1981-1983 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5936,
+          "DIMENSION-ID": "Daihatsu Charade i 3dr facelift Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5937,
+          "DIMENSION-ID": "Daihatsu Charade i 3dr prefl Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5938,
+          "DIMENSION-ID": "Daihatsu Charade i 5dr Hatchback 1981-1983 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5939,
+          "DIMENSION-ID": "Daihatsu Charade i 5dr facelift Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5940,
+          "DIMENSION-ID": "Daihatsu Charade i 5dr prefl Hatchback 1977-1981 EU",
+          "MODEL": "Charade i",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5941,
+          "DIMENSION-ID": "Daihatsu Charade ii Hatchback 1985-1987 EU",
+          "MODEL": "Charade ii",
+          "YEAR": "1985-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5942,
+          "DIMENSION-ID": "Daihatsu Charade ii facelift Hatchback 1983-1987 EU",
+          "MODEL": "Charade ii",
+          "YEAR": "1983-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5943,
+          "DIMENSION-ID": "Daihatsu Charade ii prefl Hatchback 1983-1987 EU",
+          "MODEL": "Charade ii",
+          "YEAR": "1983-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5944,
+          "DIMENSION-ID": "Daihatsu Charade iii G100 L3610 W1600 H1385 Hatchback 1987-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5945,
+          "DIMENSION-ID": "Daihatsu Charade iii G100 L3610 W1615 H1385 Hatchback 1987-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5946,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1987-1990 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1987-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5947,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1988-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5948,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1988-1993 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5949,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1989-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5950,
+          "DIMENSION-ID": "Daihatsu Charade iii Hatchback 1990-1992 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5951,
+          "DIMENSION-ID": "Daihatsu Charade iii Sedan 1990-1993 EU",
+          "MODEL": "Charade iii",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5952,
+          "DIMENSION-ID": "Daihatsu Charade iv 3dr Hatchback 1993-2000 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5953,
+          "DIMENSION-ID": "Daihatsu Charade iv 5dr Hatchback 1993-2000 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5954,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1993-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1993-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5955,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1994-1996 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5956,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1996-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5957,
+          "DIMENSION-ID": "Daihatsu Charade iv Hatchback 1997-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1997-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5958,
+          "DIMENSION-ID": "Daihatsu Charade iv Sedan 1994-1999 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1994-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5959,
+          "DIMENSION-ID": "Daihatsu Charade iv Sedan 1994-2001 EU",
+          "MODEL": "Charade iv",
+          "YEAR": "1994-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 5960,
+          "DIMENSION-ID": "Daihatsu Charade viii Hatchback 2011-2026 EU",
+          "MODEL": "Charade viii",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2843,
+          "DIMENSION-ID": "Daihatsu Charade Hatchback 1977-1983 RU",
+          "MODEL": "Charade",
+          "YEAR": "1977-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2844,
+          "DIMENSION-ID": "Daihatsu Charade Hatchback 1983-1987 RU",
+          "MODEL": "Charade",
+          "YEAR": "1983-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2845,
+          "DIMENSION-ID": "Daihatsu Charade Hatchback 1987-1993 RU",
+          "MODEL": "Charade",
+          "YEAR": "1987-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2846,
+          "DIMENSION-ID": "Daihatsu Charade L148.8 W63.8 H54.7 Hatchback 1993-1995 RU",
+          "MODEL": "Charade",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2847,
+          "DIMENSION-ID": "Daihatsu Charade L148.8 W63.8 H54.7 Hatchback 1995-2000 RU",
+          "MODEL": "Charade",
+          "YEAR": "1995-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2848,
+          "DIMENSION-ID": "Daihatsu Charade L147.6 W63.8 H54.5 Hatchback 1993-1995 RU",
+          "MODEL": "Charade",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2849,
+          "DIMENSION-ID": "Daihatsu Charade L148.8 W63.8 H54.5 Hatchback 1995-2000 RU",
+          "MODEL": "Charade",
+          "YEAR": "1995-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2850,
+          "DIMENSION-ID": "Daihatsu Charade Sedan 1987-1993 RU",
+          "MODEL": "Charade",
+          "YEAR": "1987-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2851,
+          "DIMENSION-ID": "Daihatsu Charade Sedan 1993-1995 RU",
+          "MODEL": "Charade",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2852,
+          "DIMENSION-ID": "Daihatsu Charade Sedan 1995-2000 RU",
+          "MODEL": "Charade",
+          "YEAR": "1995-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2910,
+          "DIMENSION-ID": "Daihatsu Mira e:S Hatchback 2011-2013 RU",
+          "MODEL": "Mira e:S",
+          "YEAR": "2011-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2911,
+          "DIMENSION-ID": "Daihatsu Mira e:S Hatchback 2013-2017 RU",
+          "MODEL": "Mira e:S",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2912,
+          "DIMENSION-ID": "Daihatsu Mira e:S Hatchback 2017-2023 RU",
+          "MODEL": "Mira e:S",
+          "YEAR": "2017-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Daihatsu / Charade E原名到明确US目标的可引用身份关系；参考年份1989的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-0731c0dff19aebccfb275afe",
+      "MM_ID": "MM-cdcbdd59bcda0104aa2fe848",
+      "REGION": "US",
+      "MAKE": "Daihatsu",
+      "MODEL": "Charade E",
+      "YEAR": "1989",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Daihatsu",
+      "标准MODEL": "Charade E",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "12464"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 4 cyl, 1.3 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

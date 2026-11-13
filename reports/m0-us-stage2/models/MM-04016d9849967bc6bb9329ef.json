@@ -1,0 +1,552 @@
+{
+  "MAKE": "Lincoln",
+  "MODEL": "Mark LT 4WD",
+  "MM_ID": "MM-04016d9849967bc6bb9329ef",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Lincoln",
+    "MODEL": "Mark LT",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 1258,
+      "raw_make": "Lincoln",
+      "raw_model": "Mark LT 4WD",
+      "make": "Lincoln",
+      "model": "Mark LT",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 31549,
+      "MM_ID": "MM-04016d9849967bc6bb9329ef",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "31550",
+      "raw_make": "Lincoln",
+      "raw_model": "Mark LT 4WD",
+      "raw_year": "2008",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 5.4 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 2924,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "lincoln",
+      "make_name": "Lincoln",
+      "model_slug": "continental-mark",
+      "model_name": "Continental Mark",
+      "body_types": "sedan",
+      "countries": "au|fi|nl|no",
+      "regions": "eu|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 2925,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "lincoln",
+      "make_name": "Lincoln",
+      "model_slug": "continental-mark-4",
+      "model_name": "Continental Mark 4",
+      "body_types": "coupe",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "7"
+    },
+    {
+      "record": 2926,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "lincoln",
+      "make_name": "Lincoln",
+      "model_slug": "continental-mark-5",
+      "model_name": "Continental Mark 5",
+      "body_types": "coupe",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    },
+    {
+      "record": 2934,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "lincoln",
+      "make_name": "Lincoln",
+      "model_slug": "mark",
+      "model_name": "Mark",
+      "body_types": "sedan",
+      "countries": "ca|fi|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 2935,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "lincoln",
+      "make_name": "Lincoln",
+      "model_slug": "mark-lt",
+      "model_name": "Mark Lt",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": ""
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "lincoln",
+      "same_brand_rows_examined": 94,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 2551,
+          "DIMENSION-ID": "Lincoln Continental Coupe 1956-1957 US",
+          "MODEL": "Continental",
+          "YEAR": "1956-1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Mark LT 4WD 与 Continental仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2558,
+          "DIMENSION-ID": "Lincoln Continental Coupe 1980 US",
+          "MODEL": "Continental",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Mark LT 4WD 与 Continental仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2596,
+          "DIMENSION-ID": "Lincoln Mark VII Coupe 1984-1992 US",
+          "MODEL": "Mark VII",
+          "YEAR": "1984-1992",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词mark，但Mark LT 4WD到Mark VII缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2597,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1993 US",
+          "MODEL": "Mark VIII",
+          "YEAR": "1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词mark，但Mark LT 4WD到Mark VIII缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2598,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1994-1998 US",
+          "MODEL": "Mark VIII",
+          "YEAR": "1994-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词mark，但Mark LT 4WD到Mark VIII缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 3,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 13,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 13054,
+          "DIMENSION-ID": "Lincoln Mark viii Coupe 1992-1998 EU",
+          "MODEL": "Mark viii",
+          "YEAR": "1992-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13055,
+          "DIMENSION-ID": "Lincoln Mark viii facelift Coupe 1993-1998 EU",
+          "MODEL": "Mark viii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13056,
+          "DIMENSION-ID": "Lincoln Mark viii prefl Coupe 1993-1998 EU",
+          "MODEL": "Mark viii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6855,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1968-1971 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1968-1971",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6856,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1972-1976 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1972-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6857,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1977-1979 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1977-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6858,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1980-1983 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6859,
+          "DIMENSION-ID": "Lincoln Continental Mark Sedan 1980-1983 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6885,
+          "DIMENSION-ID": "Lincoln Mark LT Pickup 2005-2009 Double RU",
+          "MODEL": "Mark LT",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6886,
+          "DIMENSION-ID": "Lincoln Mark LT Pickup 2009-2014 Double RU",
+          "MODEL": "Mark LT",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6887,
+          "DIMENSION-ID": "Lincoln Mark VII Coupe 1984-1992 RU",
+          "MODEL": "Mark VII",
+          "YEAR": "1984-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6888,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1992-1997 RU",
+          "MODEL": "Mark VIII",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6889,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1996-1998 RU",
+          "MODEL": "Mark VIII",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "lincoln",
+      "same_brand_rows_examined": 94,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 2551,
+          "DIMENSION-ID": "Lincoln Continental Coupe 1956-1957 US",
+          "MODEL": "Continental",
+          "YEAR": "1956-1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Mark LT 4WD 与 Continental仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2558,
+          "DIMENSION-ID": "Lincoln Continental Coupe 1980 US",
+          "MODEL": "Continental",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Mark LT 4WD 与 Continental仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2596,
+          "DIMENSION-ID": "Lincoln Mark VII Coupe 1984-1992 US",
+          "MODEL": "Mark VII",
+          "YEAR": "1984-1992",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词mark，但Mark LT 4WD到Mark VII缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2597,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1993 US",
+          "MODEL": "Mark VIII",
+          "YEAR": "1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词mark，但Mark LT 4WD到Mark VIII缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2598,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1994-1998 US",
+          "MODEL": "Mark VIII",
+          "YEAR": "1994-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词mark，但Mark LT 4WD到Mark VIII缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 3,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 13,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 13054,
+          "DIMENSION-ID": "Lincoln Mark viii Coupe 1992-1998 EU",
+          "MODEL": "Mark viii",
+          "YEAR": "1992-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13055,
+          "DIMENSION-ID": "Lincoln Mark viii facelift Coupe 1993-1998 EU",
+          "MODEL": "Mark viii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13056,
+          "DIMENSION-ID": "Lincoln Mark viii prefl Coupe 1993-1998 EU",
+          "MODEL": "Mark viii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6855,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1968-1971 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1968-1971",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6856,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1972-1976 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1972-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6857,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1977-1979 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1977-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6858,
+          "DIMENSION-ID": "Lincoln Continental Mark Coupe 1980-1983 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6859,
+          "DIMENSION-ID": "Lincoln Continental Mark Sedan 1980-1983 RU",
+          "MODEL": "Continental Mark",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6885,
+          "DIMENSION-ID": "Lincoln Mark LT Pickup 2005-2009 Double RU",
+          "MODEL": "Mark LT",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6886,
+          "DIMENSION-ID": "Lincoln Mark LT Pickup 2009-2014 Double RU",
+          "MODEL": "Mark LT",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6887,
+          "DIMENSION-ID": "Lincoln Mark VII Coupe 1984-1992 RU",
+          "MODEL": "Mark VII",
+          "YEAR": "1984-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6888,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1992-1997 RU",
+          "MODEL": "Mark VIII",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6889,
+          "DIMENSION-ID": "Lincoln Mark VIII Coupe 1996-1998 RU",
+          "MODEL": "Mark VIII",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Lincoln / Mark LT 4WD原名到明确US目标的可引用身份关系；参考年份2008的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-599d105827b6af2a1bbd43eb",
+      "MM_ID": "MM-04016d9849967bc6bb9329ef",
+      "REGION": "US",
+      "MAKE": "Lincoln",
+      "MODEL": "Mark LT 4WD",
+      "YEAR": "2008",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Lincoln",
+      "标准MODEL": "Mark LT",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "31550"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 5.4 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

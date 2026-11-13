@@ -1,0 +1,275 @@
+{
+  "MAKE": "Ferrari",
+  "MODEL": "550 Maranello/Barchetta",
+  "MM_ID": "MM-52fdf124fd9320e1bfd3a21c",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Ferrari",
+    "MODEL": "550 Maranello/Barchetta",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 15482,
+      "MM_ID": "MM-52fdf124fd9320e1bfd3a21c",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "15483",
+      "raw_make": "Ferrari",
+      "raw_model": "550 Maranello/Barchetta",
+      "raw_year": "2001",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 6-spd, 12 cyl, 5.5 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 1461,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "ferrari",
+      "make_name": "Ferrari",
+      "model_slug": "550",
+      "model_name": "550",
+      "body_types": "coupe",
+      "countries": "au|lu|nl|no|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 1462,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "ferrari",
+      "make_name": "Ferrari",
+      "model_slug": "550-maranello",
+      "model_name": "550 Maranello",
+      "body_types": "coupe",
+      "countries": "ca|ch|fi|nl|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    },
+    {
+      "record": 1464,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "ferrari",
+      "make_name": "Ferrari",
+      "model_slug": "575-m-maranello",
+      "model_name": "575 M Maranello",
+      "body_types": "coupe",
+      "countries": "ca|nl|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "car/ferrari/575m-maranello|car/ferrari/575m-maranello-f1",
+      "mass_popularity_decile": "7"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "ferrari",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 6,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 6416,
+          "DIMENSION-ID": "Ferrari 550 barchetta Convertible 2000-2005 EU",
+          "MODEL": "550 barchetta",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6420,
+          "DIMENSION-ID": "Ferrari 5__ maranello Coupe 1996-2001 EU",
+          "MODEL": "5__ maranello",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6421,
+          "DIMENSION-ID": "Ferrari 5__ maranello Coupe 1998-2002 EU",
+          "MODEL": "5__ maranello",
+          "YEAR": "1998-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6422,
+          "DIMENSION-ID": "Ferrari 5__ maranello Coupe 2002-2006 EU",
+          "MODEL": "5__ maranello",
+          "YEAR": "2002-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3415,
+          "DIMENSION-ID": "Ferrari 550 Barchetta Roadster 1996-2001 RU",
+          "MODEL": "550",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3416,
+          "DIMENSION-ID": "Ferrari 550 Maranello Coupe 1996-2001 RU",
+          "MODEL": "550",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "ferrari",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 6,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 6416,
+          "DIMENSION-ID": "Ferrari 550 barchetta Convertible 2000-2005 EU",
+          "MODEL": "550 barchetta",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6420,
+          "DIMENSION-ID": "Ferrari 5__ maranello Coupe 1996-2001 EU",
+          "MODEL": "5__ maranello",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6421,
+          "DIMENSION-ID": "Ferrari 5__ maranello Coupe 1998-2002 EU",
+          "MODEL": "5__ maranello",
+          "YEAR": "1998-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6422,
+          "DIMENSION-ID": "Ferrari 5__ maranello Coupe 2002-2006 EU",
+          "MODEL": "5__ maranello",
+          "YEAR": "2002-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3415,
+          "DIMENSION-ID": "Ferrari 550 Barchetta Roadster 1996-2001 RU",
+          "MODEL": "550",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3416,
+          "DIMENSION-ID": "Ferrari 550 Maranello Coupe 1996-2001 RU",
+          "MODEL": "550",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Ferrari / 550 Maranello/Barchetta原名到明确US目标的可引用身份关系；参考年份2001的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-3bc38d01132eafa54fadce21",
+      "MM_ID": "MM-52fdf124fd9320e1bfd3a21c",
+      "REGION": "US",
+      "MAKE": "Ferrari",
+      "MODEL": "550 Maranello/Barchetta",
+      "YEAR": "2001",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Ferrari",
+      "标准MODEL": "550 Maranello/Barchetta",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "15483"
+      ],
+      "source_year_body_or_trim": [
+        "Man 6-spd, 12 cyl, 5.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

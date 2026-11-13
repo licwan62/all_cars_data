@@ -1,0 +1,814 @@
+{
+  "MAKE": "Subaru",
+  "MODEL": "Justy AWD",
+  "MM_ID": "MM-708431d1013053c9276d3fe9",
+  "MMY_count": 3,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Subaru",
+    "MODEL": "Justy",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 2018,
+      "raw_make": "Subaru",
+      "raw_model": "Justy 4WD",
+      "make": "Subaru",
+      "model": "Justy",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    },
+    {
+      "csv_record": 2019,
+      "raw_make": "Subaru",
+      "raw_model": "Justy AWD",
+      "make": "Subaru",
+      "model": "Justy",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 45594,
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45595",
+      "raw_make": "Subaru",
+      "raw_model": "Justy AWD",
+      "raw_year": "1992",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (variable gear ratios), 3 cyl, 1.2 L"
+    },
+    {
+      "association_row_1based": 45595,
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45596",
+      "raw_make": "Subaru",
+      "raw_model": "Justy AWD",
+      "raw_year": "1992",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 3 cyl, 1.2 L"
+    },
+    {
+      "association_row_1based": 45596,
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45597",
+      "raw_make": "Subaru",
+      "raw_model": "Justy AWD",
+      "raw_year": "1993",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (variable gear ratios), 3 cyl, 1.2 L"
+    },
+    {
+      "association_row_1based": 45597,
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45598",
+      "raw_make": "Subaru",
+      "raw_model": "Justy AWD",
+      "raw_year": "1993",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 3 cyl, 1.2 L"
+    },
+    {
+      "association_row_1based": 45598,
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45599",
+      "raw_make": "Subaru",
+      "raw_model": "Justy AWD",
+      "raw_year": "1994",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 3 cyl, 1.2 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4813,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "subaru",
+      "make_name": "Subaru",
+      "model_slug": "g3x-justy",
+      "model_name": "G3X Justy",
+      "body_types": "hatchback|wagon",
+      "countries": "ch|nl|ua",
+      "regions": "eu",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 4820,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "subaru",
+      "make_name": "Subaru",
+      "model_slug": "justy",
+      "model_name": "Justy",
+      "body_types": "hatchback",
+      "countries": "ch|fi|gb|lu|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/subaru/justy-g3x",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "subaru",
+      "same_brand_rows_examined": 85,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 25080,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1984-1989 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25081,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1984-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25082,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1986-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25083,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1987-1991 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25084,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1987-1994 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25085,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1987-1995 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25086,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1990-1996 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25087,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1984-1989 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25088,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1984-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25089,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1986-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25090,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1987-1991 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25091,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1987-1994 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25092,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1987-1995 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25093,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1990-1996 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25094,
+          "DIMENSION-ID": "Subaru Justy ii 3dr Hatchback 1995-2003 EU",
+          "MODEL": "Justy ii",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25095,
+          "DIMENSION-ID": "Subaru Justy ii 5dr Hatchback 1995-2003 EU",
+          "MODEL": "Justy ii",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25096,
+          "DIMENSION-ID": "Subaru Justy ii Hatchback 2001-2003 EU",
+          "MODEL": "Justy ii",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25097,
+          "DIMENSION-ID": "Subaru Justy iii Hatchback 2003-2026 EU",
+          "MODEL": "Justy iii",
+          "YEAR": "2003-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25098,
+          "DIMENSION-ID": "Subaru Justy iv Hatchback 2007-2012 EU",
+          "MODEL": "Justy iv",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25099,
+          "DIMENSION-ID": "Subaru Justy iv Hatchback 2007-2026 EU",
+          "MODEL": "Justy iv",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25100,
+          "DIMENSION-ID": "Subaru Justy iv Hatchback 2008-2026 EU",
+          "MODEL": "Justy iv",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11232,
+          "DIMENSION-ID": "Subaru Justy Hatchback 1984-1991 RU",
+          "MODEL": "Justy",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11233,
+          "DIMENSION-ID": "Subaru Justy Hatchback 1987-1995 RU",
+          "MODEL": "Justy",
+          "YEAR": "1987-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11234,
+          "DIMENSION-ID": "Subaru Justy L147.4 W62.6 H53.1 Hatchback 1995-2003 RU",
+          "MODEL": "Justy",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11235,
+          "DIMENSION-ID": "Subaru Justy L151.4 W62.0 H54.3 Hatchback 1995-2003 RU",
+          "MODEL": "Justy",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11236,
+          "DIMENSION-ID": "Subaru Justy Hatchback 2003-2007 RU",
+          "MODEL": "Justy",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11237,
+          "DIMENSION-ID": "Subaru Justy Hatchback 2007-2011 RU",
+          "MODEL": "Justy",
+          "YEAR": "2007-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11238,
+          "DIMENSION-ID": "Subaru Justy MPV 2016-2020 RU",
+          "MODEL": "Justy",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11239,
+          "DIMENSION-ID": "Subaru Justy MPV 2020-2026 RU",
+          "MODEL": "Justy",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "subaru",
+      "same_brand_rows_examined": 85,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 25080,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1984-1989 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25081,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1984-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25082,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1986-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25083,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1987-1991 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25084,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1987-1994 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25085,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1987-1995 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25086,
+          "DIMENSION-ID": "Subaru Justy i 3dr Hatchback 1990-1996 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25087,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1984-1989 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25088,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1984-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25089,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1986-1990 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25090,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1987-1991 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25091,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1987-1994 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25092,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1987-1995 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1987-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25093,
+          "DIMENSION-ID": "Subaru Justy i 5dr Hatchback 1990-1996 EU",
+          "MODEL": "Justy i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25094,
+          "DIMENSION-ID": "Subaru Justy ii 3dr Hatchback 1995-2003 EU",
+          "MODEL": "Justy ii",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25095,
+          "DIMENSION-ID": "Subaru Justy ii 5dr Hatchback 1995-2003 EU",
+          "MODEL": "Justy ii",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25096,
+          "DIMENSION-ID": "Subaru Justy ii Hatchback 2001-2003 EU",
+          "MODEL": "Justy ii",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25097,
+          "DIMENSION-ID": "Subaru Justy iii Hatchback 2003-2026 EU",
+          "MODEL": "Justy iii",
+          "YEAR": "2003-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25098,
+          "DIMENSION-ID": "Subaru Justy iv Hatchback 2007-2012 EU",
+          "MODEL": "Justy iv",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25099,
+          "DIMENSION-ID": "Subaru Justy iv Hatchback 2007-2026 EU",
+          "MODEL": "Justy iv",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25100,
+          "DIMENSION-ID": "Subaru Justy iv Hatchback 2008-2026 EU",
+          "MODEL": "Justy iv",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11232,
+          "DIMENSION-ID": "Subaru Justy Hatchback 1984-1991 RU",
+          "MODEL": "Justy",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11233,
+          "DIMENSION-ID": "Subaru Justy Hatchback 1987-1995 RU",
+          "MODEL": "Justy",
+          "YEAR": "1987-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11234,
+          "DIMENSION-ID": "Subaru Justy L147.4 W62.6 H53.1 Hatchback 1995-2003 RU",
+          "MODEL": "Justy",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11235,
+          "DIMENSION-ID": "Subaru Justy L151.4 W62.0 H54.3 Hatchback 1995-2003 RU",
+          "MODEL": "Justy",
+          "YEAR": "1995-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11236,
+          "DIMENSION-ID": "Subaru Justy Hatchback 2003-2007 RU",
+          "MODEL": "Justy",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11237,
+          "DIMENSION-ID": "Subaru Justy Hatchback 2007-2011 RU",
+          "MODEL": "Justy",
+          "YEAR": "2007-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11238,
+          "DIMENSION-ID": "Subaru Justy MPV 2016-2020 RU",
+          "MODEL": "Justy",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11239,
+          "DIMENSION-ID": "Subaru Justy MPV 2020-2026 RU",
+          "MODEL": "Justy",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Subaru / Justy AWD原名到明确US目标的可引用身份关系；参考年份1992|1993|1994的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-bde954f0589469b4f2f668aa",
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "Justy AWD",
+      "YEAR": "1992",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "Justy",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "45595",
+        "45596"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (variable gear ratios), 3 cyl, 1.2 L",
+        "Man 5-spd, 3 cyl, 1.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-00e7ce0f0f9f8f1045427ebb",
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "Justy AWD",
+      "YEAR": "1993",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "Justy",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "45597",
+        "45598"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (variable gear ratios), 3 cyl, 1.2 L",
+        "Man 5-spd, 3 cyl, 1.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-e2a01eb40d776d620122c849",
+      "MM_ID": "MM-708431d1013053c9276d3fe9",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "Justy AWD",
+      "YEAR": "1994",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "Justy",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "45599"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 3 cyl, 1.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

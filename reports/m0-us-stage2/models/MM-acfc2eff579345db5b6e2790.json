@@ -1,0 +1,893 @@
+{
+  "MAKE": "Hyundai",
+  "MODEL": "Sonata FWD w/Stop-Start",
+  "MM_ID": "MM-acfc2eff579345db5b6e2790",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Hyundai",
+    "MODEL": "Sonata FWD w/Stop-Start",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 26226,
+      "MM_ID": "MM-acfc2eff579345db5b6e2790",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "26227",
+      "raw_make": "Hyundai",
+      "raw_model": "Sonata FWD w/Stop-Start",
+      "raw_year": "2026",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S8), 4 cyl, 2.5 L"
+    },
+    {
+      "association_row_1based": 26227,
+      "MM_ID": "MM-acfc2eff579345db5b6e2790",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "26228",
+      "raw_make": "Hyundai",
+      "raw_model": "Sonata FWD w/Stop-Start",
+      "raw_year": "2027",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S8), 4 cyl, 2.5 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 2399,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "hyundai",
+      "make_name": "Hyundai",
+      "model_slug": "sonata",
+      "model_name": "Sonata",
+      "body_types": "sedan",
+      "countries": "au|ca|ch|es|fi|gb|il|lu|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "car/hyundai/sonata-se|car/hyundai/sonata-sport-limited",
+      "mass_popularity_decile": "1"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "hyundai",
+      "same_brand_rows_examined": 96,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 11,
+      "candidates": [
+        {
+          "row_1based": 2111,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1989-1993 US",
+          "MODEL": "Sonata",
+          "YEAR": "1989-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2112,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1994 US",
+          "MODEL": "Sonata",
+          "YEAR": "1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2113,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1995-1998 US",
+          "MODEL": "Sonata",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2114,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1999-2002 US",
+          "MODEL": "Sonata",
+          "YEAR": "1999-2002",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2115,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2003-2005 US",
+          "MODEL": "Sonata",
+          "YEAR": "2003-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2116,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2006-2010 US",
+          "MODEL": "Sonata",
+          "YEAR": "2006-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2117,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2011-2014 US",
+          "MODEL": "Sonata",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2118,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2015-2019 US",
+          "MODEL": "Sonata",
+          "YEAR": "2015-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2119,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2020-2023 US",
+          "MODEL": "Sonata",
+          "YEAR": "2020-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2120,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2024-2026 US",
+          "MODEL": "Sonata",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4591,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2027 US",
+          "MODEL": "Sonata",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 11,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 10761,
+          "DIMENSION-ID": "Hyundai Sonata ii Sedan 1991-1993 EU",
+          "MODEL": "Sonata ii",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10762,
+          "DIMENSION-ID": "Hyundai Sonata iii Sedan 1993-1998 EU",
+          "MODEL": "Sonata iii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10763,
+          "DIMENSION-ID": "Hyundai Sonata iii Sedan 1994-1996 EU",
+          "MODEL": "Sonata iii",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10764,
+          "DIMENSION-ID": "Hyundai Sonata iii Sedan 1996-1998 EU",
+          "MODEL": "Sonata iii",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10765,
+          "DIMENSION-ID": "Hyundai Sonata iv EF L4710 W1818 H1410 Sedan 2001-2004 EU",
+          "MODEL": "Sonata iv",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10766,
+          "DIMENSION-ID": "Hyundai Sonata iv EF L4747 W1820 H1422 Sedan 2001-2004 EU",
+          "MODEL": "Sonata iv",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10767,
+          "DIMENSION-ID": "Hyundai Sonata iv Sedan 1998-2001 EU",
+          "MODEL": "Sonata iv",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10768,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2005-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10769,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2006-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10770,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2008-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10771,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2009-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2009-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10772,
+          "DIMENSION-ID": "Hyundai Sonata v facelift Sedan 2005-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10773,
+          "DIMENSION-ID": "Hyundai Sonata v prefl Sedan 2005-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10774,
+          "DIMENSION-ID": "Hyundai Sonata vi Sedan 2009-2010 EU",
+          "MODEL": "Sonata vi",
+          "YEAR": "2009-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10775,
+          "DIMENSION-ID": "Hyundai Sonata vi Sedan 2011-2014 EU",
+          "MODEL": "Sonata vi",
+          "YEAR": "2011-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10776,
+          "DIMENSION-ID": "Hyundai Sonata vii Sedan 2014-2019 EU",
+          "MODEL": "Sonata vii",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10777,
+          "DIMENSION-ID": "Hyundai Sonata viii Sedan 2020-2026 EU",
+          "MODEL": "Sonata viii",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5481,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1988-1993 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5482,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1993-1996 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5483,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1996-1998 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5484,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1998-2001 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5485,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2001-2012 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2001-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5486,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2004-2008 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5487,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2008-2010 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5488,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2009-2014 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5489,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2014-2017 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5490,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2017-2020 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5491,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2019-2023 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2019-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5492,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2023-2026 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "hyundai",
+      "same_brand_rows_examined": 96,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 11,
+      "candidates": [
+        {
+          "row_1based": 2111,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1989-1993 US",
+          "MODEL": "Sonata",
+          "YEAR": "1989-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2112,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1994 US",
+          "MODEL": "Sonata",
+          "YEAR": "1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2113,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1995-1998 US",
+          "MODEL": "Sonata",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2114,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1999-2002 US",
+          "MODEL": "Sonata",
+          "YEAR": "1999-2002",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2115,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2003-2005 US",
+          "MODEL": "Sonata",
+          "YEAR": "2003-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2116,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2006-2010 US",
+          "MODEL": "Sonata",
+          "YEAR": "2006-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2117,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2011-2014 US",
+          "MODEL": "Sonata",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2118,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2015-2019 US",
+          "MODEL": "Sonata",
+          "YEAR": "2015-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2119,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2020-2023 US",
+          "MODEL": "Sonata",
+          "YEAR": "2020-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2120,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2024-2026 US",
+          "MODEL": "Sonata",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4591,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2027 US",
+          "MODEL": "Sonata",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sonata，但Sonata FWD w/Stop-Start到Sonata缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 11,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 10761,
+          "DIMENSION-ID": "Hyundai Sonata ii Sedan 1991-1993 EU",
+          "MODEL": "Sonata ii",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10762,
+          "DIMENSION-ID": "Hyundai Sonata iii Sedan 1993-1998 EU",
+          "MODEL": "Sonata iii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10763,
+          "DIMENSION-ID": "Hyundai Sonata iii Sedan 1994-1996 EU",
+          "MODEL": "Sonata iii",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10764,
+          "DIMENSION-ID": "Hyundai Sonata iii Sedan 1996-1998 EU",
+          "MODEL": "Sonata iii",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10765,
+          "DIMENSION-ID": "Hyundai Sonata iv EF L4710 W1818 H1410 Sedan 2001-2004 EU",
+          "MODEL": "Sonata iv",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10766,
+          "DIMENSION-ID": "Hyundai Sonata iv EF L4747 W1820 H1422 Sedan 2001-2004 EU",
+          "MODEL": "Sonata iv",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10767,
+          "DIMENSION-ID": "Hyundai Sonata iv Sedan 1998-2001 EU",
+          "MODEL": "Sonata iv",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10768,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2005-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10769,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2006-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10770,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2008-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10771,
+          "DIMENSION-ID": "Hyundai Sonata v Sedan 2009-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2009-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10772,
+          "DIMENSION-ID": "Hyundai Sonata v facelift Sedan 2005-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10773,
+          "DIMENSION-ID": "Hyundai Sonata v prefl Sedan 2005-2010 EU",
+          "MODEL": "Sonata v",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10774,
+          "DIMENSION-ID": "Hyundai Sonata vi Sedan 2009-2010 EU",
+          "MODEL": "Sonata vi",
+          "YEAR": "2009-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10775,
+          "DIMENSION-ID": "Hyundai Sonata vi Sedan 2011-2014 EU",
+          "MODEL": "Sonata vi",
+          "YEAR": "2011-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10776,
+          "DIMENSION-ID": "Hyundai Sonata vii Sedan 2014-2019 EU",
+          "MODEL": "Sonata vii",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 10777,
+          "DIMENSION-ID": "Hyundai Sonata viii Sedan 2020-2026 EU",
+          "MODEL": "Sonata viii",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5481,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1988-1993 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5482,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1993-1996 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5483,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1996-1998 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5484,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 1998-2001 RU",
+          "MODEL": "Sonata",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5485,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2001-2012 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2001-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5486,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2004-2008 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5487,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2008-2010 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5488,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2009-2014 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5489,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2014-2017 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5490,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2017-2020 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5491,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2019-2023 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2019-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 5492,
+          "DIMENSION-ID": "Hyundai Sonata Sedan 2023-2026 RU",
+          "MODEL": "Sonata",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Hyundai / Sonata FWD w/Stop-Start原名到明确US目标的可引用身份关系；参考年份2026的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-586603eaf40e485fd6f8aa0d",
+      "MM_ID": "MM-acfc2eff579345db5b6e2790",
+      "REGION": "US",
+      "MAKE": "Hyundai",
+      "MODEL": "Sonata FWD w/Stop-Start",
+      "YEAR": "2026",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Hyundai",
+      "标准MODEL": "Sonata FWD w/Stop-Start",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "26227"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S8), 4 cyl, 2.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Hyundai Sonata Sedan 2024-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Hyundai Sonata Sedan 2024-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ]
+}

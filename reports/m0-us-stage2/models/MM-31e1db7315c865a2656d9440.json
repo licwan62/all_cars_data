@@ -1,0 +1,592 @@
+{
+  "MAKE": "Volkswagen",
+  "MODEL": "Quantum Syncro Wagon",
+  "MM_ID": "MM-31e1db7315c865a2656d9440",
+  "MMY_count": 4,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Volkswagen",
+    "MODEL": "Quantum Syncro Wagon",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 50666,
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50667",
+      "raw_make": "Volkswagen",
+      "raw_model": "Quantum Syncro Wagon",
+      "raw_year": "1985",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 5 cyl, 2.2 L"
+    },
+    {
+      "association_row_1based": 50667,
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50668",
+      "raw_make": "Volkswagen",
+      "raw_model": "Quantum Syncro Wagon",
+      "raw_year": "1986",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 5 cyl, 2.2 L"
+    },
+    {
+      "association_row_1based": 50668,
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50669",
+      "raw_make": "Volkswagen",
+      "raw_model": "Quantum Syncro Wagon",
+      "raw_year": "1987",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 5 cyl, 2.2 L"
+    },
+    {
+      "association_row_1based": 50669,
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50670",
+      "raw_make": "Volkswagen",
+      "raw_model": "Quantum Syncro Wagon",
+      "raw_year": "1988",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 5 cyl, 2.2 L"
+    }
+  ],
+  "vehicles_catalog_checks": [],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volkswagen",
+      "same_brand_rows_examined": 135,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 10,
+      "candidates": [
+        {
+          "row_1based": 4280,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1982 US",
+          "MODEL": "Passat",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4281,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1983 US",
+          "MODEL": "Passat",
+          "YEAR": "1983",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4282,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1984 US",
+          "MODEL": "Passat",
+          "YEAR": "1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4283,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1985 US",
+          "MODEL": "Passat",
+          "YEAR": "1985",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4284,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1986 US",
+          "MODEL": "Passat",
+          "YEAR": "1986",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4285,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1987 US",
+          "MODEL": "Passat",
+          "YEAR": "1987",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4286,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1988 US",
+          "MODEL": "Passat",
+          "YEAR": "1988",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4299,
+          "DIMENSION-ID": "Volkswagen Passat Wagon 1982 US",
+          "MODEL": "Passat",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4300,
+          "DIMENSION-ID": "Volkswagen Passat Wagon 1983-1984 US",
+          "MODEL": "Passat",
+          "YEAR": "1983-1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4301,
+          "DIMENSION-ID": "Volkswagen Passat Wagon 1985-1988 US",
+          "MODEL": "Passat",
+          "YEAR": "1985-1988",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 10,
+      "non_US_candidate_hits": 3,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 12974,
+          "DIMENSION-ID": "Volkswagen Quantum Sedan 1985-1988 RU",
+          "MODEL": "Quantum",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12975,
+          "DIMENSION-ID": "Volkswagen Quantum Wagon 1985-1988 RU",
+          "MODEL": "Quantum",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12976,
+          "DIMENSION-ID": "Volkswagen Quantum Wagon 1998-2003 RU",
+          "MODEL": "Quantum",
+          "YEAR": "1998-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volkswagen",
+      "same_brand_rows_examined": 135,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 10,
+      "candidates": [
+        {
+          "row_1based": 4280,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1982 US",
+          "MODEL": "Passat",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4281,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1983 US",
+          "MODEL": "Passat",
+          "YEAR": "1983",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4282,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1984 US",
+          "MODEL": "Passat",
+          "YEAR": "1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4283,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1985 US",
+          "MODEL": "Passat",
+          "YEAR": "1985",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4284,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1986 US",
+          "MODEL": "Passat",
+          "YEAR": "1986",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4285,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1987 US",
+          "MODEL": "Passat",
+          "YEAR": "1987",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4286,
+          "DIMENSION-ID": "Volkswagen Passat Sedan 1988 US",
+          "MODEL": "Passat",
+          "YEAR": "1988",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4299,
+          "DIMENSION-ID": "Volkswagen Passat Wagon 1982 US",
+          "MODEL": "Passat",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4300,
+          "DIMENSION-ID": "Volkswagen Passat Wagon 1983-1984 US",
+          "MODEL": "Passat",
+          "YEAR": "1983-1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4301,
+          "DIMENSION-ID": "Volkswagen Passat Wagon 1985-1988 US",
+          "MODEL": "Passat",
+          "YEAR": "1985-1988",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quantum Syncro Wagon 与 Passat仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 10,
+      "non_US_candidate_hits": 3,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 12974,
+          "DIMENSION-ID": "Volkswagen Quantum Sedan 1985-1988 RU",
+          "MODEL": "Quantum",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12975,
+          "DIMENSION-ID": "Volkswagen Quantum Wagon 1985-1988 RU",
+          "MODEL": "Quantum",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12976,
+          "DIMENSION-ID": "Volkswagen Quantum Wagon 1998-2003 RU",
+          "MODEL": "Quantum",
+          "YEAR": "1998-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Volkswagen / Quantum Syncro Wagon原名到明确US目标的可引用身份关系；参考年份1985|1986|1987|1988的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-6a20ec2400ada4eba9ee7f9e",
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "REGION": "US",
+      "MAKE": "Volkswagen",
+      "MODEL": "Quantum Syncro Wagon",
+      "YEAR": "1985",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volkswagen",
+      "标准MODEL": "Quantum Syncro Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "50667"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 5 cyl, 2.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-68c92cff45576a9b50373bd8",
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "REGION": "US",
+      "MAKE": "Volkswagen",
+      "MODEL": "Quantum Syncro Wagon",
+      "YEAR": "1986",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volkswagen",
+      "标准MODEL": "Quantum Syncro Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "50668"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 5 cyl, 2.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-c0ecbf3c1e0d302fbd67f271",
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "REGION": "US",
+      "MAKE": "Volkswagen",
+      "MODEL": "Quantum Syncro Wagon",
+      "YEAR": "1987",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volkswagen",
+      "标准MODEL": "Quantum Syncro Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "50669"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 5 cyl, 2.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-f2547dc0f0b270d7a9a28bda",
+      "MM_ID": "MM-31e1db7315c865a2656d9440",
+      "REGION": "US",
+      "MAKE": "Volkswagen",
+      "MODEL": "Quantum Syncro Wagon",
+      "YEAR": "1988",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volkswagen",
+      "标准MODEL": "Quantum Syncro Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "50670"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 5 cyl, 2.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

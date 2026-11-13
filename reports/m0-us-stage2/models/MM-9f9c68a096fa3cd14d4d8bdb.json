@@ -1,0 +1,773 @@
+{
+  "MAKE": "Volvo",
+  "MODEL": "740 16-Valve",
+  "MM_ID": "MM-9f9c68a096fa3cd14d4d8bdb",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Volvo",
+    "MODEL": "740 16-Valve",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 50967,
+      "MM_ID": "MM-9f9c68a096fa3cd14d4d8bdb",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50968",
+      "raw_make": "Volvo",
+      "raw_model": "740 16-Valve",
+      "raw_year": "1990",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 4 cyl, 2.3 L"
+    },
+    {
+      "association_row_1based": 50968,
+      "MM_ID": "MM-9f9c68a096fa3cd14d4d8bdb",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50969",
+      "raw_make": "Volvo",
+      "raw_model": "740 16-Valve",
+      "raw_year": "1990",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 4-spd, 4 cyl, 2.3 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 5405,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "740",
+      "model_name": "740",
+      "body_types": "sedan|wagon",
+      "countries": "au|ch|fi|gb|lu|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/volvo/740-gl|car/volvo/740-gle|car/volvo/740-glt|car/volvo/740-turbo|car/volvo/740-wagon|car/volvo/740gl|car/volvo/740gle|car/volvo/744|car/volvo/745|car/volvo/745-turbo",
+      "mass_popularity_decile": "2"
+    },
+    {
+      "record": 14592,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "truck",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "f16",
+      "model_name": "F16",
+      "body_types": "",
+      "countries": "au|fi|nl|no",
+      "regions": "eu|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "truck/volvo/f16-6x2",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 14611,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "truck",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "fh16",
+      "model_name": "FH16",
+      "body_types": "",
+      "countries": "es|fi|il|nl|no",
+      "regions": "as|eu",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 36,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28731,
+          "DIMENSION-ID": "Volvo 740 744 L4785 W1760 H1430 Sedan 1990-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28732,
+          "DIMENSION-ID": "Volvo 740 744 L4810 W1750 H1410 Sedan 1990-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28733,
+          "DIMENSION-ID": "Volvo 740 744 Sedan 1983-1984 EU",
+          "MODEL": "740",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28734,
+          "DIMENSION-ID": "Volvo 740 745 L4785 W1750 H1435 Wagon 1988-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28735,
+          "DIMENSION-ID": "Volvo 740 745 L4785 W1761 H1435 Wagon 1988-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28736,
+          "DIMENSION-ID": "Volvo 740 Sedan 1983-1984 EU",
+          "MODEL": "740",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28737,
+          "DIMENSION-ID": "Volvo 740 Sedan 1984-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28738,
+          "DIMENSION-ID": "Volvo 740 Sedan 1984-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28739,
+          "DIMENSION-ID": "Volvo 740 Sedan 1984-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1984-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28740,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1985 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28741,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28742,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28743,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28744,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28745,
+          "DIMENSION-ID": "Volvo 740 Sedan 1986-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28746,
+          "DIMENSION-ID": "Volvo 740 Sedan 1986-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28747,
+          "DIMENSION-ID": "Volvo 740 Sedan 1987-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28748,
+          "DIMENSION-ID": "Volvo 740 Sedan 1987-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28749,
+          "DIMENSION-ID": "Volvo 740 Sedan 1988-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28750,
+          "DIMENSION-ID": "Volvo 740 Sedan 1988-1991 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28751,
+          "DIMENSION-ID": "Volvo 740 Sedan 1988-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28752,
+          "DIMENSION-ID": "Volvo 740 Sedan 1989-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28753,
+          "DIMENSION-ID": "Volvo 740 Sedan 1990-1991 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28754,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28755,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28756,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28757,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28758,
+          "DIMENSION-ID": "Volvo 740 Wagon 1986-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28759,
+          "DIMENSION-ID": "Volvo 740 Wagon 1987-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28760,
+          "DIMENSION-ID": "Volvo 740 Wagon 1987-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28761,
+          "DIMENSION-ID": "Volvo 740 Wagon 1989-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28762,
+          "DIMENSION-ID": "Volvo 740 Wagon 1989-1991 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28763,
+          "DIMENSION-ID": "Volvo 740 Wagon 1989-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28764,
+          "DIMENSION-ID": "Volvo 740 Wagon 1990-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13153,
+          "DIMENSION-ID": "Volvo 740 Sedan 1983-1992 RU",
+          "MODEL": "740",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13154,
+          "DIMENSION-ID": "Volvo 740 Wagon 1983-1992 RU",
+          "MODEL": "740",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 36,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28731,
+          "DIMENSION-ID": "Volvo 740 744 L4785 W1760 H1430 Sedan 1990-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28732,
+          "DIMENSION-ID": "Volvo 740 744 L4810 W1750 H1410 Sedan 1990-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28733,
+          "DIMENSION-ID": "Volvo 740 744 Sedan 1983-1984 EU",
+          "MODEL": "740",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28734,
+          "DIMENSION-ID": "Volvo 740 745 L4785 W1750 H1435 Wagon 1988-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28735,
+          "DIMENSION-ID": "Volvo 740 745 L4785 W1761 H1435 Wagon 1988-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28736,
+          "DIMENSION-ID": "Volvo 740 Sedan 1983-1984 EU",
+          "MODEL": "740",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28737,
+          "DIMENSION-ID": "Volvo 740 Sedan 1984-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28738,
+          "DIMENSION-ID": "Volvo 740 Sedan 1984-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28739,
+          "DIMENSION-ID": "Volvo 740 Sedan 1984-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1984-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28740,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1985 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28741,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28742,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28743,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28744,
+          "DIMENSION-ID": "Volvo 740 Sedan 1985-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28745,
+          "DIMENSION-ID": "Volvo 740 Sedan 1986-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28746,
+          "DIMENSION-ID": "Volvo 740 Sedan 1986-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28747,
+          "DIMENSION-ID": "Volvo 740 Sedan 1987-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28748,
+          "DIMENSION-ID": "Volvo 740 Sedan 1987-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28749,
+          "DIMENSION-ID": "Volvo 740 Sedan 1988-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28750,
+          "DIMENSION-ID": "Volvo 740 Sedan 1988-1991 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28751,
+          "DIMENSION-ID": "Volvo 740 Sedan 1988-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28752,
+          "DIMENSION-ID": "Volvo 740 Sedan 1989-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28753,
+          "DIMENSION-ID": "Volvo 740 Sedan 1990-1991 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28754,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28755,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28756,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28757,
+          "DIMENSION-ID": "Volvo 740 Wagon 1985-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1985-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28758,
+          "DIMENSION-ID": "Volvo 740 Wagon 1986-1989 EU",
+          "MODEL": "740",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28759,
+          "DIMENSION-ID": "Volvo 740 Wagon 1987-1988 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28760,
+          "DIMENSION-ID": "Volvo 740 Wagon 1987-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28761,
+          "DIMENSION-ID": "Volvo 740 Wagon 1989-1990 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28762,
+          "DIMENSION-ID": "Volvo 740 Wagon 1989-1991 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28763,
+          "DIMENSION-ID": "Volvo 740 Wagon 1989-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28764,
+          "DIMENSION-ID": "Volvo 740 Wagon 1990-1992 EU",
+          "MODEL": "740",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13153,
+          "DIMENSION-ID": "Volvo 740 Sedan 1983-1992 RU",
+          "MODEL": "740",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13154,
+          "DIMENSION-ID": "Volvo 740 Wagon 1983-1992 RU",
+          "MODEL": "740",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Volvo / 740 16-Valve原名到明确US目标的可引用身份关系；参考年份1990的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-57174bce15e00d96ff9bef4f",
+      "MM_ID": "MM-9f9c68a096fa3cd14d4d8bdb",
+      "REGION": "US",
+      "MAKE": "Volvo",
+      "MODEL": "740 16-Valve",
+      "YEAR": "1990",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volvo",
+      "标准MODEL": "740 16-Valve",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "50968",
+        "50969"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 4 cyl, 2.3 L",
+        "Man 4-spd, 4 cyl, 2.3 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

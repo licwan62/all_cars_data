@@ -1,0 +1,1841 @@
+{
+  "MAKE": "Volkswagen",
+  "MODEL": "GTI/Golf GT",
+  "MM_ID": "MM-347d02e0577b272e6967068c",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Volkswagen",
+    "MODEL": "GTI/Golf GT",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 50009,
+      "MM_ID": "MM-347d02e0577b272e6967068c",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50010",
+      "raw_make": "Volkswagen",
+      "raw_model": "GTI/Golf GT",
+      "raw_year": "1987",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 3-spd, 4 cyl, 1.8 L"
+    },
+    {
+      "association_row_1based": 50010,
+      "MM_ID": "MM-347d02e0577b272e6967068c",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50011",
+      "raw_make": "Volkswagen",
+      "raw_model": "GTI/Golf GT",
+      "raw_year": "1987",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 4 cyl, 1.8 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 5318,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "e-golf",
+      "model_name": "E-Golf",
+      "body_types": "hatchback",
+      "countries": "ca|ch|es|fi|gb|nl|no|ua|us",
+      "regions": "eu|na",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "2"
+    },
+    {
+      "record": 5326,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "golf",
+      "model_name": "Golf",
+      "body_types": "hatchback|wagon",
+      "countries": "au|ca|ch|de|es|fi|gb|ie|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "2",
+      "aliases": "Rabbit|Golf Variant",
+      "former_ids": "car/volkswagen/colf|car/volkswagen/gti|car/volkswagen/gti-16v|car/volkswagen/gti-vr6|car/volkswagen/r32|car/volkswagen/vw-golf|car/volkswagen/vw-golf-gls|car/volkswagen/vw-golf-r32",
+      "mass_popularity_decile": "1"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volkswagen",
+      "same_brand_rows_examined": 135,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 19,
+      "candidates": [
+        {
+          "row_1based": 4237,
+          "DIMENSION-ID": "Volkswagen Golf Diesel Hatchback 2015 US",
+          "MODEL": "Golf",
+          "YEAR": "2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4238,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2015-2017 US",
+          "MODEL": "Golf",
+          "YEAR": "2015-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4239,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2018-2021 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2021",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4240,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2022-2026 US",
+          "MODEL": "Golf",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4241,
+          "DIMENSION-ID": "Volkswagen Golf GTI/R Hatchback 2022-2026 US",
+          "MODEL": "Golf",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4242,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1999 US",
+          "MODEL": "Golf",
+          "YEAR": "1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4243,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2000-2006 US",
+          "MODEL": "Golf",
+          "YEAR": "2000-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4244,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2007-2009 US",
+          "MODEL": "Golf",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4245,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2010-2014 US",
+          "MODEL": "Golf",
+          "YEAR": "2010-2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4246,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2016-2017 US",
+          "MODEL": "Golf",
+          "YEAR": "2016-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4247,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2018-2021 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2021",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4248,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2012 US",
+          "MODEL": "Golf",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4249,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2018-2019 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4250,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2022-2024 US",
+          "MODEL": "Golf",
+          "YEAR": "2022-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4251,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2025-2026 US",
+          "MODEL": "Golf",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4252,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2015-2016 US",
+          "MODEL": "Golf",
+          "YEAR": "2015-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4253,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2018-2019 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4309,
+          "DIMENSION-ID": "Volkswagen Rabbit GTI Hatchback 1984 US",
+          "MODEL": "Rabbit",
+          "YEAR": "1984",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "GTI/Golf GT 与 Rabbit仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4310,
+          "DIMENSION-ID": "Volkswagen Rabbit Hatchback 1975-1984 US",
+          "MODEL": "Rabbit",
+          "YEAR": "1975-1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "GTI/Golf GT 与 Rabbit仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 17,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 75,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 12770,
+          "DIMENSION-ID": "Volkswagen Golf Alltrack Wagon 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12771,
+          "DIMENSION-ID": "Volkswagen Golf Alltrack Wagon 2017-2020 RU",
+          "MODEL": "Golf",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12772,
+          "DIMENSION-ID": "Volkswagen Golf Alltrack Wagon 2019-2024 RU",
+          "MODEL": "Golf",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12773,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 1974-1993 RU",
+          "MODEL": "Golf",
+          "YEAR": "1974-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12774,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 1991-2000 RU",
+          "MODEL": "Golf",
+          "YEAR": "1991-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12775,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 1997-2006 RU",
+          "MODEL": "Golf",
+          "YEAR": "1997-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12776,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 2008-2012 RU",
+          "MODEL": "Golf",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12777,
+          "DIMENSION-ID": "Volkswagen Golf Country Hatchback 1983-1992 RU",
+          "MODEL": "Golf",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12778,
+          "DIMENSION-ID": "Volkswagen Golf Country SUV 1990-1991 RU",
+          "MODEL": "Golf Country",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12779,
+          "DIMENSION-ID": "Volkswagen Golf GTI Convertible 2008-2013 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2008-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12780,
+          "DIMENSION-ID": "Volkswagen Golf GTI L150.4 W63.4 H55.5 Hatchback 1976-1983 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1976-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12781,
+          "DIMENSION-ID": "Volkswagen Golf GTI L159.1 W66.1 H55.1 Hatchback 1983-1991 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1983-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12782,
+          "DIMENSION-ID": "Volkswagen Golf GTI L158.3 W66.9 H55.9 Hatchback 1992-1997 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12783,
+          "DIMENSION-ID": "Volkswagen Golf GTI L163.3 W68.3 H56.9 Hatchback 1998-2005 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1998-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12784,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2004-2008 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12785,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2008-2013 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2008-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12786,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2013-2017 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12787,
+          "DIMENSION-ID": "Volkswagen Golf GTI L168.0 W70.8 H58.3 Hatchback 2017-2020 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12788,
+          "DIMENSION-ID": "Volkswagen Golf GTI L155.3 W64.2 H54.9 Hatchback 1976-1983 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1976-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12789,
+          "DIMENSION-ID": "Volkswagen Golf GTI L159.6 W66.9 H55.7 Hatchback 1983-1991 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1983-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12790,
+          "DIMENSION-ID": "Volkswagen Golf GTI L158.3 W67.3 H55.3 Hatchback 1992-1997 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12791,
+          "DIMENSION-ID": "Volkswagen Golf GTI L163.3 W68.3 H56.7 Hatchback 1998-2005 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1998-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12792,
+          "DIMENSION-ID": "Volkswagen Golf GTI L168.0 W70.5 H58.3 Hatchback 2017-2020 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12793,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2020-2024 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12794,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2024-2026 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12795,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1974-1993 RU",
+          "MODEL": "Golf",
+          "YEAR": "1974-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12796,
+          "DIMENSION-ID": "Volkswagen Golf L159.6 W66.9 H55.7 Hatchback 1983-1992 RU",
+          "MODEL": "Golf",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12797,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1991-2000 RU",
+          "MODEL": "Golf",
+          "YEAR": "1991-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12798,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1997-2006 RU",
+          "MODEL": "Golf",
+          "YEAR": "1997-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12799,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2003-2009 RU",
+          "MODEL": "Golf",
+          "YEAR": "2003-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12800,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2008-2012 RU",
+          "MODEL": "Golf",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12801,
+          "DIMENSION-ID": "Volkswagen Golf L167.5 W70.5 H57.2 Hatchback 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12802,
+          "DIMENSION-ID": "Volkswagen Golf L159.6 W65.6 H55.7 Hatchback 1983-1992 RU",
+          "MODEL": "Golf",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12803,
+          "DIMENSION-ID": "Volkswagen Golf L167.5 W70.8 H57.2 Hatchback 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12804,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2017-2020 RU",
+          "MODEL": "Golf",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12805,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2019-2024 RU",
+          "MODEL": "Golf",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12806,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2024-2026 RU",
+          "MODEL": "Golf",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12807,
+          "DIMENSION-ID": "Volkswagen Golf Plus Cross Hatchback 2005-2009 RU",
+          "MODEL": "Golf Plus",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12808,
+          "DIMENSION-ID": "Volkswagen Golf Plus Hatchback 2005-2009 RU",
+          "MODEL": "Golf Plus",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12809,
+          "DIMENSION-ID": "Volkswagen Golf Plus Hatchback 2009-2014 RU",
+          "MODEL": "Golf Plus",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12810,
+          "DIMENSION-ID": "Volkswagen Golf R Convertible 2009-2013 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12811,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2009-2013 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12812,
+          "DIMENSION-ID": "Volkswagen Golf R L168.3 W70.8 H56.5 Hatchback 2013-2017 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12813,
+          "DIMENSION-ID": "Volkswagen Golf R L167.8 W70.5 H57.7 Hatchback 2017-2020 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12814,
+          "DIMENSION-ID": "Volkswagen Golf R L168.3 W70.5 H56.5 Hatchback 2013-2017 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12815,
+          "DIMENSION-ID": "Volkswagen Golf R L167.8 W70.8 H57.7 Hatchback 2017-2020 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12816,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2020-2024 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12817,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2024-2026 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12818,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2013-2017 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12819,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2017-2020 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12820,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2020-2024 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12821,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2024-2026 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12822,
+          "DIMENSION-ID": "Volkswagen Golf R32 L163.4 W68.3 H56.7 Hatchback 2002-2005 RU",
+          "MODEL": "Golf R32",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12823,
+          "DIMENSION-ID": "Volkswagen Golf R32 Hatchback 2005-2008 RU",
+          "MODEL": "Golf R32",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12824,
+          "DIMENSION-ID": "Volkswagen Golf R32 L163.3 W68.3 H56.9 Hatchback 2002-2005 RU",
+          "MODEL": "Golf R32",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12825,
+          "DIMENSION-ID": "Volkswagen Golf Sportsvan MPV 2014-2017 RU",
+          "MODEL": "Golf Sportsvan",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12826,
+          "DIMENSION-ID": "Volkswagen Golf Sportsvan MPV 2017-2020 RU",
+          "MODEL": "Golf Sportsvan",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12827,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 1991-2000 RU",
+          "MODEL": "Golf",
+          "YEAR": "1991-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12828,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 1997-2006 RU",
+          "MODEL": "Golf",
+          "YEAR": "1997-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12829,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2003-2009 RU",
+          "MODEL": "Golf",
+          "YEAR": "2003-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12830,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2008-2012 RU",
+          "MODEL": "Golf",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12831,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12832,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2017-2020 RU",
+          "MODEL": "Golf",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12833,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2019-2024 RU",
+          "MODEL": "Golf",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12834,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2024-2026 RU",
+          "MODEL": "Golf",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12894,
+          "DIMENSION-ID": "Volkswagen Lupo GTI Hatchback 2000-2005 RU",
+          "MODEL": "Lupo GTI",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12942,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 1998-1999 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "1998-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12943,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 1999-2001 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12944,
+          "DIMENSION-ID": "Volkswagen Polo GTI L154.2 W65.0 H57.8 Hatchback 2005-2009 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12945,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 2009-2014 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12946,
+          "DIMENSION-ID": "Volkswagen Polo GTI L156.8 W66.2 H56.8 Hatchback 2014-2017 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12947,
+          "DIMENSION-ID": "Volkswagen Polo GTI L153.4 W65.0 H57.7 Hatchback 2005-2009 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12948,
+          "DIMENSION-ID": "Volkswagen Polo GTI L156.3 W66.2 H45.0 Hatchback 2014-2017 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12949,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 2017-2021 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12950,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 2021-2026 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volkswagen",
+      "same_brand_rows_examined": 135,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 19,
+      "candidates": [
+        {
+          "row_1based": 4237,
+          "DIMENSION-ID": "Volkswagen Golf Diesel Hatchback 2015 US",
+          "MODEL": "Golf",
+          "YEAR": "2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4238,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2015-2017 US",
+          "MODEL": "Golf",
+          "YEAR": "2015-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4239,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2018-2021 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2021",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4240,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2022-2026 US",
+          "MODEL": "Golf",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4241,
+          "DIMENSION-ID": "Volkswagen Golf GTI/R Hatchback 2022-2026 US",
+          "MODEL": "Golf",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4242,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1999 US",
+          "MODEL": "Golf",
+          "YEAR": "1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4243,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2000-2006 US",
+          "MODEL": "Golf",
+          "YEAR": "2000-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4244,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2007-2009 US",
+          "MODEL": "Golf",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4245,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2010-2014 US",
+          "MODEL": "Golf",
+          "YEAR": "2010-2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4246,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2016-2017 US",
+          "MODEL": "Golf",
+          "YEAR": "2016-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4247,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2018-2021 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2021",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4248,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2012 US",
+          "MODEL": "Golf",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4249,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2018-2019 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4250,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2022-2024 US",
+          "MODEL": "Golf",
+          "YEAR": "2022-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4251,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2025-2026 US",
+          "MODEL": "Golf",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4252,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2015-2016 US",
+          "MODEL": "Golf",
+          "YEAR": "2015-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4253,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2018-2019 US",
+          "MODEL": "Golf",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词golf，但GTI/Golf GT到Golf缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4309,
+          "DIMENSION-ID": "Volkswagen Rabbit GTI Hatchback 1984 US",
+          "MODEL": "Rabbit",
+          "YEAR": "1984",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "GTI/Golf GT 与 Rabbit仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4310,
+          "DIMENSION-ID": "Volkswagen Rabbit Hatchback 1975-1984 US",
+          "MODEL": "Rabbit",
+          "YEAR": "1975-1984",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "GTI/Golf GT 与 Rabbit仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 17,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 75,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 12770,
+          "DIMENSION-ID": "Volkswagen Golf Alltrack Wagon 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12771,
+          "DIMENSION-ID": "Volkswagen Golf Alltrack Wagon 2017-2020 RU",
+          "MODEL": "Golf",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12772,
+          "DIMENSION-ID": "Volkswagen Golf Alltrack Wagon 2019-2024 RU",
+          "MODEL": "Golf",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12773,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 1974-1993 RU",
+          "MODEL": "Golf",
+          "YEAR": "1974-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12774,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 1991-2000 RU",
+          "MODEL": "Golf",
+          "YEAR": "1991-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12775,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 1997-2006 RU",
+          "MODEL": "Golf",
+          "YEAR": "1997-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12776,
+          "DIMENSION-ID": "Volkswagen Golf Convertible 2008-2012 RU",
+          "MODEL": "Golf",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12777,
+          "DIMENSION-ID": "Volkswagen Golf Country Hatchback 1983-1992 RU",
+          "MODEL": "Golf",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12778,
+          "DIMENSION-ID": "Volkswagen Golf Country SUV 1990-1991 RU",
+          "MODEL": "Golf Country",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12779,
+          "DIMENSION-ID": "Volkswagen Golf GTI Convertible 2008-2013 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2008-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12780,
+          "DIMENSION-ID": "Volkswagen Golf GTI L150.4 W63.4 H55.5 Hatchback 1976-1983 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1976-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12781,
+          "DIMENSION-ID": "Volkswagen Golf GTI L159.1 W66.1 H55.1 Hatchback 1983-1991 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1983-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12782,
+          "DIMENSION-ID": "Volkswagen Golf GTI L158.3 W66.9 H55.9 Hatchback 1992-1997 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12783,
+          "DIMENSION-ID": "Volkswagen Golf GTI L163.3 W68.3 H56.9 Hatchback 1998-2005 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1998-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12784,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2004-2008 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12785,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2008-2013 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2008-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12786,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2013-2017 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12787,
+          "DIMENSION-ID": "Volkswagen Golf GTI L168.0 W70.8 H58.3 Hatchback 2017-2020 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12788,
+          "DIMENSION-ID": "Volkswagen Golf GTI L155.3 W64.2 H54.9 Hatchback 1976-1983 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1976-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12789,
+          "DIMENSION-ID": "Volkswagen Golf GTI L159.6 W66.9 H55.7 Hatchback 1983-1991 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1983-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12790,
+          "DIMENSION-ID": "Volkswagen Golf GTI L158.3 W67.3 H55.3 Hatchback 1992-1997 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12791,
+          "DIMENSION-ID": "Volkswagen Golf GTI L163.3 W68.3 H56.7 Hatchback 1998-2005 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "1998-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12792,
+          "DIMENSION-ID": "Volkswagen Golf GTI L168.0 W70.5 H58.3 Hatchback 2017-2020 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12793,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2020-2024 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12794,
+          "DIMENSION-ID": "Volkswagen Golf GTI Hatchback 2024-2026 RU",
+          "MODEL": "Golf GTI",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12795,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1974-1993 RU",
+          "MODEL": "Golf",
+          "YEAR": "1974-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12796,
+          "DIMENSION-ID": "Volkswagen Golf L159.6 W66.9 H55.7 Hatchback 1983-1992 RU",
+          "MODEL": "Golf",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12797,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1991-2000 RU",
+          "MODEL": "Golf",
+          "YEAR": "1991-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12798,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 1997-2006 RU",
+          "MODEL": "Golf",
+          "YEAR": "1997-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12799,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2003-2009 RU",
+          "MODEL": "Golf",
+          "YEAR": "2003-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12800,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2008-2012 RU",
+          "MODEL": "Golf",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12801,
+          "DIMENSION-ID": "Volkswagen Golf L167.5 W70.5 H57.2 Hatchback 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12802,
+          "DIMENSION-ID": "Volkswagen Golf L159.6 W65.6 H55.7 Hatchback 1983-1992 RU",
+          "MODEL": "Golf",
+          "YEAR": "1983-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12803,
+          "DIMENSION-ID": "Volkswagen Golf L167.5 W70.8 H57.2 Hatchback 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12804,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2017-2020 RU",
+          "MODEL": "Golf",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12805,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2019-2024 RU",
+          "MODEL": "Golf",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12806,
+          "DIMENSION-ID": "Volkswagen Golf Hatchback 2024-2026 RU",
+          "MODEL": "Golf",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12807,
+          "DIMENSION-ID": "Volkswagen Golf Plus Cross Hatchback 2005-2009 RU",
+          "MODEL": "Golf Plus",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12808,
+          "DIMENSION-ID": "Volkswagen Golf Plus Hatchback 2005-2009 RU",
+          "MODEL": "Golf Plus",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12809,
+          "DIMENSION-ID": "Volkswagen Golf Plus Hatchback 2009-2014 RU",
+          "MODEL": "Golf Plus",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12810,
+          "DIMENSION-ID": "Volkswagen Golf R Convertible 2009-2013 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12811,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2009-2013 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12812,
+          "DIMENSION-ID": "Volkswagen Golf R L168.3 W70.8 H56.5 Hatchback 2013-2017 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12813,
+          "DIMENSION-ID": "Volkswagen Golf R L167.8 W70.5 H57.7 Hatchback 2017-2020 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12814,
+          "DIMENSION-ID": "Volkswagen Golf R L168.3 W70.5 H56.5 Hatchback 2013-2017 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12815,
+          "DIMENSION-ID": "Volkswagen Golf R L167.8 W70.8 H57.7 Hatchback 2017-2020 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12816,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2020-2024 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12817,
+          "DIMENSION-ID": "Volkswagen Golf R Hatchback 2024-2026 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12818,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2013-2017 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12819,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2017-2020 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12820,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2020-2024 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12821,
+          "DIMENSION-ID": "Volkswagen Golf R Wagon 2024-2026 RU",
+          "MODEL": "Golf R",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12822,
+          "DIMENSION-ID": "Volkswagen Golf R32 L163.4 W68.3 H56.7 Hatchback 2002-2005 RU",
+          "MODEL": "Golf R32",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12823,
+          "DIMENSION-ID": "Volkswagen Golf R32 Hatchback 2005-2008 RU",
+          "MODEL": "Golf R32",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12824,
+          "DIMENSION-ID": "Volkswagen Golf R32 L163.3 W68.3 H56.9 Hatchback 2002-2005 RU",
+          "MODEL": "Golf R32",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12825,
+          "DIMENSION-ID": "Volkswagen Golf Sportsvan MPV 2014-2017 RU",
+          "MODEL": "Golf Sportsvan",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12826,
+          "DIMENSION-ID": "Volkswagen Golf Sportsvan MPV 2017-2020 RU",
+          "MODEL": "Golf Sportsvan",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12827,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 1991-2000 RU",
+          "MODEL": "Golf",
+          "YEAR": "1991-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12828,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 1997-2006 RU",
+          "MODEL": "Golf",
+          "YEAR": "1997-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12829,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2003-2009 RU",
+          "MODEL": "Golf",
+          "YEAR": "2003-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12830,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2008-2012 RU",
+          "MODEL": "Golf",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12831,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2012-2017 RU",
+          "MODEL": "Golf",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12832,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2017-2020 RU",
+          "MODEL": "Golf",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12833,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2019-2024 RU",
+          "MODEL": "Golf",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12834,
+          "DIMENSION-ID": "Volkswagen Golf Wagon 2024-2026 RU",
+          "MODEL": "Golf",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12894,
+          "DIMENSION-ID": "Volkswagen Lupo GTI Hatchback 2000-2005 RU",
+          "MODEL": "Lupo GTI",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12942,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 1998-1999 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "1998-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12943,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 1999-2001 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12944,
+          "DIMENSION-ID": "Volkswagen Polo GTI L154.2 W65.0 H57.8 Hatchback 2005-2009 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12945,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 2009-2014 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2009-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12946,
+          "DIMENSION-ID": "Volkswagen Polo GTI L156.8 W66.2 H56.8 Hatchback 2014-2017 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12947,
+          "DIMENSION-ID": "Volkswagen Polo GTI L153.4 W65.0 H57.7 Hatchback 2005-2009 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12948,
+          "DIMENSION-ID": "Volkswagen Polo GTI L156.3 W66.2 H45.0 Hatchback 2014-2017 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2014-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12949,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 2017-2021 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12950,
+          "DIMENSION-ID": "Volkswagen Polo GTI Hatchback 2021-2026 RU",
+          "MODEL": "Polo GTI",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Volkswagen / GTI/Golf GT原名到明确US目标的可引用身份关系；参考年份1987的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-1b10d461c974ad7d62b690aa",
+      "MM_ID": "MM-347d02e0577b272e6967068c",
+      "REGION": "US",
+      "MAKE": "Volkswagen",
+      "MODEL": "GTI/Golf GT",
+      "YEAR": "1987",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volkswagen",
+      "标准MODEL": "GTI/Golf GT",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "50010",
+        "50011"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 3-spd, 4 cyl, 1.8 L",
+        "Man 5-spd, 4 cyl, 1.8 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

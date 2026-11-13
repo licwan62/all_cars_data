@@ -1,0 +1,737 @@
+{
+  "MAKE": "Volvo",
+  "MODEL": "760",
+  "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Volvo",
+    "MODEL": "760",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 2167,
+      "raw_make": "Volvo",
+      "raw_model": "760 Wagon",
+      "make": "Volvo",
+      "model": "760",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 51030,
+      "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "51031",
+      "raw_make": "Volvo",
+      "raw_model": "760",
+      "raw_year": "1989",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 4 cyl, 2.3 L, Turbo"
+    },
+    {
+      "association_row_1based": 51031,
+      "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "51032",
+      "raw_make": "Volvo",
+      "raw_model": "760",
+      "raw_year": "1989",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 6 cyl, 2.8 L"
+    },
+    {
+      "association_row_1based": 51032,
+      "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "51033",
+      "raw_make": "Volvo",
+      "raw_model": "760",
+      "raw_year": "1990",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 4 cyl, 2.3 L, Turbo"
+    },
+    {
+      "association_row_1based": 51033,
+      "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "51034",
+      "raw_make": "Volvo",
+      "raw_model": "760",
+      "raw_year": "1990",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 6 cyl, 2.8 L"
+    },
+    {
+      "association_row_1based": 57289,
+      "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+      "SOURCE": "vehicles",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/vehicles.csv",
+      "source_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+      "record": "5406",
+      "raw_make": "Volvo",
+      "raw_model": "760",
+      "raw_year": "",
+      "来源别名线索": "",
+      "车辆类别": "car",
+      "国家线索": "au|ch|fi|gb|nl|no|nz|ua|us",
+      "区域线索": "eu|na|oc",
+      "配置或身份": ""
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 5406,
+      "match_reason": [
+        "原始目录同名",
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "760",
+      "model_name": "760",
+      "body_types": "sedan",
+      "countries": "au|ch|fi|gb|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/volvo/760-gle|car/volvo/760-gle-automatic|car/volvo/760-gle-turbo-diesel|car/volvo/760-turbo|car/volvo/760gle",
+      "mass_popularity_decile": "3"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28765,
+          "DIMENSION-ID": "Volvo 760 764 Sedan 1987-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28766,
+          "DIMENSION-ID": "Volvo 760 Sedan 1982-1984 EU",
+          "MODEL": "760",
+          "YEAR": "1982-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28767,
+          "DIMENSION-ID": "Volvo 760 Sedan 1982-1987 EU",
+          "MODEL": "760",
+          "YEAR": "1982-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28768,
+          "DIMENSION-ID": "Volvo 760 Sedan 1984-1986 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28769,
+          "DIMENSION-ID": "Volvo 760 Sedan 1984-1987 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28770,
+          "DIMENSION-ID": "Volvo 760 Sedan 1987-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28771,
+          "DIMENSION-ID": "Volvo 760 Sedan 1987-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28772,
+          "DIMENSION-ID": "Volvo 760 Sedan 1988-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28773,
+          "DIMENSION-ID": "Volvo 760 Wagon 1982-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1982-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28774,
+          "DIMENSION-ID": "Volvo 760 Wagon 1983-1989 EU",
+          "MODEL": "760",
+          "YEAR": "1983-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28775,
+          "DIMENSION-ID": "Volvo 760 Wagon 1983-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1983-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28776,
+          "DIMENSION-ID": "Volvo 760 Wagon 1984-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28777,
+          "DIMENSION-ID": "Volvo 760 Wagon 1986-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28778,
+          "DIMENSION-ID": "Volvo 760 Wagon 1987-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28779,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1981-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1981-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28780,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1984-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28781,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28782,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28783,
+          "DIMENSION-ID": "Volvo 760 facelift Wagon 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28784,
+          "DIMENSION-ID": "Volvo 760 facelift Wagon 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28785,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1981-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1981-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28786,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1984-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28787,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28788,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28789,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1987-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28790,
+          "DIMENSION-ID": "Volvo 760 prefl Wagon 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28791,
+          "DIMENSION-ID": "Volvo 760 prefl Wagon 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13155,
+          "DIMENSION-ID": "Volvo 760 Sedan 1982-1992 RU",
+          "MODEL": "760",
+          "YEAR": "1982-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13156,
+          "DIMENSION-ID": "Volvo 760 Wagon 1982-1992 RU",
+          "MODEL": "760",
+          "YEAR": "1982-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28765,
+          "DIMENSION-ID": "Volvo 760 764 Sedan 1987-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28766,
+          "DIMENSION-ID": "Volvo 760 Sedan 1982-1984 EU",
+          "MODEL": "760",
+          "YEAR": "1982-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28767,
+          "DIMENSION-ID": "Volvo 760 Sedan 1982-1987 EU",
+          "MODEL": "760",
+          "YEAR": "1982-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28768,
+          "DIMENSION-ID": "Volvo 760 Sedan 1984-1986 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28769,
+          "DIMENSION-ID": "Volvo 760 Sedan 1984-1987 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28770,
+          "DIMENSION-ID": "Volvo 760 Sedan 1987-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28771,
+          "DIMENSION-ID": "Volvo 760 Sedan 1987-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28772,
+          "DIMENSION-ID": "Volvo 760 Sedan 1988-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28773,
+          "DIMENSION-ID": "Volvo 760 Wagon 1982-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1982-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28774,
+          "DIMENSION-ID": "Volvo 760 Wagon 1983-1989 EU",
+          "MODEL": "760",
+          "YEAR": "1983-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28775,
+          "DIMENSION-ID": "Volvo 760 Wagon 1983-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1983-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28776,
+          "DIMENSION-ID": "Volvo 760 Wagon 1984-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28777,
+          "DIMENSION-ID": "Volvo 760 Wagon 1986-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28778,
+          "DIMENSION-ID": "Volvo 760 Wagon 1987-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28779,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1981-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1981-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28780,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1984-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28781,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28782,
+          "DIMENSION-ID": "Volvo 760 facelift Sedan 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28783,
+          "DIMENSION-ID": "Volvo 760 facelift Wagon 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28784,
+          "DIMENSION-ID": "Volvo 760 facelift Wagon 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28785,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1981-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1981-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28786,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1984-1988 EU",
+          "MODEL": "760",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28787,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28788,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28789,
+          "DIMENSION-ID": "Volvo 760 prefl Sedan 1987-1992 EU",
+          "MODEL": "760",
+          "YEAR": "1987-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28790,
+          "DIMENSION-ID": "Volvo 760 prefl Wagon 1986-1990 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28791,
+          "DIMENSION-ID": "Volvo 760 prefl Wagon 1986-1991 EU",
+          "MODEL": "760",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13155,
+          "DIMENSION-ID": "Volvo 760 Sedan 1982-1992 RU",
+          "MODEL": "760",
+          "YEAR": "1982-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13156,
+          "DIMENSION-ID": "Volvo 760 Wagon 1982-1992 RU",
+          "MODEL": "760",
+          "YEAR": "1982-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Volvo / 760原名到明确US目标的可引用身份关系；参考年份1989|1990的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-d014f3f82962736954c71b63",
+      "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+      "REGION": "US",
+      "MAKE": "Volvo",
+      "MODEL": "760",
+      "YEAR": "1989",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volvo",
+      "标准MODEL": "760",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "au|ch|fi|gb|nl|no|nz|ua|us",
+      "车辆类别线索": "car",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "51031",
+        "51032"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 4 cyl, 2.3 L, Turbo",
+        "Auto 4-spd, 6 cyl, 2.8 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-71236be1a6fb609ff1bfdfe0",
+      "MM_ID": "MM-b94c25e4fca0c8f7eceb08f8",
+      "REGION": "US",
+      "MAKE": "Volvo",
+      "MODEL": "760",
+      "YEAR": "1990",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volvo",
+      "标准MODEL": "760",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "au|ch|fi|gb|nl|no|nz|ua|us",
+      "车辆类别线索": "car",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "51033",
+        "51034"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 4 cyl, 2.3 L, Turbo",
+        "Auto 4-spd, 6 cyl, 2.8 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

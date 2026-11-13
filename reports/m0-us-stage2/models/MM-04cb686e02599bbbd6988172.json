@@ -1,0 +1,789 @@
+{
+  "MAKE": "Kia",
+  "MODEL": "Sephia/Spectra",
+  "MM_ID": "MM-04cb686e02599bbbd6988172",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Kia",
+    "MODEL": "Sephia/Spectra",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 29661,
+      "MM_ID": "MM-04cb686e02599bbbd6988172",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "29662",
+      "raw_make": "Kia",
+      "raw_model": "Sephia/Spectra",
+      "raw_year": "2000",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 4 cyl, 1.8 L"
+    },
+    {
+      "association_row_1based": 29662,
+      "MM_ID": "MM-04cb686e02599bbbd6988172",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "29663",
+      "raw_make": "Kia",
+      "raw_model": "Sephia/Spectra",
+      "raw_year": "2000",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 4 cyl, 1.8 L"
+    },
+    {
+      "association_row_1based": 29663,
+      "MM_ID": "MM-04cb686e02599bbbd6988172",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "29664",
+      "raw_make": "Kia",
+      "raw_model": "Sephia/Spectra",
+      "raw_year": "2001",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 4 cyl, 1.8 L"
+    },
+    {
+      "association_row_1based": 29664,
+      "MM_ID": "MM-04cb686e02599bbbd6988172",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "29665",
+      "raw_make": "Kia",
+      "raw_model": "Sephia/Spectra",
+      "raw_year": "2001",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 4 cyl, 1.8 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 2698,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "kia",
+      "make_name": "Kia",
+      "model_slug": "sephia",
+      "model_name": "Sephia",
+      "body_types": "sedan",
+      "countries": "ca|ch|il|nl|ua|us",
+      "regions": "as|eu|na",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 2703,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "kia",
+      "make_name": "Kia",
+      "model_slug": "spectra",
+      "model_name": "Spectra",
+      "body_types": "sedan",
+      "countries": "au|ca|fi|nl|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "kia",
+      "same_brand_rows_examined": 107,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 10,
+      "candidates": [
+        {
+          "row_1based": 2359,
+          "DIMENSION-ID": "Kia Sephia Sedan 1994 US",
+          "MODEL": "Sephia",
+          "YEAR": "1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sephia，但Sephia/Spectra到Sephia缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2360,
+          "DIMENSION-ID": "Kia Sephia Sedan 1995-1997 US",
+          "MODEL": "Sephia",
+          "YEAR": "1995-1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sephia，但Sephia/Spectra到Sephia缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2361,
+          "DIMENSION-ID": "Kia Sephia Sedan 1998-2001 US",
+          "MODEL": "Sephia",
+          "YEAR": "1998-2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sephia，但Sephia/Spectra到Sephia缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2373,
+          "DIMENSION-ID": "Kia Spectra Hatchback 2002-2004 US",
+          "MODEL": "Spectra",
+          "YEAR": "2002-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2374,
+          "DIMENSION-ID": "Kia Spectra Hatchback 2006 US",
+          "MODEL": "Spectra",
+          "YEAR": "2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2375,
+          "DIMENSION-ID": "Kia Spectra Hatchback 2007-2009 US",
+          "MODEL": "Spectra",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2376,
+          "DIMENSION-ID": "Kia Spectra Sedan 2000-2001 US",
+          "MODEL": "Spectra",
+          "YEAR": "2000-2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2377,
+          "DIMENSION-ID": "Kia Spectra Sedan 2004 US",
+          "MODEL": "Spectra",
+          "YEAR": "2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2378,
+          "DIMENSION-ID": "Kia Spectra Sedan 2005-2006 US",
+          "MODEL": "Spectra",
+          "YEAR": "2005-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2379,
+          "DIMENSION-ID": "Kia Spectra Sedan 2007-2009 US",
+          "MODEL": "Spectra",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 10,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 17,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 12056,
+          "DIMENSION-ID": "KIA Sephia Hatchback 1995-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12057,
+          "DIMENSION-ID": "KIA Sephia Hatchback 1996-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1996-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12058,
+          "DIMENSION-ID": "KIA Sephia Sedan 1993-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12059,
+          "DIMENSION-ID": "KIA Sephia Sedan 1995-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12060,
+          "DIMENSION-ID": "KIA Sephia Sedan 1996-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1996-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6323,
+          "DIMENSION-ID": "Kia Sephia Hatchback 1994-1998 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6324,
+          "DIMENSION-ID": "Kia Sephia Sedan 1992-1994 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6325,
+          "DIMENSION-ID": "Kia Sephia Sedan 1994-1998 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6326,
+          "DIMENSION-ID": "Kia Sephia Sedan 1997-2001 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6327,
+          "DIMENSION-ID": "Kia Sephia Sedan 2001-2004 RU",
+          "MODEL": "Sephia",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6350,
+          "DIMENSION-ID": "Kia Spectra Liftback 2000-2001 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2000-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6351,
+          "DIMENSION-ID": "Kia Spectra Liftback 2001-2004 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6352,
+          "DIMENSION-ID": "Kia Spectra Sedan 2000-2001 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2000-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6353,
+          "DIMENSION-ID": "Kia Spectra Sedan 2001-2004 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6354,
+          "DIMENSION-ID": "Kia Spectra Sedan 2003-2008 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2003-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6355,
+          "DIMENSION-ID": "Kia Spectra Sedan 2004-2011 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6356,
+          "DIMENSION-ID": "Kia Spectra Spectra5 Hatchback 2003-2008 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2003-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "kia",
+      "same_brand_rows_examined": 107,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 10,
+      "candidates": [
+        {
+          "row_1based": 2359,
+          "DIMENSION-ID": "Kia Sephia Sedan 1994 US",
+          "MODEL": "Sephia",
+          "YEAR": "1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sephia，但Sephia/Spectra到Sephia缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2360,
+          "DIMENSION-ID": "Kia Sephia Sedan 1995-1997 US",
+          "MODEL": "Sephia",
+          "YEAR": "1995-1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sephia，但Sephia/Spectra到Sephia缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2361,
+          "DIMENSION-ID": "Kia Sephia Sedan 1998-2001 US",
+          "MODEL": "Sephia",
+          "YEAR": "1998-2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sephia，但Sephia/Spectra到Sephia缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2373,
+          "DIMENSION-ID": "Kia Spectra Hatchback 2002-2004 US",
+          "MODEL": "Spectra",
+          "YEAR": "2002-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2374,
+          "DIMENSION-ID": "Kia Spectra Hatchback 2006 US",
+          "MODEL": "Spectra",
+          "YEAR": "2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2375,
+          "DIMENSION-ID": "Kia Spectra Hatchback 2007-2009 US",
+          "MODEL": "Spectra",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2376,
+          "DIMENSION-ID": "Kia Spectra Sedan 2000-2001 US",
+          "MODEL": "Spectra",
+          "YEAR": "2000-2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2377,
+          "DIMENSION-ID": "Kia Spectra Sedan 2004 US",
+          "MODEL": "Spectra",
+          "YEAR": "2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2378,
+          "DIMENSION-ID": "Kia Spectra Sedan 2005-2006 US",
+          "MODEL": "Spectra",
+          "YEAR": "2005-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2379,
+          "DIMENSION-ID": "Kia Spectra Sedan 2007-2009 US",
+          "MODEL": "Spectra",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词spectra，但Sephia/Spectra到Spectra缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 10,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 17,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 12056,
+          "DIMENSION-ID": "KIA Sephia Hatchback 1995-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12057,
+          "DIMENSION-ID": "KIA Sephia Hatchback 1996-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1996-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12058,
+          "DIMENSION-ID": "KIA Sephia Sedan 1993-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12059,
+          "DIMENSION-ID": "KIA Sephia Sedan 1995-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12060,
+          "DIMENSION-ID": "KIA Sephia Sedan 1996-1997 EU",
+          "MODEL": "Sephia",
+          "YEAR": "1996-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6323,
+          "DIMENSION-ID": "Kia Sephia Hatchback 1994-1998 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6324,
+          "DIMENSION-ID": "Kia Sephia Sedan 1992-1994 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6325,
+          "DIMENSION-ID": "Kia Sephia Sedan 1994-1998 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6326,
+          "DIMENSION-ID": "Kia Sephia Sedan 1997-2001 RU",
+          "MODEL": "Sephia",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6327,
+          "DIMENSION-ID": "Kia Sephia Sedan 2001-2004 RU",
+          "MODEL": "Sephia",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6350,
+          "DIMENSION-ID": "Kia Spectra Liftback 2000-2001 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2000-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6351,
+          "DIMENSION-ID": "Kia Spectra Liftback 2001-2004 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6352,
+          "DIMENSION-ID": "Kia Spectra Sedan 2000-2001 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2000-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6353,
+          "DIMENSION-ID": "Kia Spectra Sedan 2001-2004 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6354,
+          "DIMENSION-ID": "Kia Spectra Sedan 2003-2008 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2003-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6355,
+          "DIMENSION-ID": "Kia Spectra Sedan 2004-2011 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6356,
+          "DIMENSION-ID": "Kia Spectra Spectra5 Hatchback 2003-2008 RU",
+          "MODEL": "Spectra",
+          "YEAR": "2003-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Kia / Sephia/Spectra原名到明确US目标的可引用身份关系；参考年份2000|2001的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-e3e9af861815fd21dfb22c6e",
+      "MM_ID": "MM-04cb686e02599bbbd6988172",
+      "REGION": "US",
+      "MAKE": "Kia",
+      "MODEL": "Sephia/Spectra",
+      "YEAR": "2000",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Kia",
+      "标准MODEL": "Sephia/Spectra",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "29662",
+        "29663"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 4 cyl, 1.8 L",
+        "Man 5-spd, 4 cyl, 1.8 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Kia Sephia Sedan 1998-2001 US",
+            "Kia Spectra Sedan 2000-2001 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Kia Sephia Sedan 1998-2001 US",
+            "Kia Spectra Sedan 2000-2001 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-8767d831bd9f1698018f0527",
+      "MM_ID": "MM-04cb686e02599bbbd6988172",
+      "REGION": "US",
+      "MAKE": "Kia",
+      "MODEL": "Sephia/Spectra",
+      "YEAR": "2001",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Kia",
+      "标准MODEL": "Sephia/Spectra",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "29664",
+        "29665"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 4 cyl, 1.8 L",
+        "Man 5-spd, 4 cyl, 1.8 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Kia Sephia Sedan 1998-2001 US",
+            "Kia Spectra Sedan 2000-2001 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Kia Sephia Sedan 1998-2001 US",
+            "Kia Spectra Sedan 2000-2001 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    }
+  ]
+}

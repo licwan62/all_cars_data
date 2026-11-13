@@ -1,0 +1,5813 @@
+{
+  "MAKE": "Porsche",
+  "MODEL": "New 911 Carrera",
+  "MM_ID": "MM-c15859eda654916355d0ae67",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Porsche",
+    "MODEL": "New 911 Carrera",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 42923,
+      "MM_ID": "MM-c15859eda654916355d0ae67",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "42924",
+      "raw_make": "Porsche",
+      "raw_model": "New 911 Carrera",
+      "raw_year": "2012",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AM-S7), 6 cyl, 3.4 L"
+    },
+    {
+      "association_row_1based": 42924,
+      "MM_ID": "MM-c15859eda654916355d0ae67",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "42925",
+      "raw_make": "Porsche",
+      "raw_model": "New 911 Carrera",
+      "raw_year": "2012",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 7-spd, 6 cyl, 3.4 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4292,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "porsche",
+      "make_name": "Porsche",
+      "model_slug": "911",
+      "model_name": "911",
+      "body_types": "coupe",
+      "countries": "ar|au|ca|ch|de|es|fi|gb|ie|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "car/porsche/911carrera|car/porsche/911carrera4|car/porsche/911e|car/porsche/911gt3|car/porsche/911s|car/porsche/911sc|car/porsche/911t|car/porsche/930|car/porsche/964|car/porsche/991|car/porsche/993|car/porsche/996|car/porsche/997|car/porsche/carrera|car/porsche/carrera-targa|car/porsche/gt3|car/porsche/sc|car/porsche/targa|car/porsche/turbo",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 4307,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "porsche",
+      "make_name": "Porsche",
+      "model_slug": "sc911",
+      "model_name": "SC911",
+      "body_types": "hatchback",
+      "countries": "fi|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "10",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "porsche",
+      "same_brand_rows_examined": 103,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 56,
+      "candidates": [
+        {
+          "row_1based": 3730,
+          "DIMENSION-ID": "Porsche 911 Convertible 1983-1989 US",
+          "MODEL": "911",
+          "YEAR": "1983-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3731,
+          "DIMENSION-ID": "Porsche 911 Convertible 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3732,
+          "DIMENSION-ID": "Porsche 911 Convertible 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3733,
+          "DIMENSION-ID": "Porsche 911 Convertible 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3734,
+          "DIMENSION-ID": "Porsche 911 Convertible 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3735,
+          "DIMENSION-ID": "Porsche 911 Convertible 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3736,
+          "DIMENSION-ID": "Porsche 911 Convertible 2012-2016 US",
+          "MODEL": "911",
+          "YEAR": "2012-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3737,
+          "DIMENSION-ID": "Porsche 911 Convertible 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3738,
+          "DIMENSION-ID": "Porsche 911 Convertible 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3739,
+          "DIMENSION-ID": "Porsche 911 Coupe 1965-1973 US",
+          "MODEL": "911",
+          "YEAR": "1965-1973",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3740,
+          "DIMENSION-ID": "Porsche 911 Coupe 1974-1989 US",
+          "MODEL": "911",
+          "YEAR": "1974-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3741,
+          "DIMENSION-ID": "Porsche 911 Coupe 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3742,
+          "DIMENSION-ID": "Porsche 911 Coupe 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3743,
+          "DIMENSION-ID": "Porsche 911 Coupe 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3744,
+          "DIMENSION-ID": "Porsche 911 Coupe 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3745,
+          "DIMENSION-ID": "Porsche 911 Coupe 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3746,
+          "DIMENSION-ID": "Porsche 911 Coupe 2012-2013 US",
+          "MODEL": "911",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3747,
+          "DIMENSION-ID": "Porsche 911 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3748,
+          "DIMENSION-ID": "Porsche 911 Coupe 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3749,
+          "DIMENSION-ID": "Porsche 911 Coupe 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3750,
+          "DIMENSION-ID": "Porsche 911 Coupe 2025-2026 US",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3751,
+          "DIMENSION-ID": "Porsche 911 Dakar Coupe 2023-2024 US",
+          "MODEL": "911",
+          "YEAR": "2023-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3752,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2002-2005 US",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3753,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2008-2009 US",
+          "MODEL": "911",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3754,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011 US",
+          "MODEL": "911",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3755,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2018 US",
+          "MODEL": "911",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3756,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2004-2005 US",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3757,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3758,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3759,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3760,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2018-2019 US",
+          "MODEL": "911",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3761,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2004 US",
+          "MODEL": "911",
+          "YEAR": "2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3762,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3763,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3764,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2016 US",
+          "MODEL": "911",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3765,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2019 US",
+          "MODEL": "911",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3766,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2025 US",
+          "MODEL": "911",
+          "YEAR": "2025",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3767,
+          "DIMENSION-ID": "Porsche 911 GT3/GT3 RS Coupe 2022-2024 US",
+          "MODEL": "911",
+          "YEAR": "2022-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3768,
+          "DIMENSION-ID": "Porsche 911 Speedster Convertible 2019 US",
+          "MODEL": "911",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3769,
+          "DIMENSION-ID": "Porsche 911 Targa 1983-1989 US",
+          "MODEL": "911",
+          "YEAR": "1983-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3770,
+          "DIMENSION-ID": "Porsche 911 Targa 1990-1993 US",
+          "MODEL": "911",
+          "YEAR": "1990-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3771,
+          "DIMENSION-ID": "Porsche 911 Targa 1996-1998 US",
+          "MODEL": "911",
+          "YEAR": "1996-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3772,
+          "DIMENSION-ID": "Porsche 911 Targa 2002-2004 US",
+          "MODEL": "911",
+          "YEAR": "2002-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3773,
+          "DIMENSION-ID": "Porsche 911 Targa 2006-2008 US",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3774,
+          "DIMENSION-ID": "Porsche 911 Targa 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3775,
+          "DIMENSION-ID": "Porsche 911 Targa 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3776,
+          "DIMENSION-ID": "Porsche 911 Targa 2021-2024 US",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3777,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1976-1980 US",
+          "MODEL": "911",
+          "YEAR": "1976-1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3778,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1986-1989 US",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3779,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1991-1994 US",
+          "MODEL": "911",
+          "YEAR": "1991-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3780,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1996-1998 US",
+          "MODEL": "911",
+          "YEAR": "1996-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3781,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2001-2005 US",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3782,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2007-2012 US",
+          "MODEL": "911",
+          "YEAR": "2007-2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3783,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2014-2019 US",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3784,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2021-2024 US",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3785,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2025-2026 US",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 56,
+      "non_US_candidate_hits": 268,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 21475,
+          "DIMENSION-ID": "Porsche 911 4gts Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21476,
+          "DIMENSION-ID": "Porsche 911 4gts Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21477,
+          "DIMENSION-ID": "Porsche 911 4gts Targa 2014-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21478,
+          "DIMENSION-ID": "Porsche 911 911 Coupe 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21479,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1610 H1320 Coupe 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21480,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1610 H1320 Targa 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21481,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1652 H1320 Coupe 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21482,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1652 H1320 Targa 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21483,
+          "DIMENSION-ID": "Porsche 911 930 Coupe 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21484,
+          "DIMENSION-ID": "Porsche 911 930 Coupe 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21485,
+          "DIMENSION-ID": "Porsche 911 991 Coupe 2017-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21486,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1295 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21487,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1295 Coupe 2011-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2011-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21488,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1299 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21489,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1303 Coupe 2011-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2011-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21490,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1294 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21491,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1296 Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21492,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1300 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21493,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1304 Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21494,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1289 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21495,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1291 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21496,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1294 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21497,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1296 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21498,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1288 Targa 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21499,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1289 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21500,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1291 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21501,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1293 Targa 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21502,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1294 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21503,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1296 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21504,
+          "DIMENSION-ID": "Porsche 911 991 L4509 W1852 H1289 Targa 2014-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21505,
+          "DIMENSION-ID": "Porsche 911 991 L4509 W1852 H1298 Targa 2014-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21506,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1291 Convertible 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21507,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1293 Convertible 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21508,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1297 Coupe 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21509,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1299 Coupe 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21510,
+          "DIMENSION-ID": "Porsche 911 991.2 L4549 W1880 H1297 Coupe 2017-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21511,
+          "DIMENSION-ID": "Porsche 911 991.2 L4562 W1852 H1271 Coupe 2017-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21512,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1297 Convertible 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21513,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1297 Targa 2020-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21514,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1298 Coupe 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21515,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1299 Convertible 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21516,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1299 Targa 2020-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21517,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1300 Coupe 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21518,
+          "DIMENSION-ID": "Porsche 911 992 L4535 W1900 H1299 Coupe 2021-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21519,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1293 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21520,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1298 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21521,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1301 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21522,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1302 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21523,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1302 Targa 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21524,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1303 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21525,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1292 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21526,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1292 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21527,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1293 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21528,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1294 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21529,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1297 Targa 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21530,
+          "DIMENSION-ID": "Porsche 911 992 L4573 W1852 H1279 Coupe 2021-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21531,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1735 H1270 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21532,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1735 H1300 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21533,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1795 H1285 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21534,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1855 H1270 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21535,
+          "DIMENSION-ID": "Porsche 911 996 L4430 W1770 H1305 Convertible 2002-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21536,
+          "DIMENSION-ID": "Porsche 911 996 L4430 W1770 H1305 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21537,
+          "DIMENSION-ID": "Porsche 911 996 L4435 W1770 H1275 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21538,
+          "DIMENSION-ID": "Porsche 911 996 L4435 W1830 H1305 Convertible 2002-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21539,
+          "DIMENSION-ID": "Porsche 911 996 L4450 W1830 H1275 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21540,
+          "DIMENSION-ID": "Porsche 911 996 L4465 W1830 H1295 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21541,
+          "DIMENSION-ID": "Porsche 911 997 Convertible 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21542,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1300 Convertible 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21543,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1300 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21544,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1300 Coupe 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21545,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1310 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21546,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Convertible 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21547,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21548,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Coupe 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21549,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Targa 2006-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21550,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1310 Convertible 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21551,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1310 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21552,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1310 Targa 2006-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21553,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1300 Convertible 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21554,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1300 Coupe 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21555,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1310 Convertible 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21556,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1310 Coupe 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21557,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Convertible 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21558,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Coupe 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21559,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Coupe 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21560,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Targa 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21561,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1310 Convertible 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21562,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1310 Coupe 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21563,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1310 Targa 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21564,
+          "DIMENSION-ID": "Porsche 911 997 L4445 W1808 H1280 Coupe 2006-2009 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21565,
+          "DIMENSION-ID": "Porsche 911 997 L4450 W1852 H1300 Coupe 2006-2009 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21566,
+          "DIMENSION-ID": "Porsche 911 997 L4450 W1852 H1300 Coupe 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21567,
+          "DIMENSION-ID": "Porsche 911 997 L4450 W1852 H1300 Coupe 2010-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21568,
+          "DIMENSION-ID": "Porsche 911 997 L4460 W1808 H1280 Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21569,
+          "DIMENSION-ID": "Porsche 911 997 L4460 W1852 H1280 Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21570,
+          "DIMENSION-ID": "Porsche 911 997 L4469 W1852 H1285 Coupe 2010-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21571,
+          "DIMENSION-ID": "Porsche 911 997.2 Convertible 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21572,
+          "DIMENSION-ID": "Porsche 911 Convertible 1982-1983 EU",
+          "MODEL": "911",
+          "YEAR": "1982-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21573,
+          "DIMENSION-ID": "Porsche 911 Convertible 1983-1984 EU",
+          "MODEL": "911",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21574,
+          "DIMENSION-ID": "Porsche 911 Convertible 1984-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1984-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21575,
+          "DIMENSION-ID": "Porsche 911 Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21576,
+          "DIMENSION-ID": "Porsche 911 Convertible 1989-1994 EU",
+          "MODEL": "911",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21577,
+          "DIMENSION-ID": "Porsche 911 Convertible 1992-1994 EU",
+          "MODEL": "911",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21578,
+          "DIMENSION-ID": "Porsche 911 Convertible 1994-1995 EU",
+          "MODEL": "911",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21579,
+          "DIMENSION-ID": "Porsche 911 Convertible 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21580,
+          "DIMENSION-ID": "Porsche 911 Convertible 1997-1999 EU",
+          "MODEL": "911",
+          "YEAR": "1997-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21581,
+          "DIMENSION-ID": "Porsche 911 Convertible 1998-2001 EU",
+          "MODEL": "911",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21582,
+          "DIMENSION-ID": "Porsche 911 Convertible 2001-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21583,
+          "DIMENSION-ID": "Porsche 911 Convertible 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21584,
+          "DIMENSION-ID": "Porsche 911 Convertible 2004-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21585,
+          "DIMENSION-ID": "Porsche 911 Convertible 2005-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21586,
+          "DIMENSION-ID": "Porsche 911 Convertible 2007-2009 EU",
+          "MODEL": "911",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21587,
+          "DIMENSION-ID": "Porsche 911 Convertible 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21588,
+          "DIMENSION-ID": "Porsche 911 Convertible 2010-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21589,
+          "DIMENSION-ID": "Porsche 911 Convertible 2010-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21590,
+          "DIMENSION-ID": "Porsche 911 Convertible 2013-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21591,
+          "DIMENSION-ID": "Porsche 911 Convertible 2016-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21592,
+          "DIMENSION-ID": "Porsche 911 Convertible 2018-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2018-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21593,
+          "DIMENSION-ID": "Porsche 911 Convertible 2020-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21594,
+          "DIMENSION-ID": "Porsche 911 Convertible 2021-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21595,
+          "DIMENSION-ID": "Porsche 911 Convertible 2025-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21596,
+          "DIMENSION-ID": "Porsche 911 Coupe 1963-1967 EU",
+          "MODEL": "911",
+          "YEAR": "1963-1967",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21597,
+          "DIMENSION-ID": "Porsche 911 Coupe 1966-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21598,
+          "DIMENSION-ID": "Porsche 911 Coupe 1967-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21599,
+          "DIMENSION-ID": "Porsche 911 Coupe 1968-1969 EU",
+          "MODEL": "911",
+          "YEAR": "1968-1969",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21600,
+          "DIMENSION-ID": "Porsche 911 Coupe 1968-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1968-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21601,
+          "DIMENSION-ID": "Porsche 911 Coupe 1969-1971 EU",
+          "MODEL": "911",
+          "YEAR": "1969-1971",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21602,
+          "DIMENSION-ID": "Porsche 911 Coupe 1970-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1970-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21603,
+          "DIMENSION-ID": "Porsche 911 Coupe 1972-1979 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21604,
+          "DIMENSION-ID": "Porsche 911 Coupe 1973-1975 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21605,
+          "DIMENSION-ID": "Porsche 911 Coupe 1973-1976 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21606,
+          "DIMENSION-ID": "Porsche 911 Coupe 1974-1983 EU",
+          "MODEL": "911",
+          "YEAR": "1974-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21607,
+          "DIMENSION-ID": "Porsche 911 Coupe 1977-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1977-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21608,
+          "DIMENSION-ID": "Porsche 911 Coupe 1977-1987 EU",
+          "MODEL": "911",
+          "YEAR": "1977-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21609,
+          "DIMENSION-ID": "Porsche 911 Coupe 1979-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1979-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21610,
+          "DIMENSION-ID": "Porsche 911 Coupe 1980-1983 EU",
+          "MODEL": "911",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21611,
+          "DIMENSION-ID": "Porsche 911 Coupe 1983-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1983-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21612,
+          "DIMENSION-ID": "Porsche 911 Coupe 1984-1987 EU",
+          "MODEL": "911",
+          "YEAR": "1984-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21613,
+          "DIMENSION-ID": "Porsche 911 Coupe 1986-1990 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21614,
+          "DIMENSION-ID": "Porsche 911 Coupe 1988-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21615,
+          "DIMENSION-ID": "Porsche 911 Coupe 1989-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21616,
+          "DIMENSION-ID": "Porsche 911 Coupe 1990-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21617,
+          "DIMENSION-ID": "Porsche 911 Coupe 1991-1992 EU",
+          "MODEL": "911",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21618,
+          "DIMENSION-ID": "Porsche 911 Coupe 1991-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21619,
+          "DIMENSION-ID": "Porsche 911 Coupe 1993-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1993-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21620,
+          "DIMENSION-ID": "Porsche 911 Coupe 1993-1995 EU",
+          "MODEL": "911",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21621,
+          "DIMENSION-ID": "Porsche 911 Coupe 1994-1995 EU",
+          "MODEL": "911",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21622,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1997-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21623,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-1999 EU",
+          "MODEL": "911",
+          "YEAR": "1997-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21624,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-2001 EU",
+          "MODEL": "911",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21625,
+          "DIMENSION-ID": "Porsche 911 Coupe 1999-2002 EU",
+          "MODEL": "911",
+          "YEAR": "1999-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21626,
+          "DIMENSION-ID": "Porsche 911 Coupe 2000-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21627,
+          "DIMENSION-ID": "Porsche 911 Coupe 2001-2004 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21628,
+          "DIMENSION-ID": "Porsche 911 Coupe 2001-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21629,
+          "DIMENSION-ID": "Porsche 911 Coupe 2003-2004 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21630,
+          "DIMENSION-ID": "Porsche 911 Coupe 2004-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21631,
+          "DIMENSION-ID": "Porsche 911 Coupe 2007-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21632,
+          "DIMENSION-ID": "Porsche 911 Coupe 2011-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21633,
+          "DIMENSION-ID": "Porsche 911 Coupe 2013-2017 EU",
+          "MODEL": "911",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21634,
+          "DIMENSION-ID": "Porsche 911 Coupe 2013-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21635,
+          "DIMENSION-ID": "Porsche 911 Coupe 2016-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21636,
+          "DIMENSION-ID": "Porsche 911 Coupe 2018-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2018-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21637,
+          "DIMENSION-ID": "Porsche 911 Coupe 2018-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2018-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21638,
+          "DIMENSION-ID": "Porsche 911 Coupe 2020-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21639,
+          "DIMENSION-ID": "Porsche 911 Coupe 2021-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21640,
+          "DIMENSION-ID": "Porsche 911 Coupe 2022-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2022-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21641,
+          "DIMENSION-ID": "Porsche 911 Coupe 2022-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2022-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21642,
+          "DIMENSION-ID": "Porsche 911 Coupe 2023-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2023-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21643,
+          "DIMENSION-ID": "Porsche 911 Coupe 2023-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2023-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21644,
+          "DIMENSION-ID": "Porsche 911 Coupe 2025-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21645,
+          "DIMENSION-ID": "Porsche 911 Targa 1966-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21646,
+          "DIMENSION-ID": "Porsche 911 Targa 1966-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1966-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21647,
+          "DIMENSION-ID": "Porsche 911 Targa 1967-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21648,
+          "DIMENSION-ID": "Porsche 911 Targa 1968-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1968-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21649,
+          "DIMENSION-ID": "Porsche 911 Targa 1969-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1969-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21650,
+          "DIMENSION-ID": "Porsche 911 Targa 1970-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1970-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21651,
+          "DIMENSION-ID": "Porsche 911 Targa 1972-1979 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21652,
+          "DIMENSION-ID": "Porsche 911 Targa 1973-1975 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21653,
+          "DIMENSION-ID": "Porsche 911 Targa 1973-1976 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21654,
+          "DIMENSION-ID": "Porsche 911 Targa 1977-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1977-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21655,
+          "DIMENSION-ID": "Porsche 911 Targa 1979-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1979-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21656,
+          "DIMENSION-ID": "Porsche 911 Targa 1986-1990 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21657,
+          "DIMENSION-ID": "Porsche 911 Targa 1988-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21658,
+          "DIMENSION-ID": "Porsche 911 Targa 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21659,
+          "DIMENSION-ID": "Porsche 911 Targa 1996-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1996-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21660,
+          "DIMENSION-ID": "Porsche 911 Targa 2001-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21661,
+          "DIMENSION-ID": "Porsche 911 Targa 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21662,
+          "DIMENSION-ID": "Porsche 911 Targa 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21663,
+          "DIMENSION-ID": "Porsche 911 Targa 2021-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21664,
+          "DIMENSION-ID": "Porsche 911 carreras Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21665,
+          "DIMENSION-ID": "Porsche 911 gt3rs Coupe 2015-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21666,
+          "DIMENSION-ID": "Porsche 911 gts Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21667,
+          "DIMENSION-ID": "Porsche 911 gts Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21668,
+          "DIMENSION-ID": "Porsche 911 gts Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21669,
+          "DIMENSION-ID": "Porsche 911 lwb Targa 1967-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21670,
+          "DIMENSION-ID": "Porsche 911 narrow 911 Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21671,
+          "DIMENSION-ID": "Porsche 911 narrow Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21672,
+          "DIMENSION-ID": "Porsche 911 post aug72 Coupe 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21673,
+          "DIMENSION-ID": "Porsche 911 post aug72 Targa 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21674,
+          "DIMENSION-ID": "Porsche 911 postaug72 Coupe 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21675,
+          "DIMENSION-ID": "Porsche 911 postaug72 Targa 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21676,
+          "DIMENSION-ID": "Porsche 911 pre aug72 Coupe 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21677,
+          "DIMENSION-ID": "Porsche 911 pre aug72 Targa 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21678,
+          "DIMENSION-ID": "Porsche 911 preaug72 Coupe 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21679,
+          "DIMENSION-ID": "Porsche 911 preaug72 Targa 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21680,
+          "DIMENSION-ID": "Porsche 911 r Coupe 2015-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21681,
+          "DIMENSION-ID": "Porsche 911 s Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21682,
+          "DIMENSION-ID": "Porsche 911 swb Targa 1967-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21683,
+          "DIMENSION-ID": "Porsche 911 turbolook Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21684,
+          "DIMENSION-ID": "Porsche 911 wide Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21736,
+          "DIMENSION-ID": "Porsche Carrera gt Convertible 2003-2006 EU",
+          "MODEL": "Carrera gt",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10107,
+          "DIMENSION-ID": "Porsche 911 Convertible 1988-1994 RU",
+          "MODEL": "911",
+          "YEAR": "1988-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10108,
+          "DIMENSION-ID": "Porsche 911 Convertible 1993-1998 RU",
+          "MODEL": "911",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10109,
+          "DIMENSION-ID": "Porsche 911 Convertible 1997-2001 RU",
+          "MODEL": "911",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10110,
+          "DIMENSION-ID": "Porsche 911 Convertible 2000-2005 RU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10111,
+          "DIMENSION-ID": "Porsche 911 Convertible 2004-2009 RU",
+          "MODEL": "911",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10112,
+          "DIMENSION-ID": "Porsche 911 Convertible 2008-2012 RU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10113,
+          "DIMENSION-ID": "Porsche 911 Convertible 2011-2015 RU",
+          "MODEL": "911",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10114,
+          "DIMENSION-ID": "Porsche 911 Convertible 2015-2019 RU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10115,
+          "DIMENSION-ID": "Porsche 911 Convertible 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10116,
+          "DIMENSION-ID": "Porsche 911 Convertible 2024-2026 RU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10117,
+          "DIMENSION-ID": "Porsche 911 Coupe 1963-1973 RU",
+          "MODEL": "911",
+          "YEAR": "1963-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10118,
+          "DIMENSION-ID": "Porsche 911 Coupe 1973-1989 RU",
+          "MODEL": "911",
+          "YEAR": "1973-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10119,
+          "DIMENSION-ID": "Porsche 911 Coupe 1988-1994 RU",
+          "MODEL": "911",
+          "YEAR": "1988-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10120,
+          "DIMENSION-ID": "Porsche 911 Coupe 1993-1998 RU",
+          "MODEL": "911",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10121,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-2001 RU",
+          "MODEL": "911",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10122,
+          "DIMENSION-ID": "Porsche 911 Coupe 2000-2005 RU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10123,
+          "DIMENSION-ID": "Porsche 911 Coupe 2004-2009 RU",
+          "MODEL": "911",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10124,
+          "DIMENSION-ID": "Porsche 911 Coupe 2008-2012 RU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10125,
+          "DIMENSION-ID": "Porsche 911 Coupe 2011-2015 RU",
+          "MODEL": "911",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10126,
+          "DIMENSION-ID": "Porsche 911 Coupe 2015-2019 RU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10127,
+          "DIMENSION-ID": "Porsche 911 Coupe 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10128,
+          "DIMENSION-ID": "Porsche 911 Coupe 2024-2026 RU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10129,
+          "DIMENSION-ID": "Porsche 911 Dakar Coupe 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10130,
+          "DIMENSION-ID": "Porsche 911 GT1 Coupe 1997-1998 RU",
+          "MODEL": "911 GT1",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10131,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 1995-1998 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10132,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2000-2005 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10133,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2007-2010 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2007-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10134,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011-2012 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10135,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10136,
+          "DIMENSION-ID": "Porsche 911 GT3 Convertible 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10137,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 1999-2000 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "1999-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10138,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2003-2005 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10139,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2006-2008 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10140,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10141,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10142,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10143,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10144,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10145,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10146,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10147,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10148,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10149,
+          "DIMENSION-ID": "Porsche 911 R Coupe 2016-2019 RU",
+          "MODEL": "911 R",
+          "YEAR": "2016-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10150,
+          "DIMENSION-ID": "Porsche 911 Roadster 1973-1989 RU",
+          "MODEL": "911",
+          "YEAR": "1973-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10151,
+          "DIMENSION-ID": "Porsche 911 S/T Coupe 2023-2026 RU",
+          "MODEL": "911 S/T",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10152,
+          "DIMENSION-ID": "Porsche 911 Targa 1963-1973 RU",
+          "MODEL": "911",
+          "YEAR": "1963-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10153,
+          "DIMENSION-ID": "Porsche 911 Targa 1973-1989 RU",
+          "MODEL": "911",
+          "YEAR": "1973-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10154,
+          "DIMENSION-ID": "Porsche 911 Targa 1988-1994 RU",
+          "MODEL": "911",
+          "YEAR": "1988-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10155,
+          "DIMENSION-ID": "Porsche 911 Targa 1993-1998 RU",
+          "MODEL": "911",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10156,
+          "DIMENSION-ID": "Porsche 911 Targa 2000-2005 RU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10157,
+          "DIMENSION-ID": "Porsche 911 Targa 2004-2009 RU",
+          "MODEL": "911",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10158,
+          "DIMENSION-ID": "Porsche 911 Targa 2008-2012 RU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10159,
+          "DIMENSION-ID": "Porsche 911 Targa 2011-2015 RU",
+          "MODEL": "911",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10160,
+          "DIMENSION-ID": "Porsche 911 Targa 2015-2019 RU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10161,
+          "DIMENSION-ID": "Porsche 911 Targa 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10162,
+          "DIMENSION-ID": "Porsche 911 Targa 2024-2026 RU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10182,
+          "DIMENSION-ID": "Porsche Carrera GT Targa 2003-2007 RU",
+          "MODEL": "Carrera GT",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "porsche",
+      "same_brand_rows_examined": 103,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 56,
+      "candidates": [
+        {
+          "row_1based": 3730,
+          "DIMENSION-ID": "Porsche 911 Convertible 1983-1989 US",
+          "MODEL": "911",
+          "YEAR": "1983-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3731,
+          "DIMENSION-ID": "Porsche 911 Convertible 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3732,
+          "DIMENSION-ID": "Porsche 911 Convertible 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3733,
+          "DIMENSION-ID": "Porsche 911 Convertible 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3734,
+          "DIMENSION-ID": "Porsche 911 Convertible 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3735,
+          "DIMENSION-ID": "Porsche 911 Convertible 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3736,
+          "DIMENSION-ID": "Porsche 911 Convertible 2012-2016 US",
+          "MODEL": "911",
+          "YEAR": "2012-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3737,
+          "DIMENSION-ID": "Porsche 911 Convertible 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3738,
+          "DIMENSION-ID": "Porsche 911 Convertible 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3739,
+          "DIMENSION-ID": "Porsche 911 Coupe 1965-1973 US",
+          "MODEL": "911",
+          "YEAR": "1965-1973",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3740,
+          "DIMENSION-ID": "Porsche 911 Coupe 1974-1989 US",
+          "MODEL": "911",
+          "YEAR": "1974-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3741,
+          "DIMENSION-ID": "Porsche 911 Coupe 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3742,
+          "DIMENSION-ID": "Porsche 911 Coupe 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3743,
+          "DIMENSION-ID": "Porsche 911 Coupe 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3744,
+          "DIMENSION-ID": "Porsche 911 Coupe 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3745,
+          "DIMENSION-ID": "Porsche 911 Coupe 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3746,
+          "DIMENSION-ID": "Porsche 911 Coupe 2012-2013 US",
+          "MODEL": "911",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3747,
+          "DIMENSION-ID": "Porsche 911 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3748,
+          "DIMENSION-ID": "Porsche 911 Coupe 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3749,
+          "DIMENSION-ID": "Porsche 911 Coupe 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3750,
+          "DIMENSION-ID": "Porsche 911 Coupe 2025-2026 US",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3751,
+          "DIMENSION-ID": "Porsche 911 Dakar Coupe 2023-2024 US",
+          "MODEL": "911",
+          "YEAR": "2023-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3752,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2002-2005 US",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3753,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2008-2009 US",
+          "MODEL": "911",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3754,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011 US",
+          "MODEL": "911",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3755,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2018 US",
+          "MODEL": "911",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3756,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2004-2005 US",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3757,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3758,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3759,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3760,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2018-2019 US",
+          "MODEL": "911",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3761,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2004 US",
+          "MODEL": "911",
+          "YEAR": "2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3762,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3763,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3764,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2016 US",
+          "MODEL": "911",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3765,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2019 US",
+          "MODEL": "911",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3766,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2025 US",
+          "MODEL": "911",
+          "YEAR": "2025",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3767,
+          "DIMENSION-ID": "Porsche 911 GT3/GT3 RS Coupe 2022-2024 US",
+          "MODEL": "911",
+          "YEAR": "2022-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3768,
+          "DIMENSION-ID": "Porsche 911 Speedster Convertible 2019 US",
+          "MODEL": "911",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3769,
+          "DIMENSION-ID": "Porsche 911 Targa 1983-1989 US",
+          "MODEL": "911",
+          "YEAR": "1983-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3770,
+          "DIMENSION-ID": "Porsche 911 Targa 1990-1993 US",
+          "MODEL": "911",
+          "YEAR": "1990-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3771,
+          "DIMENSION-ID": "Porsche 911 Targa 1996-1998 US",
+          "MODEL": "911",
+          "YEAR": "1996-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3772,
+          "DIMENSION-ID": "Porsche 911 Targa 2002-2004 US",
+          "MODEL": "911",
+          "YEAR": "2002-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3773,
+          "DIMENSION-ID": "Porsche 911 Targa 2006-2008 US",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3774,
+          "DIMENSION-ID": "Porsche 911 Targa 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3775,
+          "DIMENSION-ID": "Porsche 911 Targa 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3776,
+          "DIMENSION-ID": "Porsche 911 Targa 2021-2024 US",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3777,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1976-1980 US",
+          "MODEL": "911",
+          "YEAR": "1976-1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3778,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1986-1989 US",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3779,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1991-1994 US",
+          "MODEL": "911",
+          "YEAR": "1991-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3780,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 1996-1998 US",
+          "MODEL": "911",
+          "YEAR": "1996-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3781,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2001-2005 US",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3782,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2007-2012 US",
+          "MODEL": "911",
+          "YEAR": "2007-2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3783,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2014-2019 US",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3784,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2021-2024 US",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3785,
+          "DIMENSION-ID": "Porsche 911 Turbo Coupe 2025-2026 US",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "New 911 Carrera 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 56,
+      "non_US_candidate_hits": 268,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 21475,
+          "DIMENSION-ID": "Porsche 911 4gts Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21476,
+          "DIMENSION-ID": "Porsche 911 4gts Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21477,
+          "DIMENSION-ID": "Porsche 911 4gts Targa 2014-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21478,
+          "DIMENSION-ID": "Porsche 911 911 Coupe 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21479,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1610 H1320 Coupe 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21480,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1610 H1320 Targa 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21481,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1652 H1320 Coupe 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21482,
+          "DIMENSION-ID": "Porsche 911 911 L4291 W1652 H1320 Targa 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21483,
+          "DIMENSION-ID": "Porsche 911 930 Coupe 1975-1977 EU",
+          "MODEL": "911",
+          "YEAR": "1975-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21484,
+          "DIMENSION-ID": "Porsche 911 930 Coupe 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21485,
+          "DIMENSION-ID": "Porsche 911 991 Coupe 2017-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21486,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1295 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21487,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1295 Coupe 2011-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2011-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21488,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1299 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21489,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1808 H1303 Coupe 2011-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2011-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21490,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1294 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21491,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1296 Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21492,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1300 Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21493,
+          "DIMENSION-ID": "Porsche 911 991 L4491 W1852 H1304 Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21494,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1289 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21495,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1291 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21496,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1294 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21497,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1808 H1296 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21498,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1288 Targa 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21499,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1289 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21500,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1291 Convertible 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21501,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1293 Targa 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21502,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1294 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21503,
+          "DIMENSION-ID": "Porsche 911 991 L4499 W1852 H1296 Coupe 2015-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21504,
+          "DIMENSION-ID": "Porsche 911 991 L4509 W1852 H1289 Targa 2014-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21505,
+          "DIMENSION-ID": "Porsche 911 991 L4509 W1852 H1298 Targa 2014-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2014-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21506,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1291 Convertible 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21507,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1293 Convertible 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21508,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1297 Coupe 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21509,
+          "DIMENSION-ID": "Porsche 911 991 L4528 W1852 H1299 Coupe 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21510,
+          "DIMENSION-ID": "Porsche 911 991.2 L4549 W1880 H1297 Coupe 2017-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21511,
+          "DIMENSION-ID": "Porsche 911 991.2 L4562 W1852 H1271 Coupe 2017-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21512,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1297 Convertible 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21513,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1297 Targa 2020-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21514,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1298 Coupe 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21515,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1299 Convertible 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21516,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1299 Targa 2020-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21517,
+          "DIMENSION-ID": "Porsche 911 992 L4519 W1852 H1300 Coupe 2019-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2019-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21518,
+          "DIMENSION-ID": "Porsche 911 992 L4535 W1900 H1299 Coupe 2021-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21519,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1293 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21520,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1298 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21521,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1301 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21522,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1302 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21523,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1302 Targa 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21524,
+          "DIMENSION-ID": "Porsche 911 992 L4542 W1852 H1303 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21525,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1292 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21526,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1292 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21527,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1293 Convertible 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21528,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1294 Coupe 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21529,
+          "DIMENSION-ID": "Porsche 911 992 L4553 W1852 H1297 Targa 2024-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21530,
+          "DIMENSION-ID": "Porsche 911 992 L4573 W1852 H1279 Coupe 2021-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21531,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1735 H1270 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21532,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1735 H1300 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21533,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1795 H1285 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21534,
+          "DIMENSION-ID": "Porsche 911 993 L4245 W1855 H1270 Coupe 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21535,
+          "DIMENSION-ID": "Porsche 911 996 L4430 W1770 H1305 Convertible 2002-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21536,
+          "DIMENSION-ID": "Porsche 911 996 L4430 W1770 H1305 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21537,
+          "DIMENSION-ID": "Porsche 911 996 L4435 W1770 H1275 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21538,
+          "DIMENSION-ID": "Porsche 911 996 L4435 W1830 H1305 Convertible 2002-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21539,
+          "DIMENSION-ID": "Porsche 911 996 L4450 W1830 H1275 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21540,
+          "DIMENSION-ID": "Porsche 911 996 L4465 W1830 H1295 Coupe 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21541,
+          "DIMENSION-ID": "Porsche 911 997 Convertible 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21542,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1300 Convertible 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21543,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1300 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21544,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1300 Coupe 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21545,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1808 H1310 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21546,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Convertible 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21547,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21548,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Coupe 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21549,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1300 Targa 2006-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21550,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1310 Convertible 2005-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21551,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1310 Coupe 2004-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21552,
+          "DIMENSION-ID": "Porsche 911 997 L4427 W1852 H1310 Targa 2006-2008 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21553,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1300 Convertible 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21554,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1300 Coupe 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21555,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1310 Convertible 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21556,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1808 H1310 Coupe 2008-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21557,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Convertible 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21558,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Coupe 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21559,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Coupe 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21560,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1300 Targa 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21561,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1310 Convertible 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21562,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1310 Coupe 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21563,
+          "DIMENSION-ID": "Porsche 911 997 L4435 W1852 H1310 Targa 2008-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21564,
+          "DIMENSION-ID": "Porsche 911 997 L4445 W1808 H1280 Coupe 2006-2009 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21565,
+          "DIMENSION-ID": "Porsche 911 997 L4450 W1852 H1300 Coupe 2006-2009 EU",
+          "MODEL": "911",
+          "YEAR": "2006-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21566,
+          "DIMENSION-ID": "Porsche 911 997 L4450 W1852 H1300 Coupe 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21567,
+          "DIMENSION-ID": "Porsche 911 997 L4450 W1852 H1300 Coupe 2010-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21568,
+          "DIMENSION-ID": "Porsche 911 997 L4460 W1808 H1280 Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21569,
+          "DIMENSION-ID": "Porsche 911 997 L4460 W1852 H1280 Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21570,
+          "DIMENSION-ID": "Porsche 911 997 L4469 W1852 H1285 Coupe 2010-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21571,
+          "DIMENSION-ID": "Porsche 911 997.2 Convertible 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21572,
+          "DIMENSION-ID": "Porsche 911 Convertible 1982-1983 EU",
+          "MODEL": "911",
+          "YEAR": "1982-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21573,
+          "DIMENSION-ID": "Porsche 911 Convertible 1983-1984 EU",
+          "MODEL": "911",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21574,
+          "DIMENSION-ID": "Porsche 911 Convertible 1984-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1984-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21575,
+          "DIMENSION-ID": "Porsche 911 Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21576,
+          "DIMENSION-ID": "Porsche 911 Convertible 1989-1994 EU",
+          "MODEL": "911",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21577,
+          "DIMENSION-ID": "Porsche 911 Convertible 1992-1994 EU",
+          "MODEL": "911",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21578,
+          "DIMENSION-ID": "Porsche 911 Convertible 1994-1995 EU",
+          "MODEL": "911",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21579,
+          "DIMENSION-ID": "Porsche 911 Convertible 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21580,
+          "DIMENSION-ID": "Porsche 911 Convertible 1997-1999 EU",
+          "MODEL": "911",
+          "YEAR": "1997-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21581,
+          "DIMENSION-ID": "Porsche 911 Convertible 1998-2001 EU",
+          "MODEL": "911",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21582,
+          "DIMENSION-ID": "Porsche 911 Convertible 2001-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21583,
+          "DIMENSION-ID": "Porsche 911 Convertible 2003-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21584,
+          "DIMENSION-ID": "Porsche 911 Convertible 2004-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21585,
+          "DIMENSION-ID": "Porsche 911 Convertible 2005-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2005-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21586,
+          "DIMENSION-ID": "Porsche 911 Convertible 2007-2009 EU",
+          "MODEL": "911",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21587,
+          "DIMENSION-ID": "Porsche 911 Convertible 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21588,
+          "DIMENSION-ID": "Porsche 911 Convertible 2010-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21589,
+          "DIMENSION-ID": "Porsche 911 Convertible 2010-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21590,
+          "DIMENSION-ID": "Porsche 911 Convertible 2013-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21591,
+          "DIMENSION-ID": "Porsche 911 Convertible 2016-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21592,
+          "DIMENSION-ID": "Porsche 911 Convertible 2018-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2018-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21593,
+          "DIMENSION-ID": "Porsche 911 Convertible 2020-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21594,
+          "DIMENSION-ID": "Porsche 911 Convertible 2021-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21595,
+          "DIMENSION-ID": "Porsche 911 Convertible 2025-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21596,
+          "DIMENSION-ID": "Porsche 911 Coupe 1963-1967 EU",
+          "MODEL": "911",
+          "YEAR": "1963-1967",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21597,
+          "DIMENSION-ID": "Porsche 911 Coupe 1966-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21598,
+          "DIMENSION-ID": "Porsche 911 Coupe 1967-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21599,
+          "DIMENSION-ID": "Porsche 911 Coupe 1968-1969 EU",
+          "MODEL": "911",
+          "YEAR": "1968-1969",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21600,
+          "DIMENSION-ID": "Porsche 911 Coupe 1968-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1968-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21601,
+          "DIMENSION-ID": "Porsche 911 Coupe 1969-1971 EU",
+          "MODEL": "911",
+          "YEAR": "1969-1971",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21602,
+          "DIMENSION-ID": "Porsche 911 Coupe 1970-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1970-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21603,
+          "DIMENSION-ID": "Porsche 911 Coupe 1972-1979 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21604,
+          "DIMENSION-ID": "Porsche 911 Coupe 1973-1975 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21605,
+          "DIMENSION-ID": "Porsche 911 Coupe 1973-1976 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21606,
+          "DIMENSION-ID": "Porsche 911 Coupe 1974-1983 EU",
+          "MODEL": "911",
+          "YEAR": "1974-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21607,
+          "DIMENSION-ID": "Porsche 911 Coupe 1977-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1977-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21608,
+          "DIMENSION-ID": "Porsche 911 Coupe 1977-1987 EU",
+          "MODEL": "911",
+          "YEAR": "1977-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21609,
+          "DIMENSION-ID": "Porsche 911 Coupe 1979-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1979-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21610,
+          "DIMENSION-ID": "Porsche 911 Coupe 1980-1983 EU",
+          "MODEL": "911",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21611,
+          "DIMENSION-ID": "Porsche 911 Coupe 1983-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1983-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21612,
+          "DIMENSION-ID": "Porsche 911 Coupe 1984-1987 EU",
+          "MODEL": "911",
+          "YEAR": "1984-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21613,
+          "DIMENSION-ID": "Porsche 911 Coupe 1986-1990 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21614,
+          "DIMENSION-ID": "Porsche 911 Coupe 1988-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21615,
+          "DIMENSION-ID": "Porsche 911 Coupe 1989-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21616,
+          "DIMENSION-ID": "Porsche 911 Coupe 1990-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21617,
+          "DIMENSION-ID": "Porsche 911 Coupe 1991-1992 EU",
+          "MODEL": "911",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21618,
+          "DIMENSION-ID": "Porsche 911 Coupe 1991-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21619,
+          "DIMENSION-ID": "Porsche 911 Coupe 1993-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1993-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21620,
+          "DIMENSION-ID": "Porsche 911 Coupe 1993-1995 EU",
+          "MODEL": "911",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21621,
+          "DIMENSION-ID": "Porsche 911 Coupe 1994-1995 EU",
+          "MODEL": "911",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21622,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1997-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21623,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-1999 EU",
+          "MODEL": "911",
+          "YEAR": "1997-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21624,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-2001 EU",
+          "MODEL": "911",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21625,
+          "DIMENSION-ID": "Porsche 911 Coupe 1999-2002 EU",
+          "MODEL": "911",
+          "YEAR": "1999-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21626,
+          "DIMENSION-ID": "Porsche 911 Coupe 2000-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21627,
+          "DIMENSION-ID": "Porsche 911 Coupe 2001-2004 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21628,
+          "DIMENSION-ID": "Porsche 911 Coupe 2001-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21629,
+          "DIMENSION-ID": "Porsche 911 Coupe 2003-2004 EU",
+          "MODEL": "911",
+          "YEAR": "2003-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21630,
+          "DIMENSION-ID": "Porsche 911 Coupe 2004-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21631,
+          "DIMENSION-ID": "Porsche 911 Coupe 2007-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21632,
+          "DIMENSION-ID": "Porsche 911 Coupe 2011-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21633,
+          "DIMENSION-ID": "Porsche 911 Coupe 2013-2017 EU",
+          "MODEL": "911",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21634,
+          "DIMENSION-ID": "Porsche 911 Coupe 2013-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21635,
+          "DIMENSION-ID": "Porsche 911 Coupe 2016-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21636,
+          "DIMENSION-ID": "Porsche 911 Coupe 2018-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2018-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21637,
+          "DIMENSION-ID": "Porsche 911 Coupe 2018-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2018-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21638,
+          "DIMENSION-ID": "Porsche 911 Coupe 2020-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2020-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21639,
+          "DIMENSION-ID": "Porsche 911 Coupe 2021-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21640,
+          "DIMENSION-ID": "Porsche 911 Coupe 2022-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2022-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21641,
+          "DIMENSION-ID": "Porsche 911 Coupe 2022-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2022-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21642,
+          "DIMENSION-ID": "Porsche 911 Coupe 2023-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2023-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21643,
+          "DIMENSION-ID": "Porsche 911 Coupe 2023-2025 EU",
+          "MODEL": "911",
+          "YEAR": "2023-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21644,
+          "DIMENSION-ID": "Porsche 911 Coupe 2025-2026 EU",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21645,
+          "DIMENSION-ID": "Porsche 911 Targa 1966-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21646,
+          "DIMENSION-ID": "Porsche 911 Targa 1966-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1966-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21647,
+          "DIMENSION-ID": "Porsche 911 Targa 1967-1968 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21648,
+          "DIMENSION-ID": "Porsche 911 Targa 1968-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1968-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21649,
+          "DIMENSION-ID": "Porsche 911 Targa 1969-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1969-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21650,
+          "DIMENSION-ID": "Porsche 911 Targa 1970-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1970-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21651,
+          "DIMENSION-ID": "Porsche 911 Targa 1972-1979 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21652,
+          "DIMENSION-ID": "Porsche 911 Targa 1973-1975 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21653,
+          "DIMENSION-ID": "Porsche 911 Targa 1973-1976 EU",
+          "MODEL": "911",
+          "YEAR": "1973-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21654,
+          "DIMENSION-ID": "Porsche 911 Targa 1977-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1977-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21655,
+          "DIMENSION-ID": "Porsche 911 Targa 1979-1980 EU",
+          "MODEL": "911",
+          "YEAR": "1979-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21656,
+          "DIMENSION-ID": "Porsche 911 Targa 1986-1990 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21657,
+          "DIMENSION-ID": "Porsche 911 Targa 1988-1993 EU",
+          "MODEL": "911",
+          "YEAR": "1988-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21658,
+          "DIMENSION-ID": "Porsche 911 Targa 1995-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1995-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21659,
+          "DIMENSION-ID": "Porsche 911 Targa 1996-1997 EU",
+          "MODEL": "911",
+          "YEAR": "1996-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21660,
+          "DIMENSION-ID": "Porsche 911 Targa 2001-2005 EU",
+          "MODEL": "911",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21661,
+          "DIMENSION-ID": "Porsche 911 Targa 2009-2012 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21662,
+          "DIMENSION-ID": "Porsche 911 Targa 2017-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21663,
+          "DIMENSION-ID": "Porsche 911 Targa 2021-2024 EU",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21664,
+          "DIMENSION-ID": "Porsche 911 carreras Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21665,
+          "DIMENSION-ID": "Porsche 911 gt3rs Coupe 2015-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21666,
+          "DIMENSION-ID": "Porsche 911 gts Convertible 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21667,
+          "DIMENSION-ID": "Porsche 911 gts Coupe 2009-2011 EU",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21668,
+          "DIMENSION-ID": "Porsche 911 gts Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21669,
+          "DIMENSION-ID": "Porsche 911 lwb Targa 1967-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21670,
+          "DIMENSION-ID": "Porsche 911 narrow 911 Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21671,
+          "DIMENSION-ID": "Porsche 911 narrow Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21672,
+          "DIMENSION-ID": "Porsche 911 post aug72 Coupe 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21673,
+          "DIMENSION-ID": "Porsche 911 post aug72 Targa 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21674,
+          "DIMENSION-ID": "Porsche 911 postaug72 Coupe 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21675,
+          "DIMENSION-ID": "Porsche 911 postaug72 Targa 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21676,
+          "DIMENSION-ID": "Porsche 911 pre aug72 Coupe 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21677,
+          "DIMENSION-ID": "Porsche 911 pre aug72 Targa 1972-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1972-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21678,
+          "DIMENSION-ID": "Porsche 911 preaug72 Coupe 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21679,
+          "DIMENSION-ID": "Porsche 911 preaug72 Targa 1971-1973 EU",
+          "MODEL": "911",
+          "YEAR": "1971-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21680,
+          "DIMENSION-ID": "Porsche 911 r Coupe 2015-2020 EU",
+          "MODEL": "911",
+          "YEAR": "2015-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21681,
+          "DIMENSION-ID": "Porsche 911 s Coupe 2012-2019 EU",
+          "MODEL": "911",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21682,
+          "DIMENSION-ID": "Porsche 911 swb Targa 1967-1972 EU",
+          "MODEL": "911",
+          "YEAR": "1967-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21683,
+          "DIMENSION-ID": "Porsche 911 turbolook Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21684,
+          "DIMENSION-ID": "Porsche 911 wide Convertible 1986-1989 EU",
+          "MODEL": "911",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21736,
+          "DIMENSION-ID": "Porsche Carrera gt Convertible 2003-2006 EU",
+          "MODEL": "Carrera gt",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10107,
+          "DIMENSION-ID": "Porsche 911 Convertible 1988-1994 RU",
+          "MODEL": "911",
+          "YEAR": "1988-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10108,
+          "DIMENSION-ID": "Porsche 911 Convertible 1993-1998 RU",
+          "MODEL": "911",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10109,
+          "DIMENSION-ID": "Porsche 911 Convertible 1997-2001 RU",
+          "MODEL": "911",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10110,
+          "DIMENSION-ID": "Porsche 911 Convertible 2000-2005 RU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10111,
+          "DIMENSION-ID": "Porsche 911 Convertible 2004-2009 RU",
+          "MODEL": "911",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10112,
+          "DIMENSION-ID": "Porsche 911 Convertible 2008-2012 RU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10113,
+          "DIMENSION-ID": "Porsche 911 Convertible 2011-2015 RU",
+          "MODEL": "911",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10114,
+          "DIMENSION-ID": "Porsche 911 Convertible 2015-2019 RU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10115,
+          "DIMENSION-ID": "Porsche 911 Convertible 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10116,
+          "DIMENSION-ID": "Porsche 911 Convertible 2024-2026 RU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10117,
+          "DIMENSION-ID": "Porsche 911 Coupe 1963-1973 RU",
+          "MODEL": "911",
+          "YEAR": "1963-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10118,
+          "DIMENSION-ID": "Porsche 911 Coupe 1973-1989 RU",
+          "MODEL": "911",
+          "YEAR": "1973-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10119,
+          "DIMENSION-ID": "Porsche 911 Coupe 1988-1994 RU",
+          "MODEL": "911",
+          "YEAR": "1988-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10120,
+          "DIMENSION-ID": "Porsche 911 Coupe 1993-1998 RU",
+          "MODEL": "911",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10121,
+          "DIMENSION-ID": "Porsche 911 Coupe 1997-2001 RU",
+          "MODEL": "911",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10122,
+          "DIMENSION-ID": "Porsche 911 Coupe 2000-2005 RU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10123,
+          "DIMENSION-ID": "Porsche 911 Coupe 2004-2009 RU",
+          "MODEL": "911",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10124,
+          "DIMENSION-ID": "Porsche 911 Coupe 2008-2012 RU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10125,
+          "DIMENSION-ID": "Porsche 911 Coupe 2011-2015 RU",
+          "MODEL": "911",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10126,
+          "DIMENSION-ID": "Porsche 911 Coupe 2015-2019 RU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10127,
+          "DIMENSION-ID": "Porsche 911 Coupe 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10128,
+          "DIMENSION-ID": "Porsche 911 Coupe 2024-2026 RU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10129,
+          "DIMENSION-ID": "Porsche 911 Dakar Coupe 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10130,
+          "DIMENSION-ID": "Porsche 911 GT1 Coupe 1997-1998 RU",
+          "MODEL": "911 GT1",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10131,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 1995-1998 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10132,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2000-2005 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10133,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2007-2010 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2007-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10134,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011-2012 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10135,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10136,
+          "DIMENSION-ID": "Porsche 911 GT3 Convertible 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10137,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 1999-2000 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "1999-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10138,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2003-2005 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10139,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2006-2008 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10140,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10141,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10142,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10143,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10144,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10145,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10146,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10147,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10148,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10149,
+          "DIMENSION-ID": "Porsche 911 R Coupe 2016-2019 RU",
+          "MODEL": "911 R",
+          "YEAR": "2016-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10150,
+          "DIMENSION-ID": "Porsche 911 Roadster 1973-1989 RU",
+          "MODEL": "911",
+          "YEAR": "1973-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10151,
+          "DIMENSION-ID": "Porsche 911 S/T Coupe 2023-2026 RU",
+          "MODEL": "911 S/T",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10152,
+          "DIMENSION-ID": "Porsche 911 Targa 1963-1973 RU",
+          "MODEL": "911",
+          "YEAR": "1963-1973",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10153,
+          "DIMENSION-ID": "Porsche 911 Targa 1973-1989 RU",
+          "MODEL": "911",
+          "YEAR": "1973-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10154,
+          "DIMENSION-ID": "Porsche 911 Targa 1988-1994 RU",
+          "MODEL": "911",
+          "YEAR": "1988-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10155,
+          "DIMENSION-ID": "Porsche 911 Targa 1993-1998 RU",
+          "MODEL": "911",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10156,
+          "DIMENSION-ID": "Porsche 911 Targa 2000-2005 RU",
+          "MODEL": "911",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10157,
+          "DIMENSION-ID": "Porsche 911 Targa 2004-2009 RU",
+          "MODEL": "911",
+          "YEAR": "2004-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10158,
+          "DIMENSION-ID": "Porsche 911 Targa 2008-2012 RU",
+          "MODEL": "911",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10159,
+          "DIMENSION-ID": "Porsche 911 Targa 2011-2015 RU",
+          "MODEL": "911",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10160,
+          "DIMENSION-ID": "Porsche 911 Targa 2015-2019 RU",
+          "MODEL": "911",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10161,
+          "DIMENSION-ID": "Porsche 911 Targa 2018-2025 RU",
+          "MODEL": "911",
+          "YEAR": "2018-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10162,
+          "DIMENSION-ID": "Porsche 911 Targa 2024-2026 RU",
+          "MODEL": "911",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10182,
+          "DIMENSION-ID": "Porsche Carrera GT Targa 2003-2007 RU",
+          "MODEL": "Carrera GT",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Porsche / New 911 Carrera原名到明确US目标的可引用身份关系；参考年份2012的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-f9850b1d12c1abc1ae6c5c10",
+      "MM_ID": "MM-c15859eda654916355d0ae67",
+      "REGION": "US",
+      "MAKE": "Porsche",
+      "MODEL": "New 911 Carrera",
+      "YEAR": "2012",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Porsche",
+      "标准MODEL": "New 911 Carrera",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "42924",
+        "42925"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AM-S7), 6 cyl, 3.4 L",
+        "Man 7-spd, 6 cyl, 3.4 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,869 @@
+{
+  "MAKE": "BMW",
+  "MODEL": "740Ld xDrive",
+  "MM_ID": "MM-e9895122880506ba101232a1",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "BMW",
+    "MODEL": "740Ld xDrive",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 3721,
+      "MM_ID": "MM-e9895122880506ba101232a1",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "3722",
+      "raw_make": "BMW",
+      "raw_model": "740Ld xDrive",
+      "raw_year": "2015",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S8), 6 cyl, 3.0 L, Diesel, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 496,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "bmw",
+      "make_name": "BMW",
+      "model_slug": "xdrive30d",
+      "model_name": "XDRIVE30D",
+      "body_types": "hatchback|wagon",
+      "countries": "lu|nl",
+      "regions": "eu",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "9"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bmw",
+      "same_brand_rows_examined": 298,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 33,
+      "candidates": [
+        {
+          "row_1based": 243,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1987-1994 US",
+          "MODEL": "7 Series",
+          "YEAR": "1987-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 244,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1995-2001 US",
+          "MODEL": "7 Series",
+          "YEAR": "1995-2001",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 247,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2016-2022 US",
+          "MODEL": "7 Series",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 248,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2023-2026 US",
+          "MODEL": "7 Series",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 254,
+          "DIMENSION-ID": "BMW X1 SUV 2013-2015 US",
+          "MODEL": "X1",
+          "YEAR": "2013-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 255,
+          "DIMENSION-ID": "BMW X1 SUV 2016-2022 US",
+          "MODEL": "X1",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 256,
+          "DIMENSION-ID": "BMW X1 SUV 2023-2026 US",
+          "MODEL": "X1",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 259,
+          "DIMENSION-ID": "BMW X2 SUV 2018-2023 US",
+          "MODEL": "X2",
+          "YEAR": "2018-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 260,
+          "DIMENSION-ID": "BMW X2 SUV 2024-2026 US",
+          "MODEL": "X2",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 261,
+          "DIMENSION-ID": "BMW X3 SUV 2004-2010 US",
+          "MODEL": "X3",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 262,
+          "DIMENSION-ID": "BMW X3 SUV 2011-2017 US",
+          "MODEL": "X3",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 263,
+          "DIMENSION-ID": "BMW X3 SUV 2018-2024 US",
+          "MODEL": "X3",
+          "YEAR": "2018-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 264,
+          "DIMENSION-ID": "BMW X3 SUV 2025-2026 US",
+          "MODEL": "X3",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 265,
+          "DIMENSION-ID": "BMW X4 SUV 2015-2018 US",
+          "MODEL": "X4",
+          "YEAR": "2015-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 266,
+          "DIMENSION-ID": "BMW X4 SUV 2019-2025 US",
+          "MODEL": "X4",
+          "YEAR": "2019-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 268,
+          "DIMENSION-ID": "BMW X5 SUV 2007-2013 US",
+          "MODEL": "X5",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 269,
+          "DIMENSION-ID": "BMW X5 SUV 2014-2018 US",
+          "MODEL": "X5",
+          "YEAR": "2014-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 270,
+          "DIMENSION-ID": "BMW X5 SUV 2019-2023 US",
+          "MODEL": "X5",
+          "YEAR": "2019-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 271,
+          "DIMENSION-ID": "BMW X5 SUV 2024-2026 US",
+          "MODEL": "X5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 272,
+          "DIMENSION-ID": "BMW X6 SUV 2008-2014 US",
+          "MODEL": "X6",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 273,
+          "DIMENSION-ID": "BMW X6 SUV 2015-2019 US",
+          "MODEL": "X6",
+          "YEAR": "2015-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 274,
+          "DIMENSION-ID": "BMW X6 SUV 2020-2026 US",
+          "MODEL": "X6",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 275,
+          "DIMENSION-ID": "BMW X7 M60i SUV 2023-2026 US",
+          "MODEL": "X7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 276,
+          "DIMENSION-ID": "BMW X7 SUV 2019-2022 US",
+          "MODEL": "X7",
+          "YEAR": "2019-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 286,
+          "DIMENSION-ID": "BMW i4 Fastback 2022-2026 US",
+          "MODEL": "i4",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 287,
+          "DIMENSION-ID": "BMW i5 Sedan 2024-2026 US",
+          "MODEL": "i5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 288,
+          "DIMENSION-ID": "BMW i7 Sedan 2023-2026 US",
+          "MODEL": "i7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 291,
+          "DIMENSION-ID": "BMW iX SUV 2022-2025 US",
+          "MODEL": "iX",
+          "YEAR": "2022-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 292,
+          "DIMENSION-ID": "BMW iX SUV 2026 US",
+          "MODEL": "iX",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4512,
+          "DIMENSION-ID": "BMW 5 Series Sedan 2027 US",
+          "MODEL": "5 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 5 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4516,
+          "DIMENSION-ID": "BMW X5 SUV 2027 US",
+          "MODEL": "X5",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4517,
+          "DIMENSION-ID": "BMW X6 Coupe 2027 US",
+          "MODEL": "X6",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4520,
+          "DIMENSION-ID": "BMW i7 Sedan 2027 US",
+          "MODEL": "i7",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 33,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bmw",
+      "same_brand_rows_examined": 298,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 33,
+      "candidates": [
+        {
+          "row_1based": 243,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1987-1994 US",
+          "MODEL": "7 Series",
+          "YEAR": "1987-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 244,
+          "DIMENSION-ID": "BMW 7 Series Sedan 1995-2001 US",
+          "MODEL": "7 Series",
+          "YEAR": "1995-2001",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 247,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2016-2022 US",
+          "MODEL": "7 Series",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 248,
+          "DIMENSION-ID": "BMW 7 Series Sedan 2023-2026 US",
+          "MODEL": "7 Series",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 7 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 254,
+          "DIMENSION-ID": "BMW X1 SUV 2013-2015 US",
+          "MODEL": "X1",
+          "YEAR": "2013-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 255,
+          "DIMENSION-ID": "BMW X1 SUV 2016-2022 US",
+          "MODEL": "X1",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 256,
+          "DIMENSION-ID": "BMW X1 SUV 2023-2026 US",
+          "MODEL": "X1",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 259,
+          "DIMENSION-ID": "BMW X2 SUV 2018-2023 US",
+          "MODEL": "X2",
+          "YEAR": "2018-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 260,
+          "DIMENSION-ID": "BMW X2 SUV 2024-2026 US",
+          "MODEL": "X2",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 261,
+          "DIMENSION-ID": "BMW X3 SUV 2004-2010 US",
+          "MODEL": "X3",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 262,
+          "DIMENSION-ID": "BMW X3 SUV 2011-2017 US",
+          "MODEL": "X3",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 263,
+          "DIMENSION-ID": "BMW X3 SUV 2018-2024 US",
+          "MODEL": "X3",
+          "YEAR": "2018-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 264,
+          "DIMENSION-ID": "BMW X3 SUV 2025-2026 US",
+          "MODEL": "X3",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 265,
+          "DIMENSION-ID": "BMW X4 SUV 2015-2018 US",
+          "MODEL": "X4",
+          "YEAR": "2015-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 266,
+          "DIMENSION-ID": "BMW X4 SUV 2019-2025 US",
+          "MODEL": "X4",
+          "YEAR": "2019-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 268,
+          "DIMENSION-ID": "BMW X5 SUV 2007-2013 US",
+          "MODEL": "X5",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 269,
+          "DIMENSION-ID": "BMW X5 SUV 2014-2018 US",
+          "MODEL": "X5",
+          "YEAR": "2014-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 270,
+          "DIMENSION-ID": "BMW X5 SUV 2019-2023 US",
+          "MODEL": "X5",
+          "YEAR": "2019-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 271,
+          "DIMENSION-ID": "BMW X5 SUV 2024-2026 US",
+          "MODEL": "X5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 272,
+          "DIMENSION-ID": "BMW X6 SUV 2008-2014 US",
+          "MODEL": "X6",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 273,
+          "DIMENSION-ID": "BMW X6 SUV 2015-2019 US",
+          "MODEL": "X6",
+          "YEAR": "2015-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 274,
+          "DIMENSION-ID": "BMW X6 SUV 2020-2026 US",
+          "MODEL": "X6",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 275,
+          "DIMENSION-ID": "BMW X7 M60i SUV 2023-2026 US",
+          "MODEL": "X7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 276,
+          "DIMENSION-ID": "BMW X7 SUV 2019-2022 US",
+          "MODEL": "X7",
+          "YEAR": "2019-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 286,
+          "DIMENSION-ID": "BMW i4 Fastback 2022-2026 US",
+          "MODEL": "i4",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 287,
+          "DIMENSION-ID": "BMW i5 Sedan 2024-2026 US",
+          "MODEL": "i5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 288,
+          "DIMENSION-ID": "BMW i7 Sedan 2023-2026 US",
+          "MODEL": "i7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 291,
+          "DIMENSION-ID": "BMW iX SUV 2022-2025 US",
+          "MODEL": "iX",
+          "YEAR": "2022-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 292,
+          "DIMENSION-ID": "BMW iX SUV 2026 US",
+          "MODEL": "iX",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4512,
+          "DIMENSION-ID": "BMW 5 Series Sedan 2027 US",
+          "MODEL": "5 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 5 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4516,
+          "DIMENSION-ID": "BMW X5 SUV 2027 US",
+          "MODEL": "X5",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4517,
+          "DIMENSION-ID": "BMW X6 Coupe 2027 US",
+          "MODEL": "X6",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4520,
+          "DIMENSION-ID": "BMW i7 Sedan 2027 US",
+          "MODEL": "i7",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "740Ld xDrive 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 33,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "BMW / 740Ld xDrive原名到明确US目标的可引用身份关系；参考年份2015的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-7454a8bc3256b13a557b20c6",
+      "MM_ID": "MM-e9895122880506ba101232a1",
+      "REGION": "US",
+      "MAKE": "BMW",
+      "MODEL": "740Ld xDrive",
+      "YEAR": "2015",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "BMW",
+      "标准MODEL": "740Ld xDrive",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "3722"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S8), 6 cyl, 3.0 L, Diesel, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

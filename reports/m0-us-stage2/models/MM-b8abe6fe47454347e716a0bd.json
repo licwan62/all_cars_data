@@ -1,0 +1,1535 @@
+{
+  "MAKE": "Lexus",
+  "MODEL": "IS 350/IS 350C",
+  "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+  "MMY_count": 4,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Lexus",
+    "MODEL": "IS 350/IS 350C",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 30936,
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "30937",
+      "raw_make": "Lexus",
+      "raw_model": "IS 350/IS 350C",
+      "raw_year": "2010",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S6), 6 cyl, 3.5 L"
+    },
+    {
+      "association_row_1based": 30937,
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "30938",
+      "raw_make": "Lexus",
+      "raw_model": "IS 350/IS 350C",
+      "raw_year": "2011",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S6), 6 cyl, 3.5 L"
+    },
+    {
+      "association_row_1based": 30938,
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "30939",
+      "raw_make": "Lexus",
+      "raw_model": "IS 350/IS 350C",
+      "raw_year": "2012",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S6), 6 cyl, 3.5 L"
+    },
+    {
+      "association_row_1based": 30939,
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "30940",
+      "raw_make": "Lexus",
+      "raw_model": "IS 350/IS 350C",
+      "raw_year": "2013",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S6), 6 cyl, 3.5 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 2889,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "lexus",
+      "make_name": "Lexus",
+      "model_slug": "is",
+      "model_name": "IS",
+      "body_types": "sedan",
+      "countries": "ar|au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "car/lexus/is-200|car/lexus/is-200t|car/lexus/is-220|car/lexus/is-220d|car/lexus/is-250|car/lexus/is-250-c|car/lexus/is-250c|car/lexus/is-300|car/lexus/is-300-sportcross|car/lexus/is-300h|car/lexus/is-350|car/lexus/is-350-c|car/lexus/is-350c|car/lexus/is-500|car/lexus/is200|car/lexus/is200d|car/lexus/is200t|car/lexus/is220d|car/lexus/is250|car/lexus/is250c|car/lexus/is300|car/lexus/is300h|car/lexus/is350",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 2890,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "lexus",
+      "make_name": "Lexus",
+      "model_slug": "is-f",
+      "model_name": "IS F",
+      "body_types": "sedan",
+      "countries": "au|ca|ch|fi|nl|no|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/lexus/isf",
+      "mass_popularity_decile": "3"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "lexus",
+      "same_brand_rows_examined": 91,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 31,
+      "candidates": [
+        {
+          "row_1based": 2459,
+          "DIMENSION-ID": "Lexus ES Sedan 2007-2012 US",
+          "MODEL": "ES",
+          "YEAR": "2007-2012",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 ES仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2462,
+          "DIMENSION-ID": "Lexus ES Sedan 2026 US",
+          "MODEL": "ES",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 ES仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2467,
+          "DIMENSION-ID": "Lexus GS Sedan 2013-2020 US",
+          "MODEL": "GS",
+          "YEAR": "2013-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 GS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2472,
+          "DIMENSION-ID": "Lexus GX SUV 2014-2023 US",
+          "MODEL": "GX",
+          "YEAR": "2014-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 GX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2474,
+          "DIMENSION-ID": "Lexus IS Convertible 2010-2015 US",
+          "MODEL": "IS",
+          "YEAR": "2010-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2475,
+          "DIMENSION-ID": "Lexus IS Sedan 2001-2005 US",
+          "MODEL": "IS",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2476,
+          "DIMENSION-ID": "Lexus IS Sedan 2006-2009 US",
+          "MODEL": "IS",
+          "YEAR": "2006-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2477,
+          "DIMENSION-ID": "Lexus IS Sedan 2010-2013 US",
+          "MODEL": "IS",
+          "YEAR": "2010-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2478,
+          "DIMENSION-ID": "Lexus IS Sedan 2014-2020 US",
+          "MODEL": "IS",
+          "YEAR": "2014-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2479,
+          "DIMENSION-ID": "Lexus IS Sedan 2021 US",
+          "MODEL": "IS",
+          "YEAR": "2021",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2480,
+          "DIMENSION-ID": "Lexus IS Sedan 2022-2026 US",
+          "MODEL": "IS",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2513,
+          "DIMENSION-ID": "Lexus NX SUV 2022-2026 US",
+          "MODEL": "NX",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 NX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2514,
+          "DIMENSION-ID": "Lexus RC Coupe 2015-2018 US",
+          "MODEL": "RC",
+          "YEAR": "2015-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RC仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2515,
+          "DIMENSION-ID": "Lexus RC Coupe 2019-2024 US",
+          "MODEL": "RC",
+          "YEAR": "2019-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RC仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2516,
+          "DIMENSION-ID": "Lexus RC Coupe 2025 US",
+          "MODEL": "RC",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RC仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2519,
+          "DIMENSION-ID": "Lexus RX RX L SUV 2018 US",
+          "MODEL": "RX",
+          "YEAR": "2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2520,
+          "DIMENSION-ID": "Lexus RX RX L SUV 2019-2022 US",
+          "MODEL": "RX",
+          "YEAR": "2019-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2524,
+          "DIMENSION-ID": "Lexus RX SUV 2004-2009 US",
+          "MODEL": "RX",
+          "YEAR": "2004-2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2525,
+          "DIMENSION-ID": "Lexus RX SUV 2010 US",
+          "MODEL": "RX",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2526,
+          "DIMENSION-ID": "Lexus RX SUV 2011-2012 US",
+          "MODEL": "RX",
+          "YEAR": "2011-2012",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2527,
+          "DIMENSION-ID": "Lexus RX SUV 2013-2014 US",
+          "MODEL": "RX",
+          "YEAR": "2013-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2528,
+          "DIMENSION-ID": "Lexus RX SUV 2015 US",
+          "MODEL": "RX",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2529,
+          "DIMENSION-ID": "Lexus RX SUV 2016-2022 US",
+          "MODEL": "RX",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2530,
+          "DIMENSION-ID": "Lexus RX SUV 2023-2026 US",
+          "MODEL": "RX",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4621,
+          "DIMENSION-ID": "Lexus IS F Sedan 2008 US",
+          "MODEL": "IS F",
+          "YEAR": "2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4622,
+          "DIMENSION-ID": "Lexus IS F Sedan 2009 US",
+          "MODEL": "IS F",
+          "YEAR": "2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4623,
+          "DIMENSION-ID": "Lexus IS F Sedan 2010 US",
+          "MODEL": "IS F",
+          "YEAR": "2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4624,
+          "DIMENSION-ID": "Lexus IS F Sedan 2011 US",
+          "MODEL": "IS F",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4625,
+          "DIMENSION-ID": "Lexus IS F Sedan 2012 US",
+          "MODEL": "IS F",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4626,
+          "DIMENSION-ID": "Lexus IS F Sedan 2013 US",
+          "MODEL": "IS F",
+          "YEAR": "2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4627,
+          "DIMENSION-ID": "Lexus IS F Sedan 2014 US",
+          "MODEL": "IS F",
+          "YEAR": "2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 31,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 12942,
+          "DIMENSION-ID": "Lexus Is c Convertible 2009-2015 EU",
+          "MODEL": "Is c",
+          "YEAR": "2009-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12943,
+          "DIMENSION-ID": "Lexus Is i Sedan 1999-2005 EU",
+          "MODEL": "Is i",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12944,
+          "DIMENSION-ID": "Lexus Is i Sedan 2001-2005 EU",
+          "MODEL": "Is i",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12945,
+          "DIMENSION-ID": "Lexus Is ii Sedan 2007-2013 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2007-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12946,
+          "DIMENSION-ID": "Lexus Is ii Sedan 2010-2012 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12947,
+          "DIMENSION-ID": "Lexus Is ii fl08 Sedan 2005-2012 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12948,
+          "DIMENSION-ID": "Lexus Is ii fl08 Sedan 2005-2013 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12949,
+          "DIMENSION-ID": "Lexus Is ii prefl Sedan 2005-2012 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12950,
+          "DIMENSION-ID": "Lexus Is ii prefl Sedan 2005-2013 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12951,
+          "DIMENSION-ID": "Lexus Is iii Sedan 2013-2015 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2013-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12952,
+          "DIMENSION-ID": "Lexus Is iii Sedan 2017-2026 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12953,
+          "DIMENSION-ID": "Lexus Is iii fl16 Sedan 2013-2020 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12954,
+          "DIMENSION-ID": "Lexus Is iii fl16 Sedan 2015-2026 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2015-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12955,
+          "DIMENSION-ID": "Lexus Is iii prefl Sedan 2013-2020 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12956,
+          "DIMENSION-ID": "Lexus Is iii prefl Sedan 2015-2026 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2015-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12957,
+          "DIMENSION-ID": "Lexus Is sportcross Wagon 2001-2005 EU",
+          "MODEL": "Is sportcross",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12958,
+          "DIMENSION-ID": "Lexus Is sportcross Wagon 2002-2005 EU",
+          "MODEL": "Is sportcross",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6743,
+          "DIMENSION-ID": "Lexus IS Convertible 2008-2010 RU",
+          "MODEL": "IS",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6744,
+          "DIMENSION-ID": "Lexus IS Convertible 2010-2016 RU",
+          "MODEL": "IS",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6745,
+          "DIMENSION-ID": "Lexus IS F Sedan 2007-2014 RU",
+          "MODEL": "IS F",
+          "YEAR": "2007-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6746,
+          "DIMENSION-ID": "Lexus IS Sedan 1999-2005 RU",
+          "MODEL": "IS",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6747,
+          "DIMENSION-ID": "Lexus IS Sedan 2005-2008 RU",
+          "MODEL": "IS",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6748,
+          "DIMENSION-ID": "Lexus IS Sedan 2008-2010 RU",
+          "MODEL": "IS",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6749,
+          "DIMENSION-ID": "Lexus IS Sedan 2010-2016 RU",
+          "MODEL": "IS",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6750,
+          "DIMENSION-ID": "Lexus IS Sedan 2013-2016 RU",
+          "MODEL": "IS",
+          "YEAR": "2013-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6751,
+          "DIMENSION-ID": "Lexus IS Sedan 2016-2020 RU",
+          "MODEL": "IS",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6752,
+          "DIMENSION-ID": "Lexus IS Sedan 2020-2026 RU",
+          "MODEL": "IS",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6753,
+          "DIMENSION-ID": "Lexus IS Sedan 2025-2026 RU",
+          "MODEL": "IS",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6754,
+          "DIMENSION-ID": "Lexus IS Wagon 1999-2005 RU",
+          "MODEL": "IS",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "lexus",
+      "same_brand_rows_examined": 91,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 31,
+      "candidates": [
+        {
+          "row_1based": 2459,
+          "DIMENSION-ID": "Lexus ES Sedan 2007-2012 US",
+          "MODEL": "ES",
+          "YEAR": "2007-2012",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 ES仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2462,
+          "DIMENSION-ID": "Lexus ES Sedan 2026 US",
+          "MODEL": "ES",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 ES仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2467,
+          "DIMENSION-ID": "Lexus GS Sedan 2013-2020 US",
+          "MODEL": "GS",
+          "YEAR": "2013-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 GS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2472,
+          "DIMENSION-ID": "Lexus GX SUV 2014-2023 US",
+          "MODEL": "GX",
+          "YEAR": "2014-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 GX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2474,
+          "DIMENSION-ID": "Lexus IS Convertible 2010-2015 US",
+          "MODEL": "IS",
+          "YEAR": "2010-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2475,
+          "DIMENSION-ID": "Lexus IS Sedan 2001-2005 US",
+          "MODEL": "IS",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2476,
+          "DIMENSION-ID": "Lexus IS Sedan 2006-2009 US",
+          "MODEL": "IS",
+          "YEAR": "2006-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2477,
+          "DIMENSION-ID": "Lexus IS Sedan 2010-2013 US",
+          "MODEL": "IS",
+          "YEAR": "2010-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2478,
+          "DIMENSION-ID": "Lexus IS Sedan 2014-2020 US",
+          "MODEL": "IS",
+          "YEAR": "2014-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2479,
+          "DIMENSION-ID": "Lexus IS Sedan 2021 US",
+          "MODEL": "IS",
+          "YEAR": "2021",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2480,
+          "DIMENSION-ID": "Lexus IS Sedan 2022-2026 US",
+          "MODEL": "IS",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2513,
+          "DIMENSION-ID": "Lexus NX SUV 2022-2026 US",
+          "MODEL": "NX",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 NX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2514,
+          "DIMENSION-ID": "Lexus RC Coupe 2015-2018 US",
+          "MODEL": "RC",
+          "YEAR": "2015-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RC仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2515,
+          "DIMENSION-ID": "Lexus RC Coupe 2019-2024 US",
+          "MODEL": "RC",
+          "YEAR": "2019-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RC仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2516,
+          "DIMENSION-ID": "Lexus RC Coupe 2025 US",
+          "MODEL": "RC",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RC仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2519,
+          "DIMENSION-ID": "Lexus RX RX L SUV 2018 US",
+          "MODEL": "RX",
+          "YEAR": "2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2520,
+          "DIMENSION-ID": "Lexus RX RX L SUV 2019-2022 US",
+          "MODEL": "RX",
+          "YEAR": "2019-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2524,
+          "DIMENSION-ID": "Lexus RX SUV 2004-2009 US",
+          "MODEL": "RX",
+          "YEAR": "2004-2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2525,
+          "DIMENSION-ID": "Lexus RX SUV 2010 US",
+          "MODEL": "RX",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2526,
+          "DIMENSION-ID": "Lexus RX SUV 2011-2012 US",
+          "MODEL": "RX",
+          "YEAR": "2011-2012",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2527,
+          "DIMENSION-ID": "Lexus RX SUV 2013-2014 US",
+          "MODEL": "RX",
+          "YEAR": "2013-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2528,
+          "DIMENSION-ID": "Lexus RX SUV 2015 US",
+          "MODEL": "RX",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2529,
+          "DIMENSION-ID": "Lexus RX SUV 2016-2022 US",
+          "MODEL": "RX",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2530,
+          "DIMENSION-ID": "Lexus RX SUV 2023-2026 US",
+          "MODEL": "RX",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 RX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4621,
+          "DIMENSION-ID": "Lexus IS F Sedan 2008 US",
+          "MODEL": "IS F",
+          "YEAR": "2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4622,
+          "DIMENSION-ID": "Lexus IS F Sedan 2009 US",
+          "MODEL": "IS F",
+          "YEAR": "2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4623,
+          "DIMENSION-ID": "Lexus IS F Sedan 2010 US",
+          "MODEL": "IS F",
+          "YEAR": "2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4624,
+          "DIMENSION-ID": "Lexus IS F Sedan 2011 US",
+          "MODEL": "IS F",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4625,
+          "DIMENSION-ID": "Lexus IS F Sedan 2012 US",
+          "MODEL": "IS F",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4626,
+          "DIMENSION-ID": "Lexus IS F Sedan 2013 US",
+          "MODEL": "IS F",
+          "YEAR": "2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4627,
+          "DIMENSION-ID": "Lexus IS F Sedan 2014 US",
+          "MODEL": "IS F",
+          "YEAR": "2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "IS 350/IS 350C 与 IS F仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 31,
+      "non_US_candidate_hits": 29,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 12942,
+          "DIMENSION-ID": "Lexus Is c Convertible 2009-2015 EU",
+          "MODEL": "Is c",
+          "YEAR": "2009-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12943,
+          "DIMENSION-ID": "Lexus Is i Sedan 1999-2005 EU",
+          "MODEL": "Is i",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12944,
+          "DIMENSION-ID": "Lexus Is i Sedan 2001-2005 EU",
+          "MODEL": "Is i",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12945,
+          "DIMENSION-ID": "Lexus Is ii Sedan 2007-2013 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2007-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12946,
+          "DIMENSION-ID": "Lexus Is ii Sedan 2010-2012 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12947,
+          "DIMENSION-ID": "Lexus Is ii fl08 Sedan 2005-2012 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12948,
+          "DIMENSION-ID": "Lexus Is ii fl08 Sedan 2005-2013 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12949,
+          "DIMENSION-ID": "Lexus Is ii prefl Sedan 2005-2012 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12950,
+          "DIMENSION-ID": "Lexus Is ii prefl Sedan 2005-2013 EU",
+          "MODEL": "Is ii",
+          "YEAR": "2005-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12951,
+          "DIMENSION-ID": "Lexus Is iii Sedan 2013-2015 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2013-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12952,
+          "DIMENSION-ID": "Lexus Is iii Sedan 2017-2026 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12953,
+          "DIMENSION-ID": "Lexus Is iii fl16 Sedan 2013-2020 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12954,
+          "DIMENSION-ID": "Lexus Is iii fl16 Sedan 2015-2026 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2015-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12955,
+          "DIMENSION-ID": "Lexus Is iii prefl Sedan 2013-2020 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2013-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12956,
+          "DIMENSION-ID": "Lexus Is iii prefl Sedan 2015-2026 EU",
+          "MODEL": "Is iii",
+          "YEAR": "2015-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12957,
+          "DIMENSION-ID": "Lexus Is sportcross Wagon 2001-2005 EU",
+          "MODEL": "Is sportcross",
+          "YEAR": "2001-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 12958,
+          "DIMENSION-ID": "Lexus Is sportcross Wagon 2002-2005 EU",
+          "MODEL": "Is sportcross",
+          "YEAR": "2002-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6743,
+          "DIMENSION-ID": "Lexus IS Convertible 2008-2010 RU",
+          "MODEL": "IS",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6744,
+          "DIMENSION-ID": "Lexus IS Convertible 2010-2016 RU",
+          "MODEL": "IS",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6745,
+          "DIMENSION-ID": "Lexus IS F Sedan 2007-2014 RU",
+          "MODEL": "IS F",
+          "YEAR": "2007-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6746,
+          "DIMENSION-ID": "Lexus IS Sedan 1999-2005 RU",
+          "MODEL": "IS",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6747,
+          "DIMENSION-ID": "Lexus IS Sedan 2005-2008 RU",
+          "MODEL": "IS",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6748,
+          "DIMENSION-ID": "Lexus IS Sedan 2008-2010 RU",
+          "MODEL": "IS",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6749,
+          "DIMENSION-ID": "Lexus IS Sedan 2010-2016 RU",
+          "MODEL": "IS",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6750,
+          "DIMENSION-ID": "Lexus IS Sedan 2013-2016 RU",
+          "MODEL": "IS",
+          "YEAR": "2013-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6751,
+          "DIMENSION-ID": "Lexus IS Sedan 2016-2020 RU",
+          "MODEL": "IS",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6752,
+          "DIMENSION-ID": "Lexus IS Sedan 2020-2026 RU",
+          "MODEL": "IS",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6753,
+          "DIMENSION-ID": "Lexus IS Sedan 2025-2026 RU",
+          "MODEL": "IS",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 6754,
+          "DIMENSION-ID": "Lexus IS Wagon 1999-2005 RU",
+          "MODEL": "IS",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Lexus / IS 350/IS 350C原名到明确US目标的可引用身份关系；参考年份2010|2011|2012|2013的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-560cae5cd5af949f0cb4632d",
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "REGION": "US",
+      "MAKE": "Lexus",
+      "MODEL": "IS 350/IS 350C",
+      "YEAR": "2010",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Lexus",
+      "标准MODEL": "IS 350/IS 350C",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "30937"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S6), 6 cyl, 3.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-17a73a369cec74336ebb947d",
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "REGION": "US",
+      "MAKE": "Lexus",
+      "MODEL": "IS 350/IS 350C",
+      "YEAR": "2011",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Lexus",
+      "标准MODEL": "IS 350/IS 350C",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "30938"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S6), 6 cyl, 3.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-c46cdf332fb22ee51961d0c7",
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "REGION": "US",
+      "MAKE": "Lexus",
+      "MODEL": "IS 350/IS 350C",
+      "YEAR": "2012",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Lexus",
+      "标准MODEL": "IS 350/IS 350C",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "30939"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S6), 6 cyl, 3.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-25648521ea2e854b82dbdeec",
+      "MM_ID": "MM-b8abe6fe47454347e716a0bd",
+      "REGION": "US",
+      "MAKE": "Lexus",
+      "MODEL": "IS 350/IS 350C",
+      "YEAR": "2013",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Lexus",
+      "标准MODEL": "IS 350/IS 350C",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "30940"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S6), 6 cyl, 3.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

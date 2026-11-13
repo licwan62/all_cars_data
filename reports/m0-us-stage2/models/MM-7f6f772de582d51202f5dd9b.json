@@ -1,0 +1,1639 @@
+{
+  "MAKE": "Saab",
+  "MODEL": "900S Convertible",
+  "MM_ID": "MM-7f6f772de582d51202f5dd9b",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Saab",
+    "MODEL": "900S Convertible",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 44675,
+      "MM_ID": "MM-7f6f772de582d51202f5dd9b",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "44676",
+      "raw_make": "Saab",
+      "raw_model": "900S Convertible",
+      "raw_year": "1998",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 4 cyl, 2.3 L"
+    },
+    {
+      "association_row_1based": 44676,
+      "MM_ID": "MM-7f6f772de582d51202f5dd9b",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "44677",
+      "raw_make": "Saab",
+      "raw_model": "900S Convertible",
+      "raw_year": "1998",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 4 cyl, 2.3 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4588,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "saab",
+      "make_name": "Saab",
+      "model_slug": "900",
+      "model_name": "900",
+      "body_types": "convertible",
+      "countries": "au|ca|ch|es|fi|gb|lu|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/saab/900-c|car/saab/900-i|car/saab/900-i-16v|car/saab/900-s|car/saab/900-s-turbo|car/saab/900-se|car/saab/900-se-turbo|car/saab/900-t-16|car/saab/900-t-16-s|car/saab/900-t16|car/saab/900-ts|car/saab/900-turbo|car/saab/900i|car/saab/900i-16v|car/saab/900s|car/saab/900se|car/saab/900t",
+      "mass_popularity_decile": "2"
+    },
+    {
+      "record": 4589,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "saab",
+      "make_name": "Saab",
+      "model_slug": "900-aero",
+      "model_name": "900 Aero",
+      "body_types": "hatchback",
+      "countries": "fi|no|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    },
+    {
+      "record": 4590,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "saab",
+      "make_name": "Saab",
+      "model_slug": "900-ii",
+      "model_name": "900/II",
+      "body_types": "convertible",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    },
+    {
+      "record": 4591,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "saab",
+      "make_name": "Saab",
+      "model_slug": "900-t",
+      "model_name": "900 T",
+      "body_types": "hatchback",
+      "countries": "ch|fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "7"
+    },
+    {
+      "record": 4592,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "saab",
+      "make_name": "Saab",
+      "model_slug": "900-turbo-16",
+      "model_name": "900 Turbo 16",
+      "body_types": "sedan",
+      "countries": "fi|nl|no",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "saab",
+      "same_brand_rows_examined": 10,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 3862,
+          "DIMENSION-ID": "Saab 9-3 Convertible 1999-2011 US",
+          "MODEL": "9-3",
+          "YEAR": "1999-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "900S Convertible 与 9-3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3868,
+          "DIMENSION-ID": "Saab 900 Convertible 1986-1993 US",
+          "MODEL": "900",
+          "YEAR": "1986-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3869,
+          "DIMENSION-ID": "Saab 900 Convertible 1994-1998 US",
+          "MODEL": "900",
+          "YEAR": "1994-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3870,
+          "DIMENSION-ID": "Saab 900 Hatchback 1979-1993 US",
+          "MODEL": "900",
+          "YEAR": "1979-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3871,
+          "DIMENSION-ID": "Saab 900 Hatchback 1994-1998 US",
+          "MODEL": "900",
+          "YEAR": "1994-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 4,
+      "excluded_search_noise_hits": 1,
+      "non_US_candidate_hits": 80,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 23909,
+          "DIMENSION-ID": "Saab 900 i Convertible 1986-1994 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23910,
+          "DIMENSION-ID": "Saab 900 i Convertible 1989-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23911,
+          "DIMENSION-ID": "Saab 900 i Convertible 1990-1994 EU",
+          "MODEL": "900 i",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23912,
+          "DIMENSION-ID": "Saab 900 i Convertible 1991-1994 EU",
+          "MODEL": "900 i",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23913,
+          "DIMENSION-ID": "Saab 900 i Sedan 1979-1980 EU",
+          "MODEL": "900 i",
+          "YEAR": "1979-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23914,
+          "DIMENSION-ID": "Saab 900 i Sedan 1980-1984 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23915,
+          "DIMENSION-ID": "Saab 900 i Sedan 1982-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1982-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23916,
+          "DIMENSION-ID": "Saab 900 i Sedan 1984-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23917,
+          "DIMENSION-ID": "Saab 900 i Sedan 1989-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23918,
+          "DIMENSION-ID": "Saab 900 i Sedan 1990-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23919,
+          "DIMENSION-ID": "Saab 900 i Sedan 1991-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23920,
+          "DIMENSION-ID": "Saab 900 i Sedan 1992-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1992-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23921,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr Hatchback 1978-1984 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23922,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr Hatchback 1978-1985 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23923,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr Hatchback 1991-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23924,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr early Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23925,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23926,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23927,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23928,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23929,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23930,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23931,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23932,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr late Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23933,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23934,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23935,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23936,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23937,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23938,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23939,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23940,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr Hatchback 1978-1984 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23941,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr Hatchback 1978-1985 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23942,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr Hatchback 1991-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23943,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr early Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23944,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23945,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23946,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23947,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23948,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23949,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23950,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23951,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr late Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23952,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23953,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23954,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23955,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23956,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23957,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23958,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23959,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1978-1979 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23960,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1989-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23961,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1990-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23962,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1993-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23963,
+          "DIMENSION-ID": "Saab 900 i combi coupe facelift Hatchback 1984-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23964,
+          "DIMENSION-ID": "Saab 900 i combi coupe prefl Hatchback 1984-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23965,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1980-1990 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23966,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1985-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1985-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23967,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1986-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23968,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1986-1991 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23969,
+          "DIMENSION-ID": "Saab 900 i post83 Sedan 1982-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1982-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23970,
+          "DIMENSION-ID": "Saab 900 i post83 prefl Sedan 1980-1985 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23971,
+          "DIMENSION-ID": "Saab 900 i post83 prefl Sedan 1980-1990 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23972,
+          "DIMENSION-ID": "Saab 900 i pre83 Sedan 1980-1985 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23973,
+          "DIMENSION-ID": "Saab 900 i pre83 Sedan 1980-1990 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23974,
+          "DIMENSION-ID": "Saab 900 i pre83 Sedan 1982-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1982-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23975,
+          "DIMENSION-ID": "Saab 900 i prefl Sedan 1985-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1985-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23976,
+          "DIMENSION-ID": "Saab 900 i prefl Sedan 1986-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23977,
+          "DIMENSION-ID": "Saab 900 i prefl Sedan 1986-1991 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23978,
+          "DIMENSION-ID": "Saab 900 ii Convertible 1993-1998 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23979,
+          "DIMENSION-ID": "Saab 900 ii Hatchback 1993-1994 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23980,
+          "DIMENSION-ID": "Saab 900 ii Hatchback 1993-1998 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23981,
+          "DIMENSION-ID": "Saab 900 ii Hatchback 1994-1998 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10828,
+          "DIMENSION-ID": "Saab 900 Convertible 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10829,
+          "DIMENSION-ID": "Saab 900 Convertible 1993-1998 RU",
+          "MODEL": "900",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10830,
+          "DIMENSION-ID": "Saab 900 L184.3 W66.5 H55.3 Hatchback 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10831,
+          "DIMENSION-ID": "Saab 900 Hatchback 1993-1998 RU",
+          "MODEL": "900",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10832,
+          "DIMENSION-ID": "Saab 900 L184.3 W66.5 H55.9 Hatchback 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10833,
+          "DIMENSION-ID": "Saab 900 Liftback 1993-1998 RU",
+          "MODEL": "900",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10834,
+          "DIMENSION-ID": "Saab 900 Sedan 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "saab",
+      "same_brand_rows_examined": 10,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 3862,
+          "DIMENSION-ID": "Saab 9-3 Convertible 1999-2011 US",
+          "MODEL": "9-3",
+          "YEAR": "1999-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "900S Convertible 与 9-3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3868,
+          "DIMENSION-ID": "Saab 900 Convertible 1986-1993 US",
+          "MODEL": "900",
+          "YEAR": "1986-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3869,
+          "DIMENSION-ID": "Saab 900 Convertible 1994-1998 US",
+          "MODEL": "900",
+          "YEAR": "1994-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3870,
+          "DIMENSION-ID": "Saab 900 Hatchback 1979-1993 US",
+          "MODEL": "900",
+          "YEAR": "1979-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3871,
+          "DIMENSION-ID": "Saab 900 Hatchback 1994-1998 US",
+          "MODEL": "900",
+          "YEAR": "1994-1998",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但900S Convertible到900缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 4,
+      "excluded_search_noise_hits": 1,
+      "non_US_candidate_hits": 80,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 23909,
+          "DIMENSION-ID": "Saab 900 i Convertible 1986-1994 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23910,
+          "DIMENSION-ID": "Saab 900 i Convertible 1989-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23911,
+          "DIMENSION-ID": "Saab 900 i Convertible 1990-1994 EU",
+          "MODEL": "900 i",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23912,
+          "DIMENSION-ID": "Saab 900 i Convertible 1991-1994 EU",
+          "MODEL": "900 i",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23913,
+          "DIMENSION-ID": "Saab 900 i Sedan 1979-1980 EU",
+          "MODEL": "900 i",
+          "YEAR": "1979-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23914,
+          "DIMENSION-ID": "Saab 900 i Sedan 1980-1984 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23915,
+          "DIMENSION-ID": "Saab 900 i Sedan 1982-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1982-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23916,
+          "DIMENSION-ID": "Saab 900 i Sedan 1984-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23917,
+          "DIMENSION-ID": "Saab 900 i Sedan 1989-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23918,
+          "DIMENSION-ID": "Saab 900 i Sedan 1990-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23919,
+          "DIMENSION-ID": "Saab 900 i Sedan 1991-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23920,
+          "DIMENSION-ID": "Saab 900 i Sedan 1992-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1992-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23921,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr Hatchback 1978-1984 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23922,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr Hatchback 1978-1985 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23923,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr Hatchback 1991-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23924,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr early Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23925,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23926,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23927,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23928,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23929,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23930,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23931,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr facelift Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23932,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr late Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23933,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23934,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23935,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23936,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23937,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23938,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23939,
+          "DIMENSION-ID": "Saab 900 i combi coupe 3dr prefl Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23940,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr Hatchback 1978-1984 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23941,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr Hatchback 1978-1985 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23942,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr Hatchback 1991-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23943,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr early Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23944,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23945,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23946,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23947,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23948,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23949,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23950,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr facelift Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23951,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr late Hatchback 1989-1992 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23952,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1979-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1979-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23953,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1980-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23954,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1980-1990 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23955,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1984-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23956,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1985-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1985-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23957,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1986-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23958,
+          "DIMENSION-ID": "Saab 900 i combi coupe 5dr prefl Hatchback 1986-1991 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23959,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1978-1979 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1978-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23960,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1989-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23961,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1990-1993 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23962,
+          "DIMENSION-ID": "Saab 900 i combi coupe Hatchback 1993-1994 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23963,
+          "DIMENSION-ID": "Saab 900 i combi coupe facelift Hatchback 1984-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23964,
+          "DIMENSION-ID": "Saab 900 i combi coupe prefl Hatchback 1984-1988 EU",
+          "MODEL": "900 i combi coupe",
+          "YEAR": "1984-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23965,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1980-1990 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23966,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1985-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1985-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23967,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1986-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23968,
+          "DIMENSION-ID": "Saab 900 i facelift Sedan 1986-1991 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23969,
+          "DIMENSION-ID": "Saab 900 i post83 Sedan 1982-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1982-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23970,
+          "DIMENSION-ID": "Saab 900 i post83 prefl Sedan 1980-1985 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23971,
+          "DIMENSION-ID": "Saab 900 i post83 prefl Sedan 1980-1990 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23972,
+          "DIMENSION-ID": "Saab 900 i pre83 Sedan 1980-1985 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23973,
+          "DIMENSION-ID": "Saab 900 i pre83 Sedan 1980-1990 EU",
+          "MODEL": "900 i",
+          "YEAR": "1980-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23974,
+          "DIMENSION-ID": "Saab 900 i pre83 Sedan 1982-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1982-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23975,
+          "DIMENSION-ID": "Saab 900 i prefl Sedan 1985-1993 EU",
+          "MODEL": "900 i",
+          "YEAR": "1985-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23976,
+          "DIMENSION-ID": "Saab 900 i prefl Sedan 1986-1988 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23977,
+          "DIMENSION-ID": "Saab 900 i prefl Sedan 1986-1991 EU",
+          "MODEL": "900 i",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23978,
+          "DIMENSION-ID": "Saab 900 ii Convertible 1993-1998 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23979,
+          "DIMENSION-ID": "Saab 900 ii Hatchback 1993-1994 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23980,
+          "DIMENSION-ID": "Saab 900 ii Hatchback 1993-1998 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23981,
+          "DIMENSION-ID": "Saab 900 ii Hatchback 1994-1998 EU",
+          "MODEL": "900 ii",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10828,
+          "DIMENSION-ID": "Saab 900 Convertible 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10829,
+          "DIMENSION-ID": "Saab 900 Convertible 1993-1998 RU",
+          "MODEL": "900",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10830,
+          "DIMENSION-ID": "Saab 900 L184.3 W66.5 H55.3 Hatchback 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10831,
+          "DIMENSION-ID": "Saab 900 Hatchback 1993-1998 RU",
+          "MODEL": "900",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10832,
+          "DIMENSION-ID": "Saab 900 L184.3 W66.5 H55.9 Hatchback 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10833,
+          "DIMENSION-ID": "Saab 900 Liftback 1993-1998 RU",
+          "MODEL": "900",
+          "YEAR": "1993-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10834,
+          "DIMENSION-ID": "Saab 900 Sedan 1978-1994 RU",
+          "MODEL": "900",
+          "YEAR": "1978-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Saab / 900S Convertible原名到明确US目标的可引用身份关系；参考年份1998的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-16939d7ae99c7b730d74fd4f",
+      "MM_ID": "MM-7f6f772de582d51202f5dd9b",
+      "REGION": "US",
+      "MAKE": "Saab",
+      "MODEL": "900S Convertible",
+      "YEAR": "1998",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Saab",
+      "标准MODEL": "900S Convertible",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "44676",
+        "44677"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 4 cyl, 2.3 L",
+        "Man 5-spd, 4 cyl, 2.3 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Saab 900 Convertible 1994-1998 US",
+            "Saab 900 Hatchback 1994-1998 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Saab 900 Convertible 1994-1998 US",
+            "Saab 900 Hatchback 1994-1998 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    }
+  ]
+}

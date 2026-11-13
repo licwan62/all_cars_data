@@ -1,0 +1,613 @@
+{
+  "MAKE": "GMC",
+  "MODEL": "Jimmy Sonoma 2WD",
+  "MM_ID": "MM-01b02d07a20aff4b4a529cf6",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "GMC",
+    "MODEL": "Jimmy Sonoma 2WD",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 21666,
+      "MM_ID": "MM-01b02d07a20aff4b4a529cf6",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "21667",
+      "raw_make": "GMC",
+      "raw_model": "Jimmy Sonoma 2WD",
+      "raw_year": "1991",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 6 cyl, 4.3 L"
+    },
+    {
+      "association_row_1based": 21667,
+      "MM_ID": "MM-01b02d07a20aff4b4a529cf6",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "21668",
+      "raw_make": "GMC",
+      "raw_model": "Jimmy Sonoma 2WD",
+      "raw_year": "1991",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 6 cyl, 4.3 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 2112,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "gmc",
+      "make_name": "GMC",
+      "model_slug": "jimmy",
+      "model_name": "Jimmy",
+      "body_types": "hatchback|wagon",
+      "countries": "ca|fi|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 2116,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "gmc",
+      "make_name": "GMC",
+      "model_slug": "s15-jimmy",
+      "model_name": "S15 Jimmy",
+      "body_types": "hatchback|wagon",
+      "countries": "ca|nl|us",
+      "regions": "eu|na",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    },
+    {
+      "record": 2131,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "gmc",
+      "make_name": "GMC",
+      "model_slug": "sonoma",
+      "model_name": "Sonoma",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": ""
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "gmc",
+      "same_brand_rows_examined": 116,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 9,
+      "candidates": [
+        {
+          "row_1based": 1865,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1983-1994 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1983-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1866,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1995 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1867,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1996 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1868,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1997 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1869,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1998-2000 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1870,
+          "DIMENSION-ID": "GMC Jimmy 4dr SUV 1991-1994 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1991-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1871,
+          "DIMENSION-ID": "GMC Jimmy 4dr SUV 1995-2000 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1995-2000",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1872,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 2001 US",
+          "MODEL": "Jimmy",
+          "YEAR": "2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1873,
+          "DIMENSION-ID": "GMC Jimmy 4dr SUV 2001 US",
+          "MODEL": "Jimmy",
+          "YEAR": "2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 9,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 12,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 9984,
+          "DIMENSION-ID": "GMC S15 jimmy 2dr L4326 W1661 H1628 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 9985,
+          "DIMENSION-ID": "GMC S15 jimmy 2dr L4326 W1661 H1633 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 9986,
+          "DIMENSION-ID": "GMC S15 jimmy 4dr L4491 W1661 H1595 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 9987,
+          "DIMENSION-ID": "GMC S15 jimmy 4dr L4491 W1661 H1633 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4349,
+          "DIMENSION-ID": "GMC Jimmy L170.3 W65.4 H64.3 SUV 1982-1994 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1982-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4350,
+          "DIMENSION-ID": "GMC Jimmy L177.3 W67.8 H64.9 SUV 1994-2005 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1994-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4351,
+          "DIMENSION-ID": "GMC Jimmy L176.8 W65.4 H64.3 SUV 1982-1994 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1982-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4352,
+          "DIMENSION-ID": "GMC Jimmy L183.8 W67.8 H64.3 SUV 1994-2005 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1994-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4375,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1991-1994 Regular RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4376,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1994-2004 Double RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1994-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4377,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1994-2004 Extended RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1994-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4378,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1994-2004 Regular RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1994-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "gmc",
+      "same_brand_rows_examined": 116,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 9,
+      "candidates": [
+        {
+          "row_1based": 1865,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1983-1994 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1983-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1866,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1995 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1867,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1996 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1868,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1997 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1869,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 1998-2000 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1870,
+          "DIMENSION-ID": "GMC Jimmy 4dr SUV 1991-1994 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1991-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1871,
+          "DIMENSION-ID": "GMC Jimmy 4dr SUV 1995-2000 US",
+          "MODEL": "Jimmy",
+          "YEAR": "1995-2000",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1872,
+          "DIMENSION-ID": "GMC Jimmy 2dr SUV 2001 US",
+          "MODEL": "Jimmy",
+          "YEAR": "2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1873,
+          "DIMENSION-ID": "GMC Jimmy 4dr SUV 2001 US",
+          "MODEL": "Jimmy",
+          "YEAR": "2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词jimmy，但Jimmy Sonoma 2WD到Jimmy缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 9,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 12,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 9984,
+          "DIMENSION-ID": "GMC S15 jimmy 2dr L4326 W1661 H1628 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 9985,
+          "DIMENSION-ID": "GMC S15 jimmy 2dr L4326 W1661 H1633 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 9986,
+          "DIMENSION-ID": "GMC S15 jimmy 4dr L4491 W1661 H1595 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 9987,
+          "DIMENSION-ID": "GMC S15 jimmy 4dr L4491 W1661 H1633 SUV 1989-1994 EU",
+          "MODEL": "S15 jimmy",
+          "YEAR": "1989-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4349,
+          "DIMENSION-ID": "GMC Jimmy L170.3 W65.4 H64.3 SUV 1982-1994 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1982-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4350,
+          "DIMENSION-ID": "GMC Jimmy L177.3 W67.8 H64.9 SUV 1994-2005 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1994-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4351,
+          "DIMENSION-ID": "GMC Jimmy L176.8 W65.4 H64.3 SUV 1982-1994 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1982-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4352,
+          "DIMENSION-ID": "GMC Jimmy L183.8 W67.8 H64.3 SUV 1994-2005 RU",
+          "MODEL": "Jimmy",
+          "YEAR": "1994-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4375,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1991-1994 Regular RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4376,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1994-2004 Double RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1994-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4377,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1994-2004 Extended RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1994-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4378,
+          "DIMENSION-ID": "GMC Sonoma Pickup 1994-2004 Regular RU",
+          "MODEL": "Sonoma",
+          "YEAR": "1994-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "GMC / Jimmy Sonoma 2WD原名到明确US目标的可引用身份关系；参考年份1991的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-152ac604272e4dd397e511e9",
+      "MM_ID": "MM-01b02d07a20aff4b4a529cf6",
+      "REGION": "US",
+      "MAKE": "GMC",
+      "MODEL": "Jimmy Sonoma 2WD",
+      "YEAR": "1991",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "GMC",
+      "标准MODEL": "Jimmy Sonoma 2WD",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "21667",
+        "21668"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 6 cyl, 4.3 L",
+        "Man 5-spd, 6 cyl, 4.3 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "GMC Jimmy 2dr SUV 1983-1994 US",
+            "GMC Jimmy 4dr SUV 1991-1994 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "GMC Jimmy 2dr SUV 1983-1994 US",
+            "GMC Jimmy 4dr SUV 1991-1994 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    }
+  ]
+}

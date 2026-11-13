@@ -1,0 +1,487 @@
+{
+  "MAKE": "Bentley",
+  "MODEL": "Brooklands R Limo",
+  "MM_ID": "MM-f7b3c6b2063a90dafcb793af",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Bentley",
+    "MODEL": "Brooklands R Limo",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 2231,
+      "MM_ID": "MM-f7b3c6b2063a90dafcb793af",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "2232",
+      "raw_make": "Bentley",
+      "raw_model": "Brooklands R Limo",
+      "raw_year": "1998",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 6.7 L, Turbo"
+    },
+    {
+      "association_row_1based": 2232,
+      "MM_ID": "MM-f7b3c6b2063a90dafcb793af",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "2233",
+      "raw_make": "Bentley",
+      "raw_model": "Brooklands R Limo",
+      "raw_year": "1999",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 6.8 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 392,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "bentley",
+      "make_name": "Bentley",
+      "model_slug": "brooklands",
+      "model_name": "Brooklands",
+      "body_types": "sedan",
+      "countries": "au|ca|es|fi|gb|lu|nl|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "car/bentley/brooklands-lwb|car/bentley/brooklands-r",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 397,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "bentley",
+      "make_name": "Bentley",
+      "model_slug": "continental-r",
+      "model_name": "Continental R",
+      "body_types": "coupe",
+      "countries": "ca|fi|nl|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    },
+    {
+      "record": 409,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "bentley",
+      "make_name": "Bentley",
+      "model_slug": "r-type",
+      "model_name": "R Type",
+      "body_types": "sedan",
+      "countries": "au|ch|fi|nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "car/bentley/r",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 422,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "bentley",
+      "make_name": "Bentley",
+      "model_slug": "turbo-r",
+      "model_name": "Turbo R",
+      "body_types": "sedan",
+      "countries": "au|ca|ch|es|fi|nl|no|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "car/bentley/turbo-rl|car/bentley/turbo-rt",
+      "mass_popularity_decile": "4"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bentley",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 14,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3427,
+          "DIMENSION-ID": "Bentley Brooklands Coupe 2008-2026 EU",
+          "MODEL": "Brooklands",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3428,
+          "DIMENSION-ID": "Bentley Brooklands Sedan 1992-1997 EU",
+          "MODEL": "Brooklands",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3488,
+          "DIMENSION-ID": "Bentley Turbo r Sedan 1994-1995 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3489,
+          "DIMENSION-ID": "Bentley Turbo r Sedan 1995-1998 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3490,
+          "DIMENSION-ID": "Bentley Turbo r lwb early Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3491,
+          "DIMENSION-ID": "Bentley Turbo r lwb late Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3492,
+          "DIMENSION-ID": "Bentley Turbo r swb early Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3493,
+          "DIMENSION-ID": "Bentley Turbo r swb late Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1445,
+          "DIMENSION-ID": "Bentley Brooklands Coupe 2007-2011 RU",
+          "MODEL": "Brooklands",
+          "YEAR": "2007-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1446,
+          "DIMENSION-ID": "Bentley Brooklands Sedan 1992-1998 RU",
+          "MODEL": "Brooklands",
+          "YEAR": "1992-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1474,
+          "DIMENSION-ID": "Bentley R Type Continental Coupe 1952-1955 RU",
+          "MODEL": "R Type",
+          "YEAR": "1952-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1475,
+          "DIMENSION-ID": "Bentley R Type Drophead Coupe Convertible 1952-1955 RU",
+          "MODEL": "R Type",
+          "YEAR": "1952-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1476,
+          "DIMENSION-ID": "Bentley R Type Standard Saloon Sedan 1952-1955 RU",
+          "MODEL": "R Type",
+          "YEAR": "1952-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1486,
+          "DIMENSION-ID": "Bentley Turbo R Sedan 1985-1999 RU",
+          "MODEL": "Turbo R",
+          "YEAR": "1985-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bentley",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 14,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3427,
+          "DIMENSION-ID": "Bentley Brooklands Coupe 2008-2026 EU",
+          "MODEL": "Brooklands",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3428,
+          "DIMENSION-ID": "Bentley Brooklands Sedan 1992-1997 EU",
+          "MODEL": "Brooklands",
+          "YEAR": "1992-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3488,
+          "DIMENSION-ID": "Bentley Turbo r Sedan 1994-1995 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3489,
+          "DIMENSION-ID": "Bentley Turbo r Sedan 1995-1998 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3490,
+          "DIMENSION-ID": "Bentley Turbo r lwb early Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3491,
+          "DIMENSION-ID": "Bentley Turbo r lwb late Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3492,
+          "DIMENSION-ID": "Bentley Turbo r swb early Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3493,
+          "DIMENSION-ID": "Bentley Turbo r swb late Sedan 1985-1997 EU",
+          "MODEL": "Turbo r",
+          "YEAR": "1985-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1445,
+          "DIMENSION-ID": "Bentley Brooklands Coupe 2007-2011 RU",
+          "MODEL": "Brooklands",
+          "YEAR": "2007-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1446,
+          "DIMENSION-ID": "Bentley Brooklands Sedan 1992-1998 RU",
+          "MODEL": "Brooklands",
+          "YEAR": "1992-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1474,
+          "DIMENSION-ID": "Bentley R Type Continental Coupe 1952-1955 RU",
+          "MODEL": "R Type",
+          "YEAR": "1952-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1475,
+          "DIMENSION-ID": "Bentley R Type Drophead Coupe Convertible 1952-1955 RU",
+          "MODEL": "R Type",
+          "YEAR": "1952-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1476,
+          "DIMENSION-ID": "Bentley R Type Standard Saloon Sedan 1952-1955 RU",
+          "MODEL": "R Type",
+          "YEAR": "1952-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1486,
+          "DIMENSION-ID": "Bentley Turbo R Sedan 1985-1999 RU",
+          "MODEL": "Turbo R",
+          "YEAR": "1985-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Bentley / Brooklands R Limo原名到明确US目标的可引用身份关系；参考年份1998|1999的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-56015c63b7f72915c6ecbe50",
+      "MM_ID": "MM-f7b3c6b2063a90dafcb793af",
+      "REGION": "US",
+      "MAKE": "Bentley",
+      "MODEL": "Brooklands R Limo",
+      "YEAR": "1998",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Bentley",
+      "标准MODEL": "Brooklands R Limo",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "2232"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 6.7 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-8b4e41bf809e082949a81358",
+      "MM_ID": "MM-f7b3c6b2063a90dafcb793af",
+      "REGION": "US",
+      "MAKE": "Bentley",
+      "MODEL": "Brooklands R Limo",
+      "YEAR": "1999",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Bentley",
+      "标准MODEL": "Brooklands R Limo",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "2233"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 6.8 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

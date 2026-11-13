@@ -1,0 +1,784 @@
+{
+  "MAKE": "Volkswagen",
+  "MODEL": "ID. Buzz",
+  "MM_ID": "MM-611cfa0bca6bd45a317b88e8",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Volkswagen",
+    "MODEL": "ID.Buzz",
+    "relation": "alias",
+    "basis": "标点/空白书写唯一对应；保留数字、斜杠和车型后缀"
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 2151,
+      "raw_make": "Volkswagen",
+      "raw_model": "ID. Buzz",
+      "make": "Volkswagen",
+      "model": "ID.Buzz",
+      "relation": "alias",
+      "status": "approved",
+      "basis": "标点/空白书写唯一对应；保留数字、斜杠和车型后缀"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 50011,
+      "MM_ID": "MM-611cfa0bca6bd45a317b88e8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50012",
+      "raw_make": "Volkswagen",
+      "raw_model": "ID. Buzz",
+      "raw_year": "2025",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (A1)"
+    },
+    {
+      "association_row_1based": 50012,
+      "MM_ID": "MM-611cfa0bca6bd45a317b88e8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "50013",
+      "raw_make": "Volkswagen",
+      "raw_model": "ID. Buzz",
+      "raw_year": "2027",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (A1)"
+    },
+    {
+      "association_row_1based": 57216,
+      "MM_ID": "MM-611cfa0bca6bd45a317b88e8",
+      "SOURCE": "vehicles",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/vehicles.csv",
+      "source_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+      "record": "5333",
+      "raw_make": "Volkswagen",
+      "raw_model": "Id. Buzz",
+      "raw_year": "",
+      "来源别名线索": "",
+      "车辆类别": "car",
+      "国家线索": "au|ca|ch|de|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "区域线索": "as|eu|na|oc",
+      "配置或身份": ""
+    },
+    {
+      "association_row_1based": 65585,
+      "MM_ID": "MM-611cfa0bca6bd45a317b88e8",
+      "SOURCE": "vehicles",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/vehicles.csv",
+      "source_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+      "record": "13702",
+      "raw_make": "Volkswagen",
+      "raw_model": "Id. Buzz",
+      "raw_year": "",
+      "来源别名线索": "",
+      "车辆类别": "van",
+      "国家线索": "au|fi|gb|il|nl",
+      "区域线索": "as|eu|oc",
+      "配置或身份": ""
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 5328,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-3",
+      "model_name": "ID.3",
+      "body_types": "hatchback|wagon",
+      "countries": "ch|de|es|fi|gb|ie|il|lu|nl|no|nz|ua",
+      "regions": "as|eu|oc",
+      "global_popularity_decile": "2",
+      "aliases": "ID3",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5329,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-4",
+      "model_name": "ID.4",
+      "body_types": "suv",
+      "countries": "au|ca|ch|de|es|fi|gb|ie|il|lu|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "2",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5330,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-5",
+      "model_name": "ID.5",
+      "body_types": "hatchback|wagon",
+      "countries": "ch|es|fi|gb|ie|il|lu|nl|no|nz|ua",
+      "regions": "as|eu|oc",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5331,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-6",
+      "model_name": "ID.6",
+      "body_types": "hatchback|wagon",
+      "countries": "il|nl|ua",
+      "regions": "as|eu",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 5332,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-7",
+      "model_name": "ID.7",
+      "body_types": "hatchback|wagon",
+      "countries": "ch|de|es|fi|gb|ie|il|lu|nl|no|ua",
+      "regions": "as|eu",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5333,
+      "match_reason": [
+        "原始目录同名",
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-buzz",
+      "model_name": "Id. Buzz",
+      "body_types": "hatchback|wagon",
+      "countries": "au|ca|ch|de|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/volkswagen/id-buzz-gtx-kr|car/volkswagen/id-buzz-gtx-lr|car/volkswagen/id-buzz-pro|car/volkswagen/id-buzz-pro-4motion|car/volkswagen/id-buzz-pro-kr|car/volkswagen/id-buzz-pro-lr|car/volkswagen/id-buzz-pure-kr",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5334,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-buzz-4motion-lr",
+      "model_name": "Id.buzz 4MOTION Lr",
+      "body_types": "hatchback",
+      "countries": "lu|nl",
+      "regions": "eu",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    },
+    {
+      "record": 5335,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-polo",
+      "model_name": "Id. Polo",
+      "body_types": "hatchback|wagon",
+      "countries": "es|lu|nl",
+      "regions": "eu",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 13702,
+      "match_reason": [
+        "原始目录同名",
+        "车型词命中，仅候选"
+      ],
+      "kind": "van",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-buzz",
+      "model_name": "Id. Buzz",
+      "body_types": "",
+      "countries": "au|fi|gb|il|nl",
+      "regions": "as|eu|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 13703,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "van",
+      "make_slug": "volkswagen",
+      "make_name": "Volkswagen",
+      "model_slug": "id-buzz-cargo",
+      "model_name": "Id. Buzz Cargo",
+      "body_types": "",
+      "countries": "ch|fi|lu|nl|no",
+      "regions": "eu",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "van/volkswagen/id-buzz-cargo-modified-partition-wall|van/volkswagen/id-buzz-cargo-pro|van/volkswagen/id-buzz-cargo-pro-4motion|van/volkswagen/id-buzz-cargo-pure",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volkswagen",
+      "same_brand_rows_examined": 135,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 2,
+      "candidates": [
+        {
+          "row_1based": 4254,
+          "DIMENSION-ID": "Volkswagen ID.4 SUV 2021-2022 US",
+          "MODEL": "ID.4",
+          "YEAR": "2021-2022",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "ID. Buzz 与 ID.4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4255,
+          "DIMENSION-ID": "Volkswagen ID.4 SUV 2023-2026 US",
+          "MODEL": "ID.4",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "ID. Buzz 与 ID.4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 23,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 12835,
+          "DIMENSION-ID": "Volkswagen ID. Polo GTI Hatchback 2026-2026 RU",
+          "MODEL": "ID. Polo",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12836,
+          "DIMENSION-ID": "Volkswagen ID. Polo Hatchback 2026-2026 RU",
+          "MODEL": "ID. Polo",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12837,
+          "DIMENSION-ID": "Volkswagen ID.3 Hatchback 2019-2026 RU",
+          "MODEL": "ID.3",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12838,
+          "DIMENSION-ID": "Volkswagen ID.3 Hatchback 2023-2026 RU",
+          "MODEL": "ID.3",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12839,
+          "DIMENSION-ID": "Volkswagen ID.3 Neo Hatchback 2026-2026 RU",
+          "MODEL": "ID.3",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12840,
+          "DIMENSION-ID": "Volkswagen ID.4 Crozz SUV 2020-2026 RU",
+          "MODEL": "ID.4",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12841,
+          "DIMENSION-ID": "Volkswagen ID.4 SUV 2020-2026 RU",
+          "MODEL": "ID.4",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12842,
+          "DIMENSION-ID": "Volkswagen ID.4 X SUV 2020-2026 RU",
+          "MODEL": "ID.4",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12843,
+          "DIMENSION-ID": "Volkswagen ID.5 SUV 2021-2026 RU",
+          "MODEL": "ID.5",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12844,
+          "DIMENSION-ID": "Volkswagen ID.6 Crozz SUV 2021-2026 RU",
+          "MODEL": "ID.6",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12845,
+          "DIMENSION-ID": "Volkswagen ID.6 X SUV 2021-2026 RU",
+          "MODEL": "ID.6",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12846,
+          "DIMENSION-ID": "Volkswagen ID.7 Liftback 2023-2026 RU",
+          "MODEL": "ID.7",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12847,
+          "DIMENSION-ID": "Volkswagen ID.7 Wagon 2023-2026 RU",
+          "MODEL": "ID.7",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12848,
+          "DIMENSION-ID": "Volkswagen ID.Buzz Cargo Van 2022-2026 RU",
+          "MODEL": "ID.Buzz",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12849,
+          "DIMENSION-ID": "Volkswagen ID.Buzz LWB MPV 2022-2026 RU",
+          "MODEL": "ID.Buzz",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12850,
+          "DIMENSION-ID": "Volkswagen ID.Buzz MPV 2022-2026 RU",
+          "MODEL": "ID.Buzz",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12851,
+          "DIMENSION-ID": "Volkswagen ID.Era 8X SUV 2026-2026 RU",
+          "MODEL": "ID.Era 8X",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12852,
+          "DIMENSION-ID": "Volkswagen ID.Era 9X SUV 2026-2026 RU",
+          "MODEL": "ID.Era 9X",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12853,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 06 SUV 2025-2026 RU",
+          "MODEL": "ID.Unyx 06",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12854,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 06 SUV 2026-2026 RU",
+          "MODEL": "ID.Unyx 06",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12855,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 07 Sedan 2025-2026 RU",
+          "MODEL": "ID.Unyx 07",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12856,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 08 SUV 2025-2026 RU",
+          "MODEL": "ID.Unyx 08",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12857,
+          "DIMENSION-ID": "Volkswagen ID.Unyx SUV 2024-2025 RU",
+          "MODEL": "ID.Unyx",
+          "YEAR": "2024-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volkswagen",
+      "same_brand_rows_examined": 135,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 2,
+      "candidates": [
+        {
+          "row_1based": 4254,
+          "DIMENSION-ID": "Volkswagen ID.4 SUV 2021-2022 US",
+          "MODEL": "ID.4",
+          "YEAR": "2021-2022",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "ID. Buzz 与 ID.4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4255,
+          "DIMENSION-ID": "Volkswagen ID.4 SUV 2023-2026 US",
+          "MODEL": "ID.4",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "ID. Buzz 与 ID.4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 23,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 12835,
+          "DIMENSION-ID": "Volkswagen ID. Polo GTI Hatchback 2026-2026 RU",
+          "MODEL": "ID. Polo",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12836,
+          "DIMENSION-ID": "Volkswagen ID. Polo Hatchback 2026-2026 RU",
+          "MODEL": "ID. Polo",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12837,
+          "DIMENSION-ID": "Volkswagen ID.3 Hatchback 2019-2026 RU",
+          "MODEL": "ID.3",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12838,
+          "DIMENSION-ID": "Volkswagen ID.3 Hatchback 2023-2026 RU",
+          "MODEL": "ID.3",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12839,
+          "DIMENSION-ID": "Volkswagen ID.3 Neo Hatchback 2026-2026 RU",
+          "MODEL": "ID.3",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12840,
+          "DIMENSION-ID": "Volkswagen ID.4 Crozz SUV 2020-2026 RU",
+          "MODEL": "ID.4",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12841,
+          "DIMENSION-ID": "Volkswagen ID.4 SUV 2020-2026 RU",
+          "MODEL": "ID.4",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12842,
+          "DIMENSION-ID": "Volkswagen ID.4 X SUV 2020-2026 RU",
+          "MODEL": "ID.4",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12843,
+          "DIMENSION-ID": "Volkswagen ID.5 SUV 2021-2026 RU",
+          "MODEL": "ID.5",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12844,
+          "DIMENSION-ID": "Volkswagen ID.6 Crozz SUV 2021-2026 RU",
+          "MODEL": "ID.6",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12845,
+          "DIMENSION-ID": "Volkswagen ID.6 X SUV 2021-2026 RU",
+          "MODEL": "ID.6",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12846,
+          "DIMENSION-ID": "Volkswagen ID.7 Liftback 2023-2026 RU",
+          "MODEL": "ID.7",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12847,
+          "DIMENSION-ID": "Volkswagen ID.7 Wagon 2023-2026 RU",
+          "MODEL": "ID.7",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12848,
+          "DIMENSION-ID": "Volkswagen ID.Buzz Cargo Van 2022-2026 RU",
+          "MODEL": "ID.Buzz",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12849,
+          "DIMENSION-ID": "Volkswagen ID.Buzz LWB MPV 2022-2026 RU",
+          "MODEL": "ID.Buzz",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12850,
+          "DIMENSION-ID": "Volkswagen ID.Buzz MPV 2022-2026 RU",
+          "MODEL": "ID.Buzz",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12851,
+          "DIMENSION-ID": "Volkswagen ID.Era 8X SUV 2026-2026 RU",
+          "MODEL": "ID.Era 8X",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12852,
+          "DIMENSION-ID": "Volkswagen ID.Era 9X SUV 2026-2026 RU",
+          "MODEL": "ID.Era 9X",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12853,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 06 SUV 2025-2026 RU",
+          "MODEL": "ID.Unyx 06",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12854,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 06 SUV 2026-2026 RU",
+          "MODEL": "ID.Unyx 06",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12855,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 07 Sedan 2025-2026 RU",
+          "MODEL": "ID.Unyx 07",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12856,
+          "DIMENSION-ID": "Volkswagen ID.Unyx 08 SUV 2025-2026 RU",
+          "MODEL": "ID.Unyx 08",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 12857,
+          "DIMENSION-ID": "Volkswagen ID.Unyx SUV 2024-2025 RU",
+          "MODEL": "ID.Unyx",
+          "YEAR": "2024-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Volkswagen / ID. Buzz原名到明确US目标的可引用身份关系；参考年份2025的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-a1adb9b1d5b2a343e33e533e",
+      "MM_ID": "MM-611cfa0bca6bd45a317b88e8",
+      "REGION": "US",
+      "MAKE": "Volkswagen",
+      "MODEL": "ID. Buzz",
+      "YEAR": "2025",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volkswagen",
+      "标准MODEL": "ID.Buzz",
+      "映射层级": "alias",
+      "映射依据": "标点/空白书写唯一对应；保留数字、斜杠和车型后缀",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "au|ca|ch|de|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "车辆类别线索": "car|van",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "50012"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (A1)"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

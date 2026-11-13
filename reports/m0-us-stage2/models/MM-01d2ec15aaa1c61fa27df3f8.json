@@ -1,0 +1,691 @@
+{
+  "MAKE": "Chrysler",
+  "MODEL": "TC By Convertible",
+  "MM_ID": "MM-01d2ec15aaa1c61fa27df3f8",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Chrysler",
+    "MODEL": "TC By Convertible",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 12261,
+      "MM_ID": "MM-01d2ec15aaa1c61fa27df3f8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "12262",
+      "raw_make": "Chrysler",
+      "raw_model": "TC By Convertible",
+      "raw_year": "1990",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 6 cyl, 3.0 L"
+    },
+    {
+      "association_row_1based": 12262,
+      "MM_ID": "MM-01d2ec15aaa1c61fa27df3f8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "12263",
+      "raw_make": "Chrysler",
+      "raw_model": "TC By Convertible",
+      "raw_year": "1990",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 4 cyl, 2.2 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 945,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "tc",
+      "model_name": "Tc",
+      "body_types": "convertible",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "chrysler",
+      "same_brand_rows_examined": 159,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 23,
+      "candidates": [
+        {
+          "row_1based": 1386,
+          "DIMENSION-ID": "Chrysler 200 Convertible 2011-2014 US",
+          "MODEL": "200",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 200仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1389,
+          "DIMENSION-ID": "Chrysler 200 Series Convertible 2011-2014 US",
+          "MODEL": "200 Series",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 200 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1415,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 1996 US",
+          "MODEL": "Sebring",
+          "YEAR": "1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1416,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 1997 US",
+          "MODEL": "Sebring",
+          "YEAR": "1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1417,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 1998-2000 US",
+          "MODEL": "Sebring",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1418,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 2001-2006 US",
+          "MODEL": "Sebring",
+          "YEAR": "2001-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1419,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 2008-2010 US",
+          "MODEL": "Sebring",
+          "YEAR": "2008-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5542,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1956 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5543,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1957 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5630,
+          "DIMENSION-ID": "Chrysler Six Convertible 1924 US",
+          "MODEL": "Six",
+          "YEAR": "1924",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5631,
+          "DIMENSION-ID": "Chrysler Six Convertible 1925 US",
+          "MODEL": "Six",
+          "YEAR": "1925",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5632,
+          "DIMENSION-ID": "Chrysler Six Convertible 1926 US",
+          "MODEL": "Six",
+          "YEAR": "1926",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5633,
+          "DIMENSION-ID": "Chrysler Six Convertible 1927 US",
+          "MODEL": "Six",
+          "YEAR": "1927",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5634,
+          "DIMENSION-ID": "Chrysler Six Convertible 1928 US",
+          "MODEL": "Six",
+          "YEAR": "1928",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5635,
+          "DIMENSION-ID": "Chrysler Six Convertible 1929 US",
+          "MODEL": "Six",
+          "YEAR": "1929",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5636,
+          "DIMENSION-ID": "Chrysler Six Convertible 1930 US",
+          "MODEL": "Six",
+          "YEAR": "1930",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5637,
+          "DIMENSION-ID": "Chrysler Six Convertible 1931 US",
+          "MODEL": "Six",
+          "YEAR": "1931",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5638,
+          "DIMENSION-ID": "Chrysler Six Convertible 1932 US",
+          "MODEL": "Six",
+          "YEAR": "1932",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5639,
+          "DIMENSION-ID": "Chrysler Six Convertible 1933 US",
+          "MODEL": "Six",
+          "YEAR": "1933",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5640,
+          "DIMENSION-ID": "Chrysler Six Convertible 1934 US",
+          "MODEL": "Six",
+          "YEAR": "1934",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5641,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1989 US",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 TC by Maserati仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5642,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1990 US",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 TC by Maserati仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5643,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1991 US",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 TC by Maserati仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 23,
+      "non_US_candidate_hits": 1,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 2484,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1989-1991 RU",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "chrysler",
+      "same_brand_rows_examined": 159,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 23,
+      "candidates": [
+        {
+          "row_1based": 1386,
+          "DIMENSION-ID": "Chrysler 200 Convertible 2011-2014 US",
+          "MODEL": "200",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 200仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1389,
+          "DIMENSION-ID": "Chrysler 200 Series Convertible 2011-2014 US",
+          "MODEL": "200 Series",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 200 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1415,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 1996 US",
+          "MODEL": "Sebring",
+          "YEAR": "1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1416,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 1997 US",
+          "MODEL": "Sebring",
+          "YEAR": "1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1417,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 1998-2000 US",
+          "MODEL": "Sebring",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1418,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 2001-2006 US",
+          "MODEL": "Sebring",
+          "YEAR": "2001-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1419,
+          "DIMENSION-ID": "Chrysler Sebring Convertible 2008-2010 US",
+          "MODEL": "Sebring",
+          "YEAR": "2008-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5542,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1956 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5543,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1957 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5630,
+          "DIMENSION-ID": "Chrysler Six Convertible 1924 US",
+          "MODEL": "Six",
+          "YEAR": "1924",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5631,
+          "DIMENSION-ID": "Chrysler Six Convertible 1925 US",
+          "MODEL": "Six",
+          "YEAR": "1925",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5632,
+          "DIMENSION-ID": "Chrysler Six Convertible 1926 US",
+          "MODEL": "Six",
+          "YEAR": "1926",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5633,
+          "DIMENSION-ID": "Chrysler Six Convertible 1927 US",
+          "MODEL": "Six",
+          "YEAR": "1927",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5634,
+          "DIMENSION-ID": "Chrysler Six Convertible 1928 US",
+          "MODEL": "Six",
+          "YEAR": "1928",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5635,
+          "DIMENSION-ID": "Chrysler Six Convertible 1929 US",
+          "MODEL": "Six",
+          "YEAR": "1929",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5636,
+          "DIMENSION-ID": "Chrysler Six Convertible 1930 US",
+          "MODEL": "Six",
+          "YEAR": "1930",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5637,
+          "DIMENSION-ID": "Chrysler Six Convertible 1931 US",
+          "MODEL": "Six",
+          "YEAR": "1931",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5638,
+          "DIMENSION-ID": "Chrysler Six Convertible 1932 US",
+          "MODEL": "Six",
+          "YEAR": "1932",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5639,
+          "DIMENSION-ID": "Chrysler Six Convertible 1933 US",
+          "MODEL": "Six",
+          "YEAR": "1933",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5640,
+          "DIMENSION-ID": "Chrysler Six Convertible 1934 US",
+          "MODEL": "Six",
+          "YEAR": "1934",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 Six仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5641,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1989 US",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 TC by Maserati仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5642,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1990 US",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 TC by Maserati仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5643,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1991 US",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "TC By Convertible 与 TC by Maserati仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 23,
+      "non_US_candidate_hits": 1,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 2484,
+          "DIMENSION-ID": "Chrysler TC by Maserati Convertible 1989-1991 RU",
+          "MODEL": "TC by Maserati",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Chrysler / TC By Convertible原名到明确US目标的可引用身份关系；参考年份1990的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-c65d033718a788a00cd9df8b",
+      "MM_ID": "MM-01d2ec15aaa1c61fa27df3f8",
+      "REGION": "US",
+      "MAKE": "Chrysler",
+      "MODEL": "TC By Convertible",
+      "YEAR": "1990",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Chrysler",
+      "标准MODEL": "TC By Convertible",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "12262",
+        "12263"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 6 cyl, 3.0 L",
+        "Man 5-spd, 4 cyl, 2.2 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}

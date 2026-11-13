@@ -1,0 +1,973 @@
+{
+  "MAKE": "Dodge",
+  "MODEL": "Charger Scat Pack AWD",
+  "MM_ID": "MM-ffcfdf7927e5867356cf5af7",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Dodge",
+    "MODEL": "Charger Scat Pack AWD",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 13426,
+      "MM_ID": "MM-ffcfdf7927e5867356cf5af7",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "13427",
+      "raw_make": "Dodge",
+      "raw_model": "Charger Scat Pack AWD",
+      "raw_year": "2026",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 8-spd, 6 cyl, 3.0 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 1289,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "dodge",
+      "make_name": "Dodge",
+      "model_slug": "charger",
+      "model_name": "Charger",
+      "body_types": "coupe",
+      "countries": "au|ca|ch|es|fi|il|lu|my|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/dodge/charger-2|car/dodge/charger-500|car/dodge/charger-daytona-r-t|car/dodge/charger-daytona-scat-pack|car/dodge/charger-r-t|car/dodge/charger-r-t-daytona|car/dodge/charger-r-t-se|car/dodge/charger-rt|car/dodge/charger-scat-pack|car/dodge/charger-se|car/dodge/charger-srt|car/dodge/charger-srt-8|car/dodge/charger-srt-hellcat|car/dodge/charger-srt8|car/dodge/charger-sxt",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 1290,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "dodge",
+      "make_name": "Dodge",
+      "model_slug": "charger-police",
+      "model_name": "Charger Police",
+      "body_types": "sedan",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    },
+    {
+      "record": 1291,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "dodge",
+      "make_name": "Dodge",
+      "model_slug": "charger-widebody",
+      "model_name": "Charger Widebody",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": ""
+    },
+    {
+      "record": 1344,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "dodge",
+      "make_name": "Dodge",
+      "model_slug": "ram-charger",
+      "model_name": "Ram Charger",
+      "body_types": "hatchback|wagon",
+      "countries": "fi|nl|no|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/dodge/ramcharger",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 13142,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "van",
+      "make_slug": "dodge",
+      "make_name": "Dodge",
+      "model_slug": "ram-charger",
+      "model_name": "Ram Charger",
+      "body_types": "",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "van/dodge/ramcharger",
+      "mass_popularity_decile": "8"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "dodge",
+      "same_brand_rows_examined": 199,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 14,
+      "candidates": [
+        {
+          "row_1based": 1454,
+          "DIMENSION-ID": "Dodge Challenger Widebody Coupe 2015-2023 US",
+          "MODEL": "Challenger",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Charger Scat Pack AWD 与 Challenger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1455,
+          "DIMENSION-ID": "Dodge Charger Coupe 1966-1967 US",
+          "MODEL": "Charger",
+          "YEAR": "1966-1967",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1456,
+          "DIMENSION-ID": "Dodge Charger Coupe 1968-1970 US",
+          "MODEL": "Charger",
+          "YEAR": "1968-1970",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1457,
+          "DIMENSION-ID": "Dodge Charger Coupe 1971-1972 US",
+          "MODEL": "Charger",
+          "YEAR": "1971-1972",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1458,
+          "DIMENSION-ID": "Dodge Charger Coupe 1973-1974 US",
+          "MODEL": "Charger",
+          "YEAR": "1973-1974",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1459,
+          "DIMENSION-ID": "Dodge Charger Coupe 1975-1978 US",
+          "MODEL": "Charger",
+          "YEAR": "1975-1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1460,
+          "DIMENSION-ID": "Dodge Charger Coupe 2024-2026 US",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1461,
+          "DIMENSION-ID": "Dodge Charger Hatchback 1982-1987 US",
+          "MODEL": "Charger",
+          "YEAR": "1982-1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1462,
+          "DIMENSION-ID": "Dodge Charger Sedan 2006-2010 US",
+          "MODEL": "Charger",
+          "YEAR": "2006-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1463,
+          "DIMENSION-ID": "Dodge Charger Sedan 2011-2014 US",
+          "MODEL": "Charger",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1464,
+          "DIMENSION-ID": "Dodge Charger Sedan 2015-2023 US",
+          "MODEL": "Charger",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1465,
+          "DIMENSION-ID": "Dodge Charger Sedan 2024-2026 US",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4534,
+          "DIMENSION-ID": "Dodge Charger Coupe 2027 US",
+          "MODEL": "Charger",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5793,
+          "DIMENSION-ID": "Dodge Charger Daytona Coupe 1969 US",
+          "MODEL": "Charger Daytona",
+          "YEAR": "1969",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词charger，但Charger Scat Pack AWD到Charger Daytona缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 13,
+      "excluded_search_noise_hits": 1,
+      "non_US_candidate_hits": 26,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 6134,
+          "DIMENSION-ID": "Dodge Charger Coupe 1969-1970 EU",
+          "MODEL": "Charger",
+          "YEAR": "1969-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6135,
+          "DIMENSION-ID": "Dodge Charger Sedan 2005-2010 EU",
+          "MODEL": "Charger",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6136,
+          "DIMENSION-ID": "Dodge Charger Sedan 2006-2010 EU",
+          "MODEL": "Charger",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6137,
+          "DIMENSION-ID": "Dodge Charger Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6138,
+          "DIMENSION-ID": "Dodge Charger Sedan 2014-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6139,
+          "DIMENSION-ID": "Dodge Charger Sedan 2020-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6140,
+          "DIMENSION-ID": "Dodge Charger facelift Sedan 2010-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6141,
+          "DIMENSION-ID": "Dodge Charger facelift Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6142,
+          "DIMENSION-ID": "Dodge Charger facelift2019 Sedan 2010-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6143,
+          "DIMENSION-ID": "Dodge Charger facelift2019 Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6144,
+          "DIMENSION-ID": "Dodge Charger narrow Sedan 2014-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6145,
+          "DIMENSION-ID": "Dodge Charger prefl Sedan 2010-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6146,
+          "DIMENSION-ID": "Dodge Charger prefl Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6147,
+          "DIMENSION-ID": "Dodge Charger widebody Sedan 2014-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3083,
+          "DIMENSION-ID": "Dodge Charger Coupe 1968-1970 RU",
+          "MODEL": "Charger",
+          "YEAR": "1968-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3084,
+          "DIMENSION-ID": "Dodge Charger Coupe 1971-1974 RU",
+          "MODEL": "Charger",
+          "YEAR": "1971-1974",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3085,
+          "DIMENSION-ID": "Dodge Charger Coupe 1975-1978 RU",
+          "MODEL": "Charger",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3086,
+          "DIMENSION-ID": "Dodge Charger Coupe 2024-2026 RU",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3087,
+          "DIMENSION-ID": "Dodge Charger Daytona Coupe 1969-1970 RU",
+          "MODEL": "Charger Daytona",
+          "YEAR": "1969-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3088,
+          "DIMENSION-ID": "Dodge Charger Fastback 1966-1967 RU",
+          "MODEL": "Charger",
+          "YEAR": "1966-1967",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3089,
+          "DIMENSION-ID": "Dodge Charger Hatchback 1982-1987 RU",
+          "MODEL": "Charger",
+          "YEAR": "1982-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3090,
+          "DIMENSION-ID": "Dodge Charger Liftback 2024-2026 RU",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3091,
+          "DIMENSION-ID": "Dodge Charger SRT Sedan 2014-2023 RU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3092,
+          "DIMENSION-ID": "Dodge Charger Sedan 2005-2010 RU",
+          "MODEL": "Charger",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3093,
+          "DIMENSION-ID": "Dodge Charger Sedan 2010-2014 RU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3094,
+          "DIMENSION-ID": "Dodge Charger Sedan 2014-2023 RU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "dodge",
+      "same_brand_rows_examined": 199,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 14,
+      "candidates": [
+        {
+          "row_1based": 1454,
+          "DIMENSION-ID": "Dodge Challenger Widebody Coupe 2015-2023 US",
+          "MODEL": "Challenger",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Charger Scat Pack AWD 与 Challenger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1455,
+          "DIMENSION-ID": "Dodge Charger Coupe 1966-1967 US",
+          "MODEL": "Charger",
+          "YEAR": "1966-1967",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1456,
+          "DIMENSION-ID": "Dodge Charger Coupe 1968-1970 US",
+          "MODEL": "Charger",
+          "YEAR": "1968-1970",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1457,
+          "DIMENSION-ID": "Dodge Charger Coupe 1971-1972 US",
+          "MODEL": "Charger",
+          "YEAR": "1971-1972",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1458,
+          "DIMENSION-ID": "Dodge Charger Coupe 1973-1974 US",
+          "MODEL": "Charger",
+          "YEAR": "1973-1974",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1459,
+          "DIMENSION-ID": "Dodge Charger Coupe 1975-1978 US",
+          "MODEL": "Charger",
+          "YEAR": "1975-1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1460,
+          "DIMENSION-ID": "Dodge Charger Coupe 2024-2026 US",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1461,
+          "DIMENSION-ID": "Dodge Charger Hatchback 1982-1987 US",
+          "MODEL": "Charger",
+          "YEAR": "1982-1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1462,
+          "DIMENSION-ID": "Dodge Charger Sedan 2006-2010 US",
+          "MODEL": "Charger",
+          "YEAR": "2006-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1463,
+          "DIMENSION-ID": "Dodge Charger Sedan 2011-2014 US",
+          "MODEL": "Charger",
+          "YEAR": "2011-2014",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1464,
+          "DIMENSION-ID": "Dodge Charger Sedan 2015-2023 US",
+          "MODEL": "Charger",
+          "YEAR": "2015-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1465,
+          "DIMENSION-ID": "Dodge Charger Sedan 2024-2026 US",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4534,
+          "DIMENSION-ID": "Dodge Charger Coupe 2027 US",
+          "MODEL": "Charger",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词charger，但Charger Scat Pack AWD到Charger缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5793,
+          "DIMENSION-ID": "Dodge Charger Daytona Coupe 1969 US",
+          "MODEL": "Charger Daytona",
+          "YEAR": "1969",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词charger，但Charger Scat Pack AWD到Charger Daytona缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 13,
+      "excluded_search_noise_hits": 1,
+      "non_US_candidate_hits": 26,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 6134,
+          "DIMENSION-ID": "Dodge Charger Coupe 1969-1970 EU",
+          "MODEL": "Charger",
+          "YEAR": "1969-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6135,
+          "DIMENSION-ID": "Dodge Charger Sedan 2005-2010 EU",
+          "MODEL": "Charger",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6136,
+          "DIMENSION-ID": "Dodge Charger Sedan 2006-2010 EU",
+          "MODEL": "Charger",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6137,
+          "DIMENSION-ID": "Dodge Charger Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6138,
+          "DIMENSION-ID": "Dodge Charger Sedan 2014-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6139,
+          "DIMENSION-ID": "Dodge Charger Sedan 2020-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6140,
+          "DIMENSION-ID": "Dodge Charger facelift Sedan 2010-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6141,
+          "DIMENSION-ID": "Dodge Charger facelift Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6142,
+          "DIMENSION-ID": "Dodge Charger facelift2019 Sedan 2010-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6143,
+          "DIMENSION-ID": "Dodge Charger facelift2019 Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6144,
+          "DIMENSION-ID": "Dodge Charger narrow Sedan 2014-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6145,
+          "DIMENSION-ID": "Dodge Charger prefl Sedan 2010-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6146,
+          "DIMENSION-ID": "Dodge Charger prefl Sedan 2011-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 6147,
+          "DIMENSION-ID": "Dodge Charger widebody Sedan 2014-2026 EU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3083,
+          "DIMENSION-ID": "Dodge Charger Coupe 1968-1970 RU",
+          "MODEL": "Charger",
+          "YEAR": "1968-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3084,
+          "DIMENSION-ID": "Dodge Charger Coupe 1971-1974 RU",
+          "MODEL": "Charger",
+          "YEAR": "1971-1974",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3085,
+          "DIMENSION-ID": "Dodge Charger Coupe 1975-1978 RU",
+          "MODEL": "Charger",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3086,
+          "DIMENSION-ID": "Dodge Charger Coupe 2024-2026 RU",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3087,
+          "DIMENSION-ID": "Dodge Charger Daytona Coupe 1969-1970 RU",
+          "MODEL": "Charger Daytona",
+          "YEAR": "1969-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3088,
+          "DIMENSION-ID": "Dodge Charger Fastback 1966-1967 RU",
+          "MODEL": "Charger",
+          "YEAR": "1966-1967",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3089,
+          "DIMENSION-ID": "Dodge Charger Hatchback 1982-1987 RU",
+          "MODEL": "Charger",
+          "YEAR": "1982-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3090,
+          "DIMENSION-ID": "Dodge Charger Liftback 2024-2026 RU",
+          "MODEL": "Charger",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3091,
+          "DIMENSION-ID": "Dodge Charger SRT Sedan 2014-2023 RU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3092,
+          "DIMENSION-ID": "Dodge Charger Sedan 2005-2010 RU",
+          "MODEL": "Charger",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3093,
+          "DIMENSION-ID": "Dodge Charger Sedan 2010-2014 RU",
+          "MODEL": "Charger",
+          "YEAR": "2010-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 3094,
+          "DIMENSION-ID": "Dodge Charger Sedan 2014-2023 RU",
+          "MODEL": "Charger",
+          "YEAR": "2014-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Dodge / Charger Scat Pack AWD原名到明确US目标的可引用身份关系；参考年份2026的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-34726b928e4530bdd12ae1e3",
+      "MM_ID": "MM-ffcfdf7927e5867356cf5af7",
+      "REGION": "US",
+      "MAKE": "Dodge",
+      "MODEL": "Charger Scat Pack AWD",
+      "YEAR": "2026",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Dodge",
+      "标准MODEL": "Charger Scat Pack AWD",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "13427"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 8-spd, 6 cyl, 3.0 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Dodge Charger Coupe 2024-2026 US",
+            "Dodge Charger Sedan 2024-2026 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Dodge Charger Coupe 2024-2026 US",
+            "Dodge Charger Sedan 2024-2026 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    }
+  ]
+}

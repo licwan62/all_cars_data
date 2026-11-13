@@ -1,0 +1,1619 @@
+{
+  "MAKE": "Buick",
+  "MODEL": "Regal/Century",
+  "MM_ID": "MM-0f3d123895e3b289d1e5a542",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Buick",
+    "MODEL": "Regal/Century",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 5633,
+      "MM_ID": "MM-0f3d123895e3b289d1e5a542",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "5634",
+      "raw_make": "Buick",
+      "raw_model": "Regal/Century",
+      "raw_year": "1997",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 6 cyl, 3.1 L"
+    },
+    {
+      "association_row_1based": 5634,
+      "MM_ID": "MM-0f3d123895e3b289d1e5a542",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "5635",
+      "raw_make": "Buick",
+      "raw_model": "Regal/Century",
+      "raw_year": "1997",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 6 cyl, 3.8 L"
+    },
+    {
+      "association_row_1based": 5635,
+      "MM_ID": "MM-0f3d123895e3b289d1e5a542",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "5636",
+      "raw_make": "Buick",
+      "raw_model": "Regal/Century",
+      "raw_year": "1997",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 6 cyl, 3.8 L, Sup Charg"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 546,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "buick",
+      "make_name": "Buick",
+      "model_slug": "century",
+      "model_name": "Century",
+      "body_types": "sedan",
+      "countries": "au|ca|ch|fi|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "car/buick/century-caballero|car/buick/century-wagon",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 567,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "buick",
+      "make_name": "Buick",
+      "model_slug": "regal",
+      "model_name": "Regal",
+      "body_types": "sedan",
+      "countries": "ca|ch|fi|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/buick/regal-eassist|car/buick/regal-ltd|car/buick/regal-tourx",
+      "mass_popularity_decile": "4"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "buick",
+      "same_brand_rows_examined": 346,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 25,
+      "candidates": [
+        {
+          "row_1based": 294,
+          "DIMENSION-ID": "Buick Century Convertible 1957 US",
+          "MODEL": "Century",
+          "YEAR": "1957",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 295,
+          "DIMENSION-ID": "Buick Century Sedan 1998-2005 US",
+          "MODEL": "Century",
+          "YEAR": "1998-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 296,
+          "DIMENSION-ID": "Buick Century Wagon 1954 US",
+          "MODEL": "Century",
+          "YEAR": "1954",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 297,
+          "DIMENSION-ID": "Buick Century Wagon 1955 US",
+          "MODEL": "Century",
+          "YEAR": "1955",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 298,
+          "DIMENSION-ID": "Buick Century Wagon 1956 US",
+          "MODEL": "Century",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 299,
+          "DIMENSION-ID": "Buick Century Wagon 1958 US",
+          "MODEL": "Century",
+          "YEAR": "1958",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 300,
+          "DIMENSION-ID": "Buick Century Wagon 1973-1977 US",
+          "MODEL": "Century",
+          "YEAR": "1973-1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 301,
+          "DIMENSION-ID": "Buick Century Wagon 1978-1981 US",
+          "MODEL": "Century",
+          "YEAR": "1978-1981",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 302,
+          "DIMENSION-ID": "Buick Century Wagon 1982-1996 US",
+          "MODEL": "Century",
+          "YEAR": "1982-1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 407,
+          "DIMENSION-ID": "Buick Regal Coupe 1973-1975 US",
+          "MODEL": "Regal",
+          "YEAR": "1973-1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 408,
+          "DIMENSION-ID": "Buick Regal Coupe 1976-1977 US",
+          "MODEL": "Regal",
+          "YEAR": "1976-1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 409,
+          "DIMENSION-ID": "Buick Regal Coupe 1978-1980 US",
+          "MODEL": "Regal",
+          "YEAR": "1978-1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 410,
+          "DIMENSION-ID": "Buick Regal Coupe 1981-1987 US",
+          "MODEL": "Regal",
+          "YEAR": "1981-1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 411,
+          "DIMENSION-ID": "Buick Regal Coupe 1988-1996 US",
+          "MODEL": "Regal",
+          "YEAR": "1988-1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 412,
+          "DIMENSION-ID": "Buick Regal Liftback 2018-2020 US",
+          "MODEL": "Regal",
+          "YEAR": "2018-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 413,
+          "DIMENSION-ID": "Buick Regal Sedan 1991-1996 US",
+          "MODEL": "Regal",
+          "YEAR": "1991-1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 414,
+          "DIMENSION-ID": "Buick Regal Sedan 1997 US",
+          "MODEL": "Regal",
+          "YEAR": "1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 415,
+          "DIMENSION-ID": "Buick Regal Sedan 1998-2004 US",
+          "MODEL": "Regal",
+          "YEAR": "1998-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 416,
+          "DIMENSION-ID": "Buick Regal Sedan 2011-2017 US",
+          "MODEL": "Regal",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 417,
+          "DIMENSION-ID": "Buick Regal Wagon 2018-2020 US",
+          "MODEL": "Regal",
+          "YEAR": "2018-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5342,
+          "DIMENSION-ID": "Buick Regal GS Sedan 2012 US",
+          "MODEL": "Regal GS",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal GS缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5343,
+          "DIMENSION-ID": "Buick Regal GS Sedan 2013 US",
+          "MODEL": "Regal GS",
+          "YEAR": "2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal GS缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5344,
+          "DIMENSION-ID": "Buick Regal TourX Wagon 2018 US",
+          "MODEL": "Regal TourX",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal TourX缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5345,
+          "DIMENSION-ID": "Buick Regal TourX Wagon 2019 US",
+          "MODEL": "Regal TourX",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal TourX缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5346,
+          "DIMENSION-ID": "Buick Regal TourX Wagon 2020 US",
+          "MODEL": "Regal TourX",
+          "YEAR": "2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal TourX缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 25,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 51,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3525,
+          "DIMENSION-ID": "Buick Century Coupe 1986-1988 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3526,
+          "DIMENSION-ID": "Buick Century Coupe 1986-1989 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3527,
+          "DIMENSION-ID": "Buick Century Sedan 1978-1979 EU",
+          "MODEL": "Century",
+          "YEAR": "1978-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3528,
+          "DIMENSION-ID": "Buick Century Sedan 1985-1988 EU",
+          "MODEL": "Century",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3529,
+          "DIMENSION-ID": "Buick Century Sedan 1986-1990 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3530,
+          "DIMENSION-ID": "Buick Century Sedan 1991-1996 EU",
+          "MODEL": "Century",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3531,
+          "DIMENSION-ID": "Buick Century Sedan 1993-1996 EU",
+          "MODEL": "Century",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3532,
+          "DIMENSION-ID": "Buick Century Wagon 1981-1983 EU",
+          "MODEL": "Century",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3533,
+          "DIMENSION-ID": "Buick Century Wagon 1983-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3534,
+          "DIMENSION-ID": "Buick Century Wagon 1986-1988 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3535,
+          "DIMENSION-ID": "Buick Century Wagon 1986-1989 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3536,
+          "DIMENSION-ID": "Buick Century Wagon 1986-1991 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3537,
+          "DIMENSION-ID": "Buick Century Wagon 1991-1996 EU",
+          "MODEL": "Century",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3538,
+          "DIMENSION-ID": "Buick Century facelift Sedan 1981-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3539,
+          "DIMENSION-ID": "Buick Century facelift Sedan 1983-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3540,
+          "DIMENSION-ID": "Buick Century my1978 Wagon 1977-1981 EU",
+          "MODEL": "Century",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3541,
+          "DIMENSION-ID": "Buick Century my1979 Wagon 1977-1981 EU",
+          "MODEL": "Century",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3542,
+          "DIMENSION-ID": "Buick Century my1980 81 Wagon 1977-1981 EU",
+          "MODEL": "Century",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3543,
+          "DIMENSION-ID": "Buick Century prefl Sedan 1981-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3544,
+          "DIMENSION-ID": "Buick Century prefl Sedan 1983-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3564,
+          "DIMENSION-ID": "Buick Regal Coupe 1987-1989 EU",
+          "MODEL": "Regal",
+          "YEAR": "1987-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3565,
+          "DIMENSION-ID": "Buick Regal Coupe 1988-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3566,
+          "DIMENSION-ID": "Buick Regal Coupe 1989-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3567,
+          "DIMENSION-ID": "Buick Regal Coupe 1991-1993 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3568,
+          "DIMENSION-ID": "Buick Regal Coupe 1991-1994 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3569,
+          "DIMENSION-ID": "Buick Regal Coupe 1991-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3570,
+          "DIMENSION-ID": "Buick Regal Sedan 1988-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3571,
+          "DIMENSION-ID": "Buick Regal Sedan 1989-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3572,
+          "DIMENSION-ID": "Buick Regal Sedan 1991-1993 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3573,
+          "DIMENSION-ID": "Buick Regal Sedan 1991-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3574,
+          "DIMENSION-ID": "Buick Regal coupe 1994 Coupe 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3575,
+          "DIMENSION-ID": "Buick Regal coupe 1995 Coupe 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3576,
+          "DIMENSION-ID": "Buick Regal sedan 1992 Sedan 1991-1994 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3577,
+          "DIMENSION-ID": "Buick Regal sedan 1994 Sedan 1991-1994 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3578,
+          "DIMENSION-ID": "Buick Regal sedan 1994 Sedan 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3579,
+          "DIMENSION-ID": "Buick Regal sedan 1995 Sedan 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1615,
+          "DIMENSION-ID": "Buick Regal Coupe 1973-1977 RU",
+          "MODEL": "Regal",
+          "YEAR": "1973-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1616,
+          "DIMENSION-ID": "Buick Regal Coupe 1978-1987 RU",
+          "MODEL": "Regal",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1617,
+          "DIMENSION-ID": "Buick Regal Coupe 1988-1997 RU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1618,
+          "DIMENSION-ID": "Buick Regal Liftback 2017-2021 RU",
+          "MODEL": "Regal",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1619,
+          "DIMENSION-ID": "Buick Regal Sedan 1973-1977 RU",
+          "MODEL": "Regal",
+          "YEAR": "1973-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1620,
+          "DIMENSION-ID": "Buick Regal Sedan 1978-1987 RU",
+          "MODEL": "Regal",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1621,
+          "DIMENSION-ID": "Buick Regal Sedan 1982-1996 RU",
+          "MODEL": "Regal",
+          "YEAR": "1982-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1622,
+          "DIMENSION-ID": "Buick Regal Sedan 1988-1997 RU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1623,
+          "DIMENSION-ID": "Buick Regal Sedan 1997-2008 RU",
+          "MODEL": "Regal",
+          "YEAR": "1997-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1624,
+          "DIMENSION-ID": "Buick Regal Sedan 2009-2013 RU",
+          "MODEL": "Regal",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1625,
+          "DIMENSION-ID": "Buick Regal Sedan 2013-2017 RU",
+          "MODEL": "Regal",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1626,
+          "DIMENSION-ID": "Buick Regal Sedan 2021-2023 RU",
+          "MODEL": "Regal",
+          "YEAR": "2021-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1627,
+          "DIMENSION-ID": "Buick Regal Sedan 2023-2026 RU",
+          "MODEL": "Regal",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1628,
+          "DIMENSION-ID": "Buick Regal Wagon 1978-1987 RU",
+          "MODEL": "Regal",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1629,
+          "DIMENSION-ID": "Buick Regal Wagon 2017-2021 RU",
+          "MODEL": "Regal",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "buick",
+      "same_brand_rows_examined": 346,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 25,
+      "candidates": [
+        {
+          "row_1based": 294,
+          "DIMENSION-ID": "Buick Century Convertible 1957 US",
+          "MODEL": "Century",
+          "YEAR": "1957",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 295,
+          "DIMENSION-ID": "Buick Century Sedan 1998-2005 US",
+          "MODEL": "Century",
+          "YEAR": "1998-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 296,
+          "DIMENSION-ID": "Buick Century Wagon 1954 US",
+          "MODEL": "Century",
+          "YEAR": "1954",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 297,
+          "DIMENSION-ID": "Buick Century Wagon 1955 US",
+          "MODEL": "Century",
+          "YEAR": "1955",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 298,
+          "DIMENSION-ID": "Buick Century Wagon 1956 US",
+          "MODEL": "Century",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 299,
+          "DIMENSION-ID": "Buick Century Wagon 1958 US",
+          "MODEL": "Century",
+          "YEAR": "1958",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 300,
+          "DIMENSION-ID": "Buick Century Wagon 1973-1977 US",
+          "MODEL": "Century",
+          "YEAR": "1973-1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 301,
+          "DIMENSION-ID": "Buick Century Wagon 1978-1981 US",
+          "MODEL": "Century",
+          "YEAR": "1978-1981",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 302,
+          "DIMENSION-ID": "Buick Century Wagon 1982-1996 US",
+          "MODEL": "Century",
+          "YEAR": "1982-1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词century，但Regal/Century到Century缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 407,
+          "DIMENSION-ID": "Buick Regal Coupe 1973-1975 US",
+          "MODEL": "Regal",
+          "YEAR": "1973-1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 408,
+          "DIMENSION-ID": "Buick Regal Coupe 1976-1977 US",
+          "MODEL": "Regal",
+          "YEAR": "1976-1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 409,
+          "DIMENSION-ID": "Buick Regal Coupe 1978-1980 US",
+          "MODEL": "Regal",
+          "YEAR": "1978-1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 410,
+          "DIMENSION-ID": "Buick Regal Coupe 1981-1987 US",
+          "MODEL": "Regal",
+          "YEAR": "1981-1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 411,
+          "DIMENSION-ID": "Buick Regal Coupe 1988-1996 US",
+          "MODEL": "Regal",
+          "YEAR": "1988-1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 412,
+          "DIMENSION-ID": "Buick Regal Liftback 2018-2020 US",
+          "MODEL": "Regal",
+          "YEAR": "2018-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 413,
+          "DIMENSION-ID": "Buick Regal Sedan 1991-1996 US",
+          "MODEL": "Regal",
+          "YEAR": "1991-1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 414,
+          "DIMENSION-ID": "Buick Regal Sedan 1997 US",
+          "MODEL": "Regal",
+          "YEAR": "1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 415,
+          "DIMENSION-ID": "Buick Regal Sedan 1998-2004 US",
+          "MODEL": "Regal",
+          "YEAR": "1998-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 416,
+          "DIMENSION-ID": "Buick Regal Sedan 2011-2017 US",
+          "MODEL": "Regal",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 417,
+          "DIMENSION-ID": "Buick Regal Wagon 2018-2020 US",
+          "MODEL": "Regal",
+          "YEAR": "2018-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词regal，但Regal/Century到Regal缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5342,
+          "DIMENSION-ID": "Buick Regal GS Sedan 2012 US",
+          "MODEL": "Regal GS",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal GS缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5343,
+          "DIMENSION-ID": "Buick Regal GS Sedan 2013 US",
+          "MODEL": "Regal GS",
+          "YEAR": "2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal GS缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5344,
+          "DIMENSION-ID": "Buick Regal TourX Wagon 2018 US",
+          "MODEL": "Regal TourX",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal TourX缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5345,
+          "DIMENSION-ID": "Buick Regal TourX Wagon 2019 US",
+          "MODEL": "Regal TourX",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal TourX缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5346,
+          "DIMENSION-ID": "Buick Regal TourX Wagon 2020 US",
+          "MODEL": "Regal TourX",
+          "YEAR": "2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词regal，但Regal/Century到Regal TourX缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 25,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 51,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3525,
+          "DIMENSION-ID": "Buick Century Coupe 1986-1988 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3526,
+          "DIMENSION-ID": "Buick Century Coupe 1986-1989 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3527,
+          "DIMENSION-ID": "Buick Century Sedan 1978-1979 EU",
+          "MODEL": "Century",
+          "YEAR": "1978-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3528,
+          "DIMENSION-ID": "Buick Century Sedan 1985-1988 EU",
+          "MODEL": "Century",
+          "YEAR": "1985-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3529,
+          "DIMENSION-ID": "Buick Century Sedan 1986-1990 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3530,
+          "DIMENSION-ID": "Buick Century Sedan 1991-1996 EU",
+          "MODEL": "Century",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3531,
+          "DIMENSION-ID": "Buick Century Sedan 1993-1996 EU",
+          "MODEL": "Century",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3532,
+          "DIMENSION-ID": "Buick Century Wagon 1981-1983 EU",
+          "MODEL": "Century",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3533,
+          "DIMENSION-ID": "Buick Century Wagon 1983-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3534,
+          "DIMENSION-ID": "Buick Century Wagon 1986-1988 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3535,
+          "DIMENSION-ID": "Buick Century Wagon 1986-1989 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3536,
+          "DIMENSION-ID": "Buick Century Wagon 1986-1991 EU",
+          "MODEL": "Century",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3537,
+          "DIMENSION-ID": "Buick Century Wagon 1991-1996 EU",
+          "MODEL": "Century",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3538,
+          "DIMENSION-ID": "Buick Century facelift Sedan 1981-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3539,
+          "DIMENSION-ID": "Buick Century facelift Sedan 1983-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3540,
+          "DIMENSION-ID": "Buick Century my1978 Wagon 1977-1981 EU",
+          "MODEL": "Century",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3541,
+          "DIMENSION-ID": "Buick Century my1979 Wagon 1977-1981 EU",
+          "MODEL": "Century",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3542,
+          "DIMENSION-ID": "Buick Century my1980 81 Wagon 1977-1981 EU",
+          "MODEL": "Century",
+          "YEAR": "1977-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3543,
+          "DIMENSION-ID": "Buick Century prefl Sedan 1981-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3544,
+          "DIMENSION-ID": "Buick Century prefl Sedan 1983-1986 EU",
+          "MODEL": "Century",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3564,
+          "DIMENSION-ID": "Buick Regal Coupe 1987-1989 EU",
+          "MODEL": "Regal",
+          "YEAR": "1987-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3565,
+          "DIMENSION-ID": "Buick Regal Coupe 1988-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3566,
+          "DIMENSION-ID": "Buick Regal Coupe 1989-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3567,
+          "DIMENSION-ID": "Buick Regal Coupe 1991-1993 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3568,
+          "DIMENSION-ID": "Buick Regal Coupe 1991-1994 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3569,
+          "DIMENSION-ID": "Buick Regal Coupe 1991-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3570,
+          "DIMENSION-ID": "Buick Regal Sedan 1988-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3571,
+          "DIMENSION-ID": "Buick Regal Sedan 1989-1991 EU",
+          "MODEL": "Regal",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3572,
+          "DIMENSION-ID": "Buick Regal Sedan 1991-1993 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3573,
+          "DIMENSION-ID": "Buick Regal Sedan 1991-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3574,
+          "DIMENSION-ID": "Buick Regal coupe 1994 Coupe 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3575,
+          "DIMENSION-ID": "Buick Regal coupe 1995 Coupe 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3576,
+          "DIMENSION-ID": "Buick Regal sedan 1992 Sedan 1991-1994 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3577,
+          "DIMENSION-ID": "Buick Regal sedan 1994 Sedan 1991-1994 EU",
+          "MODEL": "Regal",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3578,
+          "DIMENSION-ID": "Buick Regal sedan 1994 Sedan 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3579,
+          "DIMENSION-ID": "Buick Regal sedan 1995 Sedan 1993-1997 EU",
+          "MODEL": "Regal",
+          "YEAR": "1993-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1615,
+          "DIMENSION-ID": "Buick Regal Coupe 1973-1977 RU",
+          "MODEL": "Regal",
+          "YEAR": "1973-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1616,
+          "DIMENSION-ID": "Buick Regal Coupe 1978-1987 RU",
+          "MODEL": "Regal",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1617,
+          "DIMENSION-ID": "Buick Regal Coupe 1988-1997 RU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1618,
+          "DIMENSION-ID": "Buick Regal Liftback 2017-2021 RU",
+          "MODEL": "Regal",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1619,
+          "DIMENSION-ID": "Buick Regal Sedan 1973-1977 RU",
+          "MODEL": "Regal",
+          "YEAR": "1973-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1620,
+          "DIMENSION-ID": "Buick Regal Sedan 1978-1987 RU",
+          "MODEL": "Regal",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1621,
+          "DIMENSION-ID": "Buick Regal Sedan 1982-1996 RU",
+          "MODEL": "Regal",
+          "YEAR": "1982-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1622,
+          "DIMENSION-ID": "Buick Regal Sedan 1988-1997 RU",
+          "MODEL": "Regal",
+          "YEAR": "1988-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1623,
+          "DIMENSION-ID": "Buick Regal Sedan 1997-2008 RU",
+          "MODEL": "Regal",
+          "YEAR": "1997-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1624,
+          "DIMENSION-ID": "Buick Regal Sedan 2009-2013 RU",
+          "MODEL": "Regal",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1625,
+          "DIMENSION-ID": "Buick Regal Sedan 2013-2017 RU",
+          "MODEL": "Regal",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1626,
+          "DIMENSION-ID": "Buick Regal Sedan 2021-2023 RU",
+          "MODEL": "Regal",
+          "YEAR": "2021-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1627,
+          "DIMENSION-ID": "Buick Regal Sedan 2023-2026 RU",
+          "MODEL": "Regal",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1628,
+          "DIMENSION-ID": "Buick Regal Wagon 1978-1987 RU",
+          "MODEL": "Regal",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1629,
+          "DIMENSION-ID": "Buick Regal Wagon 2017-2021 RU",
+          "MODEL": "Regal",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Buick / Regal/Century原名到明确US目标的可引用身份关系；参考年份1997的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-fdd8b104bff152b710fcc183",
+      "MM_ID": "MM-0f3d123895e3b289d1e5a542",
+      "REGION": "US",
+      "MAKE": "Buick",
+      "MODEL": "Regal/Century",
+      "YEAR": "1997",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Buick",
+      "标准MODEL": "Regal/Century",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "5634",
+        "5635",
+        "5636"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 6 cyl, 3.1 L",
+        "Auto 4-spd, 6 cyl, 3.8 L",
+        "Auto 4-spd, 6 cyl, 3.8 L, Sup Charg"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Buick Regal Sedan 1997 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Buick Regal Sedan 1997 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ]
+}

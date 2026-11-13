@@ -1,0 +1,755 @@
+{
+  "MAKE": "Volvo",
+  "MODEL": "EX30 Single Motor extended range (19/20 Inch Wheels)",
+  "MM_ID": "MM-d1a7578e0ab55d31d1598788",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Volvo",
+    "MODEL": "EX30 Single Motor extended range (19/20 Inch Wheels)",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 51193,
+      "MM_ID": "MM-d1a7578e0ab55d31d1598788",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "51194",
+      "raw_make": "Volvo",
+      "raw_model": "EX30 Single Motor extended range (19/20 Inch Wheels)",
+      "raw_year": "2025",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (A1)"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 5420,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "c30",
+      "model_name": "C30",
+      "body_types": "hatchback",
+      "countries": "au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|ua",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/volvo/c-30",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5428,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "ex30",
+      "model_name": "EX30",
+      "body_types": "suv",
+      "countries": "ar|au|ca|ch|de|es|fi|gb|ie|lu|my|nl|nz|th|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "car/volvo/ex30-single-motor-extended-range|car/volvo/ex30-twin-performance",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5429,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "ex40",
+      "model_name": "EX40",
+      "body_types": "suv",
+      "countries": "ca|ch|es|fi|gb|ie|lu|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/volvo/ex40-twin",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 5430,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "ex60",
+      "model_name": "EX60",
+      "body_types": "suv",
+      "countries": "de|es|gb|lu|nl",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 5431,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "ex90",
+      "model_name": "EX90",
+      "body_types": "suv",
+      "countries": "ch|de|es|fi|gb|il|lu|my|nl|nz|th|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/volvo/ex90-plus",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 7,
+      "candidates": [
+        {
+          "row_1based": 4325,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2008-2013 US",
+          "MODEL": "C30",
+          "YEAR": "2008-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 C30；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4337,
+          "DIMENSION-ID": "Volvo EX30 SUV 2025 US",
+          "MODEL": "EX30",
+          "YEAR": "2025",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但EX30 Single Motor extended range (19/20 Inch Wheels)到EX30缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4338,
+          "DIMENSION-ID": "Volvo EX30 SUV 2026 US",
+          "MODEL": "EX30",
+          "YEAR": "2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但EX30 Single Motor extended range (19/20 Inch Wheels)到EX30缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4339,
+          "DIMENSION-ID": "Volvo EX40 SUV 2025-2026 US",
+          "MODEL": "EX40",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 EX40；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4340,
+          "DIMENSION-ID": "Volvo EX90 SUV 2025-2026 US",
+          "MODEL": "EX90",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 EX90；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4372,
+          "DIMENSION-ID": "Volvo XC40 SUV 2020-2025 US",
+          "MODEL": "XC40",
+          "YEAR": "2020-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 XC40；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4746,
+          "DIMENSION-ID": "Volvo EX60 SUV 2027 US",
+          "MODEL": "EX60",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 EX60；共享数字或字母不能转移车型身份"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 5,
+      "non_US_candidate_hits": 23,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28840,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2010-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28841,
+          "DIMENSION-ID": "Volvo C30 facelift Hatchback 2006-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2006-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28842,
+          "DIMENSION-ID": "Volvo C30 facelift Hatchback 2007-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28843,
+          "DIMENSION-ID": "Volvo C30 facelift Hatchback 2007-2013 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28844,
+          "DIMENSION-ID": "Volvo C30 prefl Hatchback 2006-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2006-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28845,
+          "DIMENSION-ID": "Volvo C30 prefl Hatchback 2007-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28846,
+          "DIMENSION-ID": "Volvo C30 prefl Hatchback 2007-2013 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28867,
+          "DIMENSION-ID": "Volvo Ex30 SUV 2023-2026 EU",
+          "MODEL": "Ex30",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28868,
+          "DIMENSION-ID": "Volvo Ex30 SUV 2025-2026 EU",
+          "MODEL": "Ex30",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28869,
+          "DIMENSION-ID": "Volvo Ex30 SUV 2026-2026 EU",
+          "MODEL": "Ex30",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28870,
+          "DIMENSION-ID": "Volvo Ex40 SUV 2024-2026 EU",
+          "MODEL": "Ex40",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28871,
+          "DIMENSION-ID": "Volvo Ex60 SUV 2026-2026 EU",
+          "MODEL": "Ex60",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28872,
+          "DIMENSION-ID": "Volvo Ex90 SUV 2022-2026 EU",
+          "MODEL": "Ex90",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28873,
+          "DIMENSION-ID": "Volvo Ex90 SUV 2023-2026 EU",
+          "MODEL": "Ex90",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28874,
+          "DIMENSION-ID": "Volvo Ex90 SUV 2025-2026 EU",
+          "MODEL": "Ex90",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13166,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2006-2010 RU",
+          "MODEL": "C30",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13167,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2010-2013 RU",
+          "MODEL": "C30",
+          "YEAR": "2010-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13176,
+          "DIMENSION-ID": "Volvo EX30 Cross Country SUV 2025-2026 RU",
+          "MODEL": "EX30 Cross Country",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13177,
+          "DIMENSION-ID": "Volvo EX30 SUV 2023-2026 RU",
+          "MODEL": "EX30",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13178,
+          "DIMENSION-ID": "Volvo EX40 SUV 2024-2026 RU",
+          "MODEL": "EX40",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13179,
+          "DIMENSION-ID": "Volvo EX60 Cross Country SUV 2026-2026 RU",
+          "MODEL": "EX60",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13180,
+          "DIMENSION-ID": "Volvo EX60 SUV 2026-2026 RU",
+          "MODEL": "EX60",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13181,
+          "DIMENSION-ID": "Volvo EX90 SUV 2023-2026 RU",
+          "MODEL": "EX90",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 7,
+      "candidates": [
+        {
+          "row_1based": 4325,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2008-2013 US",
+          "MODEL": "C30",
+          "YEAR": "2008-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 C30；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4337,
+          "DIMENSION-ID": "Volvo EX30 SUV 2025 US",
+          "MODEL": "EX30",
+          "YEAR": "2025",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但EX30 Single Motor extended range (19/20 Inch Wheels)到EX30缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4338,
+          "DIMENSION-ID": "Volvo EX30 SUV 2026 US",
+          "MODEL": "EX30",
+          "YEAR": "2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但EX30 Single Motor extended range (19/20 Inch Wheels)到EX30缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4339,
+          "DIMENSION-ID": "Volvo EX40 SUV 2025-2026 US",
+          "MODEL": "EX40",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 EX40；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4340,
+          "DIMENSION-ID": "Volvo EX90 SUV 2025-2026 US",
+          "MODEL": "EX90",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 EX90；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4372,
+          "DIMENSION-ID": "Volvo XC40 SUV 2020-2025 US",
+          "MODEL": "XC40",
+          "YEAR": "2020-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 XC40；共享数字或字母不能转移车型身份"
+        },
+        {
+          "row_1based": 4746,
+          "DIMENSION-ID": "Volvo EX60 SUV 2027 US",
+          "MODEL": "EX60",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "型号字母/编号不同：EX30 Single Motor extended range (19/20 Inch Wheels) 与 EX60；共享数字或字母不能转移车型身份"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 5,
+      "non_US_candidate_hits": 23,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28840,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2010-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28841,
+          "DIMENSION-ID": "Volvo C30 facelift Hatchback 2006-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2006-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28842,
+          "DIMENSION-ID": "Volvo C30 facelift Hatchback 2007-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28843,
+          "DIMENSION-ID": "Volvo C30 facelift Hatchback 2007-2013 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28844,
+          "DIMENSION-ID": "Volvo C30 prefl Hatchback 2006-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2006-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28845,
+          "DIMENSION-ID": "Volvo C30 prefl Hatchback 2007-2012 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28846,
+          "DIMENSION-ID": "Volvo C30 prefl Hatchback 2007-2013 EU",
+          "MODEL": "C30",
+          "YEAR": "2007-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28867,
+          "DIMENSION-ID": "Volvo Ex30 SUV 2023-2026 EU",
+          "MODEL": "Ex30",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28868,
+          "DIMENSION-ID": "Volvo Ex30 SUV 2025-2026 EU",
+          "MODEL": "Ex30",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28869,
+          "DIMENSION-ID": "Volvo Ex30 SUV 2026-2026 EU",
+          "MODEL": "Ex30",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28870,
+          "DIMENSION-ID": "Volvo Ex40 SUV 2024-2026 EU",
+          "MODEL": "Ex40",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28871,
+          "DIMENSION-ID": "Volvo Ex60 SUV 2026-2026 EU",
+          "MODEL": "Ex60",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28872,
+          "DIMENSION-ID": "Volvo Ex90 SUV 2022-2026 EU",
+          "MODEL": "Ex90",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28873,
+          "DIMENSION-ID": "Volvo Ex90 SUV 2023-2026 EU",
+          "MODEL": "Ex90",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28874,
+          "DIMENSION-ID": "Volvo Ex90 SUV 2025-2026 EU",
+          "MODEL": "Ex90",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13166,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2006-2010 RU",
+          "MODEL": "C30",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13167,
+          "DIMENSION-ID": "Volvo C30 Hatchback 2010-2013 RU",
+          "MODEL": "C30",
+          "YEAR": "2010-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13176,
+          "DIMENSION-ID": "Volvo EX30 Cross Country SUV 2025-2026 RU",
+          "MODEL": "EX30 Cross Country",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13177,
+          "DIMENSION-ID": "Volvo EX30 SUV 2023-2026 RU",
+          "MODEL": "EX30",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13178,
+          "DIMENSION-ID": "Volvo EX40 SUV 2024-2026 RU",
+          "MODEL": "EX40",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13179,
+          "DIMENSION-ID": "Volvo EX60 Cross Country SUV 2026-2026 RU",
+          "MODEL": "EX60",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13180,
+          "DIMENSION-ID": "Volvo EX60 SUV 2026-2026 RU",
+          "MODEL": "EX60",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13181,
+          "DIMENSION-ID": "Volvo EX90 SUV 2023-2026 RU",
+          "MODEL": "EX90",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Volvo / EX30 Single Motor extended range (19/20 Inch Wheels)原名到明确US目标的可引用身份关系；参考年份2025的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-3f9ee5417b272127defc4cfe",
+      "MM_ID": "MM-d1a7578e0ab55d31d1598788",
+      "REGION": "US",
+      "MAKE": "Volvo",
+      "MODEL": "EX30 Single Motor extended range (19/20 Inch Wheels)",
+      "YEAR": "2025",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volvo",
+      "标准MODEL": "EX30 Single Motor extended range (19/20 Inch Wheels)",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "51194"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (A1)"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Volvo EX30 SUV 2025 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Volvo EX30 SUV 2025 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ]
+}

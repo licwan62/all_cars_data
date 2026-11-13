@@ -1,0 +1,359 @@
+{
+  "MAKE": "Nissan",
+  "MODEL": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+  "MM_ID": "MM-982b21c3d253cb00b8a7d26c",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Nissan",
+    "MODEL": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 38284,
+      "MM_ID": "MM-982b21c3d253cb00b8a7d26c",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "38285",
+      "raw_make": "Nissan",
+      "raw_model": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+      "raw_year": "2024",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (A1)"
+    },
+    {
+      "association_row_1based": 38285,
+      "MM_ID": "MM-982b21c3d253cb00b8a7d26c",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "38286",
+      "raw_make": "Nissan",
+      "raw_model": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+      "raw_year": "2025",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (A1)"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 3840,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "ariya",
+      "model_name": "Ariya",
+      "body_types": "suv",
+      "countries": "ca|ch|de|es|fi|gb|ie|il|lu|nl|no|nz|ua",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/nissan/ariya-engage|car/nissan/ariya-evolve",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 3855,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "e-fk10",
+      "model_name": "E-FK10",
+      "body_types": "convertible",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "10",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    },
+    {
+      "record": 13526,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "van",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "e-nv200",
+      "model_name": "E-NV200",
+      "body_types": "",
+      "countries": "au|ch|fi|lu|nl|no",
+      "regions": "eu|oc",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "nissan",
+      "same_brand_rows_examined": 176,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 1,
+      "candidates": [
+        {
+          "row_1based": 3197,
+          "DIMENSION-ID": "Nissan Ariya SUV 2023-2026 US",
+          "MODEL": "Ariya",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词ariya，但ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh到Ariya缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 1,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 5,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 18069,
+          "DIMENSION-ID": "Nissan Ariya SUV 2020-2026 EU",
+          "MODEL": "Ariya",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18070,
+          "DIMENSION-ID": "Nissan Ariya SUV 2024-2026 EU",
+          "MODEL": "Ariya",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8743,
+          "DIMENSION-ID": "Nissan Ariya Nismo SUV 2020-2026 RU",
+          "MODEL": "Ariya",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8744,
+          "DIMENSION-ID": "Nissan Ariya SUV 2020-2026 RU",
+          "MODEL": "Ariya",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8745,
+          "DIMENSION-ID": "Nissan Ariya SUV 2026-2026 RU",
+          "MODEL": "Ariya",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "nissan",
+      "same_brand_rows_examined": 176,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 1,
+      "candidates": [
+        {
+          "row_1based": 3197,
+          "DIMENSION-ID": "Nissan Ariya SUV 2023-2026 US",
+          "MODEL": "Ariya",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词ariya，但ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh到Ariya缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 1,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 5,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 18069,
+          "DIMENSION-ID": "Nissan Ariya SUV 2020-2026 EU",
+          "MODEL": "Ariya",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18070,
+          "DIMENSION-ID": "Nissan Ariya SUV 2024-2026 EU",
+          "MODEL": "Ariya",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8743,
+          "DIMENSION-ID": "Nissan Ariya Nismo SUV 2020-2026 RU",
+          "MODEL": "Ariya",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8744,
+          "DIMENSION-ID": "Nissan Ariya SUV 2020-2026 RU",
+          "MODEL": "Ariya",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8745,
+          "DIMENSION-ID": "Nissan Ariya SUV 2026-2026 RU",
+          "MODEL": "Ariya",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Nissan / ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh原名到明确US目标的可引用身份关系；参考年份2024|2025的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-0b601b0b40028d70ff0b7f9c",
+      "MM_ID": "MM-982b21c3d253cb00b8a7d26c",
+      "REGION": "US",
+      "MAKE": "Nissan",
+      "MODEL": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+      "YEAR": "2024",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Nissan",
+      "标准MODEL": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "38285"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (A1)"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Ariya SUV 2023-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Ariya SUV 2023-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-b16d4666a1548d62c0167948",
+      "MM_ID": "MM-982b21c3d253cb00b8a7d26c",
+      "REGION": "US",
+      "MAKE": "Nissan",
+      "MODEL": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+      "YEAR": "2025",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Nissan",
+      "标准MODEL": "ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "38286"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (A1)"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Ariya SUV 2023-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Ariya SUV 2023-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1045 @@
+{
+  "MAKE": "Nissan",
+  "MODEL": "Pathfinder 4WD SL/Platinum",
+  "MM_ID": "MM-4e3ec933c7b73694142811de",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Nissan",
+    "MODEL": "Pathfinder 4WD SL/Platinum",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 38950,
+      "MM_ID": "MM-4e3ec933c7b73694142811de",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "38951",
+      "raw_make": "Nissan",
+      "raw_model": "Pathfinder 4WD SL/Platinum",
+      "raw_year": "2023",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S9), 6 cyl, 3.5 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 3869,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "juke-sl",
+      "model_name": "Juke SL",
+      "body_types": "hatchback",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "10",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    },
+    {
+      "record": 3889,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "pathfinder",
+      "model_name": "Pathfinder",
+      "body_types": "hatchback",
+      "countries": "au|ca|ch|es|fi|gb|il|lu|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 3890,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "pathfinder-se",
+      "model_name": "Pathfinder Se",
+      "body_types": "hatchback|wagon",
+      "countries": "fi|nl|no",
+      "regions": "eu",
+      "global_popularity_decile": "10",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "9"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "nissan",
+      "same_brand_rows_examined": 176,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 20,
+      "candidates": [
+        {
+          "row_1based": 3193,
+          "DIMENSION-ID": "Nissan Altima Sedan 2002-2006 US",
+          "MODEL": "Altima",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Altima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3203,
+          "DIMENSION-ID": "Nissan Armada SUV 2026 US",
+          "MODEL": "Armada",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Armada仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3204,
+          "DIMENSION-ID": "Nissan Cube Wagon 2009-2014 US",
+          "MODEL": "Cube",
+          "YEAR": "2009-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Cube仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3235,
+          "DIMENSION-ID": "Nissan Frontier Pickup 2025 Crew 6 US",
+          "MODEL": "Frontier",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Frontier仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3246,
+          "DIMENSION-ID": "Nissan Juke Crossover 2011-2017 US",
+          "MODEL": "Juke",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Juke仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3250,
+          "DIMENSION-ID": "Nissan Leaf Hatchback 2011-2017 US",
+          "MODEL": "Leaf",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Leaf仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3257,
+          "DIMENSION-ID": "Nissan Maxima Sedan 2004-2008 US",
+          "MODEL": "Maxima",
+          "YEAR": "2004-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Maxima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3261,
+          "DIMENSION-ID": "Nissan Murano SUV 2003-2008 US",
+          "MODEL": "Murano",
+          "YEAR": "2003-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3265,
+          "DIMENSION-ID": "Nissan Pathfinder Narrow-body SUV 1990-1995 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1990-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3266,
+          "DIMENSION-ID": "Nissan Pathfinder Rock Creek SUV 2025-2026 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3267,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1987 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3268,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1996-2004 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1996-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3269,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2005-2011 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2005-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3270,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2012 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3271,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2013-2020 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2013-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3272,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2022-2023 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2022-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3273,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2024 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3274,
+          "DIMENSION-ID": "Nissan Pathfinder Wide-body SUV 1988-1995 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1988-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3278,
+          "DIMENSION-ID": "Nissan Rogue SUV 2016-2020 US",
+          "MODEL": "Rogue",
+          "YEAR": "2016-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Rogue仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4680,
+          "DIMENSION-ID": "Nissan Murano SUV 2027 US",
+          "MODEL": "Murano",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 10,
+      "excluded_search_noise_hits": 10,
+      "non_US_candidate_hits": 25,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 18441,
+          "DIMENSION-ID": "Nissan Pathfinder i SUV 1986-1995 EU",
+          "MODEL": "Pathfinder i",
+          "YEAR": "1986-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18442,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1995-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1995-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18443,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1997-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1997-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18444,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1998-2000 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1998-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18445,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1999-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18446,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 2000-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "2000-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18447,
+          "DIMENSION-ID": "Nissan Pathfinder iii R51 L4740 W1850 H1865 SUV 2005-2010 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18448,
+          "DIMENSION-ID": "Nissan Pathfinder iii R51 L4877 W1854 H1879 SUV 2005-2010 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18449,
+          "DIMENSION-ID": "Nissan Pathfinder iii SUV 2005-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18450,
+          "DIMENSION-ID": "Nissan Pathfinder iii SUV 2006-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2006-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18451,
+          "DIMENSION-ID": "Nissan Pathfinder iii SUV 2010-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18452,
+          "DIMENSION-ID": "Nissan Pathfinder iii facelift SUV 2005-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18453,
+          "DIMENSION-ID": "Nissan Pathfinder iii prefl SUV 2005-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18454,
+          "DIMENSION-ID": "Nissan Pathfinder iii van SUV 2013-2014 EU",
+          "MODEL": "Pathfinder iii van",
+          "YEAR": "2013-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18455,
+          "DIMENSION-ID": "Nissan Pathfinder iv SUV 2012-2026 EU",
+          "MODEL": "Pathfinder iv",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18456,
+          "DIMENSION-ID": "Nissan Pathfinder iv SUV 2013-2026 EU",
+          "MODEL": "Pathfinder iv",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9026,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1985-1995 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "1985-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9027,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1995-2004 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "1995-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9028,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2004-2010 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9029,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2010-2014 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2010-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9030,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2012-2017 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9031,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2016-2020 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9032,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2021-2025 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9033,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2023-2026 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9034,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2025-2026 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "nissan",
+      "same_brand_rows_examined": 176,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 20,
+      "candidates": [
+        {
+          "row_1based": 3193,
+          "DIMENSION-ID": "Nissan Altima Sedan 2002-2006 US",
+          "MODEL": "Altima",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Altima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3203,
+          "DIMENSION-ID": "Nissan Armada SUV 2026 US",
+          "MODEL": "Armada",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Armada仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3204,
+          "DIMENSION-ID": "Nissan Cube Wagon 2009-2014 US",
+          "MODEL": "Cube",
+          "YEAR": "2009-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Cube仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3235,
+          "DIMENSION-ID": "Nissan Frontier Pickup 2025 Crew 6 US",
+          "MODEL": "Frontier",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Frontier仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3246,
+          "DIMENSION-ID": "Nissan Juke Crossover 2011-2017 US",
+          "MODEL": "Juke",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Juke仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3250,
+          "DIMENSION-ID": "Nissan Leaf Hatchback 2011-2017 US",
+          "MODEL": "Leaf",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Leaf仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3257,
+          "DIMENSION-ID": "Nissan Maxima Sedan 2004-2008 US",
+          "MODEL": "Maxima",
+          "YEAR": "2004-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Maxima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3261,
+          "DIMENSION-ID": "Nissan Murano SUV 2003-2008 US",
+          "MODEL": "Murano",
+          "YEAR": "2003-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3265,
+          "DIMENSION-ID": "Nissan Pathfinder Narrow-body SUV 1990-1995 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1990-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3266,
+          "DIMENSION-ID": "Nissan Pathfinder Rock Creek SUV 2025-2026 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3267,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1987 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3268,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1996-2004 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1996-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3269,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2005-2011 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2005-2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3270,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2012 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3271,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2013-2020 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2013-2020",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3272,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2022-2023 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2022-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3273,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2024 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3274,
+          "DIMENSION-ID": "Nissan Pathfinder Wide-body SUV 1988-1995 US",
+          "MODEL": "Pathfinder",
+          "YEAR": "1988-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词pathfinder，但Pathfinder 4WD SL/Platinum到Pathfinder缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3278,
+          "DIMENSION-ID": "Nissan Rogue SUV 2016-2020 US",
+          "MODEL": "Rogue",
+          "YEAR": "2016-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Rogue仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4680,
+          "DIMENSION-ID": "Nissan Murano SUV 2027 US",
+          "MODEL": "Murano",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Pathfinder 4WD SL/Platinum 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 10,
+      "excluded_search_noise_hits": 10,
+      "non_US_candidate_hits": 25,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 18441,
+          "DIMENSION-ID": "Nissan Pathfinder i SUV 1986-1995 EU",
+          "MODEL": "Pathfinder i",
+          "YEAR": "1986-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18442,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1995-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1995-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18443,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1997-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1997-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18444,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1998-2000 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1998-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18445,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 1999-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18446,
+          "DIMENSION-ID": "Nissan Pathfinder ii SUV 2000-2004 EU",
+          "MODEL": "Pathfinder ii",
+          "YEAR": "2000-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18447,
+          "DIMENSION-ID": "Nissan Pathfinder iii R51 L4740 W1850 H1865 SUV 2005-2010 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18448,
+          "DIMENSION-ID": "Nissan Pathfinder iii R51 L4877 W1854 H1879 SUV 2005-2010 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18449,
+          "DIMENSION-ID": "Nissan Pathfinder iii SUV 2005-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18450,
+          "DIMENSION-ID": "Nissan Pathfinder iii SUV 2006-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2006-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18451,
+          "DIMENSION-ID": "Nissan Pathfinder iii SUV 2010-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18452,
+          "DIMENSION-ID": "Nissan Pathfinder iii facelift SUV 2005-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18453,
+          "DIMENSION-ID": "Nissan Pathfinder iii prefl SUV 2005-2026 EU",
+          "MODEL": "Pathfinder iii",
+          "YEAR": "2005-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18454,
+          "DIMENSION-ID": "Nissan Pathfinder iii van SUV 2013-2014 EU",
+          "MODEL": "Pathfinder iii van",
+          "YEAR": "2013-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18455,
+          "DIMENSION-ID": "Nissan Pathfinder iv SUV 2012-2026 EU",
+          "MODEL": "Pathfinder iv",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18456,
+          "DIMENSION-ID": "Nissan Pathfinder iv SUV 2013-2026 EU",
+          "MODEL": "Pathfinder iv",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9026,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1985-1995 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "1985-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9027,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 1995-2004 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "1995-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9028,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2004-2010 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9029,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2010-2014 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2010-2014",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9030,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2012-2017 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9031,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2016-2020 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9032,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2021-2025 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9033,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2023-2026 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9034,
+          "DIMENSION-ID": "Nissan Pathfinder SUV 2025-2026 RU",
+          "MODEL": "Pathfinder",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Nissan / Pathfinder 4WD SL/Platinum原名到明确US目标的可引用身份关系；参考年份2023的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-4541f74406518370d0f5c315",
+      "MM_ID": "MM-4e3ec933c7b73694142811de",
+      "REGION": "US",
+      "MAKE": "Nissan",
+      "MODEL": "Pathfinder 4WD SL/Platinum",
+      "YEAR": "2023",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Nissan",
+      "标准MODEL": "Pathfinder 4WD SL/Platinum",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "38951"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S9), 6 cyl, 3.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Pathfinder SUV 2022-2023 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Pathfinder SUV 2022-2023 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ]
+}

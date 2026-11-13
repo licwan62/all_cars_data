@@ -1,0 +1,404 @@
+{
+  "MAKE": "Freightliner",
+  "MODEL": "Sprinter",
+  "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+  "MMY_count": 5,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Freightliner",
+    "MODEL": "Sprinter",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 20615,
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20616",
+      "raw_make": "Freightliner",
+      "raw_model": "Sprinter",
+      "raw_year": "2006",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Chassis Cab, RWD, 5 cyl, 2.7 L, Diesel"
+    },
+    {
+      "association_row_1based": 20616,
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20617",
+      "raw_make": "Freightliner",
+      "raw_model": "Sprinter",
+      "raw_year": "2008",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Cargo Van, RWD, 6 cyl, 3.0 L, Diesel"
+    },
+    {
+      "association_row_1based": 20617,
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20618",
+      "raw_make": "Freightliner",
+      "raw_model": "Sprinter",
+      "raw_year": "2008",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Chassis Cab, RWD, 6 cyl, 3.9 L, Diesel"
+    },
+    {
+      "association_row_1based": 20618,
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20619",
+      "raw_make": "Freightliner",
+      "raw_model": "Sprinter",
+      "raw_year": "2010",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Chassis Cab, RWD, Diesel"
+    },
+    {
+      "association_row_1based": 20619,
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20620",
+      "raw_make": "Freightliner",
+      "raw_model": "Sprinter",
+      "raw_year": "2011",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Chassis Cab, RWD, Diesel"
+    },
+    {
+      "association_row_1based": 20620,
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20621",
+      "raw_make": "Freightliner",
+      "raw_model": "Sprinter",
+      "raw_year": "2019",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Passenger Van, 4WD, 6 cyl, 3.0 L, Diesel"
+    }
+  ],
+  "vehicles_catalog_checks": [],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "freightliner",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "freightliner",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 0,
+      "non_US_candidates": []
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Freightliner / Sprinter原名到明确US目标的可引用身份关系；参考年份2006|2008|2010|2011|2019的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-09b365abcc6b68b05d7cc958",
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "REGION": "US",
+      "MAKE": "Freightliner",
+      "MODEL": "Sprinter",
+      "YEAR": "2006",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Freightliner",
+      "标准MODEL": "Sprinter",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "20616"
+      ],
+      "source_year_body_or_trim": [
+        "Chassis Cab, RWD, 5 cyl, 2.7 L, Diesel"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-24220545c4cb80046316e8e7",
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "REGION": "US",
+      "MAKE": "Freightliner",
+      "MODEL": "Sprinter",
+      "YEAR": "2008",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Freightliner",
+      "标准MODEL": "Sprinter",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "20617",
+        "20618"
+      ],
+      "source_year_body_or_trim": [
+        "Cargo Van, RWD, 6 cyl, 3.0 L, Diesel",
+        "Chassis Cab, RWD, 6 cyl, 3.9 L, Diesel"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-52fe95515a67cdf656fce74d",
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "REGION": "US",
+      "MAKE": "Freightliner",
+      "MODEL": "Sprinter",
+      "YEAR": "2010",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Freightliner",
+      "标准MODEL": "Sprinter",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "20619"
+      ],
+      "source_year_body_or_trim": [
+        "Chassis Cab, RWD, Diesel"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-5cde1bd345a958e4d0df0a56",
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "REGION": "US",
+      "MAKE": "Freightliner",
+      "MODEL": "Sprinter",
+      "YEAR": "2011",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Freightliner",
+      "标准MODEL": "Sprinter",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "20620"
+      ],
+      "source_year_body_or_trim": [
+        "Chassis Cab, RWD, Diesel"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-6aa4fc0ccbb326a9ff6b3d6e",
+      "MM_ID": "MM-9c14d4c90a11f97523a9d148",
+      "REGION": "US",
+      "MAKE": "Freightliner",
+      "MODEL": "Sprinter",
+      "YEAR": "2019",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Freightliner",
+      "标准MODEL": "Sprinter",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "20621"
+      ],
+      "source_year_body_or_trim": [
+        "Passenger Van, 4WD, 6 cyl, 3.0 L, Diesel"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ]
+}
