@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_13，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_14，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -71,3 +71,12 @@
 又有6次真实内置生成全部返回；Cross Wagon、Drive Active/Sportline Sedan、普通Hatchback、普通Sedan和普通Wagon五配置实际来源/灰底/深底查看通过，成品及过程图已经私有OSS完整读回核验。Active Cross Liftback仅视觉通过：Commons有CC BY 4.0声明，但也标License review needed，原授权链接迁入新版作者资料页后未恢复声明；保留候选和完整证据，未登记current_final、未计采用。继续寻找可验证许可，不全局等待人工。
 
 当前准确计数以第13批progress和当前验收索引为准：累计生成18张，采用16张、覆盖16条尺寸记录；完整任务2/1309，剩余1307项、2378条尺寸记录。逐scope_rows重新计算，CSV已有2行全部覆盖、剩余498行；第13批REPORT.md沿用旧句“500行尚无整行完全覆盖”是文字错误，已由本段明确纠正，不反改不可变历史批次。改款Granta为9/10，Active Cross许可未核不能提前结项。下一独立任务Focus III改款前Sedan/Wagon，另保留Active Cross许可补证；无未知在途生成请求，无后台生图承诺。
+
+
+## 第14批当前进度
+
+通过精确分类找到Active Cross黑色自拍CC0原件，下载/解码/实际查看/OSS备份后独立生成并采用。旧白色CC BY候选仍许可待核，但配置已由黑色新来源完成，不继续阻塞改款Granta。另生成并采用Focus III改款前Sedan/Wagon及改款后Sedan/Wagon/Hatchback；原图对照、灰底、深底逐张实际查看和成品OSS完整GET/SHA/字节数/解码均通过。改款Granta（10/10）、Focus III改款前（3/3）、Focus III改款后（3/3）本批新增完整完成。
+
+当前准确累计：生成24张、采用22张、22条尺寸记录；完整任务5/1309，剩余1304项、2372条尺寸记录；CSV完整3/500行、剩余497行。新8张来源包括6张主参考、1张同车前视辅助、1张因车身标签冲突未采用的候选，均独立保存证据，不以标签冲突图生成两厢。Focus Hatchback采用明确后视，同车前视仅辅助完整天线，不凭前脸猜车尾；作者/许可含CC BY-SA3.0德国版完整保留。独立Wikipedia和Drom实读支持代际/车身/毫米尺寸，聚合年份与实际投产时间分别记录。
+
+第13批REPORT的CSV数量旧句错误由第14批prior-report-correction和上段勘误明确纠正，历史字节不改写。所有24个生成请求均已返回，结果未知0。下一项首代Focus存在两个不同尺寸的Hatchback要求，先核对具体外观/市场/车门差异，不擅自一图覆盖二者；可继续其他独立配置。无人工样式等待、不动老车/范围外俄罗斯/NAS、不宣称结束聊天后继续后台生图。

@@ -1,0 +1,307 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks",
+  "version": "20261113_14",
+  "description": "activecross-clear-license-and-two-focus-tasks",
+  "created_at": "2026-11-13T08:16:26+00:00",
+  "finished_at": "2026-11-13T08:16:28+00:00",
+  "command": [
+    "ru_accept_focus6.py"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_13_granta-five-adopted-activecross-license-hold/output/progress-20261113_13.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_13_granta-five-adopted-activecross-license-hold/output/progress-20261113_13.json",
+      "sha256": "3d5f53cbe0b3ab4ef62b95a1e15a0d1db61097582ddd8c47d64e014350e4e964"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_13_granta-five-adopted-activecross-license-hold/output/current-accepted-configuration-index-20261113_13.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_13_granta-five-adopted-activecross-license-hold/output/current-accepted-configuration-index-20261113_13.json",
+      "sha256": "1762bacf9e81c7d63b40951a7729d2ec4a6d56ea2b440690acae075fc0113520"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_13_granta-five-adopted-activecross-license-hold/output/candidates-20261113_13.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_13_granta-five-adopted-activecross-license-hold/output/candidates-20261113_13.json",
+      "sha256": "9a2b0f00f1140bed96e990b1489e34390a1338804bb73a787a483b66e2ddb794"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "8a90c56a7d8c94fb5327984241240c9cb70ab7ae",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/identity-crosschecks-20261113_14.json",
+      "content_reference": true,
+      "sha256": "a632f3b4fd0f91a105552534d55fda0186b02e9b6619bba78f7b19fec616ea1f",
+      "bytes": 33664,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/accepted-configurations-20261113_14.json",
+      "content_reference": true,
+      "sha256": "3413b44531cfe8f9596e108bc27ea59f415da3eb0c9676a2f95b20789ad88337",
+      "bytes": 60003,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/current-accepted-configuration-index-20261113_14.json",
+      "content_reference": true,
+      "sha256": "5e7b9abbd143c23b1bff1dc95c7a45785b57e01ab1bdc2c6458ca5d9e04817e6",
+      "bytes": 206760,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/generation-requests-20261113_14.json",
+      "content_reference": true,
+      "sha256": "63cc63fc7a3dd60c22dc146d66aaf2d2d00b04b5456d91bce7fadee3667c1d4f",
+      "bytes": 23330,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/new-source-original-evidence-20261113_14.json",
+      "content_reference": true,
+      "sha256": "c0870cccba7fd0e167f174d0b316e828eed2c13714132f4686deb932b357f402",
+      "bytes": 32971,
+      "rows": null
+    },
+    {
+      "file": "prior-report-correction.json",
+      "versioned_file": "prior-report-correction-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/prior-report-correction-20261113_14.json",
+      "content_reference": true,
+      "sha256": "8ac6006a444f4faefc3224705d0e96eeadaccafff0f189bfac3616efc89ce624",
+      "bytes": 431,
+      "rows": null
+    },
+    {
+      "file": "source-role-reviews.json",
+      "versioned_file": "source-role-reviews-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/source-role-reviews-20261113_14.json",
+      "content_reference": true,
+      "sha256": "5dd69746836c403e30b0e7c763bd8684b50dbcd215f6f2ca55b525606c2a8eff",
+      "bytes": 4160,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/candidates-20261113_14.json",
+      "content_reference": true,
+      "sha256": "b4a6416ab3f31b8b8c7336ebd5c6810f47805686f95f41615df5bfe275f40947",
+      "bytes": 80769,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_14.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/progress-20261113_14.json",
+      "content_reference": true,
+      "sha256": "524effc25ed03109fa6edf7a78ab99045748988f344741c31c335e25b1fe23d7",
+      "bytes": 2149925,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_focus_source_search.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_focus_categories.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_download_focus6.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_download_focus_hatch_replacement.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_download_focus_hatch_front.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_prepare_focus6.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_review_focus6.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_focus_identity_crosscheck.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_accept_focus6.py",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-source-search.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-category-search.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-categories.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-sedan-hatch-categories.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-fl-root.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/identity-pages/focus-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/identity-pages/focus-1.html.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_focus_source_search.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_focus_source_search.py",
+      "sha256": "0cd373ea187d5e64bb382576954d50cd1590b70f7ee4d1e5cf9c88c8f7fcd301",
+      "bytes": 1207
+    },
+    {
+      "file": "extra/executed-code/ru_focus_categories.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_focus_categories.py",
+      "sha256": "afd36d7bd8be315d82db75c249f72c6e7cf31dff6edfa4d35da69ecd2b562841",
+      "bytes": 1157
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus6.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_download_focus6.py",
+      "sha256": "fc6ea68a757be28d872c546253e05722dca460abaa472052fc672c053729a59d",
+      "bytes": 3702
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus_hatch_replacement.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_download_focus_hatch_replacement.py",
+      "sha256": "3a203983c899caf87e3666eb68408fb59ad3742363b19c76f71f49b5bcf35d21",
+      "bytes": 2989
+    },
+    {
+      "file": "extra/executed-code/ru_download_focus_hatch_front.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_download_focus_hatch_front.py",
+      "sha256": "b435c466bb82b53f1d72ad87e65a961a3a0f3816a722fb0324f0babc8a5b9a9d",
+      "bytes": 2978
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_focus6.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_prepare_focus6.py",
+      "sha256": "968200c004908925bd54a2f7e1140de049ca5a675ce389cb89fafce58f1a4bb9",
+      "bytes": 6192
+    },
+    {
+      "file": "extra/executed-code/ru_review_focus6.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_review_focus6.py",
+      "sha256": "e75651082e006ea5d0cbe9a033e1425367f62fedc2dd7043be2f4a806531aad9",
+      "bytes": 1574
+    },
+    {
+      "file": "extra/executed-code/ru_focus_identity_crosscheck.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_focus_identity_crosscheck.py",
+      "sha256": "8567d40961a9a4a0b34d72d43b2960edd1381fc7c68f8745288576d8bc28f90d",
+      "bytes": 1399
+    },
+    {
+      "file": "extra/executed-code/ru_accept_focus6.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/executed-code/ru_accept_focus6.py",
+      "sha256": "12913081dc202b0935295f3138c6bf02d96603aea864fedffc3e24eeb8c6d4c1",
+      "bytes": 15753
+    },
+    {
+      "file": "extra/search-evidence/ru-focus-source-search.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-source-search.json.gz",
+      "sha256": "967530aef4678b50d6908cdb56b269c5bcd752729d91590d2be55fca59d9e968",
+      "bytes": 20440
+    },
+    {
+      "file": "extra/search-evidence/ru-focus-category-search.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-category-search.json.gz",
+      "sha256": "c772ccc7dba3a5f3bf67c36ef856ddd589cf509eaea4de4982ed4aee4f806ad8",
+      "bytes": 396
+    },
+    {
+      "file": "extra/search-evidence/ru-focus-categories.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-categories.json.gz",
+      "sha256": "460519825adbffa0091b36c5fde5ea0e20977f0ebe3a3157371c5929cfe681e3",
+      "bytes": 21932
+    },
+    {
+      "file": "extra/search-evidence/ru-focus-sedan-hatch-categories.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-sedan-hatch-categories.json.gz",
+      "sha256": "efc376f334ac918a38824db9dcb5c626126992b8e2262feecdff5ddec050aff0",
+      "bytes": 14800
+    },
+    {
+      "file": "extra/search-evidence/ru-focus-fl-root.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/search-evidence/ru-focus-fl-root.json.gz",
+      "sha256": "c16601830ae0901fc0dfc11a39fa4c734772ce99a1c23267144adf97cd88fdeb",
+      "bytes": 19201
+    },
+    {
+      "file": "extra/identity-pages/focus-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/identity-pages/focus-0.html.gz",
+      "sha256": "8bec1d3550bf5ccb6cb41666f333459f84eabfb64ed4e980d0f01f1771edd2f3",
+      "bytes": 88483
+    },
+    {
+      "file": "extra/identity-pages/focus-1.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/extra/identity-pages/focus-1.html.gz",
+      "sha256": "e50a6c7ffae4c4b1d70bee3e5b45183856d3d53df4ffe754ab60759e817bfb02",
+      "bytes": 34423
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 6,
+    "accepted_configurations_this_batch": 6,
+    "new_completed_tasks": 3,
+    "accepted_tasks_total": 5,
+    "accepted_configurations_total": 22,
+    "accepted_csv_rows": 3
+  }
+}
