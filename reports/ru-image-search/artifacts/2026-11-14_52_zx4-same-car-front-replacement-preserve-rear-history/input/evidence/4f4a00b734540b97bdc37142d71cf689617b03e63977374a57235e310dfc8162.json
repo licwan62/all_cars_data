@@ -1,0 +1,886 @@
+{
+  "summary": {
+    "date": "2026-11-13",
+    "scope": "当前正式交付目录中的所有图片；过程稿、已退回及历史备份不属于现有正式成品",
+    "catalog_sha256": "5222a5ec96eac8e09cca6a646135cefd78f130c102d19f391cf0b2aaf749d730",
+    "source_stamps": {
+      "数据/皮卡工作表.json": "fcaaa1bd41133b3bb9203718566efe204e506c15745c7738a462545826fdedc7",
+      "数据/成品质量复核.json": "7ff683a23d35a08f3e3f131aad8bd890c0c85cd05b92c56492722137c9083b6c",
+      "来源/二分之一透视retake_20261106/manifest.json": "e0aeabc5a003bac697b54d03945708e8f98078a3408f54c2057bda1f0ac3d42c",
+      "来源/二分之一透视retake_20261106/阴影倒影配套_20261106/Seedream制作记录.json": "b3810dae68ae87b61a5539aa7910c896a2d6cde88da44ca7ca4151978f4d0c56",
+      "来源/二分之一透视retake_20261106/Codex独立续作_20261106/效果/效果队列.json": "e5fa440e1cd2786409745ee912f25ec73c373ed6c3c9dd022e99bac4da78be9c"
+    },
+    "slots": 1051,
+    "unique_images": 1035,
+    "contact_sheets": 42,
+    "rear_unique": 20,
+    "rear_slots": 20,
+    "affected_tasks": 17,
+    "models": {
+      "Ford Focus": 7,
+      "Kia Rio": 3,
+      "Lada (ВАЗ) Granta": 1,
+      "Opel Astra": 4,
+      "Skoda Octavia": 4,
+      "Toyota Corolla": 1
+    },
+    "orientation_counts": {
+      "rear": 20,
+      "side": 243,
+      "front_or_front_oblique": 772
+    },
+    "category_slots": {
+      "俄罗斯": 161,
+      "皮卡": 890
+    },
+    "classic_note": "老车目录66项当前无正式成品；不能将零成品说成图片验收通过。",
+    "status": "audit_complete_plan_only",
+    "generated": 0,
+    "replaced": 0,
+    "published": 0
+  },
+  "items": [
+    {
+      "plan_id": "REAR-0114",
+      "index": 114,
+      "task_id": "RU-8c0d5fac93c27774",
+      "image_id": "RU-8c0d5fac93c27774-1",
+      "model": "Ford Focus",
+      "catalog_year_range": "2004-2007",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "三厢",
+      "variant": "",
+      "current_sha256": "c4bd940e3f1d1a09318d596883681a0d42c98a1d373d072eb498ac14eaf8c184",
+      "filename": "Focus-NA-I-FL-Sedan.png",
+      "observation": "蓝色ZX4三厢尾箱及尾灯朝近端，用户指出项。",
+      "identity_requirements": "北美I代改款ZX4四门三厢，核实前灯/格栅；不要使用欧洲同期改款前脸。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 1,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2005_Ford_Focus_SE_ZX4_in_Sonic_Blue_Metallic,_rear_left,_03-28-2026.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "8065617394bbf7ac9ad79fcd6358b2dff0013ccdcbe48e6c5d9953fcd81e2604",
+      "historical_prompt": "Use the supplied photograph as the sole vehicle identity and camera reference. Create a clean photorealistic catalog cutout of this SAME car, retaining its body proportions, door/window structure, visible badges, lamp shapes, wheels, mirrors and original accessories. Keep the same source-facing direction and source viewing angle; do not invent unseen front or rear details, mirror the vehicle or change body style. Clean factory-condition paint, remove dirt, rust, stickers unrelated to factory trim, plate text, reflected surroundings and every background vehicle/building/road. Keep realistic glass and interior rather than transparent holes. Show the entire car and every tire, mirror and antenna tip with comfortable transparent margins on all sides. Actual RGBA transparency, no floor, cast shadow, reflection, glow, background remnants, floating fragments, captions, border or watermark. This is the exact blue North American Ford Focus ZX4 SE FOUR-DOOR SEDAN from the source, shown from rear-left, not a European second-generation Focus. Preserve the four side doors and independent trunk, tall triangular rear lamps, Focus/SE/ZX4 badges, original alloy wheels, rear window and bumper. Retain the rear-left view; do not invent a frontal facelift view or turn it into a hatchback or wagon. Restore the source body from dirt, scratches and rust to clean blue factory-condition paint without changing the body geometry.",
+      "historical_prompt_sha256": "eaa90247cfbb9634d81b98a64467204aa610360273f6cf5f59ab3e04ef46a5c4",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-8c0d5fac93c27774-C001",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2005_Ford_Focus_SE_ZX4_in_Sonic_Blue_Metallic,_rear_left,_03-28-2026.jpg",
+          "recorded_view": "rear left",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0115",
+      "index": 115,
+      "task_id": "RU-8c0d5fac93c27774",
+      "image_id": "RU-8c0d5fac93c27774-2",
+      "model": "Ford Focus",
+      "catalog_year_range": "2004-2007",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "两厢",
+      "variant": "",
+      "current_sha256": "2659f4311dc3603a561b6643a72f9fe6a07015b6eb406525254dc71c13fc5839",
+      "filename": "Focus-NA-I-FL-ZX5.png",
+      "observation": "灰绿色ZX5五门尾门及三角尾灯朝近端，用户指出项；保留此前去除错误车顶附件的修复约束。",
+      "identity_requirements": "北美I代改款ZX5五门两厢，保持光滑车顶，不再添加背景SUV行李架或虚构后顶天线。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 1,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:05-07-Ford-Focus-ZX5.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "eef2329a2a65ce1faf490d20fdfa492ce174a619ad355145cdac42997236b899",
+      "historical_prompt": "Correct ONLY the false roof accessories on Image 1, which is a generated cutout of the grey-green North American first-generation facelift Ford Focus ZX5 FIVE-DOOR HATCHBACK. Image 2 is the actual licensed original and sole identity proof. The roof rack visible BEHIND the target in Image 2 belongs to a background SUV, NOT this Focus! Remove ALL added longitudinal roof rails, transverse roof bars and the invented small rear-roof antenna from Image 1. The target Focus roof must be plain and smooth as actually visible in Image 2. Do not transfer any neighboring vehicle part. Preserve the same rear-left camera, nose toward right, exact hatch body/door/window geometry, triangular rear lamps, rear wiper/spoiler, Focus/ZX5 badges, grey-green paint, source silver five-spoke-style wheels, black handles/mirrors and single visible exhaust. Keep complete car/tires/mirrors comfortably inside a roomy transparent frame. True RGBA transparency, no floor/shadow/reflection, background remnants, halo, glow, floating pieces, text or watermark. Do not invent the unseen front end, rotate or mirror the car.",
+      "historical_prompt_sha256": "fffd69a85b1b7b0cfcad78a6e77defa633c032fd6a182745ba4cc0b78f883a4f",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-8c0d5fac93c27774-C002",
+          "source_page": "https://commons.wikimedia.org/wiki/File:05-07-Ford-Focus-ZX5.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0077",
+      "index": 77,
+      "task_id": "RU-58be1657d18d5615",
+      "image_id": "RU-58be1657d18d5615-1",
+      "model": "Ford Focus",
+      "catalog_year_range": "2018-2022",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "Active",
+      "current_sha256": "eb0aa10962d42e1a88f6726c70c3b686e3d52ead316c0c2148ce9f3e9f151c83",
+      "filename": "Focus-IV-Active-Wagon.png",
+      "observation": "Active旅行车尾门、后灯和双排气端朝近端。",
+      "identity_requirements": "Focus IV Active旅行，普通Wagon和Active两厢不能替代。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 1,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2020_Ford_Focus_Active_X_Estate.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "41531a8ee6d24f89f54d4118afa5775822f4c7a088258df8ddc25c27bd5adf5b",
+      "historical_prompt": "Use the supplied photograph as the sole vehicle identity and camera reference. Create a clean photorealistic catalog cutout of this SAME car, retaining its body proportions, door/window structure, visible badges, lamp shapes, wheels, mirrors and original accessories. Keep the same source-facing direction and source viewing angle; do not invent unseen front or rear details, mirror the vehicle or change body style. Clean factory-condition paint, remove dirt, rust, stickers unrelated to factory trim, plate text, reflected surroundings and every background vehicle/building/road. Keep realistic glass and interior rather than transparent holes. Show the entire car and every tire, mirror and antenna tip with comfortable transparent margins on all sides. Actual RGBA transparency, no floor, cast shadow, reflection, glow, background remnants, floating fragments, captions, border or watermark. This exact grey car is a pre-facelift fourth-generation Ford Focus Active X ESTATE/WAGON, shown from rear-left with nose toward the left. Keep the long estate roof and luggage body, roof rails, black wheel-arch and sill cladding, silver lower bumper trim, tail-lamp shape, rear spoiler, Ford and spaced FOCUS badges, original alloy wheels and rear-left view. Do not shorten it into an Active hatchback, remove Active cladding, add later facelift details or invent a front view. Keep both visible wheels and the full long wagon body.",
+      "historical_prompt_sha256": "e15f1dbb8b7e27a6b1cc390f729afe1a5e821d86e4cf02895d58219ccb63cc8e",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-58be1657d18d5615-C001",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2020_Ford_Focus_Active_X_Estate.jpg",
+          "recorded_view": "unknown_pending_visual",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0137",
+      "index": 137,
+      "task_id": "RU-b2839c4c79c82e0c",
+      "image_id": "RU-b2839c4c79c82e0c-3",
+      "model": "Ford Focus",
+      "catalog_year_range": "1999-2004",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "",
+      "current_sha256": "87ef6d1ddeef63e91590c8e912e570f5be2c38b23691c35de0f079b2ac802d84",
+      "filename": "Focus-NA-I-Wagon.png",
+      "observation": "偏侧后方，尾门及后牌照面展开。",
+      "identity_requirements": "北美I代早期旅行车，区分欧洲车型及2004后改款。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 2,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2000-2004_Ford_Focus_SE_wagon_--_11-26-2011.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "50c2102dff85ceb352f69c0d81cc05206c9b82786550a4e11adbd5d6869123d8",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges. This exact PALE GOLD/BEIGE car is the North American FIRST-generation PRE-FACELIFT Ford Focus SE STATION WAGON. Preserve long flat roof/extended rear side windows and tall load body, original dark roof rails, black mirror/handles and source silver split-spoke wheels, vertical rear lamps/Focus badge and source bumper trim. Keep the original REAR-side three-quarter camera with nose toward left; do not invent an unseen front end or turn it into a newer European wagon or short hatchback. Retain complete original roof accessories only and the whole car/tires/mirror within clear transparent margins.",
+      "historical_prompt_sha256": "d48ac9c5b632d04f215a15f96016280165ae3520f3d2d8b52101d9bf8d431419",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-b2839c4c79c82e0c-C003",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2000-2004_Ford_Focus_SE_wagon_--_11-26-2011.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0001",
+      "index": 1,
+      "task_id": "RU-068cf74579f8cbca",
+      "image_id": "RU-068cf74579f8cbca-1",
+      "model": "Ford Focus",
+      "catalog_year_range": "2007-2010",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "三厢",
+      "variant": "",
+      "current_sha256": "c69c215d925263a7deda2b36cdb25584a3250e0f55f02daacf3398a622bf0217",
+      "filename": "Focus-NA-II-Sedan.png",
+      "observation": "独立尾箱、尾灯和后牌照面朝近端。",
+      "identity_requirements": "北美第二代，不能套用同期欧洲Focus前脸；年份须按新参考证明。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 2,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2008_Ford_Focus_SES_sedan_(but_not_as_we_know_it!)_(13273128495).jpg",
+      "source_candidate_id": null,
+      "source_sha256": "cbc837f3771d2909fb09bc351a796206c728d5eeee9b3873030f38f8d551c358",
+      "historical_prompt": "Use the supplied photograph as the sole vehicle identity and camera reference. Create a clean photorealistic catalog cutout of this SAME car, retaining its body proportions, door/window structure, visible badges, lamp shapes, wheels, mirrors and original accessories. Keep the same source-facing direction and source viewing angle; do not invent unseen front or rear details, mirror the vehicle or change body style. Clean factory-condition paint, remove dirt, rust, stickers unrelated to factory trim, plate text, reflected surroundings and every background vehicle/building/road. Keep realistic glass and interior rather than transparent holes. Show the entire car and every tire, mirror and antenna tip with comfortable transparent margins on all sides. Actual RGBA transparency, no floor, cast shadow, reflection, glow, background remnants, floating fragments, captions, border or watermark. This is the silver North American second-generation Ford Focus SES FOUR-DOOR SEDAN, shown from the rear-left. Preserve this rear-left view and independent trunk, triangular horizontal tail-lamp units, trunk brake-light strip, Focus and SES badges, roof antenna and wheel design. Do not substitute the European C1 Focus II, a hatchback, coupe or wagon; do not turn it around to show a guessed front. Remove the cartoon sticker on the trunk and the tow accessory below the rear bumper; retain the factory bumper and one original exhaust outlet.",
+      "historical_prompt_sha256": "99c54f79d19a1bd33a9c67dd0328de80c4b888a6e55c7efcd4359806a071e1ed",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-068cf74579f8cbca-C001",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2008_Ford_Focus_SES_sedan_(but_not_as_we_know_it!)_(13273128495).jpg",
+          "recorded_view": "unknown_pending_visual",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0127",
+      "index": 127,
+      "task_id": "RU-993cdf697c45ce71",
+      "image_id": "RU-993cdf697c45ce71-3",
+      "model": "Ford Focus",
+      "catalog_year_range": "2007-2011",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "",
+      "current_sha256": "4ee401870e4d64c957e93bd9bd1ba047638460362be106eed056cee4afe38ff4",
+      "filename": "Focus-II-FL-Wagon-Ordinary-Rear.png",
+      "observation": "旅行车尾门及竖向尾灯正面朝近端。",
+      "identity_requirements": "Focus II改款普通旅行车，排除ST等运动版前脸及附件。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 2,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_II_Turnier_(Facelift,_seit_2008)_TDCi_rear_MJ.JPG",
+      "source_candidate_id": null,
+      "source_sha256": "a0b20191f622d3b11690a8b1157f03475d4246f89fa865e011541f93c35a19bc",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges. This exact blue-grey car is an ORDINARY European second-generation FACELIFT Ford Focus STATION WAGON/Turnier, shown from the rear three-quarter angle with nose toward the right. Preserve the long load roof, extended rear side windows, upright large rear hatch, tall vertical rear lamps with clear upper section, rear wiper, source Focus/TDCi badges, silver-grey roof rails, source silver wheel covers, body-color mirrors/handles and the small original visible under-bumper hardware. Keep this precise REAR camera; do not invent an unseen front end or mirror the car. No X-Road/X-Edition grey wheel-arch cladding, outdoor body kit, raised ride height, Active badges, newer-generation wagon, shortened hatchback or sedan trunk. Preserve the original visible roof accessories only; do not invent a long antenna if it is not visible in this source. Remove road/shadow/scenery reflections, preserving actual complete vehicle and all visible tires. The entire car must sit comfortably inside the transparent frame with clear free space on all sides.",
+      "historical_prompt_sha256": "cde8443c74ad11209d5b7ab3ddaf6c69fe69fb2436866f94dfe2c60ecfb95e3a",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-993cdf697c45ce71-C003",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Turnier_1.6_X-Edition_(II,_Facelift)_%E2%80%93_Frontansicht,_2._Juli_2011,_D%C3%BCsseldorf.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        },
+        {
+          "candidate_id": "RU-993cdf697c45ce71-C004",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_II_Turnier_(Facelift,_seit_2008)_TDCi_rear_MJ.JPG",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0015",
+      "index": 15,
+      "task_id": "RU-1dc5a60493f09ba4",
+      "image_id": "RU-1dc5a60493f09ba4-3",
+      "model": "Ford Focus",
+      "catalog_year_range": "2014-2019",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "两厢",
+      "variant": "",
+      "current_sha256": "e1ffd76d31a745fb8001dfb659c9ad0eb9a817aa332d5774fcc541fbff5b0745",
+      "filename": "Focus-III-FL-Hatchback-Rear.png",
+      "observation": "尾门、后窗雨刷与尾灯朝近端。",
+      "identity_requirements": "第三代改款五门两厢，确认普通版前脸与改款灯形。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 2,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Mk3_Facelift_R.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "4a20b5a86b8ef5486b661aebd7548a85e32848b4c0ab9384d7bb28f5c4aede48",
+      "historical_prompt": "Use the provided licensed original photograph as the vehicle identity and camera reference. Produce a clean photorealistic catalog cutout of the SAME vehicle. Preserve the body proportions, exact door and window layout, grille and lamps, mirrors, handles, source wheels, paint color and original visible exterior trim. Keep the source camera view and direction; do not mirror or invent an unseen opposite end. Clean dirt/scratches and surrounding scene reflections. Remove the entire environment, people, other cars, advertising text and license plate characters. Retain believable glass and interior without holes through opaque bodywork. Show the complete car, all visible tires, mirrors and full antenna with comfortable transparent space on every side. True RGBA transparency, no floor or contact shadow, no reflection below the car, no glow, background fragments, watermark, caption or checkerboard. Do not infer a precise year or engine specification from this photograph. MAIN reference is the REAR-left photograph of the brown/grey Ford Focus Mk3 facelift FIVE-DOOR HATCHBACK exhibited at Kragujevac in 2016. Preserve this rear-left camera and the short hatch body, compact rear overhang, wraparound horizontal rear lamps, roof spoiler, rear wiper, chrome window edging and the exact source silver five-spoke alloy wheels. Front side window is open; retain it. Remove the foreground information stand, people, other cars, exhibition scene, plate text and bright hall reflections. SECOND reference is the FRONT view of the same brown show car: use it only as supporting evidence for its complete thin roof antenna and identity, NOT to change the rear camera. Do not turn this into a sedan or station wagon. Keep full antenna tip in the roomy frame and normal opaque bodywork.",
+      "historical_prompt_sha256": "58f66e282957339327ae948260d7951f466fd39835ddea3844993062f5ee7e51",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-1dc5a60493f09ba4-C001",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_1.5_Titanium_2016.jpg",
+          "recorded_view": "unknown_pending_visual",
+          "status": "未进行前方参考实图与身份验收"
+        },
+        {
+          "candidate_id": "RU-1dc5a60493f09ba4-C004",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2015_Ford_Focus_Titanium_1.0_Front.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        },
+        {
+          "candidate_id": "RU-1dc5a60493f09ba4-C005",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Mk3_Facelift_R.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        },
+        {
+          "candidate_id": "RU-1dc5a60493f09ba4-C006",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Mk3_Facelift_F.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0093",
+      "index": 93,
+      "task_id": "RU-600ee9f8850209c3",
+      "image_id": "RU-600ee9f8850209c3-2",
+      "model": "Kia Rio",
+      "catalog_year_range": "2005-2009",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "两厢",
+      "variant": "",
+      "current_sha256": "6994ba7f5a2c9df8cab06610e3edc413f34bf3aa6dff94dc0ac3f938b78381d6",
+      "filename": "Rio-JB-Hatchback-Rear.png",
+      "observation": "近正后方，尾门雨刷和后杠主面可见。",
+      "identity_requirements": "Rio JB改款前五门两厢，与2009–2011改款项分开。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://platesmania.com/ru/nomer29351315",
+      "source_candidate_id": null,
+      "source_sha256": "78877993222c9a2c1e6079bc4322def77a04686e4a430ff68a743416d314ebe3",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Keep FULL vehicle/all tires/mirrors/roof aerial tips inside roomy transparent margins. Do not copy any background-neighbor hardware. This exact SILVER car is PRE-FACELIFT KIA RIO II/JB FIVE-DOOR HATCHBACK, source rear-side. Preserve FOUR side doors/short hatch tail, original tall outer rear lamps, rear wiper/KIA/Rio badges and rear plate recess, broad BLACK HORIZONTAL REAR BUMPER RUB STRIP and side strips, actual SINGLE CENTRAL ROUND RED rear fog/reflector low in bumper, original silver SIX-OPENING alloy wheel pattern/mudflaps/body-color mirrors and handles, actual slim roof aerial. Keep source REAR-SIDE camera with nose toward RIGHT; do NOT invent unseen front or change to sedan. No2009 black rear diffuser/corner reflector pair, no modern rims or roof rails; do not claim actual wheels universally standard. Clean dirt/scene reflections, remove other cars/building/people and plate letters; retain actual visible rear structural eye/bumper pieces only.",
+      "historical_prompt_sha256": "a58e5d7bde46f0fe67b3c474e0657591df5e287bd22afd45f34b3cad147f961c",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-600ee9f8850209c3-C002",
+          "source_page": "https://platesmania.com/ru/nomer29351315",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0083",
+      "index": 83,
+      "task_id": "RU-5e7343a392072668",
+      "image_id": "RU-5e7343a392072668-2",
+      "model": "Kia Rio",
+      "catalog_year_range": "2009-2011",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "两厢",
+      "variant": "",
+      "current_sha256": "d79b00f410e66debe43f5e7639a421d4e132cb49c683d1db1e96fc1a9d8a378f",
+      "filename": "Rio-JB-FL-Hatchback-Rear.png",
+      "observation": "近正后方，后窗、尾门及后杠主面可见。",
+      "identity_requirements": "Rio JB改款五门两厢，不能套用旧款前脸。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://platesmania.com/ru/nomer29350340",
+      "source_candidate_id": null,
+      "source_sha256": "eb6c6621fdc139097d639a661bec36ba39dc3fdda386dca5850b2b1a2af3708e",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Keep FULL vehicle/all tires/mirrors/roof aerial tips inside roomy transparent margins. Do not copy any background-neighbor hardware. This exact RED car is FACELIFT KIA RIO II/JB FIVE-DOOR HATCHBACK, source REAR-SIDE with nose toward LEFT. Preserve FOUR side doors/short hatch tail, tall red/clear swept outer rear lamps, rear wiper/KIA/Rio badges, painted smooth rear bumper WITHOUT old broad horizontal rub strip, updated lower BLACK INSERT with TWO RED CORNER REFLECTORS and source silver wheel pattern/mudflaps/actual roof antenna. Do not invent unseen front/headlamps. IMPORTANT: the YELLOW HORIZONTAL PIPE with red supporting legs behind the roof is BACKGROUND equipment, NOT a roof rack on the target; REMOVE it and leave no added roof basket/crossbars, keeping actual black aerial only. Clean dirt/tree/building reflections, remove neighbor cars/trees/gravel/plate text. Original gleb/CC BY4 attribution is kept in metadata, remove external overlay only.",
+      "historical_prompt_sha256": "a9ddf4bbba4250579d24d56825b0eab476a2f514ff89264888c30567fa120781",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-5e7343a392072668-C002",
+          "source_page": "https://platesmania.com/ru/nomer29350340",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0152",
+      "index": 152,
+      "task_id": "RU-dcfad0519f446b9e",
+      "image_id": "RU-dcfad0519f446b9e-1",
+      "model": "Kia Rio",
+      "catalog_year_range": "2017-2020",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "两厢",
+      "variant": "",
+      "current_sha256": "bb7e7587590f6010dd905c4b65a27495a519265b496a31bbb8df4e38167601b1",
+      "filename": "Rio-YB-Hatchback-Rear.png",
+      "observation": "紫色五门两厢尾门、后灯朝近端。",
+      "identity_requirements": "Rio YB五门两厢，排除俄罗斯Rio三厢和X-Line跨界版。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://www.flickr.com/photos/zytonits/32574343551/",
+      "source_candidate_id": null,
+      "source_sha256": "46601726539c99e419fb2815a1ce2b95508f904935135526b58958e82ed040ff",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Show full car/all visible tires/mirrors/roof accessory/antenna tips with useful transparent space; no neighbor hardware copied. This exact PURPLE/BLUE car is GLOBAL-MARKET KIA RIO YB ORIGINAL/PRE2020-FACELIFT FIVE-DOOR HATCHBACK, Montreal2017 stationaryshowcar. Preserve FOUR side doors/short hatchtail, original split red rear lamps with triple brightinternal shapes, rearwiper/roofspoiler/ovalKIA badge and realRiobadge, source darklower rearbumper/redcornerreflectors, actual thin MULTI-SPOKE SILVER ALLOY wheels, purple mirrors/handles and actual short roofaerial if visible. KEEP source REAR-SIDE with nose LEFT; no invented unseen front or longSedantrunk/RussianFBX-Line bodycladding. Clean strong showlight/environment reflections while maintaining same purplepaint, remove all showfloor reflection/displaybackground/people/advertisementplateRIO lettering; no floor or external shadow. Wheelspokes must follow static source, not motion blur from another image.",
+      "historical_prompt_sha256": "f743da843dfd4568c618bab5c4c1bd13d0fa76f59f931fe12123144b4137c891",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-dcfad0519f446b9e-C001",
+          "source_page": "https://www.flickr.com/photos/zytonits/32574343551/",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        },
+        {
+          "candidate_id": "RU-dcfad0519f446b9e-C003",
+          "source_page": "https://www.flickr.com/photos/zytonits/32655816486/",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0064",
+      "index": 64,
+      "task_id": "RU-5302310097da5167",
+      "image_id": "RU-5302310097da5167-9",
+      "model": "Lada (ВАЗ) Granta",
+      "catalog_year_range": "2018-2026",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "",
+      "current_sha256": "4ead39f75aa205159051e43b4230c76a8c004f4758b4d532ddcf4391cc8d355a",
+      "filename": "Granta-FL-Wagon.png",
+      "observation": "旅行车尾门、后窗雨刷及拖钩朝近端。",
+      "identity_requirements": "Granta改款旅行车，区分普通Wagon与Cross；前脸改款须证实。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2019_Lada_Granta_SW_219410_grey_rear.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "e9f2bfc0a161f414a9d0a98abd2d136a762f67799862b288df715704bfd5d819",
+      "historical_prompt": "Use the provided original photograph as the sole vehicle identity and camera reference. Create a clean photorealistic catalog cutout of this SAME car. Preserve body proportions, door and window geometry, lamp/grille shapes, mirrors, handles, source wheel design, paint color, factory trim and original visible exterior accessories. Keep the original source-facing direction and source camera angle; do not mirror, change body style or invent an unseen opposite end. Clean paint and tires from dirt/scratches, remove buildings, neighboring vehicles/people, road, plate text and reflected surrounding scenery. Keep realistic glass and interior, without transparent holes through the body. Show the entire car, every visible tire, mirror and full antenna tip in a roomy frame, with useful transparent space on all sides. Actual RGBA transparency, no floor, contact shadow, reflection, glow, background remnants, floating fragments, captions, watermark, border or checkerboard. Do not infer a precise model year or an engine from the photo. This exact grey car is the ordinary facelift Lada Granta STATION WAGON (219410), shown from rear-left, not the Cross wagon or a hatchback/liftback. Preserve the long wagon roof, upright large rear hatch, tall rounded vertical rear lamps, LADA and GRANTA badges, source wheel-cover design, dark door handles and original visible roof rails/crossbars and tow attachment. The extra roof/tow hardware is source-specific, not a claim of standard factory equipment. Do not invent a frontal facelift view, add Cross cladding or Sport trim, or shorten the load body. Keep the source rear-left view with nose toward the left.",
+      "historical_prompt_sha256": "1273b199fb53f0e5d13e424fd0d39ef8d3e808cad183078b35697db13be92104",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-5302310097da5167-C010",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2019_Lada_Granta_SW_219410_grey_rear.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0033",
+      "index": 33,
+      "task_id": "RU-3c5d1a913dcfa6c3",
+      "image_id": "RU-3c5d1a913dcfa6c3-2",
+      "model": "Opel Astra",
+      "catalog_year_range": "1998-2009",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "三厢",
+      "variant": "",
+      "current_sha256": "2d027af743bdb4aa7b9ecaa297b3c2cbea6ff8ff268063a7b41f5c4e0eb812c1",
+      "filename": "Astra-G-Sedan.png",
+      "observation": "尾箱、后牌照与尾灯主面可见。",
+      "identity_requirements": "Astra G/Classic三厢，区分两厢、旅行及不同地区前脸。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_G_Sedan.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "076c344bbfffc32471b05b8e4b5facf0768f92f1f59ca0398ed753f073b794e2",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Distinguish target parts from every background neighbor. Never invent an antenna, roof rack or fin absent from the actual target. Remove fallen leaves and unrelated debris. Leave visibly useful transparent space around all extremities, ideally a few percent of image width/height; never crop tires, bumper corners or antenna tips. This exact DARK BLUE-GREEN car is an Opel Astra G FOUR-DOOR SEDAN. Preserve its independent trunk, four side doors/C-pillar, taller rear roof/trunk line, original vertical red/amber/clear rear lamps, Astra/Opel rear lettering, source silver wheel covers, dark mirrors/handles and actual thin roof antenna. KEEP THE SOURCE REAR-SIDE CAMERA with nose toward LEFT. Do not rotate to fabricate an unseen front end, substitute short hatchback or long Caravan wagon, or add sport wheels/roof rack. Remove plate lettering and background only.",
+      "historical_prompt_sha256": "bd9000ba84e083f23b64485535795efb74a37afe1b4f4b616c62c790dec19a19",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-3c5d1a913dcfa6c3-C002",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_G_Sedan.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0069",
+      "index": 69,
+      "task_id": "RU-531ec750ccde3552",
+      "image_id": "RU-531ec750ccde3552-4",
+      "model": "Opel Astra",
+      "catalog_year_range": "2006-2014",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "",
+      "current_sha256": "4c6ec4c95e53dd253685756637f3e29f3d99320582d632b828ecc05967461dc7",
+      "filename": "Astra-H-FL-Caravan.png",
+      "observation": "尾门和竖向尾灯正面朝近端；来源文件名含front但成品实际为后视，须回查来源与输出对应。",
+      "identity_requirements": "优先回查已登记的front来源原图及SHA；若确为同配置前方图可直接作为返修输入。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_H_Caravan_1.6_Facelift_front.JPG",
+      "source_candidate_id": null,
+      "source_sha256": "911f8c8973bca26a75d9b61de0f4e83f16fde13f87ed4aa7a533c54d194470cd",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Distinguish target parts from every background neighbor. Never invent an antenna, roof rack or fin absent from the actual target. Remove fallen leaves and unrelated debris. Leave visibly useful transparent space around all extremities, ideally a few percent of image width/height; never crop tires, bumper corners or antenna tips. This exact SILVER car is facelift OPEL ASTRA H CARAVAN/STATION WAGON. The licensed file happens to contain front in its title, but the ACTUAL picture is a REAR-SIDE VIEW: KEEP THAT REAR-SIDE camera, nose toward RIGHT, and do NOT invent an unseen front end. Preserve long load body/extended rear side windows, original roof rails and visible short antenna, rear glass/wiper/top brake light, distinct vertical rear lamp units, chrome tailgate bar and Opel/Astra markings, source five-spoke silver wheels and silver mirrors/handles. Remove the round D country sticker/dealer plate characters and scenery, not the actual manufacturer badges. Do not make a sedan/short hatch or turn it into an older G Caravan.",
+      "historical_prompt_sha256": "0d4933ba0f4c27ec84147b8afc8d4153d3d764b34d0a39165ee403383f7873d9",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-531ec750ccde3552-C004",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_H_Caravan_1.6_Facelift_front.JPG",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0088",
+      "index": 88,
+      "task_id": "RU-600b470429d97202",
+      "image_id": "RU-600b470429d97202-1",
+      "model": "Opel Astra",
+      "catalog_year_range": "2011-2018",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "两厢",
+      "variant": "GTC",
+      "current_sha256": "131c514ae51e3b1b5a24bdd69d19af2fb1b40e7843158b569a9f073724da2773",
+      "filename": "Astra-J-FL-GTC.png",
+      "observation": "GTC两侧门车身、后窗、尾灯朝近端。",
+      "identity_requirements": "Astra J GTC三门两厢，不能套用普通五门或OPC。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2013_Opel_Astra_GTC_(12261340885).jpg",
+      "source_candidate_id": null,
+      "source_sha256": "3b8c2b1e7dc31d3e367be7c112aaf3eb2e3941aa312b4f172e9c573f2e17d510",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Distinguish target parts from every background neighbor. Never invent an antenna, roof rack or fin absent from the actual target. Remove fallen leaves and unrelated debris. Leave useful transparent space around all extremities; never crop tires, bumper corners or antenna tips. This exact YELLOW car is an OPEL ASTRA J GTC THREE-DOOR HATCHBACK, the2011-introduced GTC body that remained externally distinct during the J facelift era. Preserve two long side doors plus hatch/one near-side handle/large rear quarter glass, wide sloping coupe-like hatch tail, source black roof spoiler and black small roof fin, red swept rear lamps, dark lower rear bumper and original black/silver sport wheel pattern. KEEP SOURCE REAR-SIDE camera with nose toward RIGHT. Do not invent an unseen front, ordinary five-door rear body, OPC twin exhaust kit or newer Astra generation. Remove the big Opel DEALERSHIP DOOR ADVERTISEMENT and plate lettering, while retaining the genuine Opel lightning body badge/GTC markings and actual paint/body trim.",
+      "historical_prompt_sha256": "014355558c061ee2e1d6e0ab714ea595f7de29ecff1300b51a69507d54052a9d",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-600b470429d97202-C001",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2013_Opel_Astra_GTC_(12261340885).jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0091",
+      "index": 91,
+      "task_id": "RU-600b470429d97202",
+      "image_id": "RU-600b470429d97202-4",
+      "model": "Opel Astra",
+      "catalog_year_range": "2011-2018",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "",
+      "current_sha256": "f85451e3ab0af822731d906b54fd3f377e9a245157b3f6365080eec6b065f100",
+      "filename": "Astra-J-FL-Sports-Tourer-Verified-Rear.png",
+      "observation": "旅行车后尾门及后灯朝近端。",
+      "identity_requirements": "Astra J Sports Tourer，复核改款前脸和实际参考年份。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_135815.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "41f2957b5b8ad7203334baed5c566d3a48f044dc605ea45ad03b5e7e52bf8f06",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges. This exact RED car is a FACELIFT OPEL ASTRA J SPORTS TOURER/STATION WAGON. Preserve long load body/extended rear side glazing and FOUR side doors, original BLACK multi-spoke wheels (not silver alloys), original low black longitudinal roof rails and SHORT compact roof antenna/stub, red small roof spoiler, dark rear window, original rear wiper, solid red swept rear lamps, central Opel emblem and the distinct thin CHROME STRIP low across the facelift rear bumper. Keep the plain actual tailgate badges as visible: do not invent ASTRA/TURBO/engine emblems absent from this exact source. KEEP SOURCE REAR-SIDE camera with nose toward LEFT, do NOT rotate to invent an unseen front end. Preserve source red paint/dark mirrors/body-color handles and actual bumper geometry; no GTC coupe rear, OPC dual exhaust, extra roof basket/crossbars or long antenna. Remove Mercedes/background trees/road/fallen leaves and plate characters only; whole target car/all visible wheels/mirrors/rails/antenna completely inside useful transparent margins, no floor or external shadow.",
+      "historical_prompt_sha256": "9534eec377d08b34b08a85249da46487368ee57f0fa1721e2e084ad950a8037e",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-600b470429d97202-C004",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_1.6T_Enjoy_Sports_Tourer_2013.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        },
+        {
+          "candidate_id": "RU-600b470429d97202-C005",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_135815.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        },
+        {
+          "candidate_id": "RU-600b470429d97202-C006",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_171619.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0070",
+      "index": 70,
+      "task_id": "RU-550b016a2b924c85",
+      "image_id": "RU-550b016a2b924c85-1",
+      "model": "Skoda Octavia",
+      "catalog_year_range": "2004-2009",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "掀背",
+      "variant": "",
+      "current_sha256": "798a03c1df6d24f1f81995021a424f92d5e1063dd70e14e00b92a7ca71788bf5",
+      "filename": "Octavia-A5-Liftback.png",
+      "observation": "虽偏侧向，后牌照面和尾箱展开，属于后侧透视。",
+      "identity_requirements": "Octavia II/A5改款前掀背，保持掀背顶线及门窗。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/25812649166/",
+      "source_candidate_id": null,
+      "source_sha256": "306759d831ff7c8fc867df7f9afd3d81b54ad1a02abf5932e6320e47fdb84c9f",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Preserve complete car/all visible tires/mirrors/roof rail and antenna tips with useful transparent room. Never copy neighboring-car/background parts. This exact BLUE/GREY car is ORIGINAL/PRE-FACELIFT SKODA OCTAVIA A5/II ORDINARY LIFTBACK, source2007 example. Preserve FOUR side doors/long sloped rearwindow/SHORT rear deck and original rearquarter/C-pillar, actual rear taillamp cluster/Skoda badge/bumper, source silver FIVE-SPOKE wheels/body-color mirrors/handles/side rubbingstrips. KEEP source near-SIDE REAR-SIDE camera nose RIGHT; do not rotate or invent an unseen front. NotCombi longcargo roof/Scout/RS and no roofrails/crossbars/fin invented. Source car is distant but full original detail is used, not a search thumbnail. Clean paint/reflections, remove ruin/building/fence/trees/pole/people/pavement and plate letters.",
+      "historical_prompt_sha256": "84f0bffc8171f7732e290a8655081bea7b880ec8d7156530d872dd813c495e67",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-550b016a2b924c85-C001",
+          "source_page": "https://www.flickr.com/photos/juanelo242a/25812649166/",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0072",
+      "index": 72,
+      "task_id": "RU-550b016a2b924c85",
+      "image_id": "RU-550b016a2b924c85-3",
+      "model": "Skoda Octavia",
+      "catalog_year_range": "2004-2009",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "Scout",
+      "current_sha256": "7f6e8f23e4f6d36d71a7aad380a42955600e3cb552f00de4f310390d51b191ed",
+      "filename": "Octavia-A5-Scout.png",
+      "observation": "Scout尾门、后杠护板朝近端。",
+      "identity_requirements": "Octavia II/A5改款前Scout旅行，须保留Scout护板和车高特征。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2008-2009_%C5%A0koda_Octavia_(1Z)_Scout_station_wagon_01.jpg",
+      "source_candidate_id": null,
+      "source_sha256": "a723ce862386de6d51bacd22cd3dad8184bfab17075307c2f27e1c6cf3a3a3cd",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Preserve complete car/all visible tires/mirrors/roof rail and antenna tips with useful transparent room. Never copy neighboring-car/background parts. This exact PALE SILVER/GREEN car is SKODA OCTAVIA A5/II ORIGINAL SCOUT COMBI/WAGON, author-labelled2008–2009 example. Preserve long loadroof/extended rear sideglazing/FOUR side doors, SCOUT BLACK arch/sill/rearbumpercladding, silver rear LOWER SKIDPLATE/actual visible exhaust, original silver wheelpattern/body-color handles/mirrors, actual longitudinal rails PLUS two dark roof CROSSBARS and COMPLETE thin antenna exactly from this UNCROPPED historical original. KEEP source REAR-SIDE camera nose LEFT; unseen front must NOT be invented or re-posed. Do not turn into ordinaryCombi/RS/A7 or newfacelift fascia. Remove trees/leaflitter/fence/house/trunk/road reflections and plate text only, keep genuineSkoda/OctaviaScout badging as actually visible and leave useful transparency around antenna/crossbar ends.",
+      "historical_prompt_sha256": "a1cf618bc90ee098de0c11926c59318bb5cdedbc0a432466bc1da756a9b4bd33",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-550b016a2b924c85-C003",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2008-2009_%C5%A0koda_Octavia_(1Z)_Scout_station_wagon_01.jpg",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0109",
+      "index": 109,
+      "task_id": "RU-81360a44f305ad4a",
+      "image_id": "RU-81360a44f305ad4a-2",
+      "model": "Skoda Octavia",
+      "catalog_year_range": "2008-2013",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "旅行车",
+      "variant": "Scout",
+      "current_sha256": "a529fc2f257256f829d85e6c9a7f03368a1851e8ef18eaa54203c0782d204811",
+      "filename": "Octavia-A5-FL-Scout.png",
+      "observation": "Scout尾门、后杠和后雨刷朝近端。",
+      "identity_requirements": "Octavia II/A5改款Scout旅行，前灯/格栅须与改款一致。",
+      "target_view": "前方1/3透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Skoda_Octavia_II_Scout_2009_1.JPG",
+      "source_candidate_id": null,
+      "source_sha256": "94a389fb4a0d8cc8651bcd3775d38560c993c41687c249b7536e934607e6ebe2",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Preserve complete car/all visible tires/mirrors/roof rail and antenna tips with useful transparent room. Never copy neighboring-car/background parts. This exact SILVER car is FACELIFT SKODA OCTAVIA A5/II SCOUT COMBI/WAGON, sourceauthor explicitlyfacelift. Preserve long cargo roof/rearsideglazing/FOUR side doors, source BLACK wheelarch/sill/rearbumpercladding and lower SILVER skidtrim, actual roofrails/complete thin antenna WITHOUT invented extra crossbars, original silver wheelpattern/body-color mirrorcaps/handles, red/clear rear lamps/rearwiper/Skodabadge/OctaviaScout actualbadges and visible source exhaust arrangement only. KEEP original REAR-SIDE camera nose LEFT; do not rotate to fabricate unknown front, noRS diffuser/oversized twinexhaust kit or A7/A8 body. Clean paint/dirt/reflections, remove street/cars/signs/poles/foregroundneighbor bumper/plate letters. Whole target including mirrors/tires/antenna complete within useful transparent margins.",
+      "historical_prompt_sha256": "f6e6c0f53e54bf7a4635294572b52b2ee498881c71d3a5244c8c35ef4015078b",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-81360a44f305ad4a-C002",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Skoda_Octavia_II_Scout_2009_1.JPG",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0024",
+      "index": 24,
+      "task_id": "RU-2ced1e85ff306fb6",
+      "image_id": "RU-2ced1e85ff306fb6-3",
+      "model": "Skoda Octavia",
+      "catalog_year_range": "2019-2026",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "掀背",
+      "variant": "",
+      "current_sha256": "c901eddba74dbad57de92ec4dfb1cae89a134e5028a376bdf55bf7ca8fe68174",
+      "filename": "Octavia-A8-Liftback.png",
+      "observation": "尾箱/掀背后缘和后杠主面可见。",
+      "identity_requirements": "第四代掀背；2019–2026目录跨度含改款可能，先锁定参考的具体前脸阶段。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/53037766065/",
+      "source_candidate_id": null,
+      "source_sha256": "1f50b86e3596513b00efcf825d87064690a1ad4c3eca465c83f9be8ec8b21ac1",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Keep useful transparent room around whole car, ALL tire bottoms/mirrors/roof rail tips/actual antenna; do not copy background-neighbor parts. This exact WHITE car is SKODA OCTAVIA A8/IV ORIGINAL/PRE2024-FACELIFT ORDINARY LIFTBACK, actual2023Ambition source. Preserve FOUR side doors, unmistakable SLOPED rear glass and SHORT rear deck/LIFTBACK tail, original narrow angular red rear lamps split across hatch/fender, widely spaced SKODA lettering/OCTAVIA genuine badging, actual rear bumper/red reflectors/black lower corner trim, original silver MULTI-SPOKE wheels/body-color handles and mirrors, SINGLE actual small BLACK FIN attached to the target white roof. KEEP source REAR-SIDE near-side camera with nose RIGHT; do not rotate to fabricate unseen front. NotCombi long roof/Scout/RS; no rails/crossbars/dual exhaust kit. Nearby leftWAGON roof rail/extra fin belongs to OTHER car, remove it and backgrounddealership/neighbor cars, plate display lettering only; keep target body badges and complete vehicle inside roomy transparency.",
+      "historical_prompt_sha256": "ef2dbaa1a73a59609cee8d8ddf728c35735835d9c0e740d149cd87a451f0eb16",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-2ced1e85ff306fb6-C003",
+          "source_page": "https://www.flickr.com/photos/juanelo242a/53037766065/",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    },
+    {
+      "plan_id": "REAR-0148",
+      "index": 148,
+      "task_id": "RU-d8ecb0d87bff666a",
+      "image_id": "RU-d8ecb0d87bff666a-2",
+      "model": "Toyota Corolla",
+      "catalog_year_range": "2006-2010",
+      "year_basis": "当前目录范围，不代表照片精确年款；执行前按真实前方参考收窄或注明代表年份",
+      "body": "三厢",
+      "variant": "Axio",
+      "current_sha256": "10db515191761ebec0a62b7c4a140ad95facd487f077e51285cacf79d11a4196",
+      "filename": "Corolla-E140-Axio.png",
+      "observation": "Axio独立尾箱、后灯和后杠朝近端。",
+      "identity_requirements": "Corolla E140 Axio日规三厢，不能套用国际版宽体Corolla前脸。",
+      "target_view": "前方1/2透视",
+      "alternative": "前方1/3或1/2均可；以同配置真实前方参考及整车结构自然为准，不强凑比例",
+      "batch": 3,
+      "status": "planned_needs_verified_front_reference",
+      "source_page": "https://www.flickr.com/photos/37804160@N00/2365776276/",
+      "source_candidate_id": null,
+      "source_sha256": "6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+      "historical_prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Preserve complete car/all visible tires/mirrors/roof rail and antenna tips with useful transparent room. Never copy neighboring-car/background parts. This exact WHITE TOYOTA COROLLA AXIO E140 ORIGINAL COMPACT FOURDOOR SEDAN seen from REAR-SIDE, nose LEFT/rear RIGHT. Preserve actual rectangular red/clear taillamps/fulltrunkdeck/raisedcentralToyota emblem/AXIO badge shape, four side doors/compactrearquarterglass/silverwheelcovers/whitemirrors+handles and genuine source rearbumper. Keep ORIGINAL REAR-SIDE elevatedcamera; do NOT turn to show unseenfront or inventfrontheadlamps/grille. ActualFlickr2008Mar upload independently bounds pre2008OctFL, but no preciseVIN year inference. Roof smooth no visibleaerial: NO inventedfin/rod/rails. Remove showtents/people/redcarpet/reflectedwires/platelettering/small temporaryadhesive coloredmarks ontrunk, allvehicle bumper/tire/mirrortips complete in usefultransparency.",
+      "historical_prompt_sha256": "3af075910335990fe0fff3e932f9b7e08a73b8360fbc475a1e5b28da0bcb3ef9",
+      "candidate_inventory": [
+        {
+          "candidate_id": "RU-d8ecb0d87bff666a-C002",
+          "source_page": "https://www.flickr.com/photos/37804160@N00/2365776276/",
+          "recorded_view": "未记录",
+          "status": "未进行前方参考实图与身份验收"
+        }
+      ],
+      "reference_ready": false,
+      "acceptance_requirements": [
+        "前格栅、前灯、前杠确实朝近端，前方1/3或1/2透视；禁止后方主视。",
+        "核对代际/改款、市场版本、门数、车顶、车身结构及特殊版本，年份以证据为准。",
+        "全车同一相机、弱透视、平视至略俯；不得局部转车头、镜像冒充旋转或二维拉伸。",
+        "保持同车颜色、轮圈及已确认附件；真实透明背景、完整轮胎镜子天线、玻璃无误挖。",
+        "绑定新SHA逐张实查；旧批准不复用。验收后才更新交付目录及OSS索引。"
+      ]
+    }
+  ]
+}
