@@ -1,0 +1,92 @@
+[
+  {
+    "task_id": "RU-109976a2ccc6695d",
+    "dimension_id": "Opel Astra Wagon 2004-2007 RU",
+    "candidate_id": "RU-109976a2ccc6695d-C003",
+    "passed": false,
+    "reason": "Actual car complete but only4px below nearest tire and11px beyond rear bumper; reframe with imagegen attempt02, preserve first output and all evidence.",
+    "state": "failed_cramped_frame",
+    "request": {
+      "task_id": "RU-109976a2ccc6695d",
+      "dimension_id": "Opel Astra Wagon 2004-2007 RU",
+      "label": "Astra-H-Caravan",
+      "candidate_id": "RU-109976a2ccc6695d-C003",
+      "source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-109976a2ccc6695d-C003/original.jpg",
+      "source_sha256": "23ae08e105c41561c586d33966c77be37f5f2ec8b7ca4839cb5b484775c1814d",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Caravan_H.JPG",
+      "source_license": {
+        "Credit": "His Hard Disk.",
+        "Artist": "Philippe Berube",
+        "LicenseShortName": "Public domain",
+        "UsageTerms": "Public domain",
+        "License": "pd"
+      },
+      "prompt": "Use the licensed original photo as the sole identity and source-camera reference. Make a clean photorealistic catalog cutout of the SAME car, preserving paint color, exact body proportions, door/window layout, lamps, grille, wheels, mirrors, handles and visible trim/accessories. Keep the source camera, viewing direction and body style; do not mirror or invent an unseen opposite end. Clean dirt, scratches and surrounding-scene reflections. Remove environment, people, other vehicles, road, snow and advertising/plate characters. Keep realistic glass/interior and opaque bodywork. Show the COMPLETE car, all visible tires/mirrors and original roof accessories/antenna tips in a roomy frame with useful transparent space on all sides. True RGBA transparency, no floor/contact shadow, under-car reflection, glow, background fragments, captions, watermark or checkerboard. Do not add a shark fin or antenna type absent from the source. Do not infer engine specification or precise model year.  Keep the vehicle comfortably inside the frame with clearly visible transparent margins above every roof accessory, below every tire and beyond both ends; do not enlarge it up to the edges.  Distinguish target parts from every background neighbor. Never invent an antenna, roof rack or fin absent from the actual target. Remove fallen leaves and unrelated debris. Leave visibly useful transparent space around all extremities, ideally a few percent of image width/height; never crop tires, bumper corners or antenna tips. This exact SILVER car is the pre-facelift Opel Astra H CARAVAN/STATION WAGON, not the GTC or short hatchback. Preserve the long roof/extended rear side window/load tail, four side doors, black actual roof rails, ordinary pre-facelift bumper/lower corner inserts, original headlamps and grille/Opel badge, source silver multi-spoke wheels and silver mirrors/handles. Keep the original FRONT-SIDE camera with nose toward LEFT and entire rear bumper inside frame. Do not add a roof box, extra antenna, facelift bumper or newer Astra J shape.",
+      "prompt_sha256": "803f1b62b10b9a1ee1d4b7670de00b47c0fa7ad121b120c776a70f1e240e6862",
+      "transparent_background": true,
+      "generator": "builtin_image_gen",
+      "tool_model": "not exposed by tool; not inferred",
+      "attempt": "attempt01",
+      "request_state": "returned",
+      "request_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-109976a2ccc6695d/Astra-H-Caravan/attempt01/request.json",
+      "output_folder": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-109976a2ccc6695d/Astra-H-Caravan/attempt01",
+      "working_style": "transparent_shadow_free_source_view",
+      "user_style_approval": false,
+      "production_accepted": false,
+      "output_file": "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-109976a2ccc6695d/Astra-H-Caravan/attempt01/imagegen-original.png",
+      "output_sha256": "d488824a357992637fe1ae1ae0a7f734cc580f80e1c8c0b620220035f937e4ec",
+      "review_state": "pending_actual_visual_review",
+      "technical": {
+        "width": 1699,
+        "height": 926,
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "visible_alpha_ge_16_bbox": [
+          21,
+          57,
+          1688,
+          922
+        ],
+        "visible_margins_px": [
+          21,
+          57,
+          11,
+          4
+        ]
+      }
+    },
+    "assets": [
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-109976a2ccc6695d/Astra-H-Caravan/attempt01/imagegen-original.png",
+        "sha256": "d488824a357992637fe1ae1ae0a7f734cc580f80e1c8c0b620220035f937e4ec",
+        "size": 1761230,
+        "object_key": "main_picture_producer/v1/objects/d4/d488824a357992637fe1ae1ae0a7f734cc580f80e1c8c0b620220035f937e4ec",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-109976a2ccc6695d/Astra-H-Caravan/attempt01/review-dark.png",
+        "sha256": "e3442f619f8ebe5eed287f89fd748c6fe52313cdbcc20a656ec5614d6d76c954",
+        "size": 1390909,
+        "object_key": "main_picture_producer/v1/objects/e3/e3442f619f8ebe5eed287f89fd748c6fe52313cdbcc20a656ec5614d6d76c954",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-109976a2ccc6695d/Astra-H-Caravan/attempt01/review-gray.png",
+        "sha256": "28afb6dd9592b3429205e693dc009ab2d203de9bf83a2209f48c71748a95f623",
+        "size": 1401839,
+        "object_key": "main_picture_producer/v1/objects/28/28afb6dd9592b3429205e693dc009ab2d203de9bf83a2209f48c71748a95f623",
+        "full_readback_sha_verified": true
+      },
+      {
+        "logical_path": "来源/俄罗斯/自主续作/RU-109976a2ccc6695d/Astra-H-Caravan/attempt01/review-comparison.jpg",
+        "sha256": "ec04c795d55aaa3462b2b5d07e7408738d9f45b2b1550c743a26f97c1f178cf3",
+        "size": 97620,
+        "object_key": "main_picture_producer/v1/objects/ec/ec04c795d55aaa3462b2b5d07e7408738d9f45b2b1550c743a26f97c1f178cf3",
+        "full_readback_sha_verified": true
+      }
+    ]
+  }
+]

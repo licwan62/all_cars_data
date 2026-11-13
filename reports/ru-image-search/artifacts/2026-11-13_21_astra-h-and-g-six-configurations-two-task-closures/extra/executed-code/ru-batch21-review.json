@@ -1,0 +1,210 @@
+{
+  "description": "astra-h-and-g-six-configurations-two-task-closures",
+  "actual_visual_review_complete": true,
+  "jobs_file": "/workspace/scratch/ru-astra21-final-jobs.json",
+  "generation_job_files": [
+    "/workspace/scratch/ru-astra21-jobs.json",
+    "/workspace/scratch/ru-astra21-repair-jobs.json"
+  ],
+  "source_manifest_files": [
+    "/workspace/scratch/ru-astra21-six-sources.json",
+    "/workspace/scratch/ru-astra21-wagon1-sources.json"
+  ],
+  "existing_source_manifest_files": [],
+  "observations": [
+    "银色Astra H改款前GTC三门，单侧长门/一个把手、大后侧窗及短斜尾、源低位朝右前侧相机、五辐银轮/低姿态和源亮起雾灯、旧横条上格栅与Opel标/下杠对应，未转普通五门或OPC。原屋顶局部实际放大证实细天线，不因初看缩略图不清而误删。来源/灰底/深底实看整车、可见轮胎/镜壳/天线完整；原生alpha最高254真实保留，rawRGB显示的灰光晕不在实际灰深底出现，未据raw渲染误判透明背景；不认证轮圈/悬架是出厂通配规格。",
+    "浅绿Papyrus色Astra H改款前普通五门Hatchback，四侧门/双把手、短尾后侧窗、普通旧前杠黑角插片/横格栅Opel标及灯形、源小银轮和同色镜壳把手对应。屋顶原图放大明确细长天线，与生成保留相符。来源/灰底/深底实际查看，保持源高前侧朝左相机，车体/可见轮胎/镜壳/天线完整，无明显场景残片或外投影，不以2005文件名替代实际改款灯杠核对。",
+    "银色Astra H改款前Caravan，长屋顶/延长后侧窗载物尾、四侧门与原黑纵轨、旧普通灯杠/黑下角插片、横上格栅Opel标、原多辐银轮和银镜壳把手对应。首稿车虽完整但下边4px/后侧11px过紧，实际退回；imagegen第二稿构图缩小后底部69px、后侧116px，未程序扩图。第二稿来源/灰/深底实际查看全部车体、可见轮胎/镜壳/顶轨完整，无明显外投影或场景残片，保持原朝左前侧视。",
+    "红色Astra G五门Hatchback，四侧门/黑把手、短尾/后侧窗、旧矩形圆角反射前灯/窄黑格栅Opel标、矩形雾灯、灰黑下杠/侧条、源五孔银轮及红镜壳对应。原屋顶深色面板与车内挂件源中可见，作为此源细节保留，不推断所有车均配天窗或挂件。来源/灰/深底实看，原朝右前侧视、全部可见车体/轮胎/镜壳完整，无明显背景残片或外投影。正式来源映射该ID合并3-door/5-door，当前仅采用直接绑定的5-door代表图，不声称图里显示3-door。",
+    "蓝绿色Astra G四门Sedan后侧视，独立后备厢/四侧门C柱、竖向红橙清尾灯和Astra Classic/Opel字样、源银轮盖/黑把手镜壳/细天线对应。保持源后侧相机及车头朝左，没有凭空生未知前脸或用两厢代替；尾部源小硬件不据此认证发动机。来源/灰/深底实看整车、轮胎/镜壳和天线完整，边缘无明显残片或外投影；alpha最高254按实际记录。",
+    "银色Astra G Caravan Selection前侧，明确长箱形载物尾/延长后侧窗、四侧门黑把手、原黑纵轨、简单窄黑格栅Opel标、旧反射前灯/普通前杠、源多辐银轮及银镜壳对应，原后窗可见载物隔网保留，不把个别源配备说成通配。采用独立更清楚前侧原件，旧黑色纯正面原件仅候选辅助。来源/灰/深底实际查看朝左前侧视/整车可见轮胎镜壳顶轨完整，无明显场景残片或外投影；2011拍照不等于2011制造年。"
+  ],
+  "scratch_result_file": "/workspace/scratch/ru-astra21-accepted.json",
+  "nonadopted": [
+    {
+      "job_file": "/workspace/scratch/ru-astra21-jobs.json",
+      "index": 2,
+      "state": "failed_cramped_frame",
+      "reason": "Actual car complete but only4px below nearest tire and11px beyond rear bumper; reframe with imagegen attempt02, preserve first output and all evidence."
+    }
+  ],
+  "expected_previous_generated": 68,
+  "expected_previous_accepted": 58,
+  "expected_complete_tasks": 15,
+  "last_completed_task": "RU-3c5d1a913dcfa6c3",
+  "next_task_id": "RU-511bd8a8cf629721",
+  "unused_source_observations": {
+    "RU-3c5d1a913dcfa6c3-C003": "黑色Astra G Caravan2002原件为近纯正面，灯亮、深色，原图确有纵轨但难展示载物车身；保留授权原件/SHA/OSS，只作真实候选，不为其提交生成。改用独立银色Selection前侧原件C004清楚展示长车身。"
+  },
+  "input_refs": [
+    "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json"
+  ],
+  "identity_crosschecks": {
+    "published_source_lineage": {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "literal_rows": [
+        [
+          "RU|opel/astra|H|2004-2007|Hatchback 5-door|-|-",
+          "Opel Astra Hatchback 2004-2007 RU"
+        ],
+        [
+          "RU|opel/astra|H|2004-2007|Wagon 5-door|-|-",
+          "Opel Astra Wagon 2004-2007 RU"
+        ],
+        [
+          "RU|opel/astra|H|2004-2007|Convertible|-|-",
+          "Opel Astra Convertible 2004-2007 RU"
+        ],
+        [
+          "RU|opel/astra|H|2004-2007|Hatchback 3-door|-|GTC",
+          "Opel Astra GTC Hatchback 2004-2007 RU"
+        ],
+        [
+          "RU|opel/astra|G|1998-2009|Hatchback 3-door|-|-",
+          "Opel Astra Hatchback 1998-2009 RU"
+        ],
+        [
+          "RU|opel/astra|G|1998-2009|Hatchback 5-door|-|-",
+          "Opel Astra Hatchback 1998-2009 RU"
+        ],
+        [
+          "RU|opel/astra|G|1998-2009|Sedan|-|-",
+          "Opel Astra Sedan 1998-2009 RU"
+        ],
+        [
+          "RU|opel/astra|G|1998-2009|Wagon 5-door|-|-",
+          "Opel Astra Wagon 1998-2009 RU"
+        ],
+        [
+          "RU|opel/astra|G|1998-2009|Convertible|-|-",
+          "Opel Astra Convertible 1998-2009 RU"
+        ],
+        [
+          "RU|opel/astra|G|1998-2009|Coupe|-|-",
+          "Opel Astra Coupe 1998-2009 RU"
+        ]
+      ],
+      "scope": "Six frozen requirements only. Convertible/Coupe rows remain outside these task requirements. G generic Hatchback maps both3/5-door; selected actual5-door is explicitly bound, no extra3-door image requirement invented and no claim it depicts both."
+    },
+    "independent_generation_evidence": [
+      {
+        "url": "https://de.wikipedia.org/wiki/Opel_Astra_H",
+        "final_url": "https://de.wikipedia.org/wiki/Opel_Astra_H",
+        "http_status": 200,
+        "archive_file": "/workspace/scratch/ru-astra21-identity-0.html.gz",
+        "snippets": {
+          "GTC": [
+            "text bearbeiten ] Auf seiner Delta - Plattform bauten auch Modelle der General-Motors -Marken Vauxhall , Holden und Saturn auf. Eine für den amerikanischen Markt geringfügig geänderte Schrägheck- und GTC-Variante des Astra H wurde von 2007 bis 2009 als Saturn Astra auch in Nordamerika verkauft. In Chile und Mexiko vertreibt General Motors den Astra H als Chevrolet Astra , in anderen Ländern Südamerikas wie Argentinien und Brasilien als Chevrolet Vectra (Stufenheck) bzw. Chevrolet Vectra GT (Schrägheck). In Australien und Neuseeland wird der Astra unter der Marke „Holden“ vertrieben. Im Dezember 2009 wurde die neunte Generation der Mitte 1962 ein",
+            "et. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] fünftüriges Schrägheck (Dezember 2003 bis September 2009) fünftüriger Kombi (Caravan; August 2004 bis September 2010) dreitüriges Schrägheck (GTC; März 2005 bis September 2010) zweitüriges Cabrio (TwinTop) mit versenkbarem Stahlklappdach (Mai 2006 bis September 2010) viertüriges Stufenheck (Sedan; Oktober 2006 bis März 2010 – bevorzugt für den osteuropäischen Markt gebaut) Lieferwagen mit drei Türen Im Gegensatz zu den Vorgängermodellen wurde die viertürige Limousine mit Stufenheck ab Herbst 2006 vorläufig nur in Osteuropa, der Türkei und Südamerika (dort unter der Bezeichnung Chevrolet V",
+            "ka (dort unter der Bezeichnung Chevrolet Vectra ) angeboten. Auf den anderen Märkten spielt der Viertürer fast keine Rolle mehr in dieser Klasse. Heckansicht Opel Astra Caravan (2004–2006) Opel Astra GTC (2005–2006) Opel Astra TwinTop (2006) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Im Februar 2007 [ 3 ] wurde der Astra H modifiziert, was unter anderem an geänderten Heckleuchten aus klarem statt durchgefärbtem Kunststoff und anderen Stoßfängern vorn und hinten zu erkennen war. Beim dreitürigen GTC und beim TwinTop beschränkte sich das Facelift auf einen Kühlergrill und ein mittiges Stoßstangengitter mit rechteckigem Gitter statt der vor",
+            " [ 3 ] wurde der Astra H modifiziert, was unter anderem an geänderten Heckleuchten aus klarem statt durchgefärbtem Kunststoff und anderen Stoßfängern vorn und hinten zu erkennen war. Beim dreitürigen GTC und beim TwinTop beschränkte sich das Facelift auf einen Kühlergrill und ein mittiges Stoßstangengitter mit rechteckigem Gitter statt der vorherigen waagerechten Streben. Ab Oktober 2008 konnte man die Stufenhecklimousine des Astra H nun auch in Deutschland bestellen. Sie war ausschließlich mit 1,6-l-Twinport-Motor lieferbar. Opel Astra Fünftürer (2007–2009) Heckansicht Opel Astra GTC (2007–2010) Opel Astra Stufenheck (2008–2010) Ausstattungsvar"
+          ],
+          "2007": [
+            "- Plattform bauten auch Modelle der General-Motors -Marken Vauxhall , Holden und Saturn auf. Eine für den amerikanischen Markt geringfügig geänderte Schrägheck- und GTC-Variante des Astra H wurde von 2007 bis 2009 als Saturn Astra auch in Nordamerika verkauft. In Chile und Mexiko vertreibt General Motors den Astra H als Chevrolet Astra , in anderen Ländern Südamerikas wie Argentinien und Brasilien als Chevrolet Vectra (Stufenheck) bzw. Chevrolet Vectra GT (Schrägheck). In Australien und Neuseeland wird der Astra unter der Marke „Holden“ vertrieben. Im Dezember 2009 wurde die neunte Generation der Mitte 1962 eingeführten Modellreihe Opel Kadett/As",
+            "r fast keine Rolle mehr in dieser Klasse. Heckansicht Opel Astra Caravan (2004–2006) Opel Astra GTC (2005–2006) Opel Astra TwinTop (2006) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Im Februar 2007 [ 3 ] wurde der Astra H modifiziert, was unter anderem an geänderten Heckleuchten aus klarem statt durchgefärbtem Kunststoff und anderen Stoßfängern vorn und hinten zu erkennen war. Beim dreitürigen GTC und beim TwinTop beschränkte sich das Facelift auf einen Kühlergrill und ein mittiges Stoßstangengitter mit rechteckigem Gitter statt der vorherigen waagerechten Streben. Ab Oktober 2008 konnte man die Stufenhecklimousine des Astra H nun auch in ",
+            "aagerechten Streben. Ab Oktober 2008 konnte man die Stufenhecklimousine des Astra H nun auch in Deutschland bestellen. Sie war ausschließlich mit 1,6-l-Twinport-Motor lieferbar. Opel Astra Fünftürer (2007–2009) Heckansicht Opel Astra GTC (2007–2010) Opel Astra Stufenheck (2008–2010) Ausstattungsvarianten (für Deutschland) [ Bearbeiten | Quelltext bearbeiten ] In Deutschland wurden die folgenden Ausstattungsvarianten angeboten: Astra (Grundmodell, Essentia als EU-Neufahrzeug, ab 2008 als Selection „110 Jahre“ bezeichnet). Black & White (2010) Edition , zwischenzeitlich Catch me now . Edition „111 Jahre“ Enjoy ist die Ausstattungsversion für EU-Neu",
+            "nnte man die Stufenhecklimousine des Astra H nun auch in Deutschland bestellen. Sie war ausschließlich mit 1,6-l-Twinport-Motor lieferbar. Opel Astra Fünftürer (2007–2009) Heckansicht Opel Astra GTC (2007–2010) Opel Astra Stufenheck (2008–2010) Ausstattungsvarianten (für Deutschland) [ Bearbeiten | Quelltext bearbeiten ] In Deutschland wurden die folgenden Ausstattungsvarianten angeboten: Astra (Grundmodell, Essentia als EU-Neufahrzeug, ab 2008 als Selection „110 Jahre“ bezeichnet). Black & White (2010) Edition , zwischenzeitlich Catch me now . Edition „111 Jahre“ Enjoy ist die Ausstattungsversion für EU-Neufahrzeuge und entspricht bis auf ESPplu"
+          ],
+          "Caravan": [
+            "Astra-Generation unter der Bezeichnung Opel Astra Family vermarktet. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] fünftüriges Schrägheck (Dezember 2003 bis September 2009) fünftüriger Kombi (Caravan; August 2004 bis September 2010) dreitüriges Schrägheck (GTC; März 2005 bis September 2010) zweitüriges Cabrio (TwinTop) mit versenkbarem Stahlklappdach (Mai 2006 bis September 2010) viertüriges Stufenheck (Sedan; Oktober 2006 bis März 2010 – bevorzugt für den osteuropäischen Markt gebaut) Lieferwagen mit drei Türen Im Gegensatz zu den Vorgängermodellen wurde die viertürige Limousine mit Stufenheck ab Herbst 2006 vorläufig nur in Osteuropa, der ",
+            "europa, der Türkei und Südamerika (dort unter der Bezeichnung Chevrolet Vectra ) angeboten. Auf den anderen Märkten spielt der Viertürer fast keine Rolle mehr in dieser Klasse. Heckansicht Opel Astra Caravan (2004–2006) Opel Astra GTC (2005–2006) Opel Astra TwinTop (2006) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Im Februar 2007 [ 3 ] wurde der Astra H modifiziert, was unter anderem an geänderten Heckleuchten aus klarem statt durchgefärbtem Kunststoff und anderen Stoßfängern vorn und hinten zu erkennen war. Beim dreitürigen GTC und beim TwinTop beschränkte sich das Facelift auf einen Kühlergrill und ein mittiges Stoßstangengitter mit rechte",
+            "ssystem . Innovation , ab 2008 als INNOVATION „110 Jahre“ bezeichnet. Endless Summer , nur als Cabrio (ab 2007). Sport Elegance (10/2004–06/2005) Cosmo OPC OPC Nürburgring Edition OPC Race Camp Astra Caravan als Edition „111 Jahre“ (2010) Astra GTC als Edition „Black & White“ (2010) Innenraum der „Sport“-Edition mit farbigem Navigationssystem Die Ausstattungsvarianten in anderen Ländern weichen vom deutschen Angebot ab. So wurde in Italien keine Version Sport angeboten, in anderen Ländern wie Großbritannien wurden die Modelle mit völlig anderen Namen bei teilweise gleicher Ausstattung („Club“, „Life“, „SRi“) angeboten. In Exportmärkten wie China ode",
+            " -Emission (kombiniert) 151 g/km 146 g/km LPG: 130 g/km Benzin: 146 g/km 158 g/km LPG: 142 g/km Benzin: 158 g/km 155 g/km 185 g/km 169 g/km 216 g/km 223 g/km 221 g/km Anmerkung nur Österreich nur als Caravan auch als Twin Top nur als Caravan auch als Twin Top auch als Twin Top nur als GTC (1) Werte für Caravan und Schaltgetriebe (2) Werte für GTC und Schaltgetriebe Dieselmotoren [ Bearbeiten | Quelltext bearbeiten ] Zunächst war ein Rußpartikelfilter für die Dieselmodelle nur gegen Aufpreis erhältlich. Ab der Überarbeitung Ende 2006 gehörte dieser zum Serienumfang. Er muss sich jedoch je nach Fahrweise etwa alle 1000–2000 km regenerieren, was dann ü"
+          ],
+          "Classic": [
+            "ührt. Bis zur Einstellung der Automobilproduktion im Werk Bochum lief der Opel Astra H noch bis Dezember 2014 für den osteuropäischen Markt vom Band und wurde dort parallel zum Astra J als Opel Astra Classic III angeboten. [ 2 ] Die Produktion für den russischen Markt fand in Sankt Petersburg statt. Dort wurde das Modell neben der aktuellen Astra-Generation unter der Bezeichnung Opel Astra Family vermarktet. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] fünftüriges Schrägheck (Dezember 2003 bis September 2009) fünftüriger Kombi (Caravan; August 2004 bis September 2010) dreitüriges Schrägheck (GTC; März 2005 bis September 2010) zweitüriges Ca",
+            "0 | Onix | S10 | Silverado | Sonic | Spark EUV | Spin | Suburban | Tahoe | Tracker | Trailblazer | Traverse Ehemalig Agile | Astra | Aveo | Blazer | Bolt | Camaro ( 2009 , 2015 ) | Celta | Chevette | Classic | Cobalt | Corsa | Corsa Classic | Cruze ( J300 | J400 ) | Ipanema | Kadett | Meriva | Monza | Niva | Nova | Omega | Opala | Orlando | Prisma | Sail | Spark ( M300 ) | Tracker | Vectra | Vectra GT | Volt | Zafira Modelle von Saturn Astra | Aura | ION | L-Series | Outlook | Relay | S-Series | Sky | Vue Abgerufen von „ https://de.wikipedia.org/w/index.php?title=Opel_Astra_H&oldid=266068084 “ Kategorien : Fahrzeug der Kompaktklasse Pkw-Modell Opel-",
+            "c | Spark EUV | Spin | Suburban | Tahoe | Tracker | Trailblazer | Traverse Ehemalig Agile | Astra | Aveo | Blazer | Bolt | Camaro ( 2009 , 2015 ) | Celta | Chevette | Classic | Cobalt | Corsa | Corsa Classic | Cruze ( J300 | J400 ) | Ipanema | Kadett | Meriva | Monza | Niva | Nova | Omega | Opala | Orlando | Prisma | Sail | Spark ( M300 ) | Tracker | Vectra | Vectra GT | Volt | Zafira Modelle von Saturn Astra | Aura | ION | L-Series | Outlook | Relay | S-Series | Sky | Vue Abgerufen von „ https://de.wikipedia.org/w/index.php?title=Opel_Astra_H&oldid=266068084 “ Kategorien : Fahrzeug der Kompaktklasse Pkw-Modell Opel-Automobil Kombilimousine Limousin"
+          ],
+          "2004": [
+            "dstand\":{\"wt\":\"2614–2703\"},\"Gewicht\":{\"wt\":\"1210–1613\"},\"Vorgänger\":{\"wt\":\"[[Opel Astra G]]\"},\"Nachfolger\":{\"wt\":\"[[Opel Astra J]]<br />[[Opel Cascada]]\"}},\"i\":0}}]}'> Opel Bild Opel Astra Fünftürer (2004–2006) Astra H Produktionszeitraum 2004–2010 (für Osteuropa: bis 2014) Klasse Kompaktklasse Karosserieversionen Kombilimousine , Limousine , Kombi , Cabriolet Motoren Ottomotoren : 1,4–2,0 Liter (55–177 kW) Dieselmotoren : 1,3–1,9 Liter (59–110 kW) Länge 4249–4587 mm Breite 1753–1759 mm Höhe 1411–1500 mm Radstand 2614–2703 mm Leergewicht 1210–1613 kg Vorgängermodell Opel Astra G Nachfolgemodell Opel Astra J Opel Cascada Sterne im Euro NCAP - Cras",
+            "wt\":\"1210–1613\"},\"Vorgänger\":{\"wt\":\"[[Opel Astra G]]\"},\"Nachfolger\":{\"wt\":\"[[Opel Astra J]]<br />[[Opel Cascada]]\"}},\"i\":0}}]}'> Opel Bild Opel Astra Fünftürer (2004–2006) Astra H Produktionszeitraum 2004–2010 (für Osteuropa: bis 2014) Klasse Kompaktklasse Karosserieversionen Kombilimousine , Limousine , Kombi , Cabriolet Motoren Ottomotoren : 1,4–2,0 Liter (55–177 kW) Dieselmotoren : 1,3–1,9 Liter (59–110 kW) Länge 4249–4587 mm Breite 1753–1759 mm Höhe 1411–1500 mm Radstand 2614–2703 mm Leergewicht 1210–1613 kg Vorgängermodell Opel Astra G Nachfolgemodell Opel Astra J Opel Cascada Sterne im Euro NCAP - Crashtest [ 1 ] Der Astra H ( lat. astra „S",
+            " Astra J Opel Cascada Sterne im Euro NCAP - Crashtest [ 1 ] Der Astra H ( lat. astra „Sterne“) ist ein Fahrzeugtyp in der Kompaktklasse von Opel . Er ist der Nachfolger des Astra G und wurde von März 2004 bis September 2010 für den europäischen Markt hergestellt. Modellgeschichte [ Bearbeiten | Quelltext bearbeiten ] Allgemeines [ Bearbeiten | Quelltext bearbeiten ] Auf seiner Delta - Plattform bauten auch Modelle der General-Motors -Marken Vauxhall , Holden und Saturn auf. Eine für den amerikanischen Markt geringfügig geänderte Schrägheck- und GTC-Variante des Astra H wurde von 2007 bis 2009 als Saturn Astra auch in Nordamerika verkauft. In Chil",
+            " unter der Bezeichnung Opel Astra Family vermarktet. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] fünftüriges Schrägheck (Dezember 2003 bis September 2009) fünftüriger Kombi (Caravan; August 2004 bis September 2010) dreitüriges Schrägheck (GTC; März 2005 bis September 2010) zweitüriges Cabrio (TwinTop) mit versenkbarem Stahlklappdach (Mai 2006 bis September 2010) viertüriges Stufenheck (Sedan; Oktober 2006 bis März 2010 – bevorzugt für den osteuropäischen Markt gebaut) Lieferwagen mit drei Türen Im Gegensatz zu den Vorgängermodellen wurde die viertürige Limousine mit Stufenheck ab Herbst 2006 vorläufig nur in Osteuropa, der Türkei und Sü"
+          ],
+          "1998": [
+            " Z16XEP, Z16XE1 Z16XER Z16LET Z18XE Z18XER Z20LEL Z20LER Z20LEH Ventilsteuerung vier Ventile pro Zylinder, DOHC , Kette vier Ventile pro Zylinder, DOHC , Zahnriemen Hubraum 1364 cm³ 1598 cm³ 1796 cm³ 1998 cm³ Bohrung × Hub 73,4 mm × 80,6 mm 79,0 mm × 81,5 mm 80,5 mm × 88,2 mm 86,0 mm × 86,0 mm Verdichtung 10,5 : 1 8,8 : 1 10,5 : 1 8,8 : 1 Leistung bei 1/min 55 kW (75 PS) bei 5200/min 66 kW (90 PS) bei 5600/min (LPG: 65 kW (88 PS) ) Benzin: 66 kW (90 PS) bei 5600/min 77 kW (105 PS) bei 6000/min (LPG: 82 kW (111 PS) ) Benzin: 85 kW (116 PS) bei 6000/min 85 kW (116 PS) bei 6000/min 132 kW (179 PS) bei 5500/min 92 kW (125 PS) bei 5600/min 103 kW (140"
+          ]
+        }
+      },
+      {
+        "url": "https://de.wikipedia.org/wiki/Opel_Astra_G",
+        "final_url": "https://de.wikipedia.org/wiki/Opel_Astra_G",
+        "http_status": 200,
+        "archive_file": "/workspace/scratch/ru-astra21-identity-1.html.gz",
+        "snippets": {
+          "GTC": [
+            "55 PS | 28/70 PS | 29/50 PS | 29/70 PS | 30/32 PS | 30/50 PS | 32/50 PS | 33/60 PS | 34/65 PS | 34/80 PS | 35/40 PS | 35/60 PS | 40/100 PS | 45/50 PS Konzeptfahrzeuge und Prototypen : Ampera | Antara GTC | Astra OPC X-treme | CD Concept | Corsa GSE Vision Gran Turismo | Corsa Moon | Dieselweltrekord GT | Eco Speedster | Experimental | Flextreme GT/E | GT Experimental | GT X Experimental | GT/W | GT2 | GT Concept | GTC Concept | HydroGen3 | Insignia (Studie) | Junior | Kadett Strolch | Maxx | Monza Concept | OSV 40 | Slalom | Signum Concept | STX | Tech 1 | Trixx | Twin Liste der Opel-RAK-Fahrzeuge : RAK1 | RAK2 | RAK III | RAK III | RAK V | RAK ",
+            "treme | CD Concept | Corsa GSE Vision Gran Turismo | Corsa Moon | Dieselweltrekord GT | Eco Speedster | Experimental | Flextreme GT/E | GT Experimental | GT X Experimental | GT/W | GT2 | GT Concept | GTC Concept | HydroGen3 | Insignia (Studie) | Junior | Kadett Strolch | Maxx | Monza Concept | OSV 40 | Slalom | Signum Concept | STX | Tech 1 | Trixx | Twin Liste der Opel-RAK-Fahrzeuge : RAK1 | RAK2 | RAK III | RAK III | RAK V | RAK Motorrad | RAK e Rennwagen: Adam Rallye | Astra V8 Coupé | Calibra V6 4×4 | Corsa-e Rallye | Grand Prix Rennwagen | Grünes Monster | Vectra GTS V8 Opel-Zeitleiste Zeitleiste der Opel -Modelle seit 1945 Klasse Karosseri",
+            "e Kadett A Kadett B Kadett C Kadett D Kadett E Astra F Astra G Astra H Astra J Astra K Astra L Olympia Olympia A Ampera Ampera-e Coupé Kadett A Kadett B / Olympia A Kadett C Astra G Coupé/OPC Astra H GTC/OPC Astra J GTC Cabriolet Kadett E Cabrio Astra F Cabrio Astra G Cabrio Astra H TwinTop Cascada Mittelklasse Sportcoupé Manta A Manta B Calibra Steilheck Signum Schrägheck, Stufenheck, Kombi Olympia Rekord Olympia Rekord / 1200 Ascona A Ascona B Ascona C Vectra A Vectra B Vectra C Insignia A Insignia B Obere Mittelklasse Stufenheck, Kombi Rekord P1 /P2 Rekord A /B Rekord C Rekord D Rekord E1 Rekord E2 Omega A Omega B Commodore A Commodore B Comm",
+            "t B Kadett C Kadett D Kadett E Astra F Astra G Astra H Astra J Astra K Astra L Olympia Olympia A Ampera Ampera-e Coupé Kadett A Kadett B / Olympia A Kadett C Astra G Coupé/OPC Astra H GTC/OPC Astra J GTC Cabriolet Kadett E Cabrio Astra F Cabrio Astra G Cabrio Astra H TwinTop Cascada Mittelklasse Sportcoupé Manta A Manta B Calibra Steilheck Signum Schrägheck, Stufenheck, Kombi Olympia Rekord Olympia Rekord / 1200 Ascona A Ascona B Ascona C Vectra A Vectra B Vectra C Insignia A Insignia B Obere Mittelklasse Stufenheck, Kombi Rekord P1 /P2 Rekord A /B Rekord C Rekord D Rekord E1 Rekord E2 Omega A Omega B Commodore A Commodore B Commodore C Stufenhe"
+          ],
+          "2007": [],
+          "Caravan": [
+            "4 (in Großbritannien) hergestellt. In verschiedenen arabischen Ländern [ 3 ] und auf den Philippinen wurde der Astra G mit Schrägheck und Stufenheck (auf den Philippinen nur mit Stufenheck) sowie als Caravan ( Kombi ) angeboten. Die Caravan-Version für die arabischen Länder verfügte über eine erhöhte Bodenfreiheit. Für den nordafrikanischen Raum wurde der Opel Astra G zwischen 2002 und 2009 in Ägypten von General Motors Egypt produziert. Er war dort lediglich als Stufenhecklimousine erhältlich. In mehreren Ländern Mittel- und Osteuropas [ 4 ] wurde der Astra G seit Oktober 2003 unter dem Namen Opel Astra Classic II als (günstigere) Alternative zum A",
+            ". In verschiedenen arabischen Ländern [ 3 ] und auf den Philippinen wurde der Astra G mit Schrägheck und Stufenheck (auf den Philippinen nur mit Stufenheck) sowie als Caravan ( Kombi ) angeboten. Die Caravan-Version für die arabischen Länder verfügte über eine erhöhte Bodenfreiheit. Für den nordafrikanischen Raum wurde der Opel Astra G zwischen 2002 und 2009 in Ägypten von General Motors Egypt produziert. Er war dort lediglich als Stufenhecklimousine erhältlich. In mehreren Ländern Mittel- und Osteuropas [ 4 ] wurde der Astra G seit Oktober 2003 unter dem Namen Opel Astra Classic II als (günstigere) Alternative zum Astra H angeboten. Der Classic II ",
+            " Osteuropas [ 4 ] wurde der Astra G seit Oktober 2003 unter dem Namen Opel Astra Classic II als (günstigere) Alternative zum Astra H angeboten. Der Classic II war mit Schräg- und Stufenheck sowie als Caravan erhältlich und wurde bis August 2009 [ 5 ] in Gleiwitz , Polen , produziert. In Argentinien , Brasilien und Uruguay vertrieb General Motors eine überarbeitete Version des Astra G mit Schräg- und Stufenheck unter dem Namen Chevrolet Astra . Von September 2004 an wurde eine teilweise modifizierte Stufenheck-Version zudem für den russischen Markt als GM-AvtoVAZ Chevrolet Viva von GM-AvtoVAZ in Toljatti , Russland , hergestellt. Im März 2008 musste ",
+            "ext bearbeiten ] drei- und fünftüriges Schrägheck (CC), Fahrzeugtyp: T98 (März 1998 bis März 2004) viertüriges Stufenheck (Limousine), Fahrzeugtyp: T98/NB (Juli 1998 bis März 2004) fünftüriger Kombi (Caravan), Fahrzeugtyp: T98/Kombi (März 1998 bis Juli 2004; als CNG bis Januar 2005 [ 2 ] ) zweitüriges Coupé , Fahrzeugtyp: T98C (März 2000 bis Dezember 2004) zweitüriges Cabriolet , Fahrzeugtyp: T98C (März 2001 bis Dezember 2005) zweitüriger Lieferwagen, Fahrzeugtyp: Van Die Verbreitung der jeweiligen Modellvarianten des Astra G ist weltweit von Region zu Region unterschiedlich. So war die Stufenheck-Variante in Deutschland und Westeuropa nie sehr beli"
+          ],
+          "Classic": [
+            "eral Motors Egypt produziert. Er war dort lediglich als Stufenhecklimousine erhältlich. In mehreren Ländern Mittel- und Osteuropas [ 4 ] wurde der Astra G seit Oktober 2003 unter dem Namen Opel Astra Classic II als (günstigere) Alternative zum Astra H angeboten. Der Classic II war mit Schräg- und Stufenheck sowie als Caravan erhältlich und wurde bis August 2009 [ 5 ] in Gleiwitz , Polen , produziert. In Argentinien , Brasilien und Uruguay vertrieb General Motors eine überarbeitete Version des Astra G mit Schräg- und Stufenheck unter dem Namen Chevrolet Astra . Von September 2004 an wurde eine teilweise modifizierte Stufenheck-Version zudem für den r",
+            "imousine erhältlich. In mehreren Ländern Mittel- und Osteuropas [ 4 ] wurde der Astra G seit Oktober 2003 unter dem Namen Opel Astra Classic II als (günstigere) Alternative zum Astra H angeboten. Der Classic II war mit Schräg- und Stufenheck sowie als Caravan erhältlich und wurde bis August 2009 [ 5 ] in Gleiwitz , Polen , produziert. In Argentinien , Brasilien und Uruguay vertrieb General Motors eine überarbeitete Version des Astra G mit Schräg- und Stufenheck unter dem Namen Chevrolet Astra . Von September 2004 an wurde eine teilweise modifizierte Stufenheck-Version zudem für den russischen Markt als GM-AvtoVAZ Chevrolet Viva von GM-AvtoVAZ in Tol",
+            "tellt. Im März 2008 musste die Produktion jedoch aufgrund zu geringer Verkaufszahlen eingestellt werden. Die in Kontinentaleuropa gefertigten Opel Astra G (inklusive der ca. 250.000 in Polen gebauten Classic-II -Versionen) erreichten im Juli 2008 eine Stückzahl von 3,95 Millionen. [ 6 ] Hinzu kommen die als Lizenzmodelle in Großbritannien und im außereuropäischen Ausland gebauten Fahrzeuge, deren Gesamtzahl nur schwer bezifferbar ist. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] drei- und fünftüriges Schrägheck (CC), Fahrzeugtyp: T98 (März 1998 bis März 2004) viertüriges Stufenheck (Limousine), Fahrzeugtyp: T98/NB (Juli 1998 bis März 2004) ",
+            " Comfort NJoy Sportive (später dann „Sport“) Eco (1.2) Eco 4 (1.7 DTI, nach Facelift 1.7 CDTI) Selection (Free, Comfort, Sport) Elegance Fresh (ab 2002) Sondermodelle: Fashion Edition 100 Edition 100 Classic Edition 2000 Edition Silver (Nov. 1998 bis Jan. 1999) Eurosport (Österreich, MJ 2002) OPC 1 (auf 3000 Stück limitiert; Sep. 1999 bis Ende 2001) OPC 2 (ab Herbst 2002) Edition Bild (ab 2002 zum 50. Geburtstag der Bildzeitung) FC Bayern München Edition (auf 500 Stück limitiert; ab Feb. 2000) Sportsline (auf Basis von Sportive, von der Firma Irmscher ab Werk getunt) Sondermodelle bei Cabrio/Coupé: Edition 90 Jahre Bertone (ab Ende 2002) Linea Blu ("
+          ],
+          "2004": [
+            "11\"},\"Gewicht\":{\"wt\":\"1070–1400\"},\"Vorgänger\":{\"wt\":\"[[Opel Astra F]]\"},\"Nachfolger\":{\"wt\":\"[[Opel Astra H]]\"}},\"i\":0}}]}'> Opel Bild Opel-Astra-Fünftürer (1998–2002) Astra G Produktionszeitraum 1998–2004 Klasse Kompaktklasse Karosserieversionen Kombilimousine , Limousine , Kombi , Coupé , Cabriolet , Lieferwagen Motoren Ottomotoren : 1,2–2,2 Liter (48–147 kW) Dieselmotoren : 1,7–2,2 Liter (50–92 kW) Länge 4111–4288 mm Breite 1709 mm Höhe 1390–1510 mm Radstand 2606–2611 mm Leergewicht 1070–1400 kg Vorgängermodell Opel Astra F Nachfolgemodell Opel Astra H Sterne im Euro-NCAP - Crashtest [ 1 ] Der Opel Astra G ist ein Fahrzeugtyp der Kompaktklasse ",
+            "tra H Sterne im Euro-NCAP - Crashtest [ 1 ] Der Opel Astra G ist ein Fahrzeugtyp der Kompaktklasse der Adam Opel AG und wurde als Nachfolger des Opel Astra F in Deutschland von März 1998 bis Dezember 2004 gebaut. [ 2 ] Nachfolger wurde ab 2004 der Opel Astra H . Modellgeschichte [ Bearbeiten | Quelltext bearbeiten ] Allgemeines [ Bearbeiten | Quelltext bearbeiten ] Von 1998 bis 2004 wurden die mit dem Opel Astra G baugleichen Modelle Holden Astra TS (in Australien) und Vauxhall Astra Mk4 (in Großbritannien) hergestellt. In verschiedenen arabischen Ländern [ 3 ] und auf den Philippinen wurde der Astra G mit Schrägheck und Stufenheck (auf den Phili",
+            " 1 ] Der Opel Astra G ist ein Fahrzeugtyp der Kompaktklasse der Adam Opel AG und wurde als Nachfolger des Opel Astra F in Deutschland von März 1998 bis Dezember 2004 gebaut. [ 2 ] Nachfolger wurde ab 2004 der Opel Astra H . Modellgeschichte [ Bearbeiten | Quelltext bearbeiten ] Allgemeines [ Bearbeiten | Quelltext bearbeiten ] Von 1998 bis 2004 wurden die mit dem Opel Astra G baugleichen Modelle Holden Astra TS (in Australien) und Vauxhall Astra Mk4 (in Großbritannien) hergestellt. In verschiedenen arabischen Ländern [ 3 ] und auf den Philippinen wurde der Astra G mit Schrägheck und Stufenheck (auf den Philippinen nur mit Stufenheck) sowie als Ca",
+            " 1998 bis Dezember 2004 gebaut. [ 2 ] Nachfolger wurde ab 2004 der Opel Astra H . Modellgeschichte [ Bearbeiten | Quelltext bearbeiten ] Allgemeines [ Bearbeiten | Quelltext bearbeiten ] Von 1998 bis 2004 wurden die mit dem Opel Astra G baugleichen Modelle Holden Astra TS (in Australien) und Vauxhall Astra Mk4 (in Großbritannien) hergestellt. In verschiedenen arabischen Ländern [ 3 ] und auf den Philippinen wurde der Astra G mit Schrägheck und Stufenheck (auf den Philippinen nur mit Stufenheck) sowie als Caravan ( Kombi ) angeboten. Die Caravan-Version für die arabischen Länder verfügte über eine erhöhte Bodenfreiheit. Für den nordafrikanischen R"
+          ],
+          "1998": [
+            "{\"wt\":\"1390–1510\"},\"Radstand\":{\"wt\":\"2606–2611\"},\"Gewicht\":{\"wt\":\"1070–1400\"},\"Vorgänger\":{\"wt\":\"[[Opel Astra F]]\"},\"Nachfolger\":{\"wt\":\"[[Opel Astra H]]\"}},\"i\":0}}]}'> Opel Bild Opel-Astra-Fünftürer (1998–2002) Astra G Produktionszeitraum 1998–2004 Klasse Kompaktklasse Karosserieversionen Kombilimousine , Limousine , Kombi , Coupé , Cabriolet , Lieferwagen Motoren Ottomotoren : 1,2–2,2 Liter (48–147 kW) Dieselmotoren : 1,7–2,2 Liter (50–92 kW) Länge 4111–4288 mm Breite 1709 mm Höhe 1390–1510 mm Radstand 2606–2611 mm Leergewicht 1070–1400 kg Vorgängermodell Opel Astra F Nachfolgemodell Opel Astra H Sterne im Euro-NCAP - Crashtest [ 1 ] Der Opel As",
+            "06–2611\"},\"Gewicht\":{\"wt\":\"1070–1400\"},\"Vorgänger\":{\"wt\":\"[[Opel Astra F]]\"},\"Nachfolger\":{\"wt\":\"[[Opel Astra H]]\"}},\"i\":0}}]}'> Opel Bild Opel-Astra-Fünftürer (1998–2002) Astra G Produktionszeitraum 1998–2004 Klasse Kompaktklasse Karosserieversionen Kombilimousine , Limousine , Kombi , Coupé , Cabriolet , Lieferwagen Motoren Ottomotoren : 1,2–2,2 Liter (48–147 kW) Dieselmotoren : 1,7–2,2 Liter (50–92 kW) Länge 4111–4288 mm Breite 1709 mm Höhe 1390–1510 mm Radstand 2606–2611 mm Leergewicht 1070–1400 kg Vorgängermodell Opel Astra F Nachfolgemodell Opel Astra H Sterne im Euro-NCAP - Crashtest [ 1 ] Der Opel Astra G ist ein Fahrzeugtyp der Kompaktkl",
+            "olgemodell Opel Astra H Sterne im Euro-NCAP - Crashtest [ 1 ] Der Opel Astra G ist ein Fahrzeugtyp der Kompaktklasse der Adam Opel AG und wurde als Nachfolger des Opel Astra F in Deutschland von März 1998 bis Dezember 2004 gebaut. [ 2 ] Nachfolger wurde ab 2004 der Opel Astra H . Modellgeschichte [ Bearbeiten | Quelltext bearbeiten ] Allgemeines [ Bearbeiten | Quelltext bearbeiten ] Von 1998 bis 2004 wurden die mit dem Opel Astra G baugleichen Modelle Holden Astra TS (in Australien) und Vauxhall Astra Mk4 (in Großbritannien) hergestellt. In verschiedenen arabischen Ländern [ 3 ] und auf den Philippinen wurde der Astra G mit Schrägheck und Stufenh",
+            " von März 1998 bis Dezember 2004 gebaut. [ 2 ] Nachfolger wurde ab 2004 der Opel Astra H . Modellgeschichte [ Bearbeiten | Quelltext bearbeiten ] Allgemeines [ Bearbeiten | Quelltext bearbeiten ] Von 1998 bis 2004 wurden die mit dem Opel Astra G baugleichen Modelle Holden Astra TS (in Australien) und Vauxhall Astra Mk4 (in Großbritannien) hergestellt. In verschiedenen arabischen Ländern [ 3 ] und auf den Philippinen wurde der Astra G mit Schrägheck und Stufenheck (auf den Philippinen nur mit Stufenheck) sowie als Caravan ( Kombi ) angeboten. Die Caravan-Version für die arabischen Länder verfügte über eine erhöhte Bodenfreiheit. Für den nordafrika"
+          ]
+        }
+      }
+    ],
+    "actual_source_review": "Seven selected/downloaded candidates, six generated configurations, source/gray/dark comparisons and original roof crops actually viewed. GTC and Papyrus source antennas exist; no automatic deletion from unclear thumbnail. G Sedan remains rear view; G wagon better independent front-side original selected.",
+    "counting_definition": {
+      "csv_rows": 500,
+      "tasks": 1309,
+      "requirements": 2394,
+      "accepted_image_meaning": "one adopted image for one frozen configuration requirement",
+      "complete_task_meaning": "all requirements in that model/generation task accepted",
+      "batch20": {
+        "new_adopted_images": 9,
+        "cumulative_adopted_images": 58,
+        "completed_tasks": 13,
+        "images_in_completed_tasks": 50,
+        "images_in_three_partial_tasks": 8
+      },
+      "user_question": "Explained actual frozen hierarchy and batch-versus-cumulative counts during continued execution; no task scope was newly split."
+    },
+    "limitations": "Representative exterior applicability, not exact engine, manufacture-year, scalar-dimension re-certification or factory wheel/suspension specification. Aggregate queue dates/scope rows remain unchanged."
+  },
+  "archive_code_files": [
+    "/workspace/scratch/ru_make_batch21_review.py",
+    "/workspace/scratch/ru_astra_queries21.py",
+    "/workspace/scratch/ru_download_astra21_six.py",
+    "/workspace/scratch/ru_download_astra21_wagon1.py",
+    "/workspace/scratch/ru_prepare_astra21.py",
+    "/workspace/scratch/ru_review_astra21.py",
+    "/workspace/scratch/ru_review_astra21_final.py",
+    "/workspace/scratch/ru_astra21_identity.py"
+  ],
+  "archive_json_files": [
+    "/workspace/scratch/ru-astra-queries21.json",
+    "/workspace/scratch/ru-astra21-web-observations.json",
+    "/workspace/scratch/ru-astra21-identity-crosschecks.json",
+    "/workspace/scratch/ru-astra21-identity-0.html.gz",
+    "/workspace/scratch/ru-astra21-identity-1.html.gz",
+    "/workspace/scratch/ru-astra21-roof-0.jpg",
+    "/workspace/scratch/ru-astra21-roof-1.jpg",
+    "/workspace/scratch/ru-astra21-roof-3.jpg"
+  ],
+  "report_body": "# Astra H/G六车身，两项完整补齐\n\n本批采用H改款前GTC三门/普通五门/Caravan，以及G普通五门/Sedan/Caravan六配置。七张独立许可来源原件均下载、解码、实际查看、SHA/OSS备份；G Caravan纯正面黑车未生成，另取清楚长车身的银色Selection原件。H Caravan首稿边距过紧，单独imagegen缩小构图，底部4px增至69px，保留首稿及原因，不用程序扩图。\n\n六张来源/灰底/深底实际逐张查看通过，屋顶原件局部实看证明GTC和Papyrus源中本有长天线，没有按缩略图贸然删除。G Sedan保持后侧相机，不制造未知前脸。原生alpha254如实记录；GTC的raw透明RGB预览光晕并未出现在灰深底合成，不将raw隐藏RGB当作有影背景。独立Astra H/G正文HTTP200及发布来源映射原文保留，不改冻结数值/年份/范围。\n\n计数口径澄清：500行原CSV→1309个车型/代际任务→2394条具体图片要求；一项任务须全部子要求采用才完整。第20批新增9图，58是累计，其中50图组成13个完整任务，8图位于三个部分完成任务。本批新增6条覆盖、补齐2项，后续同时报新增/累计图片覆盖和完整任务，避免混淆。Astra G普通Hatchback来源映射对3/5-door共用一个ID，采用直接绑定的5-door代表外观，不声称图片展示了3-door。"
+}
