@@ -1,0 +1,63 @@
+{
+  "request_id": "P1-002",
+  "task_id": "RU-aea7f2a131e7e9fb",
+  "candidate_id": "RU-aea7f2a131e7e9fb-C003",
+  "dimension_id": "Toyota Corolla Fielder Wagon 2008-2013 RU",
+  "assigned_at": null,
+  "assignment_note": "Coordinator assigned after P1-001 identity hold; exact dispatch timestamp held by coordinator",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/RU-aea7f2a131e7e9fb-C003.jpg",
+  "source_sha256": "621468216048a7892609cb864327c7ed57e5305e9202a9b9749c01562ed71602",
+  "input_dimensions": [
+    2591,
+    1267
+  ],
+  "source_license": "Public domain / PD-self",
+  "source_artist": "TTTNIS",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Fielder.jpg",
+  "prompt": "Create a precise clean photographic cutout of ONLY the white Japanese-market Toyota Corolla Fielder E140 FIVE-DOOR STATION WAGON shown in the reference. Keep its exact existing front three-quarter camera, nose facing image left, with the complete front and long right side visible, all car geometry under one coherent camera. Preserve the long roof, four side doors, large rectangular rear cargo-side window, rear roof spoiler, dark side window rain visors, white mirrors and handles, actual original silver multi-spoke wheel covers, original compact headlamps with sharp inward corners, black grille with horizontal bars and its exact silver Corolla C-family emblem. That emblem is NOT the Toyota oval: do not substitute the badge. Preserve the actual wide lower bumper opening and circular black blanking covers; do not turn these into fog lamps. Do not change the generation, bumper/grille styling, door count, wheel type or wagon into sedan. Roof has no clearly visible antenna, shark fin, rails or crossbars: do not add any. Clean dirt, water droplets and excessive scene reflections to neutral photographic reflections without making windows transparent. Remove all plate characters. Remove the environment, poles, plants, walls, tyres in background and all ground. Show the entire car including both visible tires and both visible mirrors, roof and spoiler in a roomy transparent frame with substantial transparent margin on ALL four sides and below the lowest tire. Output a true RGBA PNG with complete transparency outside the car. Absolutely no cast/contact shadow, ground plane, reflection below car, glow, mist, gray or white halo, studio floor, background fragments or text. Use accurate silhouette and only narrow natural antialiasing.",
+  "prompt_sha256": "4a873ee022ee3dc71f40d47bb0b109114959cdce5a790ce5785160e939809c8c",
+  "status": "returned_saved_pending_review",
+  "preflight": "Original decoded/SHA verified and viewed. Complete white Japanese E140 five-door long-roof wagon, front three-quarter facing left, C-family grille badge, black horizontal grille bars, wide lower opening and circular black blanking covers, rain visors, silver multi-spoke wheel covers, no clearly visible fin/antenna/roof rails/crossbars. Batch38 no accepted Fielder or known active request. Await independent 2008 facelift comparison before generating.",
+  "generator": "builtin_image_gen",
+  "transparent_background": true,
+  "hold_reason": "C003 early black double-bar front differs from official 20081028 facelift; coordinator explicitly holds pending identity. No generation.",
+  "identity_report": "/workspace/ru_picture_producer/pilot20/identity_a/judgments.json",
+  "identity_report_sha256": "98593e22effd82210e2a6aa0036ffec25425e2c4bbd32815af0fd8f88a892c10",
+  "identity_resolution": "A final independent source comparison supports E1402008 facelift ordinary non-Aero version: Toyota2011-10-12 X-based HID Extra Limited official photo matches black double-bar grille, pointed inner lamp housing, wide lower aperture/circular covers. 200810 catalog uses AEROTOURER image and cannot negate ordinary version. Do not transplant HID internals into halogen source; source-specific exterior retained. Exact year/engine/2013 extension not certified.",
+  "material_ready_at": "2026-11-13T15:56:34.081242+00:00",
+  "started_at": "2026-11-13T15:56:34.081242+00:00",
+  "returned_at": "2026-11-13T15:57:54.322056+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-002/P1-002-imagegen-original.png",
+  "output_sha256": "6a4bef6a5ecb52b12a49e52e3da1d091c9f4b46dfeb7a21b67aa95b1ac2c2ef3",
+  "output_size_bytes": 1440313,
+  "technical": {
+    "size": [
+      1792,
+      877
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_ge_16_bbox": [
+      91,
+      86,
+      1723,
+      860
+    ],
+    "all_nonzero_alpha_bbox": [
+      88,
+      20,
+      1728,
+      863
+    ],
+    "margins_px": [
+      91,
+      86,
+      69,
+      17
+    ],
+    "alpha_nonzero_components": 413
+  }
+}

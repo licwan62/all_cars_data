@@ -1,0 +1,73 @@
+{
+  "request_id": "P1-005",
+  "task_id": "RU-5097ddee08e7d011",
+  "dimension_id": "Toyota Camry Sedan 1996-2000 RU",
+  "candidate_id": "PILOT20-B-R2-03",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_b/round2-03/source-thumbnail.jpg",
+  "input_sha256": "092f984ad7e9799023758ac2c233f90e03d6759aab29289f8f7d8182f5e0d863",
+  "input_dimensions": [
+    1920,
+    1080
+  ],
+  "input_role": "Same Commons file1920px derivative; not full original",
+  "source_page": "https://commons.wikimedia.org/wiki/File:1997_Toyota_Camry_V6_Automatic_3.0.jpg",
+  "input_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/1997_Toyota_Camry_V6_Automatic_3.0.jpg/1920px-1997_Toyota_Camry_V6_Automatic_3.0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "source_license": {
+    "name": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "author_html": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+    "own_work": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "revision_url": "https://commons.wikimedia.org/wiki/File:1997_Toyota_Camry_V6_Automatic_3.0.jpg?oldid=748260867"
+  },
+  "source_author": "Vauxford",
+  "distribution_license": "CC BY-SA4.0 with author/source/license attribution and changes disclosure; same share-alike for adaptation",
+  "identity_report": "/workspace/ru_picture_producer/pilot20/identity_a/camry-round2-review.json",
+  "identity_report_sha256": "b75e21db6129bd201948a5054b2e0a22005089dcb7e2e71170e613073133479f",
+  "identity_limits": "A reference identity passed ordinary pre-facelift XV20 generic Sedan only; source1997V6 at UK event not Russian original specification certificate. European-type front matches Russia-labelled Drom ordinary1996–2000 exterior. Never Gracia Sedan/Wagon. Preserve actual source alloys/mirrors/sunroof/trim, no mechanical SX/DX certification. Exact steering side/year/drivetrain/dimensions/full interval annual applicability not certified. Drom photo is audit only, not licensed generation input.",
+  "preflight": "Batch38 no accepted Camry in task, no known in-flight. Actual1920source viewed: strong elevated front3/4 with full grille/two headlamps/two fog lamps and left side visible, complete sedan and visible tires/mirrors; meets front1/3or1/2 substantially better than R2-01 side view. Dark red paint, thin horizontal chrome grille/Toyota oval, old rectangular lamps/clear corner, narrow lower intake and small rectangle fogs, fender amber repeater, red mirror/handles, slim side strip, black glass sunroof, silver oval-opening alloys. No visible roof antenna/fin/rails/crossbars. Neighbor red car must be removed.",
+  "assigned_at": null,
+  "material_ready_at": "2026-11-13T16:11:07.256301+00:00",
+  "started_at": "2026-11-13T16:11:07.256301+00:00",
+  "status": "cleaned_padded_oss_verified_pending_coordinator_acceptance",
+  "prompt": "Make an accurate photorealistic catalog cutout of ONLY the foreground dark RED Toyota Camry XV20 PRE-FACELIFT FOUR-DOOR SEDAN in this reference. Preserve its exact elevated FRONT THREE-QUARTER camera, nose pointing image RIGHT. Keep the strong front projection: both front headlamps, the full narrow chrome horizontal grille with the Toyota oval badge, both bumper corners and front fog lamps must remain clearly visible together with the left side. Do not drift toward a side-on camera. Keep all car parts under the same coherent whole-vehicle perspective. Preserve the full separate trunk, four side doors/window layout, original recessed body-color handles and red mirrors, slim chrome-edged side rubbing strips, amber front fender repeater, original silver alloy wheels with broad oval openings, original front-wheel orientation and tire sizes, BLACK GLASS SUNROOF, exact old pre-facelift headlamp and clear corner lamp shapes, narrow split lower bumper intake, thin bumper trim strip and small rectangular fog lamps. Do not modernize it into facelift/XV30 or Gracia, do not change to three doors/wagon, do not change steering side or mirror the image. No roof rails, crossbars, box, shark fin or invented antenna. Remove the neighboring red car, all other vehicles, people, display hangtags and windshield notices, event background, trees, grass and ground. Clean dirt, wheel corrosion and distracting scene reflections while retaining the original wheel design, red metallic paint, realistic opaque glass/interior and bodywork. Remove every license-plate character but retain blank plate form if visible. COMPLETE car with ALL visible tires, mirrors, roof and bumpers inside a roomy transparent frame; aim for at least80px of transparent space beyond each extreme and below wheels. Output a true RGBA PNG with accurate clean silhouette and narrow natural antialiasing only. Every pixel outside the exact car silhouette must be alpha zero, no detached low-alpha dust/dots, edge fragments, glow, white halo, floor, cast/contact shadow or undercar reflection. No checkerboard, text or scenery.",
+  "prompt_sha256": "1c15163aa197bdf1d96e5367b1e9bdbf018b92edc04f4635adae193b2b98a6b9",
+  "transparent_background": true,
+  "generator": "builtin_image_gen",
+  "accepted": false,
+  "returned_at": "2026-11-13T16:12:26.570923+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-005/P1-005-imagegen-original.png",
+  "output_sha256": "91df8b2ae98a1d7e36e480cf021ba7cb137de02e4cf2c67edcdb025bd1d71c68",
+  "output_size_bytes": 1830047,
+  "technical": {
+    "size": [
+      1672,
+      941
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_ge_16_bbox": [
+      42,
+      41,
+      1615,
+      914
+    ],
+    "all_nonzero_alpha_bbox": [
+      35,
+      38,
+      1648,
+      941
+    ],
+    "margins_px": [
+      42,
+      41,
+      57,
+      27
+    ],
+    "components_8connected": 103,
+    "detached_alpha_pixels": 212,
+    "max_detached_alpha": 2
+  }
+}

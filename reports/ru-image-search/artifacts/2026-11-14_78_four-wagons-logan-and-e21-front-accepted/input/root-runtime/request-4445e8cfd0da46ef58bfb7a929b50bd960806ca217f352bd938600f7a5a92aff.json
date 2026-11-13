@@ -1,0 +1,48 @@
+{
+  "request_id": "P1-003-R1",
+  "parent_request": "P1-003",
+  "source_file": "/workspace/ru_picture_producer/pilot20/P1/P1-003/P1-003-imagegen-original.png",
+  "source_sha256": "e7e5817d63a9bcde3bf556b8f43a421b3bf4e117621d667e2412e3d63500f3f9",
+  "prompt": "Repair ONLY the transparency and framing of this exact already-generated silver Toyota Corolla Runx cutout. Preserve all vehicle pixels and identity as closely as possible, the same early five-door Runx, Corolla C emblem/mesh grille, rounded headlamps, 4WD marking, five-spoke wheel covers, mirrors, spoiler and rain guards, same front three-quarter camera facing image RIGHT. There are unwanted faint alpha specks floating above the roof and detached tiny fragments around the outer silhouette. Remove ALL detached specks and every bit of faint alpha noise outside the exact connected car silhouette, even low-opacity pixels. The background outside the antialiased car silhouette must be pure alpha zero with no luminous dots, bright jagged pixels, halos, glow or hidden atmospheric mask. Give the full car more breathing room, especially at least 50 pixels of fully transparent margin below the front tire and clear space above the roof; keep both wheels completely intact, no cropping. Accurate smooth natural contour with narrow antialiasing only. Absolutely no floor, shadow, reflection, text, checkerboard or scenery. Output truly clean RGBA PNG. Do not redesign or change body proportion, car details or camera.",
+  "prompt_sha256": "550b717a1c0a0dedff6d6b7dca7da3d07669b0ea35cc0b12e1584732365f611a",
+  "started_at": "2026-11-13T15:54:31.031423+00:00",
+  "status": "returned_transparency_failed_hold",
+  "reason": "Coordinator actual black/gray review rejected detached roof alpha specks. Technical alpha>0 bbox2,23,1728,875 vs alpha>=16 bbox34,95,1724,872;390 nonzero-alpha pixels above y95, maximum14.",
+  "returned_at": "2026-11-13T15:55:50.955929+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-003/repair01/P1-003-R1-imagegen-original.png",
+  "output_sha256": "1d4171ca6db97406741b2edb695814f6b3249ac3cfd2f3f732cd8fdaeffc7d76",
+  "output_size_bytes": 1572171,
+  "technical": {
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_ge_16_bbox": [
+      44,
+      103,
+      1724,
+      870
+    ],
+    "all_nonzero_alpha_bbox": [
+      0,
+      48,
+      1727,
+      873
+    ],
+    "margins_px": [
+      44,
+      103,
+      50,
+      17
+    ]
+  },
+  "worker_review_completed_at": "2026-11-13T15:56:07.584321+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "HOLD DIFFICULT: targeted transparency regeneration still has222 disconnected alpha>0 components (main body plus221 fragments). Main bbox41,96,1727,872, stray alpha extends canvas x0/y48. Gray/dark presentation can hide low opacity specks, so not accepted. Two consecutive outputs fail same transparent contour issue; no further same-method generation."
+}

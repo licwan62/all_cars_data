@@ -1,0 +1,224 @@
+{
+  "updated_at": "2026-11-13T23:31:02.042364+00:00",
+  "owner": "source_d",
+  "rank": 30,
+  "formal_checkpoint": "reports/ru-image-search/artifacts/2026-11-14_77_three-e36-w214-and-allterrain-front-accepted",
+  "runtime_snapshot_sha256": "9e681302695fd5925290d4576f81061b5c29e628da5e1c4931ee426678ed7d36",
+  "frozen_tasks": 4,
+  "frozen_dimensions": 7,
+  "source_delivered_dimensions": 3,
+  "remaining_source_hold_dimensions": 4,
+  "delivered_are_already_runtime": true,
+  "unqueued_ready_count": 0,
+  "entries": [
+    {
+      "task_id": "RU-1a8e583704048c94",
+      "dimension_id": "Renault Logan Sedan 2018-2022 RU",
+      "scope_rows": [
+        103
+      ],
+      "frozen_generation": "II Рестайлинг",
+      "frozen_requirement": {
+        "DIMENSION-ID": "Renault Logan Sedan 2018-2022 RU",
+        "YEAR": "2018-2022",
+        "结构": "Sedan",
+        "版本": "",
+        "CAB": "",
+        "BED": "",
+        "L-IN": "171.6",
+        "W-IN": "68.2",
+        "H-IN": "59.7",
+        "scope_rows": [
+          103
+        ]
+      },
+      "disposition": "independent_source_hold_not_ready",
+      "source_ready_at": null,
+      "reason": "No qualified ordinary RU facelift whole-car source yet. BY white taxi source has real Renault/LoganII categorization and front, but only roof base/stub visible plus taxi hardware; ordinary model/body identity and complete antenna not closed. Colombia2020Intens actual screenshots show black extended wheelarches/raised-market variant, different ordinary RU configuration; cannot substitute as ordinary or Stepway. Stepway source is segregated and not reused.",
+      "files": [
+        "II-FL-BY-candidate-proof.json",
+        "II-FL-BY-mast-detail-4x.png",
+        "II-BY-front-detail.png",
+        "probe-100159275.jpg",
+        "probe-100159276.jpg",
+        "probe-100159271.jpg",
+        "drom-II-FL-proof.json"
+      ]
+    },
+    {
+      "task_id": "RU-1a8e583704048c94",
+      "dimension_id": "Renault Logan Stepway Sedan 2018-2022 RU",
+      "scope_rows": [
+        103
+      ],
+      "frozen_generation": "II Рестайлинг",
+      "frozen_requirement": {
+        "DIMENSION-ID": "Renault Logan Stepway Sedan 2018-2022 RU",
+        "YEAR": "2018-2022",
+        "结构": "Sedan",
+        "版本": "Stepway",
+        "CAB": "",
+        "BED": "",
+        "L-IN": "172.0",
+        "W-IN": "69.3",
+        "H-IN": "61.9",
+        "scope_rows": [
+          103
+        ]
+      },
+      "disposition": "delivered_to_runtime_not_additional_inventory",
+      "ready_file": "/workspace/ru_picture_producer/pilot20/source_d/logan/Stepway-sedan-ready.json",
+      "runtime_status": "done"
+    },
+    {
+      "task_id": "RU-249a376af16a05e0",
+      "dimension_id": "Renault Logan MCV Wagon 2009-2015 RU",
+      "scope_rows": [
+        104
+      ],
+      "frozen_generation": "I Рестайлинг",
+      "frozen_requirement": {
+        "DIMENSION-ID": "Renault Logan MCV Wagon 2009-2015 RU",
+        "YEAR": "2009-2015",
+        "结构": "Wagon",
+        "版本": "MCV",
+        "CAB": "",
+        "BED": "",
+        "L-IN": "176.1",
+        "W-IN": "68.5",
+        "H-IN": "64.6",
+        "scope_rows": [
+          104
+        ]
+      },
+      "disposition": "independent_source_hold_not_ready",
+      "source_ready_at": null,
+      "reason": "Bounded exact RenaultMCV queries have not yielded proven Renault-branded passenger Wagon of frozenI-facelift stage. Actual sampled blue MCV81473398 is Dacia branded and pre-facelift style; white MCV78975975 is captioned Dacia and side/high-angle. Real Renault Van195154303 actually has closed cargo rear side panels, not proven passenger MCV Wagon. Do not change badges or invent rear windows. Not a claim exhaustive/no real vehicle exists.",
+      "files": [
+        "I-MCV-search.json",
+        "probe-81473398.jpg",
+        "probe-78975975.jpg",
+        "probe-195154303.jpg"
+      ]
+    },
+    {
+      "task_id": "RU-249a376af16a05e0",
+      "dimension_id": "Renault Logan Sedan 2009-2015 RU",
+      "scope_rows": [
+        103
+      ],
+      "frozen_generation": "I Рестайлинг",
+      "frozen_requirement": {
+        "DIMENSION-ID": "Renault Logan Sedan 2009-2015 RU",
+        "YEAR": "2009-2015",
+        "结构": "Sedan",
+        "版本": "",
+        "CAB": "",
+        "BED": "",
+        "L-IN": "168.8",
+        "W-IN": "68.5",
+        "H-IN": "60.4",
+        "scope_rows": [
+          103
+        ]
+      },
+      "disposition": "delivered_to_runtime_not_additional_inventory",
+      "ready_file": "/workspace/ru_picture_producer/pilot20/source_d/logan/I-FL-sedan-ready.json",
+      "runtime_status": "ready"
+    },
+    {
+      "task_id": "RU-4a8cc4cc667a4a7c",
+      "dimension_id": "Renault Logan Sedan 2012-2018 RU",
+      "scope_rows": [
+        103
+      ],
+      "frozen_generation": "II",
+      "frozen_requirement": {
+        "DIMENSION-ID": "Renault Logan Sedan 2012-2018 RU",
+        "YEAR": "2012-2018",
+        "结构": "Sedan",
+        "版本": "",
+        "CAB": "",
+        "BED": "",
+        "L-IN": "171.1",
+        "W-IN": "68.2",
+        "H-IN": "59.7",
+        "scope_rows": [
+          103
+        ]
+      },
+      "disposition": "independent_source_hold_not_ready",
+      "source_ready_at": null,
+      "reason": "RU blue original whole-car frame has foreground grass hiding both wheel bottom outlines and only roof stub. Root actually reviewed and explicitly requires new complete wheels/roof attachment evidence. Mexico gray real LOGAN pair has all-body/mirrors/wheels clear, but mast clipped in Commons originals and remains clipped even in actual current Flickr Original4128x2322; larger size itself did not close tip gate. No generator guesses or borrowed long rod.",
+      "files": [
+        "II-RU-blue-candidate-original-proof.json",
+        "II-RU-blue-candidate-wheel.png",
+        "II-RU-blue-candidate-roof.png",
+        "II-Mexico-75848049-proof.json",
+        "II-Mexico-75848052-proof.json",
+        "II-Mexico-Flickr-full-original-proof.json",
+        "II-Mexico-Flickr-tip-top-native3x.png"
+      ]
+    },
+    {
+      "task_id": "RU-4a8cc4cc667a4a7c",
+      "dimension_id": "Renault Logan Wagon 2012-2018 RU",
+      "scope_rows": [
+        104
+      ],
+      "frozen_generation": "II",
+      "frozen_requirement": {
+        "DIMENSION-ID": "Renault Logan Wagon 2012-2018 RU",
+        "YEAR": "2012-2018",
+        "结构": "Wagon",
+        "版本": "",
+        "CAB": "",
+        "BED": "",
+        "L-IN": "176.9",
+        "W-IN": "68.2",
+        "H-IN": "61.8",
+        "scope_rows": [
+          104
+        ]
+      },
+      "disposition": "independent_source_hold_not_ready",
+      "source_ready_at": null,
+      "reason": "Exact RenaultWagon search currently gives DaciaL90 sedan/interior or old-generation MCV samples, no verified genuine RenaultII passenger Wagon original. Existing DaciaMCVI and RenaultVan are different brand/body/stage, cannot propagate. Frozen requirement retained; unresolved identification/source gap, no model deletion or fictitious Renault rebranding.",
+      "files": [
+        "II-Wagon-search.json",
+        "I-MCV-search.json",
+        "probe-81473398.jpg",
+        "probe-78975975.jpg",
+        "probe-195154303.jpg"
+      ]
+    },
+    {
+      "task_id": "RU-e5a23f7d210c9e94",
+      "dimension_id": "Renault Logan Sedan 2004-2009 RU",
+      "scope_rows": [
+        103
+      ],
+      "frozen_generation": "I",
+      "frozen_requirement": {
+        "DIMENSION-ID": "Renault Logan Sedan 2004-2009 RU",
+        "YEAR": "2004-2009",
+        "结构": "Sedan",
+        "版本": "",
+        "CAB": "",
+        "BED": "",
+        "L-IN": "167.3",
+        "W-IN": "68.3",
+        "H-IN": "60.0",
+        "scope_rows": [
+          103
+        ]
+      },
+      "disposition": "delivered_to_runtime_not_additional_inventory",
+      "ready_file": "/workspace/ru_picture_producer/pilot20/source_d/logan/I-sedan-ready.json",
+      "runtime_status": "done"
+    }
+  ],
+  "root_boundary": "Do not invent hidden wheel outlines/long rod; actual root reviewed RU blue retained hold. Source camera not final camera; roles may be separately proposed but never masquerade a partial/cross-market source as ready.",
+  "next_action": "Package bounded source pass complete with4specificholds. Per root authorization may claim next highest unowned standalone model after assignment/runtime/formal dedup; keep these holds independent.",
+  "formal_queue_git_mutation_this_report": false
+}

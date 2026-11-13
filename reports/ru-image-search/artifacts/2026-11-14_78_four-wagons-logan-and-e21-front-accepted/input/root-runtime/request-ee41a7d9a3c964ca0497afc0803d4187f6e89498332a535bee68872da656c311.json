@@ -1,0 +1,48 @@
+{
+  "request_id": "P1-024-R1",
+  "started_at": "2026-11-13T18:12:56.073402+00:00",
+  "status": "returned_saved_needs_review",
+  "inputs": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-024/P1-024-imagegen-original.png",
+      "sha256": "074cc1c3b34c523f826cfaad210918c66b5d6d489b6e9334e3a5b0604b92acd7",
+      "role": "samevehiclecandidatecamera"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-64811209.jpg",
+      "sha256": "7ed34851817987e40d38a3c88d99caf6addab1f84d55804c714a5ebde784d11d",
+      "role": "sourcefrontidentity"
+    },
+    {
+      "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-64811207.jpg",
+      "source_sha256": "7490b8e4b13dbef3fbac0e274f0fc735074b90dad66d8a8f7e040812f70a5f5b",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2013_Toyota_RAV4_Invincible_D-4D_Automatic_2.2_Rear.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/2013_Toyota_RAV4_Invincible_D-4D_Automatic_2.2_Rear.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "license": {
+        "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Vauxford\" title=\"User:Vauxford\">Vauxford</a>",
+        "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "LicenseShortName": "CC BY-SA 4.0",
+        "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+      },
+      "role": "samevehicle rear/roofidentityonly, neverrearviewtarget",
+      "decoded": {
+        "size": [
+          3809,
+          2206
+        ],
+        "format": "JPEG",
+        "mode": "RGB"
+      },
+      "photographed_at": "2017-12-13 11:47:39",
+      "pair_basis": "sameVauxfordcaption/year/grade, samecolour/wheels/scene; captured38secondslater"
+    }
+  ],
+  "prompt": "Reframe IMAGE ONE, this correctly identified bronze/taupe original XA40 RAV4 five-door cutout. Its nearest front tire touches bottom canvas and antenna is too close top. Make the ENTIRE coherent car about20% SMALLER within a larger transparent canvas so complete ROUNDED tire arcs have at least100px of true transparent space below them and antenna has ample top room. Maintain exact same camera/front-quarter view nose RIGHT, unchanged five-door proportions, original silver multispoke wheels, grille/headlamps/foglamps/Toyotabadge/blackcladding/silverlowertrim, neutralstudio taupepaint. IMAGE TWO is front actual source identity, IMAGE THREE samecar rear accessoryidentityonly; do NOT outputrearview. Preserve both longitudinal silver rails and the real BLACK WHIP antenna/base (not fin), complete uncut tip. Do not crop or clip any wheel, bumper, mirror, rail or antenna. Keep tires round with air around all car silhouette. Plain lightplate, noexternalshadow/floor/reflection. RealtransparentRGBA, nohalo/glow/detachedalphaspecks. This is one wholecar framing correction, no vehicle redesign.",
+  "prompt_sha256": "83c178d010d2d93890f5c3415b00c51e65664f14b9bb204c8eb98ac815ac164e",
+  "reason": "Actualrawgrayblackviewed: identity/body coherent, but nearestfronttire touches bottom953; rawvisual/technicalfirstdraftfalse. Cannot restore clipped tire bypadding. One source-backed wholecarreframing repair.",
+  "returned_at": "2026-11-13T18:14:26.881441+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-024/repair01/P1-024-R1-imagegen-original.png",
+  "output_sha256": "6a7bbcdb0c6e5f7b88fdd4fc6a99a1c5a2f0e1af987bba09943d1e4ab63b5002",
+  "output_size_bytes": 1071942
+}

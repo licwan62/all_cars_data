@@ -1,0 +1,37 @@
+{
+  "request_id": "P1-026-R1",
+  "started_at": "2026-11-13T18:23:24.658550+00:00",
+  "status": "returned_saved_needs_review",
+  "inputs": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-026/P1-026-imagegen-original.png",
+      "sha256": "8d248dfed3dc4ecd5bd54bc6d6b9211f09477b7c8d6d3189e97570ff785d35a1",
+      "role": "samevehiclecandidatecamera"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/identity_a/rear-retake-sample/ZX4-same-car-front-original.jpg",
+      "sha256": "9637901b187937dd28773e45235aae33f6b38dac5d6013a8ae7a774cbf5abe18",
+      "role": "fullsourceactualscale"
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P1/P1-026/source-roof-inspection.png",
+      "sha256": "789a6f1dc4485981e0a194480a418d1d3edf671a60a0bcd1185c12f0a9b10713",
+      "role": "samefrontsourcecrop roofaccessoryonly",
+      "crop_box_original_pixels": [
+        1850,
+        200,
+        2400,
+        570
+      ],
+      "display_scale": 2,
+      "source_file": "/workspace/ru_picture_producer/pilot20/identity_a/rear-retake-sample/ZX4-same-car-front-original.jpg",
+      "source_sha256": "9637901b187937dd28773e45235aae33f6b38dac5d6013a8ae7a774cbf5abe18"
+    }
+  ],
+  "prompt": "Edit IMAGE ONE, already correct front-quarter blue NA Ford Focus ZX4 SE sedan, using IMAGE TWO full actual source as SCALE reference and IMAGE THREE its roof detail ONLY for construction (detail crop is enlarged2x and MUST NOT set antenna scale). The current antenna was exaggerated: its free projected length is~400pixels compared to carwidth1390pixels, whereas actual source free projectedlength~425pixels against carwidth~3600pixels. REQUIRED: keep same roof base position but make COMPLETE antenna about42% of current projected length, around165pixels total at this outputcar scale. It still has taperedbase, thick coiledlowerstem and verythin straightupperwhip plusroundedtip, notmissingstub. From existingbaseabout(790,305), complete tip should be approximately(915,197), angleabout41degrees right/up, with sourceconsistentconstruction. These are approximate imageprojection guides, not physical vehiclemeasurements. Do not keep the huge extended current whip or let enlargedcrop imply physicalsize. Preserve EVERYTHING ELSE: blue4doorseparatetrunksedan, coherentfrontcamera, chrome meshFordgrille/realbadge, clearfaceliftlamps/amberbumpermarker/emptyblackfogrecesses, originalblackmirrors/handles andfine manyspokealloywheels/complete tires, neutralpaint/opaqueglass. True transparentRGBA, fineedgeantialias/alpha0outside, noexternalshadow/scene/halo/detacheddust. Fullvehicle uncut withmargin.",
+  "prompt_sha256": "0742e7a7136085db6faf017eca40a098574f1c00f1fd2a6ed396916734d1524a",
+  "reason": "Rawgrayblack actuallyviewed: exaggeratedantenna400pxvs1390car (~29%) againstsource425vs~3600(~12%). Sourcecrop2xmagnificationappearsoverscaled. Rawvisualfalse, R1singleaccessoryprojectionscale correction, notphysicalmeasurement.",
+  "returned_at": "2026-11-13T18:24:55.795838+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-026/repair01/P1-026-R1-imagegen-original.png",
+  "output_sha256": "3a071caba4be756f58d2105cb7506940214ced83566ff5522779100800aaf041"
+}

@@ -1,0 +1,191 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at_utc": "2026-11-13T23:41:12.040171+00:00",
+  "request": "P1-075 narrow rear-roof component review only",
+  "task_id": "RU-d0d4d6d935a0efc9",
+  "dimension_id": "Lada (ВАЗ) 2121 (4x4) SUV 1993-2020 RU",
+  "claim_id": "a9d6e5d6b6ad42199eb2937028240520",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-55316415.jpg",
+  "source_sha256": "a4ccad191911ea1c5ef4b9e2e4ca3112043cd69a5d4429e8314239b49bda3da0",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-075/deterministic-repair/padded-canvas/NivaOrdinaryPre2020-roomy-transparent.png",
+  "candidate_sha256": "7604fb868cd4a2e3d44fbd7686553567538d654d909b813f558e80eae7afe1de",
+  "judgment": "PRECISE_HOLD_REAR_WASHER_JET_IDENTITY_POSITIVE_ELONGATED_CAP_SHAPE_NOT_SUPPORTED",
+  "identity_finding": {
+    "positive": "AVTOVAZ LADA 4x4 02.2013 catalogue E220 identifies one rear-window washer jet 21040-6318060-01 at the upper rear body/hatch-window location. The 2016 catalogue repeats the part and same installation. Source tiny low dark point is at the corresponding rear-roof location and is consistent with this washer jet, rather than evidence for an aerial or shark fin.",
+    "qualification": "Source photograph alone does not resolve nozzle outlet, installation detail, exact replacement part or physical dimensions. This is component-location/type support, not VIN/part-number authentication of the photographed car.",
+    "not_claimed": [
+      "No measured millimetre size",
+      "No identification of tiny source silhouette as a particular aftermarket casing",
+      "No new-camera pixel ratio converted to physical height",
+      "No automatic acceptance or generation instruction"
+    ]
+  },
+  "actual_views": [
+    "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-55316415.jpg",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-075/source-rear-roof-native-3x.png",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-075/raw-roof-nub-gray-6x.png",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-075/deterministic-repair/padded-canvas/NivaOrdinaryPre2020-review-gray.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/factory-2013-cover.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/factory-2013-e220-diagram.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/e220-parts-diagram.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/nozzle-product-94887668.jpg",
+    "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/nozzle-product-99491717.jpg"
+  ],
+  "visual_observation": {
+    "source": "One very small low dark protrusion near the rear roof; no elongated rod or fin is visible. Native crop enlarges existing pixels and does not reveal a nozzle outlet or full hidden base.",
+    "candidate": "At full frame the object remains low; enlarged existing pixels show a raised rounded front and a distinct elongated tapered extension lying along the roof. That articulated casing/base is more specific than the source resolves.",
+    "independent_part": "Actual retail photo for 2104-6318060 shows a compact black cylindrical jet body, narrow mounting/connection stem and retaining features; factory exploded drawing shows the same jet arrangement. The entire detached part includes hidden under-panel portions and must not be copied wholesale above the roof.",
+    "assessment": "Function/type now has positive support, but the long flat capped/tailed candidate shell is not positively established by source or independent evidence. Camera changes may reveal hidden surfaces, yet no supplied geometry or actual installed close-up demonstrates this particular extension. This is an unsupported shape/detail hold, not a proved numeric oversize determination."
+  },
+  "independent_evidence": [
+    {
+      "type": "Factory-origin catalogue hosted on independent mirror; actual full PDF GET, text and rendered diagram viewed",
+      "url": "https://catalog.niva4x4.ru/pdf/cat_02_2013.pdf",
+      "local": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/factory-2013-catalog.pdf",
+      "title": "Каталог запасных частей Автомобили LADA 4x4 / OAO AVTOVAZ • TOGLIATTI • RUSSIA 2013",
+      "pages": "printed/PDF 310 diagram; 311 parts table",
+      "section": "E220 Tailgate window washer",
+      "quote": "1 / 21040-6318060-01 / Жиклер омывателя стекла двери задка / Washer jet",
+      "scope": "21214-20, -30, -40, -50; 2131 variants. Factory diagram establishes function and location; no scale or physical size stated."
+    },
+    {
+      "type": "2016 parts catalogue reproduction provided by Scorpion-Car, not claimed current official OEM hosting",
+      "url": "https://catalog.niva4x4.ru/pdf/niva_2016.pdf",
+      "local": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/niva-2016-parts-catalog.pdf",
+      "pages": "printed/PDF 246",
+      "section": "E220",
+      "quote": "1 / 21040-6318060-01 / Жиклер омывателя стекла двери задка",
+      "scope": "Includes 21214 variants; continuity/location corroboration. Actual local full PDF and rendered page viewed; web opener rejected its large size."
+    },
+    {
+      "type": "Retail actual part photo and reproduced older installation drawing; external identity reference only",
+      "url": "https://www.lada.shop/en/2104-6318060.html",
+      "local_html": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/lada-shop-nozzle.html",
+      "photo_manifest": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/product-photo-evidence.json",
+      "limits": "Retailer part identification, not manufacturing certification of photographed source car. No size scale. Images are copyright reference only, not licensed production inputs."
+    }
+  ],
+  "release_boundary": {
+    "keep_original_source": "The original licensed car photograph remains usable for body/colour/wheels; this review does not require replacement of the whole source.",
+    "current_candidate": "Keep this local roof-shape hold pending root decision; no same-source clearance from function identification alone.",
+    "sufficient_followup": "A genuinely installed same ordinary Niva jet close-up or other geometric evidence showing exposed casing/base can resolve its contour. Any correction should retain a compact low rear washer jet and avoid inventing a fin, mast, broad pad or copying the detached under-roof stem. Do not choose exact pixel size from another camera.",
+    "input_restriction": "Factory/retail figures in this report are identity-only, not ImageGen inputs. Any additional production auxiliary must have an independently verified usable licence."
+  },
+  "file_manifest": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-55316415.jpg",
+      "bytes": 1127233,
+      "sha256": "a4ccad191911ea1c5ef4b9e2e4ca3112043cd69a5d4429e8314239b49bda3da0",
+      "size": [
+        2304,
+        1296
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/deterministic-repair/padded-canvas/NivaOrdinaryPre2020-roomy-transparent.png",
+      "bytes": 1978084,
+      "sha256": "7604fb868cd4a2e3d44fbd7686553567538d654d909b813f558e80eae7afe1de",
+      "size": [
+        1696,
+        1204
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/P1-075-imagegen-original.png",
+      "bytes": 1976500,
+      "sha256": "b38926e6394c4969160705f9dad0fcd63f833eeea9a76edca5eaf1cdf06a9188",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/source-rear-roof-native-3x.png",
+      "bytes": 501575,
+      "sha256": "894d5f51ebc20aa434d9c21eae3c2d68d83d20b6be3db4daf4da88b20b8e2233",
+      "size": [
+        1740,
+        450
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/raw-roof-nub-gray-6x.png",
+      "bytes": 144202,
+      "sha256": "9ae9224836d447365d3b405e0bb77abb275f46292ed7677a6362ff26a47c9ab9",
+      "size": [
+        1020,
+        600
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/factory-2013-catalog.pdf",
+      "bytes": 20910151,
+      "sha256": "44b823263d25fe092cb3aaf7922ecc8ad84f09c2e68898308e928b267f3c6a15"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/niva-2016-parts-catalog.pdf",
+      "bytes": 22247710,
+      "sha256": "51b24f0b58f8d39f42350540663e9471a4966dff04665219c7dc3bedae2f5ae8"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/nozzle-product-94887668.jpg",
+      "bytes": 13776,
+      "sha256": "fd52815a20a30e61c863aace898de5b5861c8c60a7c83d320218ca1c9450fda4",
+      "size": [
+        600,
+        402
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review/nozzle-product-99491717.jpg",
+      "bytes": 31379,
+      "sha256": "3562a642943c6f6046887d8bd82ea9151d308142575033cb693f27d033d81210",
+      "size": [
+        600,
+        402
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "operations": {
+    "generation_calls_by_this_review": 0,
+    "queue_changes": 0,
+    "formal_ledger_changes": 0,
+    "git_changes": 0,
+    "existing_producer_calls": 1,
+    "existing_paid_repairs": 0,
+    "root_final_acceptance_required": true
+  },
+  "download_limits": {
+    "ladapower_product_page": "HTTP403, no downloaded-page or actual photo claim",
+    "factory_pdf_2013": "Actual successful local GET; unlike web opener size rejection, local binary and rendered diagram were available"
+  },
+  "evidence_directory": "/workspace/ru_picture_producer/pilot20/identity_a/niva-p1-075-roof-review",
+  "root_requested_correction_boundary": {
+    "authorization_owner": "root; reviewer does not trigger generation",
+    "only_allowed_target": "Only remove the unsupported elongated flattened cap/tail and render the source-consistent tiny low rear-window washer-jet protrusion at the same rear-roof location. Preserve existence of the original dark point.",
+    "keep_unchanged": [
+      "Existing unified camera",
+      "Car body and roof outline outside the local nozzle neighbourhood",
+      "Deep-green paint",
+      "Wheels and tyres",
+      "Mirrors, handles, bumper, vents and all other accessories",
+      "Canvas and lighting"
+    ],
+    "do_not": [
+      "Delete the source-supported jet entirely",
+      "Add a mast or shark fin",
+      "Invent a broad elongated base",
+      "Expose the detached part stem/tubing above the roof",
+      "Infer millimetres or mandatory pixel dimensions from differing camera views",
+      "Copy manufacturer/retail reference pixels as production inputs"
+    ],
+    "acceptance": "Same claim remains held until root actually inspects the new local shape and full image; report is not clearance of the current candidate."
+  }
+}

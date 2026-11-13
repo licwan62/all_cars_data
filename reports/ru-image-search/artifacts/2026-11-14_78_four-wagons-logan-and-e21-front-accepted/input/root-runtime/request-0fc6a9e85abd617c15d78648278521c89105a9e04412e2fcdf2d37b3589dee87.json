@@ -1,0 +1,24 @@
+{
+  "request_id": "P1-022-R1",
+  "started_at": "2026-11-13T18:04:30.320307+00:00",
+  "status": "returned_saved_needs_review",
+  "inputs": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-022/P1-022-imagegen-original.png",
+      "sha256": "4b2accda7b68ec9059c0c89e46ffc6f562f20c82cc0fea2170efc6fbda1e6fc7",
+      "role": "samevehiclecandidatecameraidentity"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_d/solaris-02-original.jpg",
+      "sha256": "21edb76c3c47c08f7a1f67d2dad81ce8bd9157990fd47b8cdd2841715857300d",
+      "role": "actualsourceidentity"
+    }
+  ],
+  "prompt": "Edit IMAGE ONE, the already correctly identified gray Russian Hyundai Solaris RBR facelift sedan cutout. IMAGE TWO is its actual source photo for identity ONLY. Keep the current whole-car front-quarter camera, four-door sedan body, original wheels/tires, Hyundai two-bar grille/badge, facelift lamps/DRL housings, mirrors/handles, and actual short slanted rear-roof whip antenna precisely. REQUIRED correction: eliminate the visible cloud-shaped/cloudy scenery reflections over the hood, roof, fenders, rear quarter and doors. Make the metallic gray paint clean under simple BROAD SMOOTH neutral studio softbox highlight bands and smooth gradients, with NO sky/clouds/tree silhouettes/buildings or invented outdoor scene reflected anywhere. Do not recolor or flatten the metallic material. Glass remains opaque natural neutral interior. Existing silhouette, proportions and camera should remain consistent; full tires and antenna uncut with generous transparent margin. No background, external shadows, ground/reflection, halo/glow or detached alpha specks; real transparent RGBA PNG. Plate remains plain; badge retained.",
+  "prompt_sha256": "3121169835d93ede13bb3707b5b0e35ef58ff5aeefa2740bade60ed4a7edc675",
+  "reason": "Actually viewed unmodified firstdraft grayblack: identity/camera/tires acceptable but strong cloud-shaped scenery highlights added onpaint. Rawvisualfirstdraftfalse; rawtechnicalfalse lowalphadust488max2 andbottommargin6px. Preserve rejectedfirst raw anddeterministic intermediates.",
+  "returned_at": "2026-11-13T18:05:46.457936+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-022/repair01/P1-022-R1-imagegen-original.png",
+  "output_sha256": "6790b747cc8f32719204cc4ef9e44c66dbd509fd1d57a67468e687d4e8eb881c",
+  "output_size_bytes": 1815082
+}

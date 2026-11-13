@@ -1,0 +1,36 @@
+{
+  "request_id": "P2-001-Axio-E140-FL-attempt01",
+  "task_id": "RU-aea7f2a131e7e9fb",
+  "candidate_id": "RU-aea7f2a131e7e9fb-C002",
+  "dimension_id": "Toyota Corolla Axio Sedan 2008-2013 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/RU-aea7f2a131e7e9fb-C002.jpg",
+  "input_sha256": "311e14bf9cab1f77cbadd994a304fc5e61ad54371a6eb7f02bf5dac80ee4ec48",
+  "input_dimensions": [
+    3264,
+    1840
+  ],
+  "prompt": "Create a clean photorealistic catalog cutout of the EXACT dark purple-blue Japanese Toyota Corolla Axio E140 facelift four-door sedan in the input. Show the vehicle from a front three-quarter viewpoint, with a balanced front-to-side projection matching a 1/3 or 1/2 view, front nose toward RIGHT as in this source. Clearly show front grille, headlamps and one side with coherent whole-vehicle perspective. Preserve compact separate sedan trunk, four side doors, original body proportions, silver multi-spoke wheels, purple mirrors with integrated white indicator strips, purple handles, window rain guards, vertical chrome grille bars and EXACT ORIGINAL round chrome Corolla C-family emblem with dark horizontal center (do not replace it with Toyota triple ellipses), original clear angular headlamps with round projector optics, source horizontal lower intake and round fog lamps. Smooth original roof: NO visible antenna, shark fin, roof rails or crossbars belong to this target. The thin antenna on the background Prius belongs to a DIFFERENT car and must disappear. Keep entire vehicle, all tires and mirrors complete, roomily centered with generous transparent margins on ALL four sides, especially below tires. Remove showroom, other cars, floor, scene reflections, harsh ceiling light dots, information tags and license plate lettering; clean paint while keeping realistic glass, interior, lights and opaque body. Actual RGBA transparency, no floor or contact shadows, no under-car reflection, glow, background scraps, caption, watermark or checkerboard pattern. Do not add trim or accessories, do not infer engine or exact model year.",
+  "prompt_sha256": "7f75e806a8bc3d3f5ef067b76b34d65b46af2f9dfe3eb1ace6151dcc938bb738",
+  "generator": "builtin_image_gen",
+  "transparent_background": true,
+  "state": "returned_rejected_margin_repair",
+  "production_accepted": false,
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T15:46:24.498567+00:00",
+    "request_submitted_utc": "2026-11-13T15:46:34.196401+00:00",
+    "result_returned_utc": null,
+    "review_completed_utc": "2026-11-13T16:03:07.733609+00:00"
+  },
+  "source_review": "Actual source independently viewed: dark purple four-door compact sedan, front-right source camera, Corolla C-family badge, chrome upright grille, projector lamps, round fog lamps, indicator mirrors, multi-spoke alloys. Smooth target roof no antenna/fin/rails/crossbars. Background Prius aerial excluded.",
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Axio_0901.jpg",
+  "license": "Public domain / PD-self, Soji Hitotose",
+  "capture_date": "2009-08-22",
+  "upload_date": "2009-10-25",
+  "exact_model_year": "unknown; aggregate requirement not a VIN year certification",
+  "reuse_check": "38-batch accepted index: C001 global Altis sedan does not establish Axio; staged C002 not yet generated, pause record unknown_requests=0. P2 exclusively assigned by root; source_c restores source only.",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P2/attempt01.png",
+  "output_sha256": "4d90d50cb5d7f7845dbbb73ce5de48eb1f30614ab7accbe1a3b1f6b037c5af1b",
+  "return_time_note": "Exact return timestamp was not captured before data-URL recovery; tool call completed in 34.2s after recorded submission. Do not interpret recovery time as generation time.",
+  "recovered_utc": "2026-11-13T16:02:30.494521+00:00",
+  "review": "Rejected for useful canvas margins: alpha bbox (48,9,1729,887), 1774x887, bottom zero. Front near tire touches canvas. Source C-family emblem, upright grille, projector lamps, foglamp, purple compact sedan and smooth roof maintained."
+}
