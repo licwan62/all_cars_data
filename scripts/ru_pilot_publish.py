@@ -20,6 +20,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / 'lib'))
 from artifact_batch import RunBatch
 from ru_pilot_queue import DEFAULT_CHECKPOINT, load_scope
+from ru_pilot_retake import DEFAULT_RETAKE_PLAN, load_plan, current_state, validate_old, validate_front, report as retake_report
 
 
 def digest(raw):
@@ -58,6 +59,15 @@ def validate(args):
     if not isinstance(entries, list) or not entries:
         raise ValueError('input must be a nonempty root acceptance JSON list')
     existing = {(a['task_id'], a['dimension_id']) for a in index}
+    if len(existing) != len(index):
+        raise ValueError('current index contains duplicate task/dimension keys')
+    replacement = getattr(args, 'replacement', False)
+    retake_plan = None
+    if replacement:
+        retake_plan = load_plan(args.retake_plan, args.plan_file)
+        formal = current_state(cp_path)
+        if formal['cp_raw'] != cp_raw:
+            raise ValueError('checkpoint changed during replacement validation; retry')
     evidence = {}
     seen = set()
     requirements = {(t['id'], r['DIMENSION-ID']): r for t in progress['tasks'] for r in t['requirements']}
@@ -81,8 +91,19 @@ def validate(args):
         key = entry['task_id'], entry['dimension_id']
         if key not in scope:
             raise ValueError(f'outside frozen checkpoint scope: {key}')
-        if key in seen or key in existing or requirements[key].get('state') == 'accepted':
-            raise ValueError(f'already accepted or duplicate configuration: {key}')
+        if key in seen:
+            raise ValueError(f'duplicate configuration in input: {key}')
+        if replacement:
+            for field in ('replaces_sha256', 'plan_id'):
+                if not entry.get(field):
+                    raise ValueError(f'replacement requires {field}')
+            validate_old(retake_plan, formal, entry['plan_id'], entry['task_id'],
+                         entry['dimension_id'], entry['replaces_sha256'])
+            if entry['candidate_sha256'] == entry['replaces_sha256']:
+                raise ValueError('replacement output must have a new SHA')
+            validate_front(entry)
+        elif key in existing or requirements[key].get('state') == 'accepted':
+            raise ValueError(f'already accepted configuration; explicit --replacement required: {key}')
         seen.add(key)
         # Acceptance closes a whole dimension, so partial row coverage cannot close it.
         if set(entry['scope_rows']) != scope[key]:
@@ -102,11 +123,15 @@ def validate(args):
             evidence[str(path)] = raw
     if set().union(*scope.values()) != set(range(1, 501)):
         raise ValueError('checkpoint does not preserve exact 500-row scope')
+    if retake_plan:
+        for filename in (retake_plan['mapping_file'], retake_plan['plan_file']):
+            evidence[filename] = local(filename).read_bytes()
     candidates_path = local(cp['candidate_file'])
     candidates_raw, candidates = rawjson(candidates_path)
     return dict(cp=cp, cp_path=cp_path, cp_raw=cp_raw, progress=progress, progress_path=progress_path,
                 progress_raw=progress_raw, index=index, index_path=index_path, index_raw=index_raw,
                 inputs_path=inputs_path, inputs_raw=inputs_raw, entries=entries, evidence=evidence,
+                replacement=replacement, retake_plan=retake_plan,
                 candidates_path=candidates_path, candidates_raw=candidates_raw)
 
 
@@ -281,12 +306,25 @@ def build(data, batch_path, version):
     progress = copy.deepcopy(data['progress'])
     acceptance_file = pathref(batch_path / 'output' / f'accepted-configurations-{version}.json')
     accepted = copy.deepcopy(data['entries'])
+    old_by_key = {(e['task_id'], e['dimension_id']): e for e in data['index']}
     by_key = {(t['id'], r['DIMENSION-ID']): (t, r) for t in progress['tasks'] for r in t['requirements']}
     for entry in accepted:
         task, requirement = by_key[(entry['task_id'], entry['dimension_id'])]
         entry.setdefault('user_approved', False)
         entry['final'] = dict(local_file=entry['candidate_file'], sha256=entry['candidate_sha256'])
         entry['acceptance_file'] = acceptance_file
+        if data.get('replacement'):
+            old = copy.deepcopy(old_by_key[(entry['task_id'], entry['dimension_id'])])
+            entry['replacement'] = {'plan_id': entry['plan_id'], 'replaces_sha256': entry['replaces_sha256'],
+                'replacement_sha256': entry['candidate_sha256'], 'root_reviewed_at': entry['reviewed_at'],
+                'superseded_acceptance_file': pathref(batch_path / 'output' / f'superseded-accepted-configurations-{version}.json')}
+            entry['superseded_acceptance_records'] = [old]
+            for prior in task.get('production_outputs', []):
+                if prior.get('sha256') == entry['replaces_sha256']:
+                    prior.update(superseded=True, replacement_sha256=entry['candidate_sha256'], replacement_plan_id=entry['plan_id'])
+            for prior in task.get('accepted_coverage_records', []):
+                if prior.get('dimension_id') == entry['dimension_id'] and prior.get('sha256') == entry['replaces_sha256']:
+                    prior.update(superseded=True, replacement_sha256=entry['candidate_sha256'], replacement_plan_id=entry['plan_id'])
         requirement.update(state='accepted', accepted_sha256=entry['candidate_sha256'], acceptance_file=acceptance_file)
         if entry.get('source_candidate_id'):
             requirement.setdefault('candidate_ids', [])
@@ -310,8 +348,24 @@ def build(data, batch_path, version):
         'generation_counts': 'pending; prior counts retained, no attempts inferred from acceptance',
         'candidate_counts': 'pending; candidate ledger retained unchanged',
         'previous_progress': pathref(data['progress_path'])}
-    index = data['index'] + accepted
+    if data.get('replacement'):
+        replacements = {(e['task_id'], e['dimension_id']): e for e in accepted}
+        index = [replacements.get((e['task_id'], e['dimension_id']), copy.deepcopy(e)) for e in data['index']]
+        for field in ('accepted','accepted_tasks','remaining_tasks','accepted_dimension_records','accepted_images','remaining_dimension_records','accepted_csv_rows','remaining_csv_rows'):
+            if counts[field] != data['progress']['counts'][field]:
+                raise ValueError(f'replacement cannot change acceptance count {field}')
+    else:
+        index = data['index'] + accepted
     apply_optional(data, progress, index, accepted)
+    plan = data.get('retake_plan')
+    if plan is None:
+        try:
+            plan = load_plan(DEFAULT_RETAKE_PLAN)
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            plan = None
+            progress['front_retake_reconciliation'] = {'status': 'plan_unavailable', 'pending_front_retakes': None, 'error': str(exc)}
+    if plan:
+        progress['front_retake_reconciliation'] = retake_report(plan, index)
     return progress, index, accepted
 
 
@@ -321,7 +375,8 @@ def execute(args):
     preview, _, _ = build(data, Path('/DRY-RUN'), 'DRY-RUN')
     summary = {'dry_run': args.dry_run, 'accepted_count': len(data['entries']),
                'counts_before': data['progress']['counts'], 'counts_after': preview['counts'],
-               'checkpoint_updated': False, 'pending': ['generation_counts', 'candidate_counts']}
+               'checkpoint_updated': False, 'replacement_count': len(data['entries']) if data.get('replacement') else 0,
+               'front_retakes': preview.get('front_retake_reconciliation'), 'pending': ['generation_counts', 'candidate_counts']}
     if data.get('metrics'):
         summary['pending'].remove('generation_counts')
         summary['generation_delta'] = data['metrics']['safe_next_batch_increment']['delta_from_current_verified_subtotal']
@@ -374,6 +429,11 @@ def execute(args):
             request['request_evidence_artifact_file'] = by_sha[request['request_file_sha256']]
         generation_requests_path = output('generation-requests.json', request_snapshot)
     candidate_path = output('candidates.json', data['registered_candidates']) if data.get('registered_candidates') is not None else None
+    if data.get('replacement'):
+        output('superseded-accepted-configurations.json', [copy.deepcopy(e['superseded_acceptance_records'][0]) for e in accepted])
+        output('replacement-events.json', [e['replacement'] | {'task_id': e['task_id'], 'dimension_id': e['dimension_id']} for e in accepted])
+    if progress.get('front_retake_reconciliation'):
+        output('front-retake-reconciliation.json', progress['front_retake_reconciliation'])
     acceptance_path = output('accepted-configurations.json', accepted)
     progress_path = output('progress.json', progress)
     index_path = output('current-accepted-configuration-index.json', index)
@@ -410,6 +470,9 @@ def main():
     parser.add_argument('--artifacts', default=str(REPO / 'reports/ru-image-search/artifacts'))
     parser.add_argument('--day', default=date.today().isoformat())
     parser.add_argument('--description', default='pilot-root-reviewed')
+    parser.add_argument('--replacement', action='store_true', help='Explicit root planned rear-to-front replacement; never adds accepted configurations')
+    parser.add_argument('--retake-plan', default=DEFAULT_RETAKE_PLAN)
+    parser.add_argument('--plan-file')
     parser.add_argument('--metrics-report', help='Current-checkpoint-SHA-bound runtime metrics report')
     parser.add_argument('--register-accepted-sources', action='store_true', help='Register only root-signed accepted sources with exact source full-GET receipts')
     parser.add_argument('--dry-run', action='store_true')

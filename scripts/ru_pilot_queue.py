@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Locked local pilot queue. Runtime state is independent of official ledgers."""
 import argparse
+import copy
 from collections import Counter
 from contextlib import contextmanager
 from datetime import datetime, timezone
@@ -16,6 +17,8 @@ import uuid
 REPO = Path(__file__).resolve().parents[1]
 DEFAULT_CHECKPOINT = REPO / 'reports/ru-image-search/work/checkpoint.json'
 DEFAULT_QUEUE = '/workspace/ru_picture_producer/pilot20/queue'
+from ru_pilot_retake import DEFAULT_RETAKE_PLAN, load_plan, current_state, validate_old, report as retake_report
+
 REQUIRED = ('task_id', 'dimension_id', 'source_file', 'source_sha256', 'source_page',
             'license', 'identity_evidence', 'scope_rows', 'catalog_rank')
 
@@ -154,6 +157,13 @@ def execute(args):
                 verify_scope(record, scope)
             elif record.get('status') not in ('producing', 'in_review', 'done'):
                 raise ValueError('import-existing status must be producing, in_review, or done')
+    if args.command == 'reopen-retake':
+        base, records = read_records(args.file)
+        if len(records) != 1:
+            raise ValueError('reopen-retake accepts exactly one source record')
+        verify_source(records[0], base)
+        verify_scope(records[0], load_scope(args.checkpoint))
+        plan = load_plan(args.retake_plan, args.plan_file)
     result = None
     if args.command == 'submit-review':
         result_path = Path(args.result).resolve(strict=True)
@@ -195,6 +205,47 @@ def execute(args):
                 pressure(state)
             output = {'added': added, 'duplicates': duplicates, 'blocked': blocked,
                       'enqueue_paused': state['enqueue_paused'], 'ready': pressure(state)}
+        elif args.command == 'reopen-retake':
+            record = records[0]
+            formal = current_state(args.checkpoint)
+            old_accepted, requirement = validate_old(plan, formal, args.plan_id,
+                record['task_id'], record['dimension_id'], args.expected_accepted_sha256)
+            if set(record['scope_rows']) != set(requirement['scope_rows']):
+                raise ValueError('retake scope_rows must exactly match current accepted requirement')
+            matches = [i for i in state['items'] if identity(i) == identity(record)]
+            if len(matches) != 1 or matches[0]['status'] != 'done':
+                raise ValueError('retake requires one existing done item; ready/producing/in_review/hold cannot be overwritten')
+            old = matches[0]
+            if record.get('plan_id', args.plan_id) != args.plan_id or record.get('replaces_output_sha256', args.expected_accepted_sha256) != args.expected_accepted_sha256:
+                raise ValueError('retake source handoff plan/old output SHA disagrees with explicit command')
+            if record.get('replaces_source_sha256', old_accepted.get('source_sha256')) != old_accepted.get('source_sha256'):
+                raise ValueError('retake source handoff old source SHA disagrees with current acceptance')
+            if old.get('retake') or any(h.get('plan_id') == args.plan_id for h in state.get('retake_history', [])):
+                raise ValueError('duplicate retake: this plan was already reopened')
+            if state['enqueue_paused']:
+                raise ValueError('ready inventory paused; retry retake when below low watermark')
+            snapshot = copy.deepcopy(old)
+            reopened_at = now()
+            item = copy.deepcopy(record)
+            for field in ('worker','claim_id','claimed_at','review','resolutions','retake','retake_history','imported_existing'):
+                item.pop(field, None)
+            item.update(status='ready', enqueued_at=reopened_at, plan_id=args.plan_id,
+                replaces_sha256=args.expected_accepted_sha256,
+                retake={'plan_id': args.plan_id, 'replaces_sha256': args.expected_accepted_sha256,
+                    'reopened_by': args.actor, 'reopened_at': reopened_at,
+                    'checkpoint_sha256': formal['checkpoint_sha256'],
+                    'plan_file': plan['plan_file'], 'plan_sha256': plan['plan_sha256'],
+                    'mapping_file': plan['mapping_file'], 'mapping_sha256': plan['mapping_sha256'],
+                    'old_accepted_record': old_accepted})
+            if formal['cp_path'].read_bytes() != formal['cp_raw']:
+                raise ValueError('checkpoint changed while reopening retake; retry')
+            state.setdefault('retake_history', []).append({'plan_id': args.plan_id,
+                'reopened_at': reopened_at, 'previous_done_item': snapshot,
+                'new_source_sha256': item['source_sha256'], 'actor': args.actor})
+            state['items'][state['items'].index(old)] = item
+            output = {'status': 'ready', 'plan_id': args.plan_id, 'task_id': item['task_id'],
+                'dimension_id': item['dimension_id'], 'ready': pressure(state),
+                'enqueue_paused': state['enqueue_paused'], 'retakes': retake_report(plan, formal['index'])}
         elif args.command == 'claim':
             active = [i for i in state['items'] if i['status'] == 'producing' and i.get('worker') == args.worker]
             if len(active) > 1:
@@ -219,6 +270,10 @@ def execute(args):
                 for field in ('task_id', 'dimension_id'):
                     if field in result and result[field] != item[field]:
                         raise ValueError(f'result {field} does not match claim')
+                if item.get('retake'):
+                    for field in ('plan_id', 'replaces_sha256'):
+                        if result.get(field) != item[field]:
+                            raise ValueError(f'retake result {field} must match claim')
                 item['status'] = 'in_review'
                 item['review'] = {'path': str(result_path), 'sha256': digest, 'result': result, 'submitted_at': now()}
                 output = {'status': 'in_review', 'claim_id': args.claim, 'duplicate': False}
@@ -247,6 +302,9 @@ def execute(args):
             output = {'counts': dict(Counter(i['status'] for i in state['items'])),
                       'total': len(state['items']), 'ready': pressure(state),
                       'enqueue_paused': state['enqueue_paused'], 'config': state['config']}
+    if args.command == 'stats' and args.retake_plan:
+        plan = load_plan(args.retake_plan, args.plan_file)
+        output['retakes'] = retake_report(plan, current_state(args.checkpoint)['index'])
     return output
 
 
@@ -271,7 +329,16 @@ def main():
     withdraw.add_argument('--task', required=True)
     withdraw.add_argument('--dimension', required=True)
     withdraw.add_argument('--evidence', required=True)
-    commands.add_parser('stats')
+    reopen = commands.add_parser('reopen-retake', help='root-only explicit planned rear-to-front reopening of one done item')
+    reopen.add_argument('--actor', choices=('root',), required=True)
+    reopen.add_argument('--file', required=True)
+    reopen.add_argument('--plan-id', required=True)
+    reopen.add_argument('--expected-accepted-sha256', required=True)
+    reopen.add_argument('--retake-plan', default=DEFAULT_RETAKE_PLAN)
+    reopen.add_argument('--plan-file')
+    stats_parser = commands.add_parser('stats')
+    stats_parser.add_argument('--retake-plan', help='Optional read-only current 20-plan front-retake report')
+    stats_parser.add_argument('--plan-file')
     try:
         output = execute(parser.parse_args())
         print(json.dumps(output, ensure_ascii=False, allow_nan=False))
