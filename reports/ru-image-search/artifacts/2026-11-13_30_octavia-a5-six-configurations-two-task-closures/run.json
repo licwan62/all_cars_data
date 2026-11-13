@@ -1,0 +1,406 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures",
+  "version": "20261113_30",
+  "description": "octavia-a5-six-configurations-two-task-closures",
+  "created_at": "2026-11-13T11:49:44+00:00",
+  "finished_at": "2026-11-13T11:49:45+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch30-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_29_rio-final-six-configurations-all-ten-rio-tasks/output/progress-20261113_29.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_29_rio-final-six-configurations-all-ten-rio-tasks/output/progress-20261113_29.json",
+      "sha256": "02d111464e02450010db76ded7257a83c8969f2cc83f847a29a9fcab7c411c73"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_29_rio-final-six-configurations-all-ten-rio-tasks/output/current-accepted-configuration-index-20261113_29.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_29_rio-final-six-configurations-all-ten-rio-tasks/output/current-accepted-configuration-index-20261113_29.json",
+      "sha256": "e7fa82998764bd5b685f8bcfcfe050a4cdf8d45ad37cbf61da8cd37d4314af39"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_29_rio-final-six-configurations-all-ten-rio-tasks/output/candidates-20261113_29.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_29_rio-final-six-configurations-all-ten-rio-tasks/output/candidates-20261113_29.json",
+      "sha256": "77a7fd77878146e12bbbda654328c25c8b2ac9f28b6b77524a7817f2a3e6a818"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "5c85434170fee4cc2c96cbdfc487717f1bbe2996",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/identity-crosschecks-20261113_30.json",
+      "content_reference": true,
+      "sha256": "61eade01e27b3f227a887be64c180a1530b5ae67c85fa470438db63843cab970",
+      "bytes": 91702,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/accepted-configurations-20261113_30.json",
+      "content_reference": true,
+      "sha256": "12b2b559d52f8156864426d836361da87e1b97af37e33d1605a9f658b35878fb",
+      "bytes": 58937,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/current-accepted-configuration-index-20261113_30.json",
+      "content_reference": true,
+      "sha256": "314ee18cce31b04b40b610891b405e002093f1eff8893078470f887e4513a648",
+      "bytes": 1183134,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/nonadopted-history-20261113_30.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/generation-requests-20261113_30.json",
+      "content_reference": true,
+      "sha256": "2262ca5c9930e963289e67140512147890c7a8630e063ebef629d941f67d437e",
+      "bytes": 26080,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/new-source-original-evidence-20261113_30.json",
+      "content_reference": true,
+      "sha256": "23d46ba03791e4be91a26d0f78cf2895e6bdfe5023e820b49dc088f6e391c07a",
+      "bytes": 28312,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/candidates-20261113_30.json",
+      "content_reference": true,
+      "sha256": "e4fae8bb53c968f4bf597483541e900c14eeecc40fa5a0c25c677404326ec16a",
+      "bytes": 375754,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_30.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/progress-20261113_30.json",
+      "content_reference": true,
+      "sha256": "ff726018fb3386af18038583e550003f2338e5482d1181d2dfa0b4fe91cfe863",
+      "bytes": 2272407,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru-batch30-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_make_batch30_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_import_octavia30.py",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_prepare_octavia30.py",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_review_octavia30.py",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/ru-octavia30-six-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/ru-octavia30-source-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/C4SC-009R-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/octavia-older-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/octavia-older-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/results-a5-verified.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/results-a5-review.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/results.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/HANDOFF.md",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-01-file.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-category.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-02-file.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-media2009.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-2008-02-file.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-2008-02-thumbnail.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/retained-C4SC-009R.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/browser-proof.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-ch-official2009.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-01-file.html",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-2008-02-file.html",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-02-file.html",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-media2009.html",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-category.html",
+    "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-ch-official2009.html"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch30-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru-batch30-review.json",
+      "sha256": "fa0214316c1f54d24c42fc84db9d9b74aa1a45140468ae54909a4f8b7c364c87",
+      "bytes": 101167
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch30_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_make_batch30_review.py",
+      "sha256": "d2ebdeeaa3ca25ecabcca50f10b3f0db4c670ae5b02111012a8c3674f8604fb7",
+      "bytes": 6806
+    },
+    {
+      "file": "extra/executed-code/ru_import_octavia30.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_import_octavia30.py",
+      "sha256": "7ae101f7bbacb16580bcd8edc63d7df7965513062ebeb99e02b06f9c2bbf68a0",
+      "bytes": 3248
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_octavia30.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_prepare_octavia30.py",
+      "sha256": "c06325a3f9aebe8bba44d58651ba2c952d3490245336ada32f6d773e333d01a9",
+      "bytes": 6390
+    },
+    {
+      "file": "extra/executed-code/ru_review_octavia30.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/executed-code/ru_review_octavia30.py",
+      "sha256": "2aa99144096632bffa3d5c9c1ab7203b2e03e230f28dfba6032efc526c6c9fb2",
+      "bytes": 1626
+    },
+    {
+      "file": "extra/search-evidence/ru-octavia30-six-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/ru-octavia30-six-frozen.json.gz",
+      "sha256": "3bae96fde70769861b4e69f289b76b480c7b6494a1a944fdc4c0d33881e6119e",
+      "bytes": 9057
+    },
+    {
+      "file": "extra/search-evidence/ru-octavia30-source-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/ru-octavia30-source-contact.jpg",
+      "sha256": "cc54b4093fa7499ccf7a3209e23e3cd1da418f24427059ca796db9ed7bb44990",
+      "bytes": 245865
+    },
+    {
+      "file": "extra/search-evidence/C4SC-009R-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/C4SC-009R-applicability.json.gz",
+      "sha256": "2c61610f8def57a8e9c28d368276d9130b82cbb5ac9e2b5787a08210a1daa2c5",
+      "bytes": 11186
+    },
+    {
+      "file": "extra/search-evidence/octavia-older-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/octavia-older-applicability.json.gz",
+      "sha256": "976ac4f136bbda596096769dd71ac84c4b6af32aa21cd879befb500bbde2d572",
+      "bytes": 16845
+    },
+    {
+      "file": "extra/search-evidence/octavia-older-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/octavia-older-contact.jpg",
+      "sha256": "6e9c1c08d5dd84a6da01fee6d40415f4b7751cf76b4137752d1764a3a51e00d9",
+      "bytes": 189213
+    },
+    {
+      "file": "extra/search-evidence/results-a5-verified.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/results-a5-verified.json.gz",
+      "sha256": "57ea89ec2f652b7abe17a80735e62629fd3116b727a1496807e5503f4a5bdd94",
+      "bytes": 7797
+    },
+    {
+      "file": "extra/search-evidence/results-a5-review.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/results-a5-review.json.gz",
+      "sha256": "ab088967e2d4bada55c49062788484bffd328760a37ab7906223ac6a3bed0fe3",
+      "bytes": 9003
+    },
+    {
+      "file": "extra/search-evidence/results.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/results.json.gz",
+      "sha256": "a766a6fa5a73c0ea717764d8f3fd1863535445fe2698ae89f710a59b427af151",
+      "bytes": 3271
+    },
+    {
+      "file": "extra/search-evidence/HANDOFF.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/HANDOFF.md",
+      "sha256": "30c29bb16649b4937026364e2a524ce3fdc421267ce6122063807a0a2ccfed75",
+      "bytes": 1035
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-01-file.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-01-file.json.gz",
+      "sha256": "d890919cb6b648bb7975665caa45b1480bf1fa98be88ce96b415655b0ae5067a",
+      "bytes": 4688
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-category.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-category.json.gz",
+      "sha256": "543f6571416a159cf7fad8f068f5bae2a1af57ff6d0e3297d23e111b99629f7a",
+      "bytes": 4680
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-02-file.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-02-file.json.gz",
+      "sha256": "5125bb2142e198b67cb7fe0c0cd61583c93a613a3fb660a5e55e9fad84ecf9e8",
+      "bytes": 1759
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-media2009.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-media2009.json.gz",
+      "sha256": "c086c0c44bb0a057b626275ae59f1b0c0cdf17774a528e912219414ea92bbb44",
+      "bytes": 2361
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-2008-02-file.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-2008-02-file.json.gz",
+      "sha256": "6c0a3ddbe1d9a89a8374994e5686961a5458b5b2a40c2773cf7e6b800ac9f505",
+      "bytes": 4040
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-2008-02-thumbnail.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-2008-02-thumbnail.json.gz",
+      "sha256": "f66fce593f3ae4556070e1474ca111f2f8e4821a65bbf496c9dd22c3b117ade8",
+      "bytes": 397
+    },
+    {
+      "file": "extra/search-evidence/retained-C4SC-009R.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/retained-C4SC-009R.json.gz",
+      "sha256": "0561e55f811abb7c249f0f88e48e0849f2a66a44d4cca1cf00057d2975866f48",
+      "bytes": 3180
+    },
+    {
+      "file": "extra/search-evidence/browser-proof.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/browser-proof.json.gz",
+      "sha256": "0185c702e5d3bafe568a3fb3482229acb508c66a13c1e50fc1f792a4d2f6590f",
+      "bytes": 177
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-ch-official2009.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-ch-official2009.json.gz",
+      "sha256": "fa84f059e731e9848ff64c761b018a46429ab6dc4e427c5ad0d30ec159a14f18",
+      "bytes": 4053
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-01-file.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-01-file.html",
+      "sha256": "006234bdabf3dc38a06f9dc274818690b795b9c9f2cb1d26ce89d45a1a8d7121",
+      "bytes": 125519
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-2008-02-file.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-2008-02-file.html",
+      "sha256": "2f626f7ce54017d2acb5c6c7d9443f4ac95fb6f5109f542e5571d2a9ced0c8c0",
+      "bytes": 127982
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-02-file.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-02-file.html",
+      "sha256": "15e822f284add19cea8ab4e0204e44ff97580b69be9159adeb78caa9726c5827",
+      "bytes": 41848
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-media2009.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-media2009.html",
+      "sha256": "18463daac470e9c55d1767895fe1693d5af3c479438b76e0170297cb4da88638",
+      "bytes": 8960
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-category.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-category.html",
+      "sha256": "7feb596ebc2b02ac51310746cf265e25d946724c13153eb47d89c2bec0e9491a",
+      "bytes": 57788
+    },
+    {
+      "file": "extra/search-evidence/r9-scout-ch-official2009.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/extra/search-evidence/r9-scout-ch-official2009.html",
+      "sha256": "2ef1b027f8aeeae58e08f802ad6fa1a3d69dae047a5df3d920fa5697ecf8db2e",
+      "bytes": 30658
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 6,
+    "accepted_configurations_this_batch": 6,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 38,
+    "accepted_configurations_total": 121
+  }
+}
