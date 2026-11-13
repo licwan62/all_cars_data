@@ -1,0 +1,154 @@
+{
+  "request_id": "P2-053-Mercedes-W210-FL-Sedan-request01",
+  "claim_id": "1d150551a5af4b0e8e9aa3135de23e23",
+  "task_id": "RU-15cc81e7c4a3eb70",
+  "dimension_id": "Mercedes-Benz E-Класс Sedan 1999-2003 RU",
+  "scope_rows": [
+    48,
+    49,
+    51
+  ],
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_b/mercedes-e/w210-fl-main/same-file-thumbnail.jpg",
+  "input_sha256": "3d14de5b06878d21fb3a1aab242b53e2f9aab9a8c2b5b2138209e3ee420e6553",
+  "input_dimensions": [
+    1280,
+    820
+  ],
+  "input_is_same_file_thumbnail": true,
+  "input_actual_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Mercedes_W210_front_20070926.jpg/1280px-Mercedes_W210_front_20070926.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "original_download_failure": {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Mercedes_W210_front_20070926.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "error": "HTTP Error 429: Too Many Requests",
+    "at": "2026-11-13T20:17:31.093976+00:00",
+    "retried": false
+  },
+  "original_published_sha1_matches": null,
+  "source_page": "https://commons.wikimedia.org/wiki/File:Mercedes_W210_front_20070926.jpg",
+  "source_times": {
+    "model_interval": "1999-2003 frozenaggregate; W210catalogends2002 noVINyearclaim",
+    "capture": "2007-09-26",
+    "commons_upload": "2007-09-27T15:45:46Z",
+    "download_saved_at": "2026-11-13T20:17:59.111898+00:00"
+  },
+  "license": {
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Randy43\" title=\"User:Randy43\">Rudolf Stricker</a>",
+    "LicenseShortName": "CC BY-SA 3.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
+    "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "adaptation_terms": "Rudolf Stricker / Wikimedia Commons CC BY-SA3.0 via completed GFDLmigration; generated adaptation and cleanup by builtin image_gen; adaptation distributed under same CC BY-SA3.0.",
+  "identity_evidence": {
+    "status": "pass_W210_facelift_ordinary_Sedan_front_corresponds_Russia_catalog",
+    "primary_rows": [
+      [
+        "RU|mercedes/e_klasse|II (W210, S210) Рестайлинг|1999-2003|Sedan|-|-",
+        "Mercedes-Benz E-Класс Sedan 1999-2003 RU"
+      ]
+    ],
+    "primary_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "primary_mapping_sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+    "catalog_evidence": [
+      {
+        "url": "https://www.drom.ru/catalog/mercedes-benz/e-class/g_1995_5126/",
+        "text": "Россия 05.1995 - 06.1999 W210 Седан",
+        "image_url": "https://s.auto.drom.ru/i24198/c/photos/fullsize/mercedes-benz/e-class/gen473_mercedes-benz_e-class_535348.jpg",
+        "file": "/workspace/ru_picture_producer/pilot20/source_b/mercedes-e/g_1995_5126.jpg",
+        "sha256": "767e1bb1ad26685018be0ae12c85f0fde6d2d2fb9ea3b644d516f469a51b9fda",
+        "role": "identity_only_not_generation_input"
+      },
+      {
+        "url": "https://www.drom.ru/catalog/mercedes-benz/e-class/g_1996_5124/",
+        "text": "Россия 03.1996 - 08.1999 S210 Универсал",
+        "image_url": "https://s.auto.drom.ru/i24198/c/photos/fullsize/mercedes-benz/e-class/gen473_mercedes-benz_e-class_535182.jpg",
+        "file": "/workspace/ru_picture_producer/pilot20/source_b/mercedes-e/g_1996_5124.jpg",
+        "sha256": "61908e4fdd23d76d62c7d2b033e8d097f5ac5453143f6d9e99aa979c9053aa07",
+        "role": "identity_only_not_generation_input"
+      },
+      {
+        "url": "https://www.drom.ru/catalog/mercedes-benz/e-class/g_1999_5127/",
+        "text": "Россия 07.1999 - 02.2002 W210 Седан",
+        "image_url": "https://s.auto.drom.ru/i24198/c/photos/fullsize/mercedes-benz/e-class/gen473_mercedes-benz_e-class_535419.jpg",
+        "file": "/workspace/ru_picture_producer/pilot20/source_b/mercedes-e/g_1999_5127.jpg",
+        "sha256": "742f65a0e094c53a4e12eb6ff7e9d31c8d4eee80125df946b0e15add8177e3aa",
+        "role": "identity_only_not_generation_input"
+      },
+      {
+        "url": "https://www.drom.ru/catalog/mercedes-benz/e-class/g_1999_5125/",
+        "text": "Россия 07.1999 - 02.2003 S210 Универсал",
+        "image_url": "https://s.auto.drom.ru/i24198/c/photos/fullsize/mercedes-benz/e-class/gen473_mercedes-benz_e-class_535243.jpg",
+        "file": "/workspace/ru_picture_producer/pilot20/source_b/mercedes-e/g_1999_5125.jpg",
+        "sha256": "aee02ca476ee8b392346aecbf983246a3e1af450f3804f52709ac047200c46ae",
+        "role": "identity_only_not_generation_input"
+      }
+    ],
+    "visual_comparison": "Actual four-door W210 ordinary sedan with revised sloping lamp/hood grille geometry, sculpted lower bumper including rounded central opening and rectangular fog corners, chrome bumper strip and mirror-integrated clear indicator matches Russian07.1999–02.2002 W210 g1999_5127 catalog, within frozen1999–2003 aggregate. Not S210 estate/AMG widened body or W211. Source ordinary European lamp/bumper/body shape has positive Russian catalog front correspondence; exact market provenance/engine not asserted. Preserve real lenses and bumper, no grade conversion."
+  },
+  "source_preflight": "Actually viewedfull1280x820samefilederivative+roofinspection+independentRUW210FLg1999_5127catalog. OrdinaryFLfourflutedovallamps/grille/roundedlowerbumper/mirrorindicator/4doorSedan match. Actualflatroundhoodornamentmount NOuprightstar, preserveflathoodstate no catalogstartransfer. No independentlyvisible roofantenna/rails, no invention. Actualsilverwheelpattern/fullroundedtires/mirrors complete. Person/ornamentsremoved. Original429notretried, actual1280derivativeidentityexplicit notoriginalSHAverified.",
+  "reuse_check": "AtomicexclusiveW210FLordinarySedanclaim, no previousP2-053request/output; distinctfrompreFL/Wagon.",
+  "prompt_sha256": "2c6494e8b0d367d46a6c7d99fe58ed0d5be20d5f1ae2d2f37475e0e9fb383ad4",
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T20:21:18.345847+00:00",
+    "request_submitted_utc": "2026-11-13T20:21:40.578529+00:00",
+    "result_returned_utc": "2026-11-13T20:22:07Z",
+    "review_completed_utc": "2026-11-13T20:23:21.715074+00:00"
+  },
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P2/P2-053-Mercedes-W210-FL-Sedan/padded.png",
+  "candidate_sha256": "951015ab0b8799d227f452199835dbbcfb1f3f1448c9b93a4b4f0a826a4fd4d1",
+  "status": "pending_root_review",
+  "production_accepted": false,
+  "generation_count": 1,
+  "repair_count": 0,
+  "cost": "unknown",
+  "raw_visual_first_draft_pass": true,
+  "raw_technical_first_draft_pass": false,
+  "raw_visual_review": {
+    "files": [
+      "/workspace/ru_picture_producer/pilot20/P2/P2-053-Mercedes-W210-FL-Sedan/raw01-gray.jpg",
+      "/workspace/ru_picture_producer/pilot20/P2/P2-053-Mercedes-W210-FL-Sedan/raw01-dark.jpg"
+    ],
+    "reviewed_utc": "2026-11-13T20:23:21.715061+00:00",
+    "reason": "Actually viewed untouchedgray/dark: ordinarysilverW210FL four-doorSedan front1/2noseRIGHT, sourcefourflutedovallamps/finebarplainchromeradiatorgrille/FLsculptedroundedlowerbumper+rectfoglamps/mirrorindicator/sourcebroadroundedslotsilverwheels. ActualsmallFLATHOODemblem preserved NOuprightstar andno largegrillestar. Smoothroofno inventedfin/rails/mast; alltires/mirrors/bumper/trunkcornerswhole, no scenefragments/castshadow orpeopleornaments."
+  },
+  "raw_technical_review": {
+    "reason": "RawgenuineRGBAalpha0..254 completebody/tirecurves. Rawmargins34/152/53/110below80left/rightplus969disconnectedalpha<=2pixels. Onlydeterministiccleanup/puretransparent46left27rightpadding mainvehicleRGBAunchanged. Rawtechnicalfalse."
+  },
+  "technical": {
+    "raw_sha256": "199ec27d47563dcd752668665877a9730b4d10888b303998ad74dd9c6e81ebb4",
+    "clean_sha256": "31a9022f26e47122d4412b162bdb99d9eb668d6f3d7b28398ba067acb4c13a24",
+    "padded_sha256": "951015ab0b8799d227f452199835dbbcfb1f3f1448c9b93a4b4f0a826a4fd4d1",
+    "removed_pixels": 969,
+    "removed_max_alpha": 2,
+    "vehicle_rgba_unchanged": true,
+    "padding_left_top_right_bottom": [
+      46,
+      0,
+      27,
+      0
+    ],
+    "exact_translation_rgba_equal": true,
+    "size": [
+      1609,
+      1024
+    ],
+    "alpha": [
+      0,
+      254
+    ],
+    "bbox": [
+      80,
+      152,
+      1529,
+      914
+    ],
+    "margins": [
+      80,
+      152,
+      80,
+      110
+    ]
+  },
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P2/P2-053-Mercedes-W210-FL-Sedan/oss-proof.json",
+  "review_recommendation": "Rootcompare same-file1280derivative andgray/dark, especiallyactualflatroundhoodbadge/no uprightstar andsourceflutedlens/FLordinarybumper/silverwheelpattern. Derivativeandoriginal identitydistinguished, original429notretried.",
+  "scope_limits": "IndependentRUg1999_5127ordinaryFLface/body positive withinfrozen1999–2003aggregate; W210catalogphaseends2002 notclaimed2003actualSedanbuild. Exactmarketprovenance/engine/VIN/grade/scalarcertificationnotclaimed. Input1280same-filederivative notoriginalresolution/SHAcertified."
+}
