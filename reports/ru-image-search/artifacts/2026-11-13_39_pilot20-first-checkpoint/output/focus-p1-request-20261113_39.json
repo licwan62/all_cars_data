@@ -1,0 +1,35 @@
+{
+  "request_id": "P1-20261113-001",
+  "task_id": "RU-cb2efb0d6a90f01f",
+  "dimension_id": "Ford Focus Sedan 2020-2022 RU",
+  "status": "returned_saved_identity_hold_pending_coordinator_review",
+  "assigned_at": null,
+  "material_ready_at": "2026-11-13T15:45:01.705986+00:00",
+  "source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-cb2efb0d6a90f01f-C002/original.jpg",
+  "source_sha256": "3e0bf14ebf23ceb702b085c4dd908afc27d06d51f23516bc3863e9ce87b2e3cb",
+  "source_dimensions": [
+    8192,
+    5464
+  ],
+  "input_file": "/workspace/ru_picture_producer/focus-source-preview.jpg",
+  "input_sha256": "0a3211fc66bf8664b90e5c5f3118ce3430be77c73eee9cfeeb82e9ca00476b06",
+  "input_dimensions": [
+    1400,
+    934
+  ],
+  "preflight": "Only accepted hatchback/wagon found for task; no accepted Sedan or known active Sedan request in batch38. Root confirms prior returned attempt not saved and no in-flight request. Foreground white China IV sedan, elevated front three-quarter facing right, bonnet Ford oval; black roof/glass; no observed roof rails or crossbars; antenna not discernible, do not invent. Both visible tires complete in source.",
+  "authority": "Coordinator performs final review; no acceptance claimed.",
+  "prompt": "Create a precise clean photographic cutout of ONLY the foreground white Ford Focus fourth-generation Chinese-market four-door SEDAN in this reference photograph. The background SUV is a different vehicle: completely omit it and all scenery. Keep the foreground sedan's exact existing elevated front three-quarter camera, nose facing image right, with front grille, lamps and left side clearly visible, natural coherent whole-vehicle perspective. Preserve its sedan trunk profile, four doors, chrome horizontal-bar grille, small blue oval Ford badge on the bonnet above the grille, original headlamp shapes, triangular lower corner lamp housings, white mirrors and handles, black glass roof section and original multi-spoke silver wheels. Do not change it into a hatchback, wagon, ST-Line or later grille design. No roof rails, crossbars, roof box, or invented long antenna; preserve only roof details actually visible in reference. Clean dirt and excessive building/tree/cloud reflections to neutral photographic body/window reflections, keep glass opaque. Remove plate characters. The entire car, both visible tires, all mirrors and roof silhouette must be complete with generous transparent margin on all four sides, especially below wheels. Output an RGBA PNG on truly transparent alpha; there must be absolutely no ground plane, contact shadow, cast shadow, white or gray halo, studio floor, reflection below car, glow, or partly transparent cloud around tires. Use hard accurate car silhouette with only narrow natural antialiasing. Do not add simulated lighting outside the vehicle silhouette.",
+  "prompt_sha256": "0cc63e6c04e391942a43e7eb5d399c359230953a4cb47ea7de8b4c75aeb75f1f",
+  "started_at": "2026-11-13T15:45:07.704326+00:00",
+  "returned_at": "2026-11-13T15:46:33.001132+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-001-imagegen-original.png",
+  "output_sha256": "e2db6a443e5632291943e7beed07014b4d81e3b7f4b41d1e51e50545b68b73e2",
+  "output_size_bytes": 1556306,
+  "output_mode": "RGBA",
+  "output_dimensions": [
+    1535,
+    1024
+  ],
+  "assigned_at_note": "Exact dispatcher assignment timestamp not supplied; coordinator owns assignment record. Removed provisional time, no invented timestamp."
+}
