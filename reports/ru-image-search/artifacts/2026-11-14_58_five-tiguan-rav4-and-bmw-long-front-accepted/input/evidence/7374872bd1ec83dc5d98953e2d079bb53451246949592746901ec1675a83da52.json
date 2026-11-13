@@ -1,0 +1,145 @@
+{
+  "reviewed_at": "2026-11-13T19:40:29.873567+00:00",
+  "reviewer": "identity_a",
+  "plan_id": "REAR-0070",
+  "task_id": "RU-550b016a2b924c85",
+  "dimension_id": "Skoda Octavia Liftback 2004-2009 RU",
+  "recommendation": "PASS_IDENTITY_AS_SAME_VISIBLE_CONFIGURATION_FRONT_REFERENCE",
+  "accepted": false,
+  "formal_acceptance_authority": "root actual viewpoint/output final review",
+  "conclusion_zh": "源3c000337可作为冻结原款A5普通Liftback、与旧rear相同可见外观配置的真实前方参考。此结论基于原件特征、准确冻结上游与独立阶段/配置资料，不以同作者或同VIN为前提。未证明同一辆实体车，不将其写成same-car/VIN confirmed。",
+  "replaces_historical_output_sha256": "798a03c1df6d24f1f81995021a424f92d5e1063dd70e14e00b92a7ca71788bf5",
+  "actual_files": [
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/octavia-a5-9567230336-original.jpg",
+      "sha256": "3c000337dfa3999a9b187e93e9a420ff7d2dcbd34a3891ccf5e990e53cb230f5",
+      "bytes": 843854,
+      "dimensions": [
+        2048,
+        1536
+      ],
+      "decode_verified": true,
+      "actual_original_viewed": true
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/octavia-a5-25812649166-original.jpg",
+      "sha256": "306759d831ff7c8fc867df7f9afd3d81b54ad1a02abf5932e6320e47fdb84c9f",
+      "bytes": 2144746,
+      "dimensions": [
+        3200,
+        2400
+      ],
+      "decode_verified": true,
+      "actual_original_viewed": true
+    }
+  ],
+  "lineage": {
+    "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/identity-crosschecks-20261113_30.json",
+    "literal_row": [
+      "RU|skoda/octavia|II (A5)|2004-2009|Liftback|-|-",
+      "Skoda Octavia Liftback 2004-2009 RU"
+    ],
+    "scope_rows": [
+      23,
+      24
+    ],
+    "formal_inches": {
+      "L-IN": "180.0",
+      "W-IN": "69.6",
+      "H-IN": "57.6"
+    },
+    "upstream_file": "/workspace/all_cars_data/nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_dimensions_with_match_key.csv",
+    "exact_diesel_rows": [
+      {
+        "line": 64187,
+        "modification": "1.9d MT (105 hp)",
+        "dimensions_raw": "4572 x 1769 x 1462",
+        "match_key": "skoda/octavia|II (A5)|2004-2009|Liftback|-|-"
+      },
+      {
+        "line": 64188,
+        "modification": "1.9d AMT (105 hp)",
+        "dimensions_raw": "4572 x 1769 x 1462",
+        "match_key": "skoda/octavia|II (A5)|2004-2009|Liftback|-|-"
+      }
+    ],
+    "limit": "Batch30 independent review section mainly concerns Scout; not falsely cited as ordinaryA5 front comparison. Separate new ADAC reference below supplies this review."
+  },
+  "source_identity": {
+    "front_commons_page": "https://commons.wikimedia.org/wiki/File:Skoda_Octavia_1.9_TDi_Ambiente_2007_(9567230336).jpg",
+    "front_revision": "https://commons.wikimedia.org/w/index.php?oldid=1217442986",
+    "front_author": "order_242",
+    "rear_author": "RL GNZLZ",
+    "shared_flickr_owner_id": "37691369@N08",
+    "front_photo_date": "2013-06-05",
+    "rear_photo_date": "2011-02-08",
+    "source_model_label": "1.9 TDi Ambiente2007",
+    "license": "CC BY-SA2.0",
+    "license_metadata_and_revisions": "/workspace/ru_picture_producer/pilot20/source_d/octavia-a5-front-rear-license-revisions.json",
+    "front_historical_flickr_review": "2014-08-07 CC BY-SA2.0",
+    "limit": "same owner identity and same caption only support source lineage, not same individual car. Plate obscured; manufacture year/VIN/engine/gearbox not independently decoded. Photo dates not used as facelift evidence."
+  },
+  "actual_visible_correspondence_zh": [
+    "两原件均为普通A5五门Liftback轮廓：四侧门、后侧小窗、长斜背玻璃/短尾平台；无Combi长顶、Scout轮眉包围或RS运动套件。",
+    "漆面均蓝灰金属观感，日光/阴影及建筑反射不同；保留旧配置蓝灰色系，不硬认某官方漆码或逐色数值。",
+    "两车均银色弯曲五辐轮，圆中心盖及五螺栓孔布局相符；不换成多辐/运动轮，不推断原尺寸或命名。",
+    "同色把手、同色镜壳、可见镜下转向灯条、黑B柱/窗周及横向黑侧防擦条相符；没有发现应强判另一可见版本的差异。",
+    "前后车顶独立crop均实看：真实长而细的后倾天线、底座和尖端完整；无纵轨、横杆、鲨鱼鳍或顶箱。新前图相机角度造成天线投影不同，不能只留粗基座。",
+    "前图直接展示早期平直梯形双灯腔、镀铬外框直瀑格栅/顶部旧Skoda徽、黑前杠防擦条、横向下格及矩形角雾灯；不是2008后改款大外扬灯和新前杠。"
+  ],
+  "independent_phase_reference": {
+    "evidence_file": "/workspace/ru_picture_producer/pilot20/identity_a/octavia-a5-retake/adac-2006-evidence.json",
+    "pdf": "/workspace/ru_picture_producer/pilot20/identity_a/octavia-a5-retake/adac-2006-octavia-tdi.pdf",
+    "sha256": "eaaedbe2a4fdf2d38cbbf29c646dc4a194c715b6668dd72361b314c745b586a1",
+    "url": "https://assets.adac.de/image/upload/Autodatenbank/Autotest/AT1703_Skoda_Octavia_20_TDI_Elegance/Skoda_Octavia_20_TDI_Elegance.pdf",
+    "title": "ADAC Autotest Skoda Octavia2.0TDI Elegance",
+    "issue": "Stand:März2006",
+    "actually_viewed_page": "/workspace/ru_picture_producer/pilot20/identity_a/octavia-a5-retake/adac-2006-octavia-page1.png",
+    "observation_zh": "第1页原款普通五门A5前图：同类平直梯形灯/镀铬直瀑格栅/黑杠条/矩形角雾灯/弯五辐轮与源前脸结构相符，且实际后掀门图印证Liftback。",
+    "dimensions_quote": "Länge/Breite/Höhe4572mm/1769mm/1462mm",
+    "limits": "ADAC测试车为2.0TDI Elegance，不冒称候选同车或精确Ambiente级；仅阶段/普通body/前脸佐证，不移植其内装或动力。参考PDF不是生成输入。"
+  },
+  "independent_exact_grade_text": {
+    "evidence_file": "/workspace/ru_picture_producer/pilot20/identity_a/octavia-a5-retake/drom-171240-evidence.json",
+    "url": "https://www.drom.ru/catalog/skoda/octavia/171240/",
+    "title": "Skoda Octavia1.9TDI DSG Ambiente(08.2006–12.2008)",
+    "confirmed_text": [
+      "1Z3 Liftback,5doors",
+      "4572x1769x1462mm",
+      "body-colour mirrors with turn-signal repeaters",
+      "body-colour handles",
+      "front foglights; halogen headlamps; xenon optional"
+    ],
+    "positive_scope_zh": "同1.9TDI Ambiente普通五门/尺寸组合与冻结上游1.9d AMT105匹配；镜转向灯及普通外观装备不是无依据跨版拼接。不能由图片判断候选实际变速箱，目标也未冻结具体变速箱。",
+    "image_rejected": true,
+    "image_rejection_reason": "Drom页面实际自动关联现代OctaviaIV图；已实看并排除，绝不拿该配图作A5前脸证据。仅使用该精确grade文本。"
+  },
+  "market_assessment_zh": [
+    "候选及旧源均有Chile语境/牌框，作者来自Chile；这证明所见照片语境，不等同原始销售规格或制造市场证明。",
+    "冻结primary行没有China/India等显式市场分支；其1.9d105/4572x1769x1462普通Liftback组合有明确上游记录。新源没有引入与旧配置不同的可见市场装备；前脸又与独立2006欧洲普通A5测试图相符，精确Ambiente文本支持同色镜/镜转向灯/雾灯组合。正向承接到的是这一具体标准车体与可见配置，不是仅凭同名/同拍摄地或免责声明。",
+    "未发现中国明锐不同鼻脸、Scout/RS包围、长车身、右舵转换附件或额外侧镜等可见边界冲突。灯具光束制式、排放、实际发动机/原销售市场仍未知，不将图说成已核俄规。"
+  ],
+  "preserve_for_retake_zh": [
+    "蓝灰金属漆、同一可见弯五辐轮、黑侧条/杠条、同色镜壳把手及镜转向条、原款灯格栅与雾灯必须保持。",
+    "保留完整真实长细天线，不短截、粗棒化，不加纵轨/横架；按新相机合理投影，不复制roof放大crop比例。",
+    "可清场景/路影/遮牌文字/污渍；不可改为改款、Combi、Scout或RS。",
+    "前源为真正展开前格栅/双灯/完整前杠的前角图；具体成图视角、透明边缘、比例和完整车体由root逐图终验。"
+  ],
+  "excluded_reference": {
+    "file": "/workspace/ru_picture_producer/pilot20/identity_a/octavia-a5-retake/skoda-2004-brochure-evidence.json",
+    "reason": "2004UK URL实际册为OctaviaI/1U延续车型，实看PDF1/3后排除，不当作A5 phase证据。"
+  },
+  "actions": {
+    "source_metadata_read": "/workspace/ru_picture_producer/pilot20/source_d/octavia-a5-front-rear-originals.json",
+    "source_handoff_read": "/workspace/ru_picture_producer/pilot20/source_d/octavia-a5-replacement-source-candidate.json",
+    "roof_files_actually_viewed": [
+      "/workspace/ru_picture_producer/pilot20/source_d/octavia-a5-front-roof-detail.png",
+      "/workspace/ru_picture_producer/pilot20/source_d/octavia-a5-rear-roof-detail.png"
+    ],
+    "generation": false,
+    "formal_ledger_modified": false,
+    "queue_modified": false,
+    "git_modified": false
+  },
+  "next_action_zh": "仅身份/同可见配置参考建议通过，由root决定返修派发及最终输出接受；D按实际源补齐生产门槛，不普通enqueue，不新增配置计数，保留旧rear验收历史。"
+}

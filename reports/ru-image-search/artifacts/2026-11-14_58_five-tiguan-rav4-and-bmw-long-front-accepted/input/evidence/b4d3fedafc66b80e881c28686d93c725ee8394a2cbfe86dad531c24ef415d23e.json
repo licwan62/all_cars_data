@@ -1,0 +1,80 @@
+{
+  "request_id": "P1-038",
+  "claim_id": "fac00d50b49f48a6a5ffb5871643d3e0",
+  "task_id": "RU-9d024bbfb8a566a7",
+  "dimension_id": "Volkswagen Tiguan SUV 2011-2018 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-40734182-first-frame.png",
+  "input_sha256": "80f7e69430e9a14c911acb43bdde8246dac68afd71b5656c3e6240750da12a32",
+  "input_dimensions": [
+    4112,
+    3088
+  ],
+  "input_role": "lossless frame0 PNG from verified original MPO; no resizing or content edits",
+  "source_page": "https://commons.wikimedia.org/wiki/File:2011_Volkswagen_Tiguan_(5N_MY12)_155TSI_4MOTION_wagon_(2015-05-29)_01.jpg",
+  "source_license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:OSX\" title=\"User:OSX\">OSX</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "Public domain",
+    "UsageTerms": "Public domain"
+  },
+  "assigned_at": "2026-11-13T19:38:58.617786+00:00",
+  "material_ready_at": "2026-11-13T19:40:24.062759+00:00",
+  "started_at": "2026-11-13T19:40:24.062759+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-038/deterministic-repair/padded-canvas/TiguanIFacelift-roomy-transparent.png",
+  "candidate_sha256": "464dee7a4c72ae6289d84769942adc29daf94d5d56f2159599925b3f4c7495f3",
+  "worker_reviewed_at": "2026-11-13T19:43:19.926760+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root final acceptance required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-038/raw-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-038/raw-review-black.png",
+    "actually_viewed": true,
+    "reason": "Actual raw composites show complete ordinary facelift Tiguan front half noseRIGHT, twin reflector lamps/paired chrome bars/VW, actual dense splitspoke wheels, silver rails and naturally mostly hidden low black fin. Tool rendered hiddenRGB glow absent in true composites."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "body_alpha_ge16_bbox": [
+      57,
+      146,
+      1472,
+      972
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 5977,
+    "detached_max_alpha": 2,
+    "bottom_margin_px": 52,
+    "reason": "Lowalpha disconnected dust plus bottom52px needed cleanup/padding; not unchanged technical first pass."
+  },
+  "visual_review": "Actually full front/rear and local roof/fin crops plus raw/final grayblack viewed. Complete white ordinary facelift Tiguan five-door, source twin reflector headlamps not projector upgrade, paired chrome upper bars/real silver VW oval, normal lower opening/round fogs and outer short fins, black arch/lower cladding, silver dense wheels, white mirrors with indicator strip/handles, silver longitudinal rails NO crossbars. Low black rear center fin partially visible naturally front perspective, no long mast/inflated fin. Coherent front-half camera, full rounded tires/bumper/mirrors; neutral glass and white paint, no scenery/shadow/fringe.",
+  "identity_limits": "Australia RHD source representative Eurofamily body positive primary exact front comparison/frozen210PS availability, not Russia factory origin/VIN/engine/exactyear or whole interval annual equivalence. OriginalMPO frame0 lossless PNG pixelwise equality independently asserted. Public domain OSX. Samecar rear aux roof/body only, never target rear camera.",
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-038/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-038/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-038/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-038/input-oss-proof.json",
+  "auxiliary_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-038/auxiliary-source/input-oss-proof.json",
+  "raw_mpo_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-038/raw-mpo-source/input-oss-proof.json",
+  "format_equivalence_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-038/format-equivalence-proof.json",
+  "dimensions": [
+    1696,
+    1204
+  ],
+  "margins_px": [
+    137,
+    226,
+    144,
+    152
+  ],
+  "method": "One generation with verifiedfront and samecar rearroof aux.5977 disconnected alpha<=2pixels cleared; allRGB/maincarRGBA unchanged. TransparentpadL/R80top80bottom100 noresize.",
+  "tool_cost": "unknown; no tool monetary receipt"
+}
