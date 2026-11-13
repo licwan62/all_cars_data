@@ -1,0 +1,312 @@
+{
+  "description": "octavia-a4-pre-facelift-and-classic-five-configurations",
+  "actual_visual_review_complete": true,
+  "jobs_file": "/workspace/scratch/ru-octavia33-accept-jobs.json",
+  "generation_job_files": [
+    "/workspace/scratch/ru-octavia33-jobs.json",
+    "/workspace/scratch/ru-octavia33-repair-jobs.json",
+    "/workspace/scratch/ru-octavia33-wagon-repair-jobs.json"
+  ],
+  "source_manifest_files": [
+    "/workspace/scratch/ru-octavia33-five-sources.json"
+  ],
+  "existing_source_manifest_files": [],
+  "observations": [
+    "白A4原款Liftback，旧带纹矩形灯/角转灯与旧圆角低开口、竖格栅/黑杠条、四侧门/斜后窗短尾台、银轮罩/黑把手/白镜及黑侧条对应，朝右前侧视。实际源/灰深底核整车轮胎镜完整，底26px未裁胎；去雾反光/邻车/路面/牌字，无新增顶件、明显残片或外投影。",
+    "银A4改款Liftback，清亮灯组/新格栅/宽矩形低开口、黑杠侧条/银多辐轮/同色镜把手/四侧门斜后窗保持，朝右前侧视。首稿新增顶杆实退，原屋顶放大确认平滑，背景垃圾箱非附件；一次imagegen修复仅去假杆，当前灰深底无杆/fin。原路沿遮两胎底边如实记录，生成延续已见同轮形状清除路沿并完整显示胎，不冒称原件胎底直接可见。实际源/灰深底核整车镜/轮完整，去场景牌字，无明显残片/外投影。",
+    "经典红Type985 Combi，单长侧门+长载物窗的三门Wagon、圆镀铬灯/小圆转灯/黑椭圆格栅镀铬框/独立镀铬保险杠、源银轮罩/黑矩形镜和老式圆润机盖保持，朝右前侧视。冻结1959–1971聚合保留，不冒称Combi于1959即投产；不变现代五门或经典Sedan。实际源/灰深底核全车轮胎镜杠完整，去人群/展台牌/地面/灯点反射，无新增顶架或明显残片/外投影。",
+    "蓝绿A4原款普通Combi，长载物顶/后侧长窗/四侧门、带纹矩形灯/角转灯/旧低口与黑条、银五辐轮/黑把手/深镜、真实纵轨对应，朝左前侧视。首稿误加杆，屋顶原件局部核后方白竖物实际展会旗；imagegen第二稿去假杆保留纵轨，当前无杆/fin。实际源/灰深底核全车轮胎镜轨完整，草边/人群/邻车/牌字与反光清除，无明显残片或外投影。",
+    "红A4改款普通Combi，长载物顶/延长后侧窗/四侧门、清亮灯/新版低口/竖格栅与黑条、银轮罩/实际红把手红镜/黑纵轨对应，朝右前侧视。准备文字blackhandles与实际源红把手不符，输出按源红色保留。原件屋顶放大无杆，首稿假杆退回后一次imagegen仅移除，当前真实轨完整且无fin/杆。实际源/灰深底核全车轮胎镜轨完整，去邻车/路石/草/牌字与反光，无明显残片/外投影；alpha最高254保留。"
+  ],
+  "scratch_result_file": "/workspace/scratch/ru-octavia33-accepted.json",
+  "nonadopted": [
+    {
+      "job_file": "/workspace/scratch/ru-octavia33-jobs.json",
+      "index": 1,
+      "reason": "首稿新增原件屋顶未见的细杆，原件放大核附件归属后定向imagegen修复。",
+      "state": "repaired_not_adopted"
+    },
+    {
+      "job_file": "/workspace/scratch/ru-octavia33-jobs.json",
+      "index": 3,
+      "reason": "首稿新增原件屋顶未见的细杆，原件放大核附件归属后定向imagegen修复。",
+      "state": "repaired_not_adopted"
+    },
+    {
+      "job_file": "/workspace/scratch/ru-octavia33-jobs.json",
+      "index": 4,
+      "reason": "首稿新增原件屋顶未见的细杆，原件放大核附件归属后定向imagegen修复。",
+      "state": "repaired_not_adopted"
+    }
+  ],
+  "expected_previous_generated": 142,
+  "expected_previous_accepted": 131,
+  "expected_complete_tasks": 44,
+  "last_completed_task": "RU-e06e6549a4f13b62",
+  "next_task_id": "RU-5044df890a99017c",
+  "unused_source_observations": {},
+  "input_refs": [
+    "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json"
+  ],
+  "identity_crosschecks": {
+    "published_source_lineage": {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "literal_rows": [
+        [
+          "RU|skoda/octavia|I (A4) Рестайлинг|2000-2011|Liftback|-|-",
+          "Skoda Octavia Liftback 2000-2011 RU"
+        ],
+        [
+          "RU|skoda/octavia|I (A4) Рестайлинг|2000-2011|Wagon 5-door|-|-",
+          "Skoda Octavia Wagon 2000-2011 RU"
+        ],
+        [
+          "RU|skoda/octavia|I (A4)|1996-2000|Liftback|-|-",
+          "Skoda Octavia Liftback 1996-2000 RU"
+        ],
+        [
+          "RU|skoda/octavia|I (A4)|1996-2000|Wagon 5-door|-|-",
+          "Skoda Octavia Wagon 1996-2000 RU"
+        ],
+        [
+          "RU|skoda/octavia|Type 985|1959-1971|Wagon 3-door|-|-",
+          "Skoda Octavia Wagon 1959-1971 RU"
+        ]
+      ]
+    },
+    "frozen_selected_sources": [
+      {
+        "worker": "B",
+        "local_id": "B-R7-L001",
+        "task_id": "RU-75ab34a064d2bb71",
+        "dimension_id": "Skoda Octavia Liftback 1996-2000 RU",
+        "source_page": "https://www.flickr.com/photos/117096107@N03/43921597584/",
+        "original_url": "https://live.staticflickr.com/1843/43921597584_e4ce5afbcc_o.jpg",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-pre-white-lift-original-review.jpg",
+        "width": 5312,
+        "height": 2988,
+        "author": "Kieran White (Flickr kieranwhite599)",
+        "author_profile_id": "117096107@N03",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "license_text": "Actual current photo-specific Flickr rel=license anchors/title and same-photo ImageObject license verified. Adaptation with attribution/license-link/changes indication; share-alike applies for CC BY-SA2.0.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-pre-white-lift-primary-excerpt.json",
+        "actual_model": "Octavia A4/1U pre-facelift Liftback; photographer1999 1.6GLXi label",
+        "identity_evidence": "Actual original viewed: early narrow/ribbed rectangular lamps with separate-looking corner unit and early bumper openings; A4 sloping large-tailgate body matches A preFL catalog, not A5.",
+        "view": "front-side; nose right",
+        "photograph_date": "2018-03-24",
+        "uploaded_date": "2018-09-12",
+        "model_year": "Photographer label and visible family/body classification, not manufacturingdate certificate; dates separated. Frozen DIM-ID/year unchanged.",
+        "source_quality_notes": "Wide multi-car scene; haze/glare and nearby cars around far rear edge, intended subject is white Octavia. Wheel/OEM status not independently certified.",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round7-a4-pre-white-lift-original.jpg",
+        "sha256": "9cbe814cc8ae57781c573e37b63f5e6c14de14298ef829becbcf80dc76f6781d",
+        "sha1": "4981e891ab1e4c25ef349d395469697d0b8cf808",
+        "original_bytes": 4193364,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/484-a4-pre-white-lift-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/484-a4-pre-white-lift-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/501-round7-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-pre-white-lift-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/source-map-extract.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a-older-identity-reference.json"
+        ],
+        "production_eligibility_note": "pending independent root selection/review; source licensing verified"
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R7-L002",
+        "task_id": "RU-e06e6549a4f13b62",
+        "dimension_id": "Skoda Octavia Liftback 2000-2011 RU",
+        "source_page": "https://www.flickr.com/photos/juanelo242a/50566893162/",
+        "original_url": "https://live.staticflickr.com/65535/50566893162_88537c6abb_o.jpg",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-fl-silver-lift-original-review.jpg",
+        "width": 4000,
+        "height": 2400,
+        "author": "RL GNZLZ (Flickr juanelo242a; historical alias order_242)",
+        "author_profile_id": "37691369@N08",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "license_text": "Actual current photo-specific Flickr rel=license anchors/title and same-photo ImageObject license verified. Adaptation with attribution/license-link/changes indication; share-alike applies for CC BY-SA2.0.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-fl-silver-lift-primary-excerpt.json",
+        "actual_model": "Octavia A4/1U facelift Liftback; photographer2003 2.0Ambiente label",
+        "identity_evidence": "Actual original viewed: brighter clear-lens headlight units, revised grille/lower rectangular corner openings, still A4 body and Liftback roof/tail, matching A facelift catalog. Not A5 despite later aggregate endyear.",
+        "view": "front-side; nose right",
+        "photograph_date": "2013-05-26",
+        "uploaded_date": "2020-11-04",
+        "model_year": "Photographer label and visible family/body classification, not manufacturingdate certificate; dates separated. Frozen DIM-ID/year unchanged.",
+        "source_quality_notes": "QUALITY LIMITED: curb obscures bottom portions of both visible tires, multi-spoke wheel OEM status unverified; root should assess or replace before production. Main body/fascia clear.",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round7-a4-fl-silver-lift-original.jpg",
+        "sha256": "621d85030b613667877b20f3e84d01572beafb1a3c4d36455fe98184d86ee8b9",
+        "sha1": "20fa5a4069b6dbe5fb6dfa74c71a43727ddc4fe5",
+        "original_bytes": 2753158,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/479-a4-fl-lift-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/479-a4-fl-lift-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/499-round7-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-fl-silver-lift-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/source-map-extract.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a-older-identity-reference.json"
+        ],
+        "production_eligibility_note": "pending independent root selection/review; source licensing verified"
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R7-W001",
+        "task_id": "RU-3fb3a1647dd1eadc",
+        "dimension_id": "Skoda Octavia Wagon 1959-1971 RU",
+        "source_page": "https://www.flickr.com/photos/rutgervandermaar/54172383925/",
+        "original_url": "https://live.staticflickr.com/65535/54172383925_cf599f9b35_o.jpg",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/classic-red-wagon-original-review.jpg",
+        "width": 2047,
+        "height": 1448,
+        "author": "Rutger van der Maar",
+        "author_profile_id": "rutgervandermaar",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "license_text": "Actual current photo-specific Flickr rel=license anchors/title and same-photo ImageObject license verified. Adaptation with attribution/license-link/changes indication; share-alike applies for CC BY-SA2.0.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/classic-red-wagon-primary-excerpt.json",
+        "actual_model": "Classic Octavia Combi within frozen Type985 family; photographer1965 model, InterClassics Brussels2024",
+        "identity_evidence": "Actual original viewed: classic round lamps, separate chrome bumper, one long side door per side plus rear tailgate/long cargo glazing Combi body, not classic Sedan or modern5-door. Matches A Type985 Wagon3-door reference. Preserve frozen1959-1971 aggregation; Combi sub-body start1961 is not a DIM-ID rewrite.",
+        "view": "front-side; nose right",
+        "photograph_date": "2024-11-15",
+        "uploaded_date": "2024-11-29",
+        "model_year": "Photographer label and visible family/body classification, not manufacturingdate certificate; dates separated. Frozen DIM-ID/year unchanged.",
+        "source_quality_notes": "Indoor reflections, nearby display stand at far front corner and spectator head at lower frame edge; principal body substantially visible. Root should assess edge clearance.",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round7-classic-red-wagon-original.jpg",
+        "sha256": "ce366b7fbba09ca4f554462c931ce7dc6ce0f75e5c5d7469338060e02cb6a149",
+        "sha1": "dd00d015a55237c5c373ebc09a6a5395387d9913",
+        "original_bytes": 1348470,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/480-classic-front-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/480-classic-front-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/500-round7-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/classic-red-wagon-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/source-map-extract.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a-older-identity-reference.json"
+        ],
+        "production_eligibility_note": "pending independent root selection/review; source licensing verified"
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-W001",
+        "task_id": "RU-75ab34a064d2bb71",
+        "dimension_id": "Skoda Octavia Wagon 1996-2000 RU",
+        "source_page": "https://www.flickr.com/photos/117096107@N03/54155143519/",
+        "original_url": "https://live.staticflickr.com/65535/54155143519_eb169c04d2_o.jpg",
+        "author": "Kieran White",
+        "author_profile_id": "117096107@N03",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "license_text": "Current photo-specific rel=license anchors and same-photo ImageObject license verified; adaptation allowed with attribution, license link and changes indication; share-alike applies to BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/600-license-excerpt.json",
+        "actual_model": "A4/1U pre-facelift ordinary five-door Combi: ribbed rectangular headlamps and corner indicator, early bumper apertures; long roof and cargo side glazing. Year2000 title overlaps phases; visible preFL fascia resolves classification.",
+        "identity_evidence": "A4/1U pre-facelift ordinary five-door Combi: ribbed rectangular headlamps and corner indicator, early bumper apertures; long roof and cargo side glazing. Year2000 title overlaps phases; visible preFL fascia resolves classification.",
+        "view": "front-side; nose left",
+        "source_quality_notes": "Multi-car show with reflections and mild haze; whole car, both visible tires, both bumpers, mirrors and roof rails inside image. Adjacent cars do not occlude main silhouette.",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/600-preview.jpg",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/600-review.jpg",
+        "sha256": "0caf516275b961d25143aba0055edfd94f7feb88ebf9642abdff61edc2059dd6",
+        "sha1": "be6c3b19ad6c932b2fbe559589bbfb9ee40ad35a",
+        "original_bytes": 4738258,
+        "width": 4624,
+        "height": 2604,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "pending independent root selection/review; actual original viewed by B",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/600-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/600-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/610-preview.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/600-license-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/source-map-extract.json"
+        ]
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-W002",
+        "task_id": "RU-e06e6549a4f13b62",
+        "dimension_id": "Skoda Octavia Wagon 2000-2011 RU",
+        "source_page": "https://www.flickr.com/photos/juanelo242a/14488752441/",
+        "original_url": "https://live.staticflickr.com/3865/14488752441_44eb5b4372_o.jpg",
+        "author": "RL GNZLZ",
+        "author_profile_id": "37691369@N08",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "license_text": "Current photo-specific rel=license anchors and same-photo ImageObject license verified; adaptation allowed with attribution, license link and changes indication; share-alike applies to BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/602-license-excerpt.json",
+        "actual_model": "A4/1U facelift ordinary five-door Combi: clear lamp optics and revised rectangular lower bumper openings; A4 roof/doors and long cargo glazing, not later A5. Photographer labels2005 Ambiente, no RS kit.",
+        "identity_evidence": "A4/1U facelift ordinary five-door Combi: clear lamp optics and revised rectangular lower bumper openings; A4 roof/doors and long cargo glazing, not later A5. Photographer labels2005 Ambiente, no RS kit.",
+        "view": "front-side; nose right",
+        "source_quality_notes": "Bright saturated red and strong reflections; nearby parked cars around edges. Whole subject including both tires/bumpers/mirrors/roof rails visible, no curb over tire bottoms.",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/602-preview.jpg",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/602-review.jpg",
+        "sha256": "44126d6c6a4723f503794a097ed839f6d8358b8406b25d588ac35aec9c700016",
+        "sha1": "1f5d61ea28ec9abcbc5c8bd0275baac0df516b1c",
+        "original_bytes": 1562331,
+        "width": 3200,
+        "height": 2400,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "pending independent root selection/review; actual original viewed by B",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/602-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/602-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/612-preview.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/602-license-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/source-map-extract.json"
+        ]
+      }
+    ],
+    "independent_applicability_file": "worker-a/round5/octavia-older-applicability.json; worker-b/round7/a-older-identity-reference.json",
+    "limitations": "ClassicCombi start1961 separate frozen aggregate1959. A4FL Lift source curb hides tire loweredge, generation clean continuation recorded not source direct visibility. No OEMwheel/VIN/precise modelyear/scalar certification. Original roofdetail confirms NO aerial on twoCombis and FL Lift; initial inventedrod failures retained and exactly3 one-shot repairs returned. Native originals unchanged; no Pythonfinal editing."
+  },
+  "archive_code_files": [
+    "/workspace/scratch/ru_import_octavia33.py",
+    "/workspace/scratch/ru_prepare_octavia33.py",
+    "/workspace/scratch/ru_review_octavia33.py"
+  ],
+  "archive_json_files": [
+    "/workspace/scratch/ru-octavia33-five-frozen.json",
+    "/workspace/scratch/ru-octavia33-source-contact.jpg",
+    "/workspace/scratch/ru-octavia33-fl-lift-roof.jpg",
+    "/workspace/scratch/ru-octavia33-source-roof-3.jpg",
+    "/workspace/scratch/ru-octavia33-source-roof-4.jpg",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/octavia-five-handoff.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/CONTINUE.md",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/CONTINUE.md",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round5/octavia-older-applicability.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/484-a4-pre-white-lift-photo.html",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-pre-white-lift-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/source-map-extract.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a-older-identity-reference.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/479-a4-fl-lift-photo.html",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/a4-fl-silver-lift-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/480-classic-front-photo.html",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round7/classic-red-wagon-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/600-photo.html",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/600-license-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/602-photo.html",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/602-license-excerpt.json",
+    "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-e06e6549a4f13b62/Octavia-A4-FL-Liftback/attempt01/review-failure.json",
+    "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-75ab34a064d2bb71/Octavia-A4-Combi/attempt01/review-failure.json",
+    "/workspace/ru_picture_producer/来源/俄罗斯/自主续作/RU-e06e6549a4f13b62/Octavia-A4-FL-Combi/attempt01/review-failure.json"
+  ],
+  "report_body": "# Octavia A4前后款及classicCombi五配置\n\n新增采用5张，3任务闭合。真实生成8次含3个新增顶杆失败首稿和3次定向修复，全部返回；源/灰/深底逐图实际查看，私有OSS全量GET验SHA/字节/解码。\n\n原款带纹灯/旧低口与改款清亮灯/新版低口分开，Liftback与普通Combi长顶分开；Type985保持单侧长门的经典三门Combi，属于冻结CSV范围不扩任务。原件屋顶放大核蓝后白竖物为展会旗、银后灰盖是垃圾箱、红车只有纵轨，三首稿假杆各一次imagegen去除，完整原件与失败凭证保留。银Lift原路沿挡部分胎底如实记录，生成清理路沿显示完整同轮；不冒称源胎底直接可见。"
+}

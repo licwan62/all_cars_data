@@ -1,0 +1,399 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations",
+  "version": "20261113_33",
+  "description": "octavia-a4-pre-facelift-and-classic-five-configurations",
+  "created_at": "2026-11-13T12:17:59+00:00",
+  "finished_at": "2026-11-13T12:18:00+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch33-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/progress-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/progress-20261113_32.json",
+      "sha256": "b2b9154fdac1a87744f8bac1ca73a3685d64cb954a067893df2b986e39554696"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/current-accepted-configuration-index-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/current-accepted-configuration-index-20261113_32.json",
+      "sha256": "dadc0be350735252892950a78ced086641c76a4ff01169e39530dda9b62ea44e"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/candidates-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/candidates-20261113_32.json",
+      "sha256": "f71f844cf719afbbd383eb07984aea952d9730229c58c82924582933df6167c4"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "ccdc511a9fc7f9680cfef94f9d3d34d594ee75c9",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/identity-crosschecks-20261113_33.json",
+      "content_reference": true,
+      "sha256": "9d9079c5e546f542bcb64bbbc4127d04b01a964787dd79e2ecebe46c5e2318f8",
+      "bytes": 17222,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/accepted-configurations-20261113_33.json",
+      "content_reference": true,
+      "sha256": "0fe4bbb507045f6377e4cb6c9c8725e53296d11ade382191cbd8fe355fc3c598",
+      "bytes": 49462,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/current-accepted-configuration-index-20261113_33.json",
+      "content_reference": true,
+      "sha256": "7a054a6d702583cb101937b418ba99bde65bc4852e0d35903f0a3281d7b44a0d",
+      "bytes": 1330149,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/nonadopted-history-20261113_33.json",
+      "content_reference": true,
+      "sha256": "8e0a0205a7a3c010848ec212c96ad7535edee7a16e17a157987c55820eaf56dc",
+      "bytes": 19339,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/generation-requests-20261113_33.json",
+      "content_reference": true,
+      "sha256": "87ec53caca131e35299883283632fcb8e04986e353b52bc9d191fbd03970a633",
+      "bytes": 34472,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/new-source-original-evidence-20261113_33.json",
+      "content_reference": true,
+      "sha256": "30d2caed16d922194be4da004f23fb2189197936f10d4555d47d0b0b1a5d2466",
+      "bytes": 17273,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/candidates-20261113_33.json",
+      "content_reference": true,
+      "sha256": "73c22473a91ab290b1ae5d232dcfc5e9005e8ccd3627ffbc1cc23b58ea87fa90",
+      "bytes": 412575,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_33.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/output/progress-20261113_33.json",
+      "content_reference": true,
+      "sha256": "2429477ceaeeb025bceb0d482737320ca1dbfa000559a431b8b5931589acfc36",
+      "bytes": 2289516,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru-batch33-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_import_octavia33.py",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_prepare_octavia33.py",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_review_octavia33.py",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-five-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-source-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-fl-lift-roof.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-source-roof-3.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-source-roof-4.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/octavia-five-handoff.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/CONTINUE.md",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/CONTINUE.md",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/octavia-older-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/484-a4-pre-white-lift-photo.html",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/a4-pre-white-lift-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/source-map-extract.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/a-older-identity-reference.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/479-a4-fl-lift-photo.html",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/a4-fl-silver-lift-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/480-classic-front-photo.html",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/classic-red-wagon-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/600-photo.html",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/600-license-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/602-photo.html",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/602-license-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/review-failure.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/review-failure.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/review-failure.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch33-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru-batch33-review.json",
+      "sha256": "14d948c3f7c0bdee7400dbec7155c13945b6aa681043680dbf00bb6d068c9431",
+      "bytes": 24940
+    },
+    {
+      "file": "extra/executed-code/ru_import_octavia33.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_import_octavia33.py",
+      "sha256": "3ca40f8cadbbf96ad2689eb761eb1585f24b4b86d1227ae6f1e9f4e473051343",
+      "bytes": 3247
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_octavia33.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_prepare_octavia33.py",
+      "sha256": "12abceeaebfc4f4da22ce4115f2efc5fbeba78c6f661ae47c1e87d1685269c7b",
+      "bytes": 5039
+    },
+    {
+      "file": "extra/executed-code/ru_review_octavia33.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/executed-code/ru_review_octavia33.py",
+      "sha256": "a351bb44e811a8d54db0f4db1493c3c62529fa57f225e7559bc12fe01e8ba88e",
+      "bytes": 1633
+    },
+    {
+      "file": "extra/search-evidence/ru-octavia33-five-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-five-frozen.json.gz",
+      "sha256": "c8e1faa03c68a87ba522c2dbf630665f12824d1949bab951f237e30d48e2cb98",
+      "bytes": 3174
+    },
+    {
+      "file": "extra/search-evidence/ru-octavia33-source-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-source-contact.jpg",
+      "sha256": "a73ed18fb1f94f3c87870fbec3a2c07bf8d215750df3f3a43e7b5d61f5b34bfa",
+      "bytes": 375084
+    },
+    {
+      "file": "extra/search-evidence/ru-octavia33-fl-lift-roof.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-fl-lift-roof.jpg",
+      "sha256": "93e0329382fda2bdcfca59db88ec325b6864d87c6eb0d57ebc80924581cd8c32",
+      "bytes": 260293
+    },
+    {
+      "file": "extra/search-evidence/ru-octavia33-source-roof-3.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-source-roof-3.jpg",
+      "sha256": "de8db9168ebe6c34debd6a118274dedbcf63ecd3a984f419ac0b6c0ce397e143",
+      "bytes": 819336
+    },
+    {
+      "file": "extra/search-evidence/ru-octavia33-source-roof-4.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/ru-octavia33-source-roof-4.jpg",
+      "sha256": "f8aba931e2be317ddd67b1ceab94fed5e9569f1d29eb71c2ef00ccb5ccc810ea",
+      "bytes": 603215
+    },
+    {
+      "file": "extra/search-evidence/octavia-five-handoff.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/octavia-five-handoff.json.gz",
+      "sha256": "7bc56103d88e8844449db7253e9ac486f05f9a8a28e075a4cff1cd3dbb673f9c",
+      "bytes": 3512
+    },
+    {
+      "file": "extra/search-evidence/CONTINUE.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/CONTINUE.md",
+      "sha256": "f51d41c432f3d62f34baefe8fa82d840cd292daaf5f5834e804e2bcd2fb891db",
+      "bytes": 4594
+    },
+    {
+      "file": "extra/search-evidence/CONTINUE.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/CONTINUE.md",
+      "sha256": "f51d41c432f3d62f34baefe8fa82d840cd292daaf5f5834e804e2bcd2fb891db",
+      "bytes": 4594
+    },
+    {
+      "file": "extra/search-evidence/octavia-older-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/octavia-older-applicability.json.gz",
+      "sha256": "976ac4f136bbda596096769dd71ac84c4b6af32aa21cd879befb500bbde2d572",
+      "bytes": 16845
+    },
+    {
+      "file": "extra/search-evidence/484-a4-pre-white-lift-photo.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/484-a4-pre-white-lift-photo.html",
+      "sha256": "b25c49ec9982c0121f82ae98aedcdc8a532cc25dc36c285bdbf51b446df81887",
+      "bytes": 151874
+    },
+    {
+      "file": "extra/search-evidence/a4-pre-white-lift-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/a4-pre-white-lift-primary-excerpt.json.gz",
+      "sha256": "8cc9e4a9e9b318541669e7a22594a19d77bf52d30728404f59315480840f4937",
+      "bytes": 647
+    },
+    {
+      "file": "extra/search-evidence/source-map-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/source-map-extract.json.gz",
+      "sha256": "14a4f9e206c8e51c438bd506f53eab811ec2843055c0e2766b06aa56ddffde5d",
+      "bytes": 195
+    },
+    {
+      "file": "extra/search-evidence/a-older-identity-reference.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/a-older-identity-reference.json.gz",
+      "sha256": "fbc6b5f6d3cb3c6138334a090ed6b567aa2afab0ed317490535e6f2abb4bf0a6",
+      "bytes": 3882
+    },
+    {
+      "file": "extra/search-evidence/479-a4-fl-lift-photo.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/479-a4-fl-lift-photo.html",
+      "sha256": "297abf1e2a0d502fa5bda2d1bf502e781a56a575ae107527bc9ce5792def11a2",
+      "bytes": 152066
+    },
+    {
+      "file": "extra/search-evidence/a4-fl-silver-lift-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/a4-fl-silver-lift-primary-excerpt.json.gz",
+      "sha256": "efbdc08692ce61c42e67b547fe2c4f35ad23cbabe86d15cb845ffa093c1b224d",
+      "bytes": 701
+    },
+    {
+      "file": "extra/search-evidence/480-classic-front-photo.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/480-classic-front-photo.html",
+      "sha256": "79be917d323022747ac2e878b8098e897fd6c8bede4162a07b0b46e28f3ec655",
+      "bytes": 152091
+    },
+    {
+      "file": "extra/search-evidence/classic-red-wagon-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/classic-red-wagon-primary-excerpt.json.gz",
+      "sha256": "b7eb5b89e5bf4dd0de611bf6e8b66771fa987547ab47e16759e3c0392a0b6c54",
+      "bytes": 684
+    },
+    {
+      "file": "extra/search-evidence/600-photo.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/600-photo.html",
+      "sha256": "e39e3fb008dcdb1667e3858bc47e372bf2cd72040f6512d5e9fbf8884d49e1d2",
+      "bytes": 157994
+    },
+    {
+      "file": "extra/search-evidence/600-license-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/600-license-excerpt.json.gz",
+      "sha256": "8a5a6670833df84b417ae5ac8d3aca390caab3cfe4bd111e45c6fd9608768463",
+      "bytes": 774
+    },
+    {
+      "file": "extra/search-evidence/602-photo.html",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/602-photo.html",
+      "sha256": "40f274d2d8860bc80e60868fb444983cdb95d158c81dde6a9595de014b3a67db",
+      "bytes": 158904
+    },
+    {
+      "file": "extra/search-evidence/602-license-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/602-license-excerpt.json.gz",
+      "sha256": "ed4176b5df085789b6bd249bd8ee8627bc16da358bfc9d2bfaf63069cd226b20",
+      "bytes": 789
+    },
+    {
+      "file": "extra/search-evidence/review-failure.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/review-failure.json.gz",
+      "sha256": "5a3d65132c1b35951a8f8d10839cd6bd428c4e2360931b51f75c1509aceb1505",
+      "bytes": 312
+    },
+    {
+      "file": "extra/search-evidence/review-failure.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/review-failure.json.gz",
+      "sha256": "5a3d65132c1b35951a8f8d10839cd6bd428c4e2360931b51f75c1509aceb1505",
+      "bytes": 312
+    },
+    {
+      "file": "extra/search-evidence/review-failure.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_33_octavia-a4-pre-facelift-and-classic-five-configurations/extra/search-evidence/review-failure.json.gz",
+      "sha256": "5a3d65132c1b35951a8f8d10839cd6bd428c4e2360931b51f75c1509aceb1505",
+      "bytes": 312
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 8,
+    "accepted_configurations_this_batch": 5,
+    "nonadopted_outputs_preserved": 3,
+    "accepted_tasks_total": 44,
+    "accepted_configurations_total": 136
+  }
+}
