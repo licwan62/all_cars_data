@@ -92,7 +92,8 @@ class RetakeTests(unittest.TestCase):
 
     def reopen(self, **changes):
         return self.cli('reopen-retake', '--actor', 'root', '--file', str(changes.get('file', self.source_file)),
-            '--plan-id', 'REAR-0114', '--expected-accepted-sha256', changes.get('old_sha', self.row['plan_rear_sha256']))
+            '--plan-id', 'REAR-0114', '--expected-accepted-sha256', changes.get('old_sha', self.row['plan_rear_sha256']),
+            '--retake-plan', retake.DEFAULT_RETAKE_PLAN)
 
     def args(self, replacement=True):
         from argparse import Namespace

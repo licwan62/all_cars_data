@@ -21,7 +21,7 @@ sys.path.insert(0, str(REPO / 'lib'))
 from artifact_batch import RunBatch
 from ru_pilot_queue import DEFAULT_CHECKPOINT, load_scope
 from ru_pilot_front_gate import prepare as prepare_front_gate, apply as apply_front_gate
-from ru_pilot_retake import DEFAULT_RETAKE_PLAN, load_plan, current_state, validate_old, validate_front, report as retake_report
+from ru_pilot_retake import DEFAULT_RETAKE_PLAN, load_plan, load_selected_plan, current_state, validate_old, validate_front, report as retake_report
 
 
 def digest(raw):
@@ -65,7 +65,7 @@ def validate(args):
     replacement = getattr(args, 'replacement', False)
     retake_plan = None
     if replacement:
-        retake_plan = load_plan(args.retake_plan, args.plan_file)
+        retake_plan = load_selected_plan(args.checkpoint, args.retake_plan, args.plan_file, checkpoint=cp)
         formal = current_state(cp_path)
         if formal['cp_raw'] != cp_raw:
             raise ValueError('checkpoint changed during replacement validation; retry')
@@ -133,6 +133,7 @@ def validate(args):
                 progress_raw=progress_raw, index=index, index_path=index_path, index_raw=index_raw,
                 inputs_path=inputs_path, inputs_raw=inputs_raw, entries=entries, evidence=evidence,
                 replacement=replacement, retake_plan=retake_plan,
+                retake_mapping_override=getattr(args, 'retake_plan', None), retake_plan_override=getattr(args, 'plan_file', None),
                 candidates_path=candidates_path, candidates_raw=candidates_raw)
 
 
@@ -366,7 +367,7 @@ def build(data, batch_path, version):
     plan = data.get('retake_plan')
     if plan is None:
         try:
-            plan = load_plan(DEFAULT_RETAKE_PLAN)
+            plan = load_selected_plan(data['cp_path'], data.get('retake_mapping_override'), data.get('retake_plan_override'), checkpoint=data['cp'])
         except (OSError, ValueError, KeyError, TypeError) as exc:
             plan = None
             progress['front_retake_reconciliation'] = {'status': 'plan_unavailable', 'pending_front_retakes': None, 'error': str(exc)}
@@ -480,7 +481,7 @@ def main():
     parser.add_argument('--day', default=date.today().isoformat())
     parser.add_argument('--description', default='pilot-root-reviewed')
     parser.add_argument('--replacement', action='store_true', help='Explicit root planned rear-to-front replacement; never adds accepted configurations')
-    parser.add_argument('--retake-plan', default=DEFAULT_RETAKE_PLAN)
+    parser.add_argument('--retake-plan', help='Explicit mapping override; otherwise current checkpoint pointer, then legacy20')
     parser.add_argument('--plan-file')
     parser.add_argument('--front-view-gate', help='Root-provided current-SHA front1/3 or1/2 camera revalidation gate')
     parser.add_argument('--metrics-report', help='Current-checkpoint-SHA-bound runtime metrics report')

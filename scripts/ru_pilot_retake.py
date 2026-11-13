@@ -52,6 +52,37 @@ def load_plan(mapping_file, plan_file=None):
             'plan_file': str(original_path), 'plan_sha256': sha(original_raw)}
 
 
+
+def load_selected_plan(checkpoint_file=None, mapping_file=None, plan_file=None, checkpoint=None):
+    """Explicit mapping wins; otherwise use SHA-bound current checkpoint pointers.
+
+    Old checkpoints without a pointer retain the original20-plan fallback.
+    A bad current pointer is never silently replaced with the old plan.
+    """
+    if mapping_file is not None:
+        selected = load_plan(mapping_file, plan_file)
+        selected['selection'] = 'explicit_mapping'
+        return selected
+    cp = checkpoint if checkpoint is not None else json.loads(resolve(checkpoint_file).read_bytes())
+    mapping = cp.get('front_retake_mapping_file')
+    if not mapping:
+        selected = load_plan(DEFAULT_RETAKE_PLAN, plan_file)
+        selected['selection'] = 'legacy_default'
+        return selected
+    mapping_path = resolve(mapping)
+    if not cp.get('front_retake_mapping_sha256') or sha(mapping_path.read_bytes()) != cp['front_retake_mapping_sha256']:
+        raise ValueError('current checkpoint retake mapping pointer SHA mismatch')
+    selected = load_plan(mapping_path, plan_file or cp.get('front_retake_plan_file'))
+    if cp.get('front_retake_plan_file'):
+        pointed_plan = resolve(cp['front_retake_plan_file'])
+        if (not cp.get('front_retake_plan_sha256')
+                or sha(pointed_plan.read_bytes()) != cp['front_retake_plan_sha256']
+                or selected['plan_sha256'] != cp['front_retake_plan_sha256']):
+            raise ValueError('current checkpoint retake plan pointer SHA mismatch')
+    selected['selection'] = 'checkpoint_pointer'
+    return selected
+
+
 def current_state(checkpoint_file):
     cp_path = resolve(checkpoint_file)
     cp_raw = cp_path.read_bytes()

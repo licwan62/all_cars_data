@@ -17,7 +17,7 @@ import uuid
 REPO = Path(__file__).resolve().parents[1]
 DEFAULT_CHECKPOINT = REPO / 'reports/ru-image-search/work/checkpoint.json'
 DEFAULT_QUEUE = '/workspace/ru_picture_producer/pilot20/queue'
-from ru_pilot_retake import DEFAULT_RETAKE_PLAN, load_plan, current_state, validate_old, report as retake_report
+from ru_pilot_retake import DEFAULT_RETAKE_PLAN, load_plan, load_selected_plan, current_state, validate_old, report as retake_report
 
 REQUIRED = ('task_id', 'dimension_id', 'source_file', 'source_sha256', 'source_page',
             'license', 'identity_evidence', 'scope_rows', 'catalog_rank')
@@ -163,7 +163,6 @@ def execute(args):
             raise ValueError('reopen-retake accepts exactly one source record')
         verify_source(records[0], base)
         verify_scope(records[0], load_scope(args.checkpoint))
-        plan = load_plan(args.retake_plan, args.plan_file)
     if args.command == 'requeue-held':
         source_record_sha256 = hashlib.sha256(Path(args.file).resolve().read_bytes()).hexdigest()
         base, records = read_records(args.file)
@@ -262,6 +261,7 @@ def execute(args):
         elif args.command == 'reopen-retake':
             record = records[0]
             formal = current_state(args.checkpoint)
+            plan = load_selected_plan(args.checkpoint, args.retake_plan, args.plan_file, checkpoint=json.loads(formal['cp_raw']))
             old_accepted, requirement = validate_old(plan, formal, args.plan_id,
                 record['task_id'], record['dimension_id'], args.expected_accepted_sha256)
             if set(record['scope_rows']) != set(requirement['scope_rows']):
@@ -356,9 +356,12 @@ def execute(args):
             output = {'counts': dict(Counter(i['status'] for i in state['items'])),
                       'total': len(state['items']), 'ready': pressure(state),
                       'enqueue_paused': state['enqueue_paused'], 'config': state['config']}
-    if args.command == 'stats' and args.retake_plan:
-        plan = load_plan(args.retake_plan, args.plan_file)
-        output['retakes'] = retake_report(plan, current_state(args.checkpoint)['index'])
+    if args.command == 'stats':
+        cp = json.loads(Path(args.checkpoint).resolve().read_bytes())
+        if args.retake_plan is not None or cp.get('front_retake_mapping_file') or cp.get('acceptance_file'):
+            formal = current_state(args.checkpoint)
+            plan = load_selected_plan(args.checkpoint, args.retake_plan, args.plan_file, checkpoint=json.loads(formal['cp_raw']))
+            output['retakes'] = retake_report(plan, formal['index'])
     return output
 
 
@@ -394,7 +397,7 @@ def main():
     reopen.add_argument('--file', required=True)
     reopen.add_argument('--plan-id', required=True)
     reopen.add_argument('--expected-accepted-sha256', required=True)
-    reopen.add_argument('--retake-plan', default=DEFAULT_RETAKE_PLAN)
+    reopen.add_argument('--retake-plan', help='Explicit mapping override; otherwise current checkpoint pointer, then legacy20')
     reopen.add_argument('--plan-file')
     stats_parser = commands.add_parser('stats')
     stats_parser.add_argument('--retake-plan', help='Optional read-only current 20-plan front-retake report')
