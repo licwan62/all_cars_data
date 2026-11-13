@@ -6,12 +6,12 @@
 
 - 500行原CSV → 1309个既有车型/代际任务 → 2394条冻结图片要求。每个任务可含多个车身/版本要求，全部子要求验收才计1个完整任务。
 - “本批采用”与“累计采用”分别报。第20批本批新增9张，58张是截至该批累计，其中50张组成13个完整任务、8张位于3个部分完成任务（Focus两项各2/3，Vesta NG4/8）。不是本批一次采用58张，也没有为新计数改拆任务。
-- 当前第30批本批新增6张；累计121/2394条图片外观覆盖、完整38/1309项任务。实际生成132张含失败/返修，不能把生成量当验收覆盖；CSV完整18/500行。
+- 当前第31批本批新增5张；累计126/2394条图片外观覆盖、完整40/1309项任务。实际生成137张含失败/返修，不能把生成量当验收覆盖；CSV完整18/500行。
 
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_30，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_31，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -224,3 +224,10 @@ L2026初步短查询无命中，扩展型号检索后找到社区实车；官方
 原款Scout源只后侧，A未找到同车前脸，保留不确定性；作者2008–2009标签、明确Scout包围与品牌Scout2009才更新的独立史料足供原款代表族绑定，不宣称直接核不可见前脸/VIN/精确年。实际后视保留，不设置全局前脸机位门槛。仅PDM的dealer源未生成，改用明确PD-self普通Wagon。
 
 下一步B已交A7原款Liftback/Scout/Combi与A8改款Liftback/Combi五原件，主会话已实看整车、SHA与私有OSS完整读回，准备实际生成。B继续A4前后改款与classic冻结范围五要求；C继续2018Corolla五体、已得真正GR初发脸原件；A补后续Corolla差异指南。范围和暂停边界不变。
+
+
+## 第31批：A7原款与A8改款五配置
+
+新增5张，累计126/2394条、完整40/1309项，CSV完整18/500；实际生成137张全部返回，无未知请求。A7原款Liftback/Combi/Scout三体与A8改款Liftback/Combi两体闭合。五源/成品/必要过程均私有OSS完整GET/SHA/字节数/解码通过，源/灰/深底逐张实际查看。A7保持单完整原款头灯、蓝Combi真实横架及顶杆；A8白Liftback基础LED与灰Combi Matrix差异按各源保留，邻车零件未带入。alpha最高254原生保留。
+
+按用户指定，后续实际执行协调及三路替代找图任务均显式GPT-6.1 Sol/medium；旧A/B/C安全停止后，复用各自独立profile/downloads，未重放旧命令或重复下载。接收0–2既有返回只验收，3–4各一次新生成。新B补A4两普通Wagon，新C已交2017 Axio/Fielder并继续E210改款，新A核身份及旧Corolla指南。下一步先导入C round6完整五原件制作E210初发族，不因A4缺口停住。全部1309项完成后暂停，范围外/NAS不动。
