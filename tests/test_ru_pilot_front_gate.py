@@ -135,6 +135,28 @@ class FrontGateTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 data=publish.validate(self.args);publish.prepare_optional(data,self.args)
 
+    def test_replacement_overrides_old_bound_gate_without_increasing_historical_count(self):
+        # Critical old-SHA gate + new-SHA replacement interaction. The image and
+        # review here are synthetic isolated fixtures, not a business approval.
+        old=next(e for e in self.index if camera.accepted_sha(e)=='c4bd940e3f1d1a09318d596883681a0d42c98a1d373d072eb498ac14eaf8c184')
+        entry=self.new_entries()[0]
+        entry.update(task_id=old['task_id'],dimension_id=old['dimension_id'],scope_rows=old['scope_rows'],
+                     plan_id='REAR-0114',replaces_sha256=camera.accepted_sha(old))
+        entry['root_signoff'].update(plan_id=entry['plan_id'],replaces_sha256=entry['replaces_sha256'])
+        self.input.write_text(json.dumps([entry]))
+        self.args.replacement=True
+        result=publish.execute(self.args)
+        summary=result['current_front_view']
+        self.assertEqual(summary['current_front_view_accepted_configurations'],46)
+        self.assertEqual(summary['current_front_view_needs_retake_configurations'],20)
+        self.assertEqual(summary['current_front_view_pending_review_configurations'],140)
+        self.assertEqual(summary['historical_accepted_configurations'],206)
+        self.assertEqual(result['counts_after']['accepted_dimension_records'],206)
+        # Missing signature cannot use the gate's old approval or a changed SHA.
+        entry['root_signoff']['actor']='worker-not-root'
+        self.input.write_text(json.dumps([entry]))
+        with self.assertRaises(ValueError):publish.execute(self.args)
+
     def test_prior_exact_sha_front_signature_survives_missing_legacy_gate_row(self):
         self.new_entries()
         data=publish.validate(self.args);publish.prepare_optional(data,self.args)

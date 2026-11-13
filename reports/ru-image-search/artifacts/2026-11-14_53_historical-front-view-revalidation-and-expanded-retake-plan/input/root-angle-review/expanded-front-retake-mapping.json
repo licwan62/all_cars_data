@@ -1,0 +1,2455 @@
+{
+  "schema": "ru-pilot20-rear-retake-reconciliation-v1",
+  "snapshot_at": "2026-11-13T18:04:03.557479+00:00",
+  "authority": "read-only reconciliation against sole formal all_cars_data checkpoint at snapshot; no approvals/production mutations",
+  "basis": {
+    "plan_file": "reports/ru-image-search/artifacts/2026-11-14_53_historical-front-view-revalidation-and-expanded-retake-plan/input/root-angle-review/expanded-front-retake-plan.json",
+    "plan_sha256": "4f991a6284d994400a336a969c76fca9bb3f751a01983e14d5570f961482d335",
+    "checkpoint_file": "/workspace/all_cars_data/reports/ru-image-search/work/checkpoint.json",
+    "checkpoint_sha256": "d1313f5a2a48129cceef761c3a4d2d0ebea4c2af482fbf02b4b101a5d57e84f6",
+    "checkpoint_batch": "reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted",
+    "current_accepted_index": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+    "current_accepted_index_sha256": "bc3830cc69559a290e3edfb1a44fc2f2eff33ab49a2187c07dbcaff26378f6ca",
+    "progress_file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+    "progress_sha256": "42e3fbb08e1b3dbf6ede12ac1ec3ee86fea11b9fd6880d5f8ff6b55302de156a",
+    "formal_candidate_file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+    "formal_candidate_sha256": "d7c29e65cb684c04b8e477329fc47982a077b8f1513f8d45abf736958987fcd1",
+    "root_review_file": "reports/ru-image-search/artifacts/2026-11-14_53_historical-front-view-revalidation-and-expanded-retake-plan/input/root-angle-review/root-complete-orientation-review.json",
+    "root_review_sha256": "1eb97fbf29ddcdfd4ae72c6a7ebab040acbec3f2afaf792f95ed0af626b63218"
+  },
+  "counts": {
+    "plan_items": 20,
+    "distinct_tasks": 17,
+    "uniquely_mapped_to_formal_DIM": 20,
+    "confirmed_same_configuration_accepted_front_reuse": 0,
+    "historical_rear_SHA_still_current": 20,
+    "mapping_hold": 0,
+    "current_output_local_cache_missing": 20,
+    "current_output_sha_reverified_from_local_bytes": 0
+  },
+  "items": [
+    {
+      "plan_id": "REAR-0114",
+      "plan_index": 114,
+      "task_id": "RU-8c0d5fac93c27774",
+      "plan_image_id": "RU-8c0d5fac93c27774-1",
+      "plan_body": "三厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2004-2007",
+      "plan_filename": "Focus-NA-I-FL-Sedan.png",
+      "plan_rear_sha256": "c4bd940e3f1d1a09318d596883681a0d42c98a1d373d072eb498ac14eaf8c184",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:2005_Ford_Focus_SE_ZX4_in_Sonic_Blue_Metallic,_rear_left,_03-28-2026.jpg",
+      "plan_source_sha256": "8065617394bbf7ac9ad79fcd6358b2dff0013ccdcbe48e6c5d9953fcd81e2604",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Ford Focus Sedan 2004-2007 RU",
+      "current_accepted_sha256": "c4bd940e3f1d1a09318d596883681a0d42c98a1d373d072eb498ac14eaf8c184",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-8c0d5fac93c27774/Focus-NA-I-FL-Sedan.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-8c0d5fac93c27774-C001/original.jpg",
+      "current_accepted_source_sha256": "8065617394bbf7ac9ad79fcd6358b2dff0013ccdcbe48e6c5d9953fcd81e2604",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:2005_Ford_Focus_SE_ZX4_in_Sonic_Blue_Metallic,_rear_left,_03-28-2026.jpg",
+      "current_accepted_candidate_id": "RU-8c0d5fac93c27774-C001",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "蓝色四门独立行李厢、竖向三角尾灯、FOCUS/SE/ZX4铭牌、同式多辐轮与北美第一代2005源车一致，保留后左视；未转换成欧洲第二代或两厢/旅行。锈迹与划痕已恢复成清洁蓝漆，车身几何和单排气口保留。灰底/深底实际看图无地面、重复轮胎或明显漂浮残片，完整细天线和车体都留在画布内。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T07:31:04.575887+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/6"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-8c0d5fac93c27774",
+          "requirement_index": 1,
+          "requirement": {
+            "DIMENSION-ID": "Ford Focus Sedan 2004-2007 RU",
+            "YEAR": "2004-2007",
+            "结构": "Sedan",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "175.2",
+            "W-IN": "66.7",
+            "H-IN": "56.8",
+            "scope_rows": [
+              5,
+              6
+            ],
+            "state": "accepted",
+            "candidate_ids": [
+              "RU-8c0d5fac93c27774-C001"
+            ],
+            "review_note": "Accepted representative exterior applicability: see acceptance_file and SHA-bound actual visual observation; scalar dimensions are not re-certified.",
+            "accepted_sha256": "c4bd940e3f1d1a09318d596883681a0d42c98a1d373d072eb498ac14eaf8c184",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/accepted-configurations-20261113_11.json",
+            "previous_review_notes": [
+              "Exact body/version/cab/bed coverage unverified; no candidate accepted. Do not propagate another configuration image."
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 6,
+          "sha256": "c4bd940e3f1d1a09318d596883681a0d42c98a1d373d072eb498ac14eaf8c184",
+          "observation": "蓝色四门独立行李厢、竖向三角尾灯、FOCUS/SE/ZX4铭牌、同式多辐轮与北美第一代2005源车一致，保留后左视；未转换成欧洲第二代或两厢/旅行。锈迹与划痕已恢复成清洁蓝漆，车身几何和单排气口保留。灰底/深底实际看图无地面、重复轮胎或明显漂浮残片，完整细天线和车体都留在画布内。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/10",
+          "candidate_id": "RU-8c0d5fac93c27774-C001",
+          "download": {
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-8c0d5fac93c27774-C001/original.jpg",
+            "sha256": "8065617394bbf7ac9ad79fcd6358b2dff0013ccdcbe48e6c5d9953fcd81e2604",
+            "bytes": 2657672,
+            "downloaded_at": "2026-11-13T06:14:37.003361+00:00",
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 3636,
+              "height": 2348
+            },
+            "oss": {
+              "backend_id": "e376451857dee2ecc82b9bedc08d1bbf99687df07e0a55b1dd97f005553cb4dc",
+              "object_key": "main_picture_producer/v1/objects/80/8065617394bbf7ac9ad79fcd6358b2dff0013ccdcbe48e6c5d9953fcd81e2604",
+              "sha256": "8065617394bbf7ac9ad79fcd6358b2dff0013ccdcbe48e6c5d9953fcd81e2604",
+              "size": 2657672,
+              "full_readback_sha_verified": true
+            },
+            "status": "verified_original",
+            "decode_verified": true
+          },
+          "license": {
+            "status": "source_page_declares",
+            "identifier": "CC0-1.0",
+            "author": "Cutlass"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0115",
+      "plan_index": 115,
+      "task_id": "RU-8c0d5fac93c27774",
+      "plan_image_id": "RU-8c0d5fac93c27774-2",
+      "plan_body": "两厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2004-2007",
+      "plan_filename": "Focus-NA-I-FL-ZX5.png",
+      "plan_rear_sha256": "2659f4311dc3603a561b6643a72f9fe6a07015b6eb406525254dc71c13fc5839",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:05-07-Ford-Focus-ZX5.jpg",
+      "plan_source_sha256": "eef2329a2a65ce1faf490d20fdfa492ce174a619ad355145cdac42997236b899",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Ford Focus Hatchback 2004-2007 RU",
+      "current_accepted_sha256": "2659f4311dc3603a561b6643a72f9fe6a07015b6eb406525254dc71c13fc5839",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-8c0d5fac93c27774/Focus-NA-I-FL-ZX5.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-8c0d5fac93c27774-C002/original.jpg",
+      "current_accepted_source_sha256": "eef2329a2a65ce1faf490d20fdfa492ce174a619ad355145cdac42997236b899",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:05-07-Ford-Focus-ZX5.jpg",
+      "current_accepted_candidate_id": "RU-8c0d5fac93c27774-C002",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "灰绿北美第一代改款ZX5五门短尾、四侧门、三角高尾灯/后雨刷/扰流板、ZX5/Focus字样、源五辐式银轮及黑把手/镜壳和单侧排气口对应，保持源后侧视、车头朝右，不猜未见前脸。首稿误把后方SUV行李架移植到目标车，并新增后顶小天线，已退回；第二稿实际来源对照、灰/深底查看恢复原车光顶、全部可见轮胎/车体/镜壳完整且边缘干净。车牌整体清除但凹槽保留，不推定原厂无牌照架。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T09:04:18.839361+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/35"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-8c0d5fac93c27774",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Ford Focus Hatchback 2004-2007 RU",
+            "YEAR": "2004-2007",
+            "结构": "Hatchback",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "168.5",
+            "W-IN": "66.7",
+            "H-IN": "56.8",
+            "scope_rows": [
+              4
+            ],
+            "state": "accepted",
+            "candidate_ids": [
+              "RU-8c0d5fac93c27774-C002"
+            ],
+            "review_note": "Accepted representative exterior applicability: see acceptance_file and SHA-bound actual visual observation; scalar dimensions are not re-certified.",
+            "accepted_sha256": "2659f4311dc3603a561b6643a72f9fe6a07015b6eb406525254dc71c13fc5839",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/accepted-configurations-20261113_17.json",
+            "previous_review_notes": [
+              "Exact body/version/cab/bed coverage unverified; no candidate accepted. Do not propagate another configuration image."
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 35,
+          "sha256": "2659f4311dc3603a561b6643a72f9fe6a07015b6eb406525254dc71c13fc5839",
+          "observation": "灰绿北美第一代改款ZX5五门短尾、四侧门、三角高尾灯/后雨刷/扰流板、ZX5/Focus字样、源五辐式银轮及黑把手/镜壳和单侧排气口对应，保持源后侧视、车头朝右，不猜未见前脸。首稿误把后方SUV行李架移植到目标车，并新增后顶小天线，已退回；第二稿实际来源对照、灰/深底查看恢复原车光顶、全部可见轮胎/车体/镜壳完整且边缘干净。车牌整体清除但凹槽保留，不推定原厂无牌照架。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/45",
+          "candidate_id": "RU-8c0d5fac93c27774-C002",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-8c0d5fac93c27774-C002/original.jpg",
+            "sha256": "eef2329a2a65ce1faf490d20fdfa492ce174a619ad355145cdac42997236b899",
+            "bytes": 244159,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 2132,
+              "height": 1468
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/ee/eef2329a2a65ce1faf490d20fdfa492ce174a619ad355145cdac42997236b899",
+              "sha256": "eef2329a2a65ce1faf490d20fdfa492ce174a619ad355145cdac42997236b899",
+              "size": 244159,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "IFCAR",
+            "LicenseShortName": "Public domain",
+            "UsageTerms": "Public domain",
+            "License": "pd"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0077",
+      "plan_index": 77,
+      "task_id": "RU-58be1657d18d5615",
+      "plan_image_id": "RU-58be1657d18d5615-1",
+      "plan_body": "旅行车",
+      "plan_variant": "Active",
+      "plan_catalog_year_range": "2018-2022",
+      "plan_filename": "Focus-IV-Active-Wagon.png",
+      "plan_rear_sha256": "eb0aa10962d42e1a88f6726c70c3b686e3d52ead316c0c2148ce9f3e9f151c83",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:2020_Ford_Focus_Active_X_Estate.jpg",
+      "plan_source_sha256": "41531a8ee6d24f89f54d4118afa5775822f4c7a088258df8ddc25c27bd5adf5b",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Ford Focus Active Wagon 2018-2022 RU",
+      "current_accepted_sha256": "eb0aa10962d42e1a88f6726c70c3b686e3d52ead316c0c2148ce9f3e9f151c83",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-58be1657d18d5615/Focus-IV-Active-Wagon.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-58be1657d18d5615-C001/original.jpg",
+      "current_accepted_source_sha256": "41531a8ee6d24f89f54d4118afa5775822f4c7a088258df8ddc25c27bd5adf5b",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:2020_Ford_Focus_Active_X_Estate.jpg",
+      "current_accepted_candidate_id": "RU-58be1657d18d5615-C001",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "第四代改款前长车顶旅行车，延伸后侧三角窗及后载物车身、车顶行李架、黑色轮拱/侧裙包围、银色后护板、同式合金轮、FOCUS字样和双排气口与原图对应；保持后左视，没有改为普通旅行车或短尾两厢。灰底/深底完整轮廓、车轮和顶鳍均清楚，无明显背景残片。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T07:31:04.482314+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/5"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-58be1657d18d5615",
+          "requirement_index": 1,
+          "requirement": {
+            "DIMENSION-ID": "Ford Focus Active Wagon 2018-2022 RU",
+            "YEAR": "2018-2022",
+            "结构": "Wagon",
+            "版本": "Active",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "184.8",
+            "W-IN": "71.9",
+            "H-IN": "60.3",
+            "scope_rows": [
+              7,
+              8
+            ],
+            "state": "accepted",
+            "candidate_ids": [
+              "RU-58be1657d18d5615-C001"
+            ],
+            "review_note": "Accepted representative exterior applicability: see acceptance_file and SHA-bound actual visual observation; scalar dimensions are not re-certified.",
+            "accepted_sha256": "eb0aa10962d42e1a88f6726c70c3b686e3d52ead316c0c2148ce9f3e9f151c83",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/accepted-configurations-20261113_11.json",
+            "previous_review_notes": [
+              "Exact body/version/cab/bed coverage unverified; no candidate accepted. Do not propagate another configuration image."
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 5,
+          "sha256": "eb0aa10962d42e1a88f6726c70c3b686e3d52ead316c0c2148ce9f3e9f151c83",
+          "observation": "第四代改款前长车顶旅行车，延伸后侧三角窗及后载物车身、车顶行李架、黑色轮拱/侧裙包围、银色后护板、同式合金轮、FOCUS字样和双排气口与原图对应；保持后左视，没有改为普通旅行车或短尾两厢。灰底/深底完整轮廓、车轮和顶鳍均清楚，无明显背景残片。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/7",
+          "candidate_id": "RU-58be1657d18d5615-C001",
+          "download": {
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-58be1657d18d5615-C001/original.jpg",
+            "sha256": "41531a8ee6d24f89f54d4118afa5775822f4c7a088258df8ddc25c27bd5adf5b",
+            "bytes": 7556385,
+            "downloaded_at": "2026-11-13T06:14:29.077486+00:00",
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 5020,
+              "height": 2890
+            },
+            "oss": {
+              "backend_id": "e376451857dee2ecc82b9bedc08d1bbf99687df07e0a55b1dd97f005553cb4dc",
+              "object_key": "main_picture_producer/v1/objects/41/41531a8ee6d24f89f54d4118afa5775822f4c7a088258df8ddc25c27bd5adf5b",
+              "sha256": "41531a8ee6d24f89f54d4118afa5775822f4c7a088258df8ddc25c27bd5adf5b",
+              "size": 7556385,
+              "full_readback_sha_verified": true
+            },
+            "status": "verified_original",
+            "decode_verified": true
+          },
+          "license": {
+            "status": "source_page_declares",
+            "identifier": "CC-BY-SA-4.0",
+            "author": "Vauxford"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0137",
+      "plan_index": 137,
+      "task_id": "RU-b2839c4c79c82e0c",
+      "plan_image_id": "RU-b2839c4c79c82e0c-3",
+      "plan_body": "旅行车",
+      "plan_variant": "",
+      "plan_catalog_year_range": "1999-2004",
+      "plan_filename": "Focus-NA-I-Wagon.png",
+      "plan_rear_sha256": "87ef6d1ddeef63e91590c8e912e570f5be2c38b23691c35de0f079b2ac802d84",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:2000-2004_Ford_Focus_SE_wagon_--_11-26-2011.jpg",
+      "plan_source_sha256": "50c2102dff85ceb352f69c0d81cc05206c9b82786550a4e11adbd5d6869123d8",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Ford Focus Wagon 1999-2004 RU",
+      "current_accepted_sha256": "87ef6d1ddeef63e91590c8e912e570f5be2c38b23691c35de0f079b2ac802d84",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-b2839c4c79c82e0c/Focus-NA-I-Wagon.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-b2839c4c79c82e0c-C003/original.jpg",
+      "current_accepted_source_sha256": "50c2102dff85ceb352f69c0d81cc05206c9b82786550a4e11adbd5d6869123d8",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:2000-2004_Ford_Focus_SE_wagon_--_11-26-2011.jpg",
+      "current_accepted_candidate_id": "RU-b2839c4c79c82e0c-C003",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "浅金北美第一代改款前SE Wagon后侧视，长车顶及载物尾、延长后侧窗、直立三段尾灯/后雨刷、黑顶架、黑把手和源五辐银轮对应，原后侧相机及车头朝左保持，不凭空造未知前脸。原图和灰/深底实际查看，全部可见车体、轮胎/镜壳/顶架完整，周边无明显背景残片或外投影；源可见底盘/单侧尾管保留，不据此证明精确发动机配置。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T09:22:52.189450+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/46"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-b2839c4c79c82e0c",
+          "requirement_index": 2,
+          "requirement": {
+            "DIMENSION-ID": "Ford Focus Wagon 1999-2004 RU",
+            "YEAR": "1999-2004",
+            "结构": "Wagon",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "178.2",
+            "W-IN": "66.9",
+            "H-IN": "53.9",
+            "scope_rows": [
+              7,
+              8
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 8,
+            "accepted_sha256": "87ef6d1ddeef63e91590c8e912e570f5be2c38b23691c35de0f079b2ac802d84",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_18_first-generation-focus-door-lineage-and-three-task-closures/output/accepted-configurations-20261113_18.json",
+            "candidate_ids": [
+              "RU-b2839c4c79c82e0c-C003"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 46,
+          "sha256": "87ef6d1ddeef63e91590c8e912e570f5be2c38b23691c35de0f079b2ac802d84",
+          "observation": "浅金北美第一代改款前SE Wagon后侧视，长车顶及载物尾、延长后侧窗、直立三段尾灯/后雨刷、黑顶架、黑把手和源五辐银轮对应，原后侧相机及车头朝左保持，不凭空造未知前脸。原图和灰/深底实际查看，全部可见车体、轮胎/镜壳/顶架完整，周边无明显背景残片或外投影；源可见底盘/单侧尾管保留，不据此证明精确发动机配置。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/55",
+          "candidate_id": "RU-b2839c4c79c82e0c-C003",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-b2839c4c79c82e0c-C003/original.jpg",
+            "sha256": "50c2102dff85ceb352f69c0d81cc05206c9b82786550a4e11adbd5d6869123d8",
+            "bytes": 1115960,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 1562,
+              "height": 811
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/50/50c2102dff85ceb352f69c0d81cc05206c9b82786550a4e11adbd5d6869123d8",
+              "sha256": "50c2102dff85ceb352f69c0d81cc05206c9b82786550a4e11adbd5d6869123d8",
+              "size": 1115960,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "IFCAR",
+            "LicenseShortName": "Public domain",
+            "UsageTerms": "Public domain",
+            "License": "pd"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0001",
+      "plan_index": 1,
+      "task_id": "RU-068cf74579f8cbca",
+      "plan_image_id": "RU-068cf74579f8cbca-1",
+      "plan_body": "三厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2007-2010",
+      "plan_filename": "Focus-NA-II-Sedan.png",
+      "plan_rear_sha256": "c69c215d925263a7deda2b36cdb25584a3250e0f55f02daacf3398a622bf0217",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:2008_Ford_Focus_SES_sedan_(but_not_as_we_know_it!)_(13273128495).jpg",
+      "plan_source_sha256": "cbc837f3771d2909fb09bc351a796206c728d5eeee9b3873030f38f8d551c358",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Ford Focus Sedan 2007-2010 RU",
+      "current_accepted_sha256": "c69c215d925263a7deda2b36cdb25584a3250e0f55f02daacf3398a622bf0217",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-068cf74579f8cbca/Focus-NA-II-Sedan.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-068cf74579f8cbca-C001/original.jpg",
+      "current_accepted_source_sha256": "cbc837f3771d2909fb09bc351a796206c728d5eeee9b3873030f38f8d551c358",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:2008_Ford_Focus_SES_sedan_(but_not_as_we_know_it!)_(13273128495).jpg",
+      "current_accepted_candidate_id": "RU-068cf74579f8cbca-C001",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "银色四门独立行李厢、横向三角尾灯、后窗下刹车灯条、FOCUS/SES铭牌与北美第二代源车一致，保持后左视，未生成欧洲C1车体或猜测车头。已按明确提示移除卡通贴纸与外挂拖挂件，单一排气口、车尾与三只可见轮胎位置自然。灰底、深底轮廓干净，天线完整；页面发动机排量线索与独立资料不一致，未作为外观/配置认定依据。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T07:30:56.581348+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/3"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-068cf74579f8cbca",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Ford Focus Sedan 2007-2010 RU",
+            "YEAR": "2007-2010",
+            "结构": "Sedan",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "175.0",
+            "W-IN": "67.8",
+            "H-IN": "58.6",
+            "scope_rows": [
+              5,
+              6
+            ],
+            "state": "accepted",
+            "candidate_ids": [
+              "RU-068cf74579f8cbca-C001"
+            ],
+            "review_note": "Accepted representative exterior applicability: see acceptance_file and SHA-bound actual visual observation; scalar dimensions are not re-certified.",
+            "accepted_sha256": "c69c215d925263a7deda2b36cdb25584a3250e0f55f02daacf3398a622bf0217",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/accepted-configurations-20261113_11.json",
+            "previous_review_notes": [
+              "Exact body/version/cab/bed coverage unverified; no candidate accepted. Do not propagate another configuration image."
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 3,
+          "sha256": "c69c215d925263a7deda2b36cdb25584a3250e0f55f02daacf3398a622bf0217",
+          "observation": "银色四门独立行李厢、横向三角尾灯、后窗下刹车灯条、FOCUS/SES铭牌与北美第二代源车一致，保持后左视，未生成欧洲C1车体或猜测车头。已按明确提示移除卡通贴纸与外挂拖挂件，单一排气口、车尾与三只可见轮胎位置自然。灰底、深底轮廓干净，天线完整；页面发动机排量线索与独立资料不一致，未作为外观/配置认定依据。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/3",
+          "candidate_id": "RU-068cf74579f8cbca-C001",
+          "download": {
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-068cf74579f8cbca-C001/original.jpg",
+            "sha256": "cbc837f3771d2909fb09bc351a796206c728d5eeee9b3873030f38f8d551c358",
+            "bytes": 4504818,
+            "downloaded_at": "2026-11-13T06:14:20.739908+00:00",
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 4272,
+              "height": 2848
+            },
+            "oss": {
+              "backend_id": "e376451857dee2ecc82b9bedc08d1bbf99687df07e0a55b1dd97f005553cb4dc",
+              "object_key": "main_picture_producer/v1/objects/cb/cbc837f3771d2909fb09bc351a796206c728d5eeee9b3873030f38f8d551c358",
+              "sha256": "cbc837f3771d2909fb09bc351a796206c728d5eeee9b3873030f38f8d551c358",
+              "size": 4504818,
+              "full_readback_sha_verified": true
+            },
+            "status": "verified_original",
+            "decode_verified": true
+          },
+          "license": {
+            "status": "source_page_declares",
+            "identifier": "CC-BY-2.0",
+            "author": "Charlie from United Kingdom"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0127",
+      "plan_index": 127,
+      "task_id": "RU-993cdf697c45ce71",
+      "plan_image_id": "RU-993cdf697c45ce71-3",
+      "plan_body": "旅行车",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2007-2011",
+      "plan_filename": "Focus-II-FL-Wagon-Ordinary-Rear.png",
+      "plan_rear_sha256": "4ee401870e4d64c957e93bd9bd1ba047638460362be106eed056cee4afe38ff4",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_II_Turnier_(Facelift,_seit_2008)_TDCi_rear_MJ.JPG",
+      "plan_source_sha256": "a0b20191f622d3b11690a8b1157f03475d4246f89fa865e011541f93c35a19bc",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Ford Focus Wagon 2007-2011 RU",
+      "current_accepted_sha256": "4ee401870e4d64c957e93bd9bd1ba047638460362be106eed056cee4afe38ff4",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-993cdf697c45ce71/Focus-II-FL-Wagon-Ordinary-Rear.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-993cdf697c45ce71-C004/original.jpg",
+      "current_accepted_source_sha256": "a0b20191f622d3b11690a8b1157f03475d4246f89fa865e011541f93c35a19bc",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_II_Turnier_(Facelift,_seit_2008)_TDCi_rear_MJ.JPG",
+      "current_accepted_candidate_id": "RU-993cdf697c45ce71-C004",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "蓝灰普通欧洲第二代改款Wagon后视，长载物车身/延长后侧窗/大直立尾门、清色上段竖尾灯、后雨刷、Focus/TDCi字样、灰银顶架、源银轮盖与同色镜壳/把手对应，保持原后侧视且车头朝右，不凭空生车头。没有跨界轮眉/升高包围；小型源底部硬件沿源保留，不认定标准配备或精确发动机。来源/灰底/深底实际查看全部车体、轮胎、镜壳/顶架完整，边缘无明显场景残片或外投影。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T09:04:26.166079+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/39"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-993cdf697c45ce71",
+          "requirement_index": 2,
+          "requirement": {
+            "DIMENSION-ID": "Ford Focus Wagon 2007-2011 RU",
+            "YEAR": "2007-2011",
+            "结构": "Wagon",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "176.1",
+            "W-IN": "72.4",
+            "H-IN": "59.1",
+            "scope_rows": [
+              7,
+              8
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 5,
+            "accepted_sha256": "4ee401870e4d64c957e93bd9bd1ba047638460362be106eed056cee4afe38ff4",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_17_three-focus-task-closures-and-zx5-roof-correction/output/accepted-configurations-20261113_17.json",
+            "candidate_ids": [
+              "RU-993cdf697c45ce71-C004"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 39,
+          "sha256": "4ee401870e4d64c957e93bd9bd1ba047638460362be106eed056cee4afe38ff4",
+          "observation": "蓝灰普通欧洲第二代改款Wagon后视，长载物车身/延长后侧窗/大直立尾门、清色上段竖尾灯、后雨刷、Focus/TDCi字样、灰银顶架、源银轮盖与同色镜壳/把手对应，保持原后侧视且车头朝右，不凭空生车头。没有跨界轮眉/升高包围；小型源底部硬件沿源保留，不认定标准配备或精确发动机。来源/灰底/深底实际查看全部车体、轮胎、镜壳/顶架完整，边缘无明显场景残片或外投影。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/50",
+          "candidate_id": "RU-993cdf697c45ce71-C004",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-993cdf697c45ce71-C004/original.jpg",
+            "sha256": "a0b20191f622d3b11690a8b1157f03475d4246f89fa865e011541f93c35a19bc",
+            "bytes": 334312,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 1627,
+              "height": 1050
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/a0/a0b20191f622d3b11690a8b1157f03475d4246f89fa865e011541f93c35a19bc",
+              "sha256": "a0b20191f622d3b11690a8b1157f03475d4246f89fa865e011541f93c35a19bc",
+              "size": 334312,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
+            "Artist": "No machine-readable author provided. <a href=\"//commons.wikimedia.org/wiki/User:M_93\" title=\"User:M 93\">M 93</a> assumed (based on copyright claims).",
+            "LicenseShortName": "CC BY-SA 3.0",
+            "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "License": "cc-by-sa-3.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0015",
+      "plan_index": 15,
+      "task_id": "RU-1dc5a60493f09ba4",
+      "plan_image_id": "RU-1dc5a60493f09ba4-3",
+      "plan_body": "两厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2014-2019",
+      "plan_filename": "Focus-III-FL-Hatchback-Rear.png",
+      "plan_rear_sha256": "e1ffd76d31a745fb8001dfb659c9ad0eb9a817aa332d5774fcc541fbff5b0745",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Mk3_Facelift_R.jpg",
+      "plan_source_sha256": "4a20b5a86b8ef5486b661aebd7548a85e32848b4c0ab9384d7bb28f5c4aede48",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Ford Focus Hatchback 2014-2019 RU",
+      "current_accepted_sha256": "e1ffd76d31a745fb8001dfb659c9ad0eb9a817aa332d5774fcc541fbff5b0745",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-1dc5a60493f09ba4/Focus-III-FL-Hatchback-Rear.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-1dc5a60493f09ba4-C005/original.jpg",
+      "current_accepted_source_sha256": "4a20b5a86b8ef5486b661aebd7548a85e32848b4c0ab9384d7bb28f5c4aede48",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Mk3_Facelift_R.jpg",
+      "current_accepted_candidate_id": "RU-1dc5a60493f09ba4-C005",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "棕灰色改款第三代五门短尾Hatchback，紧凑尾舱、横向包角尾灯、后雨刷/扰流板/高位制动灯、Focus字样、镀铬窗边与五辐轮保留，区别于Sedan/Wagon。保留源后左视及近前窗开启；同展车前视辅助源核对完整细天线，不改变后视机位。原图/灰底/深底实际查看，车体/两轮/镜壳/完整天线可见，无明显展场/说明牌/邻车残片；顶部5px/底部2px如实记录。车牌框整体清除，车尾牌照凹槽保留；不据此声明原厂无牌照架。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T08:16:26.776891+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/21"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-1dc5a60493f09ba4",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Ford Focus Hatchback 2014-2019 RU",
+            "YEAR": "2014-2019",
+            "结构": "Hatchback",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "171.6",
+            "W-IN": "71.8",
+            "H-IN": "58.4",
+            "scope_rows": [
+              4
+            ],
+            "state": "accepted",
+            "candidate_ids": [
+              "RU-1dc5a60493f09ba4-C001",
+              "RU-1dc5a60493f09ba4-C005"
+            ],
+            "review_note": "Accepted representative exterior applicability: see acceptance_file and SHA-bound actual visual observation; scalar dimensions are not re-certified.",
+            "accepted_sha256": "e1ffd76d31a745fb8001dfb659c9ad0eb9a817aa332d5774fcc541fbff5b0745",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_14_activecross-clear-license-and-two-focus-tasks/output/accepted-configurations-20261113_14.json",
+            "previous_review_notes": [
+              "Exact body/version/cab/bed coverage unverified; no candidate accepted. Do not propagate another configuration image."
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 21,
+          "sha256": "e1ffd76d31a745fb8001dfb659c9ad0eb9a817aa332d5774fcc541fbff5b0745",
+          "observation": "棕灰色改款第三代五门短尾Hatchback，紧凑尾舱、横向包角尾灯、后雨刷/扰流板/高位制动灯、Focus字样、镀铬窗边与五辐轮保留，区别于Sedan/Wagon。保留源后左视及近前窗开启；同展车前视辅助源核对完整细天线，不改变后视机位。原图/灰底/深底实际查看，车体/两轮/镜壳/完整天线可见，无明显展场/说明牌/邻车残片；顶部5px/底部2px如实记录。车牌框整体清除，车尾牌照凹槽保留；不据此声明原厂无牌照架。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/27",
+          "candidate_id": "RU-1dc5a60493f09ba4-C005",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-1dc5a60493f09ba4-C005/original.jpg",
+            "sha256": "4a20b5a86b8ef5486b661aebd7548a85e32848b4c0ab9384d7bb28f5c4aede48",
+            "bytes": 977217,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 2304,
+              "height": 1296
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/4a/4a20b5a86b8ef5486b661aebd7548a85e32848b4c0ab9384d7bb28f5c4aede48",
+              "sha256": "4a20b5a86b8ef5486b661aebd7548a85e32848b4c0ab9384d7bb28f5c4aede48",
+              "size": 977217,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:KGC626\" title=\"User:KGC626\">KGC626</a>",
+            "LicenseShortName": "CC BY-SA 4.0",
+            "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "License": "cc-by-sa-4.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0093",
+      "plan_index": 93,
+      "task_id": "RU-600ee9f8850209c3",
+      "plan_image_id": "RU-600ee9f8850209c3-2",
+      "plan_body": "两厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2005-2009",
+      "plan_filename": "Rio-JB-Hatchback-Rear.png",
+      "plan_rear_sha256": "6994ba7f5a2c9df8cab06610e3edc413f34bf3aa6dff94dc0ac3f938b78381d6",
+      "plan_source_page": "https://platesmania.com/ru/nomer29351315",
+      "plan_source_sha256": "78877993222c9a2c1e6079bc4322def77a04686e4a430ff68a743416d314ebe3",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Kia Rio Hatchback 2005-2009 RU",
+      "current_accepted_sha256": "6994ba7f5a2c9df8cab06610e3edc413f34bf3aa6dff94dc0ac3f938b78381d6",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-600ee9f8850209c3/Rio-JB-Hatchback-Rear.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-600ee9f8850209c3-C002/original.jpg",
+      "current_accepted_source_sha256": "78877993222c9a2c1e6079bc4322def77a04686e4a430ff68a743416d314ebe3",
+      "current_accepted_source_page": "https://platesmania.com/ru/nomer29351315",
+      "current_accepted_candidate_id": "RU-600ee9f8850209c3-C002",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "银色Rio II/JB改款前五门后侧，短尾/四侧门、竖长红清尾灯/后雨刷/Rio与Kia标、宽黑后杠防擦条和侧条/低位中央单红反光灯、六开口银轮/黑泥挡/同色把手及细顶天线对应。源轮型OEM未独立认证，保留真实轮型但不宣称所有标准版均配。实际源/灰/深底检查保持朝右后侧视，完整车身轮胎镜壳/天线留边，去邻车建筑人群/牌字/署名外层，元数据仍留glebCC BY4，无明显残片或外投影。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T11:13:58.044277+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/99"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-600ee9f8850209c3",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Kia Rio Hatchback 2005-2009 RU",
+            "YEAR": "2005-2009",
+            "结构": "Hatchback",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "157.1",
+            "W-IN": "66.7",
+            "H-IN": "57.9",
+            "scope_rows": [
+              19,
+              20,
+              21
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 60,
+            "accepted_sha256": "6994ba7f5a2c9df8cab06610e3edc413f34bf3aa6dff94dc0ac3f938b78381d6",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/accepted-configurations-20261113_27.json",
+            "candidate_ids": [
+              "RU-600ee9f8850209c3-C002"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 99,
+          "sha256": "6994ba7f5a2c9df8cab06610e3edc413f34bf3aa6dff94dc0ac3f938b78381d6",
+          "observation": "银色Rio II/JB改款前五门后侧，短尾/四侧门、竖长红清尾灯/后雨刷/Rio与Kia标、宽黑后杠防擦条和侧条/低位中央单红反光灯、六开口银轮/黑泥挡/同色把手及细顶天线对应。源轮型OEM未独立认证，保留真实轮型但不宣称所有标准版均配。实际源/灰/深底检查保持朝右后侧视，完整车身轮胎镜壳/天线留边，去邻车建筑人群/牌字/署名外层，元数据仍留glebCC BY4，无明显残片或外投影。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/124",
+          "candidate_id": "RU-600ee9f8850209c3-C002",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-600ee9f8850209c3-C002/original.jpg",
+            "sha256": "78877993222c9a2c1e6079bc4322def77a04686e4a430ff68a743416d314ebe3",
+            "bytes": 372733,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 1440,
+              "height": 1080
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/78/78877993222c9a2c1e6079bc4322def77a04686e4a430ff68a743416d314ebe3",
+              "sha256": "78877993222c9a2c1e6079bc4322def77a04686e4a430ff68a743416d314ebe3",
+              "size": 372733,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Artist": "gleb",
+            "Credit": "Original photograph by gleb",
+            "LicenseShortName": "CC BY 4.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "UsageTerms": "Все опубликованные мною фотографии доступны по лицензии Creative Commons Attribution 4.0 International (CC BY 4.0), если не указано иное.",
+            "License": "CC BY 4.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0083",
+      "plan_index": 83,
+      "task_id": "RU-5e7343a392072668",
+      "plan_image_id": "RU-5e7343a392072668-2",
+      "plan_body": "两厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2009-2011",
+      "plan_filename": "Rio-JB-FL-Hatchback-Rear.png",
+      "plan_rear_sha256": "d79b00f410e66debe43f5e7639a421d4e132cb49c683d1db1e96fc1a9d8a378f",
+      "plan_source_page": "https://platesmania.com/ru/nomer29350340",
+      "plan_source_sha256": "eb6c6621fdc139097d639a661bec36ba39dc3fdda386dca5850b2b1a2af3708e",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Kia Rio Hatchback 2009-2011 RU",
+      "current_accepted_sha256": "d79b00f410e66debe43f5e7639a421d4e132cb49c683d1db1e96fc1a9d8a378f",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-5e7343a392072668/Rio-JB-FL-Hatchback-Rear.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-5e7343a392072668-C002/original.jpg",
+      "current_accepted_source_sha256": "eb6c6621fdc139097d639a661bec36ba39dc3fdda386dca5850b2b1a2af3708e",
+      "current_accepted_source_page": "https://platesmania.com/ru/nomer29350340",
+      "current_accepted_candidate_id": "RU-5e7343a392072668-C002",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "红色Rio II/JB改款五门后侧，短尾/四门、竖长尾灯/后雨刷/Rio与Kia标，平滑同色后杠无旧宽黑防擦条，更新下黑插片及两角红反光片/源银轮与实际黑天线对应。源图背后黄横管和红支架为背景设备，生成未当顶架复制。实际完整源/灰/深底检查保持朝左后侧机位，不捏造前脸，整车轮胎镜壳/天线完整，去树楼反光/邻车/泥和牌字，无明显残片/外投影，原照片作者与许可保留。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T11:14:28.630651+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/100"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-5e7343a392072668",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Kia Rio Hatchback 2009-2011 RU",
+            "YEAR": "2009-2011",
+            "结构": "Hatchback",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "158.5",
+            "W-IN": "66.7",
+            "H-IN": "57.9",
+            "scope_rows": [
+              19,
+              20,
+              21
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 57,
+            "accepted_sha256": "d79b00f410e66debe43f5e7639a421d4e132cb49c683d1db1e96fc1a9d8a378f",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_27_rio-jb-and-russian-fb-facelift-six-configurations/output/accepted-configurations-20261113_27.json",
+            "candidate_ids": [
+              "RU-5e7343a392072668-C002"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 100,
+          "sha256": "d79b00f410e66debe43f5e7639a421d4e132cb49c683d1db1e96fc1a9d8a378f",
+          "observation": "红色Rio II/JB改款五门后侧，短尾/四门、竖长尾灯/后雨刷/Rio与Kia标，平滑同色后杠无旧宽黑防擦条，更新下黑插片及两角红反光片/源银轮与实际黑天线对应。源图背后黄横管和红支架为背景设备，生成未当顶架复制。实际完整源/灰/深底检查保持朝左后侧机位，不捏造前脸，整车轮胎镜壳/天线完整，去树楼反光/邻车/泥和牌字，无明显残片/外投影，原照片作者与许可保留。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/125",
+          "candidate_id": "RU-5e7343a392072668-C002",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-5e7343a392072668-C002/original.jpg",
+            "sha256": "eb6c6621fdc139097d639a661bec36ba39dc3fdda386dca5850b2b1a2af3708e",
+            "bytes": 503057,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 1440,
+              "height": 1080
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/eb/eb6c6621fdc139097d639a661bec36ba39dc3fdda386dca5850b2b1a2af3708e",
+              "sha256": "eb6c6621fdc139097d639a661bec36ba39dc3fdda386dca5850b2b1a2af3708e",
+              "size": 503057,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Artist": "gleb",
+            "Credit": "Original photograph by gleb",
+            "LicenseShortName": "CC BY 4.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "UsageTerms": "Все опубликованные мною фотографии доступны по лицензии Creative Commons Attribution 4.0 International (CC BY 4.0), если не указано иное.",
+            "License": "CC BY 4.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0152",
+      "plan_index": 152,
+      "task_id": "RU-dcfad0519f446b9e",
+      "plan_image_id": "RU-dcfad0519f446b9e-1",
+      "plan_body": "两厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2017-2020",
+      "plan_filename": "Rio-YB-Hatchback-Rear.png",
+      "plan_rear_sha256": "bb7e7587590f6010dd905c4b65a27495a519265b496a31bbb8df4e38167601b1",
+      "plan_source_page": "https://www.flickr.com/photos/zytonits/32574343551/",
+      "plan_source_sha256": "46601726539c99e419fb2815a1ce2b95508f904935135526b58958e82ed040ff",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Kia Rio Hatchback 2017-2020 RU",
+      "current_accepted_sha256": "bb7e7587590f6010dd905c4b65a27495a519265b496a31bbb8df4e38167601b1",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-dcfad0519f446b9e/Rio-YB-Hatchback-Rear.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-dcfad0519f446b9e-C001/original.jpg",
+      "current_accepted_source_sha256": "46601726539c99e419fb2815a1ce2b95508f904935135526b58958e82ed040ff",
+      "current_accepted_source_page": "https://www.flickr.com/photos/zytonits/32574343551/",
+      "current_accepted_candidate_id": "RU-dcfad0519f446b9e-C001",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "紫蓝全球YB改款前五门Rio，实际2017静态展车后侧、同车前图辅助明确原款前脸；四侧门/短尾/三段内亮尾灯/后雨刷与顶尾翼/实际短杆/Kia椭圆标及Rio铭牌、暗下后杠红角反光片、清楚银细多辐轮对应。选择静态源而非NRMA动态糊轮，辅助前图未另生成计覆盖。实际源/灰/深底检查保持朝左后侧视，整车轮胎镜壳/杆尖完整，去镜面地板反射/展幕及牌广告，原车漆面高光保留，无明显外投影/游离背景残片；alpha最高254如实记，ZytonitsCC-SA2保留。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T11:36:46.385131+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/113"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-dcfad0519f446b9e",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Kia Rio Hatchback 2017-2020 RU",
+            "YEAR": "2017-2020",
+            "结构": "Hatchback",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "160.0",
+            "W-IN": "67.9",
+            "H-IN": "57.1",
+            "scope_rows": [
+              19,
+              20,
+              21
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 71,
+            "accepted_sha256": "bb7e7587590f6010dd905c4b65a27495a519265b496a31bbb8df4e38167601b1",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_29_rio-final-six-configurations-all-ten-rio-tasks/output/accepted-configurations-20261113_29.json",
+            "candidate_ids": [
+              "RU-dcfad0519f446b9e-C001"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 113,
+          "sha256": "bb7e7587590f6010dd905c4b65a27495a519265b496a31bbb8df4e38167601b1",
+          "observation": "紫蓝全球YB改款前五门Rio，实际2017静态展车后侧、同车前图辅助明确原款前脸；四侧门/短尾/三段内亮尾灯/后雨刷与顶尾翼/实际短杆/Kia椭圆标及Rio铭牌、暗下后杠红角反光片、清楚银细多辐轮对应。选择静态源而非NRMA动态糊轮，辅助前图未另生成计覆盖。实际源/灰/深底检查保持朝左后侧视，整车轮胎镜壳/杆尖完整，去镜面地板反射/展幕及牌广告，原车漆面高光保留，无明显外投影/游离背景残片；alpha最高254如实记，ZytonitsCC-SA2保留。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/138",
+          "candidate_id": "RU-dcfad0519f446b9e-C001",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-dcfad0519f446b9e-C001/original.jpg",
+            "sha256": "46601726539c99e419fb2815a1ce2b95508f904935135526b58958e82ed040ff",
+            "bytes": 2401542,
+            "decode_verified": true,
+            "decoded": {
+              "format": "MPO",
+              "mode": "RGB",
+              "width": 2592,
+              "height": 1944
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/46/46601726539c99e419fb2815a1ce2b95508f904935135526b58958e82ed040ff",
+              "sha256": "46601726539c99e419fb2815a1ce2b95508f904935135526b58958e82ed040ff",
+              "size": 2401542,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Artist": "Zytonits",
+            "Credit": "Original photograph by Zytonits",
+            "LicenseShortName": "CC BY-SA 2.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "UsageTerms": "Actual current photo-specific Flickr rel=license anchors/title CC BY-SA2.0 and ImageObject license verified; attribution, license link, changes indication and share-alike terms apply.",
+            "License": "CC BY-SA 2.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0064",
+      "plan_index": 64,
+      "task_id": "RU-5302310097da5167",
+      "plan_image_id": "RU-5302310097da5167-9",
+      "plan_body": "旅行车",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2018-2026",
+      "plan_filename": "Granta-FL-Wagon.png",
+      "plan_rear_sha256": "4ead39f75aa205159051e43b4230c76a8c004f4758b4d532ddcf4391cc8d355a",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:2019_Lada_Granta_SW_219410_grey_rear.jpg",
+      "plan_source_sha256": "e9f2bfc0a161f414a9d0a98abd2d136a762f67799862b288df715704bfd5d819",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Lada (ВАЗ) Granta Wagon 2018-2026 RU",
+      "current_accepted_sha256": "4ead39f75aa205159051e43b4230c76a8c004f4758b4d532ddcf4391cc8d355a",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-5302310097da5167/Granta-FL-Wagon.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-5302310097da5167-C010/original.jpg",
+      "current_accepted_source_sha256": "e9f2bfc0a161f414a9d0a98abd2d136a762f67799862b288df715704bfd5d819",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:2019_Lada_Granta_SW_219410_grey_rear.jpg",
+      "current_accepted_candidate_id": "RU-5302310097da5167-C010",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "灰色改款Wagon长而直立的旅行车尾、延长后侧窗、纵向尾灯、LADA/GRANTA字样、顶架横杆与拖车球均与来源后左视对应；未凭空生成车头或改成Hatchback/Liftback。来源对照、灰底、深底实际查看，天线、横杆、镜壳、车轮和拖车球完整，无明显场景残片。横杆、拖车球与车内物品按源车附件保留，不认定为原厂标准；原生边距紧，顶部3px/底部2px如实记录。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T08:02:33.409122+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/15"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-5302310097da5167",
+          "requirement_index": 9,
+          "requirement": {
+            "DIMENSION-ID": "Lada (ВАЗ) Granta Wagon 2018-2026 RU",
+            "YEAR": "2018-2026",
+            "结构": "Wagon",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "162.1",
+            "W-IN": "66.9",
+            "H-IN": "60.6",
+            "scope_rows": [
+              2,
+              3
+            ],
+            "state": "accepted",
+            "candidate_ids": [
+              "RU-5302310097da5167-C010"
+            ],
+            "review_note": "Accepted representative exterior applicability: see acceptance_file and SHA-bound actual visual observation; scalar dimensions are not re-certified.",
+            "accepted_sha256": "4ead39f75aa205159051e43b4230c76a8c004f4758b4d532ddcf4391cc8d355a",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_13_granta-five-adopted-activecross-license-hold/output/accepted-configurations-20261113_13.json",
+            "previous_review_notes": [
+              "Exact body/version/cab/bed coverage unverified; no candidate accepted. Do not propagate another configuration image."
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 15,
+          "sha256": "4ead39f75aa205159051e43b4230c76a8c004f4758b4d532ddcf4391cc8d355a",
+          "observation": "灰色改款Wagon长而直立的旅行车尾、延长后侧窗、纵向尾灯、LADA/GRANTA字样、顶架横杆与拖车球均与来源后左视对应；未凭空生成车头或改成Hatchback/Liftback。来源对照、灰底、深底实际查看，天线、横杆、镜壳、车轮和拖车球完整，无明显场景残片。横杆、拖车球与车内物品按源车附件保留，不认定为原厂标准；原生边距紧，顶部3px/底部2px如实记录。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/20",
+          "candidate_id": "RU-5302310097da5167-C010",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-5302310097da5167-C010/original.jpg",
+            "sha256": "e9f2bfc0a161f414a9d0a98abd2d136a762f67799862b288df715704bfd5d819",
+            "bytes": 2415895,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 2116,
+              "height": 1448
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/e9/e9f2bfc0a161f414a9d0a98abd2d136a762f67799862b288df715704bfd5d819",
+              "sha256": "e9f2bfc0a161f414a9d0a98abd2d136a762f67799862b288df715704bfd5d819",
+              "size": 2415895,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Throwawayacc222\" title=\"User:Throwawayacc222\">Throwawayacc222</a>",
+            "LicenseShortName": "CC0",
+            "UsageTerms": "Creative Commons Zero, Public Domain Dedication",
+            "LicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "License": "cc0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0033",
+      "plan_index": 33,
+      "task_id": "RU-3c5d1a913dcfa6c3",
+      "plan_image_id": "RU-3c5d1a913dcfa6c3-2",
+      "plan_body": "三厢",
+      "plan_variant": "",
+      "plan_catalog_year_range": "1998-2009",
+      "plan_filename": "Astra-G-Sedan.png",
+      "plan_rear_sha256": "2d027af743bdb4aa7b9ecaa297b3c2cbea6ff8ff268063a7b41f5c4e0eb812c1",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_G_Sedan.jpg",
+      "plan_source_sha256": "076c344bbfffc32471b05b8e4b5facf0768f92f1f59ca0398ed753f073b794e2",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Opel Astra Sedan 1998-2009 RU",
+      "current_accepted_sha256": "2d027af743bdb4aa7b9ecaa297b3c2cbea6ff8ff268063a7b41f5c4e0eb812c1",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-3c5d1a913dcfa6c3/Astra-G-Sedan.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-3c5d1a913dcfa6c3-C002/original.jpg",
+      "current_accepted_source_sha256": "076c344bbfffc32471b05b8e4b5facf0768f92f1f59ca0398ed753f073b794e2",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_G_Sedan.jpg",
+      "current_accepted_candidate_id": "RU-3c5d1a913dcfa6c3-C002",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "蓝绿色Astra G四门Sedan后侧视，独立后备厢/四侧门C柱、竖向红橙清尾灯和Astra Classic/Opel字样、源银轮盖/黑把手镜壳/细天线对应。保持源后侧相机及车头朝左，没有凭空生未知前脸或用两厢代替；尾部源小硬件不据此认证发动机。来源/灰/深底实看整车、轮胎/镜壳和天线完整，边缘无明显残片或外投影；alpha最高254按实际记录。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T09:59:36.397916+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/62"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-3c5d1a913dcfa6c3",
+          "requirement_index": 1,
+          "requirement": {
+            "DIMENSION-ID": "Opel Astra Sedan 1998-2009 RU",
+            "YEAR": "1998-2009",
+            "结构": "Sedan",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "167.3",
+            "W-IN": "67.3",
+            "H-IN": "56.1",
+            "scope_rows": [
+              13,
+              17
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 29,
+            "accepted_sha256": "2d027af743bdb4aa7b9ecaa297b3c2cbea6ff8ff268063a7b41f5c4e0eb812c1",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/accepted-configurations-20261113_21.json",
+            "candidate_ids": [
+              "RU-3c5d1a913dcfa6c3-C002"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 62,
+          "sha256": "2d027af743bdb4aa7b9ecaa297b3c2cbea6ff8ff268063a7b41f5c4e0eb812c1",
+          "observation": "蓝绿色Astra G四门Sedan后侧视，独立后备厢/四侧门C柱、竖向红橙清尾灯和Astra Classic/Opel字样、源银轮盖/黑把手镜壳/细天线对应。保持源后侧相机及车头朝左，没有凭空生未知前脸或用两厢代替；尾部源小硬件不据此认证发动机。来源/灰/深底实看整车、轮胎/镜壳和天线完整，边缘无明显残片或外投影；alpha最高254按实际记录。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/81",
+          "candidate_id": "RU-3c5d1a913dcfa6c3-C002",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-3c5d1a913dcfa6c3-C002/original.jpg",
+            "sha256": "076c344bbfffc32471b05b8e4b5facf0768f92f1f59ca0398ed753f073b794e2",
+            "bytes": 622347,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 2560,
+              "height": 1920
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/07/076c344bbfffc32471b05b8e4b5facf0768f92f1f59ca0398ed753f073b794e2",
+              "sha256": "076c344bbfffc32471b05b8e4b5facf0768f92f1f59ca0398ed753f073b794e2",
+              "size": 622347,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Radu_Averescu&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Radu Averescu (page does not exist)\">Radu Averescu</a>",
+            "LicenseShortName": "Public domain",
+            "UsageTerms": "Public domain",
+            "License": "pd"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0069",
+      "plan_index": 69,
+      "task_id": "RU-531ec750ccde3552",
+      "plan_image_id": "RU-531ec750ccde3552-4",
+      "plan_body": "旅行车",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2006-2014",
+      "plan_filename": "Astra-H-FL-Caravan.png",
+      "plan_rear_sha256": "4c6ec4c95e53dd253685756637f3e29f3d99320582d632b828ecc05967461dc7",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_H_Caravan_1.6_Facelift_front.JPG",
+      "plan_source_sha256": "911f8c8973bca26a75d9b61de0f4e83f16fde13f87ed4aa7a533c54d194470cd",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Opel Astra Wagon 2006-2014 RU",
+      "current_accepted_sha256": "4c6ec4c95e53dd253685756637f3e29f3d99320582d632b828ecc05967461dc7",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-531ec750ccde3552/Astra-H-FL-Caravan.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-531ec750ccde3552-C004/original.jpg",
+      "current_accepted_source_sha256": "911f8c8973bca26a75d9b61de0f4e83f16fde13f87ed4aa7a533c54d194470cd",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_H_Caravan_1.6_Facelift_front.JPG",
+      "current_accepted_candidate_id": "RU-531ec750ccde3552-C004",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "银色Astra H改款Caravan后侧视，长载物车身/延长侧窗、纵顶轨/原细天线、竖向红清尾灯、后雨刷/高刹车灯、镀铬尾门条及Opel/Astra字样、源五辐银轮及同色镜壳把手对应。文件名虽写front，但实际图片是后视，生成仍保持源后侧相机、车头朝右，未造未知车头。圆D国别贴与牌照广告已清除，不改厂家字样。来源/灰/深底实际查看全部可见车体、轮胎、镜壳、天线和顶轨完整，无明显残片或外投影。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T10:12:11.066938+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/69"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-531ec750ccde3552",
+          "requirement_index": 3,
+          "requirement": {
+            "DIMENSION-ID": "Opel Astra Wagon 2006-2014 RU",
+            "YEAR": "2006-2014",
+            "结构": "Wagon",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "177.8",
+            "W-IN": "71.0",
+            "H-IN": "59.1",
+            "scope_rows": [
+              14,
+              15
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 36,
+            "accepted_sha256": "4c6ec4c95e53dd253685756637f3e29f3d99320582d632b828ecc05967461dc7",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/accepted-configurations-20261113_22.json",
+            "candidate_ids": [
+              "RU-531ec750ccde3552-C004"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 69,
+          "sha256": "4c6ec4c95e53dd253685756637f3e29f3d99320582d632b828ecc05967461dc7",
+          "observation": "银色Astra H改款Caravan后侧视，长载物车身/延长侧窗、纵顶轨/原细天线、竖向红清尾灯、后雨刷/高刹车灯、镀铬尾门条及Opel/Astra字样、源五辐银轮及同色镜壳把手对应。文件名虽写front，但实际图片是后视，生成仍保持源后侧相机、车头朝右，未造未知车头。圆D国别贴与牌照广告已清除，不改厂家字样。来源/灰/深底实际查看全部可见车体、轮胎、镜壳、天线和顶轨完整，无明显残片或外投影。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/89",
+          "candidate_id": "RU-531ec750ccde3552-C004",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-531ec750ccde3552-C004/original.jpg",
+            "sha256": "911f8c8973bca26a75d9b61de0f4e83f16fde13f87ed4aa7a533c54d194470cd",
+            "bytes": 2693086,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 2466,
+              "height": 1611
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/91/911f8c8973bca26a75d9b61de0f4e83f16fde13f87ed4aa7a533c54d194470cd",
+              "sha256": "911f8c8973bca26a75d9b61de0f4e83f16fde13f87ed4aa7a533c54d194470cd",
+              "size": 2693086,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:M_93\" title=\"User:M 93\">M 93</a>",
+            "LicenseShortName": "CC BY-SA 3.0",
+            "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "License": "cc-by-sa-3.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0088",
+      "plan_index": 88,
+      "task_id": "RU-600b470429d97202",
+      "plan_image_id": "RU-600b470429d97202-1",
+      "plan_body": "两厢",
+      "plan_variant": "GTC",
+      "plan_catalog_year_range": "2011-2018",
+      "plan_filename": "Astra-J-FL-GTC.png",
+      "plan_rear_sha256": "131c514ae51e3b1b5a24bdd69d19af2fb1b40e7843158b569a9f073724da2773",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:2013_Opel_Astra_GTC_(12261340885).jpg",
+      "plan_source_sha256": "3b8c2b1e7dc31d3e367be7c112aaf3eb2e3941aa312b4f172e9c573f2e17d510",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Opel Astra GTC Hatchback 2011-2018 RU",
+      "current_accepted_sha256": "131c514ae51e3b1b5a24bdd69d19af2fb1b40e7843158b569a9f073724da2773",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-600b470429d97202/Astra-J-FL-GTC.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-600b470429d97202-C001/original.jpg",
+      "current_accepted_source_sha256": "3b8c2b1e7dc31d3e367be7c112aaf3eb2e3941aa312b4f172e9c573f2e17d510",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:2013_Opel_Astra_GTC_(12261340885).jpg",
+      "current_accepted_candidate_id": "RU-600b470429d97202-C001",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "黄色Astra J GTC三门后侧，源长侧门/大后侧窗/短斜尾、原轮圈、后雨刷/顶尾翼/短车顶鳍及单侧椭圆排气口对应。后杠局部放大证实原件有该排气口，未凭小图误删。GTC不因其他J车身2012更新而改造未知前端。保持源后侧机位，完整车体/可见轮胎/镜壳/车顶鳍和透明边距。实际源/灰/深底查看无明显场景残片或外投影，640×480原件明确记录而非冒称高分辨率。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T10:34:16.589788+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/70"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-600b470429d97202",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Opel Astra GTC Hatchback 2011-2018 RU",
+            "YEAR": "2011-2018",
+            "结构": "Hatchback",
+            "版本": "GTC",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "175.8",
+            "W-IN": "72.4",
+            "H-IN": "58.3",
+            "scope_rows": [
+              11,
+              12,
+              16
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 38,
+            "accepted_sha256": "131c514ae51e3b1b5a24bdd69d19af2fb1b40e7843158b569a9f073724da2773",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/accepted-configurations-20261113_23.json",
+            "candidate_ids": [
+              "RU-600b470429d97202-C001"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 70,
+          "sha256": "131c514ae51e3b1b5a24bdd69d19af2fb1b40e7843158b569a9f073724da2773",
+          "observation": "黄色Astra J GTC三门后侧，源长侧门/大后侧窗/短斜尾、原轮圈、后雨刷/顶尾翼/短车顶鳍及单侧椭圆排气口对应。后杠局部放大证实原件有该排气口，未凭小图误删。GTC不因其他J车身2012更新而改造未知前端。保持源后侧机位，完整车体/可见轮胎/镜壳/车顶鳍和透明边距。实际源/灰/深底查看无明显场景残片或外投影，640×480原件明确记录而非冒称高分辨率。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/94",
+          "candidate_id": "RU-600b470429d97202-C001",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-600b470429d97202-C001/original.jpg",
+            "sha256": "3b8c2b1e7dc31d3e367be7c112aaf3eb2e3941aa312b4f172e9c573f2e17d510",
+            "bytes": 145404,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 640,
+              "height": 480
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/3b/3b8c2b1e7dc31d3e367be7c112aaf3eb2e3941aa312b4f172e9c573f2e17d510",
+              "sha256": "3b8c2b1e7dc31d3e367be7c112aaf3eb2e3941aa312b4f172e9c573f2e17d510",
+              "size": 145404,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/30474136@N07/12261340885/\">2013 Opel Astra GTC</a>",
+            "Artist": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/30474136@N07\">TuRbO_J</a> from Adelaide, Australia",
+            "LicenseShortName": "CC BY 2.0",
+            "UsageTerms": "Creative Commons Attribution 2.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by/2.0",
+            "License": "cc-by-2.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0091",
+      "plan_index": 91,
+      "task_id": "RU-600b470429d97202",
+      "plan_image_id": "RU-600b470429d97202-4",
+      "plan_body": "旅行车",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2011-2018",
+      "plan_filename": "Astra-J-FL-Sports-Tourer-Verified-Rear.png",
+      "plan_rear_sha256": "f85451e3ab0af822731d906b54fd3f377e9a245157b3f6365080eec6b065f100",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_135815.jpg",
+      "plan_source_sha256": "41f2957b5b8ad7203334baed5c566d3a48f044dc605ea45ad03b5e7e52bf8f06",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Opel Astra Wagon 2011-2018 RU",
+      "current_accepted_sha256": "f85451e3ab0af822731d906b54fd3f377e9a245157b3f6365080eec6b065f100",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-600b470429d97202/Astra-J-FL-Sports-Tourer-Verified-Rear.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-600b470429d97202-C005/original.jpg",
+      "current_accepted_source_sha256": "41f2957b5b8ad7203334baed5c566d3a48f044dc605ea45ad03b5e7e52bf8f06",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_135815.jpg",
+      "current_accepted_candidate_id": "RU-600b470429d97202-C005",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "红色Astra J改款Sports Tourer，B路实际CC0原件，长载物尾/延长侧窗、四侧门、黑色多辐轮/低黑纵轨/短天线/小红尾翼/后雨刷及后杠低位镀铬条保持，源朝左后侧相机不造未知车头。未加ASTRA/TURBO徽标或OPC双排气。实际源对照灰底及深底逐张查看，整车/可见轮胎/镜壳/轨/天线完整且留边，背景Mercedes/树/落叶全部清除，无明显彩色外晕/场景残片/地面影；原生RGBA字节不作后期改图。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T10:34:27.434664+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/75"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-600b470429d97202",
+          "requirement_index": 3,
+          "requirement": {
+            "DIMENSION-ID": "Opel Astra Wagon 2011-2018 RU",
+            "YEAR": "2011-2018",
+            "结构": "Wagon",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "185.0",
+            "W-IN": "71.4",
+            "H-IN": "60.4",
+            "scope_rows": [
+              14,
+              15
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 39,
+            "accepted_sha256": "f85451e3ab0af822731d906b54fd3f377e9a245157b3f6365080eec6b065f100",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/accepted-configurations-20261113_23.json",
+            "candidate_ids": [
+              "RU-600b470429d97202-C005"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 75,
+          "sha256": "f85451e3ab0af822731d906b54fd3f377e9a245157b3f6365080eec6b065f100",
+          "observation": "红色Astra J改款Sports Tourer，B路实际CC0原件，长载物尾/延长侧窗、四侧门、黑色多辐轮/低黑纵轨/短天线/小红尾翼/后雨刷及后杠低位镀铬条保持，源朝左后侧相机不造未知车头。未加ASTRA/TURBO徽标或OPC双排气。实际源对照灰底及深底逐张查看，整车/可见轮胎/镜壳/轨/天线完整且留边，背景Mercedes/树/落叶全部清除，无明显彩色外晕/场景残片/地面影；原生RGBA字节不作后期改图。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/100",
+          "candidate_id": "RU-600b470429d97202-C005",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-600b470429d97202-C005/original.jpg",
+            "sha256": "41f2957b5b8ad7203334baed5c566d3a48f044dc605ea45ad03b5e7e52bf8f06",
+            "bytes": 476283,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 1232,
+              "height": 1203
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/41/41f2957b5b8ad7203334baed5c566d3a48f044dc605ea45ad03b5e7e52bf8f06",
+              "sha256": "41f2957b5b8ad7203334baed5c566d3a48f044dc605ea45ad03b5e7e52bf8f06",
+              "size": 476283,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Trop86&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Trop86 (page does not exist)\">Trop86</a>",
+            "LicenseShortName": "CC0",
+            "UsageTerms": "Creative Commons Zero, Public Domain Dedication",
+            "LicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "License": "cc0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0070",
+      "plan_index": 70,
+      "task_id": "RU-550b016a2b924c85",
+      "plan_image_id": "RU-550b016a2b924c85-1",
+      "plan_body": "掀背",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2004-2009",
+      "plan_filename": "Octavia-A5-Liftback.png",
+      "plan_rear_sha256": "798a03c1df6d24f1f81995021a424f92d5e1063dd70e14e00b92a7ca71788bf5",
+      "plan_source_page": "https://www.flickr.com/photos/juanelo242a/25812649166/",
+      "plan_source_sha256": "306759d831ff7c8fc867df7f9afd3d81b54ad1a02abf5932e6320e47fdb84c9f",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Skoda Octavia Liftback 2004-2009 RU",
+      "current_accepted_sha256": "798a03c1df6d24f1f81995021a424f92d5e1063dd70e14e00b92a7ca71788bf5",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-550b016a2b924c85/Octavia-A5-Liftback.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-550b016a2b924c85-C001/original.jpg",
+      "current_accepted_source_sha256": "306759d831ff7c8fc867df7f9afd3d81b54ad1a02abf5932e6320e47fdb84c9f",
+      "current_accepted_source_page": "https://www.flickr.com/photos/juanelo242a/25812649166/",
+      "current_accepted_candidate_id": "RU-550b016a2b924c85-C001",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "蓝色A5原款Liftback，长斜背/四侧门/独立后侧小窗、C形尾灯/窄黑后杠条、源银五辐轮/同色镜壳把手/细后顶杆保持，实际朝右后侧视；未改成Combi或Scout。实际源与灰/深底逐张检查，车身/轮胎/镜壳/天线尖完整有透明边距，去砖墙草地/路影/牌字，无明显场景残片或外投影。远景原件实解码放大核车体，不用缩略代原图。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T11:49:27.389967+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/115"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-550b016a2b924c85",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Skoda Octavia Liftback 2004-2009 RU",
+            "YEAR": "2004-2009",
+            "结构": "Liftback",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "180.0",
+            "W-IN": "69.6",
+            "H-IN": "57.6",
+            "scope_rows": [
+              23,
+              24
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 79,
+            "accepted_sha256": "798a03c1df6d24f1f81995021a424f92d5e1063dd70e14e00b92a7ca71788bf5",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/accepted-configurations-20261113_30.json",
+            "candidate_ids": [
+              "RU-550b016a2b924c85-C001"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 115,
+          "sha256": "798a03c1df6d24f1f81995021a424f92d5e1063dd70e14e00b92a7ca71788bf5",
+          "observation": "蓝色A5原款Liftback，长斜背/四侧门/独立后侧小窗、C形尾灯/窄黑后杠条、源银五辐轮/同色镜壳把手/细后顶杆保持，实际朝右后侧视；未改成Combi或Scout。实际源与灰/深底逐张检查，车身/轮胎/镜壳/天线尖完整有透明边距，去砖墙草地/路影/牌字，无明显场景残片或外投影。远景原件实解码放大核车体，不用缩略代原图。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/141",
+          "candidate_id": "RU-550b016a2b924c85-C001",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-550b016a2b924c85-C001/original.jpg",
+            "sha256": "306759d831ff7c8fc867df7f9afd3d81b54ad1a02abf5932e6320e47fdb84c9f",
+            "bytes": 2144746,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 3200,
+              "height": 2400
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/30/306759d831ff7c8fc867df7f9afd3d81b54ad1a02abf5932e6320e47fdb84c9f",
+              "sha256": "306759d831ff7c8fc867df7f9afd3d81b54ad1a02abf5932e6320e47fdb84c9f",
+              "size": 2144746,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Artist": "RL GNZLZ",
+            "Credit": "Original photograph by RL GNZLZ",
+            "LicenseShortName": "CC BY-SA 2.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/deed.en",
+            "UsageTerms": "Exact Creative Commons version captured from actual Flickr source-page anchors and public Original-sizes page; retain photographer attribution and license/adaptation conditions.",
+            "License": "CC BY-SA 2.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0072",
+      "plan_index": 72,
+      "task_id": "RU-550b016a2b924c85",
+      "plan_image_id": "RU-550b016a2b924c85-3",
+      "plan_body": "旅行车",
+      "plan_variant": "Scout",
+      "plan_catalog_year_range": "2004-2009",
+      "plan_filename": "Octavia-A5-Scout.png",
+      "plan_rear_sha256": "7f6e8f23e4f6d36d71a7aad380a42955600e3cb552f00de4f310390d51b191ed",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:2008-2009_%C5%A0koda_Octavia_(1Z)_Scout_station_wagon_01.jpg",
+      "plan_source_sha256": "a723ce862386de6d51bacd22cd3dad8184bfab17075307c2f27e1c6cf3a3a3cd",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Skoda Octavia Scout Wagon 2004-2009 RU",
+      "current_accepted_sha256": "7f6e8f23e4f6d36d71a7aad380a42955600e3cb552f00de4f310390d51b191ed",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-550b016a2b924c85/Octavia-A5-Scout.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-550b016a2b924c85-C003/original.jpg",
+      "current_accepted_source_sha256": "a723ce862386de6d51bacd22cd3dad8184bfab17075307c2f27e1c6cf3a3a3cd",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:2008-2009_%C5%A0koda_Octavia_(1Z)_Scout_station_wagon_01.jpg",
+      "current_accepted_candidate_id": "RU-550b016a2b924c85-C003",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "浅银绿A5 Scout长顶旅行车，黑轮眉/侧裙/宽黑后杠、银后护板/双排口、源纵轨+两根横杆/完整细顶杆/银五辐轮保持，朝左后侧视。实际使用OSX历史未裁4000x3000原件，现行裁图切天线未用于生成。作者2008–2009标签及品牌Scout迟于普通Octavia到2009才更新的独立史料支持原款代表绑定；未找到同车前脸，不能声称已直接确认不可见前脸、VIN或精确车型年。实际源/灰/深底核整车与天线/架完整，去树影/院落/牌字，无明显残片/外投影；alpha最高254按原生保留。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T11:49:36.244058+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/118"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-550b016a2b924c85",
+          "requirement_index": 1,
+          "requirement": {
+            "DIMENSION-ID": "Skoda Octavia Scout Wagon 2004-2009 RU",
+            "YEAR": "2004-2009",
+            "结构": "Wagon",
+            "版本": "Scout",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "180.4",
+            "W-IN": "70.2",
+            "H-IN": "60.4",
+            "scope_rows": [
+              25,
+              26,
+              27
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 81,
+            "accepted_sha256": "7f6e8f23e4f6d36d71a7aad380a42955600e3cb552f00de4f310390d51b191ed",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/accepted-configurations-20261113_30.json",
+            "candidate_ids": [
+              "RU-550b016a2b924c85-C003"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 118,
+          "sha256": "7f6e8f23e4f6d36d71a7aad380a42955600e3cb552f00de4f310390d51b191ed",
+          "observation": "浅银绿A5 Scout长顶旅行车，黑轮眉/侧裙/宽黑后杠、银后护板/双排口、源纵轨+两根横杆/完整细顶杆/银五辐轮保持，朝左后侧视。实际使用OSX历史未裁4000x3000原件，现行裁图切天线未用于生成。作者2008–2009标签及品牌Scout迟于普通Octavia到2009才更新的独立史料支持原款代表绑定；未找到同车前脸，不能声称已直接确认不可见前脸、VIN或精确车型年。实际源/灰/深底核整车与天线/架完整，去树影/院落/牌字，无明显残片/外投影；alpha最高254按原生保留。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/144",
+          "candidate_id": "RU-550b016a2b924c85-C003",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-550b016a2b924c85-C003/original.jpg",
+            "sha256": "a723ce862386de6d51bacd22cd3dad8184bfab17075307c2f27e1c6cf3a3a3cd",
+            "bytes": 5084997,
+            "decode_verified": true,
+            "decoded": {
+              "format": "MPO",
+              "mode": "RGB",
+              "width": 4000,
+              "height": 3000
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/a7/a723ce862386de6d51bacd22cd3dad8184bfab17075307c2f27e1c6cf3a3a3cd",
+              "sha256": "a723ce862386de6d51bacd22cd3dad8184bfab17075307c2f27e1c6cf3a3a3cd",
+              "size": 5084997,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:OSX\" title=\"User:OSX\">OSX</a>",
+            "LicenseShortName": "Public domain",
+            "UsageTerms": "Public domain",
+            "License": "pd"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0109",
+      "plan_index": 109,
+      "task_id": "RU-81360a44f305ad4a",
+      "plan_image_id": "RU-81360a44f305ad4a-2",
+      "plan_body": "旅行车",
+      "plan_variant": "Scout",
+      "plan_catalog_year_range": "2008-2013",
+      "plan_filename": "Octavia-A5-FL-Scout.png",
+      "plan_rear_sha256": "a529fc2f257256f829d85e6c9a7f03368a1851e8ef18eaa54203c0782d204811",
+      "plan_source_page": "https://commons.wikimedia.org/wiki/File:Skoda_Octavia_II_Scout_2009_1.JPG",
+      "plan_source_sha256": "94a389fb4a0d8cc8651bcd3775d38560c993c41687c249b7536e934607e6ebe2",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Skoda Octavia Scout Wagon 2008-2013 RU",
+      "current_accepted_sha256": "a529fc2f257256f829d85e6c9a7f03368a1851e8ef18eaa54203c0782d204811",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-81360a44f305ad4a/Octavia-A5-FL-Scout.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-81360a44f305ad4a-C002/original.jpg",
+      "current_accepted_source_sha256": "94a389fb4a0d8cc8651bcd3775d38560c993c41687c249b7536e934607e6ebe2",
+      "current_accepted_source_page": "https://commons.wikimedia.org/wiki/File:Skoda_Octavia_II_Scout_2009_1.JPG",
+      "current_accepted_candidate_id": "RU-81360a44f305ad4a-C002",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "银色A5改款Scout长顶旅行车，实际源页明确facelift；黑轮眉/侧裙/后杠/银后护板与双排口、纵轨/细后顶杆/源银轮对应，无新增横架，保持朝左后侧角度，不冒充RS或普通Combi。实际源/灰/深底核全车/轮胎/镜壳/杆尖完整，底边22px如实记录而非声称宽裕固定画布；去街道/邻车/牌字，无明显残片/外投影。Amarok CC-SA3保留，alpha最高254不修改。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T11:49:39.864620+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/119"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-81360a44f305ad4a",
+          "requirement_index": 1,
+          "requirement": {
+            "DIMENSION-ID": "Skoda Octavia Scout Wagon 2008-2013 RU",
+            "YEAR": "2008-2013",
+            "结构": "Wagon",
+            "版本": "Scout",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "180.5",
+            "W-IN": "70.2",
+            "H-IN": "60.4",
+            "scope_rows": [
+              25,
+              26,
+              27
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 86,
+            "accepted_sha256": "a529fc2f257256f829d85e6c9a7f03368a1851e8ef18eaa54203c0782d204811",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_30_octavia-a5-six-configurations-two-task-closures/output/accepted-configurations-20261113_30.json",
+            "candidate_ids": [
+              "RU-81360a44f305ad4a-C002"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 119,
+          "sha256": "a529fc2f257256f829d85e6c9a7f03368a1851e8ef18eaa54203c0782d204811",
+          "observation": "银色A5改款Scout长顶旅行车，实际源页明确facelift；黑轮眉/侧裙/后杠/银后护板与双排口、纵轨/细后顶杆/源银轮对应，无新增横架，保持朝左后侧角度，不冒充RS或普通Combi。实际源/灰/深底核全车/轮胎/镜壳/杆尖完整，底边22px如实记录而非声称宽裕固定画布；去街道/邻车/牌字，无明显残片/外投影。Amarok CC-SA3保留，alpha最高254不修改。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/145",
+          "candidate_id": "RU-81360a44f305ad4a-C002",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-81360a44f305ad4a-C002/original.jpg",
+            "sha256": "94a389fb4a0d8cc8651bcd3775d38560c993c41687c249b7536e934607e6ebe2",
+            "bytes": 832121,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 1600,
+              "height": 1200
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/94/94a389fb4a0d8cc8651bcd3775d38560c993c41687c249b7536e934607e6ebe2",
+              "sha256": "94a389fb4a0d8cc8651bcd3775d38560c993c41687c249b7536e934607e6ebe2",
+              "size": 832121,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Amarok&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Amarok (page does not exist)\">Amarok</a>",
+            "LicenseShortName": "CC BY-SA 3.0",
+            "UsageTerms": "Creative Commons Attribution-Share Alike 3.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+            "License": "cc-by-sa-3.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0024",
+      "plan_index": 24,
+      "task_id": "RU-2ced1e85ff306fb6",
+      "plan_image_id": "RU-2ced1e85ff306fb6-3",
+      "plan_body": "掀背",
+      "plan_variant": "",
+      "plan_catalog_year_range": "2019-2026",
+      "plan_filename": "Octavia-A8-Liftback.png",
+      "plan_rear_sha256": "c901eddba74dbad57de92ec4dfb1cae89a134e5028a376bdf55bf7ca8fe68174",
+      "plan_source_page": "https://www.flickr.com/photos/juanelo242a/53037766065/",
+      "plan_source_sha256": "1f50b86e3596513b00efcf825d87064690a1ad4c3eca465c83f9be8ec8b21ac1",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Skoda Octavia Liftback 2019-2026 RU",
+      "current_accepted_sha256": "c901eddba74dbad57de92ec4dfb1cae89a134e5028a376bdf55bf7ca8fe68174",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-2ced1e85ff306fb6/Octavia-A8-Liftback.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-2ced1e85ff306fb6-C003/original.jpg",
+      "current_accepted_source_sha256": "1f50b86e3596513b00efcf825d87064690a1ad4c3eca465c83f9be8ec8b21ac1",
+      "current_accepted_source_page": "https://www.flickr.com/photos/juanelo242a/53037766065/",
+      "current_accepted_candidate_id": "RU-2ced1e85ff306fb6-C003",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "白色Octavia A8原款Liftback，Flickr原尺寸5352×2838/照片专属CC BY-SA2许可已核，2023标签与2023拍摄日期分记。清楚斜后窗/短尾台/四侧门/后侧窗C柱、细角尾灯/分离SKODA字与Octavia真铭牌、原多辐银轮/后杠反光片/目标顶单鳍对应。保持朝右偏侧后视，不造前脸；邻车纵轨未移植。实际原源/灰/深底查看全车轮胎镜壳/鳍完整，原生下边距14px据实记录，不冒称大留白或固定标准画布；去经销牌字/邻车反射，无明显残片/外投影。旧蓝车仍车身未知hold、未生成，不能拿它当本图来源。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T11:24:22.311377+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/108"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-2ced1e85ff306fb6",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Skoda Octavia Liftback 2019-2026 RU",
+            "YEAR": "2019-2026",
+            "结构": "Liftback",
+            "版本": "",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "184.6",
+            "W-IN": "72.0",
+            "H-IN": "57.9",
+            "scope_rows": [
+              23,
+              24
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 76,
+            "accepted_sha256": "c901eddba74dbad57de92ec4dfb1cae89a134e5028a376bdf55bf7ca8fe68174",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_28_octavia-a7-facelift-and-a8-six-configurations/output/accepted-configurations-20261113_28.json",
+            "candidate_ids": [
+              "RU-2ced1e85ff306fb6-C003"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 108,
+          "sha256": "c901eddba74dbad57de92ec4dfb1cae89a134e5028a376bdf55bf7ca8fe68174",
+          "observation": "白色Octavia A8原款Liftback，Flickr原尺寸5352×2838/照片专属CC BY-SA2许可已核，2023标签与2023拍摄日期分记。清楚斜后窗/短尾台/四侧门/后侧窗C柱、细角尾灯/分离SKODA字与Octavia真铭牌、原多辐银轮/后杠反光片/目标顶单鳍对应。保持朝右偏侧后视，不造前脸；邻车纵轨未移植。实际原源/灰/深底查看全车轮胎镜壳/鳍完整，原生下边距14px据实记录，不冒称大留白或固定标准画布；去经销牌字/邻车反射，无明显残片/外投影。旧蓝车仍车身未知hold、未生成，不能拿它当本图来源。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/133",
+          "candidate_id": "RU-2ced1e85ff306fb6-C003",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-2ced1e85ff306fb6-C003/original.jpg",
+            "sha256": "1f50b86e3596513b00efcf825d87064690a1ad4c3eca465c83f9be8ec8b21ac1",
+            "bytes": 3857731,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 5352,
+              "height": 2838
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/1f/1f50b86e3596513b00efcf825d87064690a1ad4c3eca465c83f9be8ec8b21ac1",
+              "sha256": "1f50b86e3596513b00efcf825d87064690a1ad4c3eca465c83f9be8ec8b21ac1",
+              "size": 3857731,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Artist": "RL GNZLZ (Flickr user juanelo242a)",
+            "Credit": "Original photograph by RL GNZLZ (Flickr user juanelo242a)",
+            "LicenseShortName": "CC BY-SA 2.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/deed.en",
+            "UsageTerms": "Actual Flickr photo-page anchors title CC BY-SA2.0 point to this exact license. Original-sizes page says all sizes available under Creative Commons. Attribution, link to license/change indication and ShareAlike must be preserved in adapted delivery.",
+            "License": "cc-by-sa-2.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "REAR-0148",
+      "plan_index": 148,
+      "task_id": "RU-d8ecb0d87bff666a",
+      "plan_image_id": "RU-d8ecb0d87bff666a-2",
+      "plan_body": "三厢",
+      "plan_variant": "Axio",
+      "plan_catalog_year_range": "2006-2010",
+      "plan_filename": "Corolla-E140-Axio.png",
+      "plan_rear_sha256": "10db515191761ebec0a62b7c4a140ad95facd487f077e51285cacf79d11a4196",
+      "plan_source_page": "https://www.flickr.com/photos/37804160@N00/2365776276/",
+      "plan_source_sha256": "6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+      "plan_source_candidate_id": null,
+      "mapping_method": "exact task_id + plan current_sha256 to formal current-accepted record; no inferred name/body matching",
+      "matched_formal_records": 1,
+      "dimension_id": "Toyota Corolla Axio Sedan 2006-2010 RU",
+      "current_accepted_sha256": "10db515191761ebec0a62b7c4a140ad95facd487f077e51285cacf79d11a4196",
+      "current_accepted_file": "/workspace/ru_picture_producer/outputs/俄罗斯/RU-d8ecb0d87bff666a/Corolla-E140-Axio.png",
+      "current_accepted_file_local_exists": false,
+      "current_accepted_file_sha256_computed_now": null,
+      "current_accepted_source_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-d8ecb0d87bff666a-C002/original.jpg",
+      "current_accepted_source_sha256": "6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+      "current_accepted_source_page": "https://www.flickr.com/photos/37804160@N00/2365776276/",
+      "current_accepted_candidate_id": "RU-d8ecb0d87bff666a-C002",
+      "source_sha_matches_plan": true,
+      "current_record_observation": "白E140原Axio紧凑Sedan，保持真实后侧视朝左/尾朝右，矩形红清尾灯/完整尾箱/AXIO与Toyota尾徽/银轮罩/白镜把手对应，不凭空展示前脸。Flickr2008年3月上传先于2008年10月改款独立界定。源/灰深底实际核全胎镜完整，无新增鳍杆，去帐篷红毯/临时彩贴/牌字，无明显残片或外投影。",
+      "current_record_passed": true,
+      "current_record_reviewed_at": "2026-11-13T12:47:47.742137+00:00",
+      "acceptance_evidence": {
+        "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/current-accepted-configuration-index-20261114_49.json",
+        "json_pointer": "$/151"
+      },
+      "progress_requirement_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/progress-20261114_49.json",
+          "task_id": "RU-d8ecb0d87bff666a",
+          "requirement_index": 0,
+          "requirement": {
+            "DIMENSION-ID": "Toyota Corolla Axio Sedan 2006-2010 RU",
+            "YEAR": "2006-2010",
+            "结构": "Sedan",
+            "版本": "Axio",
+            "CAB": "",
+            "BED": "",
+            "L-IN": "173.6",
+            "W-IN": "66.7",
+            "H-IN": "57.9",
+            "scope_rows": [
+              28,
+              30,
+              31,
+              39
+            ],
+            "state": "accepted",
+            "search_index_file": "reports/ru-image-search/artifacts/2026-11-13_09_scope-initial-search-and-method-sample/output/search-index-20261113_09.json",
+            "search_response_index": 143,
+            "accepted_sha256": "10db515191761ebec0a62b7c4a140ad95facd487f077e51285cacf79d11a4196",
+            "acceptance_file": "reports/ru-image-search/artifacts/2026-11-13_36_corolla-e160-2012-and-e140-original-six-bodies/output/accepted-configurations-20261113_36.json",
+            "candidate_ids": [
+              "RU-d8ecb0d87bff666a-C002"
+            ]
+          }
+        }
+      ],
+      "same_configuration_current_accepted_records": [
+        {
+          "index": 151,
+          "sha256": "10db515191761ebec0a62b7c4a140ad95facd487f077e51285cacf79d11a4196",
+          "observation": "白E140原Axio紧凑Sedan，保持真实后侧视朝左/尾朝右，矩形红清尾灯/完整尾箱/AXIO与Toyota尾徽/银轮罩/白镜把手对应，不凭空展示前脸。Flickr2008年3月上传先于2008年10月改款独立界定。源/灰深底实际核全胎镜完整，无新增鳍杆，去帐篷红毯/临时彩贴/牌字，无明显残片或外投影。"
+        }
+      ],
+      "recorded_candidate_evidence": [
+        {
+          "file": "/workspace/all_cars_data/reports/ru-image-search/artifacts/2026-11-14_49_six-priora-corolla-rav4-accepted/output/candidates-20261114_49.json",
+          "json_pointer": "$/177",
+          "candidate_id": "RU-d8ecb0d87bff666a-C002",
+          "download": {
+            "status": "verified_original",
+            "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-d8ecb0d87bff666a-C002/original.jpg",
+            "sha256": "6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+            "bytes": 947289,
+            "decode_verified": true,
+            "decoded": {
+              "format": "JPEG",
+              "mode": "RGB",
+              "width": 2706,
+              "height": 1832
+            },
+            "oss": {
+              "object_key": "main_picture_producer/v1/objects/6c/6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+              "sha256": "6c72bb68f73b3334bf783b07dac6ced34558c94a7e4c54234e93140f23f39cca",
+              "size": 947289,
+              "full_readback_sha_verified": true
+            }
+          },
+          "license": {
+            "Artist": "Mike W.",
+            "Credit": "Original photograph by Mike W.",
+            "LicenseShortName": "CC BY-SA 2.0",
+            "LicenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "UsageTerms": "Actual current per-photo rel=license anchors plus same-photo ImageObject checked; attribution,license-link,changes indication; share-alike for BY-SA.",
+            "License": "CC BY-SA 2.0"
+          }
+        }
+      ],
+      "status": "historical_rear_still_current_need_verified_front",
+      "confirmed_front_output_reusable": false,
+      "reason": "该计划rear SHA仍是该精确DIM唯一当前验收SHA，当前验收观察也明确保持后/后侧；没有另一个同配置当前已验收前方成品。旧通过不计为前方通过。"
+    },
+    {
+      "plan_id": "VIEW-0003",
+      "task_id": "RU-5302310097da5167",
+      "dimension_id": "Lada (ВАЗ) Granta Liftback 2018-2026 RU",
+      "plan_rear_sha256": "7c77c99a0502a94221b67cf252b2e5eb54d36c56c1504315a19bef2f6dda6164",
+      "plan_old_sha256": "7c77c99a0502a94221b67cf252b2e5eb54d36c56c1504315a19bef2f6dda6164",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "636e32ab6fdd21a5b543545c4b708df3e517b69ce815a26b6d275c994a3d3495",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Lada_Granta_FL_liftback_black_side.jpg"
+    },
+    {
+      "plan_id": "VIEW-0027",
+      "task_id": "RU-7c89ff08e7f863ea",
+      "dimension_id": "Ford Focus Hatchback 2021-2025 RU",
+      "plan_rear_sha256": "161df294d21c5ec83f6f74c2d1ee3bbed01bde700b0ea50101b19555afe0c5b1",
+      "plan_old_sha256": "161df294d21c5ec83f6f74c2d1ee3bbed01bde700b0ea50101b19555afe0c5b1",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_frontal",
+      "original_source_sha256": "53d836cece169c51d0c08ef722198936db5906bada877c73eee383a6e06b60de",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Ford_Focus_Mk_IV_Facelift_Leonberg_2022_1X7A0451.jpg"
+    },
+    {
+      "plan_id": "VIEW-0046",
+      "task_id": "RU-b2839c4c79c82e0c",
+      "dimension_id": "Ford Focus Sedan 1999-2004 RU",
+      "plan_rear_sha256": "3b72f7f276ab5ab9160265012614f29c0cceb2aecb82711650dd70ee76106a9e",
+      "plan_old_sha256": "3b72f7f276ab5ab9160265012614f29c0cceb2aecb82711650dd70ee76106a9e",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "a6cc0b05caf340b67c9fbe23f8bfed0e552561b1346d92977d806882b5119d7a",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2002_Ford_Focus_sedan_2.0_USDM.jpg"
+    },
+    {
+      "plan_id": "VIEW-0049",
+      "task_id": "RU-cb2efb0d6a90f01f",
+      "dimension_id": "Ford Focus Hatchback 2020-2022 RU",
+      "plan_rear_sha256": "426ae552b08a27a80f973cdba680df83791503d76d59ab785894a7bcf822c4bc",
+      "plan_old_sha256": "426ae552b08a27a80f973cdba680df83791503d76d59ab785894a7bcf822c4bc",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_frontal",
+      "original_source_sha256": "2a8b9e390bfa66a2be2f45d46b727632a489ba678d1b01434ec5945e510178e9",
+      "source_page": "https://commons.wikimedia.org/wiki/File:FORD_FOCUS_HATCHBACK_ST-LINE_(C519)_China.jpg"
+    },
+    {
+      "plan_id": "VIEW-0072",
+      "task_id": "RU-600b470429d97202",
+      "dimension_id": "Opel Astra Hatchback 2011-2018 RU",
+      "plan_rear_sha256": "432853de10e05dc4c3ce003ad890ae7ffd1c9b15764d938005921b62460d700c",
+      "plan_old_sha256": "432853de10e05dc4c3ce003ad890ae7ffd1c9b15764d938005921b62460d700c",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "6e4ba3aba55045fbea6dc0f68bb469c28ee8f22350c3230cd84f0c4d08540b2c",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2012-2013_Opel_Astra_(AS)_Sport_5-door_hatchback_(14646162319).jpg"
+    },
+    {
+      "plan_id": "VIEW-0086",
+      "task_id": "RU-7c89ff08e7f863ea",
+      "dimension_id": "Ford Focus Sedan 2021-2025 RU",
+      "plan_rear_sha256": "7ef383cceec4d755300a42b21724b713b6b47006a39c18e403a21119023cfe0d",
+      "plan_old_sha256": "7ef383cceec4d755300a42b21724b713b6b47006a39c18e403a21119023cfe0d",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "44e87e263b155674adc995d8f9855c1ffd93f3854a6fc659e0ccf1369722ff27",
+      "source_page": "https://commons.wikimedia.org/wiki/File:FORD_FOCUS_SEDAN_China_(3).jpg"
+    },
+    {
+      "plan_id": "VIEW-0096",
+      "task_id": "RU-8843ed400916ff73",
+      "dimension_id": "Kia Rio Global Sedan 2015-2017 RU",
+      "plan_rear_sha256": "db37128dd7c967fd0fe84950b0b4653f075ab956b99997b919a0570c3428d75d",
+      "plan_old_sha256": "db37128dd7c967fd0fe84950b0b4653f075ab956b99997b919a0570c3428d75d",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "4a45d7cf477ac5868975aca13321744fb55b0134d7e05a1867c1989c08ee4a14",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/28889510831/"
+    },
+    {
+      "plan_id": "VIEW-0098",
+      "task_id": "RU-600ee9f8850209c3",
+      "dimension_id": "Kia Rio Sedan 2005-2009 RU",
+      "plan_rear_sha256": "6ee74e15548b179549d08db361c8bec1892102ceb760c51dd8e7a658f5e5b0ef",
+      "plan_old_sha256": "6ee74e15548b179549d08db361c8bec1892102ceb760c51dd8e7a658f5e5b0ef",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "7f308721fae8b8099e8be3e4665cb90bf9ac2573509be1bca35dbbaf9969cf03",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/51783501578/"
+    },
+    {
+      "plan_id": "VIEW-0099",
+      "task_id": "RU-5e7343a392072668",
+      "dimension_id": "Kia Rio Sedan 2009-2011 RU",
+      "plan_rear_sha256": "acc20df8d1ef67c57f142c94dc008538a383cd314f965159583be1bdd8f9171e",
+      "plan_old_sha256": "acc20df8d1ef67c57f142c94dc008538a383cd314f965159583be1bdd8f9171e",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "347ae19b24ee2c02d29007d5ba063d61d312a7345a655f62ad7a2bdf2f7b9130",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/16111137897/"
+    },
+    {
+      "plan_id": "VIEW-0104",
+      "task_id": "RU-0707cfcb8ed49c8b",
+      "dimension_id": "Skoda Octavia Scout Wagon 2017-2023 RU",
+      "plan_rear_sha256": "034ef741b03b236732ad532a879b1666c2763e7f97172d68011b65269e6a3e2c",
+      "plan_old_sha256": "034ef741b03b236732ad532a879b1666c2763e7f97172d68011b65269e6a3e2c",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "a9d5d5f82a0af111b69283c22602ac92acb95f5739ef03d1f9157bfba54b2d00",
+      "source_page": "https://commons.wikimedia.org/wiki/File:2017-03-07_Geneva_Motor_Show_1234.JPG"
+    },
+    {
+      "plan_id": "VIEW-0110",
+      "task_id": "RU-3ee782fa23beb863",
+      "dimension_id": "Kia Rio Sedan 1999-2002 RU",
+      "plan_rear_sha256": "98d6b7c4e66736f97435999b6f59096c3f70582af309199c2161aefa79d29c47",
+      "plan_old_sha256": "98d6b7c4e66736f97435999b6f59096c3f70582af309199c2161aefa79d29c47",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "696345440933549b6a6c68c6e1a5bdcf55eb22c395dcccde09e8f015eab71c57",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/51496951147/"
+    },
+    {
+      "plan_id": "VIEW-0111",
+      "task_id": "RU-3ee782fa23beb863",
+      "dimension_id": "Kia Rio Wagon 1999-2002 RU",
+      "plan_rear_sha256": "8b73cf04c86a0a8e1f9b8434cc6b8e4ab8a07d596d9f6cfef6430a905efe2a40",
+      "plan_old_sha256": "8b73cf04c86a0a8e1f9b8434cc6b8e4ab8a07d596d9f6cfef6430a905efe2a40",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "9f3199c61be1ee26eb01a3a68d076088efefda85f53a895074ed0f10f799b887",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/30955951450/"
+    },
+    {
+      "plan_id": "VIEW-0115",
+      "task_id": "RU-dcfad0519f446b9e",
+      "dimension_id": "Kia Rio IV (Global market) Sedan 2017-2020 RU",
+      "plan_rear_sha256": "4430ce325a36d8c02b3ca384fbd46766ddc0ac9e9e32abb0cededc49bba08dc6",
+      "plan_old_sha256": "4430ce325a36d8c02b3ca384fbd46766ddc0ac9e9e32abb0cededc49bba08dc6",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "3ab9a8764c56a9dab518296124942ba492c3ef98f244a260f09390bd4c038d34",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/23869218378/"
+    },
+    {
+      "plan_id": "VIEW-0118",
+      "task_id": "RU-81360a44f305ad4a",
+      "dimension_id": "Skoda Octavia Liftback 2008-2013 RU",
+      "plan_rear_sha256": "1a929ae9e0ff33403c9c28430fef694a2bd151aec01dcab9fbc65b00a6acefe0",
+      "plan_old_sha256": "1a929ae9e0ff33403c9c28430fef694a2bd151aec01dcab9fbc65b00a6acefe0",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "b4da2a6b9569ea6941dac7c0bcad554cbcc1369cd424835620477944920902db",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/30935350363/"
+    },
+    {
+      "plan_id": "VIEW-0122",
+      "task_id": "RU-ad23b6048d7c421b",
+      "dimension_id": "Skoda Octavia Liftback 2013-2017 RU",
+      "plan_rear_sha256": "ea508a6645ba9c4967128f4a47405a718e673f1e63a69254cde370bd716d5f08",
+      "plan_old_sha256": "ea508a6645ba9c4967128f4a47405a718e673f1e63a69254cde370bd716d5f08",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "14d385f1e2a594774c11e9aa0febc974318d743595e2c79b72ebefba72813bb0",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/54483924554/"
+    },
+    {
+      "plan_id": "VIEW-0123",
+      "task_id": "RU-ad23b6048d7c421b",
+      "dimension_id": "Skoda Octavia Scout Wagon 2013-2017 RU",
+      "plan_rear_sha256": "e23519a3ddf4cf5b5fea34152d1bbe7d04e9ebb72b66af54f06c7b3ec1ccda3e",
+      "plan_old_sha256": "e23519a3ddf4cf5b5fea34152d1bbe7d04e9ebb72b66af54f06c7b3ec1ccda3e",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "f49309c52c554857d001f3d34664776a25deb705bc5b353ead2d134cfb955da5",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/52536005954/"
+    },
+    {
+      "plan_id": "VIEW-0133",
+      "task_id": "RU-e06e6549a4f13b62",
+      "dimension_id": "Skoda Octavia Liftback 2000-2011 RU",
+      "plan_rear_sha256": "44cd245e7989de65dd40cf2cce831226dba37e9d4883add67219272ea76fa5a1",
+      "plan_old_sha256": "44cd245e7989de65dd40cf2cce831226dba37e9d4883add67219272ea76fa5a1",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "621d85030b613667877b20f3e84d01572beafb1a3c4d36455fe98184d86ee8b9",
+      "source_page": "https://www.flickr.com/photos/juanelo242a/50566893162/"
+    },
+    {
+      "plan_id": "VIEW-0149",
+      "task_id": "RU-91466377e9191e9b",
+      "dimension_id": "Toyota Corolla Fielder Wagon 2012-2016 RU",
+      "plan_rear_sha256": "cae4152a438ef939fe0f42f99e8b6bcc5a03831ed441639b8e04f0e61417d62c",
+      "plan_old_sha256": "cae4152a438ef939fe0f42f99e8b6bcc5a03831ed441639b8e04f0e61417d62c",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "08e15df3bd2c1f3c16833a1e2157a5a07a1c2b22b65ab1e61ba6e383368a4354",
+      "source_page": "https://www.flickr.com/photos/130382521@N04/39252781025/"
+    },
+    {
+      "plan_id": "VIEW-0151",
+      "task_id": "RU-d8ecb0d87bff666a",
+      "dimension_id": "Toyota Corolla Sedan 2006-2010 RU",
+      "plan_rear_sha256": "ab015d05aaf130fc24dc2c0cb16f1efb4cf7458e9549020e61c1d9d9bd979318",
+      "plan_old_sha256": "ab015d05aaf130fc24dc2c0cb16f1efb4cf7458e9549020e61c1d9d9bd979318",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "58a0c3506002459dd6d4eff2da42a25cf959e006224a06818a6495cbc625f8e0",
+      "source_page": "https://www.flickr.com/photos/37691369@N08/48971521857/"
+    },
+    {
+      "plan_id": "VIEW-0155",
+      "task_id": "RU-78e420853a31e4fc",
+      "dimension_id": "Toyota Corolla Sedan 1979-1987 RU",
+      "plan_rear_sha256": "05f02af7743d2935bb880c0c6a7aa808e284bf1c2a95c2d91839e8c1ba672700",
+      "plan_old_sha256": "05f02af7743d2935bb880c0c6a7aa808e284bf1c2a95c2d91839e8c1ba672700",
+      "legacy_field_note": "plan_rear_sha256 is the validator legacy field for old output SHA; this item is not claimed to be rear.",
+      "original_orientation": "too_side",
+      "original_source_sha256": "cafef626de8a08ed87ff82d5d94aa7584ce699a09bdaf2ca06d0618eb09c9fbb",
+      "source_page": "https://commons.wikimedia.org/wiki/File:1983-1985_Toyota_Corolla_(KE70)_CS_sedan_(8268403432).jpg"
+    }
+  ],
+  "small_sample_entry": {
+    "status": "verified_licensed_actual_front_reference_handoff_to_source_D",
+    "plan_id": "REAR-0114",
+    "task_id": "RU-8c0d5fac93c27774",
+    "dimension_id": "Ford Focus Sedan 2004-2007 RU",
+    "frozen_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "frozen_mapping_row": [
+      "RU|ford/focus|I Рестайлинг (North America)|2004-2007|Sedan|-|-",
+      "Ford Focus Sedan 2004-2007 RU"
+    ],
+    "source_page": "https://commons.wikimedia.org/wiki/File:2005_Ford_Focus_SE_ZX4_in_Sonic_Blue_Metallic,_front_left,_03-28-2026.jpg",
+    "source_file": "/workspace/ru_picture_producer/pilot20/identity_a/rear-retake-sample/ZX4-same-car-front-original.jpg",
+    "source_sha256": "9637901b187937dd28773e45235aae33f6b38dac5d6013a8ae7a774cbf5abe18",
+    "download_manifest": "/workspace/ru_picture_producer/pilot20/identity_a/rear-retake-sample/zx4-front-download.json",
+    "api_metadata_file": "/workspace/ru_picture_producer/pilot20/identity_a/rear-retake-sample/zx4-same-car-front-api.json",
+    "license": "Cutlass own-work CC0; Commons revid1188535086, timestamp2026-03-29T01:38:20Z",
+    "downloaded_original": true,
+    "decoded": {
+      "format": "JPEG",
+      "width": 3855,
+      "height": 2519,
+      "mode": "RGB"
+    },
+    "actually_viewed": true,
+    "observed": "蓝色北美I改款ZX4四门Sedan、独立尾箱；改款主灯/mesh上格栅蓝Ford徽/前杠橙marker、黑镜把手、原银多辐轮；前脸与近侧四侧门及尾箱明确，完整前1/3至1/2视角、两可见轮胎/镜/细天线尖完整。有原锈损及黄化灯，后续只能清洁不改灯鼻/车身。",
+    "paired_old_rear_evidence": "同作者Cutlass、同文件名车型/蓝漆/拍摄地Pittsburgh、同日期front10:50:00/rear10:50:25，强同车配对线索；旧rear原件当前本地缓存不在，尚未恢复作逐像素并排，不将同车关系冒认VIN认证。",
+    "source_oss_full_get_completed": false,
+    "production_ready": false,
+    "generated": false,
+    "enqueued": false,
+    "handoff_agent": "/root/source_d_focus_gap",
+    "handoff_scope": "D复用本地已下原件，补独立改款身份/精确版本及source proof，按root后续retake队列领取；勿重复下载或收费。",
+    "historical_output_front_reuse": false
+  },
+  "limitations": [
+    "本次逐条以旧rear计划SHA和当前正式SHA/观察对账；未重新将20张旧图目视批准为前方。",
+    "同任务中其他车身已有前方成品不构成该DIM复用依据。",
+    "main_picture_producer断点引用是历史只读快照，当前正式49批优先。",
+    "current_accepted index仍保留旧rear历史批准，不能据passed=true声称新增前方合格。",
+    "20个正式历史输出逻辑路径均无本地缓存；本次按正式记录与计划SHA/观察对账，未伪称恢复原件/新OSSGET或重新目视批准。缺缓存不视为资产丢失或重生理由。"
+  ],
+  "formal_ledger_changed": false,
+  "git_changed": false,
+  "imagegen_calls": 0,
+  "sample_completed_at": "2026-11-13T18:06:55.655047+00:00",
+  "summary": {
+    "total_items": 40,
+    "original_rear20_preserved": true,
+    "includes_new_side_and_near_head_on": 20,
+    "prior_original_plan_unchanged": true
+  }
+}
