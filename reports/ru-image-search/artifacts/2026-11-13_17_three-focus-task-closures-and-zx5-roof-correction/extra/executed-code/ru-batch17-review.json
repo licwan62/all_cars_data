@@ -1,0 +1,86 @@
+{
+  "description": "three-focus-task-closures-and-zx5-roof-correction",
+  "actual_visual_review_complete": true,
+  "jobs_file": "/workspace/scratch/ru-focus17-final-jobs.json",
+  "generation_job_files": [
+    "/workspace/scratch/ru-focus17-jobs.json",
+    "/workspace/scratch/ru-focus17-zx5-repair-jobs.json",
+    "/workspace/scratch/ru-focus17-ordinary-wagon-jobs.json"
+  ],
+  "source_manifest_files": [
+    "/workspace/scratch/ru-focus17-sources.json",
+    "/workspace/scratch/ru-focus17-ordinary-wagon-sources.json"
+  ],
+  "observations": [
+    "白色第四代C519改款前四门三厢，独立行李厢/四侧门与C柱、源前灯和三角式下角灯、机盖Ford标、横镀铬格栅、同色镜壳/把手和源细多辐轮对应；中国2019源文件明确IV Sedan，未仅凭文件年份推代际。源朝右前侧视保持，黄色售价贴/邻车去除；源顶面深色区域沿源保留，不凭反光认定玻璃顶装配。来源/灰底/深底已实际查看，完整车体/轮胎/镜壳，无明显场景残片或外投影。",
+    "灰绿北美第一代改款ZX5五门短尾、四侧门、三角高尾灯/后雨刷/扰流板、ZX5/Focus字样、源五辐式银轮及黑把手/镜壳和单侧排气口对应，保持源后侧视、车头朝右，不猜未见前脸。首稿误把后方SUV行李架移植到目标车，并新增后顶小天线，已退回；第二稿实际来源对照、灰/深底查看恢复原车光顶、全部可见轮胎/车体/镜壳完整且边缘干净。车牌整体清除但凹槽保留，不推定原厂无牌照架。",
+    "银色北美第一代改款ZXW SE长顶旅行车、延长后侧窗/直立载物尾、黑顶架/把手/镜壳、源多辐银轮、北美式前灯/网格上格栅及前杠琥珀侧标对应，与欧洲第二代区别明确。保持源朝左前侧视及完整天线。来源/灰底/深底实际查看全车、轮胎、镜壳和顶架，无明显背景残片或外投影。2005–2007来源落在聚合2004–2007要求内，不宣称该前脸从2004全年开始。",
+    "银色欧洲式第二代改款五门Hatchback，短尾/四侧门、斜前灯与窄上格栅/大下格栅、圆雾灯、源五辐银轮及同色镜壳对应；不是第一代北美或欧洲改款前，也未套ST/RS外观。澳洲LV原件朝右前侧视保持。来源/灰底/深底实际查看完整车体、轮胎、镜壳和天线，无明显场景残片；不从外观推断俄罗斯精确发动机/内饰配置。",
+    "银色欧洲第二代改款Sedan独立行李厢、四门C柱轮廓、斜前灯/窄上格栅/大下格栅银色边、圆雾灯和源银色多辐轮/镜壳/把手对应；源朝左前侧视保留。车门经销广告/邻车背景清除，Ford厂家身份保留。来源/灰底/深底实际查看车体/轮胎/镜壳/完整天线，无明显背景残片或外投影；没有将两厢或北美Sedan充数。",
+    "蓝灰普通欧洲第二代改款Wagon后视，长载物车身/延长后侧窗/大直立尾门、清色上段竖尾灯、后雨刷、Focus/TDCi字样、灰银顶架、源银轮盖与同色镜壳/把手对应，保持原后侧视且车头朝右，不凭空生车头。没有跨界轮眉/升高包围；小型源底部硬件沿源保留，不认定标准配备或精确发动机。来源/灰底/深底实际查看全部车体、轮胎、镜壳/顶架完整，边缘无明显场景残片或外投影。"
+  ],
+  "scratch_result_file": "/workspace/scratch/ru-focus17-accepted.json",
+  "nonadopted": [
+    {
+      "job_file": "/workspace/scratch/ru-focus17-jobs.json",
+      "index": 1,
+      "state": "failed_added_neighbor_roof_rack",
+      "reason": "Actual source ZX5 has a plain roof; first output copied background SUV rack and invented rear roof antenna. Repaired attempt02 is separately reviewed."
+    },
+    {
+      "job_file": "/workspace/scratch/ru-focus17-jobs.json",
+      "index": 5,
+      "state": "not_selected_outdoor_trim",
+      "reason": "X-Edition source and generated output genuinely have grey cross-style wheel-arch/sill protection and X badge. Preserved as an actual source-specific variant candidate; ordinary wagon requirement uses a separate uncladded original, not an edited fake ordinary version."
+    }
+  ],
+  "expected_previous_generated": 37,
+  "expected_previous_accepted": 34,
+  "expected_complete_tasks": 9,
+  "last_completed_task": "RU-993cdf697c45ce71",
+  "next_task_id": "RU-b2839c4c79c82e0c",
+  "unused_source_observations": {
+    "RU-993cdf697c45ce71-C003": "完整原图与生成图均为黑色X-Edition，灰轮眉/侧裙保护、X小标、银色护板确实属于源车，非模型凭空新增。但本次普通Wagon选用独立无跨界包围蓝灰原件，X-Edition图不计采用，作为真实候选及过程备份。"
+  },
+  "input_refs": [
+    "reports/ru-image-search/artifacts/2026-11-13_15_focus-two-adopted-four-dimension-conflicts/output/identity-dimension-crosschecks-20261113_15.json",
+    "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/identity-crosschecks-20261113_16.json"
+  ],
+  "identity_crosschecks": {
+    "generation_sources": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Ford_Focus_(first_generation)",
+        "basis": "actual HTTP200 archive referenced from batch15",
+        "supports": "North American body styles ZX5 hatchback/ZXW wagon and later first-generation era; source captions explicitly identify 2005–2007 models. Rear source remains rear camera, without fabricated unseen front."
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Ford_Focus_(second_generation,_Europe)",
+        "basis": "actual HTTP200 archive referenced from batch16",
+        "supports": "European C307 generation and 2008-era facelift distinct from North American Focus I; ordinary hatchback, sedan and estate body families."
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Ford_Focus_(fourth_generation)",
+        "basis": "actual HTTP200 archive referenced from batch16 and full source photo review",
+        "supports": "C519 fourth generation includes saloon/sedan; adopted source explicitly identifies fourth-generation sedan in Hohhot in2019 and has a separate trunk, matching generation/body exterior identity."
+      }
+    ],
+    "limitations": "Representative exterior applicability only. Exact engine, photographed country as Russia, precise manufacture year and all source-library dimension values are not certified. Preserve frozen scope and year aggregates."
+  },
+  "archive_code_files": [
+    "/workspace/scratch/ru_make_batch17_review.py",
+    "/workspace/scratch/ru_focus_next_queries.py",
+    "/workspace/scratch/ru_download_focus17.py",
+    "/workspace/scratch/ru_prepare_focus17.py",
+    "/workspace/scratch/ru_prepare_focus17_zx5_repair.py",
+    "/workspace/scratch/ru_download_focus17_ordinary_wagon.py",
+    "/workspace/scratch/ru_prepare_focus17_ordinary_wagon.py",
+    "/workspace/scratch/ru_review_focus17.py",
+    "/workspace/scratch/ru_review_focus17_current.py",
+    "/workspace/scratch/ru_review_focus17_final.py"
+  ],
+  "archive_json_files": [
+    "/workspace/scratch/ru-focus-next-queries17.json",
+    "/workspace/scratch/ru-focus2-fl-category17.json"
+  ],
+  "report_body": "# 三个Focus整项闭合，保留误加附件及未选版本历史\n\n本批六配置新图完成来源/灰底/深底实际逐张查看后采用：第四代改款前Sedan、北美第一代改款ZX5 Hatchback/ZXW Wagon、欧洲第二代改款Hatchback/Sedan/普通Wagon。原件许可/作者、实际图档/输入输出SHA、具体观察及scope_rows全部保留；成品经私有OSS完整GET/SHA/字节数/解码核验。北美ZX5后视不凭空生未知前脸，2005–2007源与聚合2004–2007范围分别记录。\n\nZX5首稿把背景SUV行李架带到目标车，实际完整原图对照确认后退回；第二稿去除误加顶架和小天线，恢复源车光顶。X-Edition原件确实带跨界轮眉/侧裙包围及X标，生成图未伪造该包围，但该变体不用于普通Wagon采用；改用独立无跨界包围蓝灰Wagon后视来源。两个未采用输出、请求/原因和过程图片均备份，不抹掉失败或把跨界车暗改成普通版。\n\n第四代改款前5/5、北美第一代改款3/3、欧洲第二代改款3/3本批新增完整完成。当前工作默认沿第16批口径：外观对应与上游尺寸数值审计分别记录，不修改数字或放宽代际/车身/版本身份。首代成对数字编码Hatchback仍待适用性证明，第四代改款Sedan及其他未完成项继续查找。"
+}
