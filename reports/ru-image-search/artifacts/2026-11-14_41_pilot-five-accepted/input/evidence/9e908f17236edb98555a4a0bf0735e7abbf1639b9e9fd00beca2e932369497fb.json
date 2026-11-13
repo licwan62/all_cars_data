@@ -1,0 +1,46 @@
+{
+  "request_id": "P1-006-R1",
+  "claim_id": "34c07ff758244b8187058423be458f46",
+  "input_file": "/workspace/ru_picture_producer/pilot20/P1/P1-006/P1-006-imagegen-original.png",
+  "input_sha256": "7d5165f2bd7c08e81850f292a6e01feb01f703d397f3855817d1fcb15733ba6d",
+  "reason": "First actual alpha-composite inspection finds plate COROLLA RUNX text retained and strong invented cloud scene reflections. Correct only these, retain identity/camera/whole body.",
+  "started_at": "2026-11-13T16:25:21.855804+00:00",
+  "prompt": "Edit this exact light-blue Toyota Corolla Runx cutout. Keep exactly the same strong front three-quarter camera, whole vehicle proportions, all doors/windows/mirrors, wheels/tires, exact Corolla-family grille emblem, lamps, grille and bumper. Make only these cleanup changes: erase ALL black COROLLA RUNX lettering from the front license plate so the existing plate is completely plain blank cream-colored; remove the conspicuous cloud/sky scene reflections on hood and side body/windows and replace them with subtle neutral photographic reflections. Do not change the car itself, do not crop tires or accessories, do not rotate toward side view. Keep the complete cutout on truly TRANSPARENT RGBA with no background, floor, cast/contact shadow, outer halo, glow or detached alpha specks. Leave ample transparent breathing room below wheels and all around.",
+  "prompt_sha256": "f937432227a8346260ab06886c44290f9de298630406ac50d7d1b921a9343260",
+  "status": "returned_saved_pending_review",
+  "transparent_background": true,
+  "accepted": false,
+  "returned_at": "2026-11-13T16:26:30.319095+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-006/repair01/P1-006-R1-imagegen-original.png",
+  "output_sha256": "237fb315fd6b8f48fc01bc0fc10689aafa54ebfb4c29f67282edba765985e1d7",
+  "output_size_bytes": 1822056,
+  "technical": {
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "alpha_ge_16_bbox": [
+      54,
+      93,
+      1486,
+      988
+    ],
+    "all_nonzero_alpha_bbox": [
+      49,
+      0,
+      1514,
+      994
+    ],
+    "margins_px": [
+      54,
+      93,
+      50,
+      36
+    ]
+  }
+}

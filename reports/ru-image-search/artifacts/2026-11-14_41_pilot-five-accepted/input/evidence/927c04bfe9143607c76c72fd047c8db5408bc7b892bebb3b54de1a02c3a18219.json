@@ -1,0 +1,66 @@
+{
+  "request_id": "P2-003-Wagon-facelift-attempt01",
+  "task_id": "RU-36c70a65c143d3c0",
+  "dimension_id": "Toyota Corolla Wagon 2003-2007 RU",
+  "scope_rows": [
+    29,
+    32,
+    34
+  ],
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3009926.jpg",
+  "input_sha256": "c45bc13dceb629b5582a8800d49540bb11e6d59ca0eb43399470e763ba611a08",
+  "input_dimensions": [
+    1923,
+    1209
+  ],
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_E12_Kombi_front_20071102.jpg",
+  "source_four_timepoints": {
+    "vehicle_model_year": "Exact model year unknown; frozen aggregate interval retained",
+    "photographed_at": "2007-11-02",
+    "commons_current_file_timestamp": "2007-11-02T19:18:06Z",
+    "current_downloaded_at": "2026-11-13T15:54:10.938412+00:00"
+  },
+  "license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Randy43\" title=\"User:Randy43\">Rudolf Stricker</a>",
+    "Credit": "<span class=\"int-own-work\">Self-photographed</span>",
+    "LicenseShortName": "CC BY-SA 3.0",
+    "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 3.0"
+  },
+  "adaptation_terms": "Credit Rudolf Stricker/source; link CC BY-SA3; indicate changes; share-alike adapted work.",
+  "adaptation_changes": "AI-assisted clean cutout, background/scene reflection/dirt removal, blank plate; adaptation shared CC BY-SA3 with Rudolf Stricker attribution/source/license link.",
+  "identity_evidence": "/workspace/ru_picture_producer/pilot20/identity_a/judgments.json",
+  "source_preflight": "Actual original viewed; silver ordinary Europe E120 wagon noseRIGHT, horizontal silverbar Toyota grille, pointed inner lamps/reflectors, black empty corner recesses, silver wheelcaps/longblack rails, no aerial/fin/crossbar. Source tires/mirrors complete.",
+  "reuse_check": "Root explicitly assigned after original Wagon; different facelift front and task, accepted Fielder image cannot replace. No unknown request for this configuration.",
+  "prompt": "Create a photorealistic clean catalog cutout of the EXACT SILVER European Toyota Corolla E120 FACELIFT ordinary five-door WAGON in this source. Show front three-quarter with a balanced front-to-side 1/3 or 1/2 view, nose RIGHT as in source; clearly show front grille/headlamps and one whole side in coherent perspective. Preserve actual European long cargo roof/extended rear-quarter glass and FOUR side doors, NOT Japanese Fielder or short hatch. Preserve its exact four narrow body-silver HORIZONTAL grille bars and actual TOYOTA triple-ellipse emblem, pointed inner headlamp corners and source reflector headlight internals, broad lower central black intake and two BLACK BLANK side recesses WITHOUT foglights. Preserve source plain silver wheelcovers, silver mirror housings/handles and side moldings. Preserve both actual black longitudinal roofrails; NO transverse crossbars, aerial, rod or sharkfin is visible on target, do not add any. Remove road/curb/buildings/trees/neighborcars and all background, dirt and tree/building scene reflections; preserve realistic transparent glass/interior and opaque silver bodypaint. Keep entire car, all complete natural round tires, mirrors and longitudinal rail tips fully INSIDE a roomy transparent canvas, car occupying no more than80percent canvas width and75percent height, useful margins at least80px above rails/below tires and60px beyond both ends. No tire clipping. Blank plate characters. True RGBA transparency, NO floor/contactshadow, under-car reflection, glow, background scraps, caption, watermark or printed checkerboard. Do not invent trim, engine/year or foglights. Do not mirror vehicle.",
+  "prompt_sha256": "616ae54c8861c885487d954db802df2adcf9b66dad9baaf96779ffcb85c506a6",
+  "generator": "builtin_image_gen",
+  "transparent_background": true,
+  "state": "candidate_recommended_pending_root_acceptance",
+  "production_accepted": false,
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T16:12:29.946580+00:00",
+    "request_submitted_utc": "2026-11-13T16:12:29.946588+00:00",
+    "result_returned_utc": "2026-11-13T16:13:13Z",
+    "review_completed_utc": "2026-11-13T16:22:33.839645+00:00"
+  },
+  "output_file": "/workspace/ru_picture_producer/pilot20/P2/P2-003-Wagon-facelift/attempt01.png",
+  "output_sha256": "5ab82acd70a6b0ca9c3c12074f51b4612b8f767fbf66bd9bdff46acbd0db06bf",
+  "technical": {
+    "mode": "RGBA",
+    "size": [
+      1712,
+      919
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "rawbbox": [
+      0,
+      71,
+      1686,
+      919
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "task_id": "RU-6fc2caabccaf49bc",
+  "dimension_id": "Toyota Corolla Wagon 2000-2004 RU",
+  "scope_rows": [
+    29,
+    32,
+    34
+  ],
+  "request_id": "P2-002-Wagon-original-attempt01",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P2/P2-002-Wagon-original/Corolla-E120-original-Wagon-candidate.png",
+  "candidate_sha256": "6c20a8bd753424c44803d25d1e2ee51742f14f15a6794acd0089f62a3a76d2e9",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3332357.jpg",
+  "source_sha256": "108afb4dac783922f4a395307ca8983c8ff6974143220742123b327423bbc1c6",
+  "license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Randy43\" title=\"User:Randy43\">Rudolf Stricker</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 3.0",
+    "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 3.0"
+  },
+  "adaptation_terms": "Credit Rudolf Stricker/source; link CC BY-SA3; indicate changes; share-alike adapted work.",
+  "adaptation_changes": "AI-assisted catalog cutout, background and dirt/reflection cleanup, blank registration, camera front-side preserved. Adaptation shared CC BY-SA 3.0; original photograph Rudolf Stricker.",
+  "market": "European ordinary E120 Wagon; RU dataset scope, not a Russian specification claim",
+  "phase": "original pre-facelift 2002-2004 representative; target frozen2000-2004 aggregate not exactyear",
+  "identity_evidence": "/workspace/ru_picture_producer/pilot20/identity_a/judgments.json",
+  "source_evidence": "/workspace/ru_picture_producer/pilot20/source_c/handoff-e120-two-wagons.json",
+  "technical": {
+    "mode": "RGBA",
+    "size": [
+      1659,
+      948
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "bbox": [
+      77,
+      113,
+      1611,
+      915
+    ],
+    "margins": [
+      77,
+      113,
+      48,
+      33
+    ]
+  },
+  "actual_visual_review": "Source, raw dark, candidate gray and candidate dark viewed separately. Original mesh/chrome Toyota grille, rounded original lamps and elongated clearfoglights, long wagon/cargo glass/four doors, silver source wheelcaps/mirrors/handles and long black roofrails correspond. Actual main tire edges complete and33px above canvas; all mirrors and rails intact. No crossbars or aerial/fin added. No visible road/tree reflection fragments or external castshadow. Actual useful margin lower than prompt80;33px not clipping.",
+  "cleanup_proof": "/workspace/ru_picture_producer/pilot20/P2/P2-002-Wagon-original/cleanup-proof.json",
+  "review_recommendation": "recommend_root_acceptance",
+  "production_accepted": false,
+  "generated_count": 1,
+  "repair_count": 0,
+  "unknown_requests": 0,
+  "review_utc": "2026-11-13T16:10:17.907462+00:00",
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T16:07:29.629508+00:00",
+    "request_submitted_utc": "2026-11-13T16:07:29.629515+00:00",
+    "result_returned_utc": "2026-11-13T16:08:14Z",
+    "review_completed_utc": "2026-11-13T16:09:36.931206+00:00"
+  },
+  "limitations": [
+    "No exact manufacturingyear/engine/drivetrain/dimensions certificate.",
+    "European ordinary Wagon, not Japanese Fielder or Russian-spec assertion.",
+    "Prompt80px bottom target not achieved, actual33px but full tire intact."
+  ]
+}

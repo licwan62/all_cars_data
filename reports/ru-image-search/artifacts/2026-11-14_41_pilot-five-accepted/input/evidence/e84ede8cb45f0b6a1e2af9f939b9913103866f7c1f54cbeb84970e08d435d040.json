@@ -1,0 +1,73 @@
+{
+  "request_id": "P2-002-Wagon-original-attempt01",
+  "task_id": "RU-6fc2caabccaf49bc",
+  "dimension_id": "Toyota Corolla Wagon 2000-2004 RU",
+  "scope_rows": [
+    29,
+    32,
+    34
+  ],
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3332357.jpg",
+  "input_sha256": "108afb4dac783922f4a395307ca8983c8ff6974143220742123b327423bbc1c6",
+  "input_dimensions": [
+    1701,
+    1194
+  ],
+  "prompt": "Make a photorealistic clean catalog cutout of this EXACT SILVER European Toyota Corolla E120 ORIGINAL pre-facelift ordinary five-door WAGON. Use a front three-quarter balanced 1/3 or 1/2 view with nose LEFT as this source, front grille/headlamps and one full side visible in coherent whole-vehicle perspective. Preserve its actual long cargo roof, extended rear-quarter windows and FOUR side doors, NOT Japanese Fielder or compact hatchback. Preserve source black diamondmesh upper grille with chrome outer surround and actual TOYOTA triple-ellipse badge, rounder clear original headlamp housings, narrow low front opening and two low elongated rectangular clear fog lights. Keep silver wheelcovers of exact source pattern, silver mirrors/handles and side moldings. Preserve BOTH actual black longitudinal roofrails, NO CROSSBARS. Roof has NO visible aerial, fin or rod, do NOT invent one; background trees and poles are not target parts. Clean body dirt and tree/building reflections while preserving realistic glass/interior and opaque silver paint. Remove road, curb, walls, trees and every other background element. Blank license plate without characters. Keep entire vehicle including complete natural round tires and mirrors/roofrail ends fully inside a roomy transparent canvas with at least80px ABOVE roofrails and BELOW lowest tire, at least60px beyond BOTH ends. Make vehicle comfortably smaller rather than allowing tire clipping. Genuine RGBA transparency; no floor, contact shadow, undercar reflection, glow, watermark, captions, background scraps or checkerboard texture. No engine/exactyear claims, body/trim changes or mirroring.",
+  "prompt_sha256": "53d7498b7c03df52441a60cdaa1a41d049ef93e9fca78f2582fba02fc424941c",
+  "generator": "builtin_image_gen",
+  "transparent_background": true,
+  "state": "candidate_pending_root_acceptance",
+  "production_accepted": false,
+  "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Kombi_front_20080103.jpg",
+  "license": {
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Randy43\" title=\"User:Randy43\">Rudolf Stricker</a>",
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "LicenseShortName": "CC BY-SA 3.0",
+    "LicenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 3.0"
+  },
+  "adaptation_terms": "Credit Rudolf Stricker/source; link CC BY-SA3; indicate changes; share-alike adapted work.",
+  "adaptation_changes": "AI-assisted catalog cutout, background and dirt/reflection cleanup, blank registration, camera front-side preserved. Adaptation shared CC BY-SA 3.0; original photograph Rudolf Stricker.",
+  "source_four_timepoints": {
+    "vehicle_model_year": "Exact model year unknown; frozen aggregate interval retained",
+    "photographed_at": "2008-01-03",
+    "commons_current_file_timestamp": "2008-01-03T19:39:20Z",
+    "current_downloaded_at": "2026-11-13T15:54:11.424380+00:00"
+  },
+  "identity_evidence": "/workspace/ru_picture_producer/pilot20/identity_a/judgments.json",
+  "source_preflight": "Actually viewed silver long European Wagon nose LEFT, black mesh Toyota tripleellipse grille, round lamps and elongated fogs, silver wheelcaps, black long rails no crossbars/visible aerial. All original tires and mirrors complete.",
+  "reuse_check": "Independent next configuration assigned root; accepted Japan Fielder 2000-2004 cannot establish ordinary European Wagon; current source_c source new, no generation underway.",
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T16:07:29.629508+00:00",
+    "request_submitted_utc": "2026-11-13T16:07:29.629515+00:00",
+    "result_returned_utc": "2026-11-13T16:08:14Z",
+    "review_completed_utc": "2026-11-13T16:09:36.931206+00:00"
+  },
+  "output_file": "/workspace/ru_picture_producer/pilot20/P2/P2-002-Wagon-original/attempt01.png",
+  "output_sha256": "db3aa0024677abc7f6fd0efcc72e2e91d3348c5fef2aad6c1b3f257c708a9c9d",
+  "technical": {
+    "size": [
+      1659,
+      948
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      0,
+      68,
+      1637,
+      948
+    ],
+    "margins": [
+      0,
+      68,
+      22,
+      0
+    ]
+  },
+  "review": "Actual source and returned dark composite viewed. Original Europe E120 long wagon/four side doors/cargo quarterglass, source Toyota tripleellipse blackmesh grille/chrome rim, rounded lamps, elongated foglamps, silver wheelcaps, black longitudinal rails, silver mirrors/handles and moldings maintained. No fin/rod/crossbars. Complete tires/mirrors/rails are visible; car main component stays33px above lower edge. Isolated lowalpha fragments need deterministic cleanup only. Margin target80 not met but actual useful margin33 avoids clipping; final acceptance root."
+}
