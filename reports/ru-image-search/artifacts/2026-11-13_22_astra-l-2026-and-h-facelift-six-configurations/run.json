@@ -1,0 +1,383 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations",
+  "version": "20261113_22",
+  "description": "astra-l-2026-and-h-facelift-six-configurations",
+  "created_at": "2026-11-13T10:12:31+00:00",
+  "finished_at": "2026-11-13T10:12:32+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch22-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/progress-20261113_21.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/progress-20261113_21.json",
+      "sha256": "56e1542f28d7f9705cd019a6ba07ea47445cf950edd6ea6e1536d4390b932170"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/current-accepted-configuration-index-20261113_21.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/current-accepted-configuration-index-20261113_21.json",
+      "sha256": "67a7e087f5b474f7ad6e39ae9fe2a342a6eca88749169bbd4035073b9a3f1825"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/candidates-20261113_21.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/candidates-20261113_21.json",
+      "sha256": "352f4e3552cb20518d3d1b25318393753cb7be20779b5e11f59066404cda999f"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/identity-crosschecks-20261113_21.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_21_astra-h-and-g-six-configurations-two-task-closures/output/identity-crosschecks-20261113_21.json",
+      "sha256": "89eb3614f9871644e8a959539a8e21aaf94788e3ff890071c5bd704ea8f83f72"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "81699395421107fda91c6f151f0204423ec2ffec",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/identity-crosschecks-20261113_22.json",
+      "content_reference": true,
+      "sha256": "9275dc4f7aba84a4d375e4833b4cff9aab2f0e4a59546cccebc395dc84841cb8",
+      "bytes": 21118,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/accepted-configurations-20261113_22.json",
+      "content_reference": true,
+      "sha256": "85f2b18bc5c72e6236cdc22ef2f8a4d2da7a07cef83a05396b777627154498e3",
+      "bytes": 60747,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/current-accepted-configuration-index-20261113_22.json",
+      "content_reference": true,
+      "sha256": "f775cf0e9592ab726b76a2c8bcff1f3e0d5f6d858ec44a6fbcffa9a6b1916f54",
+      "bytes": 677969,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/nonadopted-history-20261113_22.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/generation-requests-20261113_22.json",
+      "content_reference": true,
+      "sha256": "d60d957f66d1ff59a59074a792602fe423569834fb72187fa3bb656f4aa218d3",
+      "bytes": 27129,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/new-source-original-evidence-20261113_22.json",
+      "content_reference": true,
+      "sha256": "3968a78cd9828cd2b9f6afecd0728b382d64ae286443413da6e9b91116443885",
+      "bytes": 46464,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/candidates-20261113_22.json",
+      "content_reference": true,
+      "sha256": "087ab9376ac1b66458b5b0429f3a089aca56e65e3ba1ef9006c09bb2b5a19173",
+      "bytes": 242664,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/progress-20261113_22.json",
+      "content_reference": true,
+      "sha256": "acd47cd369835bab6e34bcb1a0ec391fc696ce8570c1a21e75b69621ce20a2ff",
+      "bytes": 2214490,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru-batch22-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_make_batch22_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra_queries22.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra_more_queries22.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra_l_categories22.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_download_astra22_eight.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra22_wagon_previews.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_download_astra22_wagon2.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra22_identity.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_prepare_astra22.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_review_astra22.py",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra-queries22.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra-more-queries22.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra-l-categories22.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-wagon-previews-metadata.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-wagon-preview-index.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-wagon-preview-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-web-observations.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-identity-crosschecks.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-identity-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-identity-1.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-hatch-roof-identity.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-h-roof-identity.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-antenna-zoom-3.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-antenna-zoom-4.jpg"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "a5f5e6ea0db6e0a040c770b03a2df5d7ae3647e5b472599d80923d156776758b",
+      "bytes": 11694
+    },
+    {
+      "file": "extra/executed-code/ru-batch22-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru-batch22-review.json",
+      "sha256": "e8d174b644eff3f594d5c75531155e3d296760ed22a2d3cfb16238f97e7e0e04",
+      "bytes": 29278
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch22_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_make_batch22_review.py",
+      "sha256": "586018f3a6abb8696d8c0c779674e1addfb7192315402d5a3587cf3f011a2391",
+      "bytes": 9170
+    },
+    {
+      "file": "extra/executed-code/ru_astra_queries22.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra_queries22.py",
+      "sha256": "ec37de82a4fdc6c8ad02dfc8759bb1da60f12a932c6a76a015b7443defc6f7fc",
+      "bytes": 1092
+    },
+    {
+      "file": "extra/executed-code/ru_astra_more_queries22.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra_more_queries22.py",
+      "sha256": "25c353ef9d29175fa575c7f597b010000b2c658a9788cd068095ecf4ebfa01f4",
+      "bytes": 1060
+    },
+    {
+      "file": "extra/executed-code/ru_astra_l_categories22.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra_l_categories22.py",
+      "sha256": "cbf301138f3e5170e84a47af32f2ff1e601acde08a4d36f42c14ac0176ed8340",
+      "bytes": 595
+    },
+    {
+      "file": "extra/executed-code/ru_download_astra22_eight.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_download_astra22_eight.py",
+      "sha256": "31de31a1bb4e1ae6a63e590b82126fd4012c97191e2dcde033f79e73505b5251",
+      "bytes": 4021
+    },
+    {
+      "file": "extra/executed-code/ru_astra22_wagon_previews.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra22_wagon_previews.py",
+      "sha256": "f7f6eb2a2585fd8eae3f47008b69fe6b7070e66fe45f54eca3baa1d5b2e323af",
+      "bytes": 1853
+    },
+    {
+      "file": "extra/executed-code/ru_download_astra22_wagon2.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_download_astra22_wagon2.py",
+      "sha256": "6c43c47ffcfd9101847eeb3c40f5f75a93a8912ea0e920fdfff4ce99305cad6a",
+      "bytes": 3171
+    },
+    {
+      "file": "extra/executed-code/ru_astra22_identity.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_astra22_identity.py",
+      "sha256": "6b21beadad62c89df18e834c6c8a61f94f24e36dbd6b7b0fe8d40ab9af574a79",
+      "bytes": 1405
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_astra22.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_prepare_astra22.py",
+      "sha256": "a46b1dd661556d758c51ca940da996938d5417dc893d6fda27a20329c50d5f70",
+      "bytes": 6365
+    },
+    {
+      "file": "extra/executed-code/ru_review_astra22.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/executed-code/ru_review_astra22.py",
+      "sha256": "213db1df8fe20d6a2c5daa7a2ca0a4464ad1cf2bef3f772310682e4c856d1c1e",
+      "bytes": 1622
+    },
+    {
+      "file": "extra/search-evidence/ru-astra-queries22.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra-queries22.json.gz",
+      "sha256": "e2150b7475cddeb1a3ec72a18e49a86982b40af3fb2a0e114b0881a70ce4cb1b",
+      "bytes": 13264
+    },
+    {
+      "file": "extra/search-evidence/ru-astra-more-queries22.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra-more-queries22.json.gz",
+      "sha256": "5cf623a702b38f4ffa750bc1a30ae4464b0adc8fa0ee9b07fefaa42dedf39ef3",
+      "bytes": 6661
+    },
+    {
+      "file": "extra/search-evidence/ru-astra-l-categories22.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra-l-categories22.json.gz",
+      "sha256": "49ad49cac34c4a651f30e13a780cff4ca35dc3a59e2fa6f0fa51f200aa339cde",
+      "bytes": 160
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-wagon-previews-metadata.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-wagon-previews-metadata.json.gz",
+      "sha256": "7eb0608ff3fe82fbe964752b256e5cb38f6b89502fda1957a1a3288faa921c4e",
+      "bytes": 1810
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-wagon-preview-index.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-wagon-preview-index.json.gz",
+      "sha256": "a8c65c1c343913f3afa2c505f68f2829a8e5352d4ca53657298c096a95022785",
+      "bytes": 620
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-wagon-preview-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-wagon-preview-contact.jpg",
+      "sha256": "b3d0549cb629c85e817b8c90819aa9483559db316b5ad87bab893e683e1309f5",
+      "bytes": 268795
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-web-observations.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-web-observations.json.gz",
+      "sha256": "8635ab66ccba9a21ea3fc3de41078dfe454ffefeade148379781b03b30f75d48",
+      "bytes": 9911
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-identity-crosschecks.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-identity-crosschecks.json.gz",
+      "sha256": "f7dc9ec57e7ea1efe9f7f886e3a5142a59f9a331a27d4a539c1e5d97ae3870af",
+      "bytes": 3964
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-identity-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-identity-0.html.gz",
+      "sha256": "c59cef794f83ff53e5b685314180513ab5bab0db16f248cbb79f9a7b6f37cf75",
+      "bytes": 33707
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-identity-1.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-identity-1.html.gz",
+      "sha256": "7fae417c04a0b856adfc4d064c7129626e01e990815507a42909970549f18eec",
+      "bytes": 43009
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-hatch-roof-identity.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-hatch-roof-identity.jpg",
+      "sha256": "59e50a0df92411c12dc1a8e97ca967b9663631df197cb1d31f2d6369a57bc56f",
+      "bytes": 179203
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-h-roof-identity.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-h-roof-identity.jpg",
+      "sha256": "cbd7a7e7fdc3f7cf934862d21440b19d09c15ff20267c1b639f0e5b8f10e2b8c",
+      "bytes": 219925
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-antenna-zoom-3.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-antenna-zoom-3.jpg",
+      "sha256": "ea2feb2db83fcd68e36b32f7b880f4512c5f79754283d96272e2eeac092fadf7",
+      "bytes": 135842
+    },
+    {
+      "file": "extra/search-evidence/ru-astra22-antenna-zoom-4.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/extra/search-evidence/ru-astra22-antenna-zoom-4.jpg",
+      "sha256": "74ce0215680c8db33e046abebfdf8b01b14e28d462ca23e1355f3c2d28c49884",
+      "bytes": 99913
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 6,
+    "accepted_configurations_this_batch": 6,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 17,
+    "accepted_configurations_total": 70
+  }
+}
