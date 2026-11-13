@@ -1,0 +1,392 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search",
+  "version": "20261113_23",
+  "description": "astra-j-six-configurations-parallel-browser-search",
+  "created_at": "2026-11-13T10:34:27+00:00",
+  "finished_at": "2026-11-13T10:34:28+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch23-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/progress-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/progress-20261113_22.json",
+      "sha256": "acd47cd369835bab6e34bcb1a0ec391fc696ce8570c1a21e75b69621ce20a2ff"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/current-accepted-configuration-index-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/current-accepted-configuration-index-20261113_22.json",
+      "sha256": "f775cf0e9592ab726b76a2c8bcff1f3e0d5f6d858ec44a6fbcffa9a6b1916f54"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/candidates-20261113_22.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_22_astra-l-2026-and-h-facelift-six-configurations/output/candidates-20261113_22.json",
+      "sha256": "087ab9376ac1b66458b5b0429f3a089aca56e65e3ba1ef9006c09bb2b5a19173"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "c0aff9d6c0994eaf7fa1c955c7d9e10d28d05e13",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/identity-crosschecks-20261113_23.json",
+      "content_reference": true,
+      "sha256": "3fca6462d3f8bf950edde432a3f3a68ee25d20cc0f171ac47f455c94aa1ace00",
+      "bytes": 26076,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/accepted-configurations-20261113_23.json",
+      "content_reference": true,
+      "sha256": "3cd6fbbde033cb4b51296e8e02db0a6fdd591406094ad8654c189f2540353ad2",
+      "bytes": 59654,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/current-accepted-configuration-index-20261113_23.json",
+      "content_reference": true,
+      "sha256": "1e2f34eaf74ad45c433bbf0d408a3a79f917885e80cfef8f2b7be5c14183213f",
+      "bytes": 737620,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/nonadopted-history-20261113_23.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/generation-requests-20261113_23.json",
+      "content_reference": true,
+      "sha256": "598ed2690e5641e21541040ce0abdd225285afcc789e87b6c7604c34263210ba",
+      "bytes": 26602,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/new-source-original-evidence-20261113_23.json",
+      "content_reference": true,
+      "sha256": "3dfe5091bb845f214dfdde0c7bde58f81b1ad25f8f2dfee16e81cb1fdb64b9a6",
+      "bytes": 38712,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/candidates-20261113_23.json",
+      "content_reference": true,
+      "sha256": "bed9ffde2fa19b086cb2f9b22ddb31488de4dcb30ec0b55982d917504d4f459a",
+      "bytes": 262394,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_23.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/output/progress-20261113_23.json",
+      "content_reference": true,
+      "sha256": "0ff6b16d8810bc052f8888823de31d46768cabf48b576923b1b49c6ac9e1a3ff",
+      "bytes": 2221422,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru-batch23-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_make_batch23_review.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_queries23.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_more_queries23.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_categories23.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_full_categories23.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_download_astra23_six.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra23_identity.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_prepare_astra23.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_review_astra23.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_import_parallel_b_wagon23.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_prepare_astra23_wagon.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_review_astra23_final.py",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-queries23.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-more-queries23.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-categories23.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-full-categories23.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-web-observations.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-identity-crosschecks.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-identity-0.html.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-gtc-rear-detail.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-front-comparison-originals.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-parallel-B-wagon-results23.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/isolation-proof.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/active-browser-processes-main-observation.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/worker-browser-proofs-frozen-for-batch23.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/probe_isolation.py"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "a5f5e6ea0db6e0a040c770b03a2df5d7ae3647e5b472599d80923d156776758b",
+      "bytes": 11694
+    },
+    {
+      "file": "extra/executed-code/ru-batch23-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru-batch23-review.json",
+      "sha256": "bb40de4af39a4dcc819a75b6fecb88f6325a133f5321430a38c29f3116c99bca",
+      "bytes": 33428
+    },
+    {
+      "file": "extra/executed-code/ru_make_batch23_review.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_make_batch23_review.py",
+      "sha256": "cd63dd4a595deb754b4081ab3e2b230492599461196249721d8dc2c9e4ae61e8",
+      "bytes": 7368
+    },
+    {
+      "file": "extra/executed-code/ru_astra_j_queries23.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_queries23.py",
+      "sha256": "ffc621eb82b41d4c6a90e54ed6711ad2c38922aec5212576472d08c02fdc08c2",
+      "bytes": 1061
+    },
+    {
+      "file": "extra/executed-code/ru_astra_j_more_queries23.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_more_queries23.py",
+      "sha256": "8b4bb3b5812a4a9a157aa6ca9fbd3a54fde66f3c1f82c629fb063e4375a5bcbd",
+      "bytes": 1062
+    },
+    {
+      "file": "extra/executed-code/ru_astra_j_categories23.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_categories23.py",
+      "sha256": "57d2672a0bc93936386355b9ae4fee802c5124e006e3e25fe0460fa8b8d95e6b",
+      "bytes": 595
+    },
+    {
+      "file": "extra/executed-code/ru_astra_j_full_categories23.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra_j_full_categories23.py",
+      "sha256": "b4a1eeb258514b782b71e720093f3396ee85bd62da6249a8e5baee3847503109",
+      "bytes": 1181
+    },
+    {
+      "file": "extra/executed-code/ru_download_astra23_six.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_download_astra23_six.py",
+      "sha256": "dbabb9f98b9bc4d7d1f98daceea4b7e0f924ebbaff7d8a487d1116500aac2eb0",
+      "bytes": 3744
+    },
+    {
+      "file": "extra/executed-code/ru_astra23_identity.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_astra23_identity.py",
+      "sha256": "1a045bb977993e49dbc74901540524a7a7d90eedfe65c04db7dc83c646bb9644",
+      "bytes": 1410
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_astra23.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_prepare_astra23.py",
+      "sha256": "0095e3631cd6afdd51716e628f69ced4e65078d58d18881df84918638f2fad6a",
+      "bytes": 5261
+    },
+    {
+      "file": "extra/executed-code/ru_review_astra23.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_review_astra23.py",
+      "sha256": "6fcb9b503d600258b0148ace4745bf324a22e785977fdae847c23e24d58dc249",
+      "bytes": 1622
+    },
+    {
+      "file": "extra/executed-code/ru_import_parallel_b_wagon23.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_import_parallel_b_wagon23.py",
+      "sha256": "afbed41974140af478270148d5c78800cb163132ab76edece19aa9673d3f1922",
+      "bytes": 2978
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_astra23_wagon.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_prepare_astra23_wagon.py",
+      "sha256": "d7d11dec327daa3d13e71406d0b4b6d9895fdedd7d9a7d397d587e4e1e5e6f47",
+      "bytes": 2679
+    },
+    {
+      "file": "extra/executed-code/ru_review_astra23_final.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/executed-code/ru_review_astra23_final.py",
+      "sha256": "b6c55505a15150f72a2e9a034a0fbabcba7151a436627b9bb936e29a37ca7c09",
+      "bytes": 1628
+    },
+    {
+      "file": "extra/search-evidence/ru-astra-j-queries23.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-queries23.json.gz",
+      "sha256": "4a130c56025cf407f422356b3d22219287a6230dc90f9f0f563239f89bf77567",
+      "bytes": 7614
+    },
+    {
+      "file": "extra/search-evidence/ru-astra-j-more-queries23.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-more-queries23.json.gz",
+      "sha256": "8bcc5a7fc8434615a416d058f065bf348f8be00396eb7ae5133cba30c687346b",
+      "bytes": 6105
+    },
+    {
+      "file": "extra/search-evidence/ru-astra-j-categories23.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-categories23.json.gz",
+      "sha256": "1bac89caada2eed574c58091ee23bbac7ad495cbe78adacdc1834ae144435c63",
+      "bytes": 161
+    },
+    {
+      "file": "extra/search-evidence/ru-astra-j-full-categories23.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra-j-full-categories23.json.gz",
+      "sha256": "11aab16b38bf889e18dcb68dfdec3e8bb5e269a5602c8acb7735332b24f24c50",
+      "bytes": 37535
+    },
+    {
+      "file": "extra/search-evidence/ru-astra23-web-observations.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-web-observations.json.gz",
+      "sha256": "627699b90b368e20353bbc8d1be63fdd03d1d64496f716a8ef89ab49ece392a2",
+      "bytes": 6063
+    },
+    {
+      "file": "extra/search-evidence/ru-astra23-identity-crosschecks.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-identity-crosschecks.json.gz",
+      "sha256": "2ef95bb5508c6228075487fe312c02d0f11c8fab631756dea8b1c1bcaec1b96c",
+      "bytes": 2308
+    },
+    {
+      "file": "extra/search-evidence/ru-astra23-identity-0.html.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-identity-0.html.gz",
+      "sha256": "e77ca7af5e65a2e576652176e28ea54e676f7cd005c373ca883b7189ae98af70",
+      "bytes": 44050
+    },
+    {
+      "file": "extra/search-evidence/ru-astra23-gtc-rear-detail.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-gtc-rear-detail.jpg",
+      "sha256": "4022bda30ad8f083ba3184e3b1861f223334982e5e4158c8ed6d736149a511c8",
+      "bytes": 81737
+    },
+    {
+      "file": "extra/search-evidence/ru-astra23-front-comparison-originals.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-astra23-front-comparison-originals.jpg",
+      "sha256": "97e8c8daf7af5e753bcee75988aaa59fad34eabe9cbc2e32750b950f5aa8cb55",
+      "bytes": 227591
+    },
+    {
+      "file": "extra/search-evidence/ru-parallel-B-wagon-results23.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/ru-parallel-B-wagon-results23.json.gz",
+      "sha256": "203841bce042d7853e6cd17b012fa18da178159876e1c9a811489446d185fbb2",
+      "bytes": 2243
+    },
+    {
+      "file": "extra/search-evidence/isolation-proof.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/isolation-proof.json.gz",
+      "sha256": "78f4221ee015f7db01a21c199681c8fcd7ef9fa002e9580ad1a62230b368fde8",
+      "bytes": 351
+    },
+    {
+      "file": "extra/search-evidence/active-browser-processes-main-observation.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/active-browser-processes-main-observation.json.gz",
+      "sha256": "4d016ea520ad84c7c882c2c67520cb7cc8d6cf13566fdd4ac3219b05628fb3e6",
+      "bytes": 132
+    },
+    {
+      "file": "extra/search-evidence/worker-browser-proofs-frozen-for-batch23.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/worker-browser-proofs-frozen-for-batch23.json.gz",
+      "sha256": "33948f04b1787654ee8a7e2063b7ee0341ce9eff4c4b2ffd2c4a3e67a441d7ea",
+      "bytes": 527
+    },
+    {
+      "file": "extra/search-evidence/probe_isolation.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_23_astra-j-six-configurations-parallel-browser-search/extra/search-evidence/probe_isolation.py",
+      "sha256": "93085cafb64e5cffe5ddf563fd0bfb1f29928f16af748bbbb1834f72bc07144b",
+      "bytes": 1313
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 6,
+    "accepted_configurations_this_batch": 6,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 19,
+    "accepted_configurations_total": 76
+  }
+}

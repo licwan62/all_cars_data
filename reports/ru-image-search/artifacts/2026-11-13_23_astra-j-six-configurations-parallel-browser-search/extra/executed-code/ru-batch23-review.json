@@ -1,0 +1,408 @@
+{
+  "description": "astra-j-six-configurations-parallel-browser-search",
+  "actual_visual_review_complete": true,
+  "jobs_file": "/workspace/scratch/ru-astra23-final-jobs.json",
+  "generation_job_files": [
+    "/workspace/scratch/ru-astra23-jobs.json",
+    "/workspace/scratch/ru-astra23-wagon-jobs.json"
+  ],
+  "source_manifest_files": [
+    "/workspace/scratch/ru-astra23-six-sources.json",
+    "/workspace/scratch/ru-astra23-parallel-wagon2-sources.json"
+  ],
+  "existing_source_manifest_files": [],
+  "observations": [
+    "黄色Astra J GTC三门后侧，源长侧门/大后侧窗/短斜尾、原轮圈、后雨刷/顶尾翼/细天线及单侧椭圆排气口对应。后杠局部放大证实原件有该排气口，未凭小图误删。GTC不因其他J车身2012更新而改造未知前端。保持源后侧机位，完整车体/可见轮胎/镜壳/天线和透明边距。实际源/灰/深底查看无明显场景残片或外投影，640×480原件明确记录而非冒称高分辨率。",
+    "红色Astra J改款普通五门，来源澳洲AS Sport2012–2013，实际翼形上格栅、下进气口及新雾灯区与普通改款前不同；四侧门/双把手/短尾、原银轮/同色镜壳及细天线保持。不把运动外观例车当全部发动机配置。实际源/灰/深底查看保持源较低朝右前侧视，清除背景与号牌文字，整车可见轮胎/镜壳/天线完整，无明显外投影或场景残片。独立Wiki正文实读，ForceGT只搜索摘要且直接请求失败，未冒称实读。",
+    "铜色Astra J改款Sedan四门，来源M93明确J Facelift；实际独立尾厢/四侧门/长尾、翼形上格栅/细长前灯/源银色多辐轮和同色镜壳保持，不以GTC或H旧轿车替代。保持源朝右前侧相机，广告牌字清除。实际源/灰/深底查看整车、轮胎、镜壳和可见车顶完整且有边距，无明显场景残片或投影。",
+    "银色Astra J改款前五门，实际2010原车高V形上格栅/旧角雾灯区/短尾/四侧门，原银色五辐轮/同色镜壳/细天线保留，未套用改款翼格栅。清除经销ASTRA贴字和场景反光，保持源前侧机位。实际源/灰/深底查看可见轮胎、镜壳、天线和整车完整，边缘无明显背景残片或外投影。",
+    "深灰Astra J改款前Sports Tourer，2010Bologna车展原件长顶/延伸后窗/四侧门，旧V格栅与三角雾灯角区、银色纵轨/原银色多辐轮、近侧开窗对应。保持原前侧机位及原配件，清除展台、人群、地面、牌照广告，未加邻车顶架。实际源/灰/深底查看全车、可见轮胎/镜壳/纵轨完整且有边距，未见明显残片/外投影。",
+    "红色Astra J改款Sports Tourer，B路实际CC0原件，长载物尾/延长侧窗、四侧门、黑色多辐轮/低黑纵轨/短天线/小红尾翼/后雨刷及后杠低位镀铬条保持，源朝左后侧相机不造未知车头。未加ASTRA/TURBO徽标或OPC双排气。实际源对照灰底及深底逐张查看，整车/可见轮胎/镜壳/轨/天线完整且留边，背景Mercedes/树/落叶全部清除，无明显彩色外晕/场景残片/地面影；原生RGBA字节不作后期改图。"
+  ],
+  "scratch_result_file": "/workspace/scratch/ru-astra23-accepted.json",
+  "nonadopted": [],
+  "expected_previous_generated": 81,
+  "expected_previous_accepted": 70,
+  "expected_complete_tasks": 19,
+  "last_completed_task": "RU-7b27f37e58e40176",
+  "next_task_id": "RU-a37c7f0643ea7228",
+  "unused_source_observations": {
+    "RU-600b470429d97202-C004": "文件名2013但实际高V格栅/旧三角雾灯区是改款前，已完整下载/解码/看图/OSS备份，排除本改款Wagon要求；从未提交生成。",
+    "RU-600b470429d97202-C006": "B001铜色改款旅行版前侧为身份辅助；前方边角有树丛/路缘，优先选实际完整红色后侧B002作为唯一生成输入，此图未生成、不重复计覆盖。"
+  },
+  "input_refs": [
+    "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json"
+  ],
+  "identity_crosschecks": {
+    "published_source_lineage": {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "literal_rows": [
+        [
+          "RU|opel/astra|J Рестайлинг|2011-2018|Hatchback 3-door|-|GTC",
+          "Opel Astra GTC Hatchback 2011-2018 RU"
+        ],
+        [
+          "RU|opel/astra|J Рестайлинг|2011-2018|Sedan|-|-",
+          "Opel Astra Sedan 2011-2018 RU"
+        ],
+        [
+          "RU|opel/astra|J Рестайлинг|2011-2018|Hatchback 5-door|-|-",
+          "Opel Astra Hatchback 2011-2018 RU"
+        ],
+        [
+          "RU|opel/astra|J Рестайлинг|2011-2018|Wagon 5-door|-|-",
+          "Opel Astra Wagon 2011-2018 RU"
+        ],
+        [
+          "RU|opel/astra|J|2009-2012|Hatchback 5-door|-|-",
+          "Opel Astra Hatchback 2009-2012 RU"
+        ],
+        [
+          "RU|opel/astra|J|2009-2012|Wagon 5-door|-|-",
+          "Opel Astra Wagon 2009-2012 RU"
+        ]
+      ]
+    },
+    "actual_http_observations": [
+      {
+        "url": "https://de.wikipedia.org/wiki/Opel_Astra_J",
+        "final_url": "https://de.wikipedia.org/wiki/Opel_Astra_J",
+        "http_status": 200,
+        "archive_file": "/workspace/scratch/ru-astra23-identity-0.html.gz",
+        "snippets": {
+          "GTC": [
+            " die Fertigung des Astra K , der im Oktober desselben Jahres als Fünftürer auf den Markt kam. Der Sports Tourer war ebenfalls ab Oktober 2015 bestellbar. [ 3 ] Das dreitürige Schrägheckmodell Astra J GTC und die viertürige Limousine Astra Stufenheck wurden noch bis 2018 weitergebaut, ehe sie ersatzlos vom Markt genommen wurden. [ 4 ] Am 4. Dezember 2009 kam die vierte Astra-Generation zunächst als fünftürige Schräghecklimousine auf den Markt. Die Kombiversion Sports Tourer folgte am 13. November 2010. Ab September 2012 ergänzte eine Stufenhecklimousine das Angebot. Im April 2013 folgte schließlich eine Cabrio-Version auf Basis des Astra J. Sie w",
+            "nten [ Bearbeiten | Quelltext bearbeiten ] Fünftüriges Schrägheck (Dezember 2009 bis Juli 2015) [ 5 ] Fünftüriger Kombi (Sports Tourer; November 2010 bis September 2015) [ 6 ] Dreitüriges Schrägheck (GTC; Januar 2012 bis April 2018) Viertüriges Stufenheck (September 2012 bis August 2018) Heckansicht Sports Tourer (2010–2012) Sports Tourer Heckansicht Opel Astra GTC (2012–2018) Heckansicht Innenraum (Variante mit Navigation und Lenkrad-Fernbedienung) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Mit der Einführung der Stufenhecklimousine im September 2012 wurden das Schrägheck und der Kombi dezent überarbeitet. An der Front kam im Kühlergril",
+            "2015) [ 6 ] Dreitüriges Schrägheck (GTC; Januar 2012 bis April 2018) Viertüriges Stufenheck (September 2012 bis August 2018) Heckansicht Sports Tourer (2010–2012) Sports Tourer Heckansicht Opel Astra GTC (2012–2018) Heckansicht Innenraum (Variante mit Navigation und Lenkrad-Fernbedienung) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Mit der Einführung der Stufenhecklimousine im September 2012 wurden das Schrägheck und der Kombi dezent überarbeitet. An der Front kam im Kühlergrill eine dreidimensionale Chromquerstrebe mit nach oben gebogenen Enden zum Einsatz. Die Scheinwerfer waren schwarz hinterlegt und die Einfassungen der Nebelscheinwer",
+            "018) Heckansicht Ausstattungsvarianten [ Bearbeiten | Quelltext bearbeiten ] Während der Astra Fünftürer und Sports Tourer in jeweils mehreren Ausstattungslinien verfügbar waren, wurden für den Astra GTC nur die Varianten Edition und Innovation angeboten. Je nach Land war der Umfang und Preis der einfachsten Ausstattungslinie sehr unterschiedlich. Die Preise der beiden umfangreichsten Ausstattungslinien waren jeweils identisch. Opel Astra White Edition (2012) Edition (12/2009–11/2010, 12/2011–08/2018) Cosmo (12/2009–06/2010) Selection (12/2009–12/2013) Sport (12/2009–12/2013) Innovation (06/2010–12/2013) Design Edition (11/2010–11/2011) Edition "
+          ],
+          "2012": [
+            ":\"1482–1535\"},\"Radstand\":{\"wt\":\"2685–2695\"},\"Gewicht\":{\"wt\":\"1373–1613\"},\"Vorgänger\":{\"wt\":\"[[Opel Astra H]]\"},\"Nachfolger\":{\"wt\":\"[[Opel Astra K]]\"}},\"i\":0}}]}'> Opel Bild Opel Astra Fünftürer (2009–2012) Astra J Produktionszeitraum 2009–2018 Klasse Kompaktklasse Karosserieversionen Kombilimousine , Limousine , Kombi Motoren Ottomotoren : 1,4–2,0 Liter (64–206 kW) Dieselmotoren : 1,3–2,0 Liter (70–143 kW) Länge 4419–4698 mm Breite 1814–1840 mm Höhe 1482–1535 mm Radstand 2685–2695 mm Leergewicht 1373–1613 kg Vorgängermodell Opel Astra H Nachfolgemodell Opel Astra K Der Opel Astra J ist ein Pkw - Modell der Kompaktklasse des Automobilherstellers O",
+            "n wurden. [ 4 ] Am 4. Dezember 2009 kam die vierte Astra-Generation zunächst als fünftürige Schräghecklimousine auf den Markt. Die Kombiversion Sports Tourer folgte am 13. November 2010. Ab September 2012 ergänzte eine Stufenhecklimousine das Angebot. Im April 2013 folgte schließlich eine Cabrio-Version auf Basis des Astra J. Sie wurde als eigenständiges Modell unter dem Namen Cascada angeboten. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] Fünftüriges Schrägheck (Dezember 2009 bis Juli 2015) [ 5 ] Fünftüriger Kombi (Sports Tourer; November 2010 bis September 2015) [ 6 ] Dreitüriges Schrägheck (GTC; Januar 2012 bis April 2018) Viertüriges",
+            "eiten | Quelltext bearbeiten ] Fünftüriges Schrägheck (Dezember 2009 bis Juli 2015) [ 5 ] Fünftüriger Kombi (Sports Tourer; November 2010 bis September 2015) [ 6 ] Dreitüriges Schrägheck (GTC; Januar 2012 bis April 2018) Viertüriges Stufenheck (September 2012 bis August 2018) Heckansicht Sports Tourer (2010–2012) Sports Tourer Heckansicht Opel Astra GTC (2012–2018) Heckansicht Innenraum (Variante mit Navigation und Lenkrad-Fernbedienung) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Mit der Einführung der Stufenhecklimousine im September 2012 wurden das Schrägheck und der Kombi dezent überarbeitet. An der Front kam im Kühlergrill eine dreidi",
+            "Dezember 2009 bis Juli 2015) [ 5 ] Fünftüriger Kombi (Sports Tourer; November 2010 bis September 2015) [ 6 ] Dreitüriges Schrägheck (GTC; Januar 2012 bis April 2018) Viertüriges Stufenheck (September 2012 bis August 2018) Heckansicht Sports Tourer (2010–2012) Sports Tourer Heckansicht Opel Astra GTC (2012–2018) Heckansicht Innenraum (Variante mit Navigation und Lenkrad-Fernbedienung) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Mit der Einführung der Stufenhecklimousine im September 2012 wurden das Schrägheck und der Kombi dezent überarbeitet. An der Front kam im Kühlergrill eine dreidimensionale Chromquerstrebe mit nach oben gebogenen Ende"
+          ],
+          "facelift": [],
+          "Sports Tourer": [
+            "] geändert, um auszuschließen, dass der Großbuchstabe I als 1 missverstanden wird. Im Juli 2015 begann die Fertigung des Astra K , der im Oktober desselben Jahres als Fünftürer auf den Markt kam. Der Sports Tourer war ebenfalls ab Oktober 2015 bestellbar. [ 3 ] Das dreitürige Schrägheckmodell Astra J GTC und die viertürige Limousine Astra Stufenheck wurden noch bis 2018 weitergebaut, ehe sie ersatzlos vom Markt genommen wurden. [ 4 ] Am 4. Dezember 2009 kam die vierte Astra-Generation zunächst als fünftürige Schräghecklimousine auf den Markt. Die Kombiversion Sports Tourer folgte am 13. November 2010. Ab September 2012 ergänzte eine Stufenhecklimousine da",
+            "s 2018 weitergebaut, ehe sie ersatzlos vom Markt genommen wurden. [ 4 ] Am 4. Dezember 2009 kam die vierte Astra-Generation zunächst als fünftürige Schräghecklimousine auf den Markt. Die Kombiversion Sports Tourer folgte am 13. November 2010. Ab September 2012 ergänzte eine Stufenhecklimousine das Angebot. Im April 2013 folgte schließlich eine Cabrio-Version auf Basis des Astra J. Sie wurde als eigenständiges Modell unter dem Namen Cascada angeboten. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] Fünftüriges Schrägheck (Dezember 2009 bis Juli 2015) [ 5 ] Fünftüriger Kombi (Sports Tourer; November 2010 bis September 2015) [ 6 ] Dreitüriges Schräghec",
+            " wurde als eigenständiges Modell unter dem Namen Cascada angeboten. Modellvarianten [ Bearbeiten | Quelltext bearbeiten ] Fünftüriges Schrägheck (Dezember 2009 bis Juli 2015) [ 5 ] Fünftüriger Kombi (Sports Tourer; November 2010 bis September 2015) [ 6 ] Dreitüriges Schrägheck (GTC; Januar 2012 bis April 2018) Viertüriges Stufenheck (September 2012 bis August 2018) Heckansicht Sports Tourer (2010–2012) Sports Tourer Heckansicht Opel Astra GTC (2012–2018) Heckansicht Innenraum (Variante mit Navigation und Lenkrad-Fernbedienung) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Mit der Einführung der Stufenhecklimousine im September 2012 wurden das Schrägh",
+            " Fünftüriger Kombi (Sports Tourer; November 2010 bis September 2015) [ 6 ] Dreitüriges Schrägheck (GTC; Januar 2012 bis April 2018) Viertüriges Stufenheck (September 2012 bis August 2018) Heckansicht Sports Tourer (2010–2012) Sports Tourer Heckansicht Opel Astra GTC (2012–2018) Heckansicht Innenraum (Variante mit Navigation und Lenkrad-Fernbedienung) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Mit der Einführung der Stufenhecklimousine im September 2012 wurden das Schrägheck und der Kombi dezent überarbeitet. An der Front kam im Kühlergrill eine dreidimensionale Chromquerstrebe mit nach oben gebogenen Enden zum Einsatz. Die Scheinwerfer waren schwa"
+          ],
+          "Australia": [],
+          "Modellpflege": [
+            "zerkonto erstellen Anmelden Inhaltsverzeichnis In die Seitenleiste verschieben Verbergen (Anfang) 1 Modellgeschichte Unterabschnitt Modellgeschichte umschalten 1.1 Allgemeines 1.2 Modellvarianten 1.3 Modellpflege 2 Ausstattungsvarianten Unterabschnitt Ausstattungsvarianten umschalten 2.1 OPC 2.2 OPC Cup 3 Fahrwerk 4 Endmontage 5 Sicherheit 6 Technische Daten Unterabschnitt Technische Daten umschalten 6.1 Ottomotoren 6.2 Dieselmotoren 6.3 Kraftstoffbehälter 6.4 Getriebe 6.5 Maße 6.6 Kofferraum 7 Der Astra J weltweit 8 Weblinks 9 Einzelnachweise Inhaltsverzeichnis umschalten Opel Astra J 9 Sprachen Dansk English Suomi Français עברית Italiano Polski Русский",
+            "k (September 2012 bis August 2018) Heckansicht Sports Tourer (2010–2012) Sports Tourer Heckansicht Opel Astra GTC (2012–2018) Heckansicht Innenraum (Variante mit Navigation und Lenkrad-Fernbedienung) Modellpflege [ Bearbeiten | Quelltext bearbeiten ] Mit der Einführung der Stufenhecklimousine im September 2012 wurden das Schrägheck und der Kombi dezent überarbeitet. An der Front kam im Kühlergrill eine dreidimensionale Chromquerstrebe mit nach oben gebogenen Enden zum Einsatz. Die Scheinwerfer waren schwarz hinterlegt und die Einfassungen der Nebelscheinwerfer teilweise mit Chrom umrandet. Am Heck gab es teilweise eine Chromleiste (nicht bei Option OPC-L"
+          ]
+        }
+      },
+      {
+        "url": "https://www.forcegt.com/news/opels-refreshed-astra-revealed-ahead-of-australian-launch/",
+        "error": "HTTPSConnectionPool(host='www.forcegt.com', port=443): Max retries exceeded with url: /news/opels-refreshed-astra-revealed-ahead-of-australian-launch/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))"
+      }
+    ],
+    "j_identity": "Actual Wiki J HTTP200 text distinguishes 2012 grille/fog/rear trim update and unchanged GTC; source images/captions and full actual gray/dark reviews support each body. Aggregate frozen year ranges unchanged. ForceGT direct request failed proxy403: search snippet only, not claimed body-read.",
+    "parallel_workflow": "Explicit user request: three Playwright Chromium workers A official/media, B photography, C composition. Separate actual main PIDs, user-data and download directories, cookie isolation probe, sanitized proofs archived. Candidate findings are not acceptance. Main session alone owns generation/OSS/checkpoint.",
+    "parallel_wagon_sources": [
+      {
+        "worker": "B",
+        "local_id": "B001",
+        "task_id": "RU-600b470429d97202",
+        "dimension_id": "Opel Astra Wagon 2011-2018 RU",
+        "source_title": "File:Opel Astra Sports Tourer 171619.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_171619.jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Opel_Astra_Sports_Tourer_171619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/previews/B001-original-review.jpg",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Opel_Astra_Sports_Tourer_171619.jpg/960px-Opel_Astra_Sports_Tourer_171619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 2798,
+        "height": 2713,
+        "author": "Trop86",
+        "license_name": "CC0 1.0 Universal",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "license_text": "Author explicitly dedicates own work to CC0; reuse and modification including commercial use permitted as stated on the actually visited Commons page.",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/03-page.json",
+        "photograph_date": "2026-04-06 17:16:19",
+        "model_year": "not inferred from photograph date",
+        "identity_evidence": "Actual source picture shows Astra J Sports Tourer wagon. B001 front has facelift narrow wing-emblem grille, enlarged lower intake/chrome perimeter and revised black corner lamp pods; B002 rear has revised lower chrome bumper strip. Long wagon roof/extended rear side window and four side doors distinguish from hatchback.",
+        "view": "front-side, nose left",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/B001-original.jpg",
+        "sha256": "1be79bdd13890f74f3729d0ce5fe1bc52602a2c5779049e39c52b8b3c44b0c80",
+        "sha1": "c1d2d9cfddf2d866980f72fcbae8dbf7e9d11660",
+        "size": 2196104,
+        "decoded": {
+          "width": 2798,
+          "height": 2713,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "download_status": "full_original_downloaded_sha1_size_decode_verified",
+        "review_status": "candidate_only",
+        "source_metadata": {
+          "size": 2196104,
+          "width": 2798,
+          "height": 2713,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Opel_Astra_Sports_Tourer_171619.jpg/960px-Opel_Astra_Sports_Tourer_171619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 850,
+          "thumbheight": 824,
+          "responsiveUrls": {
+            "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Opel_Astra_Sports_Tourer_171619.jpg/1920px-Opel_Astra_Sports_Tourer_171619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Opel_Astra_Sports_Tourer_171619.jpg/960px-Opel_Astra_Sports_Tourer_171619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 850,
+            "height": 824,
+            "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Opel_Astra_Sports_Tourer_171619.jpg/1920px-Opel_Astra_Sports_Tourer_171619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Opel_Astra_Sports_Tourer_171619.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_171619.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=188269150",
+          "sha1": "c1d2d9cfddf2d866980f72fcbae8dbf7e9d11660",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2026-04-06 20:16:51",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Opel Astra Sports Tourer 171619",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "CC-Zero|Self-published work|Opel automobiles in Neu-Ulm|Station wagons in Neu-Ulm|Opel Astra J Sports Tourer|Brown automobiles in Ulm",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Opel Astra Sports Tourer bei einem Händler in Neu-Ulm",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2026-04-06 17:16:19",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Trop86&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Trop86 (page does not exist)\">Trop86</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Zero, Public Domain Dedication",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "limitations": "B001 left bumper/far corner near plants; B002 only1232x1203. Root must inspect actual files, validate identity and final suitability; no generation/OSS/acceptance claimed."
+      },
+      {
+        "worker": "B",
+        "local_id": "B002",
+        "task_id": "RU-600b470429d97202",
+        "dimension_id": "Opel Astra Wagon 2011-2018 RU",
+        "source_title": "File:Opel Astra Sports Tourer 135815.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_135815.jpg",
+        "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Opel_Astra_Sports_Tourer_135815.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "preview_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/previews/B002-original-review.jpg",
+        "preview_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Opel_Astra_Sports_Tourer_135815.jpg/960px-Opel_Astra_Sports_Tourer_135815.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "width": 1232,
+        "height": 1203,
+        "author": "Trop86",
+        "license_name": "CC0 1.0 Universal",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "license_text": "Author explicitly dedicates own work to CC0; reuse and modification including commercial use permitted as stated on the actually visited Commons page.",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/responses/02-page.json",
+        "photograph_date": "2025-11-01 13:58:09",
+        "model_year": "not inferred from photograph date",
+        "identity_evidence": "Actual source picture shows Astra J Sports Tourer wagon. B001 front has facelift narrow wing-emblem grille, enlarged lower intake/chrome perimeter and revised black corner lamp pods; B002 rear has revised lower chrome bumper strip. Long wagon roof/extended rear side window and four side doors distinguish from hatchback.",
+        "view": "rear-side, nose left",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/B002-original.jpg",
+        "sha256": "41f2957b5b8ad7203334baed5c566d3a48f044dc605ea45ad03b5e7e52bf8f06",
+        "sha1": "9831931cfaf3fcdd098b731fccf48c9d292ebbc5",
+        "size": 476283,
+        "decoded": {
+          "width": 1232,
+          "height": 1203,
+          "format": "JPEG",
+          "mode": "RGB"
+        },
+        "download_status": "full_original_downloaded_sha1_size_decode_verified",
+        "review_status": "candidate_only",
+        "source_metadata": {
+          "size": 476283,
+          "width": 1232,
+          "height": 1203,
+          "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Opel_Astra_Sports_Tourer_135815.jpg/960px-Opel_Astra_Sports_Tourer_135815.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "thumbwidth": 850,
+          "thumbheight": 830,
+          "responsiveUrls": {
+            "2": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Opel_Astra_Sports_Tourer_135815.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+          },
+          "thumbattribs": {
+            "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Opel_Astra_Sports_Tourer_135815.jpg/960px-Opel_Astra_Sports_Tourer_135815.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+            "decoding": "async",
+            "loading": "lazy",
+            "width": 850,
+            "height": 830,
+            "srcset": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Opel_Astra_Sports_Tourer_135815.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+          },
+          "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Opel_Astra_Sports_Tourer_135815.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "descriptionurl": "https://commons.wikimedia.org/wiki/File:Opel_Astra_Sports_Tourer_135815.jpg",
+          "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=177690300",
+          "sha1": "9831931cfaf3fcdd098b731fccf48c9d292ebbc5",
+          "extmetadata": {
+            "DateTime": {
+              "value": "2025-11-01 18:05:44",
+              "source": "mediawiki-metadata",
+              "hidden": ""
+            },
+            "ObjectName": {
+              "value": "Opel Astra Sports Tourer 135815",
+              "source": "mediawiki-metadata"
+            },
+            "CommonsMetadataExtension": {
+              "value": 1.2,
+              "source": "extension",
+              "hidden": ""
+            },
+            "Categories": {
+              "value": "Red station wagons in Germany|CC-Zero|Self-published work|Red Opel station wagons|Opel Astra J Sports Tourer|Automobiles in Elchingen",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "Assessments": {
+              "value": "",
+              "source": "commons-categories",
+              "hidden": ""
+            },
+            "ImageDescription": {
+              "value": "Opel Astra Sports Tourer in Thalfingen, Landkreis Neu-Ulm",
+              "source": "commons-desc-page"
+            },
+            "DateTimeOriginal": {
+              "value": "2025-11-01 13:58:09",
+              "source": "commons-desc-page"
+            },
+            "Credit": {
+              "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+              "source": "commons-desc-page"
+            },
+            "Artist": {
+              "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Trop86&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Trop86 (page does not exist)\">Trop86</a>",
+              "source": "commons-desc-page"
+            },
+            "LicenseShortName": {
+              "value": "CC0",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "UsageTerms": {
+              "value": "Creative Commons Zero, Public Domain Dedication",
+              "source": "commons-desc-page"
+            },
+            "AttributionRequired": {
+              "value": "false",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "LicenseUrl": {
+              "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "source": "commons-desc-page"
+            },
+            "Copyrighted": {
+              "value": "True",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "Restrictions": {
+              "value": "",
+              "source": "commons-desc-page",
+              "hidden": ""
+            },
+            "License": {
+              "value": "cc0",
+              "source": "commons-templates",
+              "hidden": ""
+            }
+          }
+        },
+        "limitations": "B001 left bumper/far corner near plants; B002 only1232x1203. Root must inspect actual files, validate identity and final suitability; no generation/OSS/acceptance claimed."
+      }
+    ],
+    "limitations": "Representative body/generation exterior, not exact scalar dimension/engine/photo-country certification; browser probe is not a guarantee every site succeeds."
+  },
+  "archive_code_files": [
+    "/workspace/scratch/ru_make_batch23_review.py",
+    "/workspace/scratch/ru_astra_j_queries23.py",
+    "/workspace/scratch/ru_astra_j_more_queries23.py",
+    "/workspace/scratch/ru_astra_j_categories23.py",
+    "/workspace/scratch/ru_astra_j_full_categories23.py",
+    "/workspace/scratch/ru_download_astra23_six.py",
+    "/workspace/scratch/ru_astra23_identity.py",
+    "/workspace/scratch/ru_prepare_astra23.py",
+    "/workspace/scratch/ru_review_astra23.py",
+    "/workspace/scratch/ru_import_parallel_b_wagon23.py",
+    "/workspace/scratch/ru_prepare_astra23_wagon.py",
+    "/workspace/scratch/ru_review_astra23_final.py"
+  ],
+  "archive_json_files": [
+    "/workspace/scratch/ru-astra-j-queries23.json",
+    "/workspace/scratch/ru-astra-j-more-queries23.json",
+    "/workspace/scratch/ru-astra-j-categories23.json",
+    "/workspace/scratch/ru-astra-j-full-categories23.json",
+    "/workspace/scratch/ru-astra23-web-observations.json",
+    "/workspace/scratch/ru-astra23-identity-crosschecks.json",
+    "/workspace/scratch/ru-astra23-identity-0.html.gz",
+    "/workspace/scratch/ru-astra23-gtc-rear-detail.jpg",
+    "/workspace/scratch/ru-astra23-front-comparison-originals.jpg",
+    "/workspace/scratch/ru-parallel-B-wagon-results23.json",
+    "/workspace/scratch/ru-parallel-search-20261113/isolation-proof.json",
+    "/workspace/scratch/ru-parallel-search-20261113/active-browser-processes-main-observation.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-browser-proofs-frozen-for-batch23.json",
+    "/workspace/scratch/ru-parallel-search-20261113/probe_isolation.py"
+  ],
+  "report_body": "# Astra J六配置与三路独立浏览器\n\n本批真实生成6次、采用6张：J改款GTC/五门/Sedan/Wagon4/4和改款前五门/Wagon2/2，补齐两任务。八份完整原件含被身份排除的旧前脸旅行版和一份辅助前视，未选原件不冒充成品。源/灰/深底逐张实际检查，原生输出不后期编辑；所有成品/过程均私有OSS完整读回SHA。\n\n按用户明确提出的方案，在云环境实际启动A/B/C三独立Chromium/Playwright，独立profile与downloads，cookie标记只在各自jar。A官方/媒体补身份与授权，B摄影网站交回本批旅行版两完整原件，C补后续构图。主会话负责去重/筛选/实际生图/验收。官方媒体不明授权图只作身份参考。隔离探针与实际worker浏览器证据归档，不保存profile/cookies。当前三路候选搜索数不计验收；下一批继续C路9配置和A路Focus适用性复核。"
+}
