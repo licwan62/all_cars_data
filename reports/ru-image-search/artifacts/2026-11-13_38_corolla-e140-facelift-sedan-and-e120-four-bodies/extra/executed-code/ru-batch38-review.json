@@ -1,0 +1,336 @@
+{
+  "actual_visual_review_complete": true,
+  "unused_source_observations": {},
+  "input_refs": [
+    "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json"
+  ],
+  "description": "corolla-e140-facelift-sedan-and-e120-four-bodies",
+  "jobs_file": "/workspace/scratch/ru-corolla38-jobs.json",
+  "generation_job_files": [
+    "/workspace/scratch/ru-corolla38-jobs.json"
+  ],
+  "source_manifest_files": [
+    "/workspace/scratch/ru-corolla38-five-sources.json"
+  ],
+  "existing_source_manifest_files": [],
+  "observations": [
+    "白E140全球改款Altis四门Sedan，三水平镀铬格栅/蓝Toyota徽/新上扬灯/宽低黑口与圆雾灯黑角饰、银五辐轮/同色镜把手/镀铬门条/雨挡对应，朝右前侧。无源可见鳍杆不新增。源/灰深底实际核全车胎镜完整，底8px据实接受未触边裁切，去店面邻车/牌字及强反光，无明显碎片或外投影。",
+    "白E120改款Fielder长顶Wagon，长货窗/四侧门/水平镀铬条Toyota格栅/斜灯/低口黑空白角盖、黑多辐轮/白铬镜/侧裙雨挡对应，源朝左高前侧保持。放大源确认车顶后侧实际短杆，保留该杆无新增鳍轨，不复制后方Van镜。源/灰深底实际核胎镜杆完整留边，去湿路商铺/牌字/强反光，无明显碎片或外投影。",
+    "深蓝E120原全球四门Sedan，圆角三角灯/菱网Toyota格栅/低横矩形雾灯与低口、银简轮罩/蓝镜把手/紧凑三厢对应，朝左高前侧，无可见天线不新增也不复制后Van顶架。源/灰深底实际核全车胎镜完整有留边，去楼树反光/邻Van/砖路/牌字与轻擦，无明显残片或外投影。",
+    "白E120原Fielder长顶Wagon，圆灯/菱网C族银黑徽/分层小低口与低矩形清雾灯、深五辐轮/铬镜/白把手/雨挡/真实黑纵轨与低spoiler对应，朝右前侧，源C族徽原样保留未误换Toyota，无新增杆鳍。源/灰深底实际核全车轮胎镜轨完整留边，清枝叶阴影强反光/地面脏污水印/牌字，无明显残片或外投影。",
+    "银E120改款普通五门Hatch，四侧门/短尾侧窗、源尖灯/短黑Toyota上口与小TRD徽/横低口黑角雾灯/银轮/同色镜把手/黑门条/低spoiler与实际后短杆对应，朝右前侧。不用TRD徽认证原厂等级，不代Runx，既有merged普通Hatch不拆。源/灰深底实际核全车胎镜杆完整留边，去邻车树影地面牌字，无明显残片/外投影，alpha最高254原生保留。"
+  ],
+  "scratch_result_file": "/workspace/scratch/ru-corolla38-accepted.json",
+  "nonadopted": [],
+  "expected_previous_generated": 174,
+  "expected_previous_accepted": 156,
+  "expected_complete_tasks": 51,
+  "last_completed_task": "RU-78e420853a31e4fc",
+  "next_task_id": "RU-aea7f2a131e7e9fb",
+  "identity_crosschecks": {
+    "published_source_lineage": {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+      "selected_dimension_ids": [
+        "Toyota Corolla Sedan 2008-2013 RU",
+        "Toyota Corolla Fielder Wagon 2003-2007 RU",
+        "Toyota Corolla Sedan 2000-2004 RU",
+        "Toyota Corolla Fielder Wagon 2000-2004 RU",
+        "Toyota Corolla Hatchback 2003-2007 RU"
+      ]
+    },
+    "frozen_selected_sources": [
+      {
+        "worker": "B",
+        "local_id": "B-R8-C002",
+        "task_id": "RU-aea7f2a131e7e9fb",
+        "dimension_id": "Toyota Corolla Sedan 2008-2013 RU",
+        "source_page": "https://www.flickr.com/photos/60373961@N04/11305690885/",
+        "original_url": "https://live.staticflickr.com/7396/11305690885_d52a31b114_o.jpg",
+        "author": "Manoj Prasad",
+        "author_profile_id": "60373961@N04",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "license_text": "Actual current per-photo rel=license anchors plus same-photo ImageObject checked; attribution,license-link,changes indication; share-alike for BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/742-primary-excerpt.json",
+        "actual_model": "Global E140/E150 facelift sedan; photographer2011Altis1.8G, finer swept lamps, multiple chrome upper bars, high black corner fog surrounds. A independent check supports facelift global body; preserve Altis market badge.",
+        "identity_evidence": "Global E140/E150 facelift sedan; photographer2011Altis1.8G, finer swept lamps, multiple chrome upper bars, high black corner fog surrounds. A independent check supports facelift global body; preserve Altis market badge.",
+        "source_quality_notes": "Tight original crop but whole car and visible tires/bumpers/mirrors within edges. Bright reflections; no body occlusion. Source Altis regional detail retained, no claim of photo Russianmarket certification.",
+        "view": "front three-quarter; nose right",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-11305690885-original.jpg",
+        "width": 2270,
+        "height": 984,
+        "sha256": "75f44588f9debfdc5d7009f0f848c36e35b0c0c3ab2f448bf99005ee0d38cde5",
+        "sha1": "ca01501c534388b9a74fc1e9220b5f9a58b63a6c",
+        "original_bytes": 494048,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/742-sedan-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/742-sedan-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/782-sedan-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/742-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/results.json"
+        ]
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-C003",
+        "task_id": "RU-36c70a65c143d3c0",
+        "dimension_id": "Toyota Corolla Fielder Wagon 2003-2007 RU",
+        "source_page": "https://www.flickr.com/photos/83468718@N06/36285157446/",
+        "original_url": "https://live.staticflickr.com/4327/36285157446_e780269870_o.jpg",
+        "author": "Rutger van der Maar",
+        "author_profile_id": "83468718@N06",
+        "license_name": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "license_text": "Actual current per-photo rel=license anchors plus same-photo ImageObject checked; attribution,license-link,changes indication; share-alike for BY-SA.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/822-primary-excerpt.json",
+        "actual_model": "E120 facelift JDM Corolla Fielder wagon; wide squared lamps and large multiple horizontal-bar upper grille, long roof/cargo side glazing.",
+        "identity_evidence": "A independent actual original review supports E120 facelift JDMFielder, not E140 or European ordinaryWagon. Actual complete car viewed by B.",
+        "source_quality_notes": "1200x818 source original. Whole car/visible tires/bumpers/mirrors inside edges. Nearby white car at lower-left frame edge is separate. Wheel/side-skirt grade or modification status unverified; preserve source details. Wind deflectors/paint reflections present.",
+        "view": "front three-quarter; nose left",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-36285157446-original.jpg",
+        "width": 1200,
+        "height": 818,
+        "sha256": "3bde48618b75abefe8fb3205e1aea9c20bd397d98be69688a670ddf350662100",
+        "sha1": "da276c79e8f5c8e95938126e30e2b0f408c55a5f",
+        "original_bytes": 425487,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/822-fielder-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/822-fielder-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/892-fielder-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/822-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/results.json"
+        ]
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-C006",
+        "task_id": "RU-6fc2caabccaf49bc",
+        "dimension_id": "Toyota Corolla Sedan 2000-2004 RU",
+        "source_page": "https://www.flickr.com/photos/152930510@N02/44039884112/",
+        "original_url": "https://live.staticflickr.com/65535/44039884112_3d96360223_o.jpg",
+        "author": "crash71100",
+        "author_profile_id": "152930510@N02",
+        "license_name": "CC0 1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "license_text": "Current photo-specific rel=license and same-photo ImageObject explicitly verified; CC0publicdomain dedication.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/974-primary-excerpt.json",
+        "actual_model": "E120 original European-style sedan: broad mesh uppergrille and lowhorizontal cornerfogunits, fourdoor sedanbody. Photographer2004Rotterdam label overlapsaggregate boundary; actualoriginalfascia alignsA11originalSedan6390440 rather than revisedperiod lamp/bumper.",
+        "identity_evidence": "E120 original European-style sedan: broad mesh uppergrille and lowhorizontal cornerfogunits, fourdoor sedanbody. Photographer2004Rotterdam label overlapsaggregate boundary; actualoriginalfascia alignsA11originalSedan6390440 rather than revisedperiod lamp/bumper.",
+        "source_quality_notes": "Whole car/visible tires/bumpers/mirror in frame; tight background van behind farrear, no subject bodymask. Darkblue reflections and minor wheelcover scuffs; no claim pristine or exactmanufactureyear.",
+        "view": "front three-quarter; nose left",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-44039884112-original.jpg",
+        "width": 4516,
+        "height": 2588,
+        "sha256": "4012c1399c2905dc38c8dcdd5fc95dd5461c411abc4cfbdd12a8f537cfbbd91f",
+        "sha1": "238ec939e7fe09be050614fedf4618c6b6fa258a",
+        "original_bytes": 2247070,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/974-e120-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/974-e120-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/984-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/974-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/results.json"
+        ]
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-C007",
+        "task_id": "RU-6fc2caabccaf49bc",
+        "dimension_id": "Toyota Corolla Fielder Wagon 2000-2004 RU",
+        "source_page": "https://platesmania.com/ru/nomer28131126",
+        "original_url": "https://img03.platesmania.com/250512/o/28131126.jpg",
+        "author": "gleb / Platesmania",
+        "author_profile_id": "555",
+        "license_name": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "license_text": "Все опубликованные мною фотографии доступны по лицензии Creative Commons Attribution 4.0 International (CC BY 4.0), если не указано иное. Historicalauthor grant applies to own photos, unless otherwise stated; actual specific author/caption checked and noexception observed. Attribution original photo URL+Platesmania active link+licenselink+changes indication.",
+        "license_verification_status": "primary_author_historical_blanket_grant_with_photo_specific_author_and_exception_check",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1273-plates-license-excerpt.json",
+        "actual_model": "E120 original JDMFielder; original ovalmeshgrille/rounded lamps and longwagonbody supported A14 original comparison. White specimen has skirts/roofrails/darkwheels; exactgrade/postfitunknown.",
+        "identity_evidence": "E120 original JDMFielder; original ovalmeshgrille/rounded lamps and longwagonbody supported A14 original comparison. White specimen has skirts/roofrails/darkwheels; exactgrade/postfitunknown.",
+        "source_quality_notes": "Whole car/visible tires/frontrear bumpers/mirrors/roofrails inside source; dappled tree reflections. Darkwheels/skirts grade or aftermarket status unverified; source details retained. Minor bumper wear, no addedLED strips unlike earlierrejectedcandidate.",
+        "view": "front three-quarter; nose right",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-plates-28131126-original.jpg",
+        "width": 1440,
+        "height": 1080,
+        "sha256": "da3c6a6c46425c427b862c1605a9b5ebf49ff2ab9ff846717a355c243785e73c",
+        "sha1": "30eeeebcfd108522445229162b8d648b6da0c9f9",
+        "original_bytes": 386090,
+        "download_status": "downloaded_actual_observed_foto_o_original_http200_bytes_sha_dimensions_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1273-fielder-pre.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1273-fielder-pre.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1274-fielder-pre.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1284-fielder-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1273-plates-license-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/license-recovery.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/permission-20260722124852.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round14/b8-two-fielder-original-reviews.json"
+        ]
+      },
+      {
+        "worker": "B",
+        "local_id": "B-R8-C005-ALT",
+        "task_id": "RU-36c70a65c143d3c0",
+        "dimension_id": "Toyota Corolla Hatchback 2003-2007 RU",
+        "source_page": "https://www.flickr.com/photos/37691369@N08/30727294112/",
+        "original_url": "https://live.staticflickr.com/5797/30727294112_4052b1a099_o.jpg",
+        "author": "RL GNZLZ",
+        "author_profile_id": "37691369@N08",
+        "license_name": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "license_text": "Current per-photo rel=license and same-photo ImageObject checked, adaptation allowed with attribution/license-link/changes and sharealike.",
+        "license_verification_status": "primary_current_photo_specific_license_verified",
+        "license_evidence_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/973-primary-excerpt.json",
+        "actual_model": "E120facelift ordinary five-door Corolla hatchback; photographerSport1.6XLi2006 label. Two doors per side clear; A14 originalreview confirms5door/FLbody.",
+        "identity_evidence": "Actual original and A14 independent review support ordinary E120FL5doorHatch. PhotographerSportlabel is not evidence of separate frozenSportmodel; no GRbody or Runxbinding asserted.",
+        "source_quality_notes": "Whole car, visible tires/bumpers/mirrors/antenna inside frame. Dappled shade and reflections. SmallTRDbadge and wheel/trimfactory status unverified; preserve source details, no inventedfactorycertification. Alternative to red48779154986, sameDIM onlyonecoverage.",
+        "view": "front three-quarter; nose right",
+        "local_original_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-30727294112-original.jpg",
+        "width": 3200,
+        "height": 2250,
+        "sha256": "0b37e421730c4244dedefa0ac670a46d7c9f2cec9b68079f012ef65470497cae",
+        "sha1": "551dd78f7679af783cc72c99d16f82b5007ea00b",
+        "original_bytes": 1763201,
+        "download_status": "downloaded_actual_flickr_o_original_http200_size_model_verified_and_decoded",
+        "review_status": "candidate_only",
+        "production_eligible": false,
+        "production_eligibility_note": "original actually viewed; pending coordinator independent selection",
+        "evidence_files": [
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/973-e120-photo.html",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/973-e120-photo.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/983-original.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/973-primary-excerpt.json",
+          "/workspace/scratch/ru-parallel-search-20261113/worker-a/round14/b8-e120-two-original-reviews.json"
+        ]
+      }
+    ],
+    "independent_identity_proofs": [
+      {
+        "schema": "a11-corolla-four-families-v1",
+        "created_at_unix": 1794571257.9757872,
+        "frozen_tasks": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/frozen-tasks.json",
+        "requirement_links": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/requirement-body-version-links.json",
+        "records": "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/results.json",
+        "ordinary_e120_hatch_rule": "Original mapping merges 3door/5door into each existing frozen ordinary Hatch DIMENSION-ID. Choose explicitly bound5door representative without claiming3door coverage or splitting ID. Runx is separate Japanese5door.",
+        "limits": "Identity reference only. No Commons originals, production, OSS, Git or formal state writes."
+      },
+      {
+        "schema": "a14-local-b8-review-v1",
+        "at": 1794571947.8768792,
+        "rows": [
+          {
+            "id": "44039884112",
+            "dimension_id": "Toyota Corolla Sedan 2000-2004 RU",
+            "task_id": "RU-6fc2caabccaf49bc",
+            "source_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-44039884112-original.jpg",
+            "sha256": "4012c1399c2905dc38c8dcdd5fc95dd5461c411abc4cfbdd12a8f537cfbbd91f",
+            "actual_original_viewed": true,
+            "identity_observation": "ActualblueSedanoriginal viewed; fourdoors/separatetrunk, E120original-style broad oval headlamps, blackmeshuppergrille and longnarrow outerfoglamps with originalbumper. SupportsoriginalE120Sedanrepresentative ratherthan claimingfacelift byphoto/title date. Need Bsourcepreciseoriginal/fullframequalitydecision remainsroot.",
+            "scope": "Representative exterior only; noVIN/engine/numericaldimensioncertification."
+          },
+          {
+            "id": "30727294112",
+            "dimension_id": "Toyota Corolla Hatchback 2003-2007 RU",
+            "task_id": "RU-36c70a65c143d3c0",
+            "source_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-corolla-30727294112-original.jpg",
+            "sha256": "0b37e421730c4244dedefa0ac670a46d7c9f2cec9b68079f012ef65470497cae",
+            "actual_original_viewed": true,
+            "identity_observation": "Actualsilveroriginalviewed: visiblefront and rear passengerdoorhandles/doorseams, clearly FIVEdoor notpreviouscontact-stage3doorassessment. FLheadlamps/narrowuppergrille/revisedblackouterfogopenings supportsordinaryE120faceliftHatch. TRDbadge/aftermarketorgraderimsnotproofspecialfactorybody; preserve sourceappearance, nosportywidebodyinvented. FrozenordinaryHatchmaps3/5door underoneID; representative5doorappropriate.",
+            "scope": "Representative exterior only; noVIN/engine/numericaldimensioncertification."
+          }
+        ],
+        "note": "No browser launched. Local original views only; no new downloads orproduction."
+      },
+      {
+        "schema": "a14-fielder-original-identity-review-v1",
+        "at": 1794572404.1939406,
+        "independent_drom_period_references": [
+          {
+            "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1280-drom-phase.json",
+            "url": "https://www.drom.ru/catalog/toyota/corolla_fielder/g_2006_1034/",
+            "status": 200,
+            "actual_text_read_excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиToyotaCorolla FielderХарактеристики Toyota Corolla Fielder 2006, универсал, 2 поколение, E140 октябрь 2006 - сентябрь 2008\nToyota Corolla Fielder 2006, универсал, 2 поколение, E140 (10.2006 - 09.2008) - технические характеристики и комплектации\nРынок сбыта: Япония. Правый руль\nРазвернуть фотографии \nВторая генерация Corolla Fielder была запущена одновременно с десятым поколением седана Corolla Axio (140-й кузов). По своим габаритам и техническим данным Fielder отлично подходит для тех владельцев, кому необходим по-настоящему универсальный автомобиль — не только для горо",
+            "image": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/drom-fielder-2006-reference.jpg",
+            "image_sha256": "d4b6d4da7f3315a0db6f99122a923fcb8f5352ddd37ad11c991bf8a9a11cd875",
+            "actual_image_viewed": true,
+            "production_eligible": false
+          },
+          {
+            "capture": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/responses/1281-drom-phase.json",
+            "url": "https://www.drom.ru/catalog/toyota/corolla_fielder/g_2008_4646/",
+            "status": 200,
+            "actual_text_read_excerpt": "Москва\nАвтомобили\nСпецтехника\nМото\nЗапчасти\nОтзывы\nКаталог\nШины\nЕще\nПодать объявление\nВход\n и регистрация\nДромХарактеристикиToyotaCorolla FielderХарактеристики Toyota Corolla Fielder рестайлинг 2008, универсал, 2 поколение, E140 октябрь 2008 - апрель 2012\nToyota Corolla Fielder рестайлинг 2008, универсал, 2 поколение, E140 (10.2008 - 04.2012) - технические характеристики и комплектации\nРынок сбыта: Япония. Правый руль\nРазвернуть фотографии \nВторая генерация Corolla Fielder была запущена одновременно с десятым поколением седана Corolla Axio (140-й кузов). По своим габаритам и техническим данным Fielder отлично подходит для тех владельцев, кому необходим по-настоящему универсальный автомобиль ",
+            "image": "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/drom-fielder-2008-reference.jpg",
+            "image_sha256": "a9a2ee9df35419588a3f37e3eebef1147082926fae8a278ed8bbddac88d80a01",
+            "actual_image_viewed": true,
+            "production_eligible": false
+          }
+        ],
+        "rows": [
+          {
+            "photo_id": "22955340",
+            "task_id": "RU-d8ecb0d87bff666a",
+            "dimension_id": "Toyota Corolla Fielder Wagon 2006-2010 RU",
+            "actual_original_viewed": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-plates-22955340-original.jpg",
+            "sha256": "0ab101383ba69ac37ca26c1420480445d75f1897aff4590a68e781f889109fdb",
+            "identity_supported": true,
+            "observation": "Actualsilveroriginalviewed, fullE140Fielderlongroof/five-doorbody. Boxedlamphousing/straightinner-edge and horizontalmeshgrille matchDrom2006original representative; different fromDrom2008moreupsweptsharpinnerlampandnewbumper. Blacklowcornerblank/basegradeversusDromroundfogkeptasgradevariation, notsoleproof. Independent supportsoriginalE140Fielder representative. Priorpreviewhold upgraded using actualoriginal+twospecificperiodreferences."
+          },
+          {
+            "photo_id": "28131126",
+            "task_id": "RU-6fc2caabccaf49bc",
+            "dimension_id": "Toyota Corolla Fielder Wagon 2000-2004 RU",
+            "actual_original_viewed": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round8-plates-28131126-original.jpg",
+            "sha256": "da3c6a6c46425c427b862c1605a9b5ebf49ff2ab9ff846717a355c243785e73c",
+            "identity_supported": true,
+            "observation": "Actualwhiteoriginalviewed, JapaneseE120Fielderlongroofandround-edgedheadlampcluster/originalovalCorollameshgrille matchA11originalFielderbody. SupportsE120originalFielder representative. Darkwheel/side-skirttrimorpostfit unknown kept, nofactorysportgradeorengineclaim; rootqualitydecision separate."
+          }
+        ],
+        "scope": "Representative exterior identityonly, noVIN/engine/numericdimensioncertification. Bmustretainphoto-specificglebownership/date/permissionexceptions; Adoesnotgrantlicense."
+      }
+    ],
+    "limitations": "Five new accepted exterior records in three partially complete frozen tasks; no complete-task increase. Source and gray/dark all actually viewed; no repair. Sedan bottom8px fulltire accepted. SmallTRDbadge factory status unverified, not new task. No scalar/VIN/powertrain/OEM certification."
+  },
+  "archive_code_files": [
+    "/workspace/scratch/ru_import_corolla38.py",
+    "/workspace/scratch/ru_prepare_corolla38.py",
+    "/workspace/scratch/ru_review_corolla38.py"
+  ],
+  "report_body": "# Corolla E140改款Sedan与E120四体\n\n五源分别许可/原件/车身身份核准，五次真实生成全部返回无返修。源、灰底、深底逐张实际核通过；E140改款Sedan底8px整胎未切据实接受。Fielder改款与普通Hatch保留源实际短杆，原Fielder只保留纵轨无新增杆鳍与正确C族徽。普通Hatch小TRD徽保留但不认证原厂等级，不拆既有merged字段。三族仍部分完成，完整任务保持51不冒计。最终与过程私有OSS完整GET/SHA/字节/解码核验。",
+  "archive_json_files": [
+    "/workspace/scratch/ru-corolla38-five-frozen.json",
+    "/workspace/scratch/ru-corolla38-source-contact.jpg",
+    "/workspace/scratch/ru-corolla38-roof-close.jpg",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round11/corolla-four-family-handoff.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round14/b8-e120-two-original-reviews.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-a/round14/b8-two-fielder-original-reviews.json",
+    "/workspace/scratch/ru-corolla38-roof-1.jpg",
+    "/workspace/scratch/ru-corolla38-roof-3.jpg",
+    "/workspace/scratch/ru-corolla38-roof-4.jpg",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/742-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/822-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/974-primary-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/1273-plates-license-excerpt.json",
+    "/workspace/scratch/ru-parallel-search-20261113/worker-b/round8/973-primary-excerpt.json"
+  ]
+}

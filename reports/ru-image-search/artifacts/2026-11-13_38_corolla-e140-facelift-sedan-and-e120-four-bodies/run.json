@@ -1,0 +1,329 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies",
+  "version": "20261113_38",
+  "description": "corolla-e140-facelift-sedan-and-e120-four-bodies",
+  "created_at": "2026-11-13T13:00:32+00:00",
+  "finished_at": "2026-11-13T13:00:33+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch38-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/progress-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/progress-20261113_37.json",
+      "sha256": "32f1a42c29e20f78a81361f368fb4a6e743528293eb06678d71fa737cbda267f"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/current-accepted-configuration-index-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/current-accepted-configuration-index-20261113_37.json",
+      "sha256": "32bc9c856f4ae8b382eefc2b7533fb19c7c73aa83a3900b11815565a547c018f"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/candidates-20261113_37.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_37_corolla-e70-three-body-complete/output/candidates-20261113_37.json",
+      "sha256": "47f57944230df41a022ddb56212bd31f45070889aea6e667185606bc5c2d4e05"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "d1894964481bb2ad44f11f4a6f35212841792eeb",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/identity-crosschecks-20261113_38.json",
+      "content_reference": true,
+      "sha256": "dec937ab1582661f5eaab5bc09d6f80cf179493558bccb27e5fd64dff9a3b50a",
+      "bytes": 24137,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/accepted-configurations-20261113_38.json",
+      "content_reference": true,
+      "sha256": "969dbdec3bc227f6c622425adb515fb617df42982f84bec023cc3b245eb99199",
+      "bytes": 48837,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/current-accepted-configuration-index-20261113_38.json",
+      "content_reference": true,
+      "sha256": "aaa6adfd82edccc9f78d0520ee7e05e785a12e00ea2426f1f3084ee3a495ce19",
+      "bytes": 1578068,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/nonadopted-history-20261113_38.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/generation-requests-20261113_38.json",
+      "content_reference": true,
+      "sha256": "fe4cf3e9b01e27b208fb532f224f565149c7ecab4a2c3ca5f19f76242eae6bec",
+      "bytes": 21489,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/new-source-original-evidence-20261113_38.json",
+      "content_reference": true,
+      "sha256": "3f205a6c3c4a2c391af6739b5690aaa0521339226ab06cb97850397c2b9b99f9",
+      "bytes": 16951,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/candidates-20261113_38.json",
+      "content_reference": true,
+      "sha256": "33ff851e1624213ff698eb05cfeaa39a5c1b77baa0b6ed7c2355f700de5882d9",
+      "bytes": 474866,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_38.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/output/progress-20261113_38.json",
+      "content_reference": true,
+      "sha256": "97cc25de94fcbec151fd8cbb5e28cbfef7265fe0e22f2be82541092bc62d632f",
+      "bytes": 2317878,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru-batch38-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_import_corolla38.py",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_prepare_corolla38.py",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_review_corolla38.py",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-five-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-source-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-close.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/corolla-four-family-handoff.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/b8-e120-two-original-reviews.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/b8-two-fielder-original-reviews.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-1.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-3.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-4.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/742-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/822-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/974-primary-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/1273-plates-license-excerpt.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/973-primary-excerpt.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch38-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru-batch38-review.json",
+      "sha256": "71723a44f56228456992a078ff81ea0d7f1681cc548b47c8375595db2320fbd7",
+      "bytes": 29435
+    },
+    {
+      "file": "extra/executed-code/ru_import_corolla38.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_import_corolla38.py",
+      "sha256": "4e3b77921a95143e98175030234017bc495050094f002a69e10c00a20c0df1d4",
+      "bytes": 3281
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_corolla38.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_prepare_corolla38.py",
+      "sha256": "ee7a4e8d18995a6152e0e632673ed6afaf2cbd16ed36b551f16590518e5f947a",
+      "bytes": 5086
+    },
+    {
+      "file": "extra/executed-code/ru_review_corolla38.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/executed-code/ru_review_corolla38.py",
+      "sha256": "4e8a3efa46d741889535051f35618406513f6837ee065c14f8d67f83c0296229",
+      "bytes": 1626
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla38-five-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-five-frozen.json.gz",
+      "sha256": "5a23318e0cf27a53d5d1362fc0b92be2c9bb93f9044b214c5845868d0a369e24",
+      "bytes": 3476
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla38-source-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-source-contact.jpg",
+      "sha256": "bdba3fd46e0bbdd95b2a8d4462f7db436ebf4ac96ace0234749340567118e273",
+      "bytes": 327598
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla38-roof-close.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-close.jpg",
+      "sha256": "f298b7f03f8716e036f3569ebe8eb84c32467fc888c4c98250c22a30ae4d65f7",
+      "bytes": 269801
+    },
+    {
+      "file": "extra/search-evidence/corolla-four-family-handoff.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/corolla-four-family-handoff.json.gz",
+      "sha256": "328df0c544183f80ced7f0419249fe29e28c5e6d1aff8267bee36af4e56b6a05",
+      "bytes": 428
+    },
+    {
+      "file": "extra/search-evidence/b8-e120-two-original-reviews.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/b8-e120-two-original-reviews.json.gz",
+      "sha256": "c252b4df9d802c463dc780141587c3d393168bea50dcb9b878c2a621d9876c41",
+      "bytes": 952
+    },
+    {
+      "file": "extra/search-evidence/b8-two-fielder-original-reviews.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/b8-two-fielder-original-reviews.json.gz",
+      "sha256": "6e78b1ac81c972fcf8198f2b00e8c0f3a5ab210652919ad0b8cba59cd9348d6a",
+      "bytes": 1889
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla38-roof-1.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-1.jpg",
+      "sha256": "8a765edb6e074ac9e814e2ba6e6936a898d7ea250d9f8cb715f3e82c5c325944",
+      "bytes": 36249
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla38-roof-3.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-3.jpg",
+      "sha256": "f65043b8bb63ce4100038bcf50fe6ca17f5abd02c1a3bd2a7e9170cf754f4e45",
+      "bytes": 102387
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla38-roof-4.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/ru-corolla38-roof-4.jpg",
+      "sha256": "a30935e4b4e5326cc9c0a9eb2a7491d5569b17a4011187bad637e2a600677509",
+      "bytes": 203592
+    },
+    {
+      "file": "extra/search-evidence/742-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/742-primary-excerpt.json.gz",
+      "sha256": "5f13120044ada646dd48a577a2389dcf1f9f89987c13a6d79739404e601edfc4",
+      "bytes": 762
+    },
+    {
+      "file": "extra/search-evidence/822-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/822-primary-excerpt.json.gz",
+      "sha256": "8292792f2de6c6c9a425ac177893ae62a7ff4db73d0475790759195c7f5eed2d",
+      "bytes": 748
+    },
+    {
+      "file": "extra/search-evidence/974-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/974-primary-excerpt.json.gz",
+      "sha256": "a6a953ae0dd846e6b3c6e0bc0713ea6ac72450bc29e99c816ce05ff036877f16",
+      "bytes": 755
+    },
+    {
+      "file": "extra/search-evidence/1273-plates-license-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/1273-plates-license-excerpt.json.gz",
+      "sha256": "6dad74c0e625a96707194e2568bbad3f194cc95a5e42c5c4f50e7cd4bae96a03",
+      "bytes": 874
+    },
+    {
+      "file": "extra/search-evidence/973-primary-excerpt.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies/extra/search-evidence/973-primary-excerpt.json.gz",
+      "sha256": "c863c98fc394d8b51fbb9dbdc2cb51cc9dda06c26e2ac29c185dedc0d14aa25e",
+      "bytes": 771
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 5,
+    "accepted_configurations_this_batch": 5,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 51,
+    "accepted_configurations_total": 161
+  }
+}

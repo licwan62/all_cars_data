@@ -1,0 +1,384 @@
+{
+  "user_requested_pause": true,
+  "no_new_search_download_imagegen": true,
+  "current_checkpoint": "reports/ru-image-search/work/checkpoint.json",
+  "current_batch": "reports/ru-image-search/artifacts/2026-11-13_38_corolla-e140-facelift-sedan-and-e120-four-bodies",
+  "counts": {
+    "tasks": 1309,
+    "requirements": 2394,
+    "csv_rows": 500,
+    "searched": 1309,
+    "candidates": 187,
+    "downloaded": 187,
+    "accepted": 51,
+    "generated": 179,
+    "accepted_dimension_records": 161,
+    "accepted_csv_rows": 23,
+    "remaining_tasks": 1258,
+    "remaining_dimension_records": 2233,
+    "remaining_csv_rows": 477,
+    "unsearched_tasks": 0,
+    "tasks_with_name_only_reuse_candidates": 31,
+    "managed_name_only_reuse_candidates": 314,
+    "downloaded_candidate_images": 187,
+    "decoded_candidate_images": 187,
+    "visually_reviewed_candidate_images": 187,
+    "tasks_with_downloaded_originals": 56,
+    "oss_original_backups_full_readback_verified": 187,
+    "restored_managed_asset_images": 307,
+    "initial_config_queries_this_pass": 2355,
+    "initial_config_queries_with_hits": 1278,
+    "initial_config_queries_without_hits": 1077,
+    "new_unique_unverified_search_source_pages": 3036,
+    "generated_images": 179,
+    "generated_tasks": 56,
+    "method_draft_quality_passed": 1,
+    "restored_managed_asset_entries": 314,
+    "restored_managed_asset_unique_shas": 307,
+    "managed_asset_entries_accepted_for_ru": 0,
+    "accepted_tasks": 51,
+    "accepted_images": 161
+  },
+  "image_generation_unknown_requests": 0,
+  "producer_request_state_audit": {
+    "returned": 176,
+    "failed_no_output": 1,
+    "cancelled_before_tool_submission": 1
+  },
+  "tool_failures_without_output": [
+    {
+      "http_status": 400,
+      "code": "invalid_image_file",
+      "task_id": "RU-78e420853a31e4fc",
+      "dimension_id": "Toyota Corolla Hatchback 1979-1987 RU",
+      "excluded_from_generated_images": true
+    }
+  ],
+  "staged_not_in_formal_candidate_counts": [
+    {
+      "task_id": "RU-aea7f2a131e7e9fb",
+      "candidate_id": "RU-aea7f2a131e7e9fb-C002",
+      "dimension_id": "Toyota Corolla Axio Sedan 2008-2013 RU",
+      "label": "Corolla-E140-FL-Axio",
+      "source_title": "File:Toyota Corolla Axio 0901.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Axio_0901.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Toyota_Corolla_Axio_0901.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-aea7f2a131e7e9fb-C002/original.jpg",
+      "sha256": "311e14bf9cab1f77cbadd994a304fc5e61ad54371a6eb7f02bf5dac80ee4ec48",
+      "size": 623072,
+      "object_key": "main_picture_producer/v1/objects/31/311e14bf9cab1f77cbadd994a304fc5e61ad54371a6eb7f02bf5dac80ee4ec48",
+      "full_readback_sha_verified": true,
+      "decoded": {
+        "format": "JPEG",
+        "mode": "RGB",
+        "width": 3264,
+        "height": 1840
+      },
+      "source_metadata": {
+        "size": 623072,
+        "width": 3264,
+        "height": 1840,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Toyota_Corolla_Axio_0901.jpg/960px-Toyota_Corolla_Axio_0901.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 800,
+        "thumbheight": 451,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Toyota_Corolla_Axio_0901.jpg/1920px-Toyota_Corolla_Axio_0901.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Toyota_Corolla_Axio_0901.jpg/960px-Toyota_Corolla_Axio_0901.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 800,
+          "height": 451,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Toyota_Corolla_Axio_0901.jpg/1920px-Toyota_Corolla_Axio_0901.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Toyota_Corolla_Axio_0901.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Axio_0901.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=7621907",
+        "sha1": "73c53ea9318264c36ec649c63ebb76bad5fd7851",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2009-10-25 01:00:52",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Toyota Corolla Axio 0901",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Panasonic Lumix DMC-FX33|Self-published work|PD-self|Blue Toyota sedans|Toyota Corolla Axio (E140)",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Toyota Corolla Axio",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2009-08-22",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a href=\"//commons.wikimedia.org/wiki/User:%E6%98%A5%E5%A4%8F%E7%A7%8B%E5%86%AC%E5%A5%8F%E6%85%88\" title=\"User:春夏秋冬奏慈\">Soji Hitotose</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "Public domain",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Public domain",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Copyrighted": {
+            "value": "False",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "pd",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "accepted": false,
+      "visual_verified": true,
+      "parallel_source": {
+        "worker": "C",
+        "local_id": "C9-007",
+        "original_download_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C9-007-original.jpg",
+        "record_snapshot": "/workspace/scratch/ru-corolla39-three-frozen.json",
+        "bytes_transferred_without_re_download": true,
+        "license_link_capture": null
+      }
+    },
+    {
+      "task_id": "RU-aea7f2a131e7e9fb",
+      "candidate_id": "RU-aea7f2a131e7e9fb-C003",
+      "dimension_id": "Toyota Corolla Fielder Wagon 2008-2013 RU",
+      "label": "Corolla-E140-FL-Fielder",
+      "source_title": "File:Toyota Corolla Fielder.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Fielder.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Toyota_Corolla_Fielder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-aea7f2a131e7e9fb-C003/original.jpg",
+      "sha256": "621468216048a7892609cb864327c7ed57e5305e9202a9b9749c01562ed71602",
+      "size": 1150164,
+      "object_key": "main_picture_producer/v1/objects/62/621468216048a7892609cb864327c7ed57e5305e9202a9b9749c01562ed71602",
+      "full_readback_sha_verified": true,
+      "decoded": {
+        "format": "JPEG",
+        "mode": "RGB",
+        "width": 2591,
+        "height": 1267
+      },
+      "source_metadata": {
+        "size": 1150164,
+        "width": 2591,
+        "height": 1267,
+        "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Toyota_Corolla_Fielder.jpg/960px-Toyota_Corolla_Fielder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "thumbwidth": 800,
+        "thumbheight": 391,
+        "responsiveUrls": {
+          "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Toyota_Corolla_Fielder.jpg/1920px-Toyota_Corolla_Fielder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+        },
+        "thumbattribs": {
+          "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Toyota_Corolla_Fielder.jpg/960px-Toyota_Corolla_Fielder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "decoding": "async",
+          "loading": "lazy",
+          "width": 800,
+          "height": 391,
+          "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Toyota_Corolla_Fielder.jpg/1920px-Toyota_Corolla_Fielder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+        },
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Toyota_Corolla_Fielder.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Fielder.jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=7438162",
+        "sha1": "a93a2cdb98585c3854476fa3b2c9b4376d573a7a",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2009-08-01 07:35:16",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Toyota Corolla Fielder",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "Taken with Canon EOS 20D|Taken with Canon EF-S 17-85mm F4-5.6 IS USM|Self-published work|PD-self|White Toyota station wagons|Toyota Corolla Fielder (E140)",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "Toyota Corolla",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2009-08-01",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "TTTNIS",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "Public domain",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Public domain",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Copyrighted": {
+            "value": "False",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "pd",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      },
+      "accepted": false,
+      "visual_verified": true,
+      "parallel_source": {
+        "worker": "C",
+        "local_id": "C9-009",
+        "original_download_file": "/workspace/scratch/ru-parallel-search-20261113/worker-c/downloads/C9-009-original.jpg",
+        "record_snapshot": "/workspace/scratch/ru-corolla39-three-frozen.json",
+        "bytes_transferred_without_re_download": true,
+        "license_link_capture": null
+      }
+    },
+    {
+      "task_id": "RU-6fc2caabccaf49bc",
+      "candidate_id": "RU-6fc2caabccaf49bc-C003",
+      "dimension_id": "Toyota Corolla Hatchback 2000-2004 RU",
+      "label": "Corolla-E120-Hatch",
+      "source_title": "https://platesmania.com/ru/nomer5774649",
+      "source_page": "https://platesmania.com/ru/nomer5774649",
+      "original_url": "https://img03.platesmania.com/rub_pic/15/63/original/115237.jpg",
+      "local_file": "/workspace/ru_picture_producer/来源/俄罗斯/联网候选/RU-6fc2caabccaf49bc-C003/original.jpg",
+      "sha256": "881b25ce037561f664900eeac14e6193e08f30a1c9800bcb80dafdf0ac5ff7fd",
+      "size": 417551,
+      "object_key": "main_picture_producer/v1/objects/88/881b25ce037561f664900eeac14e6193e08f30a1c9800bcb80dafdf0ac5ff7fd",
+      "full_readback_sha_verified": true,
+      "decoded": {
+        "format": "JPEG",
+        "mode": "RGB",
+        "width": 1600,
+        "height": 1200
+      },
+      "source_metadata": {
+        "size": 417551,
+        "sha1": "fd7d098d7e601c6acc1b879a2c1c633345f3fc19",
+        "width": 1600,
+        "height": 1200,
+        "url": "https://img03.platesmania.com/rub_pic/15/63/original/115237.jpg",
+        "descriptionurl": "https://platesmania.com/ru/nomer5774649",
+        "extmetadata": {
+          "Artist": {
+            "value": "gleb / Platesmania",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          },
+          "Credit": {
+            "value": "Original photograph by gleb / Platesmania",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          },
+          "LicenseShortName": {
+            "value": "CC BY 4.0",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          },
+          "LicenseUrl": {
+            "value": "https://creativecommons.org/licenses/by/4.0/",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          },
+          "UsageTerms": {
+            "value": "Все опубликованные мною фотографии доступны по лицензии Creative Commons Attribution 4.0 International (CC BY 4.0), если не указано иное. Primaryhistoricalauthorgrant for ownphotos unlessotherwise stated; attributionoriginalphoto/Platesmaniaactive link/license-link/changes indication.",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          },
+          "License": {
+            "value": "CC BY 4.0",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          },
+          "ImageDescription": {
+            "value": "A15 independent actualoriginal+samecarfrontnightpreview supportsE120originalordinaryHatch3door. FrozenordinaryHatch3/5door mergedrequirement unchanged; no engine/yearcertificate gate.",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          },
+          "DateTimeOriginal": {
+            "value": "unknown",
+            "source": "actual-flickr-photo-page-and-original-size-download"
+          }
+        },
+        "metadata_basis": "Root normalized primary Flickr page and download evidence, not Commons API"
+      },
+      "accepted": false,
+      "visual_verified": true,
+      "parallel_source": {
+        "worker": "B",
+        "local_id": "B-R9-H001",
+        "original_download_file": "/workspace/scratch/ru-parallel-search-20261113/worker-b/downloads/round9-hatch-pre-5774649-original.jpg",
+        "record_snapshot": "/workspace/scratch/ru-corolla39-three-frozen.json",
+        "bytes_transferred_without_re_download": true,
+        "license_link_capture": null
+      }
+    }
+  ],
+  "staged_status": "Three source transfers were already submitted before pause, safely returned complete private OSS GET; no imagegen prepared/submitted and no coverage adopted. Do not redownload.",
+  "formal_source_count": 187,
+  "additional_staged_verified_oss_sources": 3,
+  "scope": "Frozen RU1309 only; out-of-scope/NAS paused"
+}

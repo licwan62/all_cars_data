@@ -6,12 +6,12 @@
 
 - 500行原CSV → 1309个既有车型/代际任务 → 2394条冻结图片要求。每个任务可含多个车身/版本要求，全部子要求验收才计1个完整任务。
 - “本批采用”与“累计采用”分别报。第20批本批新增9张，58张是截至该批累计，其中50张组成13个完整任务、8张位于3个部分完成任务（Focus两项各2/3，Vesta NG4/8）。不是本批一次采用58张，也没有为新计数改拆任务。
-- 当前第37批本批新增3张；累计156/2394条图片外观覆盖、完整51/1309项任务。实际生成174张含失败/返修，另1次HTTP400无图工具失败不计成图；CSV完整23/500行。
+- 当前第38批本批新增5张；累计161/2394条图片外观覆盖、完整51/1309项任务。实际生成179张含失败/返修，另1次HTTP400无图工具失败不计成图；CSV完整23/500行。
 
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_37，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_38，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -269,3 +269,11 @@ L2026初步短查询无命中，扩展型号检索后找到社区实车；官方
 ## 第37批 Corolla E70三体完整
 
 三门长斜Hatch/四门Sedan/五门Wagon各一张，全源/灰深底实际核通过并OSS完整GET。真实工具调用4次：Hatch92MP原件明确HTTP400无图；同组Sedan/Wagon已返回保存，未重发。Hatch改用既有1400×861审图预览单次恢复，原件及预览独立SHA/尺寸/派生关系保存，原件仍完整保存与OSS核验，所有成品原生字节未像素后修。失败单列不计generated_images。累计156覆盖/51完整/174成图、CSV23，182原件全核。后续继续E140FL与E120五已有源。
+
+## 用户要求暂停：第38批完成后停止
+
+第38批五张全部实际源/灰深底通过，OSS完整GET/SHA/字节/解码通过，累计161/2394覆盖、51/1309完整、179真实成图、CSV23/500；剩余1258任务、2233要求、477行。当前正式候选/原件187张全核。另E70Hatch原件HTTP400无图工具失败1次单列不计成图；无unknown。第38批新增三族子要求，完整任务未增加。
+
+用户暂停时，第39组三原件精确字节转存OSS已提交，安全收回保存：E140FL Axio/Fielder各1（C002/C003）与E120原普通Hatch1（C003），全部SHA/解码/完整GET通过；仅来源准备，不入正式187候选数、不计覆盖、没有创建或提交39imagegen。正式187+额外暂存3=190张生产侧已核原件。持久暂停报告 `reports/ru-image-search/USER-PAUSE-20261113.json` 包含源SHA、对象key、元数据与断点，不需重新下载。
+
+A/B/C已通知停止新搜索/下载并关闭独立浏览器/桥接，收回在途后落盘；最终停止状态见各worker最新CONTINUE/USER-PAUSE。恢复须先确认用户新授权；不要自动恢复。下次优先E140FL余2形成完整族；E120原已采用Sedan/Fielder2/5，普通Hatch已备，Runx与普通Wagon仍待源；E120FL已采用Fielder/普通Hatch2/5，余Runx/Sedan/普通Wagon待续。Focus/Vesta部分任务仍留原缺口，E90/E100新线索不当原件采用；E90Hatch当前Flickrlicense0与历史CC证据待审。范围外/NAS继续暂停。
