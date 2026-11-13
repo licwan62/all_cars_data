@@ -1,0 +1,210 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias",
+  "version": "20261113_12",
+  "description": "granta-sport-closure-and-sportline-alias",
+  "created_at": "2026-11-13T07:44:59+00:00",
+  "finished_at": "2026-11-13T07:45:01+00:00",
+  "command": [
+    "ru_accept_granta_sport_batch.py"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/progress-20261113_11.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/progress-20261113_11.json",
+      "sha256": "6ecabe66e9941a071d902ac74675c0d9328022963b10b0acd3cdbc1355608b4a"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/current-accepted-configuration-index-20261113_11.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/output/current-accepted-configuration-index-20261113_11.json",
+      "sha256": "91ad41967b982d6e4c129fce96fad482e185bee111c78bd55bfb32e6b582f352"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_08_network-restored-originals-verified/output/candidates-20261113_08.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_08_network-restored-originals-verified/output/candidates-20261113_08.json",
+      "sha256": "79b2859e0bb87de8b6f21dd49ed14dd2c8c26fb2b4178268b6f4e7551b49ccee"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "b18c0d146a7f0f8c20e5a5fd91590803fea30695",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "granta-version-crosschecks.json",
+      "versioned_file": "granta-version-crosschecks-20261113_12.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/output/granta-version-crosschecks-20261113_12.json",
+      "content_reference": true,
+      "sha256": "79ac2a754787cf4f91c9999db546e8903a999c86677a7cd9168db7aaef273b96",
+      "bytes": 1565,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_12.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/output/accepted-configurations-20261113_12.json",
+      "content_reference": true,
+      "sha256": "2830ae4b11ccc838fd2fcae18781ee5ac7e73c50725468e99b34e1f2d7790650",
+      "bytes": 35909,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_12.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/output/current-accepted-configuration-index-20261113_12.json",
+      "content_reference": true,
+      "sha256": "dcebbdfbe7460ecfa5e2294ab7cb17267690a3d0c3031a29dd2daf5c1a03c351",
+      "bytes": 101096,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_12.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/output/generation-requests-20261113_12.json",
+      "content_reference": true,
+      "sha256": "65feec9165c58db44169d80292842e093532881cf51acfc62f901b00de35e9a1",
+      "bytes": 15059,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_12.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/output/new-source-original-evidence-20261113_12.json",
+      "content_reference": true,
+      "sha256": "77d32997af0170dcc65b4dcaec9ab3aedd7dcff0cbbe0b1fdbcb8d18e32c461f",
+      "bytes": 15814,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_12.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/output/candidates-20261113_12.json",
+      "content_reference": true,
+      "sha256": "65deda29703a55827efa8199332d0e66ba53c9d162ab8c5b40e84a7aeb73a61a",
+      "bytes": 46417,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_12.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/output/progress-20261113_12.json",
+      "content_reference": true,
+      "sha256": "d3689ed27e1a5cd35e5bc1163b638bb812eaa14885eaf878969dc8f6942256a6",
+      "bytes": 2137580,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_download_granta_sports.py",
+    "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_prepare_sport3.py",
+    "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_sport_batch_state.py",
+    "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_driveactive_state.py",
+    "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_accept_granta_sport_batch.py"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_download_granta_sports.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_download_granta_sports.py",
+      "sha256": "0ea6fbd6887cdc124e947f7633bcc49c58c8f10a29e7da72ab8539de5349497d",
+      "bytes": 2788
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_sport3.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_prepare_sport3.py",
+      "sha256": "97549642b5bef63fb03d9e901a48b03559c0c461dc6d0a542490ee15ac66c7b2",
+      "bytes": 4168
+    },
+    {
+      "file": "extra/executed-code/ru_sport_batch_state.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_sport_batch_state.py",
+      "sha256": "4d5dc521c63f83e564759a223ecb34aa980489457f3c3d2263fec81b0fb63c2d",
+      "bytes": 955
+    },
+    {
+      "file": "extra/executed-code/ru_driveactive_state.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_driveactive_state.py",
+      "sha256": "76b8d1786a29507d6c0a83651e1b5a6836004bc93525ff566948d3db21818fc8",
+      "bytes": 3668
+    },
+    {
+      "file": "extra/executed-code/ru_accept_granta_sport_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_12_granta-sport-closure-and-sportline-alias/extra/executed-code/ru_accept_granta_sport_batch.py",
+      "sha256": "2c5bca6c661201934201a928f883dc05e5cdbaba1679aeb49e3a2076fb4413a7",
+      "bytes": 13851
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 4,
+    "accepted_configurations_this_batch": 4,
+    "accepted_tasks_total": 2,
+    "accepted_configurations_total": 11
+  }
+}

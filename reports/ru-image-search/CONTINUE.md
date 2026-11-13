@@ -5,7 +5,7 @@
 ## 仓库和断点
 
 - 结果仓库 https://github.com/licwan62/all_cars_data ，分支 `ru-image-search-20261113-batch01`。本轮从 `65a16c3b233adb6e46cb07a67e9f3699e4200050` 续作，接续时先 fetch，核对最新远端，保留并发任务变化。
-- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_11，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，前11张原件证据见 2026-11-13_08。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
+- 入口 `reports/ru-image-search/work/checkpoint.json`。当前验收进度见 2026-11-13_12，代理工作默认见 2026-11-13_10；全范围初步查询与既有资产读取见 2026-11-13_09，原件证据沿各批记录。以 checkpoint 当前 progress、working_policy、acceptance 及各来源指针为准；旧readiness中的样式待核不再构成全局人工门槛，历史批次不改写。
 - 正式输入 `reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json`，SHA256 `55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65`，来源提交 `e31aebfcf2a3fdc29b1cb0169e51393110419a8d`。
 - 同批 `input/俄罗斯原始列表.csv` SHA256 `eb97d5becf5229324e935575c90a475f10cd790f686a253174fc157cab8c7eef`。500 行、1309 项任务、2394 条尺寸记录。按 scope_rows 与 requirements 配置核对，不把代表年当照片精确车型年或拍摄年证据。
 - 第08批已将前10项的11张候选全部完整下载、解码、查看，并备份至原私有OSS，11张完整GET读回SHA一致。来源许可和逐张观察见该批 original-source-evidence / source-visual-reviews；下载量不计成品验收。
@@ -56,3 +56,11 @@
 累计生成8张，采用7张、覆盖7条尺寸记录；北美第二代Focus Sedan为首个整项完成，当前完整任务1/1309，剩余1308项、2387条尺寸记录，500行尚无整行全部覆盖。其余图片只是各自多配置任务的一部分。当前验收索引为checkpoint的acceptance_file，保留原2张与本批5张；来源作者/许可、提示词、输入/输出SHA及具体观察完整记录。源发动机线索不一致只保留为未知，不伪造动力配置；该单配置任务的175.0×67.8×58.6英寸独立资料一致。
 
 第一轮Commons全文查询没有穷尽图库：改用网页检索获得精确文件名，已确认存在2014年量产Granta Sport、改款Sport Sedan/Liftback及Drive Active的CC0原图。这些仅为后续下载核验入口，不能在实际下载和查看前计为已生成/已采用；不要继续以旧“只有Drive Active/赛车线索”作为无法找到Sport的结论。
+
+## 第12批当前进度
+
+上述4张CC0原件现已实际下载、解码、看图及OSS备份读回；4次新内置生成均返回，源图对照/灰底/深底逐张实际检查后采用：旧款量产Sport Sedan、改款Sport Sedan、改款Sport Liftback、Drive Active/Sportline Liftback。独立资料核实Drive Active于2024年更名Sportline，而Sport仍是不同版本，不能互相充数。底部留白很紧的原生图如实记录边距，未臆造用户未指定的画布/间距标准。
+
+首项Granta I的3条配置已全部闭环，成为第2个整项完成；改款Granta为4/10条，仍待6条。累计生成12张、采用11张、覆盖11条配置；完整任务2/1309，剩余1307项、2383条尺寸记录，500行尚无整行全部覆盖。本轮相较8741b587实际新增9张采用图，源图增加4张至15张。当前验收索引包含全部11条及各自scope_rows，原件、成品与检查底图均有对象key和SHA。
+
+搜索方法补充：先前短全文查询确实漏掉量产Sport，须结合真实分类枚举和外部检索取得精确文件名，再用imageinfo取真实src、许可和下载。不能把旧查询零命中或前几条不合适当作“没有素材”，也不因此请求人工介入。
