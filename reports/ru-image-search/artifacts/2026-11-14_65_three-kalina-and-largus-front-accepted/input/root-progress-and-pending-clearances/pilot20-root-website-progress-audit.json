@@ -1,0 +1,53 @@
+{
+  "reviewer": "root",
+  "reviewed_at": "2026-11-13T20:55:21.455138+00:00",
+  "user_question": "Is the displayed179/45/1/39 progress real?",
+  "judgment": "Matches immutable batch54 index recomputation; snapshot not live; includes historical front-camera revalidation, not179 newly generated images.",
+  "snapshots": [
+    {
+      "batch": "reports/ru-image-search/artifacts/2026-11-14_54_six-bmw-front-perspective-accepted",
+      "progress_file": "reports/ru-image-search/artifacts/2026-11-14_54_six-bmw-front-perspective-accepted/output/progress-20261114_54.json",
+      "progress_sha256": "48d98663527bb3db856a1ac8d2c2f420216a14e858bdeb1bf323db493a50349b",
+      "index_file": "reports/ru-image-search/artifacts/2026-11-14_54_six-bmw-front-perspective-accepted/output/current-accepted-configuration-index-20261114_54.json",
+      "index_sha256": "bb96e3c8976f617582a2f21f8f4d60bde0aa62aeabdc686eed1488fcab2ff2a0",
+      "current_front_configs": 179,
+      "complete_tasks": 45,
+      "complete_csv_rows": 1,
+      "historical_configs": 218,
+      "known_retake_configs": 39,
+      "scope": {
+        "tasks": 1309,
+        "configs": 2394,
+        "csv_rows": 500
+      }
+    },
+    {
+      "batch": "reports/ru-image-search/artifacts/2026-11-14_64_six-mercedes-and-largus-front-accepted",
+      "progress_file": "reports/ru-image-search/artifacts/2026-11-14_64_six-mercedes-and-largus-front-accepted/output/progress-20261114_64.json",
+      "progress_sha256": "3961cc8887404db5f44e854a1fb52b2ebff111365fc71a28bce48fd83355dc30",
+      "index_file": "reports/ru-image-search/artifacts/2026-11-14_64_six-mercedes-and-largus-front-accepted/output/current-accepted-configuration-index-20261114_64.json",
+      "index_sha256": "274e879f23eec29f1d51159489cdebd8572c6b15813a33a341d8d2c66c019eb6",
+      "current_front_configs": 219,
+      "complete_tasks": 62,
+      "complete_csv_rows": 3,
+      "historical_configs": 255,
+      "known_retake_configs": 36,
+      "scope": {
+        "tasks": 1309,
+        "configs": 2394,
+        "csv_rows": 500
+      }
+    }
+  ],
+  "definitions": {
+    "configuration": "Exact task/DIM accepted currentSHA passed front1/3 or1/2 gate",
+    "task": "Every frozen requirement in task is currently frontpassed",
+    "csv_row": "All frozen task/DIM mappings touching row currently frontpassed",
+    "retake": "Known invalid-camera subset of historical accepted assets, not total remaining scope"
+  },
+  "limitations": [
+    "Visual judgments can be corrected on new evidence; previous approvals retained without treating side/rear as currentpass.",
+    "Search1309/1309 is discovery coverage only.",
+    "Global actual generation count and cost remain unknown; rawverified subtotal is not total paid calls."
+  ]
+}

@@ -1,19 +1,21 @@
-"""Behavior tests use real source/proof inputs and isolated queue/ledger copies.
+"""Portable synthetic queue tests plus two optional read-only runtime integrations.
 
-Test root signatures are temporary fixtures, never business approvals.
+All signatures/identity PASS rows in unit fixtures are TEST-only protocol inputs,
+never business approvals. No current production checkpoint is needed.
 """
 from concurrent.futures import ThreadPoolExecutor
 import copy
 import hashlib
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 import unittest
 
-REPO=Path('/workspace/all_cars_data')
-RUNTIME=Path('/workspace/ru_picture_producer/pilot20')
+REPO=Path(__file__).resolve().parents[1]
+RUNTIME=Path(os.environ.get('RU_PILOT_TEST_RUNTIME', '/workspace/ru_picture_producer/pilot20'))
 SCRIPTS=Path(__file__).resolve().parents[1]/'scripts'
 sys.path.insert(0,str(SCRIPTS));sys.path.insert(1,str(REPO/'scripts'))
 import ru_pilot_queue as queue
@@ -26,20 +28,26 @@ class PreflightTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory(prefix='zero-preflight-isolated-')
         self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
-        self.ready=json.loads((RUNTIME/'source_e_x5/e70-pre/ready.json').read_text())
+        source=self.root/'test-source.bin'
+        source.write_bytes(b'SYNTHETIC TEST SOURCE - NOT A BUSINESS IMAGE')
+        self.ready={'task_id':'TEST-ZERO-TASK','dimension_id':'TEST-ZERO-DIM','scope_rows':[1],
+            'catalog_rank':1,'source_file':str(source),'source_sha256':sha(source),
+            'source_page':'https://example.invalid/test-only','license':'TEST ONLY',
+            'identity_evidence':'SYNTHETIC PROTOCOL FIXTURE','source_oss_fullget':{'test_only':True}}
         self.ready_file=self.save('ready.json',self.ready)
         self.key=self.ready['task_id'],self.ready['dimension_id']
         self.active=dict(copy.deepcopy(self.ready),status='producing',worker='P1',claim_id='test-zero-claim',claimed_at='2026-11-13T20:10:00+00:00')
-        cp=json.loads(Path(queue.DEFAULT_CHECKPOINT).read_text())
-        progress=json.loads((REPO/cp['progress_file']).read_text())
-        keys={self.key,('RU-fd645f53dbcb2bac','BMW X5 SUV 2010-2013 RU')}
-        index=[e for e in json.loads((REPO/cp['acceptance_file']).read_text()) if (e['task_id'],e['dimension_id']) not in keys]
-        for t in progress['tasks']:
-            for r in t['requirements']:
-                if (t['id'],r['DIMENSION-ID']) in keys:r['state']='pending_test_fixture';r.pop('accepted_sha256',None)
-        pp=self.save('progress.json',progress);ip=self.save('index.json',index)
-        cp.update(progress_file=str(pp),progress_sha256=sha(pp),acceptance_file=str(ip))
-        self.checkpoint=self.save('checkpoint.json',cp)
+        # The queue's frozen-scope contract requires1309/2394, so generate a
+        # compact schema-only corpus instead of copying the real multi-MB ledger.
+        self.progress={'tasks':[{'id':self.key[0] if i==0 else f'TEST-TASK-{i}',
+            'requirements':[{'DIMENSION-ID':self.key[1] if i==0 else f'TEST-DIM-{i}',
+                             'scope_rows':[i%500+1],'state':'pending_test_fixture'}]}
+            for i in range(1309)]}
+        for i in range(1085):
+            self.progress['tasks'][i]['requirements'].append({'DIMENSION-ID':f'TEST-EXTRA-{i}',
+                'scope_rows':[i%500+1],'state':'pending_test_fixture'})
+        pp=self.save('progress.json',self.progress);ip=self.save('index.json',[])
+        self.checkpoint=self.save('checkpoint.json',{'progress_file':str(pp),'progress_sha256':sha(pp),'acceptance_file':str(ip)})
         self.q=self.root/'queue';self.q.mkdir()
         self.qfile=self.save('queue/queue.json',{'config':{'high_watermark':12,'low_watermark':6},'items':[self.active],'enqueue_paused':False})
         self.proof={'schema':'ru-pilot-zero-fee-preflight/v1','worker':'P1','task_id':self.key[0],'dimension_id':self.key[1],
@@ -48,8 +56,9 @@ class PreflightTests(unittest.TestCase):
             'unknown_request':False,'interrupted_request':False,'recorded_at':'2026-11-13T20:20:00+00:00',
             'reason':'TEST ONLY: missing independent phase identity evidence'}
         self.proof_file=self.save('zero.json',self.proof)
-        report=json.loads((RUNTIME/'identity_a/x5-e70-independent-identity-review.json').read_text())
-        self.report_file=self.save('identity-report.json',report)
+        self.report_file=self.save('identity-report.json',{'reviewer':'fixture-independent-reviewer',
+            'test_only':True,'items':[{'task_id':self.key[0],'dimension_id':self.key[1],
+                'source_sha256':self.ready['source_sha256'],'judgment':'PASS_TEST_PROTOCOL_FIXTURE_ONLY'}]})
 
     def save(self,name,obj):
         p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(obj,ensure_ascii=False));return p
@@ -170,6 +179,23 @@ class PreflightTests(unittest.TestCase):
     def test_both_actual_legacy_e70_root_zero_fee_holds_can_be_cleared(self):
         cases=[('P1','source_e_x5/e70-pre/ready.json','P1/P1-047/zero-fee-preflight-hold.json','P1/P1-047/zero-fee-preflight-hold.json'),
                ('P2','source_e_x5/e70-fl/ready.json','P2/P2-052-BMW-X5-E70-FL/preflight-hold.json','root-x5-e70-independent-identity-hold.json')]
+        required=['identity_a/x5-e70-independent-identity-review.json']
+        required += sorted({name for case in cases for name in case[1:]})
+        missing=[str(RUNTIME/name) for name in required if not (RUNTIME/name).is_file()]
+        if missing:self.skipTest('optional legacy E70 runtime integration unavailable: '+missing[0])
+        # Keep only the integration's business evidence read-only. Its formal
+        # scope/index are still synthetic temporary files, never the live CP.
+        for n,(_,ready_name,proof_name,_) in enumerate(cases):
+            ready=json.loads((RUNTIME/ready_name).read_text())
+            proof=json.loads((RUNTIME/proof_name).read_text())
+            for asset in [ready['source_file'], *([proof['request_file']] if proof.get('request_file') else [])]:
+                if not Path(asset).is_file():self.skipTest('optional legacy E70 cached evidence unavailable: '+asset)
+            task=self.progress['tasks'][n]
+            task['id']=ready['task_id']
+            task['requirements'][0].update({'DIMENSION-ID':ready['dimension_id'],'scope_rows':ready['scope_rows']})
+        pp=self.save('progress.json',self.progress)
+        cp=json.loads(self.checkpoint.read_text());cp['progress_sha256']=sha(pp);self.checkpoint.write_text(json.dumps(cp))
+        self.report_file.write_bytes((RUNTIME/'identity_a/x5-e70-independent-identity-review.json').read_bytes())
         for worker,ready_name,proof_name,root_name in cases:
             ready=json.loads((RUNTIME/ready_name).read_text());proof=json.loads((RUNTIME/proof_name).read_text())
             old=dict(copy.deepcopy(ready),status='hold',worker=worker,claim_id=proof['claim_id'],
@@ -181,7 +207,9 @@ class PreflightTests(unittest.TestCase):
             self.assertTrue(json.loads(self.qfile.read_text())['retry_history'][0]['identity_clearance_evidence']['legacy_root_hold_evidence'])
 
     def test_known_interrupted_p1_034_is_never_zero_fee(self):
-        p=RUNTIME/'P1/P1-034/request.json';request=json.loads(p.read_text())
+        p=RUNTIME/'P1/P1-034/request.json'
+        if not p.is_file():self.skipTest('optional P1-034 interrupted-request runtime evidence unavailable: '+str(p))
+        request=json.loads(p.read_text())
         old={'worker':'P1','claim_id':request['claim_id'],'task_id':request['task_id'],'dimension_id':request['dimension_id'],
              'source_sha256':request['input_sha256']}
         with self.assertRaises(ValueError):queue.request_audit(old,{'request_file':str(p)},self.q)

@@ -1,0 +1,68 @@
+{
+  "request_id": "P1-046-R1",
+  "claim_id": "806afd285e554a6da4504258fdc8c07f",
+  "task_id": "RU-735ae2ee2e053a6d",
+  "dimension_id": "Lada (ВАЗ) Kalina Hatchback 2013-2018 RU",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/deterministic-repair/padded-canvas/KalinaIIHatchAerialR1-roomy-transparent.png",
+  "candidate_sha256": "d25898fd9b1b47c9c5a042f75df8f98436c25d9845b51fe6aa506fcdaff93602",
+  "dimensions": [
+    1649,
+    1236
+  ],
+  "visible_margins_px": [
+    238,
+    283,
+    224,
+    224
+  ],
+  "reviewed_at": "2026-11-13T20:53:43.455736+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "recommendation": "ROOT_ACTUAL_REVIEW_REQUIRED",
+  "repair_visual_advisory": "Actually viewed source/first/R1 normalized-body comparison and final gray/black. Aerial visibly shorter, complete thin upper wire/tip and thicker lower portion retained. Body configuration, headlamps, wheels, mirrors appear consistent. R1 aerial reduced more than requested73% after body-scale normalization; root must decide source-relative proportion. Imagegen changed canvas and body render scale; no claim of bitwise unchanged body across generation.",
+  "raw_visual_first_draft_pass": false,
+  "raw_visual_first_draft_reason": "Root actually compared source/full original raw/local mast crops and rejected visibly excessive relative aerial length. Original worker null advisory retained as history.",
+  "raw_visual_first_draft_evidence": "/workspace/ru_picture_producer/pilot20/P1/P1-046/first-draft-root-reassessment.json",
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_reason": "Initial raw had156 disconnected alpha<=2 pixels and bottom margin44; deterministic cleanup and padding do not make raw pass.",
+  "repair_raw_technical_pass": false,
+  "repair_raw_technical_reason": "R1 raw has612 disconnected alpha1 pixels, main body and complete tires intact; removed only disconnected low alpha dust then padded, translated RGBA equality true.",
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/deterministic-repair/padded-canvas/canvas-proof.json",
+  "comparison": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/source-first-R1-body-scale-comparison.png",
+  "aerial_crop": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/candidate-aerial-inspection.png",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/deterministic-repair/padded-canvas/KalinaIIHatchAerialR1-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/deterministic-repair/padded-canvas/KalinaIIHatchAerialR1-review-black.png",
+  "visual_evidence": {
+    "source_projected_mast_approx": 351,
+    "source_body_width_approx": 2950,
+    "first_raw_projected_mast_approx": 220,
+    "first_raw_body_width": 1353,
+    "R1_raw_mast_base_xy": [
+      710,
+      283
+    ],
+    "R1_raw_mast_tip_xy": [
+      637,
+      205
+    ],
+    "R1_raw_projected_mast_approx": 107,
+    "R1_raw_body_width": 1187,
+    "observation": "Mast shortened visibly and complete thinupperwire/roundedtip/thickbottomretained. Tool changedcanvas/bodyrender scale, notbitwisefrozenbody; originalfirst220px wasrejected. R1 shorterthan~73% targetafterbodyscale adjustment, rootactualvisualreviewneeded beforeacceptance. No2Dphysicalsizecertification. No secondrepair issuedyet.",
+    "comparison_image": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/source-first-R1-body-scale-comparison.png",
+    "original_raw_visual_first_draft_pass": false,
+    "root_reassessment": "/workspace/ru_picture_producer/pilot20/P1/P1-046/first-draft-root-reassessment.json",
+    "paid_repairs_used": 1,
+    "paid_repairs_remaining_limit": 1,
+    "accepted": false
+  },
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-046/repair01/input-oss-proof.json",
+  "original_source_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-046/input-oss-proof.json",
+  "original_review_preserved": "/workspace/ru_picture_producer/pilot20/P1/P1-046/review-recommendation.json",
+  "original_review_sha256": "2921f98d23ffe6df5a4cc9edc6b4b5426f1b6af39179c63d6d92105e5e1d2bbf",
+  "paid_repairs_used": 1,
+  "paid_repairs_remaining": 1,
+  "cost": "unknown",
+  "queue_note": "Original in_review submission immutable; separate repair review supplied to coordinator, not overwriting original review."
+}
