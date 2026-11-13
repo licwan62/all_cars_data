@@ -1,0 +1,277 @@
+{
+  "judgments": {
+    "schema": "ru-pilot20-identity-review-v1",
+    "reviewed_at_utc": "2026-11-13T15:59:52.477302+00:00",
+    "scope": "research_only_no_formal_ledger_or_git_changes",
+    "judgments": {
+      "Focus_C002": {
+        "task_id": "RU-cb2efb0d6a90f01f",
+        "candidate_id": "RU-cb2efb0d6a90f01f-C002",
+        "status": "hold_identity_not_eligible_for_production_acceptance",
+        "source_sha256": "3e0bf14ebf23ceb702b085c4dd908afc27d06d51f23516bc3863e9ce87b2e3cb",
+        "observed": "China fourth-generation ordinary Sedan; old hood-mounted Ford emblem and narrow chrome horizontal grille, full front three-quarter view. Not the verified wide-grille 2020 China facelift front.",
+        "reason": "Published source mapping explicitly says IV Рестайлинг (China Market) 2020-2022. Some old-styled trims continued after 2020, so old front alone cannot prove out-of-range, but current evidence cannot bind this exact vehicle/front/trim to the mapped facelift. Photo year is not model year.",
+        "sources": [
+          "F01",
+          "F03",
+          "F04"
+        ]
+      },
+      "Focus_C003": {
+        "task_id": "RU-cb2efb0d6a90f01f",
+        "candidate_id": "RU-cb2efb0d6a90f01f-C003",
+        "status": "hold_identity_do_not_mix_facelifts",
+        "source_sha256": "3057c711099ed28f22d9a3b1e56655bd8af5bce86172e402b706e51add271d53",
+        "observed": "Actual original downloaded and viewed: old hood emblem/chrome bar grille, frontal view; not 2022 new-front design. Different car from C002.",
+        "reason": "2022-06-25 capture date coincides with launch day but does not establish model year or second facelift. Do not replace C002 with C003 solely for 2022 date; do not mix 2022 second-facelift front into 2020-2022 China-first-facelift request.",
+        "sources": [
+          "F02",
+          "F03",
+          "F04"
+        ]
+      },
+      "Vesta_NG_Sport": {
+        "task_id": "RU-4b679a659a638c90",
+        "dimension_ids": [
+          "Lada (ВАЗ) Vesta Sport Sedan 2022-2026 RU",
+          "Lada (ВАЗ) Vesta SW Sport Wagon 2022-2026 RU"
+        ],
+        "status": "existence_confirmed_2026_only_no_image_acceptance",
+        "reason": "Genuine new-generation Sport Sedan and Wagon are confirmed for Russian-market production February 2026 and sales March 2026. 2022-2026 is aggregate NG family range, not proof Sport existed every year. Sportline is separately documented and must not be substituted. Need same 2026 Sport body-specific actual front source before production; dimensions not recertified.",
+        "sources": [
+          "V01",
+          "V02",
+          "V03"
+        ]
+      },
+      "Axio_C002": {
+        "task_id": "RU-aea7f2a131e7e9fb",
+        "candidate_id": "RU-aea7f2a131e7e9fb-C002",
+        "status": "reference_identity_pass_japan_E140_2008_facelift_Luxel_representative",
+        "source_sha256": "311e14bf9cab1f77cbadd994a304fc5e61ad54371a6eb7f02bf5dac80ee4ec48",
+        "observed": "Source original viewed; vertical chrome grille, projector lights, circular fog lamps, bumper, mirror indicators, narrow Japanese Sedan body agree with Toyota 200810 Luxel image.",
+        "limits": "No exact production year, engine/drivetrain, individual mechanical equipment, 2013 continuation, or dimensions are certified. Generic Axio exterior representative only; keep source trim details.",
+        "sources": [
+          "T01",
+          "T02",
+          "T03",
+          "T08"
+        ]
+      },
+      "Fielder_C003": {
+        "task_id": "RU-aea7f2a131e7e9fb",
+        "candidate_id": "RU-aea7f2a131e7e9fb-C003",
+        "status": "reference_identity_pass_japan_E140_2008_facelift_ordinary_body",
+        "source_sha256": "621468216048a7892609cb864327c7ed57e5305e9202a9b9749c01562ed71602",
+        "observed": "Source viewed: ordinary long-roof Wagon, double horizontal black grille, pointed inner lamp casing, wide lower opening and round fog blank. Matches ordinary X-based post-facelift Toyota 2011 body photo, not AEROTOURER mesh appearance.",
+        "correction": "Initial suspicion of pre-facelift was withdrawn after finding ordinary X-based official image. 200810 catalog uses shared Aero imagery and cannot exclude ordinary X. This final judgment supersedes provisional messages.",
+        "limits": "Source halogen lamp internals must be preserved; do not copy official comparison HID/projector internals or claim special edition. No exact production year/2013 continuity/engine/drive/dimensions certification.",
+        "sources": [
+          "T01",
+          "T04",
+          "T05",
+          "T06",
+          "T07",
+          "T09"
+        ]
+      },
+      "Camry_market_rule": {
+        "status": "hold_until_requirement_specific_equivalence",
+        "reason": "RU labels the dataset scope; absence of an explicit market field does not establish Australian/US exterior equivalence. Rules demand each requirement vehicle/generation/body/version/market verification. Australian/US images may remain candidates with truthful market metadata; require exact pre/post-facelift and exterior/configuration mapping to the target generation before reference qualification. Do not call them Russian specification. No blanket prohibition is inferred: body-equivalence evidence can permit reuse.",
+        "currently_reviewed_metadata_only": "source_b/camry-candidates.json; no production acceptance or market equivalence granted here."
+      },
+      "E120_Europe_Wagon_3009926": {
+        "status": "reference_identity_pass_Europe_E120_2004_facelift_estate",
+        "source_sha256": "c45bc13dceb629b5582a8800d49540bb11e6d59ca0eb43399470e763ba611a08",
+        "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3009926.jpg",
+        "target": "Toyota Corolla Wagon 2003-2007 RU",
+        "observed": "Front three-quarter actual original: long wagon roof/rails and extended rear side window; four body-colour horizontal grille bars, more pointed inner lamp corner, large lower centre intake with separate dark side recesses. Corresponds to Toyota official 2004-2007 estate picture; retain source wheelcaps/no fog lamp details, not official alloy/fog trim.",
+        "limits": "European E120 ordinary Wagon representative; not Japanese Fielder, not Russian-spec claim. European facelift took place in 2004, not proven by queue start 2003 or capture 2007. Exact engine/year/drivetrain not certified.",
+        "sources": [
+          "E01",
+          "E04",
+          "E05"
+        ]
+      },
+      "E120_Europe_Wagon_3332357": {
+        "status": "reference_identity_pass_Europe_E120_pre_facelift_estate",
+        "source_sha256": "108afb4dac783922f4a395307ca8983c8ff6974143220742123b327423bbc1c6",
+        "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3332357.jpg",
+        "target": "Toyota Corolla Wagon 2000-2004 RU",
+        "observed": "Front three-quarter actual original: wagon long roof/rails, chrome-edge black mesh upper grille with Toyota badge, rounder lamps, narrow lower opening and elongated fog lamps. Corresponds to Toyota 2002-2004 official estate front image.",
+        "limits": "European E120 ordinary Wagon representative; no Japanese Fielder applicability or Russian-spec claim; no pre-2002 European launch or exact individual year certified from queue or photo.",
+        "sources": [
+          "E01",
+          "E02",
+          "E03"
+        ]
+      },
+      "E120_Japan_Sedan_80109931": {
+        "status": "reference_identity_pass_Japan_E120_2004_facelift_Sedan_derivative",
+        "source_sha256": "73d46680e87bff56561845508bb2fb2bc35938d94f5f18388612f2d2d5b4dffb",
+        "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-80109931-1600px.jpg",
+        "target": "Toyota Corolla Sedan 2003-2007 RU",
+        "observed": "Actual provided derivative viewed. C family badge, four narrow chrome horizontal bars, rectangular four-lamp housing with prominent inner reflector, low horizontal intake/dark side blanks, separate Sedan trunk correspond to official Japanese 27 April 2004 Corolla 1.5G picture.",
+        "limits": "Japanese E120 representative, not US E130 or European/Russian specification. Source is an API derivative (actual 1920x1432) with original full-resolution 429 recorded by source_c. Do not claim original full-resolution download. No exact manufacturing year or 2003-front equivalence certified.",
+        "sources": [
+          "E06",
+          "E07"
+        ]
+      }
+    },
+    "sources": [
+      {
+        "id": "F01",
+        "url": "https://commons.wikimedia.org/wiki/File:FORD_FOCUS_SEDAN_China.jpg",
+        "role": "C002 original metadata; photo date is not model year"
+      },
+      {
+        "id": "F02",
+        "url": "https://commons.wikimedia.org/wiki/File:FORD_FOCUS_SEDAN_China_(2).jpg",
+        "role": "C003 original metadata; 25 June 2022 photo date, 4th generation; no facelift/year assertion"
+      },
+      {
+        "id": "F03",
+        "url": "https://www.carscoops.com/2022/02/2023-ford-focus-facelift-surfaces-in-china-looks-slightly-different-than-the-euro-model/",
+        "role": "2020 China update and larger 2022 update; some 2020 trims retained earlier styling; secondary source, not enough for exact C002 trim"
+      },
+      {
+        "id": "F04",
+        "url": "https://www.ford.com.cn/newsroom/2022/20220625",
+        "role": "Manufacturer China 2022-06-25 new Focus launch; web index readable, open had no readable text"
+      },
+      {
+        "id": "V01",
+        "url": "https://www.lada.ru/press-releases/122361",
+        "role": "Manufacturer 24 March 2026 sales start: new Vesta Sport Sedan and Wagon, first dual body offering, 1.8 EVO 147 hp and 6MT"
+      },
+      {
+        "id": "V02",
+        "url": "https://www.kolesa.ru/news/startovalo-proizvodstvo-novyx-sedanov-i-universalov-lada-vesta-sport",
+        "role": "27 February 2026 production start citing AVTOVAZ; ordinary NG 2022/2023, Sportline Sedan November 2023 / SW January 2024"
+      },
+      {
+        "id": "V03",
+        "url": "https://static.lada.ru/files/manuals/lada_vesta_sportline_09_10_2023.pdf",
+        "role": "Manufacturer Sportline-specific manual; distinct named model, not Sport equivalence"
+      },
+      {
+        "id": "T01",
+        "url": "https://global.toyota/jp/newsroom/toyota/21780610.html",
+        "role": "Manufacturer 28 October 2008 Axio/Fielder facelift. Fielder AEROTOURER grille is trim-specific"
+      },
+      {
+        "id": "T02",
+        "url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_AXIO/200810/10051735/",
+        "role": "Manufacturer historical catalog: October 2008 Luxel; front photo matches Axio C002"
+      },
+      {
+        "id": "T03",
+        "url": "https://gazoo.com/catalog/car_img/10101065/10101065_200810r.jpg",
+        "role": "T02 linked Luxel front photo, downloaded and visually inspected"
+      },
+      {
+        "id": "T04",
+        "url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_FIELDER/200810/10051738/",
+        "role": "Manufacturer October 2008 ordinary X catalog; imagery shared with AEROTOURER, not an exact ordinary X grille proof"
+      },
+      {
+        "id": "T05",
+        "url": "https://global.toyota/jp/newsroom/toyota/21783147.html",
+        "role": "Manufacturer 12 October 2011 X-based HID Extra Limited release, identifies ordinary X base and special lighting"
+      },
+      {
+        "id": "T06",
+        "url": "https://global.toyota/pages/news/older/images/2011/10/12/002.jpg",
+        "role": "T05 linked ordinary X-based body photo: double horizontal grille and bumper matches Fielder C003; HID internals differ from source halogen"
+      },
+      {
+        "id": "T07",
+        "url": "https://global.toyota/jp/newsroom/toyota/21779553.html",
+        "role": "Manufacturer October 2009 fuel/equipment changes and ordinary X/AEROTOURER distinction"
+      },
+      {
+        "id": "T08",
+        "url": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Axio_0901.jpg",
+        "role": "C002 source metadata and public domain grant; photo 22 August 2009"
+      },
+      {
+        "id": "T09",
+        "url": "https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Fielder.jpg",
+        "role": "C003 source provenance; source_c independently recovered original and metadata"
+      },
+      {
+        "id": "E01",
+        "url": "https://media.toyota.co.uk/the-2004-toyota-corolla/",
+        "role": "Manufacturer UK 18 June 2004 restyling text: estate new bonnet/front grille/lights/bumper; UK sale 14 June 2004"
+      },
+      {
+        "id": "E02",
+        "url": "https://media.toyota.co.uk/images/corolla-estate-exterior-2002-2004/",
+        "role": "Manufacturer archive gallery explicitly labels pre-facelift estate; image used for comparison only"
+      },
+      {
+        "id": "E03",
+        "url": "https://media.toyota.co.uk/wp-content/uploads/sites/5/2011/12/T_21251-1024x731.jpg",
+        "role": "E02 linked front estate image downloaded and viewed"
+      },
+      {
+        "id": "E04",
+        "url": "https://media.toyota.co.uk/images/corolla-estate-exterior-2004-2007/",
+        "role": "Manufacturer archive gallery explicitly labels facelift estate"
+      },
+      {
+        "id": "E05",
+        "url": "https://media.toyota.co.uk/wp-content/uploads/sites/5/2011/12/b16-1024x731.jpg",
+        "role": "E04 linked front estate image downloaded and viewed"
+      },
+      {
+        "id": "E06",
+        "url": "https://global.toyota/jp/detail/1774212",
+        "role": "Manufacturer Japan 27 April 2004 Corolla/Fielder/Runx/Allex facelift, explicitly differentiates ordinary X/G from Luxel grille"
+      },
+      {
+        "id": "E07",
+        "url": "https://global.toyota/pages/news/older/images/2004/04/27/nt04_018a.jpg",
+        "role": "E06 linked Japanese Corolla 1.5G front image, downloaded and viewed"
+      }
+    ]
+  },
+  "runx": {
+    "schema": "ru-pilot20-runx-original-identity-appendix-v1",
+    "reviewed_at_utc": "2026-11-13T16:08:55.702272+00:00",
+    "task_id": "RU-6fc2caabccaf49bc",
+    "dimension_id": "Toyota Corolla Runx Hatchback 2000-2004 RU",
+    "candidate_source": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-2055786.jpg",
+    "candidate_source_sha256": "d4e3a7b8bcd787066077376f47e0462597ee57c89b730208041117586d54279c",
+    "status": "reference_identity_pass_Japan_E120_original_Runx_five_door_generic_requirement",
+    "evidence": [
+      {
+        "url": "https://www.toyota.co.jp/jpn/company/history/75years/vehicle_lineage/car/id60004276/index.html",
+        "type": "manufacturer historical model account",
+        "finding": "Japan first-generation Corolla Runx launched 24 January 2001, two-box five-door hatchback; FF or V-flex full-time 4WD for 1.5; NZE121/NZE124/ZZE123 family."
+      },
+      {
+        "url": "https://toyota.jp/ucar/catalog/brand-TOYOTA/car-COROLLA_RUNX/200101/1009407/",
+        "type": "manufacturer dated historical configuration catalog",
+        "finding": "January 2001 X TA-NZE124; five-door hatchback; full-time 4WD. Text independently confirms a 4WD variant existed at initial launch."
+      },
+      {
+        "url": "https://gazoo.com/catalog/car_img/10101052/10101052_200101.jpg",
+        "type": "manufacturer catalog-linked launch-era front picture",
+        "local_file": "/workspace/ru_picture_producer/pilot20/identity_a/Runx-200101-catalog-front.jpg",
+        "sha256": "4a62ee10a409a4c4b2c821e16210c9483fffbd52897b428df6183886be614fc2",
+        "finding": "Actual downloaded image viewed: five-door short two-box body, rounder initial lamp outline, C-family badge mesh grille, initial bumper front family. Catalog image is a representative/shared trim picture; do not copy its alloy wheels/aero/mirror equipment."
+      }
+    ],
+    "actual_visual_observation": "C-new-2055786 actually viewed: five-door short hatchback, initial rounded two-reflector front lamps, C-family badge black mesh grille, early bumper with narrow lower slots and black side blanks, visible 4WD side decal; body, lamp and grille family agrees with dated manufacturer launch picture.",
+    "frozen_requirement_mapping": "Generic Runx Hatchback requirement has no engine/gearbox/drive sub-constraint; Japan E120 original Runx five-door is within that representative configuration. 4WD being offered at launch supports preserving observed decal without excluding this from generic Runx.",
+    "limits": [
+      "Toyota actual launch 2001-01-24; frozen queue start 2000 is aggregate/source label, not proven Runx production in 2000.",
+      "No blanket all-years exterior equivalence; do not relabel original front as 2002/2004 facelift or Allex, or expand to three-door overseas Corolla.",
+      "Visible 4WD decal is an observed source feature, not chassis/VIN/engine/driveline certification of this individual car. No mechanical specifications or dimensions recertified.",
+      "Keep Japanese-market provenance; do not claim Russian original specification.",
+      "This appendix approves source/requirement identity. Parent coordinator retains generated P1-003 technical/visual acceptance and exact output SHA binding."
+    ]
+  }
+}

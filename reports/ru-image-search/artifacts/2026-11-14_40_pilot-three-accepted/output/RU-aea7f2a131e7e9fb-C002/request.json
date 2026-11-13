@@ -1,0 +1,56 @@
+{
+  "request_id": "P2-002-Axio-E140-FL-attempt02",
+  "task_id": "RU-aea7f2a131e7e9fb",
+  "dimension_id": "Toyota Corolla Axio Sedan 2008-2013 RU",
+  "generator": "builtin_image_gen",
+  "prompt": "Image 1 is the returned catalog cutout needing canvas correction; Image 2 is its actual source identity reference. Keep the SAME dark purple Japanese Corolla Axio E140 facelift compact four-door sedan, chrome vertical grille with its actual round C-family chrome-and-black center emblem, projector headlamps, round foglamps, silver multispoke wheels, indicator mirrors, handles and rain guards. Keep the SAME front-right three-quarter balanced 1/3 or 1/2 camera. Make the ENTIRE car 15 percent SMALLER in a roomier transparent canvas. The near front tire currently touches the bottom: restore its full complete naturally round source tire edge and leave at least 80px useful transparent space BELOW it and above the roof, and at least 50px beyond BOTH ends. All tires/mirrors/roof/body tips fully inside clear margins. Smooth roof, no antenna/fin/rails/crossbars. Preserve whole-car perspective, no stretching, no mirroring, no body identity changes. True RGBA transparency without floor, shadow, under-car reflection, glow, background fragments, checkerboard, plate text or watermark. No showroom reflection or ceiling light dots.",
+  "prompt_sha256": "54800f7b6402fb99b4616e3bddd10ab76046907c2bc10eea4c7b4bf8fb5c2b11",
+  "inputs": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P2/attempt01.png",
+      "sha256": "4d90d50cb5d7f7845dbbb73ce5de48eb1f30614ab7accbe1a3b1f6b037c5af1b",
+      "role": "returned_cutout_edit_target"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/originals/RU-aea7f2a131e7e9fb-C002.jpg",
+      "sha256": "311e14bf9cab1f77cbadd994a304fc5e61ad54371a6eb7f02bf5dac80ee4ec48",
+      "role": "actual_source_identity"
+    }
+  ],
+  "state": "candidate_recommended_pending_root_acceptance",
+  "production_accepted": false,
+  "timepoints": {
+    "source_checked_utc": "2026-11-13T15:46:24.498567+00:00",
+    "request_submitted_utc": "2026-11-13T16:03:07.733781+00:00",
+    "result_returned_utc": "2026-11-13T16:03:55Z",
+    "review_completed_utc": "2026-11-13T16:06:01.582091+00:00"
+  },
+  "technical": {
+    "sha256": "cbd350cf65f8b520f0216be59b0b2e2c6e0d7fb2bbca61148a108655712b94c9",
+    "bytes": 1168607,
+    "mode": "RGBA",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bbox": [
+      229,
+      70,
+      1655,
+      887
+    ],
+    "margins": [
+      229,
+      70,
+      119,
+      0
+    ]
+  },
+  "output_file": "/workspace/ru_picture_producer/pilot20/P2/attempt02.png",
+  "output_sha256": "cbd350cf65f8b520f0216be59b0b2e2c6e0d7fb2bbca61148a108655712b94c9",
+  "review": "Actual source / gray / dark composites inspected. Whole compact dark-purple four-door sedan, full near front and rear tires and far front arc, mirrors all complete; front-right 1/3 to 1/2 camera, C-family round chrome emblem and upright grille, projector lamp, round foglamp, original silver multispokes and indicator mirrors match. No target antenna/fin/roofrails/crossbars. No apparent external ground shadow, floor or background scraps. Source identity independently confirmed by identity_a Toyota 2008-10 Luxel catalog/official facelift announcement. Deterministic isolated speck removal separately frozen. Bottom actual78px (requested80) ample and no clipping."
+}

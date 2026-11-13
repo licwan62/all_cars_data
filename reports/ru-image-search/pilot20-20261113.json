@@ -29,9 +29,10 @@
     "accepted_per_hour": null,
     "source_ready_to_production_wait_minutes": null,
     "first_draft_pass_rate": null,
-    "attempts_per_accepted_image": null,
+    "attempts_per_accepted_image": 1.6666666666666667,
     "cost_per_accepted_image_usd": null,
-    "unknown_cost_is_not_zero": true
+    "unknown_cost_is_not_zero": true,
+    "accepted_configurations": 3
   },
   "items": [
     {
@@ -105,16 +106,16 @@
       "source_candidate_id": "RU-aea7f2a131e7e9fb-C002",
       "source_owner": "C",
       "producer": "P2",
-      "state": "assigned",
+      "state": "accepted",
       "times_utc": {
         "assigned": null,
         "source_ready": null,
         "production_started": null,
-        "acceptance_completed": null
+        "acceptance_completed": "2026-11-13T16:15:57.236589+00:00"
       },
-      "generation_attempts": 0,
-      "first_draft_passed": null,
-      "accepted_sha256": null,
+      "generation_attempts": 2,
+      "first_draft_passed": false,
+      "accepted_sha256": "20c6dd54afeea1017d9b48810b4ec241737e7e69491f2a973d8eac89ff1f7374",
       "accepted_cost_usd": null,
       "cost_basis": "unknown_until_actual_tool_usage_available"
     },
@@ -125,16 +126,16 @@
       "source_candidate_id": "RU-aea7f2a131e7e9fb-C003",
       "source_owner": "C",
       "producer": null,
-      "state": "identity_or_view_hold",
+      "state": "accepted",
       "times_utc": {
         "assigned": null,
         "source_ready": null,
         "production_started": null,
-        "acceptance_completed": null
+        "acceptance_completed": "2026-11-13T16:15:57.236589+00:00"
       },
-      "generation_attempts": 0,
-      "first_draft_passed": null,
-      "accepted_sha256": null,
+      "generation_attempts": 1,
+      "first_draft_passed": false,
+      "accepted_sha256": "72f5f986534fea582bbf18b70444ead4e0b51cb5c1e9f3f9857b2b179ad5144f",
       "accepted_cost_usd": null,
       "cost_basis": "unknown_until_actual_tool_usage_available",
       "hold_reason": "Fielder C003 front differs from Toyota official 2008-10 facelift catalog"
@@ -162,21 +163,21 @@
     },
     {
       "slot": 7,
-      "task_id": null,
-      "dimension_id": null,
+      "task_id": "RU-6fc2caabccaf49bc",
+      "dimension_id": "Toyota Corolla Runx Hatchback 2000-2004 RU",
       "source_candidate_id": null,
       "source_owner": "B Camry rank7 then C Corolla rank18",
       "producer": null,
-      "state": "unassigned",
+      "state": "accepted",
       "times_utc": {
         "assigned": null,
         "source_ready": null,
         "production_started": null,
-        "acceptance_completed": null
+        "acceptance_completed": "2026-11-13T16:15:57.236589+00:00"
       },
-      "generation_attempts": 0,
-      "first_draft_passed": null,
-      "accepted_sha256": null,
+      "generation_attempts": 2,
+      "first_draft_passed": false,
+      "accepted_sha256": "c1ab66e63db1765dc4be5d86a849f50ef11a2a2c9f2476e8e5f6f9f5e5dd8349",
       "accepted_cost_usd": null,
       "cost_basis": "unknown_until_actual_tool_usage_available"
     },

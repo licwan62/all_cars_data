@@ -1,0 +1,450 @@
+{
+  "schema": "ru-pilot20/v1",
+  "created_at_utc": "2026-11-13T15:47:20.777623+00:00",
+  "baseline_commit": "6d4e87656aba74fef38e60cbeee50fbaf479f603",
+  "baseline_checkpoint": "reports/ru-image-search/work/checkpoint.json",
+  "scope": {
+    "max_configurations": 20,
+    "csv_tasks": 1309,
+    "csv_dimension_records": 2394,
+    "csv_rows": 500
+  },
+  "policy": {
+    "source_inventory_pause_at": 12,
+    "source_inventory_resume_below": 6,
+    "max_concurrent_generation_requests": 3,
+    "checkpoints_after_accepted_images": 6,
+    "checkpoint_interval_minutes_approx": 10,
+    "max_repairs_before_identity_review": 2,
+    "formal_ledger_writer": "root coordinator only"
+  },
+  "inventory": {
+    "formal_historical_downloaded": 187,
+    "historical_downloaded_not_current_ready_inventory": true,
+    "staged_unadopted_sources": 3,
+    "currently_ready_after_this_run": 3,
+    "inventory_basis": "Currently source- and identity-qualified for production: Axio C002 and two Runx new originals. Focus C002, Fielder C003, staged E120 Hatch, and Camry non-RU-market originals are held pending exact applicability; this is a current pilot estimate, not formal accepted coverage."
+  },
+  "metrics": {
+    "accepted_per_hour": null,
+    "source_ready_to_production_wait_minutes": null,
+    "first_draft_pass_rate": null,
+    "attempts_per_accepted_image": 1.6666666666666667,
+    "cost_per_accepted_image_usd": null,
+    "unknown_cost_is_not_zero": true,
+    "accepted_configurations": 3
+  },
+  "items": [
+    {
+      "slot": 1,
+      "task_id": "RU-cb2efb0d6a90f01f",
+      "dimension_id": "Ford Focus Sedan 2020-2022 RU",
+      "source_candidate_id": "RU-cb2efb0d6a90f01f-C002",
+      "source_owner": "B",
+      "producer": "P1",
+      "state": "identity_review_hold",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": "2026-11-13T15:45:01.705986+00:00",
+        "production_started": "2026-11-13T15:45:07.704326+00:00",
+        "acceptance_completed": null
+      },
+      "generation_attempts": 1,
+      "first_draft_passed": false,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available",
+      "candidate_sha256": "e2db6a443e5632291943e7beed07014b4d81e3b7f4b41d1e51e50545b68b73e2",
+      "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-001-imagegen-original.png",
+      "oss_full_get_sha256_verified": true,
+      "hold_reason": "C002 earlier-front applicability to 2020-2022 not established"
+    },
+    {
+      "slot": 2,
+      "task_id": "RU-4b679a659a638c90",
+      "dimension_id": "Lada (ВАЗ) Vesta SW Sport Wagon 2022-2026 RU",
+      "source_candidate_id": null,
+      "source_owner": "B",
+      "producer": null,
+      "state": "queued",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 3,
+      "task_id": "RU-4b679a659a638c90",
+      "dimension_id": "Lada (ВАЗ) Vesta Sport Sedan 2022-2026 RU",
+      "source_candidate_id": null,
+      "source_owner": "B",
+      "producer": null,
+      "state": "queued",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 4,
+      "task_id": "RU-aea7f2a131e7e9fb",
+      "dimension_id": "Toyota Corolla Axio Sedan 2008-2013 RU",
+      "source_candidate_id": "RU-aea7f2a131e7e9fb-C002",
+      "source_owner": "C",
+      "producer": "P2",
+      "state": "accepted",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": "2026-11-13T16:15:57.236589+00:00"
+      },
+      "generation_attempts": 2,
+      "first_draft_passed": false,
+      "accepted_sha256": "20c6dd54afeea1017d9b48810b4ec241737e7e69491f2a973d8eac89ff1f7374",
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 5,
+      "task_id": "RU-aea7f2a131e7e9fb",
+      "dimension_id": "Toyota Corolla Fielder Wagon 2008-2013 RU",
+      "source_candidate_id": "RU-aea7f2a131e7e9fb-C003",
+      "source_owner": "C",
+      "producer": null,
+      "state": "accepted",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": "2026-11-13T16:15:57.236589+00:00"
+      },
+      "generation_attempts": 1,
+      "first_draft_passed": false,
+      "accepted_sha256": "72f5f986534fea582bbf18b70444ead4e0b51cb5c1e9f3f9857b2b179ad5144f",
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available",
+      "hold_reason": "Fielder C003 front differs from Toyota official 2008-10 facelift catalog"
+    },
+    {
+      "slot": 6,
+      "task_id": "RU-6fc2caabccaf49bc",
+      "dimension_id": "Toyota Corolla Hatchback 2000-2004 RU",
+      "source_candidate_id": "RU-6fc2caabccaf49bc-C003",
+      "source_owner": "C",
+      "producer": null,
+      "state": "identity_or_view_hold",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available",
+      "hold_reason": "Staged E120 Hatch front-camera suitability and identity need renewed check"
+    },
+    {
+      "slot": 7,
+      "task_id": "RU-6fc2caabccaf49bc",
+      "dimension_id": "Toyota Corolla Runx Hatchback 2000-2004 RU",
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "accepted",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": "2026-11-13T16:15:57.236589+00:00"
+      },
+      "generation_attempts": 2,
+      "first_draft_passed": false,
+      "accepted_sha256": "c1ab66e63db1765dc4be5d86a849f50ef11a2a2c9f2476e8e5f6f9f5e5dd8349",
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 8,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 9,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 10,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 11,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 12,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 13,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 14,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 15,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 16,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 17,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 18,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 19,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    },
+    {
+      "slot": 20,
+      "task_id": null,
+      "dimension_id": null,
+      "source_candidate_id": null,
+      "source_owner": "B Camry rank7 then C Corolla rank18",
+      "producer": null,
+      "state": "unassigned",
+      "times_utc": {
+        "assigned": null,
+        "source_ready": null,
+        "production_started": null,
+        "acceptance_completed": null
+      },
+      "generation_attempts": 0,
+      "first_draft_passed": null,
+      "accepted_sha256": null,
+      "accepted_cost_usd": null,
+      "cost_basis": "unknown_until_actual_tool_usage_available"
+    }
+  ],
+  "notes": [
+    "Earlier user pause is superseded by the current explicit instruction to optimize and continue.",
+    "No acceptance is recorded by this tracker; formal progress and checkpoint remain authoritative.",
+    "The first six slots are selected, while slots 7-20 are filled from verified Camry rank7 then Corolla rank18 sources as capacity permits."
+  ]
+}
