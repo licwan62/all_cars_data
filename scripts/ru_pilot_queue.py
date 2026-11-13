@@ -105,6 +105,179 @@ def verify_review_artifact(result, base):
             raise ValueError(f'{file_field} SHA256 mismatch')
 
 
+# These gates prove only a zero-generation preflight transition, never acceptance.
+ZERO_FLAGS = ('imagegen_started', 'in_flight', 'returned_output', 'unknown_request', 'interrupted_request')
+
+
+def read_bound_json(filename, expected=None):
+    p = Path(filename).resolve(strict=True)
+    raw = p.read_bytes()
+    h = hashlib.sha256(raw).hexdigest()
+    if expected is not None and h != expected:
+        raise ValueError(f'evidence SHA mismatch: {p}')
+    obj = json.loads(raw)
+    if not isinstance(obj, dict):
+        raise ValueError(f'evidence must be a JSON object: {p}')
+    return {'file': str(p), 'sha256': h, 'snapshot': obj}
+
+
+def check_receipts(receipts):
+    for receipt in receipts:
+        if hashlib.sha256(Path(receipt['file']).read_bytes()).hexdigest() != receipt['sha256']:
+            raise ValueError('preflight/identity evidence changed during validation; retry')
+
+
+def evidence_ref(value):
+    if not isinstance(value, dict) or not value.get('file') or not value.get('sha256'):
+        raise ValueError('evidence reference requires file and sha256')
+    return read_bound_json(value['file'], value['sha256'])
+
+
+def bound_to_claim(obj, item, claim_field='claim_id'):
+    if not isinstance(item.get('claim_id'), str) or not item['claim_id'].strip():
+        raise ValueError('zero-fee preflight requires a recorded nonempty old claim ID')
+    if (obj.get('task_id') != item['task_id'] or obj.get('dimension_id') != item['dimension_id']
+            or obj.get(claim_field) != item.get('claim_id')
+            or (obj.get('source_sha256') or obj.get('input_sha256')) != item.get('source_sha256')):
+        raise ValueError('preflight evidence task/DIM/claim/source SHA binding mismatch')
+
+
+def zero_count(obj):
+    return any(type(obj.get(k)) is int and obj[k] == 0 for k in ('generation_count', 'generation_calls'))
+
+
+def timestamp(value):
+    if not isinstance(value, str) or not value.strip() or datetime.fromisoformat(value.replace('Z', '+00:00')).tzinfo is None:
+        raise ValueError('evidence requires an actual timezone-aware timestamp')
+
+
+def zero_declarations(obj):
+    if type(obj.get('generation_count')) is not int or obj['generation_count'] != 0:
+        raise ValueError('explicit generation_count=0 required')
+    if any(obj.get(k) is not False for k in ZERO_FLAGS):
+        raise ValueError('explicit false imagegen/in-flight/returned/unknown/interrupted declarations required')
+
+
+def no_generation(obj):
+    for key in ('review', 'candidate_file', 'candidate_sha256', 'output_file', 'output_sha256',
+                'returned_at', 'result_returned_at', 'production_outputs', 'candidate', 'review_file'):
+        if key in obj and obj[key] is not None and obj[key] != '' and obj[key] != []:
+            raise ValueError(f'zero-fee hold refused: existing {key}')
+    for key in ('generation_count', 'generation_calls', 'repair_count', 'generation_attempts',
+                'generation_requests_submitted', 'unknown_requests'):
+        if key in obj and (type(obj[key]) is not int or obj[key] != 0):
+            raise ValueError(f'zero-fee hold refused: {key} is not integer zero')
+    for key in (*ZERO_FLAGS, 'generator_submitted', 'paid_generation_submitted'):
+        if key in obj and obj[key] is not False:
+            raise ValueError(f'zero-fee hold refused: {key} is not false')
+    states = ' '.join(str(obj.get(k, '')) for k in ('state', 'status', 'request_state', 'outcome', 'hold_kind')).lower()
+    if any(word in states for word in ('unknown', 'interrupt', 'returned', 'submitt', 'generating', 'in_flight', 'needs_reconciliation')):
+        raise ValueError('zero-fee hold refused: unknown/interrupted/submitted/returned request state')
+    for key in ('generation_started_at', 'imagegen_started_at', 'tool_started_at', 'submitted_at', 'request_submitted_at'):
+        if obj.get(key):
+            raise ValueError('zero-fee hold refused: generation start/submission timestamp exists')
+    times = obj.get('timepoints', {})
+    if isinstance(times, dict) and any(times.get(k) for k in ('request_submitted_utc', 'result_returned_utc')):
+        raise ValueError('zero-fee hold refused: generation submission/return timepoints exist')
+    # Legacy started_at sometimes meant producer preflight, not a tool call.
+    if obj.get('started_at') and not ('preflight' in states and zero_count(obj) and obj.get('generator_submitted') is False):
+        raise ValueError('zero-fee hold refused: started_at lacks explicit zero-generation preflight basis')
+
+
+def request_audit(item, proof, queue_dir):
+    worker = item.get('worker')
+    if worker not in ('P1', 'P2'):
+        raise ValueError('zero-fee preflight requires a known P1/P2 owner')
+    candidates = set()
+    if proof.get('request_file'):
+        candidates.add(Path(proof['request_file']).resolve(strict=True))
+    worker_root = Path(queue_dir).resolve().parent / worker
+    if worker_root.exists():
+        candidates.update(p for p in worker_root.rglob('request*.json') if not any('sdk' in part.lower() for part in p.relative_to(worker_root).parts))
+    checked = []
+    for p in sorted(candidates):
+        receipt = read_bound_json(p)
+        obj = receipt['snapshot']
+        nested = obj.get('queue_claim')
+        claim = obj.get('claim_id') or (nested.get('claim_id') if isinstance(nested, dict) else None)
+        if claim != item.get('claim_id'):
+            if proof.get('request_file') and p == Path(proof['request_file']).resolve():
+                raise ValueError('preflight request_file belongs to another claim')
+            continue
+        for field in ('task_id', 'dimension_id'):
+            if obj.get(field) is not None and obj[field] != item[field]:
+                raise ValueError('matching request claim has conflicting task/DIM')
+        request_source = obj.get('input_sha256') or obj.get('source_sha256')
+        if request_source is not None and request_source != item['source_sha256']:
+            raise ValueError('matching request claim has conflicting source SHA')
+        no_generation(obj)
+        if proof.get('request_file') and p == Path(proof['request_file']).resolve() and proof.get('request_sha256') and receipt['sha256'] != proof['request_sha256']:
+            raise ValueError('preflight request SHA mismatch')
+        checked.append(receipt)
+    return checked
+
+
+def identity_preflight(proof):
+    state = str(proof.get('state', '')).lower()
+    reason = str(proof.get('reason', '')).lower()
+    return (zero_count(proof) and any(k in state for k in ('preflight', 'before_generation', 'awaiting_root_hold'))
+            and any(k in reason for k in ('identity', 'independent', 'phase', 'frontface', 'front-face')))
+
+
+def identity_clearance(filename, old, record, queue_dir):
+    receipt = read_bound_json(filename)
+    clearance = receipt['snapshot']
+    if clearance.get('actor') != 'root' or clearance.get('decision') != 'identity_cleared_zero_generation':
+        raise ValueError('same-source clearance requires explicit root signature/decision')
+    bound_to_claim(clearance, old, 'old_claim_id')
+    zero_declarations(clearance)
+    timestamp(clearance.get('signed_at'))
+    if not isinstance(clearance.get('reason'), str) or not clearance['reason'].strip():
+        raise ValueError('root clearance requires a reason')
+    if old.get('source_sha256') != record['source_sha256']:
+        raise ValueError('identity clearance only authorizes same-source retry; omit it for a different source')
+    proof_receipt = evidence_ref(clearance.get('zero_fee_proof'))
+    proof = proof_receipt['snapshot']
+    bound_to_claim(proof, old)
+    if not zero_count(proof):
+        raise ValueError('actual zero-fee proof must explicitly record zero generations')
+    no_generation(proof)
+    no_generation(old)
+    hold = old.get('preflight_hold')
+    legacy_resolutions = []
+    if hold:
+        if hold.get('hold_kind') != 'identity_preflight' or hold.get('evidence_sha256') != proof_receipt['sha256']:
+            raise ValueError('same-source clearance requires the original identity-preflight zero-fee hold proof')
+    else:
+        # Only a root-resolved, independently evidenced zero-generation identity
+        # preflight can use the legacy adapter. Failed/unknown requests cannot.
+        if not identity_preflight(proof):
+            raise ValueError('legacy hold is not an evidenced identity preflight')
+        for resolution in old.get('resolutions', []):
+            if resolution.get('actor') != 'root' or resolution.get('decision') != 'hold':
+                continue
+            resolved = read_bound_json(resolution['evidence_file'], resolution['evidence_sha256'])
+            obj = resolved['snapshot']
+            if (obj.get('task_id'), obj.get('dimension_id'), obj.get('claim_id')) != (old['task_id'], old['dimension_id'], old['claim_id']):
+                continue
+            no_generation(obj)
+            if zero_count(obj) and (identity_preflight(obj) or obj.get('decision') == 'hold_before_generation'):
+                legacy_resolutions.append(resolved)
+        if not legacy_resolutions:
+            raise ValueError('legacy identity hold lacks root-resolved zero-generation evidence')
+    requests = request_audit(old, proof, queue_dir)
+    report_receipt = evidence_ref(clearance.get('identity_report'))
+    report = report_receipt['snapshot']
+    if not isinstance(report.get('reviewer'), str) or report['reviewer'].lower() in ('root', 'p1', 'p2'):
+        raise ValueError('identity clearance requires an independent reviewer report')
+    rows = report.get('items', [report])
+    matched = [r for r in rows if isinstance(r, dict) and (r.get('task_id'), r.get('dimension_id'), r.get('source_sha256')) == (old['task_id'], old['dimension_id'], old['source_sha256'])]
+    if len(matched) != 1 or not (str(matched[0].get('judgment', '')).startswith('PASS') or matched[0].get('passed') is True):
+        raise ValueError('identity report does not positively match this exact task/DIM/source SHA')
+    return {'clearance': receipt, 'identity_report': report_receipt, 'zero_fee_proof': proof_receipt,
+            'request_evidence': requests, 'legacy_root_hold_evidence': legacy_resolutions}
+
+
 def pressure(state):
     ready = sum(i['status'] == 'ready' for i in state['items'])
     if ready >= state['config']['high_watermark']:
@@ -172,6 +345,8 @@ def execute(args):
         verify_scope(records[0], load_scope(args.checkpoint))
         if any(records[0].get(k) for k in ('retake', 'plan_id', 'replaces_sha256', 'replaces_output_sha256')):
             raise ValueError('requeue-held is only for ordinary configurations; planned retakes require reopen-retake')
+    if args.command == 'hold-preflight':
+        preflight_receipt = read_bound_json(args.evidence)
     result = None
     if args.command == 'submit-review':
         result_path = Path(args.result).resolve(strict=True)
@@ -213,6 +388,35 @@ def execute(args):
                 pressure(state)
             output = {'added': added, 'duplicates': duplicates, 'blocked': blocked,
                       'enqueue_paused': state['enqueue_paused'], 'ready': pressure(state)}
+        elif args.command == 'hold-preflight':
+            active = [i for i in state['items'] if i['status'] == 'producing' and i.get('worker') == args.worker]
+            if len(active) != 1 or active[0].get('claim_id') != args.claim:
+                raise ValueError('hold-preflight requires this worker own unique producing claim')
+            item = active[0]
+            proof = preflight_receipt['snapshot']
+            bound_to_claim(proof, item)
+            if proof.get('worker') != args.worker or proof.get('hold_kind') not in ('identity_preflight', 'source_preflight'):
+                raise ValueError('preflight evidence worker/hold_kind mismatch')
+            zero_declarations(proof)
+            timestamp(proof.get('recorded_at'))
+            if not isinstance(proof.get('reason'), str) or not proof['reason'].strip():
+                raise ValueError('preflight hold requires a reason')
+            no_generation(proof)
+            no_generation(item)
+            checked = request_audit(item, proof, args.queue)
+            check_receipts([preflight_receipt, *checked])
+            snapshot = copy.deepcopy(item)
+            held_at = now()
+            item['status'] = 'hold'
+            item['hold_kind'] = proof['hold_kind']
+            item['preflight_hold'] = {'hold_kind': proof['hold_kind'], 'actor': args.worker,
+                'held_at': held_at, 'evidence_file': preflight_receipt['file'],
+                'evidence_sha256': preflight_receipt['sha256'], 'evidence_snapshot': copy.deepcopy(proof),
+                'request_evidence': checked}
+            state.setdefault('preflight_hold_history', []).append({'previous_producing_item': snapshot,
+                'hold': copy.deepcopy(item['preflight_hold'])})
+            output = {'status': 'hold', 'claim_id': args.claim, 'worker': args.worker,
+                'hold_kind': proof['hold_kind'], 'generation_count': 0, 'evidence_sha256': preflight_receipt['sha256']}
         elif args.command == 'requeue-held':
             record = records[0]
             key = identity(record)
@@ -232,28 +436,40 @@ def execute(args):
                 raise ValueError('stale expected claim: current hold ownership changed')
             if args.expected_source_sha256 is not None and old.get('source_sha256') != args.expected_source_sha256:
                 raise ValueError('stale expected source SHA: current hold input changed')
-            if old.get('source_sha256') == record['source_sha256']:
-                raise ValueError('requeue-held requires a different new source SHA')
+            clearance = None
+            if getattr(args, 'identity_clearance', None):
+                clearance = identity_clearance(args.identity_clearance, old, record, args.queue)
+            elif old.get('source_sha256') == record['source_sha256']:
+                raise ValueError('same-source retry requires --identity-clearance; otherwise provide a different new source SHA')
             if state['enqueue_paused']:
                 raise ValueError('ready inventory paused; retry requeue-held below low watermark')
             reopened_at = now()
             item = copy.deepcopy(record)
-            for field in ('worker','claim_id','claimed_at','review','resolutions','retake','retake_history','retry','retry_history','imported_existing'):
+            for field in ('worker','claim_id','claimed_at','review','resolutions','retake','retake_history','retry','retry_history','imported_existing','preflight_hold','hold_kind','identity_clearance'):
                 item.pop(field, None)
             item.update(status='ready', enqueued_at=reopened_at,
                 retry={'operation':'requeue-held','actor':args.actor,'requeued_at':reopened_at,
                     'previous_claim_id':old.get('claim_id'),'previous_source_sha256':old.get('source_sha256'),
                     'checkpoint_sha256':formal['checkpoint_sha256']})
+            if clearance:
+                item['identity_clearance'] = {'file': clearance['clearance']['file'], 'sha256': clearance['clearance']['sha256'],
+                    'decision': 'identity_cleared_zero_generation', 'old_claim_id': old['claim_id'],
+                    'identity_report_file': clearance['identity_report']['file'], 'identity_report_sha256': clearance['identity_report']['sha256'],
+                    'zero_fee_proof_file': clearance['zero_fee_proof']['file'], 'zero_fee_proof_sha256': clearance['zero_fee_proof']['sha256']}
             if formal['cp_path'].read_bytes() != formal['cp_raw']:
                 raise ValueError('checkpoint changed while requeuing held source; retry')
             if hashlib.sha256(Path(args.file).resolve().read_bytes()).hexdigest() != source_record_sha256:
                 raise ValueError('new source handoff changed during requeue; retry')
+            if clearance:
+                check_receipts([clearance['clearance'], clearance['identity_report'], clearance['zero_fee_proof'],
+                    *clearance['request_evidence'], *clearance['legacy_root_hold_evidence']])
             state.setdefault('retry_history', []).append({'operation':'requeue-held','actor':args.actor,
                 'task_id':key[0],'dimension_id':key[1],'requeued_at':reopened_at,
                 'previous_hold_item':copy.deepcopy(old),'new_source_sha256':item['source_sha256'],
                 'new_source_record_file':str(Path(args.file).resolve()),
                 'new_source_record_sha256':source_record_sha256, 'new_source_record':copy.deepcopy(record),
-                'expected_claim':args.expected_claim,'expected_source_sha256':args.expected_source_sha256})
+                'expected_claim':args.expected_claim,'expected_source_sha256':args.expected_source_sha256,
+                'identity_clearance_evidence':copy.deepcopy(clearance)})
             state['items'][state['items'].index(old)] = item
             output = {'status':'ready','task_id':key[0],'dimension_id':key[1],
                 'previous_claim_id':old.get('claim_id'),'source_sha256':item['source_sha256'],
@@ -386,9 +602,14 @@ def main():
     withdraw.add_argument('--task', required=True)
     withdraw.add_argument('--dimension', required=True)
     withdraw.add_argument('--evidence', required=True)
+    hold = commands.add_parser('hold-preflight', help='P1/P2 own-claim zero-generation preflight hold only; never tool/returned/unknown work')
+    hold.add_argument('--worker', choices=('P1', 'P2'), required=True)
+    hold.add_argument('--claim', required=True)
+    hold.add_argument('--evidence', required=True)
     retry = commands.add_parser('requeue-held', help='root-only new-source retry of one held unaccepted ordinary configuration')
     retry.add_argument('--actor', choices=('root',), required=True)
     retry.add_argument('--file', required=True)
+    retry.add_argument('--identity-clearance', help='Root-signed zero-generation identity clearance for identical source SHA')
     expected = retry.add_mutually_exclusive_group(required=True)
     expected.add_argument('--expected-claim')
     expected.add_argument('--expected-source-sha256')
