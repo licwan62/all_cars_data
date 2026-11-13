@@ -162,7 +162,7 @@ def execute(args):
         if not isinstance(result, dict):
             raise ValueError('review result must be a JSON object')
         verify_review_artifact(result, result_path.parent)
-    if args.command == 'resolve':
+    if args.command in ('resolve', 'withdraw-ready'):
         evidence_path = Path(args.evidence).resolve(strict=True)
         evidence_bytes = evidence_path.read_bytes()
         if not evidence_bytes.strip():
@@ -222,6 +222,17 @@ def execute(args):
                 item['status'] = 'in_review'
                 item['review'] = {'path': str(result_path), 'sha256': digest, 'result': result, 'submitted_at': now()}
                 output = {'status': 'in_review', 'claim_id': args.claim, 'duplicate': False}
+        elif args.command == 'withdraw-ready':
+            matches = [i for i in state['items'] if identity(i) == (args.task, args.dimension)]
+            if len(matches) != 1 or matches[0]['status'] != 'ready':
+                raise ValueError('withdraw-ready requires exactly one ready item; producing/review/terminal items are refused')
+            item = matches[0]
+            item['status'] = 'hold'
+            item.setdefault('resolutions', []).append({'actor': args.actor, 'decision': 'hold',
+                'operation': 'withdraw-ready', 'evidence_file': str(evidence_path),
+                'evidence_sha256': hashlib.sha256(evidence_bytes).hexdigest(), 'resolved_at': now()})
+            output = {'task_id': args.task, 'dimension_id': args.dimension, 'status': 'hold',
+                      'ready': pressure(state), 'enqueue_paused': state['enqueue_paused']}
         elif args.command == 'resolve':
             matches = [i for i in state['items'] if i.get('claim_id') == args.claim]
             if len(matches) != 1 or matches[0]['status'] not in ('producing', 'in_review', 'hold'):
@@ -255,6 +266,11 @@ def main():
     resolve.add_argument('--decision', choices=('done', 'hold'), required=True)
     resolve.add_argument('--evidence', required=True)
     resolve.add_argument('--actor', choices=('root',), required=True)
+    withdraw = commands.add_parser('withdraw-ready', help='root coordinator only; withdraw ready inventory with evidence')
+    withdraw.add_argument('--actor', choices=('root',), required=True)
+    withdraw.add_argument('--task', required=True)
+    withdraw.add_argument('--dimension', required=True)
+    withdraw.add_argument('--evidence', required=True)
     commands.add_parser('stats')
     try:
         output = execute(parser.parse_args())

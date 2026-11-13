@@ -1,0 +1,35 @@
+{
+  "status": "hold_market_variant_applicability_unproven",
+  "reviewed_at": "2026-11-13T17:00:06.774125+00:00",
+  "task_id": "RU-24bdc2aca7cbd533",
+  "dimension_id": "Toyota Corolla Liftback 1972-1980 RU",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-40550978.jpg",
+  "source_sha256": "eccdeab3dd3e9481cb4a876ad73b6264c2ebfb3d552c3a01c469f1f28c60b52b",
+  "source_page": "https://commons.wikimedia.org/wiki/File:1978_Toyota_Corolla_(KE50R)_liftback_(2015-05-28)_01.jpg",
+  "evidence_files": [
+    "/workspace/ru_picture_producer/pilot20/source_c/handoff-e30-liftback.json",
+    "/workspace/ru_picture_producer/pilot20/source_c/e30-liftback-australia-front.json"
+  ],
+  "frozen_mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+  "frozen_mapping_sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e",
+  "frozen_mapping_row": [
+    "RU|toyota/corolla|III (E30, E40, E50, E60)|1972-1980|Liftback|-|-",
+    "Toyota Corolla Liftback 1972-1980 RU"
+  ],
+  "actual_source_file_viewed": true,
+  "visual_observation": "实际看过2716×1169原件：淡黄三门Liftback、两长侧门/长后侧窗/斜后舱，COROLLA字黑格栅、独立单圆灯银框、镀铬前杠黑角/琥珀灯、车门镜、真实银色顶行李架、钢轮；前下围可见锈损。",
+  "identity_findings": {
+    "source_family_body": "澳洲KE50R Corolla E30/E50家族三门Liftback身份有来源题注及实图支持。",
+    "source_market_phase": "来源明确澳大利亚1977-01至1978-05销售形态；2015-05-28仅拍摄日期。",
+    "target_family_body": "冻结映射确属III(E30,E40,E50,E60)家族普通Liftback，年份是聚合区间，不能据此断言1972即有KE50R Liftback。",
+    "target_applicability_gap": "尚无目标目录/配置范围或独立同市场版本证据，证明澳KE50R该可见格栅/杠灯/镜/顶架形态可以代表这条frozen RU配置。日本TE52后图既非同市场也看不到前脸，不能承接此项。",
+    "not_a_finding": "这不是已证车型代际错误、也不是断言澳KE50R一定不可用；只是现有证据未闭环。"
+  },
+  "decision": "暂停该源对该frozen配置的生产放行；不因家族/车身正确或“不称俄规”而越过市场可见版本门槛。",
+  "release_evidence_required": [
+    "目标primary catalog前方图/配置文本与澳KE50R该阶段可见外观对应，或明确scope证据直接接纳此澳版本。",
+    "如改用另源，先按目标市场/阶段核对，不拼日本TE52尾部与澳KE50R前部，不擅自移除真顶架或改镜/杠。"
+  ],
+  "formal_ledger_changed": false,
+  "git_changed": false
+}

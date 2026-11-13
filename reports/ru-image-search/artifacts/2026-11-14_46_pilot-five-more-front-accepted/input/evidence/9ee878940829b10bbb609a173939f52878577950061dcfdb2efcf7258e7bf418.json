@@ -1,0 +1,46 @@
+{
+  "request_id": "P1-013-R1",
+  "claim_id": "b7d259b759d04540bf0836df8799b872",
+  "input_file": "/workspace/ru_picture_producer/pilot20/P1/P1-013/P1-013-imagegen-original.png",
+  "input_sha256": "890f66c1e93ef8b6ee9c86fdcbd26016701e3dba3c21d63032675328d80c7d87",
+  "reason": "Firstoutput highalpha detachedwhitefragment atbottom/right (alpha max194) cannot be cleared under lowalpha-only deterministicrule. Maincarhighalpha does nottouchbottom; shortaerialcomplete. Targetedouterfragmentcleanup and roomierframing, car/cameraunchanged.",
+  "started_at": "2026-11-13T17:03:07.121516+00:00",
+  "prompt": "Repair ONLY the outer cutout cleanliness and framing of this exact silver Toyota Corolla E100 five-door Liftback. Remove EVERY detached scrap outside the car, especially the small opaque white fragment at the lower right/bottom canvas. Keep only the complete car silhouette: no detached white dots/scraps or bits of ground anywhere. Keep the SAME strong front three-quarter camera facing RIGHT, long sloped rear hatch/four doors, black mirrors/handles/rubbing strips, original wheel covers and turned front wheel, exact lamps/grille/bumper/empty plate bracket, and COMPLETE short diagonal roof aerial with its base. Do not redesign, rotate, mirror, or alter body proportions. Make the car modestly smaller inside a roomy transparent frame, leave clear space above aerial, below lowest tire and beyond both bumpers. Neutral subtle photographic reflections, opaque realistic glass. True RGBA PNG outside the car fully transparent, no floor, shadow, reflection, halo, glow, fragments or text.",
+  "prompt_sha256": "ae953fa7436a10ce00155ddbf7c6c9db46c9c8efdf07e5801cf087766bcd5dfc",
+  "status": "returned_saved_pending_review",
+  "transparent_background": true,
+  "accepted": false,
+  "returned_at": "2026-11-13T17:04:18.308364+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-013/repair01/P1-013-R1-imagegen-original.png",
+  "output_sha256": "17849bf73e638cb22d984069f879e74b3643851add7f0053c430656bb30387aa",
+  "output_size_bytes": 1578223,
+  "technical": {
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "alpha_ge_16_bbox": [
+      136,
+      189,
+      1408,
+      922
+    ],
+    "all_nonzero_alpha_bbox": [
+      25,
+      86,
+      1522,
+      1000
+    ],
+    "margins_px": [
+      136,
+      189,
+      128,
+      102
+    ]
+  }
+}

@@ -76,6 +76,8 @@ def execute(args):
             if old is None:raise ValueError(f'cannot recover SHA-bound request evidence: {p}')
             raw=old.read_bytes();h=expected
         json.loads(raw)
+        if p.is_relative_to(REPO) and 'artifacts' in p.relative_to(REPO).parts and sha(p.read_bytes())==h:
+            reusable[h]=p
         if h not in evidence:evidence[h]={'raw':raw,'aliases':[]}
         evidence[h]['aliases'].append(str(p))
         return h

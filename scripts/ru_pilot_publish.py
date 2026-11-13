@@ -166,13 +166,24 @@ def execute(args):
         target = batch.output(name)
         write(target, (json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False)+'\n').encode())
         return target
-    # Snapshot every external JSON evidence once by content SHA; keep original path mappings.
+    # Existing immutable artifacts are references, not evidence copies.
+    reusable = {}
+    artifact_root = REPO / 'reports/ru-image-search/artifacts'
+    for pattern in ('*/input/evidence/**/*.json', '*/input/runtime-evidence/**/*.json', '*/runtime-evidence/**/*.json'):
+        for prior in artifact_root.glob(pattern):
+            reusable.setdefault(digest(prior.read_bytes()), prior)
     evidence_refs = []
     for source, raw in data['evidence'].items():
-        target = batch.directory / 'input' / 'evidence' / f'{digest(raw)}.json'
-        if not target.exists():
+        source_path = Path(source).resolve()
+        h = digest(raw)
+        existing_artifact = source_path.is_relative_to(REPO) and 'artifacts' in source_path.relative_to(REPO).parts
+        target = source_path if existing_artifact else reusable.get(h)
+        reused = target is not None
+        if target is None:
+            target = batch.directory / 'input' / 'evidence' / f'{h}.json'
             write(target, raw)
-        evidence_refs.append({'source_file': source, 'artifact_file': pathref(target), 'sha256': digest(raw)})
+        reusable[h] = target
+        evidence_refs.append({'source_file': source, 'artifact_file': pathref(target), 'sha256': h, 'reused': reused})
     write(batch.directory / 'input' / 'root-acceptance.json', data['inputs_raw'])
     for entry in accepted:
         entry['evidence_snapshot_refs'] = [ref for ref in evidence_refs if ref['source_file'] in [str(local(entry['review_file'])), *[str(local(p)) for p in entry['evidence_files']]]]
