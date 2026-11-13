@@ -1,0 +1,392 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families",
+  "version": "20261113_32",
+  "description": "corolla-e210-original-five-body-families",
+  "created_at": "2026-11-13T12:06:10+00:00",
+  "finished_at": "2026-11-13T12:06:12+00:00",
+  "command": [
+    "ru_accept_image_batch.py",
+    "/workspace/scratch/ru-batch32-review.json"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_31_octavia-a7-original-a8-facelift-five-configurations/output/progress-20261113_31.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_31_octavia-a7-original-a8-facelift-five-configurations/output/progress-20261113_31.json",
+      "sha256": "b5daa891682edc2d1de1b2ea20f789ba8f65d25f56c130e6f4d0e1c7dcf737f4"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_31_octavia-a7-original-a8-facelift-five-configurations/output/current-accepted-configuration-index-20261113_31.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_31_octavia-a7-original-a8-facelift-five-configurations/output/current-accepted-configuration-index-20261113_31.json",
+      "sha256": "dc60c6fef430aa818c1f51576ebc9f596f9944d690b2e815fcc6ce729ef6f357"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_31_octavia-a7-original-a8-facelift-five-configurations/output/candidates-20261113_31.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_31_octavia-a7-original-a8-facelift-five-configurations/output/candidates-20261113_31.json",
+      "sha256": "b1b5a659e24f39efe1b4048962f06dcf953d823e908d720ad559d0ff5e1c1b28"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_16_six-focus-images-and-four-existing-candidate-adoptions/output/working-default-scope-clarification-20261113_16.json",
+      "sha256": "6de755236ade6cf2bf3966077ba2b85c033ebafa8ea88f29369ea60967f47242"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_03_ru-csv-priority/output/俄罗斯优先找图队列-20261113_03.json",
+      "sha256": "55cab41b8358f6054ec57ba471a07aedc4056a2e85896fa2804c955dd2b87c65"
+    },
+    {
+      "file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_11_five-configurations-first-complete-task/extra/executed-code/ru_accept_ready5.py",
+      "sha256": "78a5ea2cf15b390adb6f467a95e37aad6a4984e0aeca79f1765bfbae1a5e271b"
+    },
+    {
+      "file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "artifact_file": "nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+      "sha256": "807db6274e3022e43ac5a7e4b39bc6775bcc71d0d76e56f65abbd8d2db18937e"
+    }
+  ],
+  "rules": {
+    "data_dir": null,
+    "files": []
+  },
+  "code": {
+    "git_commit": "0af685f7babffeb1fcdfa367a3fa69822769b930",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "identity-crosschecks.json",
+      "versioned_file": "identity-crosschecks-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/identity-crosschecks-20261113_32.json",
+      "content_reference": true,
+      "sha256": "76a35774e1e144e5746c7b87c74d5b2a47271fc0fe86f16f36848148250fe0d0",
+      "bytes": 139341,
+      "rows": null
+    },
+    {
+      "file": "accepted-configurations.json",
+      "versioned_file": "accepted-configurations-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/accepted-configurations-20261113_32.json",
+      "content_reference": true,
+      "sha256": "a76ac9f7c29ed036096992e99c96dcf7d3302332ee8a478a9bee8410a4fd3b14",
+      "bytes": 48720,
+      "rows": null
+    },
+    {
+      "file": "current-accepted-configuration-index.json",
+      "versioned_file": "current-accepted-configuration-index-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/current-accepted-configuration-index-20261113_32.json",
+      "content_reference": true,
+      "sha256": "dadc0be350735252892950a78ced086641c76a4ff01169e39530dda9b62ea44e",
+      "bytes": 1280690,
+      "rows": null
+    },
+    {
+      "file": "nonadopted-history.json",
+      "versioned_file": "nonadopted-history-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/nonadopted-history-20261113_32.json",
+      "content_reference": true,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3,
+      "rows": null
+    },
+    {
+      "file": "generation-requests.json",
+      "versioned_file": "generation-requests-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/generation-requests-20261113_32.json",
+      "content_reference": true,
+      "sha256": "11704e4c8c904fb7949e0935867d5abf8cd381c9279a21c94f5de9604ca85198",
+      "bytes": 21213,
+      "rows": null
+    },
+    {
+      "file": "new-source-original-evidence.json",
+      "versioned_file": "new-source-original-evidence-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/new-source-original-evidence-20261113_32.json",
+      "content_reference": true,
+      "sha256": "14f09813fcb9ebb960c94b18b372bc0d5ff5d296526fdcffe061be6f30f7e10f",
+      "bytes": 30288,
+      "rows": null
+    },
+    {
+      "file": "candidates.json",
+      "versioned_file": "candidates-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/candidates-20261113_32.json",
+      "content_reference": true,
+      "sha256": "f71f844cf719afbbd383eb07984aea952d9730229c58c82924582933df6167c4",
+      "bytes": 400234,
+      "rows": null
+    },
+    {
+      "file": "progress.json",
+      "versioned_file": "progress-20261113_32.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/output/progress-20261113_32.json",
+      "content_reference": true,
+      "sha256": "b2b9154fdac1a87744f8bac1ca73a3685d64cb954a067893df2b986e39554696",
+      "bytes": 2283734,
+      "rows": null
+    }
+  ],
+  "extras": [
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_accept_image_batch.py",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru-batch32-review.json",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_import_corolla32.py",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_prepare_corolla32.py",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_review_corolla32.py",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-five-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-source-contact.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-touring-roof-detail.jpg",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/corolla-applicability.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/来源映射_RU-corolla-extract.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/CONTINUE.md",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-five-frozen.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/handoff-state.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6G22-018-file-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6G22-018-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6G22-018-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-015-file-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-015-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-015-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-024-file-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-024-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-024-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-028-file-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-028-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-028-bounded-probe.json.gz",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-039-file-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-039-source-page.txt",
+    "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-039-bounded-probe.json.gz"
+  ],
+  "extra_records": [
+    {
+      "file": "extra/executed-code/ru_accept_image_batch.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_accept_image_batch.py",
+      "sha256": "5628b1cd68fa0715901e76c723fdeaf59899491e93b32d85a590a8e1af96c253",
+      "bytes": 12066
+    },
+    {
+      "file": "extra/executed-code/ru-batch32-review.json",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru-batch32-review.json",
+      "sha256": "13455a2d3f6eb9a66421534c7767a8acf6ca87283985272aafbcb7625e663530",
+      "bytes": 147746
+    },
+    {
+      "file": "extra/executed-code/ru_import_corolla32.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_import_corolla32.py",
+      "sha256": "d5124c83281b172a574a3881f8d19b71d7b141068bdae77afc618008608079fe",
+      "bytes": 3265
+    },
+    {
+      "file": "extra/executed-code/ru_prepare_corolla32.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_prepare_corolla32.py",
+      "sha256": "9b98810221550cbfec87ecfd52487eee5fbf72e68e11bf2ecb5bf07208a37733",
+      "bytes": 4777
+    },
+    {
+      "file": "extra/executed-code/ru_review_corolla32.py",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/executed-code/ru_review_corolla32.py",
+      "sha256": "b1911faf99c46c0793fdf70ff0e959d047d58983821d3a4532bbacc15cd48b27",
+      "bytes": 1626
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla32-five-frozen.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-five-frozen.json.gz",
+      "sha256": "42cbbb29a0cb2f50c992c8ff5fd3b0c65b860764d0bb9dc19f5d5a7c05ab5cce",
+      "bytes": 6410
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla32-source-contact.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-source-contact.jpg",
+      "sha256": "46004f2bd2f6cb36f897913224fd3cf210929842482994eb67a27aa7a0a5e713",
+      "bytes": 306878
+    },
+    {
+      "file": "extra/search-evidence/ru-corolla32-touring-roof-detail.jpg",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-touring-roof-detail.jpg",
+      "sha256": "b2844f276b0acff2666231925f0cc7b492ff1fbeb2af6fa9d4f5d96a7373852f",
+      "bytes": 191327
+    },
+    {
+      "file": "extra/search-evidence/corolla-applicability.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/corolla-applicability.json.gz",
+      "sha256": "eb065d8e1663f20aca4f97dd7dc2038c39a892a870cb6ef67e033d0cec4d055b",
+      "bytes": 28015
+    },
+    {
+      "file": "extra/search-evidence/来源映射_RU-corolla-extract.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/来源映射_RU-corolla-extract.json.gz",
+      "sha256": "1c84337a0fa001eb155d610eb084e60296c297b105e00d66a70bccf60a02039d",
+      "bytes": 855
+    },
+    {
+      "file": "extra/search-evidence/CONTINUE.md",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/CONTINUE.md",
+      "sha256": "fecab0053fa1da2d34d79aa4424c5d4b8940799c597630fd9cfadec7247d1250",
+      "bytes": 1544
+    },
+    {
+      "file": "extra/search-evidence/results.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/ru-corolla32-five-frozen.json.gz",
+      "sha256": "42cbbb29a0cb2f50c992c8ff5fd3b0c65b860764d0bb9dc19f5d5a7c05ab5cce",
+      "bytes": 6410
+    },
+    {
+      "file": "extra/search-evidence/handoff-state.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/handoff-state.json.gz",
+      "sha256": "d4050b2fd90d5de89400b7038861d047cd2baaad0d5fc72a380e826a75e92859",
+      "bytes": 1085
+    },
+    {
+      "file": "extra/search-evidence/C6G22-018-file-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6G22-018-file-page.txt",
+      "sha256": "e7b4f522105124728788dc3e6b19ae9a0643e42950b6263902e54a26e22b4ab9",
+      "bytes": 2069
+    },
+    {
+      "file": "extra/search-evidence/C6G22-018-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6G22-018-source-page.txt",
+      "sha256": "ab35b06f0312f64a1f9e8754b205d72cea5ef94e68573c17056750665835342b",
+      "bytes": 2258
+    },
+    {
+      "file": "extra/search-evidence/C6G22-018-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6G22-018-bounded-probe.json.gz",
+      "sha256": "d34717429334f7ab20e27066a8bebecf0b5e87991c4878d66ab56aa428a467db",
+      "bytes": 1524
+    },
+    {
+      "file": "extra/search-evidence/C6-015-file-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-015-file-page.txt",
+      "sha256": "482ad3b84a0751d997e4bbeefa489d05e253bd98af9cd4a010a3934f69d3e483",
+      "bytes": 2066
+    },
+    {
+      "file": "extra/search-evidence/C6-015-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-015-source-page.txt",
+      "sha256": "01a6744207e2a586977ac45d7f473215da7cd2a8a36ecc919e7adb3aa660c4d0",
+      "bytes": 2331
+    },
+    {
+      "file": "extra/search-evidence/C6-015-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-015-bounded-probe.json.gz",
+      "sha256": "0dfc3e13905bbd452d051515c58cda8247fb1a9ba881d9747938eec9871cd2c2",
+      "bytes": 1509
+    },
+    {
+      "file": "extra/search-evidence/C6-024-file-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-024-file-page.txt",
+      "sha256": "bb3577d5f4d4a754da6c772d92b63d4ee4c403a0e622d916ce1b4c9951988a5f",
+      "bytes": 3530
+    },
+    {
+      "file": "extra/search-evidence/C6-024-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-024-source-page.txt",
+      "sha256": "2bb90e8395a128cd105c86d9a412f0fa4aeeafe1507e4570d4adb14bff4c479e",
+      "bytes": 3789
+    },
+    {
+      "file": "extra/search-evidence/C6-024-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-024-bounded-probe.json.gz",
+      "sha256": "e3cd781ce7ee950dd6bcaa1a269b3c2b5e6e6757a0d7bda4a05e2a005fb7d509",
+      "bytes": 1537
+    },
+    {
+      "file": "extra/search-evidence/C6-028-file-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-028-file-page.txt",
+      "sha256": "393dcb6c10bb9483f34e8da10fc8189860ce602b91902e5bb71c4434f364bcde",
+      "bytes": 1860
+    },
+    {
+      "file": "extra/search-evidence/C6-028-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-028-source-page.txt",
+      "sha256": "c19b7b3116c8091128a35d98d88ce1a772cb28429fb953ef5ad52ee015fc5edf",
+      "bytes": 2093
+    },
+    {
+      "file": "extra/search-evidence/C6-028-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-028-bounded-probe.json.gz",
+      "sha256": "7e92f4c68ef5e1f2efce5dbfaf8a70fe226aa3721309625a926dec57003e2377",
+      "bytes": 1506
+    },
+    {
+      "file": "extra/search-evidence/C6-039-file-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-039-file-page.txt",
+      "sha256": "c3581d470b5aed5ef58ad8f0d1042b256a20e382ed8710b77b103b8c90e60dff",
+      "bytes": 1819
+    },
+    {
+      "file": "extra/search-evidence/C6-039-source-page.txt",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-039-source-page.txt",
+      "sha256": "84117b0fcd0a64d015c668db04b7227fc831e3a521606ffddf19280f87c3a33b",
+      "bytes": 1962
+    },
+    {
+      "file": "extra/search-evidence/C6-039-bounded-probe.json.gz",
+      "artifact_file": "reports/ru-image-search/artifacts/2026-11-13_32_corolla-e210-original-five-body-families/extra/search-evidence/C6-039-bounded-probe.json.gz",
+      "sha256": "fa86c5731c9fe0c217ec02f03ede4dc287a48d7b7eb9012aad123fb2322a971a",
+      "bytes": 1519
+    }
+  ],
+  "status": {
+    "status": "passed",
+    "generated_images_this_batch": 5,
+    "accepted_configurations_this_batch": 5,
+    "nonadopted_outputs_preserved": 0,
+    "accepted_tasks_total": 41,
+    "accepted_configurations_total": 131
+  }
+}
