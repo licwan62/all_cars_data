@@ -278,6 +278,35 @@ def identity_clearance(filename, old, record, queue_dir):
             'request_evidence': requests, 'legacy_root_hold_evidence': legacy_resolutions}
 
 
+
+def formal_unknown_guard(formal, key):
+    """A formal unresolved submission protects its task/DIM across source swaps.
+
+    Only the SHA-bound current register is authoritative here. Known failures or
+    resolved records are not blanket-banned, and old checkpoints remain valid.
+    """
+    cp = json.loads(formal['cp_raw'])
+    filename = cp.get('root_pending_reconciliation_file')
+    if not filename:
+        return None
+    expected = cp.get('root_pending_reconciliation_sha256')
+    if not expected:
+        raise ValueError('formal pending registry pointer lacks SHA256')
+    p = Path(filename)
+    p = p if p.is_absolute() else REPO / p
+    receipt = read_bound_json(p, expected)
+    registry = receipt['snapshot']
+    rows = registry.get('items', [registry])
+    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+        raise ValueError('formal pending registry items must be objects')
+    for row in rows:
+        if ((row.get('task_id'), row.get('dimension_id')) == key
+                and 'unknown' in str(row.get('status', '')).lower()
+                and row.get('retry_allowed') is False and row.get('output_sha256') is None):
+            raise ValueError('formal unknown request forbids requeue for this exact task/DIM; reconcile the existing submission before any source swap or identity clearance')
+    return receipt
+
+
 def pressure(state):
     ready = sum(i['status'] == 'ready' for i in state['items'])
     if ready >= state['config']['high_watermark']:
@@ -421,6 +450,7 @@ def execute(args):
             record = records[0]
             key = identity(record)
             formal = current_state(args.checkpoint)
+            pending_registry = formal_unknown_guard(formal, key)
             requirement = formal['requirements'].get(key)
             if requirement is None or key in formal['by_key'] or requirement.get('state') == 'accepted':
                 raise ValueError('requeue-held requires an unaccepted ordinary configuration in current formal scope')
@@ -460,6 +490,8 @@ def execute(args):
                 raise ValueError('checkpoint changed while requeuing held source; retry')
             if hashlib.sha256(Path(args.file).resolve().read_bytes()).hexdigest() != source_record_sha256:
                 raise ValueError('new source handoff changed during requeue; retry')
+            if pending_registry:
+                check_receipts([pending_registry])
             if clearance:
                 check_receipts([clearance['clearance'], clearance['identity_report'], clearance['zero_fee_proof'],
                     *clearance['request_evidence'], *clearance['legacy_root_hold_evidence']])

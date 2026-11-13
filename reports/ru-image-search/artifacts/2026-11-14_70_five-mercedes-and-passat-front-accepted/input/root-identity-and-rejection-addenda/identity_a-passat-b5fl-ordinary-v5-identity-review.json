@@ -1,0 +1,99 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at": "2026-11-13T21:51:06.694411+00:00",
+  "task_id": "RU-d7112bf1021a02e0",
+  "dimension_id": "Volkswagen Passat Sedan 2000-2005 RU",
+  "claim_id": "1e134c1913e24f29a153e98dd39ea182",
+  "source_sha256": "a42025dee9cbcf5d323268c89e362ca09f8070afde3b68aef429036b9cab5a2b",
+  "queue_source_sha256": "a42025dee9cbcf5d323268c89e362ca09f8070afde3b68aef429036b9cab5a2b",
+  "judgment": "PASS_IDENTITY_ONLY_POSITIVE_ORDINARY_AU_S_V5_APPLICABILITY",
+  "identity_only": true,
+  "same_source_clearance_recommendation": true,
+  "ready": false,
+  "generation_count": 0,
+  "scope": "Positive ordinary B5 facelift Sedan representative exterior applicability for this frozen aggregate; no final image acceptance, automatic queue reopening, exact source build date or Russian-sale trim claim.",
+  "original_source": {
+    "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-40732199.jpg",
+    "sha256": "a42025dee9cbcf5d323268c89e362ca09f8070afde3b68aef429036b9cab5a2b",
+    "format": "MPO",
+    "decoded_frame": 0,
+    "dimensions": [
+      4112,
+      3088
+    ],
+    "bytes": 6507772,
+    "page": "https://commons.wikimedia.org/wiki/File:2003_Volkswagen_Passat_(3BG_MY03)_S_V5_sedan_(2015-05-29)_01.jpg",
+    "author": "OSX",
+    "license": "Public domain, own work",
+    "metadata": "/workspace/ru_picture_producer/pilot20/source_c/passat-B5FL-sedan-source-pair.json"
+  },
+  "converted_input_not_queue_source": {
+    "file": "/workspace/ru_picture_producer/pilot20/P2/P2-067-Passat-B5FL-Sedan/source-0-frame0-lossless.png",
+    "sha256": "c45a2d6ca2c2dc6596c73eff195f9ade7d055cb0ff4cf3ac0343f5f94e77a823",
+    "rule": "This PNG SHA is an input derivative, never substitute it for a42025... original/queue SHA.",
+    "proof": "/workspace/ru_picture_producer/pilot20/P2/P2-067-Passat-B5FL-Sedan/lossless-input-proof.json"
+  },
+  "same_car_rear": {
+    "file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-40732235.jpg",
+    "sha256": "591c7a3f71fae55a34929845b37e6e2edf30ab1ff8f1aede85c83fbddf6079fe",
+    "role": "Same event/registration, silver body, matching wheels and black strips; visible V5 badge and mast. Rear identity/accessories only, not final rear camera."
+  },
+  "frozen_positive": {
+    "mapping_file": "/workspace/all_cars_data/nodes/01.整理尺寸库/artifacts/2026-11-12_01_json-interface-migration/output/来源映射_RU-20261112_01.json",
+    "literal": "RU|volkswagen/passat|B5 Рестайлинг|2000-2005|Sedan|-|-",
+    "raw_csv": "/workspace/all_cars_data/nodes/00.自动化尺寸抓取器/data/历史导入/ru/auto_ru_dimensions_with_match_key.csv",
+    "raw_csv_line_including_header": 77094,
+    "json_row_zero_based": 77092,
+    "modification": "2.3 AT (170 hp)",
+    "dimensions_mm": [
+      4703,
+      1746,
+      1462
+    ],
+    "source_c_extract": "/workspace/ru_picture_producer/pilot20/source_c/passat-frozen-modification-scope.json",
+    "interpretation": "Frozen ordinary B5FL Sedan aggregate explicitly contains corresponding2.3AT170hp powertrain/body. AU S V5 independently exists and is only5Tiptronic in that lineup; this is positive scope support rather than matching a generic name or disclaiming Russian origin."
+  },
+  "independent_evidence": "/workspace/ru_picture_producer/pilot20/identity_a/passat-b5fl-ordinary-v5-independent-evidence.json",
+  "positive_reasoning": [
+    "Actual AU primary shows four-door separate-boot3BG/B5FL Sedan, facelift angular lamp housings and chrome horizontal grille, black bumper/side rubstrip, full horizontal lowerintakes with no round fog and no US amber bumper marker.",
+    "Actual UK ordinary S2.0 photo66975689 independently shows same no-fog horizontal lower nose/black strips/noUSmarker in the same facelift body. It supports visible ordinary front only, not source V5 badge or engine.",
+    "VW UK2003 factory table positively permits no fogs even in V-range; fogs are not mandatory evidence of V5. The factory S equipment excludes the body-colour/chrome bump-strip upgrade, confirming black ordinary strips are not phase error or a sport kit.",
+    "AU S V5 combination is independently confirmed by contemporaneous VW AU launch reporting, with S/SE distinction and2.3V5/125kW/sole5Tiptronic. Combined with source rear actualV5 and exact frozen2.3AT row, ordinary no-fog/black-strip source is a supported representative exterior. UK V-range equipment is not imposed on AU S."
+  ],
+  "actual_viewed_files": [
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Passat-40732199-raw-review.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Passat-40732235-raw-review.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Passat-40732199-roof-review.png",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/Passat-66975689-bounded.jpg"
+  ],
+  "actual_observations": [
+    "Front and rear full-frame review copies actually rendered; both original MPO first frames independently fully decoded and SHA recalculated.",
+    "Front ordinary no-fog grille and black strips are visible, not inferred from title/date. The rear actual V5 emblem is visible. Ordinary source radial wheel appearance remains source-specific; no exact factory wheel diameter certified.",
+    "Same-car rear shows actual base and thin rearward mast; front roof crop is weak against fence but consistent. Do not replace mast with sharkfin or add rails. Source lower front scuffs may be cleaned without changing bumper design."
+  ],
+  "reference_roles": {
+    "production_primary": "Only licensed AU source a42025... controls silver paint, real wheel appearance, mirrors/handles, black strips, nofog/noUSmarker and actual body.",
+    "production_auxiliary": "Licensed same-car rear591c7... only identity/mast/body ancillary crosscheck; no rear-camera target.",
+    "identity_only_excluded_from_generation": [
+      "UK ordinary S2.0 photo66975689",
+      "VW UK brochure table/images",
+      "GoAuto article/images",
+      "Auto.ru USmarker/optionalroundfog family illustration"
+    ]
+  },
+  "prohibitions": [
+    "Do not copy fogs or US amber bumper markers from the family example.",
+    "Do not copy UK helper colour/wheelcaps/deterioration, or convert AU S trim to UK V-range17inch/chrome strip equipment.",
+    "Do not claim source VIN/engine certification, exact manufacture date, or that every Russian-market V5 had this equipment.",
+    "Do not infer true physical dimensions from pixels or reshape the car to the scalar values.",
+    "Retain coherent final front1/3 or1/2, complete real accessories and transparent margins; identity pass does not pre-accept camera/output."
+  ],
+  "preflight_status_at_review": {
+    "hold_file": "/workspace/ru_picture_producer/pilot20/P2/P2-067-Passat-B5FL-Sedan/zero-fee-preflight-hold.json",
+    "generation_count": 0,
+    "imagegen_started": false,
+    "queue_mutation_by_this_review": false,
+    "root_decides_reopening": true
+  },
+  "formal_queue_git_mutations": false
+}
