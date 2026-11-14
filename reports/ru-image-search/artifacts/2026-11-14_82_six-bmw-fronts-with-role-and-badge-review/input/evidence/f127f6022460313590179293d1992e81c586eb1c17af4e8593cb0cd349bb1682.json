@@ -1,0 +1,114 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at_utc": "2026-11-14T00:46:40.003834+00:00",
+  "request_id": "P2-090-repair01",
+  "task_id": "RU-d6567ab63ca99681",
+  "dimension_id": "BMW X3 SUV 2010-2014 RU",
+  "claim_id": "2bc7ea82c6aa44adbb09ba1b82dba14f",
+  "source_sha256": "6cf2a6a573a552af0549d516a0549d812f4f6b2d6f2833e5b84c74d5c6d6b37a",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P2/P2-090-BMW-X3-F25-original/repair01/padded.png",
+  "candidate_sha256": "394da733ce93a686f539f39b287a64371790551017c0fe2d460e6b55aa7318ad",
+  "raw_repair_sha256": "540f7f3fdd2859f25a3ce9d3b4073e63b69da1bcc45d9e8fd5a693a4f6192a83",
+  "judgment": "VISUALLY_COMPATIBLE_ADVISORY_NO_DEFINITE_ALTERNATE_MODEL_TEXT_NOT_CHARACTER_BY_CHARACTER_CERTIFIED",
+  "actual_viewed": [
+    "/workspace/ru_picture_producer/pilot20/source_d/bmw-x3/19112407-original.jpg",
+    "/workspace/ru_picture_producer/pilot20/P2/P2-090-BMW-X3-F25-original/repair01/badge-native-6x.png",
+    "/workspace/ru_picture_producer/pilot20/P2/P2-090-BMW-X3-F25-original/repair01/padded-gray.jpg",
+    "/workspace/ru_picture_producer/pilot20/identity_a/p2-090-badge-review/source-badge-nearest6x.png",
+    "/workspace/ru_picture_producer/pilot20/identity_a/p2-090-badge-review/r1-badge-nearest6x.png"
+  ],
+  "observation": {
+    "readable": "R1suffix28i is clear. Prefix has a large flowingcrossedx followed by a much more compact chrome microlettergroup/band, with theoverall arrangement compatible with source badge style.",
+    "not_resolved": "Individual strokes of the smallDrivegroup are merged by limited native pixels, bright chrome highlights and small italicstyle. Do not certify exactcapitalisation/everyriveglyph by expectation.",
+    "comparison": "Actual original source also has a very small blurred bright badge, largerleadingx/compactcenter/number-suffix arrangement. It cannot serve as a high-resolution letter-by-letter fontmaster. NewnativeR1 region supports the visibleform without requiring imagined subpixel strokes.",
+    "wrong_string_test": "No definite alternate engine suffix or explicitly different modelword was observed. The small group is unclear, rather than affirmative evidence of a misspelled/other-model inscription."
+  },
+  "advisory": "For the requested badge-only visual check, R1 is compatible and no concrete additional repair requirement follows from currentpixels alone. This is not definitive typography authentication and does not overwrite producer initialfalse/history or grant root whole-image acceptance.",
+  "pixel_provenance": {
+    "source_native_crop": [
+      568,
+      350,
+      640,
+      386
+    ],
+    "source_native_crop_size": [
+      72,
+      36
+    ],
+    "candidate_padded_native_crop": [
+      770,
+      530,
+      860,
+      568
+    ],
+    "candidate_native_crop_size": [
+      90,
+      38
+    ],
+    "review_copies": "Additional6x files made by PILNEAREST exactpixel repetitions fromthese nativecropregions, no sharpen/OCR/painting/AIenhancement. They enlarge existing information only. Producer supplied6x crop separately viewed; its interpolationmethod not assumed.",
+    "no_new_detail_claim": true
+  },
+  "limits": [
+    "Badgecosmeticmeaning doesnot authenticate source engine,VIN or exactgrade.",
+    "No wholebody/camera/accessory reacceptance is implied by viewing paddedwholefor context.",
+    "Do not create a flat vectorlabel or claim subpixel stroke recovery.",
+    "No R2 authorisation or request from this reviewer; root remains finalactualviewdecision maker."
+  ],
+  "file_manifest": [
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/source_d/bmw-x3/19112407-original.jpg",
+      "sha256": "6cf2a6a573a552af0549d516a0549d812f4f6b2d6f2833e5b84c74d5c6d6b37a",
+      "size": [
+        1300,
+        628
+      ],
+      "bytes": 282555
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-090-BMW-X3-F25-original/repair01/attempt01.png",
+      "sha256": "540f7f3fdd2859f25a3ce9d3b4073e63b69da1bcc45d9e8fd5a693a4f6192a83",
+      "size": [
+        1774,
+        887
+      ],
+      "bytes": 1527612
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/P2/P2-090-BMW-X3-F25-original/repair01/padded.png",
+      "sha256": "394da733ce93a686f539f39b287a64371790551017c0fe2d460e6b55aa7318ad",
+      "size": [
+        1812,
+        947
+      ],
+      "bytes": 1395783
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/identity_a/p2-090-badge-review/source-badge-native.png",
+      "sha256": "31c8d8048c3a5b4693fd83d1530c811eb6c628a97af1edecc7531512b070f2fd",
+      "size": [
+        72,
+        36
+      ],
+      "bytes": 3162
+    },
+    {
+      "file": "/workspace/ru_picture_producer/pilot20/identity_a/p2-090-badge-review/r1-badge-native.png",
+      "sha256": "c3b6f894e59581c66c385c6f85df97bf29e8071f9a265229b7438c7b83ec3fba",
+      "size": [
+        90,
+        38
+      ],
+      "bytes": 5782
+    }
+  ],
+  "operations": {
+    "network_calls": 0,
+    "generation_calls_by_reviewer": 0,
+    "queue_changes": 0,
+    "formal_ledger_changes": 0,
+    "git_changes": 0,
+    "existing_generation_calls": 2,
+    "existing_paid_repairs": 1,
+    "accepted": false
+  }
+}

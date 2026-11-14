@@ -1,0 +1,56 @@
+{
+  "request_id": "P1-094-repair02",
+  "claim_id": "f8eb4c7940ce4f688a0a29cd9990150a",
+  "task_id": "RU-37b5d4ade3382a5f",
+  "dimension_id": "Volkswagen Polo Sedan 2014-2020 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/P1/P1-094/repair01/P1-094-repair01-imagegen-original.png",
+  "input_sha256": "f8643e236da0f5f1e456e7efc4634f4caa11cf4d50215477ecad3b5c4a1b4556",
+  "generation_input_files": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-094/repair01/P1-094-repair01-imagegen-original.png",
+      "sha256": "f8643e236da0f5f1e456e7efc4634f4caa11cf4d50215477ecad3b5c4a1b4556",
+      "role": "repair01editcandidate"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_b/polo/sedan-fl-nickpr/original.jpg",
+      "sha256": "bea7edfd5fe939e12bc7314e103d017c23261f43d9ce253f5c5621ab41d6e95f",
+      "role": "originalsamecaridentity"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-094/repair02/source-stub-native-crop.png",
+      "sha256": "bd03ca53754d420d9181565227c4655d9827b5cb9b66238158293ee2fa00c78c",
+      "role": "nativeunresizedoriginalcropstubshapeonly"
+    }
+  ],
+  "source_page": "https://commons.wikimedia.org/wiki/File:2015_VW_Polo_Sedan_(1).jpg",
+  "source_license": {
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nick.Pr\" class=\"mw-redirect\" title=\"User:Nick.Pr\">Nick.Pr</a>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "source_crop_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-094/repair02/source-crop-proof.json",
+  "prompt": "Make the final local aerial-shape correction to Image 1, the current dark-blue Polo sedan candidate. Keep its coherent whole-car front three-quarter camera, paint and gloss, every body part, lamps, grille, wheels, tyres, mirrors, handles, badges and cabin unchanged. Image 2 is the original photograph of the same car. Image 3 is an unresized native crop from that original, showing the real aerial clearly; use this close detail for its shape only. Do not copy its sky, plants or source camera.\n\nThe current generated aerial has wrongly become a solid triangular cone or fin-like pedestal. Replace only that item with the real short black cylindrical rod seen in Image 3. Its shaft keeps approximately uniform thickness along its short length, ending in a softly rounded tip. It leans rearward and connects to a tiny unobtrusive roof base. There is open background beside the cylindrical shaft: it must not be filled into a triangular wedge. Do not draw a shark fin, tapered solid cone, a wide triangular foot, a detached thin whip or a long upper extension. Do not delete the rod or cut off its tip. Preserve the actual compact appearance relative to the nearby source roof and window structure, without asserting millimetres or using cross-camera pixel ratios as physical measurements.\n\nThis is an aerial-only correction. Leave the rest of the car and the new camera visually unchanged. Return the complete vehicle on a true transparent RGBA background with generous transparent margins, fine clean antialiasing, and no scene, floor, contact shadow, glow, halo, coloured fringe or detached alpha specks.",
+  "prompt_sha256": "6e49f07e0a69587b66b3aeed8af47480a64272fa341f5cc11951c4288ac2e47c",
+  "prompt_style": "natural_english_paragraphs_v1",
+  "parent_raw_visual_first_draft_pass": false,
+  "repair01_visual_pass": false,
+  "repair01_reason": "Stillwidefilledtriangularcone/finlikepedestal ratherthansourcecylindricalstub; actual6xviewed.",
+  "status": "returned_saved_needs_review",
+  "generator_submitted": true,
+  "generation_count": 1,
+  "paid_repair_index": 2,
+  "parent_generation_count": 2,
+  "transparent_background": true,
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "started_at": "2026-11-14T00:46:42.848867+00:00",
+  "returned_at": "2026-11-14T00:48:11.566854+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-094/repair02/P1-094-repair02-imagegen-original.png",
+  "output_sha256": "79f606e2c3357b8dd1f28ff56554ff448dc91c11d3417918aef232fd1162ccbf",
+  "output_dimensions": [
+    1536,
+    1024
+  ]
+}
