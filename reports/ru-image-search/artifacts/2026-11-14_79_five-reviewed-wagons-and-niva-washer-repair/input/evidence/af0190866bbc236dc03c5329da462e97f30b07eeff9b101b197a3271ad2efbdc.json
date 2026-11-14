@@ -1,0 +1,79 @@
+{
+  "request_id": "P1-082",
+  "claim_id": "ee8ecc4406c8400d9f4bc6be23b89f1b",
+  "task_id": "RU-ee2d48031699f8ff",
+  "dimension_id": "Mercedes-Benz E-Класс Wagon 2023-2026 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_b/mercedes-e/s214-standard-avantgarde/original.jpg",
+  "input_sha256": "a03691d9e0975c5ceb842ffd6dd9185b62d7f50db7c9efb2299b6fdf24885365",
+  "input_dimensions": [
+    4822,
+    2755
+  ],
+  "source_page": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_S214_220d_1X7A1976.jpg",
+  "source_license": {
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Alexander-93\" title=\"User:Alexander-93\">Alexander-93</a>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "started_at": "2026-11-13T23:47:42.656111+00:00",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-082/deterministic-repair/padded-canvas/MercedesS214OrdinaryWagon-roomy-transparent.png",
+  "candidate_sha256": "112635ca10246f78371bc41c3cfb88e7aed82b9367766df3fca84bb52e6e4a1a",
+  "worker_reviewed_at": "2026-11-13T23:50:19.944550+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root individual final review required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "actually_viewed": true,
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-082/raw-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-082/raw-black.png",
+    "reason": "Actual whole balancedfront1/2 longS214 blackWagon; ordinary mini-star singlebar grille/rounded dotcornerapron; same narrow splitwheels/BOTHFOLDEDmirrors/two silverrails retained; no backgroundhighfin copied."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      55,
+      71,
+      1745,
+      883
+    ],
+    "tires_cropped": false,
+    "bottom_margin_px": 4,
+    "detached_lowalpha_pixels": 161,
+    "max_original_alpha": 2,
+    "reason": "Disconnectedalpha<=2dust removed only; bottom4/right29px margins fail100prompt corrected purecanvas."
+  },
+  "visual_review": "Actualsourcefullpreview/native roof/near+farfoldedmirror and actualmanufacturerAvantgarde image viewed. Raw andfinalgrayblack viewed coherent wholefront1/2/fullyinside roundedtires/bumpers/rails. Blackestate longfive-door/S214ordinary singlebar mini-star grille/flatroundel/rounded dotcornerapron/thinbrightlip/source darksilver narrow splitspokes/foldedmirrors retained; no AMGfins/AllTerraincladding/raisedbackgroundsilverfin/longmast/crossbars. Dark reflective roof notcertifiedpanorama. Manufacturer render is identityonly notinput; itswheels/configuration notcopied.",
+  "identity_limits": "AuthorE220d and frozen220d197hp supports ordinaryfamily, noengine/VIN/suspension/buildday/MMcertification. Currentfactoryrender designpositiveonlynotdated2024spec certificate. Drom470024/frozen4949x1880x1469 and2961bodyprecision only. Fleetrear8552 differentfromtarget8545 NOTsamecar/notused. AlexanderMiglCCBYSA4 attribution/SA retained.",
+  "dimensions": [
+    1934,
+    1067
+  ],
+  "visible_margins_px": [
+    135,
+    151,
+    109,
+    104
+  ],
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-082/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-082/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-082/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-082/input-oss-proof.json",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-082/deterministic-repair/padded-canvas/MercedesS214OrdinaryWagon-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-082/deterministic-repair/padded-canvas/MercedesS214OrdinaryWagon-review-black.png",
+  "generation_calls": 1,
+  "paid_repairs": 0,
+  "cost": "unknown",
+  "deterministic_processing": "161disconnectedalpha<=2 only; mainRGBA/allRGB unchanged; purecanvas80/80/80/100 exactRGBAtranslation."
+}

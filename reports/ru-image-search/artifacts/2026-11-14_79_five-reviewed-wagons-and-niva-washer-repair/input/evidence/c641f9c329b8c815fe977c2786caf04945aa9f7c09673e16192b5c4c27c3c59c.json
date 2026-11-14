@@ -1,0 +1,64 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at_utc": "2026-11-13T23:59:30.511326+00:00",
+  "task_id": "RU-d0d4d6d935a0efc9",
+  "dimension_id": "Lada (ВАЗ) 2121 (4x4) SUV 1993-2020 RU",
+  "claim_id": "a9d6e5d6b6ad42199eb2937028240520",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-roomy-transparent.png",
+  "candidate_sha256": "82a701e7a283fd9b5c21a062c5ca14059ffe70704274b8404a998455aa0794aa",
+  "original_source_sha256": "a4ccad191911ea1c5ef4b9e2e4ca3112043cd69a5d4429e8314239b49bda3da0",
+  "previous_candidate_sha256": "7604fb868cd4a2e3d44fbd7686553567538d654d909b813f558e80eae7afe1de",
+  "judgment": "PASS_NARROW_VISUAL_ADVISORY_COMPACT_LOW_WASHER_NUB_NO_LONG_CAP_OR_FIN",
+  "actual_view_this_round": [
+    "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/washer-gray-6x.png",
+    "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-review-gray.png"
+  ],
+  "prior_actually_viewed_evidence": "identity_a/p1-075-niva-rear-roof-washer-review.json lists original full/nativecrop, factory2013E220 actualrender and actual2104-6318060 retailpart photo; not re-searched this round.",
+  "observation": "R1 has a compact rounded low dark bump connected directly to roof with a short foot/shadow. The earlier distinct elongated flattened trailing cap/base has disappeared. No rising blade, mast or long flat pad is visible. At full frame it reads as a tiny local roof point. This compact minimal form is compatible with the source-supported rear washer-jet presence and established ordinary-Niva installation type.",
+  "remaining_uncertainty": [
+    "The original2–3px dark source point cannot resolve actual jet outlet, housing wall, hidden base or precise physical size. R1 remains more legible than that point.",
+    "A small rendered foot/highlight remains; it is not the earlier long cap, but exact original casing/base has not been authenticated.",
+    "No differing-camera pixel ratio is used as physical measurement or size certificate.",
+    "No new determination of unseen under-roof stem or nozzle-orifice direction."
+  ],
+  "scope": "Only nozzle type/low attached silhouette and removal of prior false-long-cap appearance. Not a complete body/camera/accessory review and not root acceptance. No additional repair is required by this narrow observation alone.",
+  "file_manifest": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-roomy-transparent.png",
+      "sha256": "82a701e7a283fd9b5c21a062c5ca14059ffe70704274b8404a998455aa0794aa",
+      "bytes": 1961057,
+      "size": [
+        1696,
+        1204
+      ]
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/washer-gray-6x.png",
+      "sha256": "dc6d23f43db82e1f9a8cca30f10141c7f03e9b562eaf262809e9976524077d35",
+      "bytes": 101545,
+      "size": [
+        1140,
+        510
+      ]
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/source-rear-roof-native-3x.png",
+      "sha256": "894d5f51ebc20aa434d9c21eae3c2d68d83d20b6be3db4daf4da88b20b8e2233",
+      "bytes": 501575,
+      "size": [
+        1740,
+        450
+      ]
+    }
+  ],
+  "operations": {
+    "generation_calls_by_reviewer": 0,
+    "network_calls_this_round": 0,
+    "queue_edits": 0,
+    "formal_ledger_edits": 0,
+    "git_edits": 0,
+    "root_final_actual_view_required": true,
+    "existing_worker_total_generation_calls": 2,
+    "existing_worker_paid_repairs": 1
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "request_id": "P1-075-repair01",
+  "claim_id": "a9d6e5d6b6ad42199eb2937028240520",
+  "task_id": "RU-d0d4d6d935a0efc9",
+  "dimension_id": "Lada (ВАЗ) 2121 (4x4) SUV 1993-2020 RU",
+  "started_at": "2026-11-13T23:51:12.114907+00:00",
+  "returned_at": "2026-11-13T23:52:21.134888+00:00",
+  "generation_input_files": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-075/deterministic-repair/padded-canvas/NivaOrdinaryPre2020-roomy-transparent.png",
+      "sha256": "7604fb868cd4a2e3d44fbd7686553567538d654d909b813f558e80eae7afe1de",
+      "role": "currentcandidateedittarget"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-55316415.jpg",
+      "sha256": "a4ccad191911ea1c5ef4b9e2e4ca3112043cd69a5d4429e8314239b49bda3da0",
+      "role": "originalidentitywasherpositiononly"
+    }
+  ],
+  "identity_report": "/workspace/ru_picture_producer/pilot20/identity_a/p1-075-niva-rear-roof-washer-review.json",
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-roomy-transparent.png",
+  "candidate_sha256": "82a701e7a283fd9b5c21a062c5ca14059ffe70704274b8404a998455aa0794aa",
+  "review_recommendation": "ROOT_TARGETED_REVIEW_REQUIRED; no worker acceptance",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "queue_state": "root hold retained; no submit-review/reopen performed",
+  "parent_raw_visual_first_draft_pass": false,
+  "parent_raw_visual_history": "Previous nozzle shape hold retained; old initial worker null not silently overwritten.",
+  "repair_visual_pass": null,
+  "repair_visual_evidence": {
+    "actual_whole_gray_black_viewed": true,
+    "nozzle_native6x_viewed": true,
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-review-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-review-black.png",
+    "crop": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/washer-black-6x.png",
+    "reason": "Long trailing flatbase/cap removed visually. New item compact low rounded dark nub, not longcap/rod/fin. Still more resolved than original tiny2–3pxpoint: root must decide actualminimalform support, no physicalscale certification. Coherent frontcamera/greenordinary3door/bodyfront/steelholewheels/blackmirrors/metalrubberbumpers/3Cpillarslots visually retained; imagegen output not claimedbitwiseunchanged."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "body_alpha_ge16_bbox": [
+      20,
+      104,
+      1478,
+      983
+    ],
+    "detached_lowalpha_pixels": 201,
+    "max_original_alpha": 1,
+    "reason": "Rawleft20/right58/bottom41 fail100margin and201alpha1isolateddust; max254retainednotnormalized."
+  },
+  "dimensions": [
+    1696,
+    1204
+  ],
+  "visible_margins_px": [
+    100,
+    184,
+    138,
+    141
+  ],
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/input-oss-proof.json",
+  "original_identity_fullget": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/second-generation-input/input-oss-proof.json",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-075/repair01/deterministic-repair/padded-canvas/NivaOrdinaryPre2020WasherRepair01-review-black.png",
+  "generation_calls": 2,
+  "paid_repairs": 1,
+  "repair_generation_calls": 1,
+  "cost": "unknown",
+  "worker_reviewed_at": "2026-11-13T23:54:01.770478+00:00",
+  "limits": "OEM/merchant parts photos identityONLY notgenerationinputs. Onlycurrentcandidate+originallicensedphoto; no claimed source exactpartnumber/hiddenneck/mm orcrosscamerapixelphysicalscale. No morepaidrepairwithoutrootdecision."
+}
