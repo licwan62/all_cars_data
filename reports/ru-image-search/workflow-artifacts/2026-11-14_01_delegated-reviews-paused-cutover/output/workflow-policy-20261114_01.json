@@ -1,0 +1,15 @@
+{
+  "schema": "ru-image-workflow-policy/v2",
+  "mode": "delegated_reviews",
+  "paused": true,
+  "reviewer_prefixes": ["identity_"],
+  "identity_reviewers": ["identity_a", "identity_source"],
+  "visual_reviewers": ["identity_visual", "identity_final"],
+  "coordinator": {"actor": "root", "may_review_sources": false, "may_override_reviews": false, "human_visual_required": false},
+  "production_workers": ["P1", "P2"],
+  "verification_workers": ["V1", "V2"],
+  "limits": {"ready_high": 12, "ready_low": 6, "generation_in_flight": 3, "repairs_per_configuration": 2},
+  "scheduling": {"identity_priority": "final_visual_then_source_fifo", "worker_recovery": "restore_unknown_before_any_new_submission", "publication_batch_size": 6, "publication_max_delay_minutes": 5, "site_sync_minutes": 15},
+  "unknown_requests_retry_allowed": false,
+  "historical_approvals_preserved": true
+}

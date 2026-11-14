@@ -1,0 +1,133 @@
+{
+  "schema_version": 2,
+  "batch": "reports/ru-image-search/workflow-artifacts/2026-11-14_01_delegated-reviews-paused-cutover",
+  "version": "20261114_01",
+  "description": "delegated-reviews-paused-cutover",
+  "created_at": "2026-11-14T01:45:01+00:00",
+  "finished_at": "2026-11-14T01:45:02+00:00",
+  "command": [
+    "-"
+  ],
+  "inputs": [
+    {
+      "file": "reports/ru-image-search/work/checkpoint.json",
+      "artifact_file": "reports/ru-image-search/workflow-artifacts/2026-11-14_01_delegated-reviews-paused-cutover/input/checkpoint-before.json",
+      "sha256": "a166578d1241cc45ae8d821c86fe669e450916e2cf35aceab0112700bf2186ed",
+      "copied_because": "不在任何已发布节点的 output/ 中"
+    }
+  ],
+  "rules": {
+    "data_dir": "data",
+    "git_commit": "303e97c2c15f40b8fbb834e1ebbcd36b4582d889",
+    "copied": [],
+    "files": [
+      {
+        "file": "data/ru-image-search/WORKFLOW.md",
+        "sha256": "608c4148360f1dcb0952bb8937e6ab0d773bf395e0f0f434d8c3740eb0158dea",
+        "raw_sha256": "608c4148360f1dcb0952bb8937e6ab0d773bf395e0f0f434d8c3740eb0158dea",
+        "bytes": 7492
+      },
+      {
+        "file": "data/ru-image-search/workflow-policy.json",
+        "sha256": "893dacd58fe5fcde54d613430f0b6f0cf222d158a81ff57314822b3b0c83faa6",
+        "raw_sha256": "893dacd58fe5fcde54d613430f0b6f0cf222d158a81ff57314822b3b0c83faa6",
+        "bytes": 877
+      }
+    ]
+  },
+  "code": {
+    "git_commit": "303e97c2c15f40b8fbb834e1ebbcd36b4582d889",
+    "files": [
+      {
+        "file": "lib/artifact_batch.py",
+        "sha256": "d305f3bf833316cf958937bb5f6b31c59076a87893fcf6e39b23689d11544192"
+      },
+      {
+        "file": "lib/content_store.py",
+        "sha256": "318074dae395569eb9e01c468cba9f072303a40d40303afd9d22f3643d682930"
+      },
+      {
+        "file": "lib/cover_shape_contract.py",
+        "sha256": "9efe5219ea4d6499b3a31c3530739d39d43cc22deb19f348a72a1f01375d42bf"
+      },
+      {
+        "file": "lib/full_table_schema.py",
+        "sha256": "8bfe78b4e5672941489a9bb862da46a481ba11aacedc6d957987cdbce743a896"
+      },
+      {
+        "file": "lib/id_scheme.py",
+        "sha256": "e15941c1fadf5c44ec7bc8a859210fd2200ef1817e519c4205aeb02906290e66"
+      },
+      {
+        "file": "lib/json_interface.py",
+        "sha256": "f66adeae2a5753e438f64a4325bd2734484a654937488b40796f9ba5daa4df7a"
+      },
+      {
+        "file": "lib/materials.py",
+        "sha256": "a33d5162fa37472685972c82be260596e77afc3a4e4a906fae6ceda73a9abaa9"
+      },
+      {
+        "file": "lib/model_members.py",
+        "sha256": "f2fd9633cc9191a74111f60379efaa9a87898e6b9cef176cadb87190843c343f"
+      },
+      {
+        "file": "lib/node_html.py",
+        "sha256": "62b75df58cde87419e809f117d3d6c31b1d22354fefead312e11f7dd385acefe"
+      },
+      {
+        "file": "lib/node_paths.py",
+        "sha256": "574e76f72235d38cc73d7dc35be5e154226b33c6264723d4d402d4d46541f695"
+      },
+      {
+        "file": "lib/pipeline_contract.py",
+        "sha256": "8ec36295fa116a06bab3578a4f4cfee350eac52c04ef771a0e08412971f763f0"
+      },
+      {
+        "file": "lib/regional_size_common.py",
+        "sha256": "f14ee965565f221a248656c62f9e9a10de255e7d811ee285ff63073a66565f90"
+      },
+      {
+        "file": "lib/rules_snapshot.py",
+        "sha256": "66846fd3e49267c5830b3428b77382c29d9382bf01974516ce50d58a8a84975f"
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "file": "workflow-policy.json",
+      "versioned_file": "workflow-policy-20261114_01.json",
+      "artifact_file": "reports/ru-image-search/workflow-artifacts/2026-11-14_01_delegated-reviews-paused-cutover/output/workflow-policy-20261114_01.json",
+      "content_reference": true,
+      "sha256": "893dacd58fe5fcde54d613430f0b6f0cf222d158a81ff57314822b3b0c83faa6",
+      "bytes": 877,
+      "rows": null
+    },
+    {
+      "file": "checkpoint-proposal.json",
+      "versioned_file": "checkpoint-proposal-20261114_01.json",
+      "artifact_file": "reports/ru-image-search/workflow-artifacts/2026-11-14_01_delegated-reviews-paused-cutover/output/checkpoint-proposal-20261114_01.json",
+      "content_reference": true,
+      "sha256": "8c2fe8024d831b206924e029a54f1933585a9d3e4592d74a490e4978921a04d7",
+      "bytes": 5320,
+      "rows": null
+    },
+    {
+      "file": "cutover-audit.json",
+      "versioned_file": "cutover-audit-20261114_01.json",
+      "artifact_file": "reports/ru-image-search/workflow-artifacts/2026-11-14_01_delegated-reviews-paused-cutover/output/cutover-audit-20261114_01.json",
+      "content_reference": true,
+      "sha256": "49d5649893268c9f251bbd7a552bf0d4cfa472d3e3e8f4b02bf9a9fb5ce82720",
+      "bytes": 2032,
+      "rows": null
+    }
+  ],
+  "extras": [],
+  "extra_records": [],
+  "status": {
+    "status": "passed",
+    "kind": "workflow_only",
+    "production_paused": true,
+    "new_acceptances": 0,
+    "tests_passed": 117
+  }
+}

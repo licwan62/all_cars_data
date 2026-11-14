@@ -1,0 +1,44 @@
+{
+  "schema": "ru-image-workflow-cutover/v1",
+  "production_paused": true,
+  "generation_requests_submitted": 0,
+  "new_acceptances": 0,
+  "tests": {
+    "passed": 117,
+    "command": "python -B -m unittest discover -s tests -p 'test_ru_pilot*.py'"
+  },
+  "code_commit": "303e97c2c15f40b8fbb834e1ebbcd36b4582d889",
+  "based_on_checkpoint_sha256": "a166578d1241cc45ae8d821c86fe669e450916e2cf35aceab0112700bf2186ed",
+  "checkpoint_after_sha256": "8c2fe8024d831b206924e029a54f1933585a9d3e4592d74a490e4978921a04d7",
+  "formal_image_batch_preserved": "reports/ru-image-search/artifacts/2026-11-14_82_six-bmw-fronts-with-role-and-badge-review",
+  "progress_file_preserved": "reports/ru-image-search/artifacts/2026-11-14_82_six-bmw-fronts-with-role-and-badge-review/output/progress-20261114_82.json",
+  "progress_sha256_preserved": "c8fd0562ba1d63a27ab31a50495b499c2977ca8144ef7212a4f3d998b4216de7",
+  "baseline_counts": {
+    "current_front_view_accepted_configurations": 295,
+    "current_front_view_accepted_tasks": 92,
+    "current_front_view_accepted_csv_rows": 4,
+    "current_front_view_pending_review_configurations": 0,
+    "current_front_view_needs_retake_configurations": 34
+  },
+  "queue_before_sha256": "2df82e9530a8759c6abbfe812f063f8d2fa5c58f7c861568f716f43c211a226a",
+  "queue_after_sha256": "1d0b7220dbc59bbdf1fd92017eb4e8a711f8da39e6779b2f8640ae807b19630e",
+  "queue_counts_before": {
+    "done": 329,
+    "hold": 11,
+    "in_review": 7,
+    "producing": 2,
+    "ready": 3
+  },
+  "queue_counts_after": {
+    "done": 329,
+    "hold": 11,
+    "in_review": 7,
+    "producing": 2,
+    "identity_pending": 3
+  },
+  "non_ready_items_unchanged": true,
+  "unknown_registry_sha256_preserved": "640641e263d3a24f75e2b54f62356f695c16b47bd5a99e9d0a6d327b7ed1ce5a",
+  "policy_file": "reports/ru-image-search/workflow-artifacts/2026-11-14_01_delegated-reviews-paused-cutover/output/workflow-policy-20261114_01.json",
+  "policy_sha256": "893dacd58fe5fcde54d613430f0b6f0cf222d158a81ff57314822b3b0c83faa6",
+  "production_resumed": false
+}
