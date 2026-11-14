@@ -1,0 +1,86 @@
+{
+  "request_id": "P1-091",
+  "claim_id": "dbc4f340e70a45d8aa4b8738d8c2dbe5",
+  "task_id": "RU-9bb858bec3f905d9",
+  "dimension_id": "BMW X3 SUV 2014-2017 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_d/bmw-x3/41259975-original.jpg",
+  "input_sha256": "4e261b81fbd839965a85b75520a1b7a26cb345f9ebe0094bb913456b6bc0aae3",
+  "input_dimensions": [
+    4005,
+    2530
+  ],
+  "input_role": "verifiedfulloriginalAU_RHDfront",
+  "source_page": "https://commons.wikimedia.org/wiki/File%3A2015%20BMW%20X3%20%28F25%20LCI%29%20xDrive20d%20wagon%20%282015-06-27%29.jpg",
+  "source_license": {
+    "LicenseShortName": "Public domain",
+    "Artist": "OSX",
+    "LicenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-user"
+  },
+  "assigned_at": "2026-11-14T00:24:04.240390+00:00",
+  "source_ready_at": "2026-11-13T23:46:03.598216+00:00",
+  "material_ready_at": "2026-11-14T00:25:50.639981+00:00",
+  "started_at": "2026-11-14T00:25:50.639994+00:00",
+  "returned_at": "2026-11-14T00:27:17.212600+00:00",
+  "prompt_style": "natural_english_paragraphs_v1",
+  "prompt_style_observation_index": 2,
+  "prompt_style_observation_target": 5,
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-091/deterministic-repair/padded-canvas/BMWX3F25FaceliftOrdinarySUVRHD-roomy-transparent.png",
+  "candidate_sha256": "18ba933deda30f4ca4625df6601ce6d2fde22cfdca75cd1ec03979de1aa026e4",
+  "worker_reviewed_at": "2026-11-14T00:28:39.956125+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root actual individual review including lowroofcontour required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "actually_viewed": true,
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-091/raw-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-091/raw-black.png",
+    "roof4x": "/workspace/ru_picture_producer/pilot20/P1/P1-091/raw-roof-black-4x.png",
+    "reason": "Wholecoherentfront1/2whiteglossordinaryF25FL/RHD/sourcewheelsmirrors-silverrails/plainfront retained, source-supportedlowwhiteuppercontourbehindrail retainedcompact; no longmast/fullraisedfin. Rootmustcheckcontour withoutphysicalheightclaim."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "body_alpha_ge16_bbox": [
+      44,
+      104,
+      1505,
+      957
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 352,
+    "max_original_alpha": 1,
+    "bottom_margin_px": 67,
+    "reason": "352alpha1isolateddust/left44right31bottom67under100prompt; controlledcleanup/paddingneeded. Max254retainednotnormalized."
+  },
+  "visual_review": "Actuallysourcefull/native roof+own3xcrop650,40..1270,220 andRUDromordinaryF25FLactualfront viewed. Ownsourcecrop showslowwhite/silveruppercontour~x962–1004y123–133 behindsilverrail; hiddenbase/fullheightuncertified/notabsent. Raw/finalgrayblack+4xroofactuallyviewed coherentnewwholefront1/2noseRIGHTwhitegloss5doorSUV/LCIheadlampsreachkidneys/roundfogs+washercaps/ordinarytwohorizontalcornerblades/silverlowertrim/darkplasticarches-rocker/sourcepairedmultispokesilveralloys/whitemirrorcaps+repeaters/bodyhandles/chromewindowtrim/twosilverrails. Lowwhiteuppercontourbehindrail compactnotfullhighgenericfin, noXbar/mast/panoramicconversion. ActualAU/RHDsteering/wiperspreservednotmirrored. Noobviousrecognisablefence/tree/housereflectionsremain, simplewhiteglosshighlights. Wholetires/rails/mirrors/bumpersinside. Rootfinalcamera/body/accessorylowcontour/edges required.",
+  "identity_limits": "ActualAustraliaRHDOSXpublicdomain source2015caption/photo notbuild/VIN/preciseengine/grade/RussianoriginalLHDorheadlampregulatorycertification. VisibleordinaryF25FLbodyfrontpositiveRUDrom; frozenraw4657x1881x1661rounds183.3x74.1x65.4family notphotommcertificate. Rooflowexposedpartnotphysicaldimensions/hiddenbasecertainty. Manufacturer/catalogueidentityonlynotgenerationinput.",
+  "dimensions": [
+    1696,
+    1204
+  ],
+  "visible_margins_px": [
+    124,
+    184,
+    111,
+    167
+  ],
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-091/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-091/deterministic-repair/padded-canvas/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-091/deterministic-repair/padded-canvas/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-091/input-oss-proof.json",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-091/deterministic-repair/padded-canvas/BMWX3F25FaceliftOrdinarySUVRHD-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-091/deterministic-repair/padded-canvas/BMWX3F25FaceliftOrdinarySUVRHD-review-black.png",
+  "generation_calls": 1,
+  "paid_repairs": 0,
+  "cost": "unknown",
+  "deterministic_processing": "Onlydisconnectedalpha1 dustremoved/mainRGBA/allRGBunchanged; puretransparentcanvas80/80/80/100 exactRGBAtranslation."
+}

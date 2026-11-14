@@ -1,0 +1,76 @@
+{
+  "request_id": "P1-094-repair01",
+  "claim_id": "f8eb4c7940ce4f688a0a29cd9990150a",
+  "task_id": "RU-37b5d4ade3382a5f",
+  "dimension_id": "Volkswagen Polo Sedan 2014-2020 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/P1/P1-094/P1-094-imagegen-original.png",
+  "input_sha256": "37dbc5f904127f53c95d6cf64b4936202c496a54f1924325d5a65df2d0b3a7cf",
+  "generation_input_files": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/P1/P1-094/P1-094-imagegen-original.png",
+      "sha256": "37dbc5f904127f53c95d6cf64b4936202c496a54f1924325d5a65df2d0b3a7cf",
+      "role": "currentraweditcandidate"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_b/polo/sedan-fl-nickpr/original.jpg",
+      "sha256": "bea7edfd5fe939e12bc7314e103d017c23261f43d9ce253f5c5621ab41d6e95f",
+      "role": "originalsamecarshortstubidentityonly"
+    }
+  ],
+  "source_page": "https://commons.wikimedia.org/wiki/File:2015_VW_Polo_Sedan_(1).jpg",
+  "source_license": {
+    "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+    "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:Nick.Pr\" class=\"mw-redirect\" title=\"User:Nick.Pr\">Nick.Pr</a>",
+    "LicenseShortName": "CC BY-SA 4.0",
+    "UsageTerms": "Creative Commons Attribution-Share Alike 4.0",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "prompt": "Make one local accessory correction to Image 1, the current dark navy-blue Volkswagen Polo facelift sedan catalog candidate. Image 2 is the verified original photograph of that exact car, used only to recover the real roof aerial. Keep Image 1 whole-car front three-quarter camera, framing, colour and gloss finish, body proportions, lamps, grille, wheels, tyres, mirrors, handles, badges, glass, interior and all other physical trim unchanged. Do not return to the source camera or copy its background.\n\nCorrect only the aerial at the rear roof. The candidate currently has an overly slender, extended upper rod and a conspicuous triangular pedestal that do not match the source. Replace this generated shape with the actual short, relatively stout black stub with its softly rounded complete tip and small unobtrusive base, leaning rearward. The source stub is clearly complete against the sky, with a simple compact rod and no separate long whip above a large triangular foot. Keep its actual compact appearance relative to the nearby roof and window structure, without claiming millimetres or treating different-camera pixel lengths as a physical scale measurement. Do not erase the aerial, invent a shark fin, add crossbars, or clip its tip.\n\nThis is a narrowly targeted edit, not a new trim or material design. Preserve the rest of the vehicle and its new coherent camera. Return the entire complete car on a true transparent RGBA background with ample transparent margins, clean fine antialiasing, no floor, contact shadow, reflected scenery, glow, halo, coloured fringe or detached alpha specks.",
+  "prompt_sha256": "0c51b8debe0174d94f53e9fd844f3dd2ff4dae9437b619d0d9ecc4256e240077",
+  "prompt_style": "natural_english_paragraphs_v1",
+  "parent_raw_visual_first_draft_pass": false,
+  "parent_raw_visual_evidence": {
+    "actually_viewed": true,
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-094/raw-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-094/raw-black.png",
+    "mast6x": "/workspace/ru_picture_producer/pilot20/P1/P1-094/raw-mast-black-6x.png",
+    "reason": "Generatedslenderextendedupperrod/conspicuoustriangularpedestal differsactualcompactshortroundedstub; no physicalsizeclaim/crosscamerapixelformula."
+  },
+  "parent_raw_technical_first_draft_pass": false,
+  "parent_raw_technical_evidence": {
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "body_alpha_ge16_bbox": [
+      61,
+      137,
+      1474,
+      955
+    ],
+    "detached_lowalpha_pixels": 2809,
+    "max_original_alpha": 1,
+    "reason": "Disconnectedlowalphadust/left61right62bottom69under100margin; max254notnormalized."
+  },
+  "status": "returned_saved_needs_review",
+  "generator_submitted": true,
+  "generation_count": 1,
+  "paid_repair_index": 1,
+  "parent_generation_count": 1,
+  "started_at": "2026-11-14T00:43:13.892333+00:00",
+  "transparent_background": true,
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "returned_at": "2026-11-14T00:44:42.155055+00:00",
+  "output_file": "/workspace/ru_picture_producer/pilot20/P1/P1-094/repair01/P1-094-repair01-imagegen-original.png",
+  "output_sha256": "f8643e236da0f5f1e456e7efc4634f4caa11cf4d50215477ecad3b5c4a1b4556",
+  "output_dimensions": [
+    1536,
+    1024
+  ]
+}

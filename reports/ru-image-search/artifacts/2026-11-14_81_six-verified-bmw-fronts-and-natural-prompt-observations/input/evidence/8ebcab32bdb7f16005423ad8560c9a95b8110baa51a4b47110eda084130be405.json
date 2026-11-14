@@ -1,0 +1,96 @@
+{
+  "request_id": "P1-089",
+  "claim_id": "81bc962a47344d8785c5da440212c9ea",
+  "task_id": "RU-e447f4acbc5aaa6b",
+  "dimension_id": "BMW X3 SUV 2006-2010 RU",
+  "input_file": "/workspace/ru_picture_producer/pilot20/source_d/bmw-x3/4266259-original.jpg",
+  "input_sha256": "30336c3795e49a54fbd07753e2a5539702b0ffdb9a3eb117721745ee03958516",
+  "input_dimensions": [
+    2234,
+    1369
+  ],
+  "input_role": "fulloriginalfrontcamera",
+  "source_page": "https://commons.wikimedia.org/wiki/File%3ABMW%20X3%20Facelift%20front.jpg",
+  "source_license": {
+    "LicenseShortName": "CC BY-SA 3.0",
+    "Artist": "M 93",
+    "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "assigned_at": "2026-11-14T00:13:53.807459+00:00",
+  "source_ready_at": "2026-11-13T23:43:47.836918+00:00",
+  "material_ready_at": "2026-11-14T00:16:05.797356+00:00",
+  "started_at": "2026-11-14T00:16:30.628475+00:00",
+  "returned_at": "2026-11-14T00:17:45.785224+00:00",
+  "generation_input_files": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_d/bmw-x3/4266259-original.jpg",
+      "sha256": "30336c3795e49a54fbd07753e2a5539702b0ffdb9a3eb117721745ee03958516",
+      "role": "primaryfrontcameraidentity"
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_d/bmw-x3/4266263-original.jpg",
+      "sha256": "d9a0378471d6646b6c692e0e198ef3350d0352ef46f09de2797912537c833fad",
+      "role": "pairedrearblackfinrailsbodyonlyNOTcamera"
+    }
+  ],
+  "candidate_file": "/workspace/ru_picture_producer/pilot20/P1/P1-089/deterministic-repair/padded-canvas-v2/BMWX3E83FaceliftOrdinarySUV-roomy-transparent.png",
+  "candidate_sha256": "fed4942d9485a36ab5ffd090bf82e31bf3c9fb6def04cddc61c66035a5fc41b1",
+  "worker_reviewed_at": "2026-11-14T00:20:04.515686+00:00",
+  "accepted": false,
+  "acceptance_completed_at": null,
+  "review_recommendation": "PASS_ADVISORY root actual individual review required",
+  "raw_visual_first_draft_pass": true,
+  "raw_visual_first_draft_evidence": {
+    "actually_viewed": true,
+    "gray": "/workspace/ru_picture_producer/pilot20/P1/P1-089/raw-gray.png",
+    "black": "/workspace/ru_picture_producer/pilot20/P1/P1-089/raw-black.png",
+    "fin4x": "/workspace/ru_picture_producer/pilot20/P1/P1-089/raw-fin-black-4x.png",
+    "reason": "Coherentfront1/2blackordinaryE83FL/bodycolourupperfront/roundfogs/chromekidneys/5curvedspokes/blackrails+compacttriangularfin confirmedpairedrear. No rearcamera."
+  },
+  "raw_technical_first_draft_pass": false,
+  "raw_technical_first_draft_evidence": {
+    "size": [
+      1619,
+      972
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "body_alpha_ge16_bbox": [
+      35,
+      61,
+      1606,
+      956
+    ],
+    "tires_cropped": false,
+    "detached_lowalpha_pixels": 1070,
+    "max_original_alpha": 2,
+    "bottom_margin_px": 16,
+    "reason": "1070alpha<=2isolateddust/left35top61right13bottom16under100prompt; controlledcleanup/paddingneeded."
+  },
+  "visual_review": "Actuallyfrontfull/native roof,pairedrearfull/nativeroof andRUDromordinaryE83FLfront viewed. Frontfinunresolvedduebacklight, pairedrearcompleteblacktriangularfin/apex/base+backgroundgap/twoblackraisedrails corroborateaccessory. Raw+finalgrayblack wholefront1/2 viewed plusrawfin4x: compactblacktriangularfin complete/withrailfrontselfocclusion not copiedrearheightpixelwise. Sourceblackdarkmetallicbody/ordinaryFLbodycolourupperapron/roundfogsurrounds-blacklowercentre/PDC/chromekidneybars/whiteouterlamps/5broadcurvedsilveralloys/blackhandlesmirrors/brightlowerdoorstrip retained. No preallblackupperbumper/Mkit/noXbars/longmast. Wholetires/rails/fin/mirrors/bumpersinsidev2canvas. Plainroofreflectivenotcertifiedpano. Rootfinalcamera/body/accessory/edge acceptance required.",
+  "identity_limits": "ActualM93pair2008-06-23samevisibleblackconfiguration/setting/wheels/rails positive notVINcertificate, noengine/grade/buildyear/mmcertification. Front2234x1369/rear2250x1396fullsource GETSHAclosedbeforegen; rearonlyfinrailsbody notcamera. FLfrozenraw4569x1853x1674=179.9x73.0x65.9in, notpre4565scalarpack; RUDrompositiveordinaryFLfrontshape. M93CCBYSA3credit/SAretained, catalogidentityonlynotinput.",
+  "dimensions": [
+    1799,
+    1152
+  ],
+  "visible_margins_px": [
+    115,
+    141,
+    113,
+    116
+  ],
+  "repair_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-089/deterministic-repair/repair-proof.json",
+  "canvas_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-089/deterministic-repair/padded-canvas-v2/canvas-proof.json",
+  "oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-089/deterministic-repair/padded-canvas-v2/oss-proof.json",
+  "input_oss_proof": "/workspace/ru_picture_producer/pilot20/P1/P1-089/input-oss-proof.json",
+  "second_generation_input_fullget": "/workspace/ru_picture_producer/pilot20/P1/P1-089/second-generation-input/input-oss-proof.json",
+  "gray_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-089/deterministic-repair/padded-canvas-v2/BMWX3E83FaceliftOrdinarySUV-review-gray.png",
+  "black_preview": "/workspace/ru_picture_producer/pilot20/P1/P1-089/deterministic-repair/padded-canvas-v2/BMWX3E83FaceliftOrdinarySUV-review-black.png",
+  "generation_calls": 1,
+  "paid_repairs": 0,
+  "cost": "unknown",
+  "deterministic_processing": "Onlydisconnectedalpha<=2 dustremoved/mainRGBA/allRGBunchanged; puretransparentcanvasL80R100T80B100 exactRGBAtranslation. FirstcanvasR93pxmarginsretainedhistorynotused; v2R113."
+}
