@@ -36,3 +36,16 @@ For isolated validation, global `--queue` and `--checkpoint` precede the subcomm
 ```sh
 PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s /workspace/all_cars_data/tests -p test_ru_pilot_queue.py -v
 ```
+
+
+## 2026-11-14 代表外观与标量资料争议的登记
+
+范围仍是冻结的1309任务、2394配置和500行映射。普通制图提供有来源的代表外观，不从照片认证毫米尺寸、实车悬挂或型式批准。
+
+已实际正向证明同代际、改款、车身、外观版本和市场适用（精确primary及独立正证），且没有已知不同车壳、保险杠或具名底盘版本等迹象时，仅有资料标量数值冲突不单独形成生产hold。source应保留全部原始值、来源和未解状态，登记`scalar_discrepancy`，不改冻结字段，不称同一舍入箱或已证笔误；生产不得拉伸、抬高、换轮凑值。合法原件、实际部件核对、前方1/3或1/2、整车完整、逐图验收、OSS完整GET/SHA/解码仍须完成。
+
+家族相似或免责声明不代替正向身份。真实宽体、长轴、不同改款/市场前脸或灯件、具名跨界/加高/底盘版本、实际附件争议及身份证据不足仍需独立复核或hold。已知RU与EU技术表差异须真实披露，不猜原因或认证同悬挂。许可与可见部件不完整也不由标量登记豁免。
+
+旧hold和错误概括追加更正，保留原文件/SHA。已0genheld的队列恢复仍走root签署的同源clearance门禁；任何在途、返回或未知请求都不据此重发。最终root实际视觉批准与正式入账独立进行。
+
+真实enqueue新增且ready>0时，source可followup无producing领取的producer，要求先恢复checkpoint/在途再原子claim；running状态也可能只是收尾。此通知解决退出竞态，不取消当前任务、不硬指定重复配置；已有producing的消费者正常继续。正式台账与Git仍仅root修改。

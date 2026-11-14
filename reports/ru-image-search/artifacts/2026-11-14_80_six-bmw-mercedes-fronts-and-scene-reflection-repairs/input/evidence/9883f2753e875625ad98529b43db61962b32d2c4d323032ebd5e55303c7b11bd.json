@@ -1,0 +1,94 @@
+{
+  "reviewer": "identity_a",
+  "reviewed_at_utc": "2026-11-14T00:08:24.509870+00:00",
+  "task_id": "RU-713d11ff5afba4e8",
+  "dimension_id": "BMW 3 серии Compact Hatchback 2001-2007 RU",
+  "source_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3021162.jpg",
+  "source_sha256": "b2378c341ab9433cf9c053e7ed2685140d39ae6cb821642c110975c652181d28",
+  "auxiliary_rear_file": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-aux-3021165-rear.jpg",
+  "auxiliary_rear_sha256": "bbbaad6d12c33ad6e03531a818f279797f012be321fe4c04599b9c84dbe53190",
+  "judgment": "PASS_NARROW_REFERENCE_VISIBLE_EXTREMELY_LOW_RED_ROOF_CONTOUR_ONLY_NO_MAST_OR_INVENTED_FIN",
+  "actual_viewed": [
+    "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3021162.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW3-3021162-roof-boundary-native4x.png",
+    "/workspace/ru_picture_producer/pilot20/source_c/originals/C-aux-3021165-rear.jpg",
+    "/workspace/ru_picture_producer/pilot20/source_c/previews/primary-BMW3-E46-Compact-exact.jpg"
+  ],
+  "finding": {
+    "background_pipe": "Actual full image and aligned4x crop show a thick pale/green diagonal member with bends/parallel highlight continuing into fixed background behind roof. It is not supported as an antenna fitted to the car; exclude the entire long member and its dark overlapping background segment.",
+    "target_low_contour": "At the roof boundary immediately near the pipe projection there is a separate extremely low red angular ridge/point, consistent in colour and continuity with car roof. Its visible red silhouette can be retained as a small low contour; do not enlarge it into a tall fin or use the pipe as its mast.",
+    "rear_limits": "Linked rear is consistent red ordinary Compact/same wheels and body context but low viewing angle does not resolve this tiny point or its hidden base. It does not prove absence and cannot supply a new height/shape.",
+    "primary_limits": "Exact primary image confirms ordinary three-door Compact/body/front context, not the function or stock status of this individual roof point."
+  },
+  "role_boundary": {
+    "production_main": "Only original licensed front source is designated production reference by C packet.",
+    "rear": "Evidence-only body/roof corroboration; not automatically added generation input.",
+    "allowed": "Keep only the actually visible extremely low red roof contour at corresponding roof position in a coherent new front view, with minimal source-supported silhouette.",
+    "forbidden": [
+      "No background diagonal pipe/rod transplanted to car",
+      "No brand-default long aerial or standard shark fin",
+      "No extrapolated hidden long base or taller blade",
+      "No deleting the visible low red point merely because rear does not show it",
+      "No assigning part number/function or claiming factory-stock accessory without independent evidence",
+      "No photo pixel ratios as millimetre measurement"
+    ]
+  },
+  "remaining_uncertainty": [
+    "Exact component function and original fitting/stock status unresolved. The finding authenticates a visible low contour, not a named antenna type.",
+    "Full three-dimensional housing/hidden base cannot be inferred from front point or lower-angle rear. A final output must not introduce unsupported detail under a newly exposed camera.",
+    "This is roof-reference applicability only, not final render acceptance or blanket identity/technical recertification."
+  ],
+  "source_license_context": {
+    "front_record": "/workspace/ru_picture_producer/pilot20/source_c/bmw3-E46-Compact-red-source-record.json",
+    "rear_record": "/workspace/ru_picture_producer/pilot20/source_c/bmw3-E46-Compact-red-rear-record.json",
+    "recorded_author": "Rudolf Stricker / Randy43",
+    "recorded_licence": "CC BY-SA3.0; source record self-photographed",
+    "date_limit": "Both described as photographed2007-11-04; this is not production-year proof."
+  },
+  "file_manifest": [
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-new-3021162.jpg",
+      "sha256": "b2378c341ab9433cf9c053e7ed2685140d39ae6cb821642c110975c652181d28",
+      "size": [
+        1821,
+        1188
+      ],
+      "bytes": 528909
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/originals/C-aux-3021165-rear.jpg",
+      "sha256": "bbbaad6d12c33ad6e03531a818f279797f012be321fe4c04599b9c84dbe53190",
+      "size": [
+        1992,
+        1167
+      ],
+      "bytes": 448379
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/previews/BMW3-3021162-roof-boundary-native4x.png",
+      "sha256": "69b6e89ec0f61a0d1e7b54e49af9bdff80a2158f2ed664aa8b7cee880480373e",
+      "size": [
+        1280,
+        960
+      ],
+      "bytes": 688768
+    },
+    {
+      "path": "/workspace/ru_picture_producer/pilot20/source_c/previews/primary-BMW3-E46-Compact-exact.jpg",
+      "sha256": "d375c6c23eeae48e6ffe84fb5589f0bae85d32cf629f77b48f2e7dfa051babb9",
+      "size": [
+        1024,
+        650
+      ],
+      "bytes": 68448
+    }
+  ],
+  "operations": {
+    "network_calls": 0,
+    "generation_calls": 0,
+    "queue_changes": 0,
+    "formal_ledger_changes": 0,
+    "git_changes": 0,
+    "root_final_review_required": true
+  }
+}
