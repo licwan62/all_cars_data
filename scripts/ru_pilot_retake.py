@@ -124,6 +124,13 @@ def validate_old(plan, state, plan_id, task_id, dimension_id, expected_sha):
 
 
 def validate_front(entry):
+    if entry.get('root_signoff', {}).get('basis') == 'delegated_reviews':
+        from ru_pilot_delegated_review import validate_front_receipt
+        validate_front_receipt(entry)
+        signoff = entry['root_signoff']
+        if signoff.get('plan_id') != entry['plan_id'] or signoff.get('replaces_sha256') != entry['replaces_sha256']:
+            raise ValueError('replacement machine registration must bind plan_id and replaces_sha256')
+        return
     review = entry.get('front_view_review', {})
     if (review.get('reviewer') != 'root' or review.get('passed') is not True
             or review.get('view') not in ('front_1_3', 'front_1_2')
@@ -147,12 +154,20 @@ def report(plan, index):
         replacement = entry.get('replacement', {}) if entry else {}
         front = entry.get('front_view_review', {}) if entry else {}
         signoff = entry.get('root_signoff', {}) if entry else {}
+        delegated_front = False
+        if signoff.get('basis') == 'delegated_reviews':
+            try:
+                from ru_pilot_delegated_review import validate_front_receipt
+                validate_front_receipt(entry)
+                delegated_front = True
+            except (ValueError, OSError, KeyError, TypeError):
+                pass
         complete = (signoff.get('actor') == 'root' and signoff.get('decision') == 'accepted'
                     and signoff.get('candidate_sha256') == current
                     and signoff.get('plan_id') == plan_id and signoff.get('replaces_sha256') == old
                     and current != old and replacement.get('plan_id') == plan_id
                     and replacement.get('replaces_sha256') == old
-                    and front.get('passed') is True and front.get('reviewer') == 'root'
+                    and front.get('passed') is True and (front.get('reviewer') == 'root' or delegated_front)
                     and front.get('candidate_sha256') == current
                     and front.get('source_sha256') == entry.get('source_sha256')
                     and front.get('view') in ('front_1_3', 'front_1_2'))

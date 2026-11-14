@@ -13,6 +13,10 @@ def accepted_sha(entry):
 
 def new_front_review(entry):
     signoff = entry.get('root_signoff', {})
+    if isinstance(signoff, dict) and signoff.get('basis') == 'delegated_reviews':
+        from ru_pilot_delegated_review import validate_front_receipt
+        validate_front_receipt(entry)
+        return
     review = entry.get('front_view_review', {})
     if not isinstance(signoff, dict) or not isinstance(review, dict):
         raise ValueError('front-view root signoff/review must be objects')
@@ -73,16 +77,16 @@ def apply(data, progress, index, accepted):
         key = entry['task_id'], entry['dimension_id']
         bound = gate['records'].get(key)
         if key in new:
-            status, basis = 'front_verified', 'New per-image root front_view_review bound to current source and candidate SHA'
+            status, basis = 'front_verified', 'New independent per-image front_view_review bound to current source and candidate SHA'
         elif bound and (bound.get('accepted_sha256') or bound.get('candidate_sha256')) == accepted_sha(entry):
             status, basis = bound['status'], bound.get('basis', 'Root-provided SHA-bound camera revalidation gate')
         else:
             try:
                 new_front_review(entry)
-            except (ValueError, KeyError, TypeError):
+            except (ValueError, OSError, KeyError, TypeError):
                 status, basis = 'pending_front_review', 'No current-SHA camera review; historical/source approval is insufficient'
             else:
-                status, basis = 'front_verified', 'Existing exact-source/output-SHA root front_view_review, not historical identity approval'
+                status, basis = 'front_verified', 'Existing exact-source/output-SHA front_view_review, separate from historical identity approval'
         passed = STATUSES[status]
         # Do not overwrite passed, user_approved, review/signoff or identity/license data.
         entry['current_front_view_status'] = status
@@ -115,7 +119,7 @@ def apply(data, progress, index, accepted):
         field: 'Historical approval coverage under prior criteria; not completion of the mandatory current front1/3 or1/2 camera gate.'
         for field in ('accepted', 'accepted_tasks', 'accepted_images', 'accepted_dimension_records', 'accepted_csv_rows', 'remaining_tasks', 'remaining_dimension_records', 'remaining_csv_rows')})
     progress['count_definitions'].update({
-        'current_front_view_accepted_configurations': 'Current exact-SHA root camera gate/front_view_review verified configurations only.',
+        'current_front_view_accepted_configurations': 'Current exact-SHA camera gate or independent front_view_review verified configurations only.',
         'current_front_view_accepted_tasks': 'All requirements of a task must be currently front_verified; historical task approval alone is insufficient.',
         'current_front_view_accepted_csv_rows': 'Every requirement referencing a scope row must be currently front_verified.'})
     by_key = {(r['task_id'], r['dimension_id']): r for r in rows}

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Create an immutable root-reviewed pilot batch; never installs its checkpoint proposal.
+"""Create an immutable coordinator-registered pilot batch; never installs its checkpoint proposal.
 
-Input is a JSON list. Each item requires reviewer='root', passed=true, reviewed_at,
+Input is a JSON list. Legacy items require reviewer='root'; explicit delegated policy
+requires independent identity/visual receipts and machine registration. Each requires passed=true, reviewed_at,
 task_id, dimension_id, claim_id, scope_rows, candidate_file/candidate_sha256,
 source_file/source_sha256, source_page, source_license, identity_observation,
 review_file, and evidence_files (JSON paths). --actor root asserts the coordinator
@@ -70,6 +71,20 @@ def validate(args):
         if formal['cp_raw'] != cp_raw:
             raise ValueError('checkpoint changed during replacement validation; retry')
     evidence = {}
+    policy_path = getattr(args, 'policy_file', None) or cp.get('workflow_policy_file')
+    policy = None
+    if policy_path:
+        policy_path = local(policy_path)
+        policy_raw, policy = rawjson(policy_path)
+        if cp.get('workflow_policy_file'):
+            pinned = local(cp['workflow_policy_file']).read_bytes()
+            if digest(pinned) != cp.get('workflow_policy_sha256') or digest(policy_raw) != digest(pinned):
+                raise ValueError('checkpoint workflow policy SHA mismatch')
+        if policy.get('mode') != 'delegated_reviews' or type(policy.get('paused')) is not bool:
+            raise ValueError('explicit delegated_reviews policy and boolean paused required')
+        if policy['paused'] and entries:
+            raise ValueError('workflow is paused; publication of new acceptance is disabled')
+        evidence[str(policy_path)] = policy_raw
     seen = set()
     requirements = {(t['id'], r['DIMENSION-ID']): r for t in progress['tasks'] for r in t['requirements']}
     for entry in entries:
@@ -80,7 +95,17 @@ def validate(args):
         for field in required:
             if field not in entry or entry[field] is None or entry[field] == '' or entry[field] == []:
                 raise ValueError(f'missing acceptance field: {field}')
-        if entry['reviewer'] != 'root' or entry['passed'] is not True:
+        delegated = entry.get('root_signoff', {}).get('basis') == 'delegated_reviews'
+        if policy:
+            from ru_pilot_delegated_review import validate_delegated_entry
+            paths = validate_delegated_entry(entry, policy)
+            # Retain JSON receipts only. Vehicle/readback bytes stay in private OSS.
+            for path in paths:
+                if path.suffix.lower() == '.json':
+                    evidence[str(path)] = path.read_bytes()
+        elif delegated:
+            raise ValueError('delegated acceptance requires explicit workflow policy')
+        elif entry['reviewer'] != 'root' or entry['passed'] is not True:
             raise ValueError('worker review is not root acceptance; reviewer=root and passed=true required')
         signoff = entry.get('root_signoff', {})
         if (signoff.get('actor') != 'root' or signoff.get('decision') != 'accepted'
@@ -132,7 +157,7 @@ def validate(args):
     return dict(cp=cp, cp_path=cp_path, cp_raw=cp_raw, progress=progress, progress_path=progress_path,
                 progress_raw=progress_raw, index=index, index_path=index_path, index_raw=index_raw,
                 inputs_path=inputs_path, inputs_raw=inputs_raw, entries=entries, evidence=evidence,
-                replacement=replacement, retake_plan=retake_plan,
+                replacement=replacement, retake_plan=retake_plan, policy=policy, policy_path=policy_path,
                 retake_mapping_override=getattr(args, 'retake_plan', None), retake_plan_override=getattr(args, 'plan_file', None),
                 candidates_path=candidates_path, candidates_raw=candidates_raw)
 
@@ -150,8 +175,13 @@ def json_nodes(value):
 def prepare_optional(data, args):
     data['registered_candidates'] = None
     data['metrics'] = None
-    if getattr(args, 'front_view_gate', None):
-        prepare_front_gate(data, args.front_view_gate)
+    gate_file = getattr(args, 'front_view_gate', None)
+    if data.get('policy') and not gate_file:
+        gate_file = data['cp'].get('current_view_gate_file')
+        if not gate_file:
+            raise ValueError('delegated publication requires current exact-SHA front-view gate')
+    if gate_file:
+        prepare_front_gate(data, gate_file)
     if getattr(args, 'metrics_report', None):
         metrics_path = local(args.metrics_report)
         raw, metrics = rawjson(metrics_path)
@@ -209,7 +239,7 @@ def prepare_optional(data, args):
             raise ValueError('existing source SHA belongs to another task; explicit applicability reconciliation required')
         if candidate is None:
             receipts = []
-            # Only root-signed evidence_files are eligible, never an unrelated final proof.
+            # Only validated acceptance evidence_files are eligible, never an unrelated final proof.
             for filename in entry['evidence_files']:
                 for node in json_nodes(json.loads(data['evidence'][str(local(filename))])):
                     exact = node.get('full_get_sha256') == h and node.get('full_get_decoded') is True
@@ -234,7 +264,7 @@ def prepare_optional(data, args):
                 'download': {'local_file': str(source_path), 'sha256': h, 'bytes': source_path.stat().st_size,
                     'decode_verified': True, 'status': 'verified_source', 'oss_full_get_evidence': receipts},
                 'visual_verified': True, 'accepted': False, 'production_accepted': False,
-                'registration_basis': 'Root-signed acceptance, verified local source SHA and decoded exact-source full-GET evidence',
+                'registration_basis': 'Validated acceptance receipts, verified local source SHA and decoded exact-source full-GET evidence',
                 'candidate_aliases': []}
             candidates.append(candidate)
             by_sha.setdefault(h, []).append(candidate)
@@ -427,8 +457,11 @@ def execute(args):
         reusable[h] = target
         evidence_refs.append({'source_file': source, 'artifact_file': pathref(target), 'sha256': h, 'reused': reused})
     write(batch.directory / 'input' / 'root-acceptance.json', data['inputs_raw'])
+    index_by_key = {(e['task_id'], e['dimension_id']): e for e in index}
     for entry in accepted:
         entry['evidence_snapshot_refs'] = [ref for ref in evidence_refs if ref['source_file'] in [str(local(entry['review_file'])), *[str(local(p)) for p in entry['evidence_files']]]]
+        # Camera classification deep-copies the index; retain receipts in both outputs.
+        index_by_key[(entry['task_id'], entry['dimension_id'])]['evidence_snapshot_refs'] = copy.deepcopy(entry['evidence_snapshot_refs'])
     generation_requests_path = None
     if data.get('metrics'):
         request_snapshot = copy.deepcopy(data['metrics']['requests'])
@@ -453,6 +486,10 @@ def execute(args):
     proposal.update(batch=pathref(batch.directory), progress_file=pathref(progress_path),
                     progress_sha256=digest(progress_path.read_bytes()), acceptance_file=pathref(index_path),
                     last_batch_acceptance_file=pathref(acceptance_path), production_state='pilot_queue_continuing')
+    if data.get('policy'):
+        proposal.update(workflow_policy_file=next(r['artifact_file'] for r in evidence_refs if r['source_file'] == str(data['policy_path'])),
+                        workflow_policy_sha256=digest(data['policy_path'].read_bytes()),
+                        production_state='delegated_queue_continuing')
     if candidate_path is not None:
         proposal['candidate_file'] = pathref(candidate_path)
     if generation_requests_path is not None:
@@ -486,6 +523,7 @@ def main():
     parser.add_argument('--front-view-gate', help='Root-provided current-SHA front1/3 or1/2 camera revalidation gate')
     parser.add_argument('--metrics-report', help='Current-checkpoint-SHA-bound runtime metrics report')
     parser.add_argument('--register-accepted-sources', action='store_true', help='Register only root-signed accepted sources with exact source full-GET receipts')
+    parser.add_argument('--policy-file', help='Explicit SHA-bound delegated identity/visual review policy')
     parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
     if not re.fullmatch(r'[a-z0-9-]+', args.description):

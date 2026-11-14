@@ -7,6 +7,7 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 import fcntl
 import hashlib
+from io import BytesIO
 import json
 import os
 from pathlib import Path
@@ -103,6 +104,163 @@ def verify_review_artifact(result, base):
         path = path.resolve(strict=True)
         if hashlib.sha256(path.read_bytes()).hexdigest() != result[hash_field]:
             raise ValueError(f'{file_field} SHA256 mismatch')
+
+
+
+def local_image(filename, expected, base):
+    """Hash and decode actual retained bytes; declarations are never sufficient."""
+    from PIL import Image
+    path = Path(filename)
+    path = (path if path.is_absolute() else base / path).resolve(strict=True)
+    raw = path.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != expected:
+        raise ValueError(f'image SHA256 mismatch: {path}')
+    with Image.open(BytesIO(raw)) as image:
+        image.load()
+        dimensions = list(image.size)
+        mode, image_format = image.mode, image.format
+    return {'file': str(path), 'sha256': expected, 'bytes': len(raw), 'dimensions': dimensions, 'mode': mode, 'format': image_format}
+
+
+def relative_evidence(value, base, object_required=True):
+    if not isinstance(value, dict) or not value.get('file') or not value.get('sha256'):
+        raise ValueError('evidence reference requires file and sha256')
+    path = Path(value['file'])
+    path = (path if path.is_absolute() else base / path).resolve(strict=True)
+    if object_required:
+        return read_bound_json(path, value['sha256'])
+    raw = path.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != value['sha256']:
+        raise ValueError(f'evidence SHA mismatch: {path}')
+    obj = json.loads(raw)
+    if not isinstance(obj, (dict, list)):
+        raise ValueError('OSS evidence must be an object or list')
+    return {'file': str(path), 'sha256': value['sha256'], 'snapshot': obj}
+
+
+def approval_receipt(value, base, item, stage, candidate_sha256=None, policy=None):
+    receipt = relative_evidence(value, base)
+    obj = receipt['snapshot']
+    reviewer = obj.get('reviewer')
+    if not isinstance(reviewer, str) or not (reviewer == 'identity' or reviewer.startswith('identity_')):
+        raise ValueError('approval requires an identity/identity_* reviewer, never root or producer')
+    allowed = (policy or {}).get('identity_reviewers' if stage == 'identity' else 'visual_reviewers')
+    if allowed is not None and reviewer not in allowed:
+        raise ValueError('reviewer not authorized for this stage by workflow policy')
+    if 'actor' in obj and obj['actor'] != reviewer:
+        raise ValueError('approval actor must match reviewer')
+    if obj.get('stage') != stage or obj.get('passed') is not True:
+        raise ValueError(f'positive {stage} approval receipt required')
+    for field in ('task_id', 'dimension_id', 'source_sha256'):
+        if obj.get(field) != item.get(field):
+            raise ValueError(f'approval {field} binding mismatch')
+    timestamp(obj.get('reviewed_at'))
+    if not isinstance(obj.get('observation'), str) or not obj['observation'].strip():
+        raise ValueError('approval requires an actual observation')
+    if stage == 'final_visual':
+        if not reviewer.startswith('identity_'):
+            raise ValueError('final visual approval requires independent identity_* lane')
+        if obj.get('candidate_sha256') != candidate_sha256:
+            raise ValueError('final visual candidate SHA binding mismatch')
+        if obj.get('view') not in ('front_1_2', 'front_1_3'):
+            raise ValueError('final visual view must be front_1_2 or front_1_3')
+    return receipt
+
+
+def result_binding(result, item):
+    for field in ('claim_id', 'task_id', 'dimension_id', 'source_sha256'):
+        if result.get(field) != item.get(field):
+            raise ValueError(f'result {field} does not match claim')
+    if item.get('retake'):
+        for field in ('plan_id', 'replaces_sha256'):
+            if result.get(field) != item.get(field):
+                raise ValueError(f'retake result {field} must match claim')
+
+
+def reject_unknown(item):
+    states = ' '.join(str(item.get(k, '')) for k in ('status', 'state', 'request_state', 'outcome')).lower()
+    if (any(word in states for word in ('unknown', 'interrupt', 'needs_reconciliation'))
+            or item.get('unknown_request') is True or item.get('interrupted_request') is True
+            or item.get('in_flight') is True or item.get('unknown_requests')):
+        raise ValueError('unknown/interrupted/in-flight requests cannot enter verification or be reassigned')
+
+
+def oss_readbacks(refs, base, artifacts):
+    """Validate full-GET receipts against retained readback files, without network IO.
+
+    Receipts are role assertions on the shared account, not authentication. Their
+    bytes are SHA-bound; each actual local artifact and full readback is rehashed
+    and decoded. Retain readback_file until publication for independent audit.
+    """
+    if not isinstance(refs, list) or not refs:
+        raise ValueError('verification requires SHA-bound oss_evidence references')
+    receipts = [relative_evidence(ref, base, object_required=False) for ref in refs]
+    matched = set()
+    def walk(obj, receipt_base):
+        if isinstance(obj, list):
+            for child in obj:
+                walk(child, receipt_base)
+        elif isinstance(obj, dict):
+            if obj.get('readback_file'):
+                digest = (obj.get('sha256') or obj.get('input_sha256')
+                          or obj.get('candidate_sha256') or obj.get('output_sha256'))
+                if digest in artifacts:
+                    if any(obj[k] != digest for k in ('sha256', 'input_sha256', 'candidate_sha256', 'output_sha256') if k in obj):
+                        raise ValueError('conflicting OSS artifact SHA fields')
+                    if not obj.get('object_key'):
+                        raise ValueError('OSS readback requires object_key')
+                    timestamp(obj.get('verified_at'))
+                    if ('full_get_sha256' in obj and obj['full_get_sha256'] != digest) or (obj.get('full_get_sha256') != digest and obj.get('full_get_sha_verified') is not True):
+                        raise ValueError('OSS full-GET SHA verification missing or mismatched')
+                    actual = local_image(obj['readback_file'], digest, receipt_base)
+                    dimensions = obj.get('decoded_dimensions') or obj.get('decoded')
+                    if isinstance(dimensions, dict):
+                        if any(dimensions.get(k) != actual[k] for k in ('format', 'mode')):
+                            raise ValueError('OSS readback decoded format/mode mismatch')
+                        dimensions = dimensions.get('size')
+                    if dimensions != actual['dimensions']:
+                        raise ValueError('OSS readback decoded dimensions mismatch')
+                    if 'full_get_size' in obj and (type(obj['full_get_size']) is not int or obj['full_get_size'] != actual['bytes']):
+                        raise ValueError('OSS full-GET byte count mismatch')
+                    if obj.get('full_get_sha_verified') is not True and obj.get('full_get_decoded') is not True:
+                        raise ValueError('OSS full-GET decode declaration required alongside actual decode')
+                    if actual['dimensions'] != artifacts[digest]['dimensions']:
+                        raise ValueError('OSS readback differs from local artifact decode')
+                    matched.add(digest)
+            for child in obj.values():
+                if isinstance(child, (dict, list)):
+                    walk(child, receipt_base)
+    for receipt in receipts:
+        walk(receipt['snapshot'], Path(receipt['file']).parent)
+    if matched != set(artifacts):
+        raise ValueError('source and final candidate both require complete OSS full-GET/readback evidence')
+    return receipts
+
+
+def verify_completion(result, base, item, worker, lease, policy=None, require_visual=True):
+    result_binding(result, item)
+    if (result.get('worker') != worker or result.get('producer_worker') != item.get('worker')
+            or result.get('verification_claim_id') != lease['claim_id']):
+        raise ValueError('verification result worker/producer/lease binding mismatch')
+    completion = result.get('completion')
+    if not isinstance(completion, dict) or completion.get('status') != 'completed':
+        raise ValueError('verification completion.status=completed required')
+    timestamp(completion.get('completed_at'))
+    candidate = local_image(result['candidate_file'], result['candidate_sha256'], base)
+    if candidate['format'] != 'PNG' or candidate['mode'] != 'RGBA':
+        raise ValueError('verified final candidate must be a real RGBA PNG')
+    source = local_image(item['source_file'], item['source_sha256'], Path.cwd())
+    visual = ([approval_receipt(result.get('final_visual_approval'), base, item, 'final_visual', candidate['sha256'], policy)]
+              if require_visual else [])
+    approved = item['render']['identity_approval']
+    if result.get('identity_approval') != approved:
+        raise ValueError('verification identity approval must match render receipt')
+    submitted_source = local_image(result['source_file'], item['source_sha256'], base)
+    if submitted_source['sha256'] != source['sha256']:
+        raise ValueError('verification source bytes mismatch')
+    identity_receipt = approval_receipt(approved, Path.cwd(), item, 'identity', policy=policy)
+    receipts = oss_readbacks(result.get('oss_evidence'), base, {source['sha256']: source, candidate['sha256']: candidate})
+    return [identity_receipt, *visual, *receipts]
 
 
 # These gates prove only a zero-generation preflight transition, never acceptance.
@@ -279,6 +437,42 @@ def identity_clearance(filename, old, record, queue_dir):
 
 
 
+def delegated_identity_clearance(filename, old, record, queue_dir, policy):
+    """Root records the retry; only the identity lane approves its source."""
+    receipt = read_bound_json(filename)
+    approval = approval_receipt({'file': receipt['file'], 'sha256': receipt['sha256']},
+                                Path.cwd(), old, 'identity', policy=policy)
+    if old.get('source_sha256') != record['source_sha256']:
+        raise ValueError('identity clearance only authorizes same-source zero-generation retry')
+    no_generation(old)
+    candidates = []
+    hold = old.get('preflight_hold')
+    if hold:
+        if hold.get('hold_kind') != 'identity_preflight':
+            raise ValueError('same-source clearance requires an identity preflight hold')
+        candidates.append(read_bound_json(hold['evidence_file'], hold['evidence_sha256']))
+    else:
+        for resolution in old.get('resolutions', []):
+            if resolution.get('actor') == 'root' and resolution.get('decision') == 'hold':
+                candidates.append(read_bound_json(resolution['evidence_file'], resolution['evidence_sha256']))
+    proof_receipt = None
+    for candidate in candidates:
+        proof = candidate['snapshot']
+        if ((proof.get('task_id'), proof.get('dimension_id'), proof.get('claim_id'))
+                != (old['task_id'], old['dimension_id'], old.get('claim_id'))):
+            continue
+        bound_to_claim(proof, old)
+        no_generation(proof)
+        if zero_count(proof) and (identity_preflight(proof) or proof.get('hold_kind') == 'identity_preflight'):
+            proof_receipt = candidate
+            break
+    if proof_receipt is None:
+        raise ValueError('same-source retry requires retained SHA-bound zero-generation identity hold evidence')
+    requests = request_audit(old, proof_receipt['snapshot'], queue_dir)
+    return {'clearance': approval, 'identity_report': approval, 'zero_fee_proof': proof_receipt,
+            'request_evidence': requests, 'legacy_root_hold_evidence': candidates}
+
+
 def formal_unknown_guard(formal, key):
     """A formal unresolved submission protects its task/DIM across source swaps.
 
@@ -307,11 +501,44 @@ def formal_unknown_guard(formal, key):
     return receipt
 
 
+def delegated(state):
+    return state.get('config', {}).get('workflow_policy', {}).get('mode') == 'delegated_reviews'
+
+
+def paused(state):
+    return state.get('config', {}).get('workflow_policy', {}).get('paused') is True
+
+
+def ready_identity(item, policy=None):
+    return approval_receipt(item.get('identity_approval'), Path.cwd(), item, 'identity', policy=policy)
+
+
+def migrate_ready_identity(state):
+    migrated = []
+    if not delegated(state):
+        return migrated
+    for item in state['items']:
+        if item['status'] != 'ready':
+            continue
+        try:
+            reject_unknown(item)
+        except ValueError:
+            continue  # Unknown/active/history is never migrated or reassigned.
+        try:
+            check_receipts([ready_identity(item, state['config'].get('workflow_policy'))])
+        except (ValueError, OSError, KeyError, TypeError) as exc:
+            item['status'] = 'identity_pending'
+            item['identity_validation_error'] = str(exc)
+            migrated.append(list(identity(item)))
+    return migrated
+
+
 def pressure(state):
     ready = sum(i['status'] == 'ready' for i in state['items'])
-    if ready >= state['config']['high_watermark']:
+    inventory = ready + (sum(i['status'] == 'identity_pending' for i in state['items']) if delegated(state) else 0)
+    if inventory >= state['config']['high_watermark']:
         state['enqueue_paused'] = True
-    elif ready <= state['config']['low_watermark']:
+    elif inventory <= state['config']['low_watermark']:
         state['enqueue_paused'] = False
     return ready
 
@@ -374,15 +601,26 @@ def execute(args):
         verify_scope(records[0], load_scope(args.checkpoint))
         if any(records[0].get(k) for k in ('retake', 'plan_id', 'replaces_sha256', 'replaces_output_sha256')):
             raise ValueError('requeue-held is only for ordinary configurations; planned retakes require reopen-retake')
+    if args.command == 'configure-workflow':
+        policy_receipt = read_bound_json(args.policy_file)
+        policy = policy_receipt['snapshot']
+        if policy.get('schema') not in ('ru-pilot-delegated-review-policy/v1', 'ru-image-workflow-policy/v2') or policy.get('mode') != 'delegated_reviews' or type(policy.get('paused')) is not bool:
+            raise ValueError('policy requires delegated_reviews schema/mode and explicit boolean paused')
+        if policy['schema'] == 'ru-image-workflow-policy/v2':
+            for field in ('identity_reviewers', 'visual_reviewers'):
+                if not isinstance(policy.get(field), list) or not policy[field] or any(not isinstance(w, str) or not w.startswith('identity_') for w in policy[field]):
+                    raise ValueError('v2 policy requires explicit identity_* stage reviewer allowlists')
+    if args.command == 'submit-identity':
+        identity_receipt = read_bound_json(args.evidence)
     if args.command == 'hold-preflight':
         preflight_receipt = read_bound_json(args.evidence)
     result = None
-    if args.command == 'submit-review':
+    if args.command in ('submit-render', 'submit-verification', 'submit-review'):
         result_path = Path(args.result).resolve(strict=True)
         result_bytes = result_path.read_bytes()
         result = json.loads(result_bytes)
         if not isinstance(result, dict):
-            raise ValueError('review result must be a JSON object')
+            raise ValueError('result must be a JSON object')
         verify_review_artifact(result, result_path.parent)
     if args.command in ('resolve', 'withdraw-ready'):
         evidence_path = Path(args.evidence).resolve(strict=True)
@@ -391,7 +629,35 @@ def execute(args):
             raise ValueError('resolution evidence is empty')
     with locked(args.queue) as state:
         pressure(state)
-        if args.command in ('enqueue', 'import-existing'):
+        if args.command == 'configure-workflow':
+            check_receipts([policy_receipt])
+            configured = {'mode': policy['mode'], 'paused': policy['paused'],
+                'file': policy_receipt['file'], 'sha256': policy_receipt['sha256'],
+                'snapshot': policy, 'configured_by': args.actor, 'configured_at': now(),
+                **{k: policy[k] for k in ('identity_reviewers', 'visual_reviewers') if k in policy}}
+            state['config']['workflow_policy'] = configured
+            migrated = migrate_ready_identity(state)
+            pressure(state)
+            output = {'workflow_policy': configured, 'migrated_identity_pending': migrated}
+        elif args.command == 'submit-identity':
+            obj = identity_receipt['snapshot']
+            if obj.get('reviewer') != args.worker or not args.worker.startswith('identity_'):
+                raise ValueError('submit-identity requires the identity_* signing worker')
+            matches = [i for i in state['items'] if identity(i) == (obj.get('task_id'), obj.get('dimension_id'))]
+            if len(matches) != 1 or matches[0]['status'] not in ('identity_pending', 'ready'):
+                raise ValueError('identity submission requires one identity_pending/ready source; active/held work cannot be reassigned')
+            item = matches[0]
+            reject_unknown(item)
+            validated = approval_receipt({'file': identity_receipt['file'], 'sha256': identity_receipt['sha256']}, Path.cwd(), item, 'identity', policy=state['config'].get('workflow_policy'))
+            prior = item.get('identity_approval')
+            reference = {'file': validated['file'], 'sha256': validated['sha256']}
+            if item['status'] == 'ready' and prior and prior != reference:
+                raise ValueError('submitted identity approval cannot be overwritten')
+            check_receipts([validated])
+            item['identity_approval'] = reference
+            item['status'] = 'ready'
+            output = {'status': 'ready', 'task_id': item['task_id'], 'dimension_id': item['dimension_id'], 'duplicate': prior == reference}
+        elif args.command in ('enqueue', 'import-existing'):
             known = {identity(i) for i in state['items']}
             added, duplicates, blocked = [], [], []
             for record in records:
@@ -403,13 +669,13 @@ def execute(args):
                     blocked.append(list(key))
                     continue
                 item = dict(record)
-                item['status'] = 'ready' if args.command == 'enqueue' else record['status']
+                item['status'] = ('identity_pending' if delegated(state) else 'ready') if args.command == 'enqueue' else record['status']
                 item['enqueued_at'] = now()
                 if args.command == 'import-existing':
                     item['imported_existing'] = True
                 else:
                     # Input cannot inject ownership or a previous review result.
-                    for field in ('claim_id', 'worker', 'claimed_at', 'review'):
+                    for field in ('claim_id', 'worker', 'claimed_at', 'review', 'render', 'verification', 'identity_approval'):
                         item.pop(field, None)
                 state['items'].append(item)
                 known.add(key)
@@ -468,7 +734,8 @@ def execute(args):
                 raise ValueError('stale expected source SHA: current hold input changed')
             clearance = None
             if getattr(args, 'identity_clearance', None):
-                clearance = identity_clearance(args.identity_clearance, old, record, args.queue)
+                clearance = (delegated_identity_clearance(args.identity_clearance, old, record, args.queue, state['config']['workflow_policy'])
+                             if delegated(state) else identity_clearance(args.identity_clearance, old, record, args.queue))
             elif old.get('source_sha256') == record['source_sha256']:
                 raise ValueError('same-source retry requires --identity-clearance; otherwise provide a different new source SHA')
             if state['enqueue_paused']:
@@ -477,7 +744,7 @@ def execute(args):
             item = copy.deepcopy(record)
             for field in ('worker','claim_id','claimed_at','review','resolutions','retake','retake_history','retry','retry_history','imported_existing','preflight_hold','hold_kind','identity_clearance'):
                 item.pop(field, None)
-            item.update(status='ready', enqueued_at=reopened_at,
+            item.update(status='identity_pending' if delegated(state) else 'ready', enqueued_at=reopened_at,
                 retry={'operation':'requeue-held','actor':args.actor,'requeued_at':reopened_at,
                     'previous_claim_id':old.get('claim_id'),'previous_source_sha256':old.get('source_sha256'),
                     'checkpoint_sha256':formal['checkpoint_sha256']})
@@ -486,6 +753,9 @@ def execute(args):
                     'decision': 'identity_cleared_zero_generation', 'old_claim_id': old['claim_id'],
                     'identity_report_file': clearance['identity_report']['file'], 'identity_report_sha256': clearance['identity_report']['sha256'],
                     'zero_fee_proof_file': clearance['zero_fee_proof']['file'], 'zero_fee_proof_sha256': clearance['zero_fee_proof']['sha256']}
+                if delegated(state):
+                    item['identity_approval'] = {'file': clearance['clearance']['file'], 'sha256': clearance['clearance']['sha256']}
+                    item['status'] = 'ready'
             if formal['cp_path'].read_bytes() != formal['cp_raw']:
                 raise ValueError('checkpoint changed while requeuing held source; retry')
             if hashlib.sha256(Path(args.file).resolve().read_bytes()).hexdigest() != source_record_sha256:
@@ -531,7 +801,7 @@ def execute(args):
             item = copy.deepcopy(record)
             for field in ('worker','claim_id','claimed_at','review','resolutions','retake','retake_history','imported_existing'):
                 item.pop(field, None)
-            item.update(status='ready', enqueued_at=reopened_at, plan_id=args.plan_id,
+            item.update(status='identity_pending' if delegated(state) else 'ready', enqueued_at=reopened_at, plan_id=args.plan_id,
                 replaces_sha256=args.expected_accepted_sha256,
                 retake={'plan_id': args.plan_id, 'replaces_sha256': args.expected_accepted_sha256,
                     'reopened_by': args.actor, 'reopened_at': reopened_at,
@@ -552,12 +822,97 @@ def execute(args):
             active = [i for i in state['items'] if i['status'] == 'producing' and i.get('worker') == args.worker]
             if len(active) > 1:
                 raise ValueError('worker has multiple imported producing items; coordinator must resolve them')
-            ready = [i for i in state['items'] if i['status'] == 'ready']
+            if not active and paused(state):
+                raise ValueError('workflow is paused; new production claims are disabled')
+            migrate_ready_identity(state)
+            ready = []
+            for candidate in state['items']:
+                if candidate['status'] == 'ready':
+                    try:
+                        reject_unknown(candidate)
+                    except ValueError:
+                        continue
+                    ready.append(candidate)
             item = active[0] if active else (min(ready, key=lambda i: (i['catalog_rank'], i['enqueued_at'])) if ready else None)
             if item and not active:
                 item.update(status='producing', worker=args.worker, claim_id=uuid.uuid4().hex, claimed_at=now())
             pressure(state)
             output = {'claim': item, 'ready': pressure(state), 'enqueue_paused': state['enqueue_paused']}
+        elif args.command == 'submit-render':
+            if paused(state):
+                raise ValueError('workflow is paused; submit-render is disabled')
+            matches = [i for i in state['items'] if i.get('claim_id') == args.claim]
+            if len(matches) != 1:
+                raise ValueError('unknown or ambiguous claim')
+            item = matches[0]
+            reject_unknown(item)
+            if item.get('worker') != args.worker:
+                raise ValueError('submit-render requires the P1/P2 claim owner')
+            result_binding(result, item)
+            if result.get('worker') != args.worker:
+                raise ValueError('render result worker does not match owner')
+            digest = hashlib.sha256(result_bytes).hexdigest()
+            previous = item.get('render')
+            if previous:
+                if previous['sha256'] != digest:
+                    raise ValueError('submitted render cannot be overwritten')
+                if item['status'] not in ('verification_pending', 'verifying', 'final_visual_pending', 'in_review'):
+                    raise ValueError('render claim is no longer active')
+                output = {'status': item['status'], 'claim_id': args.claim, 'duplicate': True}
+            elif item['status'] != 'producing':
+                raise ValueError('submit-render requires a producing claim')
+            else:
+                raw = local_image(result['output_file'], result['output_sha256'], result_path.parent)
+                approval = approval_receipt(result.get('identity_approval'), result_path.parent, item, 'identity', policy=state['config'].get('workflow_policy'))
+                if delegated(state) and {'file': approval['file'], 'sha256': approval['sha256']} != item.get('identity_approval'):
+                    raise ValueError('render identity approval must match source lane approval')
+                check_receipts([approval])
+                item['render'] = {'path': str(result_path), 'sha256': digest, 'result': result,
+                    'raw_output': raw, 'submitted_at': now(),
+                    'identity_approval': {'file': approval['file'], 'sha256': approval['sha256']}}
+                item['status'] = 'verification_pending'
+                output = {'status': item['status'], 'claim_id': args.claim, 'duplicate': False}
+        elif args.command == 'claim-verification':
+            active = [i for i in state['items'] if i['status'] == 'verifying'
+                      and i.get('verification', {}).get('worker') == args.worker]
+            if len(active) > 1:
+                raise ValueError('verifier has multiple active leases; coordinator must resolve them')
+            if not active and paused(state):
+                raise ValueError('workflow is paused; new verification claims are disabled')
+            pending = [i for i in state['items'] if i['status'] == 'verification_pending']
+            item = active[0] if active else (min(pending, key=lambda i: (i['catalog_rank'], i['render']['submitted_at'])) if pending else None)
+            if item:
+                reject_unknown(item)
+                if not active:
+                    item['verification'] = {'worker': args.worker, 'claim_id': uuid.uuid4().hex, 'claimed_at': now()}
+                    item['status'] = 'verifying'
+            output = {'claim': item, 'verification_claim_id': item['verification']['claim_id'] if item else None}
+        elif args.command == 'submit-verification':
+            matches = [i for i in state['items'] if i.get('claim_id') == args.claim]
+            if len(matches) != 1:
+                raise ValueError('unknown or ambiguous claim')
+            item = matches[0]
+            reject_unknown(item)
+            lease = item.get('verification', {})
+            if args.worker != lease.get('worker') or args.verification_claim != lease.get('claim_id'):
+                raise ValueError('verification lease/worker mismatch')
+            digest = hashlib.sha256(result_bytes).hexdigest()
+            previous = item.get('verification_package')
+            if previous:
+                if previous['sha256'] != digest or item['status'] not in ('final_visual_pending', 'in_review'):
+                    raise ValueError('submitted verification package cannot be overwritten')
+                output = {'status': item['status'], 'claim_id': args.claim, 'duplicate': True}
+            elif item['status'] != 'verifying' or not item.get('render'):
+                raise ValueError('submit-verification requires this independent active verifier lease')
+            else:
+                checked = verify_completion(result, result_path.parent, item, args.worker, lease,
+                    state['config'].get('workflow_policy'), require_visual=False)
+                check_receipts(checked)
+                item['verification_package'] = {'path': str(result_path), 'sha256': digest,
+                    'result': result, 'submitted_at': now()}
+                lease['completed_at'] = result['completion']['completed_at']
+                item['status'] = 'final_visual_pending'
+                output = {'status': item['status'], 'claim_id': args.claim, 'duplicate': False}
         elif args.command == 'submit-review':
             matches = [i for i in state['items'] if i.get('claim_id') == args.claim]
             if len(matches) != 1:
@@ -565,10 +920,44 @@ def execute(args):
             item = matches[0]
             digest = hashlib.sha256(result_bytes).hexdigest()
             if item['status'] == 'in_review' and item.get('review', {}).get('sha256') == digest:
+                if item.get('render'):
+                    lease = item['verification']
+                    if getattr(args, 'worker', None) != lease['worker'] or getattr(args, 'verification_claim', None) != lease['claim_id']:
+                        raise ValueError('verification lease/worker mismatch')
+                    check_receipts(verify_completion(result, result_path.parent, item, args.worker, lease, state['config'].get('workflow_policy')))
                 output = {'status': 'in_review', 'claim_id': args.claim, 'duplicate': True}
+            elif item.get('render'):
+                if item['status'] not in ('verifying', 'final_visual_pending'):
+                    raise ValueError('render requires an independent verification lease before submit-review')
+                lease = item.get('verification', {})
+                if (getattr(args, 'worker', None) != lease.get('worker')
+                        or getattr(args, 'verification_claim', None) != lease.get('claim_id')):
+                    raise ValueError('verification lease/worker mismatch')
+                reject_unknown(item)
+                package = item.get('verification_package')
+                if delegated(state) and not package:
+                    raise ValueError('delegated workflow requires submit-verification package before final visual submit-review')
+                if package:
+                    check_receipts([{'file': package['path'], 'sha256': package['sha256']}])
+                    # Final visual may append its signature, but cannot change the
+                    # verifier's completed artifact/GET/lease evidence package.
+                    for field in ('worker', 'producer_worker', 'verification_claim_id', 'claim_id',
+                                  'task_id', 'dimension_id', 'source_file', 'source_sha256',
+                                  'candidate_file', 'candidate_sha256', 'identity_approval',
+                                  'oss_evidence', 'completion', 'plan_id', 'replaces_sha256'):
+                        if result.get(field) != package['result'].get(field):
+                            raise ValueError(f'final review cannot change verification package {field}')
+                checked = verify_completion(result, result_path.parent, item, args.worker, lease, state['config'].get('workflow_policy'))
+                check_receipts(checked)
+                item['status'] = 'in_review'
+                item['verification']['completed_at'] = result['completion']['completed_at']
+                item['review'] = {'path': str(result_path), 'sha256': digest, 'result': result, 'submitted_at': now()}
+                output = {'status': 'in_review', 'claim_id': args.claim, 'duplicate': False}
             elif item['status'] != 'producing':
                 raise ValueError('claim is not producing; submitted reviews cannot be overwritten')
             else:
+                if delegated(state):
+                    raise ValueError('delegated workflow requires submit-render and independent verification before submit-review')
                 for field in ('task_id', 'dimension_id'):
                     if field in result and result[field] != item[field]:
                         raise ValueError(f'result {field} does not match claim')
@@ -592,8 +981,8 @@ def execute(args):
                       'ready': pressure(state), 'enqueue_paused': state['enqueue_paused']}
         elif args.command == 'resolve':
             matches = [i for i in state['items'] if i.get('claim_id') == args.claim]
-            if len(matches) != 1 or matches[0]['status'] not in ('producing', 'in_review', 'hold'):
-                raise ValueError('claim must be producing, in_review, or hold')
+            if len(matches) != 1 or matches[0]['status'] not in ('producing', 'verification_pending', 'verifying', 'final_visual_pending', 'in_review', 'hold'):
+                raise ValueError('claim must be producing, verification_pending, verifying, final_visual_pending, in_review, or hold')
             item = matches[0]
             item['status'] = args.decision
             item.setdefault('resolutions', []).append({'actor': args.actor, 'decision': args.decision,
@@ -621,9 +1010,27 @@ def main():
     for name in ('enqueue', 'import-existing'):
         commands.add_parser(name).add_argument('--file', required=True)
     commands.add_parser('claim').add_argument('--worker', choices=('P1', 'P2'), required=True)
+    configure = commands.add_parser('configure-workflow', help='root role assertion; SHA-bound explicit workflow/pause policy, no formal checkpoint writes')
+    configure.add_argument('--actor', choices=('root',), required=True)
+    configure.add_argument('--policy-file', required=True)
+    identity_parser = commands.add_parser('submit-identity', help='independent identity_* source approval; never generation or acceptance')
+    identity_parser.add_argument('--worker', required=True)
+    identity_parser.add_argument('--evidence', required=True)
+    render = commands.add_parser('submit-render', help='P1/P2 submit SHA-bound raw bytes; release producer without claiming verification complete')
+    render.add_argument('--worker', choices=('P1', 'P2'), required=True)
+    render.add_argument('--claim', required=True)
+    render.add_argument('--result', required=True)
+    commands.add_parser('claim-verification', help='V1/V2 atomic independent lease; resumes its existing lease').add_argument('--worker', choices=('V1', 'V2'), required=True)
+    verification = commands.add_parser('submit-verification', help='V completion/OSS package; release its work slot to independent visual lane')
+    verification.add_argument('--worker', choices=('V1', 'V2'), required=True)
+    verification.add_argument('--claim', required=True)
+    verification.add_argument('--verification-claim', required=True)
+    verification.add_argument('--result', required=True)
     review = commands.add_parser('submit-review')
     review.add_argument('--claim', required=True)
     review.add_argument('--result', required=True)
+    review.add_argument('--worker', choices=('V1', 'V2'), help='required for new render/verification path')
+    review.add_argument('--verification-claim', help='required independent verifier lease ID for new path')
     resolve = commands.add_parser('resolve', help='coordinator only; shared-OS-account role assertion, not authentication')
     resolve.add_argument('--claim', required=True)
     resolve.add_argument('--decision', choices=('done', 'hold'), required=True)
@@ -641,7 +1048,7 @@ def main():
     retry = commands.add_parser('requeue-held', help='root-only new-source retry of one held unaccepted ordinary configuration')
     retry.add_argument('--actor', choices=('root',), required=True)
     retry.add_argument('--file', required=True)
-    retry.add_argument('--identity-clearance', help='Root-signed zero-generation identity clearance for identical source SHA')
+    retry.add_argument('--identity-clearance', help='SHA-bound identity-lane receipt in delegated mode; legacy root-signed clearance without policy')
     expected = retry.add_mutually_exclusive_group(required=True)
     expected.add_argument('--expected-claim')
     expected.add_argument('--expected-source-sha256')
