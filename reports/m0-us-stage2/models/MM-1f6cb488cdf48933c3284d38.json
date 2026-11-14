@@ -1,0 +1,2867 @@
+{
+  "MAKE": "Audi",
+  "MODEL": "80 quattro",
+  "MM_ID": "MM-1f6cb488cdf48933c3284d38",
+  "MMY_count": 3,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Audi",
+    "MODEL": "80",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 47,
+      "raw_make": "Audi",
+      "raw_model": "80 quattro",
+      "make": "Audi",
+      "model": "80",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 879,
+      "MM_ID": "MM-1f6cb488cdf48933c3284d38",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "880",
+      "raw_make": "Audi",
+      "raw_model": "80 quattro",
+      "raw_year": "1990",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 5 cyl, 2.3 L"
+    },
+    {
+      "association_row_1based": 880,
+      "MM_ID": "MM-1f6cb488cdf48933c3284d38",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "881",
+      "raw_make": "Audi",
+      "raw_model": "80 quattro",
+      "raw_year": "1991",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 5 cyl, 2.3 L"
+    },
+    {
+      "association_row_1based": 881,
+      "MM_ID": "MM-1f6cb488cdf48933c3284d38",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "882",
+      "raw_make": "Audi",
+      "raw_model": "80 quattro",
+      "raw_year": "1992",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 5 cyl, 2.3 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 242,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "audi",
+      "make_name": "Audi",
+      "model_slug": "80",
+      "model_name": "80",
+      "body_types": "sedan",
+      "countries": "au|ch|es|fi|gb|lu|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/audi/80-gt|car/audi/80-s|car/audi/81|car/auto-union/audi-80",
+      "mass_popularity_decile": "2"
+    },
+    {
+      "record": 243,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "audi",
+      "make_name": "Audi",
+      "model_slug": "80-gl",
+      "model_name": "80 GL",
+      "body_types": "sedan|wagon",
+      "countries": "fi|nl|no",
+      "regions": "eu",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "7"
+    },
+    {
+      "record": 269,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "audi",
+      "make_name": "Audi",
+      "model_slug": "quattro",
+      "model_name": "Quattro",
+      "body_types": "coupe",
+      "countries": "au|ch|fi|gb|lu|nl|no|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/audi/ur",
+      "mass_popularity_decile": "3"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "audi",
+      "same_brand_rows_examined": 260,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 38,
+      "candidates": [
+        {
+          "row_1based": 98,
+          "DIMENSION-ID": "Audi A4 allroad quattro Wagon 2013-2016 US",
+          "MODEL": "A4 allroad quattro",
+          "YEAR": "2013-2016",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A4 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 99,
+          "DIMENSION-ID": "Audi A4 allroad quattro Wagon 2017-2019 US",
+          "MODEL": "A4 allroad quattro",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A4 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 100,
+          "DIMENSION-ID": "Audi A4 allroad quattro Wagon 2020-2025 US",
+          "MODEL": "A4 allroad quattro",
+          "YEAR": "2020-2025",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A4 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 129,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2001-2005 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 130,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2020-2025 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2020-2025",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4412,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2026 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4414,
+          "DIMENSION-ID": "Audi S4 Sedan 1992 US",
+          "MODEL": "S4",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4415,
+          "DIMENSION-ID": "Audi S4 Sedan 1993 US",
+          "MODEL": "S4",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4416,
+          "DIMENSION-ID": "Audi S4 Sedan 1994 US",
+          "MODEL": "S4",
+          "YEAR": "1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4417,
+          "DIMENSION-ID": "Audi S4 Sedan 2002 US",
+          "MODEL": "S4",
+          "YEAR": "2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4494,
+          "DIMENSION-ID": "Audi A3 Hatchback 2027 US",
+          "MODEL": "A3",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 A3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4497,
+          "DIMENSION-ID": "Audi A8 Sedan 2027 US",
+          "MODEL": "A8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 A8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4498,
+          "DIMENSION-ID": "Audi Q3 SUV 2027 US",
+          "MODEL": "Q3",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 Q3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4500,
+          "DIMENSION-ID": "Audi Q6 e-tron SUV 2027 US",
+          "MODEL": "Q6 e-tron",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 Q6 e-tron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4501,
+          "DIMENSION-ID": "Audi Q8 SUV 2027 US",
+          "MODEL": "Q8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 Q8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4502,
+          "DIMENSION-ID": "Audi RS Q8 SUV 2027 US",
+          "MODEL": "RS Q8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 RS Q8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4503,
+          "DIMENSION-ID": "Audi S3 Sedan 2027 US",
+          "MODEL": "S3",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4505,
+          "DIMENSION-ID": "Audi S6 e-tron Sedan 2027 US",
+          "MODEL": "S6 e-tron",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S6 e-tron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4506,
+          "DIMENSION-ID": "Audi S8 Sedan 2027 US",
+          "MODEL": "S8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4507,
+          "DIMENSION-ID": "Audi SQ5 SUV 2027 US",
+          "MODEL": "SQ5",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 SQ5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4508,
+          "DIMENSION-ID": "Audi SQ6 e-tron SUV 2027 US",
+          "MODEL": "SQ6 e-tron",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 SQ6 e-tron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4509,
+          "DIMENSION-ID": "Audi SQ8 SUV 2027 US",
+          "MODEL": "SQ8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 SQ8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4945,
+          "DIMENSION-ID": "Audi 200 quattro Avant Wagon 1989 US",
+          "MODEL": "200 quattro Avant",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到200 quattro Avant缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4946,
+          "DIMENSION-ID": "Audi 200 quattro Avant Wagon 1990 US",
+          "MODEL": "200 quattro Avant",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到200 quattro Avant缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4947,
+          "DIMENSION-ID": "Audi 200 quattro Avant Wagon 1991 US",
+          "MODEL": "200 quattro Avant",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到200 quattro Avant缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4980,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2019 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5030,
+          "DIMENSION-ID": "Audi Coupe Quattro Hatchback 1990 US",
+          "MODEL": "Coupe Quattro",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到Coupe Quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5042,
+          "DIMENSION-ID": "Audi Quattro Coupe 1985 US",
+          "MODEL": "Quattro",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到Quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5048,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1990 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5049,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1991 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5050,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1992 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1992",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5051,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1993 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5052,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1994 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5053,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2001 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5054,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2002 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2002",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5055,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2003 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2003",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5056,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2004 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5057,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2005 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 22,
+      "excluded_search_noise_hits": 16,
+      "non_US_candidate_hits": 102,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 982,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1966-1968 EU",
+          "MODEL": "80",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 983,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1972-1975 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 984,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1972-1976 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 985,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1978-1981 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 986,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1978-1982 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 987,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1978-1983 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 988,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 989,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1984-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 990,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1986-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 991,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 992,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 993,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 994,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 995,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 996,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 997,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 998,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 999,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1000,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1001,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1002,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1003,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1004,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1005,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1966-1968 EU",
+          "MODEL": "80",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1006,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1972-1975 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1007,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1972-1976 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1008,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1978-1981 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1009,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1978-1982 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1010,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1978-1983 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1011,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1012,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1984-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1013,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1986-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1014,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1015,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1016,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1017,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1018,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1019,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1020,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1021,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1022,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1023,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1024,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1025,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1026,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1027,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1028,
+          "DIMENSION-ID": "Audi 80 81 Sedan 1985-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1985-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1029,
+          "DIMENSION-ID": "Audi 80 85 Sedan 1985-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1985-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1030,
+          "DIMENSION-ID": "Audi 80 89 Sedan 1990-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1031,
+          "DIMENSION-ID": "Audi 80 8C L4482 W1695 H1406 Sedan 1993-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1032,
+          "DIMENSION-ID": "Audi 80 8C L4509 W1695 H1386 Sedan 1993-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1033,
+          "DIMENSION-ID": "Audi 80 Sedan 1973-1976 EU",
+          "MODEL": "80",
+          "YEAR": "1973-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1034,
+          "DIMENSION-ID": "Audi 80 Sedan 1978-1981 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1035,
+          "DIMENSION-ID": "Audi 80 Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1036,
+          "DIMENSION-ID": "Audi 80 Sedan 1981-1983 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1037,
+          "DIMENSION-ID": "Audi 80 Sedan 1982-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1982-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1038,
+          "DIMENSION-ID": "Audi 80 Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1039,
+          "DIMENSION-ID": "Audi 80 Sedan 1984-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1040,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1988 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1041,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1990 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1042,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1043,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-2026 EU",
+          "MODEL": "80",
+          "YEAR": "1986-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1044,
+          "DIMENSION-ID": "Audi 80 Sedan 1987-1989 EU",
+          "MODEL": "80",
+          "YEAR": "1987-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1045,
+          "DIMENSION-ID": "Audi 80 Sedan 1987-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1987-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1046,
+          "DIMENSION-ID": "Audi 80 Sedan 1988-1990 EU",
+          "MODEL": "80",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1047,
+          "DIMENSION-ID": "Audi 80 Sedan 1989-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1048,
+          "DIMENSION-ID": "Audi 80 Sedan 1990-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1049,
+          "DIMENSION-ID": "Audi 80 Sedan 1991-1992 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1050,
+          "DIMENSION-ID": "Audi 80 Sedan 1991-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1051,
+          "DIMENSION-ID": "Audi 80 Sedan 1992-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1052,
+          "DIMENSION-ID": "Audi 80 Wagon 1966-1968 EU",
+          "MODEL": "80",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1053,
+          "DIMENSION-ID": "Audi 80 Wagon 1991-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1054,
+          "DIMENSION-ID": "Audi 80 Wagon 1991-1996 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1055,
+          "DIMENSION-ID": "Audi 80 Wagon 1992-1995 EU",
+          "MODEL": "80",
+          "YEAR": "1992-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1056,
+          "DIMENSION-ID": "Audi 80 Wagon 1992-1996 EU",
+          "MODEL": "80",
+          "YEAR": "1992-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1057,
+          "DIMENSION-ID": "Audi 80 Wagon 1993-1995 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1058,
+          "DIMENSION-ID": "Audi 80 Wagon 1993-1996 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1059,
+          "DIMENSION-ID": "Audi 80 Wagon 1994-1995 EU",
+          "MODEL": "80",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1060,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1061,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1062,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1976-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1976-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1063,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1064,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1065,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1066,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1067,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1976-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1976-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1068,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1069,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1933,
+          "DIMENSION-ID": "Audi Quattro Coupe 1980-1987 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1980-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1934,
+          "DIMENSION-ID": "Audi Quattro Coupe 1984-1987 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1984-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1935,
+          "DIMENSION-ID": "Audi Quattro Coupe 1987-1989 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1987-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1936,
+          "DIMENSION-ID": "Audi Quattro Coupe 1989-1991 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 480,
+          "DIMENSION-ID": "Audi 80 II (B1) L4175 W1600 H1362 Sedan 1972-1978 RU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 481,
+          "DIMENSION-ID": "Audi 80 II (B1) L4220 W1600 H1362 Sedan 1972-1978 RU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 482,
+          "DIMENSION-ID": "Audi 80 III (B2) L4383 W1682 H1365 Sedan 1978-1986 RU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 483,
+          "DIMENSION-ID": "Audi 80 III (B2) L4410 W1680 H1360 Sedan 1978-1986 RU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 484,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1992 RU",
+          "MODEL": "80",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 485,
+          "DIMENSION-ID": "Audi 80 Sedan 1991-1996 RU",
+          "MODEL": "80",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 486,
+          "DIMENSION-ID": "Audi 80 Wagon 1991-1996 RU",
+          "MODEL": "80",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 625,
+          "DIMENSION-ID": "Audi NSU RO 80 Sedan 1967-1977 RU",
+          "MODEL": "NSU RO 80",
+          "YEAR": "1967-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 668,
+          "DIMENSION-ID": "Audi Quattro Coupe 1980-1985 RU",
+          "MODEL": "Quattro",
+          "YEAR": "1980-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 669,
+          "DIMENSION-ID": "Audi Quattro Coupe 1985-1991 RU",
+          "MODEL": "Quattro",
+          "YEAR": "1985-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "audi",
+      "same_brand_rows_examined": 260,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 38,
+      "candidates": [
+        {
+          "row_1based": 98,
+          "DIMENSION-ID": "Audi A4 allroad quattro Wagon 2013-2016 US",
+          "MODEL": "A4 allroad quattro",
+          "YEAR": "2013-2016",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A4 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 99,
+          "DIMENSION-ID": "Audi A4 allroad quattro Wagon 2017-2019 US",
+          "MODEL": "A4 allroad quattro",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A4 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 100,
+          "DIMENSION-ID": "Audi A4 allroad quattro Wagon 2020-2025 US",
+          "MODEL": "A4 allroad quattro",
+          "YEAR": "2020-2025",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A4 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 129,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2001-2005 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2001-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 130,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2020-2025 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2020-2025",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4412,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2026 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4414,
+          "DIMENSION-ID": "Audi S4 Sedan 1992 US",
+          "MODEL": "S4",
+          "YEAR": "1992",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4415,
+          "DIMENSION-ID": "Audi S4 Sedan 1993 US",
+          "MODEL": "S4",
+          "YEAR": "1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4416,
+          "DIMENSION-ID": "Audi S4 Sedan 1994 US",
+          "MODEL": "S4",
+          "YEAR": "1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4417,
+          "DIMENSION-ID": "Audi S4 Sedan 2002 US",
+          "MODEL": "S4",
+          "YEAR": "2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4494,
+          "DIMENSION-ID": "Audi A3 Hatchback 2027 US",
+          "MODEL": "A3",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 A3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4497,
+          "DIMENSION-ID": "Audi A8 Sedan 2027 US",
+          "MODEL": "A8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 A8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4498,
+          "DIMENSION-ID": "Audi Q3 SUV 2027 US",
+          "MODEL": "Q3",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 Q3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4500,
+          "DIMENSION-ID": "Audi Q6 e-tron SUV 2027 US",
+          "MODEL": "Q6 e-tron",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 Q6 e-tron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4501,
+          "DIMENSION-ID": "Audi Q8 SUV 2027 US",
+          "MODEL": "Q8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 Q8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4502,
+          "DIMENSION-ID": "Audi RS Q8 SUV 2027 US",
+          "MODEL": "RS Q8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 RS Q8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4503,
+          "DIMENSION-ID": "Audi S3 Sedan 2027 US",
+          "MODEL": "S3",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4505,
+          "DIMENSION-ID": "Audi S6 e-tron Sedan 2027 US",
+          "MODEL": "S6 e-tron",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S6 e-tron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4506,
+          "DIMENSION-ID": "Audi S8 Sedan 2027 US",
+          "MODEL": "S8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 S8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4507,
+          "DIMENSION-ID": "Audi SQ5 SUV 2027 US",
+          "MODEL": "SQ5",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 SQ5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4508,
+          "DIMENSION-ID": "Audi SQ6 e-tron SUV 2027 US",
+          "MODEL": "SQ6 e-tron",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 SQ6 e-tron仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4509,
+          "DIMENSION-ID": "Audi SQ8 SUV 2027 US",
+          "MODEL": "SQ8",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "80 quattro 与 SQ8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4945,
+          "DIMENSION-ID": "Audi 200 quattro Avant Wagon 1989 US",
+          "MODEL": "200 quattro Avant",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到200 quattro Avant缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4946,
+          "DIMENSION-ID": "Audi 200 quattro Avant Wagon 1990 US",
+          "MODEL": "200 quattro Avant",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到200 quattro Avant缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4947,
+          "DIMENSION-ID": "Audi 200 quattro Avant Wagon 1991 US",
+          "MODEL": "200 quattro Avant",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到200 quattro Avant缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4980,
+          "DIMENSION-ID": "Audi A6 allroad quattro Wagon 2019 US",
+          "MODEL": "A6 allroad quattro",
+          "YEAR": "2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到A6 allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5030,
+          "DIMENSION-ID": "Audi Coupe Quattro Hatchback 1990 US",
+          "MODEL": "Coupe Quattro",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到Coupe Quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5042,
+          "DIMENSION-ID": "Audi Quattro Coupe 1985 US",
+          "MODEL": "Quattro",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到Quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5048,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1990 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5049,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1991 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5050,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1992 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1992",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5051,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1993 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5052,
+          "DIMENSION-ID": "Audi V8 quattro Sedan 1994 US",
+          "MODEL": "V8 quattro",
+          "YEAR": "1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到V8 quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5053,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2001 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2001",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5054,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2002 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2002",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5055,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2003 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2003",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5056,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2004 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5057,
+          "DIMENSION-ID": "Audi allroad quattro Wagon 2005 US",
+          "MODEL": "allroad quattro",
+          "YEAR": "2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词quattro，但80 quattro到allroad quattro缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 22,
+      "excluded_search_noise_hits": 16,
+      "non_US_candidate_hits": 102,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 982,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1966-1968 EU",
+          "MODEL": "80",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 983,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1972-1975 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 984,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1972-1976 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 985,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1978-1981 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 986,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1978-1982 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 987,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1978-1983 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 988,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 989,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1984-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 990,
+          "DIMENSION-ID": "Audi 80 2dr Sedan 1986-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 991,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 992,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 993,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 994,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 995,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 996,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 997,
+          "DIMENSION-ID": "Audi 80 2dr facelift Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 998,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 999,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1000,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1001,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1002,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1003,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1004,
+          "DIMENSION-ID": "Audi 80 2dr prefl Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1005,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1966-1968 EU",
+          "MODEL": "80",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1006,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1972-1975 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1975",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1007,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1972-1976 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1008,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1978-1981 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1009,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1978-1982 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1010,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1978-1983 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1011,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1012,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1984-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1013,
+          "DIMENSION-ID": "Audi 80 4dr Sedan 1986-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1014,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1015,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1016,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1017,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1018,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1019,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1020,
+          "DIMENSION-ID": "Audi 80 4dr facelift Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1021,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1022,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1023,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1024,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1025,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1980-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1026,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1981-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1027,
+          "DIMENSION-ID": "Audi 80 4dr prefl Sedan 1983-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1028,
+          "DIMENSION-ID": "Audi 80 81 Sedan 1985-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1985-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1029,
+          "DIMENSION-ID": "Audi 80 85 Sedan 1985-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1985-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1030,
+          "DIMENSION-ID": "Audi 80 89 Sedan 1990-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1031,
+          "DIMENSION-ID": "Audi 80 8C L4482 W1695 H1406 Sedan 1993-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1032,
+          "DIMENSION-ID": "Audi 80 8C L4509 W1695 H1386 Sedan 1993-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1033,
+          "DIMENSION-ID": "Audi 80 Sedan 1973-1976 EU",
+          "MODEL": "80",
+          "YEAR": "1973-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1034,
+          "DIMENSION-ID": "Audi 80 Sedan 1978-1981 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1035,
+          "DIMENSION-ID": "Audi 80 Sedan 1978-1987 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1036,
+          "DIMENSION-ID": "Audi 80 Sedan 1981-1983 EU",
+          "MODEL": "80",
+          "YEAR": "1981-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1037,
+          "DIMENSION-ID": "Audi 80 Sedan 1982-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1982-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1038,
+          "DIMENSION-ID": "Audi 80 Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1039,
+          "DIMENSION-ID": "Audi 80 Sedan 1984-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1040,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1988 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1988",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1041,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1990 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1042,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1986-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1043,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-2026 EU",
+          "MODEL": "80",
+          "YEAR": "1986-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1044,
+          "DIMENSION-ID": "Audi 80 Sedan 1987-1989 EU",
+          "MODEL": "80",
+          "YEAR": "1987-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1045,
+          "DIMENSION-ID": "Audi 80 Sedan 1987-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1987-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1046,
+          "DIMENSION-ID": "Audi 80 Sedan 1988-1990 EU",
+          "MODEL": "80",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1047,
+          "DIMENSION-ID": "Audi 80 Sedan 1989-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1048,
+          "DIMENSION-ID": "Audi 80 Sedan 1990-1991 EU",
+          "MODEL": "80",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1049,
+          "DIMENSION-ID": "Audi 80 Sedan 1991-1992 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1050,
+          "DIMENSION-ID": "Audi 80 Sedan 1991-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1051,
+          "DIMENSION-ID": "Audi 80 Sedan 1992-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1052,
+          "DIMENSION-ID": "Audi 80 Wagon 1966-1968 EU",
+          "MODEL": "80",
+          "YEAR": "1966-1968",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1053,
+          "DIMENSION-ID": "Audi 80 Wagon 1991-1994 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1054,
+          "DIMENSION-ID": "Audi 80 Wagon 1991-1996 EU",
+          "MODEL": "80",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1055,
+          "DIMENSION-ID": "Audi 80 Wagon 1992-1995 EU",
+          "MODEL": "80",
+          "YEAR": "1992-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1056,
+          "DIMENSION-ID": "Audi 80 Wagon 1992-1996 EU",
+          "MODEL": "80",
+          "YEAR": "1992-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1057,
+          "DIMENSION-ID": "Audi 80 Wagon 1993-1995 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1058,
+          "DIMENSION-ID": "Audi 80 Wagon 1993-1996 EU",
+          "MODEL": "80",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1059,
+          "DIMENSION-ID": "Audi 80 Wagon 1994-1995 EU",
+          "MODEL": "80",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1060,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1061,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1062,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1976-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1976-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1063,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1064,
+          "DIMENSION-ID": "Audi 80 facelift Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1065,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1972-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1066,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1975-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1975-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1067,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1976-1978 EU",
+          "MODEL": "80",
+          "YEAR": "1976-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1068,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1978-1986 EU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1069,
+          "DIMENSION-ID": "Audi 80 prefl Sedan 1983-1984 EU",
+          "MODEL": "80",
+          "YEAR": "1983-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1933,
+          "DIMENSION-ID": "Audi Quattro Coupe 1980-1987 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1980-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1934,
+          "DIMENSION-ID": "Audi Quattro Coupe 1984-1987 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1984-1987",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1935,
+          "DIMENSION-ID": "Audi Quattro Coupe 1987-1989 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1987-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 1936,
+          "DIMENSION-ID": "Audi Quattro Coupe 1989-1991 EU",
+          "MODEL": "Quattro",
+          "YEAR": "1989-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 480,
+          "DIMENSION-ID": "Audi 80 II (B1) L4175 W1600 H1362 Sedan 1972-1978 RU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 481,
+          "DIMENSION-ID": "Audi 80 II (B1) L4220 W1600 H1362 Sedan 1972-1978 RU",
+          "MODEL": "80",
+          "YEAR": "1972-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 482,
+          "DIMENSION-ID": "Audi 80 III (B2) L4383 W1682 H1365 Sedan 1978-1986 RU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 483,
+          "DIMENSION-ID": "Audi 80 III (B2) L4410 W1680 H1360 Sedan 1978-1986 RU",
+          "MODEL": "80",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 484,
+          "DIMENSION-ID": "Audi 80 Sedan 1986-1992 RU",
+          "MODEL": "80",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 485,
+          "DIMENSION-ID": "Audi 80 Sedan 1991-1996 RU",
+          "MODEL": "80",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 486,
+          "DIMENSION-ID": "Audi 80 Wagon 1991-1996 RU",
+          "MODEL": "80",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 625,
+          "DIMENSION-ID": "Audi NSU RO 80 Sedan 1967-1977 RU",
+          "MODEL": "NSU RO 80",
+          "YEAR": "1967-1977",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 668,
+          "DIMENSION-ID": "Audi Quattro Coupe 1980-1985 RU",
+          "MODEL": "Quattro",
+          "YEAR": "1980-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 669,
+          "DIMENSION-ID": "Audi Quattro Coupe 1985-1991 RU",
+          "MODEL": "Quattro",
+          "YEAR": "1985-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Audi / 80 quattro原名到明确US目标的可引用身份关系；参考年份1990|1991|1992的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-b72e6620b0d00109b83667a2",
+      "MM_ID": "MM-1f6cb488cdf48933c3284d38",
+      "REGION": "US",
+      "MAKE": "Audi",
+      "MODEL": "80 quattro",
+      "YEAR": "1990",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Audi",
+      "标准MODEL": "80",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "880"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 5 cyl, 2.3 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Audi 200 quattro Avant Wagon 1990 US",
+            "Audi Coupe Quattro Hatchback 1990 US",
+            "Audi V8 quattro Sedan 1990 US"
+          ],
+          "candidate_same_year_hits": 3
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Audi 200 quattro Avant Wagon 1990 US",
+            "Audi Coupe Quattro Hatchback 1990 US",
+            "Audi V8 quattro Sedan 1990 US"
+          ],
+          "candidate_same_year_hits": 3
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-3182bfc98de3d5b8dbcd4d33",
+      "MM_ID": "MM-1f6cb488cdf48933c3284d38",
+      "REGION": "US",
+      "MAKE": "Audi",
+      "MODEL": "80 quattro",
+      "YEAR": "1991",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Audi",
+      "标准MODEL": "80",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "881"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 5 cyl, 2.3 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Audi 200 quattro Avant Wagon 1991 US",
+            "Audi V8 quattro Sedan 1991 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Audi 200 quattro Avant Wagon 1991 US",
+            "Audi V8 quattro Sedan 1991 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-1a7e866401ae13e2f5b91fc2",
+      "MM_ID": "MM-1f6cb488cdf48933c3284d38",
+      "REGION": "US",
+      "MAKE": "Audi",
+      "MODEL": "80 quattro",
+      "YEAR": "1992",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Audi",
+      "标准MODEL": "80",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "882"
+      ],
+      "source_year_body_or_trim": [
+        "Man 5-spd, 5 cyl, 2.3 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Audi V8 quattro Sedan 1992 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Audi V8 quattro Sedan 1992 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Audi",
+    "MODEL": "80",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

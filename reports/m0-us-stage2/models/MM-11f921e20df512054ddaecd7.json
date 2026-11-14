@@ -1,0 +1,454 @@
+{
+  "MAKE": "Rolls-Royce",
+  "MODEL": "Corniche II/Continental",
+  "MM_ID": "MM-11f921e20df512054ddaecd7",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Rolls-Royce",
+    "MODEL": "Corniche II/Continental",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 43974,
+      "MM_ID": "MM-11f921e20df512054ddaecd7",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "43975",
+      "raw_make": "Rolls-Royce",
+      "raw_model": "Corniche II/Continental",
+      "raw_year": "1986",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 3-spd, 8 cyl, 6.8 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4476,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "rolls-royce",
+      "make_name": "Rolls-Royce",
+      "model_slug": "corniche",
+      "model_name": "Corniche",
+      "body_types": "convertible",
+      "countries": "au|ca|ch|fi|gb|nl|no|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 4477,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "rolls-royce",
+      "make_name": "Rolls-Royce",
+      "model_slug": "corniche-2",
+      "model_name": "Corniche 2",
+      "body_types": "convertible",
+      "countries": "nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "9"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "rolls-royce",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 17,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 23613,
+          "DIMENSION-ID": "Rolls-royce Corniche Convertible 1971-1984 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1971-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23614,
+          "DIMENSION-ID": "Rolls-royce Corniche Convertible 1984-1986 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23615,
+          "DIMENSION-ID": "Rolls-royce Corniche Coupe 1977-1984 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1977-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23616,
+          "DIMENSION-ID": "Rolls-royce Corniche Sedan 1970-1974 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1970-1974",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23617,
+          "DIMENSION-ID": "Rolls-royce Corniche ii Convertible 1985-1989 EU",
+          "MODEL": "Corniche ii",
+          "YEAR": "1985-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23618,
+          "DIMENSION-ID": "Rolls-royce Corniche ii Convertible 1986-1989 EU",
+          "MODEL": "Corniche ii",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23619,
+          "DIMENSION-ID": "Rolls-royce Corniche iv Convertible 1993-2000 EU",
+          "MODEL": "Corniche iv",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23620,
+          "DIMENSION-ID": "Rolls-royce Corniche v Convertible 2000-2002 EU",
+          "MODEL": "Corniche v",
+          "YEAR": "2000-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23629,
+          "DIMENSION-ID": "Rolls-royce Ghost ii Sedan 2020-2026 EU",
+          "MODEL": "Ghost ii",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23630,
+          "DIMENSION-ID": "Rolls-royce Ghost ii Sedan 2022-2026 EU",
+          "MODEL": "Ghost ii",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23631,
+          "DIMENSION-ID": "Rolls-royce Ghost ii extended wheelbase Sedan 2020-2026 EU",
+          "MODEL": "Ghost ii extended wheelbase",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23648,
+          "DIMENSION-ID": "Rolls-royce Silver spirit mk ii Sedan 1989-1993 EU",
+          "MODEL": "Silver spirit mk ii",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23649,
+          "DIMENSION-ID": "Rolls-royce Silver spirit mk ii Sedan 1989-1997 EU",
+          "MODEL": "Silver spirit mk ii",
+          "YEAR": "1989-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23652,
+          "DIMENSION-ID": "Rolls-royce Silver wraith ii Sedan 1976-1980 EU",
+          "MODEL": "Silver wraith ii",
+          "YEAR": "1976-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10626,
+          "DIMENSION-ID": "Rolls-Royce Corniche Convertible 1971-1995 RU",
+          "MODEL": "Corniche",
+          "YEAR": "1971-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10627,
+          "DIMENSION-ID": "Rolls-Royce Corniche Convertible 2000-2002 RU",
+          "MODEL": "Corniche",
+          "YEAR": "2000-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10628,
+          "DIMENSION-ID": "Rolls-Royce Corniche Coupe 1971-1995 RU",
+          "MODEL": "Corniche",
+          "YEAR": "1971-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "rolls-royce",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 17,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 23613,
+          "DIMENSION-ID": "Rolls-royce Corniche Convertible 1971-1984 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1971-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23614,
+          "DIMENSION-ID": "Rolls-royce Corniche Convertible 1984-1986 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23615,
+          "DIMENSION-ID": "Rolls-royce Corniche Coupe 1977-1984 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1977-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23616,
+          "DIMENSION-ID": "Rolls-royce Corniche Sedan 1970-1974 EU",
+          "MODEL": "Corniche",
+          "YEAR": "1970-1974",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23617,
+          "DIMENSION-ID": "Rolls-royce Corniche ii Convertible 1985-1989 EU",
+          "MODEL": "Corniche ii",
+          "YEAR": "1985-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23618,
+          "DIMENSION-ID": "Rolls-royce Corniche ii Convertible 1986-1989 EU",
+          "MODEL": "Corniche ii",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23619,
+          "DIMENSION-ID": "Rolls-royce Corniche iv Convertible 1993-2000 EU",
+          "MODEL": "Corniche iv",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23620,
+          "DIMENSION-ID": "Rolls-royce Corniche v Convertible 2000-2002 EU",
+          "MODEL": "Corniche v",
+          "YEAR": "2000-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23629,
+          "DIMENSION-ID": "Rolls-royce Ghost ii Sedan 2020-2026 EU",
+          "MODEL": "Ghost ii",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23630,
+          "DIMENSION-ID": "Rolls-royce Ghost ii Sedan 2022-2026 EU",
+          "MODEL": "Ghost ii",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23631,
+          "DIMENSION-ID": "Rolls-royce Ghost ii extended wheelbase Sedan 2020-2026 EU",
+          "MODEL": "Ghost ii extended wheelbase",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23648,
+          "DIMENSION-ID": "Rolls-royce Silver spirit mk ii Sedan 1989-1993 EU",
+          "MODEL": "Silver spirit mk ii",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23649,
+          "DIMENSION-ID": "Rolls-royce Silver spirit mk ii Sedan 1989-1997 EU",
+          "MODEL": "Silver spirit mk ii",
+          "YEAR": "1989-1997",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23652,
+          "DIMENSION-ID": "Rolls-royce Silver wraith ii Sedan 1976-1980 EU",
+          "MODEL": "Silver wraith ii",
+          "YEAR": "1976-1980",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10626,
+          "DIMENSION-ID": "Rolls-Royce Corniche Convertible 1971-1995 RU",
+          "MODEL": "Corniche",
+          "YEAR": "1971-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10627,
+          "DIMENSION-ID": "Rolls-Royce Corniche Convertible 2000-2002 RU",
+          "MODEL": "Corniche",
+          "YEAR": "2000-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10628,
+          "DIMENSION-ID": "Rolls-Royce Corniche Coupe 1971-1995 RU",
+          "MODEL": "Corniche",
+          "YEAR": "1971-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Rolls-Royce / Corniche II/Continental原名到明确US目标的可引用身份关系；参考年份1986的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-293a5b9d23100073d3526d3e",
+      "MM_ID": "MM-11f921e20df512054ddaecd7",
+      "REGION": "US",
+      "MAKE": "Rolls-Royce",
+      "MODEL": "Corniche II/Continental",
+      "YEAR": "1986",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Rolls-Royce",
+      "标准MODEL": "Corniche II/Continental",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "43975"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 3-spd, 8 cyl, 6.8 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Rolls-Royce",
+    "MODEL": "Corniche II/Continental",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

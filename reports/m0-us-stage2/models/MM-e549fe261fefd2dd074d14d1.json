@@ -1,0 +1,1257 @@
+{
+  "MAKE": "Ford",
+  "MODEL": "Taurus X AWD",
+  "MM_ID": "MM-e549fe261fefd2dd074d14d1",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Ford",
+    "MODEL": "Taurus X",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 811,
+      "raw_make": "Ford",
+      "raw_model": "Taurus X AWD",
+      "make": "Ford",
+      "model": "Taurus X",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    },
+    {
+      "csv_record": 812,
+      "raw_make": "Ford",
+      "raw_model": "Taurus X FWD",
+      "make": "Ford",
+      "model": "Taurus X",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 20342,
+      "MM_ID": "MM-e549fe261fefd2dd074d14d1",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20343",
+      "raw_make": "Ford",
+      "raw_model": "Taurus X AWD",
+      "raw_year": "2008",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 6-spd, 6 cyl, 3.5 L"
+    },
+    {
+      "association_row_1based": 20343,
+      "MM_ID": "MM-e549fe261fefd2dd074d14d1",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "20344",
+      "raw_make": "Ford",
+      "raw_model": "Taurus X AWD",
+      "raw_year": "2009",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 6-spd, 6 cyl, 3.5 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 2005,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "ford",
+      "make_name": "Ford",
+      "model_slug": "sierra-xr4x4",
+      "model_name": "Sierra XR4X4",
+      "body_types": "hatchback",
+      "countries": "nl|no|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    },
+    {
+      "record": 2023,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "ford",
+      "make_name": "Ford",
+      "model_slug": "taurus",
+      "model_name": "Taurus",
+      "body_types": "sedan",
+      "countries": "au|ca|fi|gb|il|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "car/ford/taurus-ffv|car/ford/taurus-sho|car/ford/taurus-wagon|car/ford/taurus-wagon-ffv",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 2024,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "ford",
+      "make_name": "Ford",
+      "model_slug": "taurus-x",
+      "model_name": "Taurus X",
+      "body_types": "hatchback|wagon",
+      "countries": "ca|nl|us",
+      "regions": "eu|na",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "ford",
+      "same_brand_rows_examined": 585,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 31,
+      "candidates": [
+        {
+          "row_1based": 1815,
+          "DIMENSION-ID": "Ford Taurus SHO Sedan 2010-2019 US",
+          "MODEL": "Taurus",
+          "YEAR": "2010-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1816,
+          "DIMENSION-ID": "Ford Taurus Sedan 1986-1991 US",
+          "MODEL": "Taurus",
+          "YEAR": "1986-1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1817,
+          "DIMENSION-ID": "Ford Taurus Sedan 1992-1995 US",
+          "MODEL": "Taurus",
+          "YEAR": "1992-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1818,
+          "DIMENSION-ID": "Ford Taurus Sedan 1996-1999 US",
+          "MODEL": "Taurus",
+          "YEAR": "1996-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1819,
+          "DIMENSION-ID": "Ford Taurus Sedan 2000-2007 US",
+          "MODEL": "Taurus",
+          "YEAR": "2000-2007",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1820,
+          "DIMENSION-ID": "Ford Taurus Sedan 2008-2009 US",
+          "MODEL": "Taurus",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1821,
+          "DIMENSION-ID": "Ford Taurus Wagon 1986-1991 US",
+          "MODEL": "Taurus",
+          "YEAR": "1986-1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1822,
+          "DIMENSION-ID": "Ford Taurus Wagon 1992-1995 US",
+          "MODEL": "Taurus",
+          "YEAR": "1992-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1823,
+          "DIMENSION-ID": "Ford Taurus Wagon 1996 US",
+          "MODEL": "Taurus",
+          "YEAR": "1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1824,
+          "DIMENSION-ID": "Ford Taurus Wagon 1997-1999 US",
+          "MODEL": "Taurus",
+          "YEAR": "1997-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1825,
+          "DIMENSION-ID": "Ford Taurus Wagon 2000-2005 US",
+          "MODEL": "Taurus",
+          "YEAR": "2000-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4381,
+          "DIMENSION-ID": "Ford Ranger Pickup 1998-2000 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4382,
+          "DIMENSION-ID": "Ford Ranger Pickup 2001-2003 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2001-2003",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4383,
+          "DIMENSION-ID": "Ford Ranger Pickup 2004 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4384,
+          "DIMENSION-ID": "Ford Ranger Pickup 2005 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4385,
+          "DIMENSION-ID": "Ford Ranger Pickup 2006-2011 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2006-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4386,
+          "DIMENSION-ID": "Ford Ranger Pickup 1998-2000 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4387,
+          "DIMENSION-ID": "Ford Ranger Pickup 2001-2002 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2001-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4388,
+          "DIMENSION-ID": "Ford Ranger Pickup 2003 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2003",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4389,
+          "DIMENSION-ID": "Ford Ranger Pickup 2004 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4390,
+          "DIMENSION-ID": "Ford Ranger Pickup 2005 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4391,
+          "DIMENSION-ID": "Ford Ranger Pickup 2006-2007 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2006-2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4392,
+          "DIMENSION-ID": "Ford Ranger Pickup 2008-2009 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4393,
+          "DIMENSION-ID": "Ford Ranger Pickup 2010-2011 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4394,
+          "DIMENSION-ID": "Ford Ranger Pickup 1998-2000 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4395,
+          "DIMENSION-ID": "Ford Ranger Pickup 2001-2002 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2001-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4396,
+          "DIMENSION-ID": "Ford Ranger Pickup 2003 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2003",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4397,
+          "DIMENSION-ID": "Ford Ranger Pickup 2004 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4398,
+          "DIMENSION-ID": "Ford Ranger Pickup 2005 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4399,
+          "DIMENSION-ID": "Ford Ranger Pickup 2006-2007 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2006-2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4400,
+          "DIMENSION-ID": "Ford Ranger Pickup 2008-2011 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2008-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 11,
+      "excluded_search_noise_hits": 20,
+      "non_US_candidate_hits": 16,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 4133,
+          "DIMENSION-ID": "Ford Taurus Sedan 1985-1991 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1985-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4134,
+          "DIMENSION-ID": "Ford Taurus Sedan 1991-1995 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4135,
+          "DIMENSION-ID": "Ford Taurus Sedan 1995-1999 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1995-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4136,
+          "DIMENSION-ID": "Ford Taurus Sedan 1999-2004 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4137,
+          "DIMENSION-ID": "Ford Taurus Sedan 2003-2006 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4138,
+          "DIMENSION-ID": "Ford Taurus Sedan 2007-2009 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4139,
+          "DIMENSION-ID": "Ford Taurus Sedan 2009-2012 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4140,
+          "DIMENSION-ID": "Ford Taurus Sedan 2012-2019 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4141,
+          "DIMENSION-ID": "Ford Taurus Sedan 2022-2025 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2022-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4142,
+          "DIMENSION-ID": "Ford Taurus Sedan 2025-2026 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4143,
+          "DIMENSION-ID": "Ford Taurus Wagon 1985-1991 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1985-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4144,
+          "DIMENSION-ID": "Ford Taurus Wagon 1991-1995 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4145,
+          "DIMENSION-ID": "Ford Taurus Wagon 1995-1999 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1995-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4146,
+          "DIMENSION-ID": "Ford Taurus Wagon 1999-2004 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4147,
+          "DIMENSION-ID": "Ford Taurus Wagon 2003-2006 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4148,
+          "DIMENSION-ID": "Ford Taurus X SUV 2007-2009 RU",
+          "MODEL": "Taurus X",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "ford",
+      "same_brand_rows_examined": 585,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 31,
+      "candidates": [
+        {
+          "row_1based": 1815,
+          "DIMENSION-ID": "Ford Taurus SHO Sedan 2010-2019 US",
+          "MODEL": "Taurus",
+          "YEAR": "2010-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1816,
+          "DIMENSION-ID": "Ford Taurus Sedan 1986-1991 US",
+          "MODEL": "Taurus",
+          "YEAR": "1986-1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1817,
+          "DIMENSION-ID": "Ford Taurus Sedan 1992-1995 US",
+          "MODEL": "Taurus",
+          "YEAR": "1992-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1818,
+          "DIMENSION-ID": "Ford Taurus Sedan 1996-1999 US",
+          "MODEL": "Taurus",
+          "YEAR": "1996-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1819,
+          "DIMENSION-ID": "Ford Taurus Sedan 2000-2007 US",
+          "MODEL": "Taurus",
+          "YEAR": "2000-2007",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1820,
+          "DIMENSION-ID": "Ford Taurus Sedan 2008-2009 US",
+          "MODEL": "Taurus",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1821,
+          "DIMENSION-ID": "Ford Taurus Wagon 1986-1991 US",
+          "MODEL": "Taurus",
+          "YEAR": "1986-1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1822,
+          "DIMENSION-ID": "Ford Taurus Wagon 1992-1995 US",
+          "MODEL": "Taurus",
+          "YEAR": "1992-1995",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1823,
+          "DIMENSION-ID": "Ford Taurus Wagon 1996 US",
+          "MODEL": "Taurus",
+          "YEAR": "1996",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1824,
+          "DIMENSION-ID": "Ford Taurus Wagon 1997-1999 US",
+          "MODEL": "Taurus",
+          "YEAR": "1997-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1825,
+          "DIMENSION-ID": "Ford Taurus Wagon 2000-2005 US",
+          "MODEL": "Taurus",
+          "YEAR": "2000-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词taurus，但Taurus X AWD到Taurus缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4381,
+          "DIMENSION-ID": "Ford Ranger Pickup 1998-2000 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4382,
+          "DIMENSION-ID": "Ford Ranger Pickup 2001-2003 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2001-2003",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4383,
+          "DIMENSION-ID": "Ford Ranger Pickup 2004 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4384,
+          "DIMENSION-ID": "Ford Ranger Pickup 2005 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4385,
+          "DIMENSION-ID": "Ford Ranger Pickup 2006-2011 Regular 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2006-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4386,
+          "DIMENSION-ID": "Ford Ranger Pickup 1998-2000 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4387,
+          "DIMENSION-ID": "Ford Ranger Pickup 2001-2002 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2001-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4388,
+          "DIMENSION-ID": "Ford Ranger Pickup 2003 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2003",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4389,
+          "DIMENSION-ID": "Ford Ranger Pickup 2004 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4390,
+          "DIMENSION-ID": "Ford Ranger Pickup 2005 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4391,
+          "DIMENSION-ID": "Ford Ranger Pickup 2006-2007 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2006-2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4392,
+          "DIMENSION-ID": "Ford Ranger Pickup 2008-2009 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4393,
+          "DIMENSION-ID": "Ford Ranger Pickup 2010-2011 Regular 7 US",
+          "MODEL": "Ranger",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4394,
+          "DIMENSION-ID": "Ford Ranger Pickup 1998-2000 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "1998-2000",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4395,
+          "DIMENSION-ID": "Ford Ranger Pickup 2001-2002 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2001-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4396,
+          "DIMENSION-ID": "Ford Ranger Pickup 2003 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2003",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4397,
+          "DIMENSION-ID": "Ford Ranger Pickup 2004 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4398,
+          "DIMENSION-ID": "Ford Ranger Pickup 2005 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2005",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4399,
+          "DIMENSION-ID": "Ford Ranger Pickup 2006-2007 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2006-2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4400,
+          "DIMENSION-ID": "Ford Ranger Pickup 2008-2011 SuperCab 6 US",
+          "MODEL": "Ranger",
+          "YEAR": "2008-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Taurus X AWD 与 Ranger仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 11,
+      "excluded_search_noise_hits": 20,
+      "non_US_candidate_hits": 16,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 4133,
+          "DIMENSION-ID": "Ford Taurus Sedan 1985-1991 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1985-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4134,
+          "DIMENSION-ID": "Ford Taurus Sedan 1991-1995 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4135,
+          "DIMENSION-ID": "Ford Taurus Sedan 1995-1999 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1995-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4136,
+          "DIMENSION-ID": "Ford Taurus Sedan 1999-2004 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4137,
+          "DIMENSION-ID": "Ford Taurus Sedan 2003-2006 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4138,
+          "DIMENSION-ID": "Ford Taurus Sedan 2007-2009 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4139,
+          "DIMENSION-ID": "Ford Taurus Sedan 2009-2012 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4140,
+          "DIMENSION-ID": "Ford Taurus Sedan 2012-2019 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2012-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4141,
+          "DIMENSION-ID": "Ford Taurus Sedan 2022-2025 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2022-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4142,
+          "DIMENSION-ID": "Ford Taurus Sedan 2025-2026 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4143,
+          "DIMENSION-ID": "Ford Taurus Wagon 1985-1991 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1985-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4144,
+          "DIMENSION-ID": "Ford Taurus Wagon 1991-1995 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4145,
+          "DIMENSION-ID": "Ford Taurus Wagon 1995-1999 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1995-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4146,
+          "DIMENSION-ID": "Ford Taurus Wagon 1999-2004 RU",
+          "MODEL": "Taurus",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4147,
+          "DIMENSION-ID": "Ford Taurus Wagon 2003-2006 RU",
+          "MODEL": "Taurus",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 4148,
+          "DIMENSION-ID": "Ford Taurus X SUV 2007-2009 RU",
+          "MODEL": "Taurus X",
+          "YEAR": "2007-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Ford / Taurus X AWD原名到明确US目标的可引用身份关系；参考年份2008|2009的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-862ccda34a2f054f6e616d99",
+      "MM_ID": "MM-e549fe261fefd2dd074d14d1",
+      "REGION": "US",
+      "MAKE": "Ford",
+      "MODEL": "Taurus X AWD",
+      "YEAR": "2008",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Ford",
+      "标准MODEL": "Taurus X",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "20343"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 6-spd, 6 cyl, 3.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Ford Taurus Sedan 2008-2009 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Ford Taurus Sedan 2008-2009 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-6a11f0f793d2a4daab323f0d",
+      "MM_ID": "MM-e549fe261fefd2dd074d14d1",
+      "REGION": "US",
+      "MAKE": "Ford",
+      "MODEL": "Taurus X AWD",
+      "YEAR": "2009",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Ford",
+      "标准MODEL": "Taurus X",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "20344"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 6-spd, 6 cyl, 3.5 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Ford Taurus Sedan 2008-2009 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Ford Taurus Sedan 2008-2009 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Ford",
+    "MODEL": "Taurus X",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

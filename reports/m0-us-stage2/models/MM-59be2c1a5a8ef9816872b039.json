@@ -1,0 +1,3686 @@
+{
+  "MAKE": "Renault",
+  "MODEL": "18i 4DR Wagon",
+  "MM_ID": "MM-59be2c1a5a8ef9816872b039",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Renault",
+    "MODEL": "18i 4DR Wagon",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 43699,
+      "MM_ID": "MM-59be2c1a5a8ef9816872b039",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "43700",
+      "raw_make": "Renault",
+      "raw_model": "18i 4DR Wagon",
+      "raw_year": "1985",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 3-spd, 4 cyl, 2.2 L"
+    },
+    {
+      "association_row_1based": 43700,
+      "MM_ID": "MM-59be2c1a5a8ef9816872b039",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "43701",
+      "raw_make": "Renault",
+      "raw_model": "18i 4DR Wagon",
+      "raw_year": "1985",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 5-spd, 4 cyl, 2.2 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4361,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "renault",
+      "make_name": "Renault",
+      "model_slug": "18",
+      "model_name": "18",
+      "body_types": "sedan|wagon",
+      "countries": "fi|gb|nl|nz|ua",
+      "regions": "eu|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "car/renault/18gts|car/renault/r18",
+      "mass_popularity_decile": "4"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "renault",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 219,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 21959,
+          "DIMENSION-ID": "Renault 18 134 Sedan 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21960,
+          "DIMENSION-ID": "Renault 18 135 Wagon 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21961,
+          "DIMENSION-ID": "Renault 18 1982 Wagon 1979-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21962,
+          "DIMENSION-ID": "Renault 18 1982 Wagon 1980-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21963,
+          "DIMENSION-ID": "Renault 18 L4487 W1682 H1487 Wagon 1983-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21964,
+          "DIMENSION-ID": "Renault 18 L4487 W1696 H1402 Wagon 1983-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21965,
+          "DIMENSION-ID": "Renault 18 Sedan 1978-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1978-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21966,
+          "DIMENSION-ID": "Renault 18 Sedan 1978-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21967,
+          "DIMENSION-ID": "Renault 18 Sedan 1980-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21968,
+          "DIMENSION-ID": "Renault 18 Sedan 1981-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21969,
+          "DIMENSION-ID": "Renault 18 Sedan 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21970,
+          "DIMENSION-ID": "Renault 18 Wagon 1979-1981 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21971,
+          "DIMENSION-ID": "Renault 18 Wagon 1979-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21972,
+          "DIMENSION-ID": "Renault 18 Wagon 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21973,
+          "DIMENSION-ID": "Renault 18 early Wagon 1980-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21974,
+          "DIMENSION-ID": "Renault 18 facelift Wagon 1980-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21975,
+          "DIMENSION-ID": "Renault 18 facelift Wagon 1981-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21976,
+          "DIMENSION-ID": "Renault 18 pre82 Wagon 1979-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21977,
+          "DIMENSION-ID": "Renault 18 prefl Wagon 1981-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21978,
+          "DIMENSION-ID": "Renault 19 i 3dr Hatchback 1988-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21979,
+          "DIMENSION-ID": "Renault 19 i 3dr Hatchback 1989-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21980,
+          "DIMENSION-ID": "Renault 19 i 3dr Hatchback 1989-1993 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21981,
+          "DIMENSION-ID": "Renault 19 i 5dr Hatchback 1988-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21982,
+          "DIMENSION-ID": "Renault 19 i 5dr Hatchback 1989-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21983,
+          "DIMENSION-ID": "Renault 19 i 5dr Hatchback 1989-1993 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21984,
+          "DIMENSION-ID": "Renault 19 i L4151 W1684 H1365 Convertible 1991-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21985,
+          "DIMENSION-ID": "Renault 19 i L4156 W1684 H1410 Convertible 1991-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21986,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1988-1992 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21987,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1989-1990 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21988,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1989-1992 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21989,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1990-1992 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22122,
+          "DIMENSION-ID": "Renault Arkana i SUV 2020-2026 EU",
+          "MODEL": "Arkana i",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22123,
+          "DIMENSION-ID": "Renault Arkana i SUV 2021-2026 EU",
+          "MODEL": "Arkana i",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22128,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2013-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2013-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22129,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2013-2019 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2013-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22130,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2015-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2015-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22131,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2018-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2018-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22132,
+          "DIMENSION-ID": "Renault Captur i SUV 2016-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22133,
+          "DIMENSION-ID": "Renault Captur i SUV 2018-2019 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2018-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22140,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1990-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22141,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1991-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22142,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1991-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22143,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1994-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22144,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1995-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22145,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22146,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1997-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22147,
+          "DIMENSION-ID": "Renault Clio i 3dr phase1 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22148,
+          "DIMENSION-ID": "Renault Clio i 3dr phase2 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22149,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1990-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22150,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1991-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22151,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1991-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22152,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1994-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22153,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1995-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22154,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22155,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1997-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22156,
+          "DIMENSION-ID": "Renault Clio i 5dr phase1 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22157,
+          "DIMENSION-ID": "Renault Clio i 5dr phase2 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22158,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1991-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22159,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1991-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22160,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1993-1995 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22161,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1994-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22162,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1996-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22163,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1996-1999 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22164,
+          "DIMENSION-ID": "Renault Clio i L3709 W1616 H1395 Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22165,
+          "DIMENSION-ID": "Renault Clio i L3716 W1630 H1395 Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22304,
+          "DIMENSION-ID": "Renault Espace i J11 MPV 1988-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22305,
+          "DIMENSION-ID": "Renault Espace i MPV 1988-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22306,
+          "DIMENSION-ID": "Renault Espace i MPV 1988-1992 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22307,
+          "DIMENSION-ID": "Renault Espace i MPV 1989-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22308,
+          "DIMENSION-ID": "Renault Espace i facelift MPV 1984-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22309,
+          "DIMENSION-ID": "Renault Espace i facelift MPV 1986-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22310,
+          "DIMENSION-ID": "Renault Espace i prefl MPV 1984-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22311,
+          "DIMENSION-ID": "Renault Espace i prefl MPV 1986-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22459,
+          "DIMENSION-ID": "Renault Koleos i SUV 2013-2026 EU",
+          "MODEL": "Koleos i",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22460,
+          "DIMENSION-ID": "Renault Koleos i phase1 SUV 2008-2026 EU",
+          "MODEL": "Koleos i",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22461,
+          "DIMENSION-ID": "Renault Koleos i phase3 SUV 2008-2026 EU",
+          "MODEL": "Koleos i",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22467,
+          "DIMENSION-ID": "Renault Laguna i B56 Hatchback 1995-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22468,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1993-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1993-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22469,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1995-1998 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22470,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1995-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22471,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1997-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22472,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1998-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22473,
+          "DIMENSION-ID": "Renault Laguna i L4508 W1752 H1433 Hatchback 1999-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22474,
+          "DIMENSION-ID": "Renault Laguna i L4510 W1750 H1430 Hatchback 1999-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22475,
+          "DIMENSION-ID": "Renault Laguna i facelift Hatchback 1996-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22476,
+          "DIMENSION-ID": "Renault Laguna i grandtour K56 Wagon 1998-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22477,
+          "DIMENSION-ID": "Renault Laguna i grandtour Wagon 1997-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22478,
+          "DIMENSION-ID": "Renault Laguna i grandtour Wagon 1998-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22479,
+          "DIMENSION-ID": "Renault Laguna i grandtour Wagon 1999-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22480,
+          "DIMENSION-ID": "Renault Laguna i grandtour facelift Wagon 1995-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22481,
+          "DIMENSION-ID": "Renault Laguna i grandtour facelift Wagon 1996-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22482,
+          "DIMENSION-ID": "Renault Laguna i grandtour facelift Wagon 1997-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22483,
+          "DIMENSION-ID": "Renault Laguna i grandtour prefl Wagon 1995-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22484,
+          "DIMENSION-ID": "Renault Laguna i grandtour prefl Wagon 1996-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22485,
+          "DIMENSION-ID": "Renault Laguna i prefl Hatchback 1996-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22486,
+          "DIMENSION-ID": "Renault Laguna i prefl Hatchback 1997-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22545,
+          "DIMENSION-ID": "Renault Master i Chassis Cab 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22546,
+          "DIMENSION-ID": "Renault Master i Chassis Cab 1982-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22547,
+          "DIMENSION-ID": "Renault Master i Chassis Cab 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22548,
+          "DIMENSION-ID": "Renault Master i l1 Chassis Cab 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22549,
+          "DIMENSION-ID": "Renault Master i l1 Chassis Cab 1989-1993 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22550,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22551,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22552,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22553,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22554,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22555,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22556,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22557,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22558,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22559,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22560,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22561,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22562,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22563,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22564,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22565,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22566,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22567,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22568,
+          "DIMENSION-ID": "Renault Master i l2 Chassis Cab 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22569,
+          "DIMENSION-ID": "Renault Master i l2 Chassis Cab 1989-1993 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22570,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22571,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22572,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22573,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22574,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22575,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22576,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22577,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22578,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22579,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22580,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22581,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22582,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22583,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22584,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22585,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22586,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22587,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22588,
+          "DIMENSION-ID": "Renault Master i l3 Chassis Cab 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22589,
+          "DIMENSION-ID": "Renault Master i l3 Chassis Cab 1989-1993 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22590,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22591,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22592,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22593,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22594,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22595,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22596,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22597,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22598,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23061,
+          "DIMENSION-ID": "Renault Megane i Convertible 1996-1999 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23062,
+          "DIMENSION-ID": "Renault Megane i Convertible 1999-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23063,
+          "DIMENSION-ID": "Renault Megane i Convertible 2002-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "2002-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23064,
+          "DIMENSION-ID": "Renault Megane i Hatchback 1996-1999 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23065,
+          "DIMENSION-ID": "Renault Megane i Hatchback 1999-2002 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1999-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23066,
+          "DIMENSION-ID": "Renault Megane i Hatchback 1999-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23067,
+          "DIMENSION-ID": "Renault Megane i Hatchback 2001-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23068,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 1996-1999 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23069,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 1999-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23070,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 2000-2000 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "2000-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23071,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 2001-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23072,
+          "DIMENSION-ID": "Renault Megane i classic facelift Sedan 1996-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23073,
+          "DIMENSION-ID": "Renault Megane i classic facelift Sedan 1997-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23074,
+          "DIMENSION-ID": "Renault Megane i classic facelift Sedan 1998-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23075,
+          "DIMENSION-ID": "Renault Megane i classic prefl Sedan 1996-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23076,
+          "DIMENSION-ID": "Renault Megane i classic prefl Sedan 1997-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23077,
+          "DIMENSION-ID": "Renault Megane i classic prefl Sedan 1998-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23078,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 1996-1999 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23079,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 1996-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23080,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 1999-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23081,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 2001-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23082,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 2002-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "2002-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23083,
+          "DIMENSION-ID": "Renault Megane i coach facelift Coupe 1996-1999 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23084,
+          "DIMENSION-ID": "Renault Megane i coach facelift Coupe 1997-2001 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23085,
+          "DIMENSION-ID": "Renault Megane i coach prefl Coupe 1997-2001 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23086,
+          "DIMENSION-ID": "Renault Megane i facelift Convertible 1996-1999 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23087,
+          "DIMENSION-ID": "Renault Megane i facelift Convertible 1997-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23088,
+          "DIMENSION-ID": "Renault Megane i facelift Hatchback 1996-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23089,
+          "DIMENSION-ID": "Renault Megane i facelift Hatchback 1997-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23090,
+          "DIMENSION-ID": "Renault Megane i facelift Hatchback 1998-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23091,
+          "DIMENSION-ID": "Renault Megane i grandtour Wagon 1999-2001 EU",
+          "MODEL": "Megane i grandtour",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23092,
+          "DIMENSION-ID": "Renault Megane i grandtour Wagon 1999-2003 EU",
+          "MODEL": "Megane i grandtour",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23093,
+          "DIMENSION-ID": "Renault Megane i grandtour Wagon 2001-2003 EU",
+          "MODEL": "Megane i grandtour",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23094,
+          "DIMENSION-ID": "Renault Megane i hatchback van Van 2000-2003 EU",
+          "MODEL": "Megane i hatchback van",
+          "YEAR": "2000-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23095,
+          "DIMENSION-ID": "Renault Megane i kombi van Van 2000-2000 EU",
+          "MODEL": "Megane i kombi van",
+          "YEAR": "2000-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23096,
+          "DIMENSION-ID": "Renault Megane i kombi van Van 2001-2003 EU",
+          "MODEL": "Megane i kombi van",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23097,
+          "DIMENSION-ID": "Renault Megane i prefl Convertible 1997-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23098,
+          "DIMENSION-ID": "Renault Megane i prefl Hatchback 1996-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23099,
+          "DIMENSION-ID": "Renault Megane i prefl Hatchback 1997-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23100,
+          "DIMENSION-ID": "Renault Megane i prefl Hatchback 1998-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23289,
+          "DIMENSION-ID": "Renault Safrane i B54 Hatchback 1993-1996 EU",
+          "MODEL": "Safrane i",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23290,
+          "DIMENSION-ID": "Renault Safrane i B545 Hatchback 1993-1996 EU",
+          "MODEL": "Safrane i",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23291,
+          "DIMENSION-ID": "Renault Safrane i Hatchback 1992-1996 EU",
+          "MODEL": "Safrane i",
+          "YEAR": "1992-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23294,
+          "DIMENSION-ID": "Renault Sandero/stepway i Hatchback 2009-2012 EU",
+          "MODEL": "Sandero/stepway i",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23295,
+          "DIMENSION-ID": "Renault Sandero/stepway i Hatchback 2009-2013 EU",
+          "MODEL": "Sandero/stepway i",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23296,
+          "DIMENSION-ID": "Renault Sandero/stepway i SUV 2009-2012 EU",
+          "MODEL": "Sandero/stepway i",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23299,
+          "DIMENSION-ID": "Renault Scenic e-Tech phase i SUV 2023-2026 EU",
+          "MODEL": "Scenic e-Tech phase i",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23300,
+          "DIMENSION-ID": "Renault Scénic i L4169 W1719 H1600 MPV 1999-2001 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23301,
+          "DIMENSION-ID": "Renault Scénic i L4169 W1719 H1600 MPV 2000-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2000-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23302,
+          "DIMENSION-ID": "Renault Scénic i L4169 W1719 H1600 MPV 2001-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23303,
+          "DIMENSION-ID": "Renault Scénic i L4170 W1700 H1680 MPV 1999-2001 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23304,
+          "DIMENSION-ID": "Renault Scénic i L4170 W1700 H1680 MPV 2001-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23305,
+          "DIMENSION-ID": "Renault Scénic i L4424 W1775 H1720 MPV 2000-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2000-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23306,
+          "DIMENSION-ID": "Renault Scénic i MPV 1999-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23307,
+          "DIMENSION-ID": "Renault Scénic i MPV 2000-2001 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2000-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23308,
+          "DIMENSION-ID": "Renault Scénic i MPV 2002-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2002-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23309,
+          "DIMENSION-ID": "Renault Scénic i van MPV 1999-2001 EU",
+          "MODEL": "Scénic i van",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23378,
+          "DIMENSION-ID": "Renault Thalia i Sedan 1998-2008 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "1998-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23379,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2001-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2001-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23380,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2002-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2002-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23381,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2003-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2003-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23382,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2004-2008 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23383,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2005-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23384,
+          "DIMENSION-ID": "Renault Thalia i facelift Sedan 2000-2005 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23385,
+          "DIMENSION-ID": "Renault Thalia i facelift Sedan 2000-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23386,
+          "DIMENSION-ID": "Renault Thalia i prefl Sedan 2000-2005 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23387,
+          "DIMENSION-ID": "Renault Thalia i prefl Sedan 2000-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10307,
+          "DIMENSION-ID": "Renault 18 Sedan 1978-1986 RU",
+          "MODEL": "18",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10308,
+          "DIMENSION-ID": "Renault 18 Wagon 1978-1986 RU",
+          "MODEL": "18",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "renault",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 219,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 21959,
+          "DIMENSION-ID": "Renault 18 134 Sedan 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21960,
+          "DIMENSION-ID": "Renault 18 135 Wagon 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21961,
+          "DIMENSION-ID": "Renault 18 1982 Wagon 1979-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21962,
+          "DIMENSION-ID": "Renault 18 1982 Wagon 1980-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21963,
+          "DIMENSION-ID": "Renault 18 L4487 W1682 H1487 Wagon 1983-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21964,
+          "DIMENSION-ID": "Renault 18 L4487 W1696 H1402 Wagon 1983-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21965,
+          "DIMENSION-ID": "Renault 18 Sedan 1978-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1978-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21966,
+          "DIMENSION-ID": "Renault 18 Sedan 1978-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21967,
+          "DIMENSION-ID": "Renault 18 Sedan 1980-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21968,
+          "DIMENSION-ID": "Renault 18 Sedan 1981-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21969,
+          "DIMENSION-ID": "Renault 18 Sedan 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21970,
+          "DIMENSION-ID": "Renault 18 Wagon 1979-1981 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1981",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21971,
+          "DIMENSION-ID": "Renault 18 Wagon 1979-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21972,
+          "DIMENSION-ID": "Renault 18 Wagon 1982-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21973,
+          "DIMENSION-ID": "Renault 18 early Wagon 1980-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21974,
+          "DIMENSION-ID": "Renault 18 facelift Wagon 1980-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21975,
+          "DIMENSION-ID": "Renault 18 facelift Wagon 1981-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21976,
+          "DIMENSION-ID": "Renault 18 pre82 Wagon 1979-1982 EU",
+          "MODEL": "18",
+          "YEAR": "1979-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21977,
+          "DIMENSION-ID": "Renault 18 prefl Wagon 1981-1986 EU",
+          "MODEL": "18",
+          "YEAR": "1981-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21978,
+          "DIMENSION-ID": "Renault 19 i 3dr Hatchback 1988-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21979,
+          "DIMENSION-ID": "Renault 19 i 3dr Hatchback 1989-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21980,
+          "DIMENSION-ID": "Renault 19 i 3dr Hatchback 1989-1993 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21981,
+          "DIMENSION-ID": "Renault 19 i 5dr Hatchback 1988-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21982,
+          "DIMENSION-ID": "Renault 19 i 5dr Hatchback 1989-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21983,
+          "DIMENSION-ID": "Renault 19 i 5dr Hatchback 1989-1993 EU",
+          "MODEL": "19 i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21984,
+          "DIMENSION-ID": "Renault 19 i L4151 W1684 H1365 Convertible 1991-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21985,
+          "DIMENSION-ID": "Renault 19 i L4156 W1684 H1410 Convertible 1991-1992 EU",
+          "MODEL": "19 i",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21986,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1988-1992 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21987,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1989-1990 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21988,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1989-1992 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1989-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 21989,
+          "DIMENSION-ID": "Renault 19 i chamade Sedan 1990-1992 EU",
+          "MODEL": "19 i chamade",
+          "YEAR": "1990-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22122,
+          "DIMENSION-ID": "Renault Arkana i SUV 2020-2026 EU",
+          "MODEL": "Arkana i",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22123,
+          "DIMENSION-ID": "Renault Arkana i SUV 2021-2026 EU",
+          "MODEL": "Arkana i",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22128,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2013-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2013-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22129,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2013-2019 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2013-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22130,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2015-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2015-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22131,
+          "DIMENSION-ID": "Renault Captur i Hatchback 2018-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2018-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22132,
+          "DIMENSION-ID": "Renault Captur i SUV 2016-2018 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22133,
+          "DIMENSION-ID": "Renault Captur i SUV 2018-2019 EU",
+          "MODEL": "Captur i",
+          "YEAR": "2018-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22140,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1990-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22141,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1991-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22142,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1991-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22143,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1994-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22144,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1995-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22145,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22146,
+          "DIMENSION-ID": "Renault Clio i 3dr Hatchback 1997-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22147,
+          "DIMENSION-ID": "Renault Clio i 3dr phase1 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22148,
+          "DIMENSION-ID": "Renault Clio i 3dr phase2 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22149,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1990-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22150,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1991-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22151,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1991-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22152,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1994-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1994-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22153,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1995-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22154,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22155,
+          "DIMENSION-ID": "Renault Clio i 5dr Hatchback 1997-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22156,
+          "DIMENSION-ID": "Renault Clio i 5dr phase1 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22157,
+          "DIMENSION-ID": "Renault Clio i 5dr phase2 Hatchback 1990-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1990-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22158,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1991-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22159,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1991-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1991-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22160,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1993-1995 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22161,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1994-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22162,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1996-1996 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22163,
+          "DIMENSION-ID": "Renault Clio i Hatchback 1996-1999 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22164,
+          "DIMENSION-ID": "Renault Clio i L3709 W1616 H1395 Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22165,
+          "DIMENSION-ID": "Renault Clio i L3716 W1630 H1395 Hatchback 1996-1998 EU",
+          "MODEL": "Clio i",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22304,
+          "DIMENSION-ID": "Renault Espace i J11 MPV 1988-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22305,
+          "DIMENSION-ID": "Renault Espace i MPV 1988-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1988-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22306,
+          "DIMENSION-ID": "Renault Espace i MPV 1988-1992 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22307,
+          "DIMENSION-ID": "Renault Espace i MPV 1989-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1989-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22308,
+          "DIMENSION-ID": "Renault Espace i facelift MPV 1984-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22309,
+          "DIMENSION-ID": "Renault Espace i facelift MPV 1986-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22310,
+          "DIMENSION-ID": "Renault Espace i prefl MPV 1984-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22311,
+          "DIMENSION-ID": "Renault Espace i prefl MPV 1986-1990 EU",
+          "MODEL": "Espace i",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22459,
+          "DIMENSION-ID": "Renault Koleos i SUV 2013-2026 EU",
+          "MODEL": "Koleos i",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22460,
+          "DIMENSION-ID": "Renault Koleos i phase1 SUV 2008-2026 EU",
+          "MODEL": "Koleos i",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22461,
+          "DIMENSION-ID": "Renault Koleos i phase3 SUV 2008-2026 EU",
+          "MODEL": "Koleos i",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22467,
+          "DIMENSION-ID": "Renault Laguna i B56 Hatchback 1995-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22468,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1993-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1993-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22469,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1995-1998 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22470,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1995-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22471,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1997-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22472,
+          "DIMENSION-ID": "Renault Laguna i Hatchback 1998-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22473,
+          "DIMENSION-ID": "Renault Laguna i L4508 W1752 H1433 Hatchback 1999-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22474,
+          "DIMENSION-ID": "Renault Laguna i L4510 W1750 H1430 Hatchback 1999-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22475,
+          "DIMENSION-ID": "Renault Laguna i facelift Hatchback 1996-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22476,
+          "DIMENSION-ID": "Renault Laguna i grandtour K56 Wagon 1998-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22477,
+          "DIMENSION-ID": "Renault Laguna i grandtour Wagon 1997-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22478,
+          "DIMENSION-ID": "Renault Laguna i grandtour Wagon 1998-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22479,
+          "DIMENSION-ID": "Renault Laguna i grandtour Wagon 1999-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22480,
+          "DIMENSION-ID": "Renault Laguna i grandtour facelift Wagon 1995-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22481,
+          "DIMENSION-ID": "Renault Laguna i grandtour facelift Wagon 1996-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22482,
+          "DIMENSION-ID": "Renault Laguna i grandtour facelift Wagon 1997-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22483,
+          "DIMENSION-ID": "Renault Laguna i grandtour prefl Wagon 1995-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22484,
+          "DIMENSION-ID": "Renault Laguna i grandtour prefl Wagon 1996-2001 EU",
+          "MODEL": "Laguna i grandtour",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22485,
+          "DIMENSION-ID": "Renault Laguna i prefl Hatchback 1996-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1996-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22486,
+          "DIMENSION-ID": "Renault Laguna i prefl Hatchback 1997-2001 EU",
+          "MODEL": "Laguna i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22545,
+          "DIMENSION-ID": "Renault Master i Chassis Cab 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22546,
+          "DIMENSION-ID": "Renault Master i Chassis Cab 1982-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22547,
+          "DIMENSION-ID": "Renault Master i Chassis Cab 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22548,
+          "DIMENSION-ID": "Renault Master i l1 Chassis Cab 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22549,
+          "DIMENSION-ID": "Renault Master i l1 Chassis Cab 1989-1993 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22550,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22551,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22552,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22553,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22554,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22555,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22556,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22557,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22558,
+          "DIMENSION-ID": "Renault Master i l1h1 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22559,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22560,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22561,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22562,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22563,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22564,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22565,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22566,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22567,
+          "DIMENSION-ID": "Renault Master i l1h2 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22568,
+          "DIMENSION-ID": "Renault Master i l2 Chassis Cab 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22569,
+          "DIMENSION-ID": "Renault Master i l2 Chassis Cab 1989-1993 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22570,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22571,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22572,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22573,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22574,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22575,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22576,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22577,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22578,
+          "DIMENSION-ID": "Renault Master i l2h1 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22579,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22580,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22581,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22582,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22583,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22584,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22585,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22586,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22587,
+          "DIMENSION-ID": "Renault Master i l2h2 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22588,
+          "DIMENSION-ID": "Renault Master i l3 Chassis Cab 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22589,
+          "DIMENSION-ID": "Renault Master i l3 Chassis Cab 1989-1993 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22590,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1983 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1983",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22591,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22592,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22593,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1980-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1980-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22594,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1983-1986 EU",
+          "MODEL": "Master i",
+          "YEAR": "1983-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22595,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1986-1989 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22596,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1986-1992 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22597,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1986-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1986-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 22598,
+          "DIMENSION-ID": "Renault Master i l3h2 Van 1989-1998 EU",
+          "MODEL": "Master i",
+          "YEAR": "1989-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23061,
+          "DIMENSION-ID": "Renault Megane i Convertible 1996-1999 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23062,
+          "DIMENSION-ID": "Renault Megane i Convertible 1999-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23063,
+          "DIMENSION-ID": "Renault Megane i Convertible 2002-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "2002-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23064,
+          "DIMENSION-ID": "Renault Megane i Hatchback 1996-1999 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23065,
+          "DIMENSION-ID": "Renault Megane i Hatchback 1999-2002 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1999-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23066,
+          "DIMENSION-ID": "Renault Megane i Hatchback 1999-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23067,
+          "DIMENSION-ID": "Renault Megane i Hatchback 2001-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23068,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 1996-1999 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23069,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 1999-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23070,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 2000-2000 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "2000-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23071,
+          "DIMENSION-ID": "Renault Megane i classic Sedan 2001-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23072,
+          "DIMENSION-ID": "Renault Megane i classic facelift Sedan 1996-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23073,
+          "DIMENSION-ID": "Renault Megane i classic facelift Sedan 1997-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23074,
+          "DIMENSION-ID": "Renault Megane i classic facelift Sedan 1998-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23075,
+          "DIMENSION-ID": "Renault Megane i classic prefl Sedan 1996-2003 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23076,
+          "DIMENSION-ID": "Renault Megane i classic prefl Sedan 1997-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23077,
+          "DIMENSION-ID": "Renault Megane i classic prefl Sedan 1998-2001 EU",
+          "MODEL": "Megane i classic",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23078,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 1996-1999 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23079,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 1996-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23080,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 1999-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23081,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 2001-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23082,
+          "DIMENSION-ID": "Renault Megane i coach Coupe 2002-2003 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "2002-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23083,
+          "DIMENSION-ID": "Renault Megane i coach facelift Coupe 1996-1999 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23084,
+          "DIMENSION-ID": "Renault Megane i coach facelift Coupe 1997-2001 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23085,
+          "DIMENSION-ID": "Renault Megane i coach prefl Coupe 1997-2001 EU",
+          "MODEL": "Megane i coach",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23086,
+          "DIMENSION-ID": "Renault Megane i facelift Convertible 1996-1999 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23087,
+          "DIMENSION-ID": "Renault Megane i facelift Convertible 1997-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23088,
+          "DIMENSION-ID": "Renault Megane i facelift Hatchback 1996-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23089,
+          "DIMENSION-ID": "Renault Megane i facelift Hatchback 1997-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23090,
+          "DIMENSION-ID": "Renault Megane i facelift Hatchback 1998-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23091,
+          "DIMENSION-ID": "Renault Megane i grandtour Wagon 1999-2001 EU",
+          "MODEL": "Megane i grandtour",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23092,
+          "DIMENSION-ID": "Renault Megane i grandtour Wagon 1999-2003 EU",
+          "MODEL": "Megane i grandtour",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23093,
+          "DIMENSION-ID": "Renault Megane i grandtour Wagon 2001-2003 EU",
+          "MODEL": "Megane i grandtour",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23094,
+          "DIMENSION-ID": "Renault Megane i hatchback van Van 2000-2003 EU",
+          "MODEL": "Megane i hatchback van",
+          "YEAR": "2000-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23095,
+          "DIMENSION-ID": "Renault Megane i kombi van Van 2000-2000 EU",
+          "MODEL": "Megane i kombi van",
+          "YEAR": "2000-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23096,
+          "DIMENSION-ID": "Renault Megane i kombi van Van 2001-2003 EU",
+          "MODEL": "Megane i kombi van",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23097,
+          "DIMENSION-ID": "Renault Megane i prefl Convertible 1997-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23098,
+          "DIMENSION-ID": "Renault Megane i prefl Hatchback 1996-2003 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23099,
+          "DIMENSION-ID": "Renault Megane i prefl Hatchback 1997-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1997-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23100,
+          "DIMENSION-ID": "Renault Megane i prefl Hatchback 1998-2001 EU",
+          "MODEL": "Megane i",
+          "YEAR": "1998-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23289,
+          "DIMENSION-ID": "Renault Safrane i B54 Hatchback 1993-1996 EU",
+          "MODEL": "Safrane i",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23290,
+          "DIMENSION-ID": "Renault Safrane i B545 Hatchback 1993-1996 EU",
+          "MODEL": "Safrane i",
+          "YEAR": "1993-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23291,
+          "DIMENSION-ID": "Renault Safrane i Hatchback 1992-1996 EU",
+          "MODEL": "Safrane i",
+          "YEAR": "1992-1996",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23294,
+          "DIMENSION-ID": "Renault Sandero/stepway i Hatchback 2009-2012 EU",
+          "MODEL": "Sandero/stepway i",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23295,
+          "DIMENSION-ID": "Renault Sandero/stepway i Hatchback 2009-2013 EU",
+          "MODEL": "Sandero/stepway i",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23296,
+          "DIMENSION-ID": "Renault Sandero/stepway i SUV 2009-2012 EU",
+          "MODEL": "Sandero/stepway i",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23299,
+          "DIMENSION-ID": "Renault Scenic e-Tech phase i SUV 2023-2026 EU",
+          "MODEL": "Scenic e-Tech phase i",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23300,
+          "DIMENSION-ID": "Renault Scénic i L4169 W1719 H1600 MPV 1999-2001 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23301,
+          "DIMENSION-ID": "Renault Scénic i L4169 W1719 H1600 MPV 2000-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2000-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23302,
+          "DIMENSION-ID": "Renault Scénic i L4169 W1719 H1600 MPV 2001-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23303,
+          "DIMENSION-ID": "Renault Scénic i L4170 W1700 H1680 MPV 1999-2001 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23304,
+          "DIMENSION-ID": "Renault Scénic i L4170 W1700 H1680 MPV 2001-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2001-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23305,
+          "DIMENSION-ID": "Renault Scénic i L4424 W1775 H1720 MPV 2000-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2000-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23306,
+          "DIMENSION-ID": "Renault Scénic i MPV 1999-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23307,
+          "DIMENSION-ID": "Renault Scénic i MPV 2000-2001 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2000-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23308,
+          "DIMENSION-ID": "Renault Scénic i MPV 2002-2003 EU",
+          "MODEL": "Scénic i",
+          "YEAR": "2002-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23309,
+          "DIMENSION-ID": "Renault Scénic i van MPV 1999-2001 EU",
+          "MODEL": "Scénic i van",
+          "YEAR": "1999-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23378,
+          "DIMENSION-ID": "Renault Thalia i Sedan 1998-2008 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "1998-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23379,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2001-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2001-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23380,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2002-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2002-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23381,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2003-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2003-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23382,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2004-2008 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23383,
+          "DIMENSION-ID": "Renault Thalia i Sedan 2005-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2005-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23384,
+          "DIMENSION-ID": "Renault Thalia i facelift Sedan 2000-2005 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23385,
+          "DIMENSION-ID": "Renault Thalia i facelift Sedan 2000-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23386,
+          "DIMENSION-ID": "Renault Thalia i prefl Sedan 2000-2005 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 23387,
+          "DIMENSION-ID": "Renault Thalia i prefl Sedan 2000-2009 EU",
+          "MODEL": "Thalia i",
+          "YEAR": "2000-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10307,
+          "DIMENSION-ID": "Renault 18 Sedan 1978-1986 RU",
+          "MODEL": "18",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10308,
+          "DIMENSION-ID": "Renault 18 Wagon 1978-1986 RU",
+          "MODEL": "18",
+          "YEAR": "1978-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Renault / 18i 4DR Wagon原名到明确US目标的可引用身份关系；参考年份1985的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-beef215fafaff024446f25b5",
+      "MM_ID": "MM-59be2c1a5a8ef9816872b039",
+      "REGION": "US",
+      "MAKE": "Renault",
+      "MODEL": "18i 4DR Wagon",
+      "YEAR": "1985",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Renault",
+      "标准MODEL": "18i 4DR Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "43700",
+        "43701"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 3-spd, 4 cyl, 2.2 L",
+        "Man 5-spd, 4 cyl, 2.2 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Renault",
+    "MODEL": "18i 4DR Wagon",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

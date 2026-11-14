@@ -1,0 +1,602 @@
+{
+  "MAKE": "Suzuki",
+  "MODEL": "SX4 Sport/Anniversary Edition",
+  "MM_ID": "MM-4832731d29c38eec80d16f54",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Suzuki",
+    "MODEL": "SX4 Sport/Anniversary Edition",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 46601,
+      "MM_ID": "MM-4832731d29c38eec80d16f54",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "46602",
+      "raw_make": "Suzuki",
+      "raw_model": "SX4 Sport/Anniversary Edition",
+      "raw_year": "2011",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (variable gear ratios), 4 cyl, 2.0 L"
+    },
+    {
+      "association_row_1based": 46602,
+      "MM_ID": "MM-4832731d29c38eec80d16f54",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "46603",
+      "raw_make": "Suzuki",
+      "raw_model": "SX4 Sport/Anniversary Edition",
+      "raw_year": "2011",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 6-spd, 4 cyl, 2.0 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4913,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "suzuki",
+      "make_name": "Suzuki",
+      "model_slug": "sx",
+      "model_name": "Sx",
+      "body_types": "hatchback",
+      "countries": "gb|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 4914,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "suzuki",
+      "make_name": "Suzuki",
+      "model_slug": "sx4",
+      "model_name": "SX4",
+      "body_types": "hatchback",
+      "countries": "au|ca|ch|es|fi|gb|ie|il|lu|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "2",
+      "aliases": "",
+      "former_ids": "car/suzuki/sx-4",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 4915,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "suzuki",
+      "make_name": "Suzuki",
+      "model_slug": "sx4-s-cross",
+      "model_name": "SX4 S-Cross",
+      "body_types": "suv",
+      "countries": "ch|fi|nl|no|ua",
+      "regions": "eu",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "suzuki",
+      "same_brand_rows_examined": 38,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 3989,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2007-2009 US",
+          "MODEL": "SX4",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3990,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2010 US",
+          "MODEL": "SX4",
+          "YEAR": "2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3991,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2011 US",
+          "MODEL": "SX4",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3992,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2012-2013 US",
+          "MODEL": "SX4",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3993,
+          "DIMENSION-ID": "Suzuki SX4 Sedan 2008-2013 US",
+          "MODEL": "SX4",
+          "YEAR": "2008-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 5,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 16,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 25386,
+          "DIMENSION-ID": "Suzuki Sx4 / classic EY/GY Hatchback 2010-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25387,
+          "DIMENSION-ID": "Suzuki Sx4 / classic GY L4255 W1755 H1605 Hatchback 2009-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25388,
+          "DIMENSION-ID": "Suzuki Sx4 / classic GY L4255 W1755 H1620 Hatchback 2009-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25389,
+          "DIMENSION-ID": "Suzuki Sx4 / classic Hatchback 2006-2010 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25390,
+          "DIMENSION-ID": "Suzuki Sx4 / classic Hatchback 2007-2015 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2007-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25391,
+          "DIMENSION-ID": "Suzuki Sx4 / classic Hatchback 2007-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25392,
+          "DIMENSION-ID": "Suzuki Sx4 / classic L4100 W1730 H1565 Hatchback 2006-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2006-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25393,
+          "DIMENSION-ID": "Suzuki Sx4 / classic L4140 W1755 H1620 Hatchback 2006-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2006-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25394,
+          "DIMENSION-ID": "Suzuki Sx4 / classic RW415 Hatchback 2010-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25395,
+          "DIMENSION-ID": "Suzuki Sx4 / classic RW416 Hatchback 2009-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25396,
+          "DIMENSION-ID": "Suzuki Sx4 Sedan 2007-2011 EU",
+          "MODEL": "Sx4",
+          "YEAR": "2007-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25397,
+          "DIMENSION-ID": "Suzuki Sx4 Sedan 2007-2026 EU",
+          "MODEL": "Sx4",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25398,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross Hatchback 2013-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2013-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25399,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross Hatchback 2019-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2019-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25400,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross SUV 2013-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2013-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25401,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross SUV 2016-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2016-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "suzuki",
+      "same_brand_rows_examined": 38,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 3989,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2007-2009 US",
+          "MODEL": "SX4",
+          "YEAR": "2007-2009",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3990,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2010 US",
+          "MODEL": "SX4",
+          "YEAR": "2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3991,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2011 US",
+          "MODEL": "SX4",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3992,
+          "DIMENSION-ID": "Suzuki SX4 Hatchback 2012-2013 US",
+          "MODEL": "SX4",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3993,
+          "DIMENSION-ID": "Suzuki SX4 Sedan 2008-2013 US",
+          "MODEL": "SX4",
+          "YEAR": "2008-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但SX4 Sport/Anniversary Edition到SX4缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 5,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 16,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 25386,
+          "DIMENSION-ID": "Suzuki Sx4 / classic EY/GY Hatchback 2010-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25387,
+          "DIMENSION-ID": "Suzuki Sx4 / classic GY L4255 W1755 H1605 Hatchback 2009-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25388,
+          "DIMENSION-ID": "Suzuki Sx4 / classic GY L4255 W1755 H1620 Hatchback 2009-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25389,
+          "DIMENSION-ID": "Suzuki Sx4 / classic Hatchback 2006-2010 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2006-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25390,
+          "DIMENSION-ID": "Suzuki Sx4 / classic Hatchback 2007-2015 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2007-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25391,
+          "DIMENSION-ID": "Suzuki Sx4 / classic Hatchback 2007-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25392,
+          "DIMENSION-ID": "Suzuki Sx4 / classic L4100 W1730 H1565 Hatchback 2006-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2006-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25393,
+          "DIMENSION-ID": "Suzuki Sx4 / classic L4140 W1755 H1620 Hatchback 2006-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2006-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25394,
+          "DIMENSION-ID": "Suzuki Sx4 / classic RW415 Hatchback 2010-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2010-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25395,
+          "DIMENSION-ID": "Suzuki Sx4 / classic RW416 Hatchback 2009-2026 EU",
+          "MODEL": "Sx4 / classic",
+          "YEAR": "2009-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25396,
+          "DIMENSION-ID": "Suzuki Sx4 Sedan 2007-2011 EU",
+          "MODEL": "Sx4",
+          "YEAR": "2007-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25397,
+          "DIMENSION-ID": "Suzuki Sx4 Sedan 2007-2026 EU",
+          "MODEL": "Sx4",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25398,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross Hatchback 2013-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2013-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25399,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross Hatchback 2019-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2019-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25400,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross SUV 2013-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2013-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25401,
+          "DIMENSION-ID": "Suzuki Sx4 s-Cross SUV 2016-2022 EU",
+          "MODEL": "Sx4 s-Cross",
+          "YEAR": "2016-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Suzuki / SX4 Sport/Anniversary Edition原名到明确US目标的可引用身份关系；参考年份2011的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-5570fae5575fe49b48d256b8",
+      "MM_ID": "MM-4832731d29c38eec80d16f54",
+      "REGION": "US",
+      "MAKE": "Suzuki",
+      "MODEL": "SX4 Sport/Anniversary Edition",
+      "YEAR": "2011",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Suzuki",
+      "标准MODEL": "SX4 Sport/Anniversary Edition",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "46602",
+        "46603"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (variable gear ratios), 4 cyl, 2.0 L",
+        "Man 6-spd, 4 cyl, 2.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Suzuki SX4 Hatchback 2011 US",
+            "Suzuki SX4 Sedan 2008-2013 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Suzuki SX4 Hatchback 2011 US",
+            "Suzuki SX4 Sedan 2008-2013 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Suzuki",
+    "MODEL": "SX4 Sport/Anniversary Edition",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

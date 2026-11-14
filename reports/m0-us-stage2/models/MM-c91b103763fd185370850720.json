@@ -1,0 +1,533 @@
+{
+  "MAKE": "Volvo",
+  "MODEL": "940 Turbo",
+  "MM_ID": "MM-c91b103763fd185370850720",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Volvo",
+    "MODEL": "940 Turbo",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 51092,
+      "MM_ID": "MM-c91b103763fd185370850720",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "51093",
+      "raw_make": "Volvo",
+      "raw_model": "940 Turbo",
+      "raw_year": "1991",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 4 cyl, 2.3 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 5411,
+      "match_reason": [
+        "目录别名/历史slug相等线索",
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "volvo",
+      "make_name": "Volvo",
+      "model_slug": "940",
+      "model_name": "940",
+      "body_types": "hatchback|wagon",
+      "countries": "au|ca|ch|es|fi|gb|lu|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/volvo/940-gl|car/volvo/940-gle|car/volvo/940-polar|car/volvo/940-se|car/volvo/940-turbo|car/volvo/940-turbo-wagon|car/volvo/940-wagon|car/volvo/945|van/volvo/940-hearse|van/volvo/945",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 23,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28810,
+          "DIMENSION-ID": "Volvo 940 944 L4870 W1750 H1410 Sedan 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28811,
+          "DIMENSION-ID": "Volvo 940 944 L4871 W1750 H1425 Sedan 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28812,
+          "DIMENSION-ID": "Volvo 940 945 L4810 W1750 H1435 Wagon 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28813,
+          "DIMENSION-ID": "Volvo 940 945 L4871 W1750 H1435 Wagon 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28814,
+          "DIMENSION-ID": "Volvo 940 Sedan 1990-1991 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28815,
+          "DIMENSION-ID": "Volvo 940 Sedan 1990-1993 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28816,
+          "DIMENSION-ID": "Volvo 940 Sedan 1991-1993 EU",
+          "MODEL": "940",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28817,
+          "DIMENSION-ID": "Volvo 940 Sedan 1991-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28818,
+          "DIMENSION-ID": "Volvo 940 Sedan 1992-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28819,
+          "DIMENSION-ID": "Volvo 940 Sedan 1994-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28820,
+          "DIMENSION-ID": "Volvo 940 Sedan 1994-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28821,
+          "DIMENSION-ID": "Volvo 940 Sedan 1995-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28822,
+          "DIMENSION-ID": "Volvo 940 Sedan 1996-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28823,
+          "DIMENSION-ID": "Volvo 940 Wagon 1990-1991 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28824,
+          "DIMENSION-ID": "Volvo 940 Wagon 1990-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28825,
+          "DIMENSION-ID": "Volvo 940 Wagon 1991-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28826,
+          "DIMENSION-ID": "Volvo 940 Wagon 1992-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28827,
+          "DIMENSION-ID": "Volvo 940 Wagon 1994-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28828,
+          "DIMENSION-ID": "Volvo 940 Wagon 1994-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28829,
+          "DIMENSION-ID": "Volvo 940 Wagon 1995-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28830,
+          "DIMENSION-ID": "Volvo 940 Wagon 1996-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13160,
+          "DIMENSION-ID": "Volvo 940 Sedan 1988-1998 RU",
+          "MODEL": "940",
+          "YEAR": "1988-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13161,
+          "DIMENSION-ID": "Volvo 940 Wagon 1988-1998 RU",
+          "MODEL": "940",
+          "YEAR": "1988-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "volvo",
+      "same_brand_rows_examined": 65,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 23,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 28810,
+          "DIMENSION-ID": "Volvo 940 944 L4870 W1750 H1410 Sedan 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28811,
+          "DIMENSION-ID": "Volvo 940 944 L4871 W1750 H1425 Sedan 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28812,
+          "DIMENSION-ID": "Volvo 940 945 L4810 W1750 H1435 Wagon 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28813,
+          "DIMENSION-ID": "Volvo 940 945 L4871 W1750 H1435 Wagon 1990-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28814,
+          "DIMENSION-ID": "Volvo 940 Sedan 1990-1991 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28815,
+          "DIMENSION-ID": "Volvo 940 Sedan 1990-1993 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28816,
+          "DIMENSION-ID": "Volvo 940 Sedan 1991-1993 EU",
+          "MODEL": "940",
+          "YEAR": "1991-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28817,
+          "DIMENSION-ID": "Volvo 940 Sedan 1991-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28818,
+          "DIMENSION-ID": "Volvo 940 Sedan 1992-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28819,
+          "DIMENSION-ID": "Volvo 940 Sedan 1994-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28820,
+          "DIMENSION-ID": "Volvo 940 Sedan 1994-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28821,
+          "DIMENSION-ID": "Volvo 940 Sedan 1995-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28822,
+          "DIMENSION-ID": "Volvo 940 Sedan 1996-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28823,
+          "DIMENSION-ID": "Volvo 940 Wagon 1990-1991 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28824,
+          "DIMENSION-ID": "Volvo 940 Wagon 1990-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1990-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28825,
+          "DIMENSION-ID": "Volvo 940 Wagon 1991-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1991-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28826,
+          "DIMENSION-ID": "Volvo 940 Wagon 1992-1994 EU",
+          "MODEL": "940",
+          "YEAR": "1992-1994",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28827,
+          "DIMENSION-ID": "Volvo 940 Wagon 1994-1995 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28828,
+          "DIMENSION-ID": "Volvo 940 Wagon 1994-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28829,
+          "DIMENSION-ID": "Volvo 940 Wagon 1995-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 28830,
+          "DIMENSION-ID": "Volvo 940 Wagon 1996-1998 EU",
+          "MODEL": "940",
+          "YEAR": "1996-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13160,
+          "DIMENSION-ID": "Volvo 940 Sedan 1988-1998 RU",
+          "MODEL": "940",
+          "YEAR": "1988-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 13161,
+          "DIMENSION-ID": "Volvo 940 Wagon 1988-1998 RU",
+          "MODEL": "940",
+          "YEAR": "1988-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Volvo / 940 Turbo原名到明确US目标的可引用身份关系；参考年份1991的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-6d3f43255f40fbf04302b918",
+      "MM_ID": "MM-c91b103763fd185370850720",
+      "REGION": "US",
+      "MAKE": "Volvo",
+      "MODEL": "940 Turbo",
+      "YEAR": "1991",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Volvo",
+      "标准MODEL": "940 Turbo",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "51093"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 4 cyl, 2.3 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Volvo",
+    "MODEL": "940 Turbo",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

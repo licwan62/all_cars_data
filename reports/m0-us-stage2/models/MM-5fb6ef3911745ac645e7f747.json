@@ -1,0 +1,664 @@
+{
+  "MAKE": "Subaru",
+  "MODEL": "XV Crosstrek Hybrid AWD",
+  "MM_ID": "MM-5fb6ef3911745ac645e7f747",
+  "MMY_count": 3,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Subaru",
+    "MODEL": "XV Crosstrek Hybrid AWD",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 46165,
+      "MM_ID": "MM-5fb6ef3911745ac645e7f747",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "46166",
+      "raw_make": "Subaru",
+      "raw_model": "XV Crosstrek Hybrid AWD",
+      "raw_year": "2014",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (variable gear ratios), 4 cyl, 2.0 L"
+    },
+    {
+      "association_row_1based": 46166,
+      "MM_ID": "MM-5fb6ef3911745ac645e7f747",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "46167",
+      "raw_make": "Subaru",
+      "raw_model": "XV Crosstrek Hybrid AWD",
+      "raw_year": "2015",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AV-S6), 4 cyl, 2.0 L"
+    },
+    {
+      "association_row_1based": 46167,
+      "MM_ID": "MM-5fb6ef3911745ac645e7f747",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "46168",
+      "raw_make": "Subaru",
+      "raw_model": "XV Crosstrek Hybrid AWD",
+      "raw_year": "2016",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AV-S6), 4 cyl, 2.0 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4807,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "subaru",
+      "make_name": "Subaru",
+      "model_slug": "crosstrek",
+      "model_name": "Crosstrek",
+      "body_types": "hatchback|wagon",
+      "countries": "ar|au|ca|de|es|fi|gb|il|lu|my|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/subaru/c-trek-toring-ebxr-sym|car/subaru/crosstrek-wilderness|car/subaru/xv-crosstrek",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 4842,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "subaru",
+      "make_name": "Subaru",
+      "model_slug": "xv",
+      "model_name": "Xv",
+      "body_types": "suv",
+      "countries": "au|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua",
+      "regions": "as|eu|oc",
+      "global_popularity_decile": "2",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "subaru",
+      "same_brand_rows_examined": 85,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 4,
+      "candidates": [
+        {
+          "row_1based": 3912,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2013-2017 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2013-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3913,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2018-2023 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2018-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3914,
+          "DIMENSION-ID": "Subaru Crosstrek Wilderness Crossover 2024-2026 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4712,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2027 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 4,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 24998,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2023-2026 EU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25218,
+          "DIMENSION-ID": "Subaru Xv GP SUV 2012-2017 EU",
+          "MODEL": "Xv",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25219,
+          "DIMENSION-ID": "Subaru Xv GP3 SUV 2012-2017 EU",
+          "MODEL": "Xv",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25220,
+          "DIMENSION-ID": "Subaru Xv GT L4465 W1800 H1595 SUV 2017-2026 EU",
+          "MODEL": "Xv",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25221,
+          "DIMENSION-ID": "Subaru Xv GT L4465 W1805 H1615 SUV 2017-2026 EU",
+          "MODEL": "Xv",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25222,
+          "DIMENSION-ID": "Subaru Xv SUV 2019-2026 EU",
+          "MODEL": "Xv",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11162,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2012-2015 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2012-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11163,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2015-2017 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2015-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11164,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2017-2020 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11165,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2020-2022 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2020-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11166,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2022-2026 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11331,
+          "DIMENSION-ID": "Subaru XV SUV 2011-2016 RU",
+          "MODEL": "XV",
+          "YEAR": "2011-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11332,
+          "DIMENSION-ID": "Subaru XV SUV 2015-2017 RU",
+          "MODEL": "XV",
+          "YEAR": "2015-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11333,
+          "DIMENSION-ID": "Subaru XV SUV 2017-2021 RU",
+          "MODEL": "XV",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11334,
+          "DIMENSION-ID": "Subaru XV SUV 2021-2023 RU",
+          "MODEL": "XV",
+          "YEAR": "2021-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "subaru",
+      "same_brand_rows_examined": 85,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 4,
+      "candidates": [
+        {
+          "row_1based": 3912,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2013-2017 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2013-2017",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3913,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2018-2023 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2018-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3914,
+          "DIMENSION-ID": "Subaru Crosstrek Wilderness Crossover 2024-2026 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4712,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2027 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词crosstrek，但XV Crosstrek Hybrid AWD到Crosstrek缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 4,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 24998,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2023-2026 EU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25218,
+          "DIMENSION-ID": "Subaru Xv GP SUV 2012-2017 EU",
+          "MODEL": "Xv",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25219,
+          "DIMENSION-ID": "Subaru Xv GP3 SUV 2012-2017 EU",
+          "MODEL": "Xv",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25220,
+          "DIMENSION-ID": "Subaru Xv GT L4465 W1800 H1595 SUV 2017-2026 EU",
+          "MODEL": "Xv",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25221,
+          "DIMENSION-ID": "Subaru Xv GT L4465 W1805 H1615 SUV 2017-2026 EU",
+          "MODEL": "Xv",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 25222,
+          "DIMENSION-ID": "Subaru Xv SUV 2019-2026 EU",
+          "MODEL": "Xv",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11162,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2012-2015 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2012-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11163,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2015-2017 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2015-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11164,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2017-2020 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2017-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11165,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2020-2022 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2020-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11166,
+          "DIMENSION-ID": "Subaru Crosstrek SUV 2022-2026 RU",
+          "MODEL": "Crosstrek",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11331,
+          "DIMENSION-ID": "Subaru XV SUV 2011-2016 RU",
+          "MODEL": "XV",
+          "YEAR": "2011-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11332,
+          "DIMENSION-ID": "Subaru XV SUV 2015-2017 RU",
+          "MODEL": "XV",
+          "YEAR": "2015-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11333,
+          "DIMENSION-ID": "Subaru XV SUV 2017-2021 RU",
+          "MODEL": "XV",
+          "YEAR": "2017-2021",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11334,
+          "DIMENSION-ID": "Subaru XV SUV 2021-2023 RU",
+          "MODEL": "XV",
+          "YEAR": "2021-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Subaru / XV Crosstrek Hybrid AWD原名到明确US目标的可引用身份关系；参考年份2014|2015|2016的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-4e64a7c28ba08340ea1344aa",
+      "MM_ID": "MM-5fb6ef3911745ac645e7f747",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "XV Crosstrek Hybrid AWD",
+      "YEAR": "2014",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "XV Crosstrek Hybrid AWD",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "46166"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (variable gear ratios), 4 cyl, 2.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Crosstrek Crossover 2013-2017 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Crosstrek Crossover 2013-2017 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-a1143a929702233cd591608a",
+      "MM_ID": "MM-5fb6ef3911745ac645e7f747",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "XV Crosstrek Hybrid AWD",
+      "YEAR": "2015",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "XV Crosstrek Hybrid AWD",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "46167"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AV-S6), 4 cyl, 2.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Crosstrek Crossover 2013-2017 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Crosstrek Crossover 2013-2017 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-0235dbed8512a67bcc6f7fad",
+      "MM_ID": "MM-5fb6ef3911745ac645e7f747",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "XV Crosstrek Hybrid AWD",
+      "YEAR": "2016",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "XV Crosstrek Hybrid AWD",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "46168"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AV-S6), 4 cyl, 2.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Crosstrek Crossover 2013-2017 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Crosstrek Crossover 2013-2017 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Subaru",
+    "MODEL": "XV Crosstrek Hybrid AWD",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

@@ -1,0 +1,2150 @@
+{
+  "MAKE": "Buick",
+  "MODEL": "Electra Estate Wagon",
+  "MM_ID": "MM-6eb53ff265bd5dc4c88bd44f",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Buick",
+    "MODEL": "Electra Estate Wagon",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 5235,
+      "MM_ID": "MM-6eb53ff265bd5dc4c88bd44f",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "5236",
+      "raw_make": "Buick",
+      "raw_model": "Electra Estate Wagon",
+      "raw_year": "1984",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 5.0 L, (GM-OLDS)"
+    },
+    {
+      "association_row_1based": 5236,
+      "MM_ID": "MM-6eb53ff265bd5dc4c88bd44f",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "5237",
+      "raw_make": "Buick",
+      "raw_model": "Electra Estate Wagon",
+      "raw_year": "1984",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 5.0 L, (GM-OLDS) CA model"
+    },
+    {
+      "association_row_1based": 5237,
+      "MM_ID": "MM-6eb53ff265bd5dc4c88bd44f",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "5238",
+      "raw_make": "Buick",
+      "raw_model": "Electra Estate Wagon",
+      "raw_year": "1984",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 5.7 L, Diesel, (350 V8) (DIESEL)"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 549,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "buick",
+      "make_name": "Buick",
+      "model_slug": "electra",
+      "model_name": "Electra",
+      "body_types": "sedan",
+      "countries": "au|ch|fi|gb|nl|no|nz|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/buick/electra-225|car/buick/electra-225-custom|car/buick/electra-custom-225|car/buick/electra-limited|car/buick/electra-park-avenue",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 555,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "buick",
+      "make_name": "Buick",
+      "model_slug": "estate-wagon",
+      "model_name": "Estate Wagon",
+      "body_types": "hatchback|wagon",
+      "countries": "nl|no|us",
+      "regions": "eu|na",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "6"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "buick",
+      "same_brand_rows_examined": 346,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 68,
+      "candidates": [
+        {
+          "row_1based": 296,
+          "DIMENSION-ID": "Buick Century Wagon 1954 US",
+          "MODEL": "Century",
+          "YEAR": "1954",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 297,
+          "DIMENSION-ID": "Buick Century Wagon 1955 US",
+          "MODEL": "Century",
+          "YEAR": "1955",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 298,
+          "DIMENSION-ID": "Buick Century Wagon 1956 US",
+          "MODEL": "Century",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 299,
+          "DIMENSION-ID": "Buick Century Wagon 1958 US",
+          "MODEL": "Century",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 379,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1959 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1959",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 380,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1960 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1960",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 381,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1963 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 382,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1964 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 383,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1970 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1970",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 384,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1971 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1971",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 385,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1972 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1972",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 386,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1973 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1973",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 387,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1974 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1974",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 388,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1975 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1975",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 389,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1976 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1976",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 390,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1977-1979 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1977-1979",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 391,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1980 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 392,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1981 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1981",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 393,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1982 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 394,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1983-1985 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1983-1985",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 485,
+          "DIMENSION-ID": "Buick Roadmaster Wagon 1991 US",
+          "MODEL": "Roadmaster",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Roadmaster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 486,
+          "DIMENSION-ID": "Buick Roadmaster Wagon 1992-1996 US",
+          "MODEL": "Roadmaster",
+          "YEAR": "1992-1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Roadmaster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5292,
+          "DIMENSION-ID": "Buick Electra Coupe 1959 US",
+          "MODEL": "Electra",
+          "YEAR": "1959",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5293,
+          "DIMENSION-ID": "Buick Electra Coupe 1960 US",
+          "MODEL": "Electra",
+          "YEAR": "1960",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5294,
+          "DIMENSION-ID": "Buick Electra Convertible 1961 US",
+          "MODEL": "Electra",
+          "YEAR": "1961",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5295,
+          "DIMENSION-ID": "Buick Electra Convertible 1962 US",
+          "MODEL": "Electra",
+          "YEAR": "1962",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5296,
+          "DIMENSION-ID": "Buick Electra Convertible 1963 US",
+          "MODEL": "Electra",
+          "YEAR": "1963",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5297,
+          "DIMENSION-ID": "Buick Electra Convertible 1964 US",
+          "MODEL": "Electra",
+          "YEAR": "1964",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5298,
+          "DIMENSION-ID": "Buick Electra Coupe 1965 US",
+          "MODEL": "Electra",
+          "YEAR": "1965",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5299,
+          "DIMENSION-ID": "Buick Electra Coupe 1966 US",
+          "MODEL": "Electra",
+          "YEAR": "1966",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5300,
+          "DIMENSION-ID": "Buick Electra Coupe 1967 US",
+          "MODEL": "Electra",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5301,
+          "DIMENSION-ID": "Buick Electra Coupe 1968 US",
+          "MODEL": "Electra",
+          "YEAR": "1968",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5302,
+          "DIMENSION-ID": "Buick Electra Coupe 1969 US",
+          "MODEL": "Electra",
+          "YEAR": "1969",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5303,
+          "DIMENSION-ID": "Buick Electra Coupe 1970 US",
+          "MODEL": "Electra",
+          "YEAR": "1970",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5304,
+          "DIMENSION-ID": "Buick Electra Coupe 1971 US",
+          "MODEL": "Electra",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5305,
+          "DIMENSION-ID": "Buick Electra Coupe 1972 US",
+          "MODEL": "Electra",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5306,
+          "DIMENSION-ID": "Buick Electra Coupe 1973 US",
+          "MODEL": "Electra",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5307,
+          "DIMENSION-ID": "Buick Electra Coupe 1974 US",
+          "MODEL": "Electra",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5308,
+          "DIMENSION-ID": "Buick Electra Coupe 1975 US",
+          "MODEL": "Electra",
+          "YEAR": "1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5309,
+          "DIMENSION-ID": "Buick Electra Coupe 1976 US",
+          "MODEL": "Electra",
+          "YEAR": "1976",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5310,
+          "DIMENSION-ID": "Buick Electra Sedan 1977 US",
+          "MODEL": "Electra",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5311,
+          "DIMENSION-ID": "Buick Electra Sedan 1978 US",
+          "MODEL": "Electra",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5312,
+          "DIMENSION-ID": "Buick Electra Sedan 1979 US",
+          "MODEL": "Electra",
+          "YEAR": "1979",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5313,
+          "DIMENSION-ID": "Buick Electra Sedan 1980 US",
+          "MODEL": "Electra",
+          "YEAR": "1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5314,
+          "DIMENSION-ID": "Buick Electra Sedan 1981 US",
+          "MODEL": "Electra",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5315,
+          "DIMENSION-ID": "Buick Electra Sedan 1982 US",
+          "MODEL": "Electra",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5316,
+          "DIMENSION-ID": "Buick Electra Sedan 1983 US",
+          "MODEL": "Electra",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5317,
+          "DIMENSION-ID": "Buick Electra Sedan 1984 US",
+          "MODEL": "Electra",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5318,
+          "DIMENSION-ID": "Buick Electra Sedan 1985 US",
+          "MODEL": "Electra",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5319,
+          "DIMENSION-ID": "Buick Electra Sedan 1986 US",
+          "MODEL": "Electra",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5320,
+          "DIMENSION-ID": "Buick Electra Sedan 1987 US",
+          "MODEL": "Electra",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5321,
+          "DIMENSION-ID": "Buick Electra Sedan 1988 US",
+          "MODEL": "Electra",
+          "YEAR": "1988",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5322,
+          "DIMENSION-ID": "Buick Electra Sedan 1989 US",
+          "MODEL": "Electra",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5323,
+          "DIMENSION-ID": "Buick Electra Sedan 1990 US",
+          "MODEL": "Electra",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5324,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1977 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5325,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1978 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5326,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1979 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1979",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5327,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1980 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5328,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1981 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5329,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1982 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5330,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1983 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5331,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1984 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5332,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1985 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5333,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1986 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5334,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1987 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5335,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1988 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1988",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5336,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1989 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5337,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1990 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 46,
+      "excluded_search_noise_hits": 22,
+      "non_US_candidate_hits": 21,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3545,
+          "DIMENSION-ID": "Buick Electra Sedan 1981-1984 EU",
+          "MODEL": "Electra",
+          "YEAR": "1981-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3546,
+          "DIMENSION-ID": "Buick Electra Sedan 1984-1985 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3547,
+          "DIMENSION-ID": "Buick Electra Sedan 1984-1986 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3548,
+          "DIMENSION-ID": "Buick Electra Sedan 1990-1991 EU",
+          "MODEL": "Electra",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3549,
+          "DIMENSION-ID": "Buick Electra facelift Sedan 1984-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3550,
+          "DIMENSION-ID": "Buick Electra facelift Sedan 1986-1989 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3551,
+          "DIMENSION-ID": "Buick Electra facelift Sedan 1986-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3552,
+          "DIMENSION-ID": "Buick Electra prefl Sedan 1984-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3553,
+          "DIMENSION-ID": "Buick Electra prefl Sedan 1986-1989 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3554,
+          "DIMENSION-ID": "Buick Electra prefl Sedan 1986-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1548,
+          "DIMENSION-ID": "Buick Electra Convertible 1959-1960 RU",
+          "MODEL": "Electra",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1549,
+          "DIMENSION-ID": "Buick Electra E4 SUV 2023-2025 RU",
+          "MODEL": "Electra E4",
+          "YEAR": "2023-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1550,
+          "DIMENSION-ID": "Buick Electra E5 SUV 2022-2025 RU",
+          "MODEL": "Electra E5",
+          "YEAR": "2022-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1551,
+          "DIMENSION-ID": "Buick Electra E5 SUV 2025-2026 RU",
+          "MODEL": "Electra E5",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1552,
+          "DIMENSION-ID": "Buick Electra E7 SUV 2026-2026 RU",
+          "MODEL": "Electra E7",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1553,
+          "DIMENSION-ID": "Buick Electra I L5611 W2050 H1420 Sedan 1959-1960 RU",
+          "MODEL": "Electra",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1554,
+          "DIMENSION-ID": "Buick Electra I L5725 W2050 H1420 Sedan 1959-1960 RU",
+          "MODEL": "Electra",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1555,
+          "DIMENSION-ID": "Buick Electra L7 Sedan 2025-2026 RU",
+          "MODEL": "Electra L7",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1556,
+          "DIMENSION-ID": "Buick Electra Sedan 1977-1984 RU",
+          "MODEL": "Electra",
+          "YEAR": "1977-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1557,
+          "DIMENSION-ID": "Buick Electra Sedan 1985-1990 RU",
+          "MODEL": "Electra",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1577,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1977-1990 RU",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1977-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "buick",
+      "same_brand_rows_examined": 346,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 68,
+      "candidates": [
+        {
+          "row_1based": 296,
+          "DIMENSION-ID": "Buick Century Wagon 1954 US",
+          "MODEL": "Century",
+          "YEAR": "1954",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 297,
+          "DIMENSION-ID": "Buick Century Wagon 1955 US",
+          "MODEL": "Century",
+          "YEAR": "1955",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 298,
+          "DIMENSION-ID": "Buick Century Wagon 1956 US",
+          "MODEL": "Century",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 299,
+          "DIMENSION-ID": "Buick Century Wagon 1958 US",
+          "MODEL": "Century",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Century仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 379,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1959 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1959",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 380,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1960 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1960",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 381,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1963 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1963",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 382,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1964 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1964",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 383,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1970 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1970",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 384,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1971 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1971",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 385,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1972 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1972",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 386,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1973 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1973",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 387,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1974 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1974",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 388,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1975 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1975",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 389,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1976 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1976",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 390,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1977-1979 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1977-1979",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 391,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1980 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1980",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 392,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1981 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1981",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 393,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1982 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1982",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 394,
+          "DIMENSION-ID": "Buick LeSabre Wagon 1983-1985 US",
+          "MODEL": "LeSabre",
+          "YEAR": "1983-1985",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 LeSabre仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 485,
+          "DIMENSION-ID": "Buick Roadmaster Wagon 1991 US",
+          "MODEL": "Roadmaster",
+          "YEAR": "1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Roadmaster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 486,
+          "DIMENSION-ID": "Buick Roadmaster Wagon 1992-1996 US",
+          "MODEL": "Roadmaster",
+          "YEAR": "1992-1996",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Electra Estate Wagon 与 Roadmaster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5292,
+          "DIMENSION-ID": "Buick Electra Coupe 1959 US",
+          "MODEL": "Electra",
+          "YEAR": "1959",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5293,
+          "DIMENSION-ID": "Buick Electra Coupe 1960 US",
+          "MODEL": "Electra",
+          "YEAR": "1960",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5294,
+          "DIMENSION-ID": "Buick Electra Convertible 1961 US",
+          "MODEL": "Electra",
+          "YEAR": "1961",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5295,
+          "DIMENSION-ID": "Buick Electra Convertible 1962 US",
+          "MODEL": "Electra",
+          "YEAR": "1962",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5296,
+          "DIMENSION-ID": "Buick Electra Convertible 1963 US",
+          "MODEL": "Electra",
+          "YEAR": "1963",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5297,
+          "DIMENSION-ID": "Buick Electra Convertible 1964 US",
+          "MODEL": "Electra",
+          "YEAR": "1964",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5298,
+          "DIMENSION-ID": "Buick Electra Coupe 1965 US",
+          "MODEL": "Electra",
+          "YEAR": "1965",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5299,
+          "DIMENSION-ID": "Buick Electra Coupe 1966 US",
+          "MODEL": "Electra",
+          "YEAR": "1966",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5300,
+          "DIMENSION-ID": "Buick Electra Coupe 1967 US",
+          "MODEL": "Electra",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5301,
+          "DIMENSION-ID": "Buick Electra Coupe 1968 US",
+          "MODEL": "Electra",
+          "YEAR": "1968",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5302,
+          "DIMENSION-ID": "Buick Electra Coupe 1969 US",
+          "MODEL": "Electra",
+          "YEAR": "1969",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5303,
+          "DIMENSION-ID": "Buick Electra Coupe 1970 US",
+          "MODEL": "Electra",
+          "YEAR": "1970",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5304,
+          "DIMENSION-ID": "Buick Electra Coupe 1971 US",
+          "MODEL": "Electra",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5305,
+          "DIMENSION-ID": "Buick Electra Coupe 1972 US",
+          "MODEL": "Electra",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5306,
+          "DIMENSION-ID": "Buick Electra Coupe 1973 US",
+          "MODEL": "Electra",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5307,
+          "DIMENSION-ID": "Buick Electra Coupe 1974 US",
+          "MODEL": "Electra",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5308,
+          "DIMENSION-ID": "Buick Electra Coupe 1975 US",
+          "MODEL": "Electra",
+          "YEAR": "1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5309,
+          "DIMENSION-ID": "Buick Electra Coupe 1976 US",
+          "MODEL": "Electra",
+          "YEAR": "1976",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5310,
+          "DIMENSION-ID": "Buick Electra Sedan 1977 US",
+          "MODEL": "Electra",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5311,
+          "DIMENSION-ID": "Buick Electra Sedan 1978 US",
+          "MODEL": "Electra",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5312,
+          "DIMENSION-ID": "Buick Electra Sedan 1979 US",
+          "MODEL": "Electra",
+          "YEAR": "1979",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5313,
+          "DIMENSION-ID": "Buick Electra Sedan 1980 US",
+          "MODEL": "Electra",
+          "YEAR": "1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5314,
+          "DIMENSION-ID": "Buick Electra Sedan 1981 US",
+          "MODEL": "Electra",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5315,
+          "DIMENSION-ID": "Buick Electra Sedan 1982 US",
+          "MODEL": "Electra",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5316,
+          "DIMENSION-ID": "Buick Electra Sedan 1983 US",
+          "MODEL": "Electra",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5317,
+          "DIMENSION-ID": "Buick Electra Sedan 1984 US",
+          "MODEL": "Electra",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5318,
+          "DIMENSION-ID": "Buick Electra Sedan 1985 US",
+          "MODEL": "Electra",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5319,
+          "DIMENSION-ID": "Buick Electra Sedan 1986 US",
+          "MODEL": "Electra",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5320,
+          "DIMENSION-ID": "Buick Electra Sedan 1987 US",
+          "MODEL": "Electra",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5321,
+          "DIMENSION-ID": "Buick Electra Sedan 1988 US",
+          "MODEL": "Electra",
+          "YEAR": "1988",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5322,
+          "DIMENSION-ID": "Buick Electra Sedan 1989 US",
+          "MODEL": "Electra",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5323,
+          "DIMENSION-ID": "Buick Electra Sedan 1990 US",
+          "MODEL": "Electra",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词electra，但Electra Estate Wagon到Electra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5324,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1977 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5325,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1978 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5326,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1979 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1979",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5327,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1980 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1980",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5328,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1981 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5329,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1982 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5330,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1983 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5331,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1984 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5332,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1985 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5333,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1986 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5334,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1987 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5335,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1988 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1988",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5336,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1989 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5337,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1990 US",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词estate，但Electra Estate Wagon到Estate Wagon缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 46,
+      "excluded_search_noise_hits": 22,
+      "non_US_candidate_hits": 21,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3545,
+          "DIMENSION-ID": "Buick Electra Sedan 1981-1984 EU",
+          "MODEL": "Electra",
+          "YEAR": "1981-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3546,
+          "DIMENSION-ID": "Buick Electra Sedan 1984-1985 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3547,
+          "DIMENSION-ID": "Buick Electra Sedan 1984-1986 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3548,
+          "DIMENSION-ID": "Buick Electra Sedan 1990-1991 EU",
+          "MODEL": "Electra",
+          "YEAR": "1990-1991",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3549,
+          "DIMENSION-ID": "Buick Electra facelift Sedan 1984-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3550,
+          "DIMENSION-ID": "Buick Electra facelift Sedan 1986-1989 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3551,
+          "DIMENSION-ID": "Buick Electra facelift Sedan 1986-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3552,
+          "DIMENSION-ID": "Buick Electra prefl Sedan 1984-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1984-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3553,
+          "DIMENSION-ID": "Buick Electra prefl Sedan 1986-1989 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3554,
+          "DIMENSION-ID": "Buick Electra prefl Sedan 1986-1990 EU",
+          "MODEL": "Electra",
+          "YEAR": "1986-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1548,
+          "DIMENSION-ID": "Buick Electra Convertible 1959-1960 RU",
+          "MODEL": "Electra",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1549,
+          "DIMENSION-ID": "Buick Electra E4 SUV 2023-2025 RU",
+          "MODEL": "Electra E4",
+          "YEAR": "2023-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1550,
+          "DIMENSION-ID": "Buick Electra E5 SUV 2022-2025 RU",
+          "MODEL": "Electra E5",
+          "YEAR": "2022-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1551,
+          "DIMENSION-ID": "Buick Electra E5 SUV 2025-2026 RU",
+          "MODEL": "Electra E5",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1552,
+          "DIMENSION-ID": "Buick Electra E7 SUV 2026-2026 RU",
+          "MODEL": "Electra E7",
+          "YEAR": "2026-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1553,
+          "DIMENSION-ID": "Buick Electra I L5611 W2050 H1420 Sedan 1959-1960 RU",
+          "MODEL": "Electra",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1554,
+          "DIMENSION-ID": "Buick Electra I L5725 W2050 H1420 Sedan 1959-1960 RU",
+          "MODEL": "Electra",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1555,
+          "DIMENSION-ID": "Buick Electra L7 Sedan 2025-2026 RU",
+          "MODEL": "Electra L7",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1556,
+          "DIMENSION-ID": "Buick Electra Sedan 1977-1984 RU",
+          "MODEL": "Electra",
+          "YEAR": "1977-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1557,
+          "DIMENSION-ID": "Buick Electra Sedan 1985-1990 RU",
+          "MODEL": "Electra",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1577,
+          "DIMENSION-ID": "Buick Estate Wagon Wagon 1977-1990 RU",
+          "MODEL": "Estate Wagon",
+          "YEAR": "1977-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Buick / Electra Estate Wagon原名到明确US目标的可引用身份关系；参考年份1984的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-9fa8e4633ce28159a91a9560",
+      "MM_ID": "MM-6eb53ff265bd5dc4c88bd44f",
+      "REGION": "US",
+      "MAKE": "Buick",
+      "MODEL": "Electra Estate Wagon",
+      "YEAR": "1984",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Buick",
+      "标准MODEL": "Electra Estate Wagon",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "5236",
+        "5237",
+        "5238"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 5.0 L, (GM-OLDS)",
+        "Auto 4-spd, 8 cyl, 5.0 L, (GM-OLDS) CA model",
+        "Auto 4-spd, 8 cyl, 5.7 L, Diesel, (350 V8) (DIESEL)"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Buick Electra Sedan 1984 US",
+            "Buick Estate Wagon Wagon 1984 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Buick Electra Sedan 1984 US",
+            "Buick Estate Wagon Wagon 1984 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Buick",
+    "MODEL": "Electra Estate Wagon",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

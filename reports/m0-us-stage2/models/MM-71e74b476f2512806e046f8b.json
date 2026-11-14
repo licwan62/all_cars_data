@@ -1,0 +1,1212 @@
+{
+  "MAKE": "Aston Martin",
+  "MODEL": "Vantage",
+  "MM_ID": "MM-71e74b476f2512806e046f8b",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Aston Martin",
+    "MODEL": "Vantage",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 38,
+      "raw_make": "Aston Martin",
+      "raw_model": "Vantage V12",
+      "make": "Aston Martin",
+      "model": "Vantage",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    },
+    {
+      "csv_record": 39,
+      "raw_make": "Aston Martin",
+      "raw_model": "Vantage V8",
+      "make": "Aston Martin",
+      "model": "Vantage",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 755,
+      "MM_ID": "MM-71e74b476f2512806e046f8b",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "756",
+      "raw_make": "Aston Martin",
+      "raw_model": "Vantage",
+      "raw_year": "2025",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 8-spd, 8 cyl, 4.0 L, Turbo"
+    },
+    {
+      "association_row_1based": 756,
+      "MM_ID": "MM-71e74b476f2512806e046f8b",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "757",
+      "raw_make": "Aston Martin",
+      "raw_model": "Vantage",
+      "raw_year": "2026",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 8-spd, 8 cyl, 4.0 L, Turbo"
+    },
+    {
+      "association_row_1based": 52111,
+      "MM_ID": "MM-71e74b476f2512806e046f8b",
+      "SOURCE": "vehicles",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/vehicles.csv",
+      "source_sha256": "3969496e3551fba4609298bcce04fe0d3e9c21eee2d727aad56c43b2a1e14e4f",
+      "record": "228",
+      "raw_make": "Aston Martin",
+      "raw_model": "Vantage",
+      "raw_year": "",
+      "来源别名线索": "",
+      "车辆类别": "car",
+      "国家线索": "au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "区域线索": "as|eu|na|oc",
+      "配置或身份": ""
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 228,
+      "match_reason": [
+        "原始目录同名",
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "aston-martin",
+      "make_name": "Aston Martin",
+      "model_slug": "vantage",
+      "model_name": "Vantage",
+      "body_types": "hatchback",
+      "countries": "au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/aston-martin/v12-vantage|car/aston-martin/v12-vantage-roadster|car/aston-martin/v12-vantage-s|car/aston-martin/v12-vantage-s-roadster|car/aston-martin/v8-vantage|car/aston-martin/v8-vantage-amr|car/aston-martin/v8-vantage-s|car/aston-martin/vantage-f1-edition|car/aston-martin/vantage-gt|car/aston-martin/vantage-roadster|car/aston-martin/vantage-roadster-f1-edition|car/aston-martin/vantage-s|car/aston-martin/vantage-v8",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "aston martin",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 59,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 770,
+          "DIMENSION-ID": "Aston Martin Db11 vantage Coupe 2016-2026 EU",
+          "MODEL": "Db11 vantage",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 771,
+          "DIMENSION-ID": "Aston Martin Db11 vantage Coupe 2017-2026 EU",
+          "MODEL": "Db11 vantage",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 772,
+          "DIMENSION-ID": "Aston Martin Db11 vantage Coupe 2018-2026 EU",
+          "MODEL": "Db11 vantage",
+          "YEAR": "2018-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 776,
+          "DIMENSION-ID": "Aston Martin Db6 vantage Coupe 1964-1970 EU",
+          "MODEL": "Db6 vantage",
+          "YEAR": "1964-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 778,
+          "DIMENSION-ID": "Aston Martin Db7 vantage Coupe 1999-2003 EU",
+          "MODEL": "Db7 vantage",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 780,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2004-2008 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 781,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2008-2012 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 782,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2012-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2012-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 783,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2015-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2015-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 784,
+          "DIMENSION-ID": "Aston Martin Db9 vantage facelift Coupe 2004-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2004-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 785,
+          "DIMENSION-ID": "Aston Martin Db9 vantage prefl Coupe 2004-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2004-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 793,
+          "DIMENSION-ID": "Aston Martin Dbs vantage Coupe 1966-1972 EU",
+          "MODEL": "Dbs vantage",
+          "YEAR": "1966-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 794,
+          "DIMENSION-ID": "Aston Martin Dbs vantage Coupe 1968-1972 EU",
+          "MODEL": "Dbs vantage",
+          "YEAR": "1968-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 795,
+          "DIMENSION-ID": "Aston Martin Dbs vantage Coupe 2007-2026 EU",
+          "MODEL": "Dbs vantage",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 832,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2007-2008 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2007-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 833,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2008-2010 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 834,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2008-2018 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 835,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2011-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 836,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2012-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 837,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2014-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 838,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2020-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 839,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2025-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 840,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2005-2008 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 841,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2008-2010 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 842,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2008-2018 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 843,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2009-2013 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 844,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2011-2018 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2011-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 845,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2024-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 846,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2025-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 847,
+          "DIMENSION-ID": "Aston Martin Vantage L4385 W1865 H1241 Coupe 2013-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 848,
+          "DIMENSION-ID": "Aston Martin Vantage L4385 W1865 H1250 Coupe 2017-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 849,
+          "DIMENSION-ID": "Aston Martin Vantage L4465 W1942 H1274 Convertible 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 850,
+          "DIMENSION-ID": "Aston Martin Vantage L4465 W1942 H1274 Coupe 2017-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 851,
+          "DIMENSION-ID": "Aston Martin Vantage L4465 W1942 H1274 Coupe 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 852,
+          "DIMENSION-ID": "Aston Martin Vantage L4514 W1982 H1274 Convertible 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 853,
+          "DIMENSION-ID": "Aston Martin Vantage L4514 W1982 H1274 Coupe 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 854,
+          "DIMENSION-ID": "Aston Martin Vantage L4540 W1915 H1250 Coupe 2013-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 855,
+          "DIMENSION-ID": "Aston Martin Virage limited edition vantage Coupe 1995-1995 EU",
+          "MODEL": "Virage limited edition vantage",
+          "YEAR": "1995-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 860,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 1988-1992 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 861,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 1991-1992 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 862,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 1992-2000 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "1992-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 863,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 2011-2012 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 867,
+          "DIMENSION-ID": "Aston Martin Zagato vantage Coupe 1986-1989 EU",
+          "MODEL": "Zagato vantage",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 868,
+          "DIMENSION-ID": "Aston Martin Zagato vantage Coupe 2012-2026 EU",
+          "MODEL": "Zagato vantage",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 419,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Coupe 2009-2017 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2009-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 420,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Coupe 2022-2026 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 421,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Roadster 2009-2017 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2009-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 422,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Roadster 2022-2026 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 424,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Convertible 1969-1989 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "1969-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 425,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 1969-1989 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "1969-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 426,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 1993-2000 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 427,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2005-2008 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 428,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2008-2017 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2008-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 429,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2017-2024 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2017-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 430,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2024-2026 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 431,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2005-2008 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 432,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2008-2017 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2008-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 433,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2017-2024 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2017-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 434,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2024-2026 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "aston martin",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 59,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 770,
+          "DIMENSION-ID": "Aston Martin Db11 vantage Coupe 2016-2026 EU",
+          "MODEL": "Db11 vantage",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 771,
+          "DIMENSION-ID": "Aston Martin Db11 vantage Coupe 2017-2026 EU",
+          "MODEL": "Db11 vantage",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 772,
+          "DIMENSION-ID": "Aston Martin Db11 vantage Coupe 2018-2026 EU",
+          "MODEL": "Db11 vantage",
+          "YEAR": "2018-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 776,
+          "DIMENSION-ID": "Aston Martin Db6 vantage Coupe 1964-1970 EU",
+          "MODEL": "Db6 vantage",
+          "YEAR": "1964-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 778,
+          "DIMENSION-ID": "Aston Martin Db7 vantage Coupe 1999-2003 EU",
+          "MODEL": "Db7 vantage",
+          "YEAR": "1999-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 780,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2004-2008 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 781,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2008-2012 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 782,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2012-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2012-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 783,
+          "DIMENSION-ID": "Aston Martin Db9 vantage Coupe 2015-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2015-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 784,
+          "DIMENSION-ID": "Aston Martin Db9 vantage facelift Coupe 2004-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2004-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 785,
+          "DIMENSION-ID": "Aston Martin Db9 vantage prefl Coupe 2004-2016 EU",
+          "MODEL": "Db9 vantage",
+          "YEAR": "2004-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 793,
+          "DIMENSION-ID": "Aston Martin Dbs vantage Coupe 1966-1972 EU",
+          "MODEL": "Dbs vantage",
+          "YEAR": "1966-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 794,
+          "DIMENSION-ID": "Aston Martin Dbs vantage Coupe 1968-1972 EU",
+          "MODEL": "Dbs vantage",
+          "YEAR": "1968-1972",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 795,
+          "DIMENSION-ID": "Aston Martin Dbs vantage Coupe 2007-2026 EU",
+          "MODEL": "Dbs vantage",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 832,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2007-2008 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2007-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 833,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2008-2010 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 834,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2008-2018 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 835,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2011-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 836,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2012-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 837,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2014-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 838,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2020-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 839,
+          "DIMENSION-ID": "Aston Martin Vantage Convertible 2025-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 840,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2005-2008 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 841,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2008-2010 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 842,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2008-2018 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2008-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 843,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2009-2013 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2009-2013",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 844,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2011-2018 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2011-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 845,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2024-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 846,
+          "DIMENSION-ID": "Aston Martin Vantage Coupe 2025-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 847,
+          "DIMENSION-ID": "Aston Martin Vantage L4385 W1865 H1241 Coupe 2013-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 848,
+          "DIMENSION-ID": "Aston Martin Vantage L4385 W1865 H1250 Coupe 2017-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 849,
+          "DIMENSION-ID": "Aston Martin Vantage L4465 W1942 H1274 Convertible 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 850,
+          "DIMENSION-ID": "Aston Martin Vantage L4465 W1942 H1274 Coupe 2017-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 851,
+          "DIMENSION-ID": "Aston Martin Vantage L4465 W1942 H1274 Coupe 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 852,
+          "DIMENSION-ID": "Aston Martin Vantage L4514 W1982 H1274 Convertible 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 853,
+          "DIMENSION-ID": "Aston Martin Vantage L4514 W1982 H1274 Coupe 2021-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2021-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 854,
+          "DIMENSION-ID": "Aston Martin Vantage L4540 W1915 H1250 Coupe 2013-2026 EU",
+          "MODEL": "Vantage",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 855,
+          "DIMENSION-ID": "Aston Martin Virage limited edition vantage Coupe 1995-1995 EU",
+          "MODEL": "Virage limited edition vantage",
+          "YEAR": "1995-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 860,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 1988-1992 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "1988-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 861,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 1991-1992 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "1991-1992",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 862,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 1992-2000 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "1992-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 863,
+          "DIMENSION-ID": "Aston Martin Virage vantage Coupe 2011-2012 EU",
+          "MODEL": "Virage vantage",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 867,
+          "DIMENSION-ID": "Aston Martin Zagato vantage Coupe 1986-1989 EU",
+          "MODEL": "Zagato vantage",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 868,
+          "DIMENSION-ID": "Aston Martin Zagato vantage Coupe 2012-2026 EU",
+          "MODEL": "Zagato vantage",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 419,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Coupe 2009-2017 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2009-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 420,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Coupe 2022-2026 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 421,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Roadster 2009-2017 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2009-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 422,
+          "DIMENSION-ID": "Aston Martin V12 Vantage Roadster 2022-2026 RU",
+          "MODEL": "V12 Vantage",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 424,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Convertible 1969-1989 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "1969-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 425,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 1969-1989 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "1969-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 426,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 1993-2000 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "1993-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 427,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2005-2008 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 428,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2008-2017 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2008-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 429,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2017-2024 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2017-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 430,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Coupe 2024-2026 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 431,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2005-2008 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2005-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 432,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2008-2017 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2008-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 433,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2017-2024 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2017-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 434,
+          "DIMENSION-ID": "Aston Martin V8 Vantage Roadster 2024-2026 RU",
+          "MODEL": "V8 Vantage",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Aston Martin / Vantage原名到明确US目标的可引用身份关系；参考年份2025|2026的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-f6e889f6a0885027750bba98",
+      "MM_ID": "MM-71e74b476f2512806e046f8b",
+      "REGION": "US",
+      "MAKE": "Aston Martin",
+      "MODEL": "Vantage",
+      "YEAR": "2025",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Aston Martin",
+      "标准MODEL": "Vantage",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "车辆类别线索": "car",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "756"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 8-spd, 8 cyl, 4.0 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-bd276a170d0a92e9ac17a2f1",
+      "MM_ID": "MM-71e74b476f2512806e046f8b",
+      "REGION": "US",
+      "MAKE": "Aston Martin",
+      "MODEL": "Vantage",
+      "YEAR": "2026",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Aston Martin",
+      "标准MODEL": "Vantage",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "车辆类别线索": "car",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "757"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 8-spd, 8 cyl, 4.0 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Aston Martin",
+    "MODEL": "Vantage",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

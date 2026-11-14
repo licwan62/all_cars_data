@@ -1,0 +1,805 @@
+{
+  "MAKE": "Aston Martin",
+  "MODEL": "Vanquish Volante",
+  "MM_ID": "MM-c070401d5f5875059fa67805",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Aston Martin",
+    "MODEL": "Vanquish Volante",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 753,
+      "MM_ID": "MM-c070401d5f5875059fa67805",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "754",
+      "raw_make": "Aston Martin",
+      "raw_model": "Vanquish Volante",
+      "raw_year": "2026",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 8-spd, 12 cyl, 5.2 L, Turbo"
+    },
+    {
+      "association_row_1based": 754,
+      "MM_ID": "MM-c070401d5f5875059fa67805",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "755",
+      "raw_make": "Aston Martin",
+      "raw_model": "Vanquish Volante",
+      "raw_year": "2027",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 8-spd, 12 cyl, 5.2 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 227,
+      "match_reason": [
+        "目录别名/历史slug相等线索",
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "aston-martin",
+      "make_name": "Aston Martin",
+      "model_slug": "vanquish",
+      "model_name": "Vanquish",
+      "body_types": "coupe",
+      "countries": "au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "6",
+      "aliases": "",
+      "former_ids": "car/aston-martin/v12-vanquish|car/aston-martin/v12-vanquish-s|car/aston-martin/vanquish-s|car/aston-martin/vanquish-volante|car/aston-martin/vanquish-zagato",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "aston martin",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 39,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 773,
+          "DIMENSION-ID": "Aston Martin Db11 volante Convertible 2017-2026 EU",
+          "MODEL": "Db11 volante",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 775,
+          "DIMENSION-ID": "Aston Martin Db12 volante Convertible 2023-2026 EU",
+          "MODEL": "Db12 volante",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 777,
+          "DIMENSION-ID": "Aston Martin Db6 volante Convertible 1964-1970 EU",
+          "MODEL": "Db6 volante",
+          "YEAR": "1964-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 779,
+          "DIMENSION-ID": "Aston Martin Db7 volante Convertible 1996-2003 EU",
+          "MODEL": "Db7 volante",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 786,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2004-2008 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 787,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2004-2012 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 788,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2005-2012 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 789,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2012-2016 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2012-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 790,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2015-2016 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2015-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 796,
+          "DIMENSION-ID": "Aston Martin Dbs volante Convertible 2007-2026 EU",
+          "MODEL": "Dbs volante",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 797,
+          "DIMENSION-ID": "Aston Martin Dbs volante Convertible 2019-2026 EU",
+          "MODEL": "Dbs volante",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 798,
+          "DIMENSION-ID": "Aston Martin Dbs volante Convertible 2023-2026 EU",
+          "MODEL": "Dbs volante",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 822,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2013-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 823,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2014-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 824,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2016-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 825,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2025-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 826,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2001-2007 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2001-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 827,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2004-2007 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2004-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 828,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2012-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 829,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2014-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 830,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2016-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 831,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2024-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 864,
+          "DIMENSION-ID": "Aston Martin Virage volante Convertible 2011-2012 EU",
+          "MODEL": "Virage volante",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 865,
+          "DIMENSION-ID": "Aston Martin Virage volante L4745 W1856 H1320 Convertible 1990-1995 EU",
+          "MODEL": "Virage volante",
+          "YEAR": "1990-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 866,
+          "DIMENSION-ID": "Aston Martin Virage volante L4745 W1905 H1320 Convertible 1990-1995 EU",
+          "MODEL": "Virage volante",
+          "YEAR": "1990-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 869,
+          "DIMENSION-ID": "Aston Martin Zagato volante Convertible 1986-1989 EU",
+          "MODEL": "Zagato volante",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 442,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2001-2007 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2001-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 443,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 444,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2024-2026 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 445,
+          "DIMENSION-ID": "Aston Martin Vanquish S Coupe 2001-2007 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2001-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 446,
+          "DIMENSION-ID": "Aston Martin Vanquish S Coupe 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 447,
+          "DIMENSION-ID": "Aston Martin Vanquish Volante Roadster 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 448,
+          "DIMENSION-ID": "Aston Martin Vanquish Volante Roadster 2024-2026 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 449,
+          "DIMENSION-ID": "Aston Martin Vanquish Volante S Roadster 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 450,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Coupe 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 451,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Roadster 2004-2004 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2004-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 452,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Shooting Brake Hatchback 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 453,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Speedster Speedster 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 454,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Volante Convertible 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "aston martin",
+      "same_brand_rows_examined": 0,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 0,
+      "candidates": [],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 39,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 773,
+          "DIMENSION-ID": "Aston Martin Db11 volante Convertible 2017-2026 EU",
+          "MODEL": "Db11 volante",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 775,
+          "DIMENSION-ID": "Aston Martin Db12 volante Convertible 2023-2026 EU",
+          "MODEL": "Db12 volante",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 777,
+          "DIMENSION-ID": "Aston Martin Db6 volante Convertible 1964-1970 EU",
+          "MODEL": "Db6 volante",
+          "YEAR": "1964-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 779,
+          "DIMENSION-ID": "Aston Martin Db7 volante Convertible 1996-2003 EU",
+          "MODEL": "Db7 volante",
+          "YEAR": "1996-2003",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 786,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2004-2008 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 787,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2004-2012 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 788,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2005-2012 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 789,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2012-2016 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2012-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 790,
+          "DIMENSION-ID": "Aston Martin Db9 volante Convertible 2015-2016 EU",
+          "MODEL": "Db9 volante",
+          "YEAR": "2015-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 796,
+          "DIMENSION-ID": "Aston Martin Dbs volante Convertible 2007-2026 EU",
+          "MODEL": "Dbs volante",
+          "YEAR": "2007-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 797,
+          "DIMENSION-ID": "Aston Martin Dbs volante Convertible 2019-2026 EU",
+          "MODEL": "Dbs volante",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 798,
+          "DIMENSION-ID": "Aston Martin Dbs volante Convertible 2023-2026 EU",
+          "MODEL": "Dbs volante",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 822,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2013-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 823,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2014-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 824,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2016-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 825,
+          "DIMENSION-ID": "Aston Martin Vanquish Convertible 2025-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 826,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2001-2007 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2001-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 827,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2004-2007 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2004-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 828,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2012-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 829,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2014-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 830,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2016-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 831,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2024-2026 EU",
+          "MODEL": "Vanquish",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 864,
+          "DIMENSION-ID": "Aston Martin Virage volante Convertible 2011-2012 EU",
+          "MODEL": "Virage volante",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 865,
+          "DIMENSION-ID": "Aston Martin Virage volante L4745 W1856 H1320 Convertible 1990-1995 EU",
+          "MODEL": "Virage volante",
+          "YEAR": "1990-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 866,
+          "DIMENSION-ID": "Aston Martin Virage volante L4745 W1905 H1320 Convertible 1990-1995 EU",
+          "MODEL": "Virage volante",
+          "YEAR": "1990-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 869,
+          "DIMENSION-ID": "Aston Martin Zagato volante Convertible 1986-1989 EU",
+          "MODEL": "Zagato volante",
+          "YEAR": "1986-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 442,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2001-2007 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2001-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 443,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 444,
+          "DIMENSION-ID": "Aston Martin Vanquish Coupe 2024-2026 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 445,
+          "DIMENSION-ID": "Aston Martin Vanquish S Coupe 2001-2007 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2001-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 446,
+          "DIMENSION-ID": "Aston Martin Vanquish S Coupe 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 447,
+          "DIMENSION-ID": "Aston Martin Vanquish Volante Roadster 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 448,
+          "DIMENSION-ID": "Aston Martin Vanquish Volante Roadster 2024-2026 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 449,
+          "DIMENSION-ID": "Aston Martin Vanquish Volante S Roadster 2012-2018 RU",
+          "MODEL": "Vanquish",
+          "YEAR": "2012-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 450,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Coupe 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 451,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Roadster 2004-2004 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2004-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 452,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Shooting Brake Hatchback 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 453,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Speedster Speedster 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 454,
+          "DIMENSION-ID": "Aston Martin Vanquish Zagato Volante Convertible 2016-2018 RU",
+          "MODEL": "Vanquish Zagato",
+          "YEAR": "2016-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Aston Martin / Vanquish Volante原名到明确US目标的可引用身份关系；参考年份2026的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-72e6b7ca7af68da5644bb8cf",
+      "MM_ID": "MM-c070401d5f5875059fa67805",
+      "REGION": "US",
+      "MAKE": "Aston Martin",
+      "MODEL": "Vanquish Volante",
+      "YEAR": "2026",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（品牌待核）",
+      "01状态": "名称未匹配（品牌待核）",
+      "02原始状态": "名称未匹配（品牌待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Aston Martin",
+      "标准MODEL": "Vanquish Volante",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "754"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 8-spd, 12 cyl, 5.2 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Aston Martin",
+    "MODEL": "Vanquish Volante",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "MAKE": "Subaru",
+  "MODEL": "Ascent Limited/Touring",
+  "MM_ID": "MM-925b251dfccf5aad82ac459a",
+  "MMY_count": 3,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Subaru",
+    "MODEL": "Ascent Limited/Touring",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 45127,
+      "MM_ID": "MM-925b251dfccf5aad82ac459a",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45128",
+      "raw_make": "Subaru",
+      "raw_model": "Ascent Limited/Touring",
+      "raw_year": "2019",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AV-S8), 4 cyl, 2.4 L, Turbo"
+    },
+    {
+      "association_row_1based": 45128,
+      "MM_ID": "MM-925b251dfccf5aad82ac459a",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45129",
+      "raw_make": "Subaru",
+      "raw_model": "Ascent Limited/Touring",
+      "raw_year": "2020",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AV-S8), 4 cyl, 2.4 L, Turbo"
+    },
+    {
+      "association_row_1based": 45129,
+      "MM_ID": "MM-925b251dfccf5aad82ac459a",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "45130",
+      "raw_make": "Subaru",
+      "raw_model": "Ascent Limited/Touring",
+      "raw_year": "2021",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AV-S8), 4 cyl, 2.4 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4804,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "subaru",
+      "make_name": "Subaru",
+      "model_slug": "ascent",
+      "model_name": "Ascent",
+      "body_types": "hatchback|wagon",
+      "countries": "ca|my|nl|ua|us",
+      "regions": "as|eu|na",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 4825,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "subaru",
+      "make_name": "Subaru",
+      "model_slug": "outback-limited",
+      "model_name": "Outback Limited",
+      "body_types": "hatchback|wagon",
+      "countries": "nl|ua",
+      "regions": "eu",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "subaru",
+      "same_brand_rows_examined": 85,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 9,
+      "candidates": [
+        {
+          "row_1based": 3910,
+          "DIMENSION-ID": "Subaru Ascent SUV 2019-2026 US",
+          "MODEL": "Ascent",
+          "YEAR": "2019-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词ascent，但Ascent Limited/Touring到Ascent缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3967,
+          "DIMENSION-ID": "Subaru Solterra SUV 2023-2026 US",
+          "MODEL": "Solterra",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Solterra仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4487,
+          "DIMENSION-ID": "Subaru BRZ Coupe 2022 US",
+          "MODEL": "BRZ",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 BRZ仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4488,
+          "DIMENSION-ID": "Subaru BRZ Coupe 2023 US",
+          "MODEL": "BRZ",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 BRZ仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4489,
+          "DIMENSION-ID": "Subaru BRZ Coupe 2024 US",
+          "MODEL": "BRZ",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 BRZ仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4710,
+          "DIMENSION-ID": "Subaru Ascent SUV 2027 US",
+          "MODEL": "Ascent",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词ascent，但Ascent Limited/Touring到Ascent缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4712,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2027 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Crosstrek仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4714,
+          "DIMENSION-ID": "Subaru Solterra SUV 2027 US",
+          "MODEL": "Solterra",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Solterra仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4716,
+          "DIMENSION-ID": "Subaru Trailseeker SUV 2027 US",
+          "MODEL": "Trailseeker",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Trailseeker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 7,
+      "non_US_candidate_hits": 2,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 11149,
+          "DIMENSION-ID": "Subaru Ascent SUV 2017-2022 RU",
+          "MODEL": "Ascent",
+          "YEAR": "2017-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11150,
+          "DIMENSION-ID": "Subaru Ascent SUV 2022-2026 RU",
+          "MODEL": "Ascent",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "subaru",
+      "same_brand_rows_examined": 85,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 9,
+      "candidates": [
+        {
+          "row_1based": 3910,
+          "DIMENSION-ID": "Subaru Ascent SUV 2019-2026 US",
+          "MODEL": "Ascent",
+          "YEAR": "2019-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词ascent，但Ascent Limited/Touring到Ascent缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3967,
+          "DIMENSION-ID": "Subaru Solterra SUV 2023-2026 US",
+          "MODEL": "Solterra",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Solterra仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4487,
+          "DIMENSION-ID": "Subaru BRZ Coupe 2022 US",
+          "MODEL": "BRZ",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 BRZ仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4488,
+          "DIMENSION-ID": "Subaru BRZ Coupe 2023 US",
+          "MODEL": "BRZ",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 BRZ仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4489,
+          "DIMENSION-ID": "Subaru BRZ Coupe 2024 US",
+          "MODEL": "BRZ",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 BRZ仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4710,
+          "DIMENSION-ID": "Subaru Ascent SUV 2027 US",
+          "MODEL": "Ascent",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词ascent，但Ascent Limited/Touring到Ascent缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4712,
+          "DIMENSION-ID": "Subaru Crosstrek Crossover 2027 US",
+          "MODEL": "Crosstrek",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Crosstrek仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4714,
+          "DIMENSION-ID": "Subaru Solterra SUV 2027 US",
+          "MODEL": "Solterra",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Solterra仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4716,
+          "DIMENSION-ID": "Subaru Trailseeker SUV 2027 US",
+          "MODEL": "Trailseeker",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Ascent Limited/Touring 与 Trailseeker仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 7,
+      "non_US_candidate_hits": 2,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 11149,
+          "DIMENSION-ID": "Subaru Ascent SUV 2017-2022 RU",
+          "MODEL": "Ascent",
+          "YEAR": "2017-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 11150,
+          "DIMENSION-ID": "Subaru Ascent SUV 2022-2026 RU",
+          "MODEL": "Ascent",
+          "YEAR": "2022-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Subaru / Ascent Limited/Touring原名到明确US目标的可引用身份关系；参考年份2019|2020|2021的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-1876ec4d962283e4634af22d",
+      "MM_ID": "MM-925b251dfccf5aad82ac459a",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "Ascent Limited/Touring",
+      "YEAR": "2019",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "Ascent Limited/Touring",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "45128"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AV-S8), 4 cyl, 2.4 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Ascent SUV 2019-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Ascent SUV 2019-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-acc31aea1e66dd199bfd8384",
+      "MM_ID": "MM-925b251dfccf5aad82ac459a",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "Ascent Limited/Touring",
+      "YEAR": "2020",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "Ascent Limited/Touring",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "45129"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AV-S8), 4 cyl, 2.4 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Ascent SUV 2019-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Ascent SUV 2019-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-e85f22b05783ddbd07405561",
+      "MM_ID": "MM-925b251dfccf5aad82ac459a",
+      "REGION": "US",
+      "MAKE": "Subaru",
+      "MODEL": "Ascent Limited/Touring",
+      "YEAR": "2021",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Subaru",
+      "标准MODEL": "Ascent Limited/Touring",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "45130"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AV-S8), 4 cyl, 2.4 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Ascent SUV 2019-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Subaru Ascent SUV 2019-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Subaru",
+    "MODEL": "Ascent Limited/Touring",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

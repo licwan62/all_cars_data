@@ -1,0 +1,2292 @@
+{
+  "MAKE": "Cadillac",
+  "MODEL": "DeVille/60 Special",
+  "MM_ID": "MM-74ec075bf8aca0c3b1c0e57c",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Cadillac",
+    "MODEL": "DeVille/60 Special",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 6221,
+      "MM_ID": "MM-74ec075bf8aca0c3b1c0e57c",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "6222",
+      "raw_make": "Cadillac",
+      "raw_model": "DeVille/60 Special",
+      "raw_year": "1993",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 4-spd, 8 cyl, 4.9 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 651,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "cadillac",
+      "make_name": "Cadillac",
+      "model_slug": "series-60",
+      "model_name": "Series 60",
+      "body_types": "hatchback",
+      "countries": "nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    },
+    {
+      "record": 655,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "cadillac",
+      "make_name": "Cadillac",
+      "model_slug": "sixty-special",
+      "model_name": "Sixty Special",
+      "body_types": "sedan",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/cadillac/fleetwood-60-special|car/cadillac/fleetwood-60s|car/cadillac/fleetwood-sixty-special",
+      "mass_popularity_decile": "6"
+    },
+    {
+      "record": 656,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "cadillac",
+      "make_name": "Cadillac",
+      "model_slug": "special",
+      "model_name": "Special",
+      "body_types": "hatchback",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "cadillac",
+      "same_brand_rows_examined": 266,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 74,
+      "candidates": [
+        {
+          "row_1based": 558,
+          "DIMENSION-ID": "Cadillac DeVille Convertible 1967 US",
+          "MODEL": "DeVille",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 559,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1949 US",
+          "MODEL": "DeVille",
+          "YEAR": "1949",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 560,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1950 US",
+          "MODEL": "DeVille",
+          "YEAR": "1950",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 561,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1951 US",
+          "MODEL": "DeVille",
+          "YEAR": "1951",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 562,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1952-1953 US",
+          "MODEL": "DeVille",
+          "YEAR": "1952-1953",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 563,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1954 US",
+          "MODEL": "DeVille",
+          "YEAR": "1954",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 564,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1955 US",
+          "MODEL": "DeVille",
+          "YEAR": "1955",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 565,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1956 US",
+          "MODEL": "DeVille",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 566,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1957 US",
+          "MODEL": "DeVille",
+          "YEAR": "1957",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 567,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1958 US",
+          "MODEL": "DeVille",
+          "YEAR": "1958",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 568,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1959 US",
+          "MODEL": "DeVille",
+          "YEAR": "1959",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 569,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1960 US",
+          "MODEL": "DeVille",
+          "YEAR": "1960",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 570,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1961 US",
+          "MODEL": "DeVille",
+          "YEAR": "1961",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 571,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1962 US",
+          "MODEL": "DeVille",
+          "YEAR": "1962",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 572,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1963 US",
+          "MODEL": "DeVille",
+          "YEAR": "1963",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 573,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1964 US",
+          "MODEL": "DeVille",
+          "YEAR": "1964",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 574,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1965 US",
+          "MODEL": "DeVille",
+          "YEAR": "1965",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 575,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1966 US",
+          "MODEL": "DeVille",
+          "YEAR": "1966",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 576,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1967 US",
+          "MODEL": "DeVille",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 577,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1968-1970 US",
+          "MODEL": "DeVille",
+          "YEAR": "1968-1970",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 578,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1971 US",
+          "MODEL": "DeVille",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 579,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1972 US",
+          "MODEL": "DeVille",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 580,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1973 US",
+          "MODEL": "DeVille",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 581,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1974 US",
+          "MODEL": "DeVille",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 582,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1975-1976 US",
+          "MODEL": "DeVille",
+          "YEAR": "1975-1976",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 583,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1977 US",
+          "MODEL": "DeVille",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 584,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1978 US",
+          "MODEL": "DeVille",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 585,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1979-1980 US",
+          "MODEL": "DeVille",
+          "YEAR": "1979-1980",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 586,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1981 US",
+          "MODEL": "DeVille",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 587,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1982 US",
+          "MODEL": "DeVille",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 588,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1983 US",
+          "MODEL": "DeVille",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 589,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1984 US",
+          "MODEL": "DeVille",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 590,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1985 US",
+          "MODEL": "DeVille",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 591,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1986 US",
+          "MODEL": "DeVille",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 592,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1987-1988 US",
+          "MODEL": "DeVille",
+          "YEAR": "1987-1988",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 593,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1989 US",
+          "MODEL": "DeVille",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 594,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1956 US",
+          "MODEL": "DeVille",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 595,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1958 US",
+          "MODEL": "DeVille",
+          "YEAR": "1958",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 596,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1959-1960 US",
+          "MODEL": "DeVille",
+          "YEAR": "1959-1960",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 597,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1962 US",
+          "MODEL": "DeVille",
+          "YEAR": "1962",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 598,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1963 US",
+          "MODEL": "DeVille",
+          "YEAR": "1963",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 599,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1964 US",
+          "MODEL": "DeVille",
+          "YEAR": "1964",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 600,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1965 US",
+          "MODEL": "DeVille",
+          "YEAR": "1965",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 601,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1966 US",
+          "MODEL": "DeVille",
+          "YEAR": "1966",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 602,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1967 US",
+          "MODEL": "DeVille",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 603,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1968-1970 US",
+          "MODEL": "DeVille",
+          "YEAR": "1968-1970",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 604,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1971 US",
+          "MODEL": "DeVille",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 605,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1972 US",
+          "MODEL": "DeVille",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 606,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1973 US",
+          "MODEL": "DeVille",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 607,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1974 US",
+          "MODEL": "DeVille",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 608,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1975-1976 US",
+          "MODEL": "DeVille",
+          "YEAR": "1975-1976",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 609,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1977 US",
+          "MODEL": "DeVille",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 610,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1978 US",
+          "MODEL": "DeVille",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 611,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1979-1980 US",
+          "MODEL": "DeVille",
+          "YEAR": "1979-1980",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 612,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1981 US",
+          "MODEL": "DeVille",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 613,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1982 US",
+          "MODEL": "DeVille",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 614,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1983 US",
+          "MODEL": "DeVille",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 615,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1984 US",
+          "MODEL": "DeVille",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 616,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1985 US",
+          "MODEL": "DeVille",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 617,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1986 US",
+          "MODEL": "DeVille",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 618,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1987-1988 US",
+          "MODEL": "DeVille",
+          "YEAR": "1987-1988",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 619,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1989 US",
+          "MODEL": "DeVille",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 620,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1990 US",
+          "MODEL": "DeVille",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 621,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1991 US",
+          "MODEL": "DeVille",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 622,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1992-1993 US",
+          "MODEL": "DeVille",
+          "YEAR": "1992-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 623,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1994-1997 US",
+          "MODEL": "DeVille",
+          "YEAR": "1994-1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 624,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1998-1999 US",
+          "MODEL": "DeVille",
+          "YEAR": "1998-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 625,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 2000-2005 US",
+          "MODEL": "DeVille",
+          "YEAR": "2000-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5419,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1971 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5420,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1972 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5421,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1973 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5422,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1974 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5423,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1975 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5424,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1976 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1976",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 74,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 25,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3632,
+          "DIMENSION-ID": "Cadillac Deville Coupe 1976-1979 EU",
+          "MODEL": "Deville",
+          "YEAR": "1976-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3633,
+          "DIMENSION-ID": "Cadillac Deville Coupe 1978-1984 EU",
+          "MODEL": "Deville",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3634,
+          "DIMENSION-ID": "Cadillac Deville Coupe 1979-1982 EU",
+          "MODEL": "Deville",
+          "YEAR": "1979-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3635,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1976-1979 EU",
+          "MODEL": "Deville",
+          "YEAR": "1976-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3636,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1978-1984 EU",
+          "MODEL": "Deville",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3637,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1993-1995 EU",
+          "MODEL": "Deville",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3638,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1993-1999 EU",
+          "MODEL": "Deville",
+          "YEAR": "1993-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3639,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1996-1999 EU",
+          "MODEL": "Deville",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3640,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1999-2004 EU",
+          "MODEL": "Deville",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3641,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1999-2005 EU",
+          "MODEL": "Deville",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1722,
+          "DIMENSION-ID": "Cadillac DeVille 4-window Sedan 1958-1960 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1958-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1723,
+          "DIMENSION-ID": "Cadillac DeVille 6-window Sedan 1958-1960 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1958-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1724,
+          "DIMENSION-ID": "Cadillac DeVille Convertible 1965-1970 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1965-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1725,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1958-1960 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1958-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1726,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1961-1964 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1961-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1727,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1965-1970 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1965-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1728,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1971-1976 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1971-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1729,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1961-1964 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1961-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1730,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1965-1970 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1965-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1731,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1971-1976 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1971-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1732,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1977-1984 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1977-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1733,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1985-1993 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1985-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1734,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1994-1999 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1994-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1735,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1999-2005 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1796,
+          "DIMENSION-ID": "Cadillac Sixty Special Sedan 1971-1976 RU",
+          "MODEL": "Sixty Special",
+          "YEAR": "1971-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "cadillac",
+      "same_brand_rows_examined": 266,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 74,
+      "candidates": [
+        {
+          "row_1based": 558,
+          "DIMENSION-ID": "Cadillac DeVille Convertible 1967 US",
+          "MODEL": "DeVille",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 559,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1949 US",
+          "MODEL": "DeVille",
+          "YEAR": "1949",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 560,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1950 US",
+          "MODEL": "DeVille",
+          "YEAR": "1950",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 561,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1951 US",
+          "MODEL": "DeVille",
+          "YEAR": "1951",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 562,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1952-1953 US",
+          "MODEL": "DeVille",
+          "YEAR": "1952-1953",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 563,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1954 US",
+          "MODEL": "DeVille",
+          "YEAR": "1954",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 564,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1955 US",
+          "MODEL": "DeVille",
+          "YEAR": "1955",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 565,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1956 US",
+          "MODEL": "DeVille",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 566,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1957 US",
+          "MODEL": "DeVille",
+          "YEAR": "1957",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 567,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1958 US",
+          "MODEL": "DeVille",
+          "YEAR": "1958",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 568,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1959 US",
+          "MODEL": "DeVille",
+          "YEAR": "1959",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 569,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1960 US",
+          "MODEL": "DeVille",
+          "YEAR": "1960",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 570,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1961 US",
+          "MODEL": "DeVille",
+          "YEAR": "1961",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 571,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1962 US",
+          "MODEL": "DeVille",
+          "YEAR": "1962",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 572,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1963 US",
+          "MODEL": "DeVille",
+          "YEAR": "1963",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 573,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1964 US",
+          "MODEL": "DeVille",
+          "YEAR": "1964",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 574,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1965 US",
+          "MODEL": "DeVille",
+          "YEAR": "1965",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 575,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1966 US",
+          "MODEL": "DeVille",
+          "YEAR": "1966",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 576,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1967 US",
+          "MODEL": "DeVille",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 577,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1968-1970 US",
+          "MODEL": "DeVille",
+          "YEAR": "1968-1970",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 578,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1971 US",
+          "MODEL": "DeVille",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 579,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1972 US",
+          "MODEL": "DeVille",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 580,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1973 US",
+          "MODEL": "DeVille",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 581,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1974 US",
+          "MODEL": "DeVille",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 582,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1975-1976 US",
+          "MODEL": "DeVille",
+          "YEAR": "1975-1976",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 583,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1977 US",
+          "MODEL": "DeVille",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 584,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1978 US",
+          "MODEL": "DeVille",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 585,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1979-1980 US",
+          "MODEL": "DeVille",
+          "YEAR": "1979-1980",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 586,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1981 US",
+          "MODEL": "DeVille",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 587,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1982 US",
+          "MODEL": "DeVille",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 588,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1983 US",
+          "MODEL": "DeVille",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 589,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1984 US",
+          "MODEL": "DeVille",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 590,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1985 US",
+          "MODEL": "DeVille",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 591,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1986 US",
+          "MODEL": "DeVille",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 592,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1987-1988 US",
+          "MODEL": "DeVille",
+          "YEAR": "1987-1988",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 593,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1989 US",
+          "MODEL": "DeVille",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 594,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1956 US",
+          "MODEL": "DeVille",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 595,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1958 US",
+          "MODEL": "DeVille",
+          "YEAR": "1958",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 596,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1959-1960 US",
+          "MODEL": "DeVille",
+          "YEAR": "1959-1960",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 597,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1962 US",
+          "MODEL": "DeVille",
+          "YEAR": "1962",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 598,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1963 US",
+          "MODEL": "DeVille",
+          "YEAR": "1963",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 599,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1964 US",
+          "MODEL": "DeVille",
+          "YEAR": "1964",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 600,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1965 US",
+          "MODEL": "DeVille",
+          "YEAR": "1965",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 601,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1966 US",
+          "MODEL": "DeVille",
+          "YEAR": "1966",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 602,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1967 US",
+          "MODEL": "DeVille",
+          "YEAR": "1967",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 603,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1968-1970 US",
+          "MODEL": "DeVille",
+          "YEAR": "1968-1970",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 604,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1971 US",
+          "MODEL": "DeVille",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 605,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1972 US",
+          "MODEL": "DeVille",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 606,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1973 US",
+          "MODEL": "DeVille",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 607,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1974 US",
+          "MODEL": "DeVille",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 608,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1975-1976 US",
+          "MODEL": "DeVille",
+          "YEAR": "1975-1976",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 609,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1977 US",
+          "MODEL": "DeVille",
+          "YEAR": "1977",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 610,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1978 US",
+          "MODEL": "DeVille",
+          "YEAR": "1978",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 611,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1979-1980 US",
+          "MODEL": "DeVille",
+          "YEAR": "1979-1980",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 612,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1981 US",
+          "MODEL": "DeVille",
+          "YEAR": "1981",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 613,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1982 US",
+          "MODEL": "DeVille",
+          "YEAR": "1982",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 614,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1983 US",
+          "MODEL": "DeVille",
+          "YEAR": "1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 615,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1984 US",
+          "MODEL": "DeVille",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 616,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1985 US",
+          "MODEL": "DeVille",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 617,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1986 US",
+          "MODEL": "DeVille",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 618,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1987-1988 US",
+          "MODEL": "DeVille",
+          "YEAR": "1987-1988",
+          "match_reason": [
+            "车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 619,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1989 US",
+          "MODEL": "DeVille",
+          "YEAR": "1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 620,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1990 US",
+          "MODEL": "DeVille",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 621,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1991 US",
+          "MODEL": "DeVille",
+          "YEAR": "1991",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 622,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1992-1993 US",
+          "MODEL": "DeVille",
+          "YEAR": "1992-1993",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 623,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1994-1997 US",
+          "MODEL": "DeVille",
+          "YEAR": "1994-1997",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 624,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1998-1999 US",
+          "MODEL": "DeVille",
+          "YEAR": "1998-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 625,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 2000-2005 US",
+          "MODEL": "DeVille",
+          "YEAR": "2000-2005",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词deville，但DeVille/60 Special到DeVille缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5419,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1971 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1971",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5420,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1972 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1972",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5421,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1973 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1973",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5422,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1974 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1974",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5423,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1975 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1975",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5424,
+          "DIMENSION-ID": "Cadillac Fleetwood Sixty Special Sedan 1976 US",
+          "MODEL": "Fleetwood Sixty Special",
+          "YEAR": "1976",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词special，但DeVille/60 Special到Fleetwood Sixty Special缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 74,
+      "excluded_search_noise_hits": 0,
+      "non_US_candidate_hits": 25,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 3632,
+          "DIMENSION-ID": "Cadillac Deville Coupe 1976-1979 EU",
+          "MODEL": "Deville",
+          "YEAR": "1976-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3633,
+          "DIMENSION-ID": "Cadillac Deville Coupe 1978-1984 EU",
+          "MODEL": "Deville",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3634,
+          "DIMENSION-ID": "Cadillac Deville Coupe 1979-1982 EU",
+          "MODEL": "Deville",
+          "YEAR": "1979-1982",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3635,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1976-1979 EU",
+          "MODEL": "Deville",
+          "YEAR": "1976-1979",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3636,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1978-1984 EU",
+          "MODEL": "Deville",
+          "YEAR": "1978-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3637,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1993-1995 EU",
+          "MODEL": "Deville",
+          "YEAR": "1993-1995",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3638,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1993-1999 EU",
+          "MODEL": "Deville",
+          "YEAR": "1993-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3639,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1996-1999 EU",
+          "MODEL": "Deville",
+          "YEAR": "1996-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3640,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1999-2004 EU",
+          "MODEL": "Deville",
+          "YEAR": "1999-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 3641,
+          "DIMENSION-ID": "Cadillac Deville Sedan 1999-2005 EU",
+          "MODEL": "Deville",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1722,
+          "DIMENSION-ID": "Cadillac DeVille 4-window Sedan 1958-1960 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1958-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1723,
+          "DIMENSION-ID": "Cadillac DeVille 6-window Sedan 1958-1960 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1958-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1724,
+          "DIMENSION-ID": "Cadillac DeVille Convertible 1965-1970 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1965-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1725,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1958-1960 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1958-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1726,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1961-1964 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1961-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1727,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1965-1970 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1965-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1728,
+          "DIMENSION-ID": "Cadillac DeVille Coupe 1971-1976 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1971-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1729,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1961-1964 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1961-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1730,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1965-1970 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1965-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1731,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1971-1976 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1971-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1732,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1977-1984 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1977-1984",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1733,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1985-1993 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1985-1993",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1734,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1994-1999 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1994-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1735,
+          "DIMENSION-ID": "Cadillac DeVille Sedan 1999-2005 RU",
+          "MODEL": "DeVille",
+          "YEAR": "1999-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 1796,
+          "DIMENSION-ID": "Cadillac Sixty Special Sedan 1971-1976 RU",
+          "MODEL": "Sixty Special",
+          "YEAR": "1971-1976",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Cadillac / DeVille/60 Special原名到明确US目标的可引用身份关系；参考年份1993的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-9517d3c93d17f3454d6ee54b",
+      "MM_ID": "MM-74ec075bf8aca0c3b1c0e57c",
+      "REGION": "US",
+      "MAKE": "Cadillac",
+      "MODEL": "DeVille/60 Special",
+      "YEAR": "1993",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Cadillac",
+      "标准MODEL": "DeVille/60 Special",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "6222"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 4-spd, 8 cyl, 4.9 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Cadillac DeVille Sedan 1992-1993 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Cadillac DeVille Sedan 1992-1993 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Cadillac",
+    "MODEL": "DeVille/60 Special",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

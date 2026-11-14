@@ -1,0 +1,1355 @@
+{
+  "MAKE": "Chrysler",
+  "MODEL": "300C AWD",
+  "MM_ID": "MM-dc855ec0aa312ce677646da8",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Chrysler",
+    "MODEL": "300C",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+  },
+  "existing_explicit_mapping_hits": [
+    {
+      "csv_record": 613,
+      "raw_make": "Chrysler",
+      "raw_model": "300C AWD",
+      "make": "Chrysler",
+      "model": "300C",
+      "relation": "family",
+      "status": "approved",
+      "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖"
+    }
+  ],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 11742,
+      "MM_ID": "MM-dc855ec0aa312ce677646da8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "11743",
+      "raw_make": "Chrysler",
+      "raw_model": "300C AWD",
+      "raw_year": "2005",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 5-spd, 6 cyl, 3.5 L"
+    },
+    {
+      "association_row_1based": 11743,
+      "MM_ID": "MM-dc855ec0aa312ce677646da8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "11744",
+      "raw_make": "Chrysler",
+      "raw_model": "300C AWD",
+      "raw_year": "2005",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 5-spd, 8 cyl, 5.7 L"
+    },
+    {
+      "association_row_1based": 11744,
+      "MM_ID": "MM-dc855ec0aa312ce677646da8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "11745",
+      "raw_make": "Chrysler",
+      "raw_model": "300C AWD",
+      "raw_year": "2006",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 5-spd, 6 cyl, 3.5 L"
+    },
+    {
+      "association_row_1based": 11745,
+      "MM_ID": "MM-dc855ec0aa312ce677646da8",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "11746",
+      "raw_make": "Chrysler",
+      "raw_model": "300C AWD",
+      "raw_year": "2006",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 5-spd, 8 cyl, 5.7 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 879,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "300",
+      "model_name": "300",
+      "body_types": "sedan",
+      "countries": "au|ca|ch|fi|gb|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "car/chrysler/300-hurst|car/chrysler/300-s|car/chrysler/300-touring|car/chrysler/300s|car/chrysler/three-hundred",
+      "mass_popularity_decile": "2"
+    },
+    {
+      "record": 880,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "300-c",
+      "model_name": "300 C",
+      "body_types": "sedan",
+      "countries": "ca|ch|es|fi|gb|lu|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "car/chrysler/300c",
+      "mass_popularity_decile": "2"
+    },
+    {
+      "record": 881,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "300-h",
+      "model_name": "300 H",
+      "body_types": "coupe",
+      "countries": "fi|nl|no",
+      "regions": "eu",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    },
+    {
+      "record": 882,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "300-m",
+      "model_name": "300 M",
+      "body_types": "sedan",
+      "countries": "ca|ch|fi|nl|no|nz|ua|us",
+      "regions": "eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/chrysler/300m",
+      "mass_popularity_decile": "4"
+    },
+    {
+      "record": 883,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "300-srt8",
+      "model_name": "300 SRT8",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": ""
+    },
+    {
+      "record": 884,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "300c-srt8",
+      "model_name": "300C SRT8",
+      "body_types": "sedan",
+      "countries": "ca|ch|fi|nl|no|us",
+      "regions": "eu|na",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/chrysler/300c-srt-8",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 885,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "300l",
+      "model_name": "300L",
+      "body_types": "sedan",
+      "countries": "nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    },
+    {
+      "record": 896,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "chrysler",
+      "make_name": "Chrysler",
+      "model_slug": "c300",
+      "model_name": "C300",
+      "body_types": "sedan",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "7",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "8"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "chrysler",
+      "same_brand_rows_examined": 159,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 10,
+      "candidates": [
+        {
+          "row_1based": 1392,
+          "DIMENSION-ID": "Chrysler 300 Sedan 2005-2010 US",
+          "MODEL": "300",
+          "YEAR": "2005-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但300C AWD到300缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1393,
+          "DIMENSION-ID": "Chrysler 300 Sedan 2011-2023 US",
+          "MODEL": "300",
+          "YEAR": "2011-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但300C AWD到300缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1394,
+          "DIMENSION-ID": "Chrysler 300 series 300M Sedan 1999-2004 US",
+          "MODEL": "300 series",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1395,
+          "DIMENSION-ID": "Chrysler 300 series Sedan 2005-2010 US",
+          "MODEL": "300 series",
+          "YEAR": "2005-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1396,
+          "DIMENSION-ID": "Chrysler 300 series Sedan 2011-2023 US",
+          "MODEL": "300 series",
+          "YEAR": "2011-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1397,
+          "DIMENSION-ID": "Chrysler 300M Sedan 1999-2004 US",
+          "MODEL": "300M",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300M仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1426,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2007 US",
+          "MODEL": "Sebring",
+          "YEAR": "2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1428,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2010 US",
+          "MODEL": "Sebring",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5542,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1956 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5543,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1957 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 8,
+      "non_US_candidate_hits": 44,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 4353,
+          "DIMENSION-ID": "Chrysler 300c L4999 W1881 H1507 Wagon 2005-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4354,
+          "DIMENSION-ID": "Chrysler 300c L5015 W1880 H1462 Wagon 2005-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4355,
+          "DIMENSION-ID": "Chrysler 300c LE L5015 W1880 H1481 Wagon 2004-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4356,
+          "DIMENSION-ID": "Chrysler 300c LE L5015 W1880 H1507 Wagon 2004-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4357,
+          "DIMENSION-ID": "Chrysler 300c LE Wagon 2005-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4358,
+          "DIMENSION-ID": "Chrysler 300c LX L4999 W1882 H1471 Sedan 2005-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4359,
+          "DIMENSION-ID": "Chrysler 300c LX L5015 W1880 H1475 Sedan 2005-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4360,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2004-2008 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4361,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2004-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4362,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2007-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4363,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2009-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2009-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4364,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2010-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4365,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2011-2023 EU",
+          "MODEL": "300c",
+          "YEAR": "2011-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4366,
+          "DIMENSION-ID": "Chrysler 300c Wagon 2007-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2007-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4367,
+          "DIMENSION-ID": "Chrysler 300m Sedan 1998-2000 EU",
+          "MODEL": "300m",
+          "YEAR": "1998-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4368,
+          "DIMENSION-ID": "Chrysler 300m Sedan 2000-2004 EU",
+          "MODEL": "300m",
+          "YEAR": "2000-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2373,
+          "DIMENSION-ID": "Chrysler 300 Coupe 1969-1971 RU",
+          "MODEL": "300",
+          "YEAR": "1969-1971",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2374,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1956-1957 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956-1957",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2375,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1957-1958 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957-1958",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2376,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1958-1959 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1958-1959",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2377,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1959-1960 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2378,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1960-1961 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1960-1961",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2379,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1961-1962 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1961-1962",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2380,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1964-1964 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1964-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2381,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1965-1965 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1965-1965",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2382,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1955-1955 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1955-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2383,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1955-1956 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1955-1956",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2384,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1956-1957 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956-1957",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2385,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1957-1958 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957-1958",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2386,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1958-1959 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1958-1959",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2387,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1959-1960 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2388,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1960-1961 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1960-1961",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2389,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1961-1962 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1961-1962",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2390,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1963-1963 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1963-1963",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2391,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1964-1964 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1964-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2392,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1965-1965 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1965-1965",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2393,
+          "DIMENSION-ID": "Chrysler 300C SRT8 Sedan 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2394,
+          "DIMENSION-ID": "Chrysler 300C SRT8 Sedan 2011-2015 RU",
+          "MODEL": "300C",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2395,
+          "DIMENSION-ID": "Chrysler 300C SRT8 Wagon 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2396,
+          "DIMENSION-ID": "Chrysler 300C Sedan 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2397,
+          "DIMENSION-ID": "Chrysler 300C Sedan 2011-2015 RU",
+          "MODEL": "300C",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2398,
+          "DIMENSION-ID": "Chrysler 300C Sedan 2015-2023 RU",
+          "MODEL": "300C",
+          "YEAR": "2015-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2399,
+          "DIMENSION-ID": "Chrysler 300C Wagon 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2400,
+          "DIMENSION-ID": "Chrysler 300M Sedan 1998-2004 RU",
+          "MODEL": "300M",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "chrysler",
+      "same_brand_rows_examined": 159,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 10,
+      "candidates": [
+        {
+          "row_1based": 1392,
+          "DIMENSION-ID": "Chrysler 300 Sedan 2005-2010 US",
+          "MODEL": "300",
+          "YEAR": "2005-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但300C AWD到300缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1393,
+          "DIMENSION-ID": "Chrysler 300 Sedan 2011-2023 US",
+          "MODEL": "300",
+          "YEAR": "2011-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含，但300C AWD到300缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 1394,
+          "DIMENSION-ID": "Chrysler 300 series 300M Sedan 1999-2004 US",
+          "MODEL": "300 series",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1395,
+          "DIMENSION-ID": "Chrysler 300 series Sedan 2005-2010 US",
+          "MODEL": "300 series",
+          "YEAR": "2005-2010",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1396,
+          "DIMENSION-ID": "Chrysler 300 series Sedan 2011-2023 US",
+          "MODEL": "300 series",
+          "YEAR": "2011-2023",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1397,
+          "DIMENSION-ID": "Chrysler 300M Sedan 1999-2004 US",
+          "MODEL": "300M",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300M仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1426,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2007 US",
+          "MODEL": "Sebring",
+          "YEAR": "2007",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 1428,
+          "DIMENSION-ID": "Chrysler Sebring Sedan 2010 US",
+          "MODEL": "Sebring",
+          "YEAR": "2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 Sebring仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5542,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1956 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5543,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1957 US",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "300C AWD 与 300 Letter Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 2,
+      "excluded_search_noise_hits": 8,
+      "non_US_candidate_hits": 44,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 4353,
+          "DIMENSION-ID": "Chrysler 300c L4999 W1881 H1507 Wagon 2005-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4354,
+          "DIMENSION-ID": "Chrysler 300c L5015 W1880 H1462 Wagon 2005-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4355,
+          "DIMENSION-ID": "Chrysler 300c LE L5015 W1880 H1481 Wagon 2004-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4356,
+          "DIMENSION-ID": "Chrysler 300c LE L5015 W1880 H1507 Wagon 2004-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4357,
+          "DIMENSION-ID": "Chrysler 300c LE Wagon 2005-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4358,
+          "DIMENSION-ID": "Chrysler 300c LX L4999 W1882 H1471 Sedan 2005-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4359,
+          "DIMENSION-ID": "Chrysler 300c LX L5015 W1880 H1475 Sedan 2005-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2005-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4360,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2004-2008 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4361,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2004-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4362,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2007-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2007-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4363,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2009-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2009-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4364,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2010-2012 EU",
+          "MODEL": "300c",
+          "YEAR": "2010-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4365,
+          "DIMENSION-ID": "Chrysler 300c Sedan 2011-2023 EU",
+          "MODEL": "300c",
+          "YEAR": "2011-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4366,
+          "DIMENSION-ID": "Chrysler 300c Wagon 2007-2010 EU",
+          "MODEL": "300c",
+          "YEAR": "2007-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4367,
+          "DIMENSION-ID": "Chrysler 300m Sedan 1998-2000 EU",
+          "MODEL": "300m",
+          "YEAR": "1998-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 4368,
+          "DIMENSION-ID": "Chrysler 300m Sedan 2000-2004 EU",
+          "MODEL": "300m",
+          "YEAR": "2000-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2373,
+          "DIMENSION-ID": "Chrysler 300 Coupe 1969-1971 RU",
+          "MODEL": "300",
+          "YEAR": "1969-1971",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2374,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1956-1957 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956-1957",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2375,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1957-1958 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957-1958",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2376,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1958-1959 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1958-1959",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2377,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1959-1960 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2378,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1960-1961 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1960-1961",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2379,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1961-1962 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1961-1962",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2380,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1964-1964 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1964-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2381,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Convertible 1965-1965 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1965-1965",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2382,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1955-1955 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1955-1955",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2383,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1955-1956 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1955-1956",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2384,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1956-1957 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1956-1957",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2385,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1957-1958 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1957-1958",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2386,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1958-1959 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1958-1959",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2387,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1959-1960 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1959-1960",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2388,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1960-1961 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1960-1961",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2389,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1961-1962 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1961-1962",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2390,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1963-1963 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1963-1963",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2391,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1964-1964 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1964-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2392,
+          "DIMENSION-ID": "Chrysler 300 Letter Series Coupe 1965-1965 RU",
+          "MODEL": "300 Letter Series",
+          "YEAR": "1965-1965",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2393,
+          "DIMENSION-ID": "Chrysler 300C SRT8 Sedan 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2394,
+          "DIMENSION-ID": "Chrysler 300C SRT8 Sedan 2011-2015 RU",
+          "MODEL": "300C",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2395,
+          "DIMENSION-ID": "Chrysler 300C SRT8 Wagon 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2396,
+          "DIMENSION-ID": "Chrysler 300C Sedan 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2397,
+          "DIMENSION-ID": "Chrysler 300C Sedan 2011-2015 RU",
+          "MODEL": "300C",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2398,
+          "DIMENSION-ID": "Chrysler 300C Sedan 2015-2023 RU",
+          "MODEL": "300C",
+          "YEAR": "2015-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2399,
+          "DIMENSION-ID": "Chrysler 300C Wagon 2004-2011 RU",
+          "MODEL": "300C",
+          "YEAR": "2004-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 2400,
+          "DIMENSION-ID": "Chrysler 300M Sedan 1998-2004 RU",
+          "MODEL": "300M",
+          "YEAR": "1998-2004",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Chrysler / 300C AWD原名到明确US目标的可引用身份关系；参考年份2005|2006的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-6d760c63703b9aafe51694c4",
+      "MM_ID": "MM-dc855ec0aa312ce677646da8",
+      "REGION": "US",
+      "MAKE": "Chrysler",
+      "MODEL": "300C AWD",
+      "YEAR": "2005",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Chrysler",
+      "标准MODEL": "300C",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "11743",
+        "11744"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 5-spd, 6 cyl, 3.5 L",
+        "Auto 5-spd, 8 cyl, 5.7 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Chrysler 300 Sedan 2005-2010 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Chrysler 300 Sedan 2005-2010 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-f0c8ecce8c762bc8596519ea",
+      "MM_ID": "MM-dc855ec0aa312ce677646da8",
+      "REGION": "US",
+      "MAKE": "Chrysler",
+      "MODEL": "300C AWD",
+      "YEAR": "2006",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Chrysler",
+      "标准MODEL": "300C",
+      "映射层级": "family",
+      "映射依据": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "11745",
+        "11746"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 5-spd, 6 cyl, 3.5 L",
+        "Auto 5-spd, 8 cyl, 5.7 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Chrysler 300 Sedan 2005-2010 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Chrysler 300 Sedan 2005-2010 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Chrysler",
+    "MODEL": "300C",
+    "relation": "family",
+    "basis": "已存在车型主干+明确驱动/车身词；仅车系统计，不承诺具体车身或配置覆盖",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

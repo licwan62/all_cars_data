@@ -1,0 +1,1175 @@
+{
+  "MAKE": "Nissan",
+  "MODEL": "Sentra SL/SR",
+  "MM_ID": "MM-c149f3b3b146caaa5911f1b1",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Nissan",
+    "MODEL": "Sentra SL/SR",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 39258,
+      "MM_ID": "MM-c149f3b3b146caaa5911f1b1",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "39259",
+      "raw_make": "Nissan",
+      "raw_model": "Sentra SL/SR",
+      "raw_year": "2026",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (variable gear ratios), 4 cyl, 2.0 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 3869,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "juke-sl",
+      "model_name": "Juke SL",
+      "body_types": "hatchback",
+      "countries": "fi|nl",
+      "regions": "eu",
+      "global_popularity_decile": "10",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "10"
+    },
+    {
+      "record": 3914,
+      "match_reason": [
+        "目录别名/历史slug相等线索",
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "nissan",
+      "make_name": "Nissan",
+      "model_slug": "sentra",
+      "model_name": "Sentra",
+      "body_types": "sedan",
+      "countries": "ar|ca|es|fi|il|nl|nz|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "3",
+      "aliases": "",
+      "former_ids": "car/nissan/sentra-200sx|car/nissan/sentra-nismo|car/nissan/sentra-sl-sr|car/nissan/sentra-sr",
+      "mass_popularity_decile": "1"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "nissan",
+      "same_brand_rows_examined": 176,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 32,
+      "candidates": [
+        {
+          "row_1based": 3193,
+          "DIMENSION-ID": "Nissan Altima Sedan 2002-2006 US",
+          "MODEL": "Altima",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Altima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3204,
+          "DIMENSION-ID": "Nissan Cube Wagon 2009-2014 US",
+          "MODEL": "Cube",
+          "YEAR": "2009-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Cube仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3235,
+          "DIMENSION-ID": "Nissan Frontier Pickup 2025 Crew 6 US",
+          "MODEL": "Frontier",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Frontier仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3246,
+          "DIMENSION-ID": "Nissan Juke Crossover 2011-2017 US",
+          "MODEL": "Juke",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Juke仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3247,
+          "DIMENSION-ID": "Nissan Kicks SUV 2018-2024 US",
+          "MODEL": "Kicks",
+          "YEAR": "2018-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Kicks仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3248,
+          "DIMENSION-ID": "Nissan Kicks SUV 2025-2026 US",
+          "MODEL": "Kicks",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Kicks仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3250,
+          "DIMENSION-ID": "Nissan Leaf Hatchback 2011-2017 US",
+          "MODEL": "Leaf",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Leaf仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3257,
+          "DIMENSION-ID": "Nissan Maxima Sedan 2004-2008 US",
+          "MODEL": "Maxima",
+          "YEAR": "2004-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Maxima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3261,
+          "DIMENSION-ID": "Nissan Murano SUV 2003-2008 US",
+          "MODEL": "Murano",
+          "YEAR": "2003-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3278,
+          "DIMENSION-ID": "Nissan Rogue SUV 2016-2020 US",
+          "MODEL": "Rogue",
+          "YEAR": "2016-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Rogue仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3281,
+          "DIMENSION-ID": "Nissan Sentra 2dr Sedan 1982-1984 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3282,
+          "DIMENSION-ID": "Nissan Sentra 2dr Sedan 1985 US",
+          "MODEL": "Sentra",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3283,
+          "DIMENSION-ID": "Nissan Sentra 2dr Sedan 1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3284,
+          "DIMENSION-ID": "Nissan Sentra 4dr Sedan 1982-1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3285,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1982-1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3286,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1987 US",
+          "MODEL": "Sentra",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3287,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1988-1989 US",
+          "MODEL": "Sentra",
+          "YEAR": "1988-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3288,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1990 US",
+          "MODEL": "Sentra",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3289,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1993-1994 US",
+          "MODEL": "Sentra",
+          "YEAR": "1993-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3290,
+          "DIMENSION-ID": "Nissan Sentra Hatchback 1982-1983 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3291,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1991-1992 US",
+          "MODEL": "Sentra",
+          "YEAR": "1991-1992",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3292,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1993-1994 US",
+          "MODEL": "Sentra",
+          "YEAR": "1993-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3293,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1995-1999 US",
+          "MODEL": "Sentra",
+          "YEAR": "1995-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3294,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2000-2006 US",
+          "MODEL": "Sentra",
+          "YEAR": "2000-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3295,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2007-2012 US",
+          "MODEL": "Sentra",
+          "YEAR": "2007-2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3296,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2013-2019 US",
+          "MODEL": "Sentra",
+          "YEAR": "2013-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3297,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2020-2026 US",
+          "MODEL": "Sentra",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3298,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1982-1983 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3299,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1984 US",
+          "MODEL": "Sentra",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3300,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1985-1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1985-1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4680,
+          "DIMENSION-ID": "Nissan Murano SUV 2027 US",
+          "MODEL": "Murano",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4693,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2027 US",
+          "MODEL": "Sentra",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 21,
+      "excluded_search_noise_hits": 11,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 18615,
+          "DIMENSION-ID": "Nissan Sentra vi Sedan 2006-2012 EU",
+          "MODEL": "Sentra vi",
+          "YEAR": "2006-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18616,
+          "DIMENSION-ID": "Nissan Sentra vii Sedan 2014-2026 EU",
+          "MODEL": "Sentra vii",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9132,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1982-1986 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9133,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1982-1986 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9134,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1985-1990 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9135,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1994-1999 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1994-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9136,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1999-2006 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1999-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9137,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2006-2009 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2006-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9138,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2009-2012 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9139,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2012-2017 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9140,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2015-2019 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9141,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2019-2023 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2019-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9142,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2023-2025 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2023-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9143,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2025-2026 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9144,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1982-1986 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "nissan",
+      "same_brand_rows_examined": 176,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 32,
+      "candidates": [
+        {
+          "row_1based": 3193,
+          "DIMENSION-ID": "Nissan Altima Sedan 2002-2006 US",
+          "MODEL": "Altima",
+          "YEAR": "2002-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Altima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3204,
+          "DIMENSION-ID": "Nissan Cube Wagon 2009-2014 US",
+          "MODEL": "Cube",
+          "YEAR": "2009-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Cube仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3235,
+          "DIMENSION-ID": "Nissan Frontier Pickup 2025 Crew 6 US",
+          "MODEL": "Frontier",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Frontier仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3246,
+          "DIMENSION-ID": "Nissan Juke Crossover 2011-2017 US",
+          "MODEL": "Juke",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Juke仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3247,
+          "DIMENSION-ID": "Nissan Kicks SUV 2018-2024 US",
+          "MODEL": "Kicks",
+          "YEAR": "2018-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Kicks仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3248,
+          "DIMENSION-ID": "Nissan Kicks SUV 2025-2026 US",
+          "MODEL": "Kicks",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Kicks仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3250,
+          "DIMENSION-ID": "Nissan Leaf Hatchback 2011-2017 US",
+          "MODEL": "Leaf",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Leaf仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3257,
+          "DIMENSION-ID": "Nissan Maxima Sedan 2004-2008 US",
+          "MODEL": "Maxima",
+          "YEAR": "2004-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Maxima仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3261,
+          "DIMENSION-ID": "Nissan Murano SUV 2003-2008 US",
+          "MODEL": "Murano",
+          "YEAR": "2003-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3278,
+          "DIMENSION-ID": "Nissan Rogue SUV 2016-2020 US",
+          "MODEL": "Rogue",
+          "YEAR": "2016-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Rogue仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3281,
+          "DIMENSION-ID": "Nissan Sentra 2dr Sedan 1982-1984 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3282,
+          "DIMENSION-ID": "Nissan Sentra 2dr Sedan 1985 US",
+          "MODEL": "Sentra",
+          "YEAR": "1985",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3283,
+          "DIMENSION-ID": "Nissan Sentra 2dr Sedan 1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3284,
+          "DIMENSION-ID": "Nissan Sentra 4dr Sedan 1982-1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3285,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1982-1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3286,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1987 US",
+          "MODEL": "Sentra",
+          "YEAR": "1987",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3287,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1988-1989 US",
+          "MODEL": "Sentra",
+          "YEAR": "1988-1989",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3288,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1990 US",
+          "MODEL": "Sentra",
+          "YEAR": "1990",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3289,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1993-1994 US",
+          "MODEL": "Sentra",
+          "YEAR": "1993-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3290,
+          "DIMENSION-ID": "Nissan Sentra Hatchback 1982-1983 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3291,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1991-1992 US",
+          "MODEL": "Sentra",
+          "YEAR": "1991-1992",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3292,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1993-1994 US",
+          "MODEL": "Sentra",
+          "YEAR": "1993-1994",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3293,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1995-1999 US",
+          "MODEL": "Sentra",
+          "YEAR": "1995-1999",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3294,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2000-2006 US",
+          "MODEL": "Sentra",
+          "YEAR": "2000-2006",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3295,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2007-2012 US",
+          "MODEL": "Sentra",
+          "YEAR": "2007-2012",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3296,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2013-2019 US",
+          "MODEL": "Sentra",
+          "YEAR": "2013-2019",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3297,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2020-2026 US",
+          "MODEL": "Sentra",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3298,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1982-1983 US",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1983",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3299,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1984 US",
+          "MODEL": "Sentra",
+          "YEAR": "1984",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 3300,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1985-1986 US",
+          "MODEL": "Sentra",
+          "YEAR": "1985-1986",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 4680,
+          "DIMENSION-ID": "Nissan Murano SUV 2027 US",
+          "MODEL": "Murano",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Sentra SL/SR 与 Murano仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4693,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2027 US",
+          "MODEL": "Sentra",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词sentra、原始目录历史归属，但Sentra SL/SR到Sentra缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 21,
+      "excluded_search_noise_hits": 11,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 18615,
+          "DIMENSION-ID": "Nissan Sentra vi Sedan 2006-2012 EU",
+          "MODEL": "Sentra vi",
+          "YEAR": "2006-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 18616,
+          "DIMENSION-ID": "Nissan Sentra vii Sedan 2014-2026 EU",
+          "MODEL": "Sentra vii",
+          "YEAR": "2014-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9132,
+          "DIMENSION-ID": "Nissan Sentra Coupe 1982-1986 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9133,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1982-1986 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9134,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1985-1990 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1985-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9135,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1994-1999 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1994-1999",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9136,
+          "DIMENSION-ID": "Nissan Sentra Sedan 1999-2006 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1999-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9137,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2006-2009 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2006-2009",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9138,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2009-2012 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2009-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9139,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2012-2017 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2012-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9140,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2015-2019 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2015-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9141,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2019-2023 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2019-2023",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9142,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2023-2025 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2023-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9143,
+          "DIMENSION-ID": "Nissan Sentra Sedan 2025-2026 RU",
+          "MODEL": "Sentra",
+          "YEAR": "2025-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 9144,
+          "DIMENSION-ID": "Nissan Sentra Wagon 1982-1986 RU",
+          "MODEL": "Sentra",
+          "YEAR": "1982-1986",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Nissan / Sentra SL/SR原名到明确US目标的可引用身份关系；参考年份2026的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-5b666c5cf2e10d8a29784158",
+      "MM_ID": "MM-c149f3b3b146caaa5911f1b1",
+      "REGION": "US",
+      "MAKE": "Nissan",
+      "MODEL": "Sentra SL/SR",
+      "YEAR": "2026",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Nissan",
+      "标准MODEL": "Sentra SL/SR",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "39259"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (variable gear ratios), 4 cyl, 2.0 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Sentra Sedan 2020-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Nissan Sentra Sedan 2020-2026 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Nissan",
+    "MODEL": "Sentra SL/SR",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "parent_commit": "462dbf26406ba12d4bcb11644c772da41bae4564",
+  "forecast_MMY": 62,
+  "forecast_note": "7条版本字段及既有别名链补充；实际完成按正式结果的初始待核唯一ID复核，预测不计完成。 本批为补充证据尾批；预测与实际可不同，完成量只采用正式结果。",
+  "rules": [
+    {
+      "raw_make": "Volkswagen",
+      "raw_model": "Golf R",
+      "make": "Volkswagen",
+      "model": "Golf",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型Golf的版本字段明确登记R；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-23f501a55a3e1091"
+    },
+    {
+      "raw_make": "Lexus",
+      "raw_model": "RC F",
+      "make": "Lexus",
+      "model": "RC",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型RC的版本字段明确登记RC F；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-fb802ce57f677b21"
+    },
+    {
+      "raw_make": "Jaguar",
+      "raw_model": "XKR",
+      "make": "Jaguar",
+      "model": "XK",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型XK的版本字段明确登记XKR；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-e0b0b390283e93fb"
+    },
+    {
+      "raw_make": "Mercedes-Benz",
+      "raw_model": "560SL",
+      "make": "Mercedes-Benz",
+      "model": "SL-Class",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型SL-Class的版本字段明确登记560SL；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-78d158557ed29c43"
+    },
+    {
+      "raw_make": "Cadillac",
+      "raw_model": "XLR-V",
+      "make": "Cadillac",
+      "model": "XLR",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型XLR的版本字段明确登记XLR-V；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-b567f9cb8ad5d9b9"
+    },
+    {
+      "raw_make": "Infiniti",
+      "raw_model": "EX35",
+      "make": "Infiniti",
+      "model": "EX",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型EX的版本字段明确登记EX35/EX37；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-9d36c18f85e549ab"
+    },
+    {
+      "raw_make": "Infiniti",
+      "raw_model": "EX37",
+      "make": "Infiniti",
+      "model": "EX",
+      "relation": "family",
+      "status": "approved",
+      "basis": "NEXT-20261112：已发布01 US车型EX的版本字段明确登记EX35/EX37；Golf-R既有别名到Golf R保持不动，仅补车系层；EX35/EX37仅成员车系归属，不算独立配置覆盖；非逐年市场或尺寸证明；见reports/m0-us-next/evidence.json；证据ID=NEXT-3469f4474df73293"
+    }
+  ],
+  "precheck_global_html_errors": [
+    "dimension-crawler: HTML 展示待刷新（运行 build_node_html.py）",
+    "dimension-library: HTML 展示待刷新（运行 build_node_html.py）",
+    "sales-estimation: HTML 展示待刷新（运行 build_node_html.py）",
+    "shape-classification: HTML 展示待刷新（运行 build_node_html.py）",
+    "size-calculation: HTML 展示待刷新（运行 build_node_html.py）",
+    "custom-analysis: HTML 展示待刷新（运行 build_node_html.py）"
+  ],
+  "tail_batch": true
+}

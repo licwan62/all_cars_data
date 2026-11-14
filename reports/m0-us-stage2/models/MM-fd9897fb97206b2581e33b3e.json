@@ -1,0 +1,864 @@
+{
+  "MAKE": "MINI",
+  "MODEL": "JCW Countryman Coupe All4",
+  "MM_ID": "MM-fd9897fb97206b2581e33b3e",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "MINI",
+    "MODEL": "JCW Countryman Coupe All4",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 36723,
+      "MM_ID": "MM-fd9897fb97206b2581e33b3e",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "36724",
+      "raw_make": "MINI",
+      "raw_model": "JCW Countryman Coupe All4",
+      "raw_year": "2013",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (S6), 4 cyl, 1.6 L, Turbo"
+    },
+    {
+      "association_row_1based": 36724,
+      "MM_ID": "MM-fd9897fb97206b2581e33b3e",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "36725",
+      "raw_make": "MINI",
+      "raw_model": "JCW Countryman Coupe All4",
+      "raw_year": "2013",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 6-spd, 4 cyl, 1.6 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 3638,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "mini",
+      "make_name": "Mini",
+      "model_slug": "countryman",
+      "model_name": "Countryman",
+      "body_types": "suv",
+      "countries": "ar|au|ca|ch|es|fi|gb|il|lu|my|nl|no|nz|th|ua|us",
+      "regions": "as|eu|na|oc|sa",
+      "global_popularity_decile": "2",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "1"
+    },
+    {
+      "record": 3640,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "mini",
+      "make_name": "Mini",
+      "model_slug": "jcw",
+      "model_name": "Jcw",
+      "body_types": "hatchback",
+      "countries": "ch|es|fi|il|lu|nl|ua",
+      "regions": "as|eu",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 3641,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "mini",
+      "make_name": "Mini",
+      "model_slug": "jcw-e",
+      "model_name": "Jcw E",
+      "body_types": "hatchback",
+      "countries": "ch|es|fi|lu|nl|th",
+      "regions": "as|eu",
+      "global_popularity_decile": "4",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "mini",
+      "same_brand_rows_examined": 52,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 17,
+      "candidates": [
+        {
+          "row_1based": 2659,
+          "DIMENSION-ID": "MINI Clubman Wagon 2008-2014 US",
+          "MODEL": "Clubman",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2661,
+          "DIMENSION-ID": "MINI Clubman Wagon 2024 US",
+          "MODEL": "Clubman",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2664,
+          "DIMENSION-ID": "MINI Convertible Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2665,
+          "DIMENSION-ID": "MINI Convertible Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2668,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2669,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2681,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2016 US",
+          "MODEL": "Countryman",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2682,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2018 US",
+          "MODEL": "Countryman",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2683,
+          "DIMENSION-ID": "MINI Countryman SUV 2011-2015 US",
+          "MODEL": "Countryman",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2684,
+          "DIMENSION-ID": "MINI Countryman SUV 2017-2024 US",
+          "MODEL": "Countryman",
+          "YEAR": "2017-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2685,
+          "DIMENSION-ID": "MINI Countryman SUV 2025-2026 US",
+          "MODEL": "Countryman",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2686,
+          "DIMENSION-ID": "MINI Coupe Coupe 2012-2015 US",
+          "MODEL": "Coupe",
+          "YEAR": "2012-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词coupe，但JCW Countryman Coupe All4到Coupe缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2688,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2007-2008 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2693,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2013 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2705,
+          "DIMENSION-ID": "MINI Paceman JCW ALL4 Crossover 2016 US",
+          "MODEL": "Paceman",
+          "YEAR": "2016",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Paceman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2708,
+          "DIMENSION-ID": "MINI Roadster JCW Convertible 2015 US",
+          "MODEL": "Roadster",
+          "YEAR": "2015",
+          "match_reason": [
+            "版本词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4632,
+          "DIMENSION-ID": "MINI Countryman SUV 2027 US",
+          "MODEL": "Countryman",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 7,
+      "excluded_search_noise_hits": 10,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 8208,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8209,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8210,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8211,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8212,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8213,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8214,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8215,
+          "DIMENSION-ID": "Mini Countryman S SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8216,
+          "DIMENSION-ID": "Mini Countryman SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8217,
+          "DIMENSION-ID": "Mini Countryman SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8218,
+          "DIMENSION-ID": "Mini Countryman SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8219,
+          "DIMENSION-ID": "Mini Countryman SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8220,
+          "DIMENSION-ID": "Mini Coupe Cooper S Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8221,
+          "DIMENSION-ID": "Mini Coupe Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8222,
+          "DIMENSION-ID": "Mini Coupe JCW Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "mini",
+      "same_brand_rows_examined": 52,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 17,
+      "candidates": [
+        {
+          "row_1based": 2659,
+          "DIMENSION-ID": "MINI Clubman Wagon 2008-2014 US",
+          "MODEL": "Clubman",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2661,
+          "DIMENSION-ID": "MINI Clubman Wagon 2024 US",
+          "MODEL": "Clubman",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Clubman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2664,
+          "DIMENSION-ID": "MINI Convertible Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2665,
+          "DIMENSION-ID": "MINI Convertible Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2668,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2011-2015 US",
+          "MODEL": "Convertible",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2669,
+          "DIMENSION-ID": "MINI Convertible JCW Convertible 2016-2023 US",
+          "MODEL": "Convertible",
+          "YEAR": "2016-2023",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Convertible仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2681,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2016 US",
+          "MODEL": "Countryman",
+          "YEAR": "2016",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2682,
+          "DIMENSION-ID": "MINI Countryman JCW SUV 2018 US",
+          "MODEL": "Countryman",
+          "YEAR": "2018",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2683,
+          "DIMENSION-ID": "MINI Countryman SUV 2011-2015 US",
+          "MODEL": "Countryman",
+          "YEAR": "2011-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2684,
+          "DIMENSION-ID": "MINI Countryman SUV 2017-2024 US",
+          "MODEL": "Countryman",
+          "YEAR": "2017-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2685,
+          "DIMENSION-ID": "MINI Countryman SUV 2025-2026 US",
+          "MODEL": "Countryman",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2686,
+          "DIMENSION-ID": "MINI Coupe Coupe 2012-2015 US",
+          "MODEL": "Coupe",
+          "YEAR": "2012-2015",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词coupe，但JCW Countryman Coupe All4到Coupe缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2688,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2007-2008 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2693,
+          "DIMENSION-ID": "MINI Hardtop 2dr Hatchback 2013 US",
+          "MODEL": "Hardtop",
+          "YEAR": "2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Hardtop仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2705,
+          "DIMENSION-ID": "MINI Paceman JCW ALL4 Crossover 2016 US",
+          "MODEL": "Paceman",
+          "YEAR": "2016",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Paceman仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2708,
+          "DIMENSION-ID": "MINI Roadster JCW Convertible 2015 US",
+          "MODEL": "Roadster",
+          "YEAR": "2015",
+          "match_reason": [
+            "版本词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "JCW Countryman Coupe All4 与 Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4632,
+          "DIMENSION-ID": "MINI Countryman SUV 2027 US",
+          "MODEL": "Countryman",
+          "YEAR": "2027",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词countryman，但JCW Countryman Coupe All4到Countryman缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 7,
+      "excluded_search_noise_hits": 10,
+      "non_US_candidate_hits": 15,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 8208,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8209,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8210,
+          "DIMENSION-ID": "Mini Countryman Cooper S SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8211,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8212,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8213,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8214,
+          "DIMENSION-ID": "Mini Countryman JCW SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8215,
+          "DIMENSION-ID": "Mini Countryman S SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8216,
+          "DIMENSION-ID": "Mini Countryman SUV 2010-2016 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2010-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8217,
+          "DIMENSION-ID": "Mini Countryman SUV 2016-2020 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8218,
+          "DIMENSION-ID": "Mini Countryman SUV 2020-2024 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8219,
+          "DIMENSION-ID": "Mini Countryman SUV 2023-2026 RU",
+          "MODEL": "Countryman",
+          "YEAR": "2023-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8220,
+          "DIMENSION-ID": "Mini Coupe Cooper S Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8221,
+          "DIMENSION-ID": "Mini Coupe Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 8222,
+          "DIMENSION-ID": "Mini Coupe JCW Coupe 2011-2015 RU",
+          "MODEL": "Coupe",
+          "YEAR": "2011-2015",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "MINI / JCW Countryman Coupe All4原名到明确US目标的可引用身份关系；参考年份2013的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-fa46401731aac9e78fdd4383",
+      "MM_ID": "MM-fd9897fb97206b2581e33b3e",
+      "REGION": "US",
+      "MAKE": "MINI",
+      "MODEL": "JCW Countryman Coupe All4",
+      "YEAR": "2013",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "MINI",
+      "标准MODEL": "JCW Countryman Coupe All4",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "36724",
+        "36725"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (S6), 4 cyl, 1.6 L, Turbo",
+        "Man 6-spd, 4 cyl, 1.6 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "MINI Countryman SUV 2011-2015 US",
+            "MINI Coupe Coupe 2012-2015 US"
+          ],
+          "candidate_same_year_hits": 2
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "MINI Countryman SUV 2011-2015 US",
+            "MINI Coupe Coupe 2012-2015 US"
+          ],
+          "candidate_same_year_hits": 2
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "MINI",
+    "MODEL": "JCW Countryman Coupe All4",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

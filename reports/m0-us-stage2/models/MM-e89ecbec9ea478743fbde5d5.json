@@ -1,0 +1,1508 @@
+{
+  "MAKE": "Porsche",
+  "MODEL": "Carrera GT",
+  "MM_ID": "MM-e89ecbec9ea478743fbde5d5",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Porsche",
+    "MODEL": "Carrera GT",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 42635,
+      "MM_ID": "MM-e89ecbec9ea478743fbde5d5",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "42636",
+      "raw_make": "Porsche",
+      "raw_model": "Carrera GT",
+      "raw_year": "2004",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 6-spd, 10 cyl, 5.7 L"
+    },
+    {
+      "association_row_1based": 42636,
+      "MM_ID": "MM-e89ecbec9ea478743fbde5d5",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "42637",
+      "raw_make": "Porsche",
+      "raw_model": "Carrera GT",
+      "raw_year": "2005",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Man 6-spd, 10 cyl, 5.7 L"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 4304,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "porsche",
+      "make_name": "Porsche",
+      "model_slug": "gt",
+      "model_name": "GT",
+      "body_types": "coupe",
+      "countries": "gb|nl",
+      "regions": "eu",
+      "global_popularity_decile": "8",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "4"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "porsche",
+      "same_brand_rows_examined": 103,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 39,
+      "candidates": [
+        {
+          "row_1based": 3731,
+          "DIMENSION-ID": "Porsche 911 Convertible 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3732,
+          "DIMENSION-ID": "Porsche 911 Convertible 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3733,
+          "DIMENSION-ID": "Porsche 911 Convertible 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3734,
+          "DIMENSION-ID": "Porsche 911 Convertible 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3736,
+          "DIMENSION-ID": "Porsche 911 Convertible 2012-2016 US",
+          "MODEL": "911",
+          "YEAR": "2012-2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3737,
+          "DIMENSION-ID": "Porsche 911 Convertible 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3738,
+          "DIMENSION-ID": "Porsche 911 Convertible 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3741,
+          "DIMENSION-ID": "Porsche 911 Coupe 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3742,
+          "DIMENSION-ID": "Porsche 911 Coupe 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3743,
+          "DIMENSION-ID": "Porsche 911 Coupe 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3744,
+          "DIMENSION-ID": "Porsche 911 Coupe 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3745,
+          "DIMENSION-ID": "Porsche 911 Coupe 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3746,
+          "DIMENSION-ID": "Porsche 911 Coupe 2012-2013 US",
+          "MODEL": "911",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3747,
+          "DIMENSION-ID": "Porsche 911 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3748,
+          "DIMENSION-ID": "Porsche 911 Coupe 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3749,
+          "DIMENSION-ID": "Porsche 911 Coupe 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3750,
+          "DIMENSION-ID": "Porsche 911 Coupe 2025-2026 US",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3752,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2002-2005 US",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3753,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2008-2009 US",
+          "MODEL": "911",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3754,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011 US",
+          "MODEL": "911",
+          "YEAR": "2011",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3755,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2018 US",
+          "MODEL": "911",
+          "YEAR": "2018",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3756,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2004-2005 US",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3757,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3758,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3759,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3760,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2018-2019 US",
+          "MODEL": "911",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3761,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2004 US",
+          "MODEL": "911",
+          "YEAR": "2004",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3762,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3763,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3764,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2016 US",
+          "MODEL": "911",
+          "YEAR": "2016",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3765,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2019 US",
+          "MODEL": "911",
+          "YEAR": "2019",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3766,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2025 US",
+          "MODEL": "911",
+          "YEAR": "2025",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3767,
+          "DIMENSION-ID": "Porsche 911 GT3/GT3 RS Coupe 2022-2024 US",
+          "MODEL": "911",
+          "YEAR": "2022-2024",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3770,
+          "DIMENSION-ID": "Porsche 911 Targa 1990-1993 US",
+          "MODEL": "911",
+          "YEAR": "1990-1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3771,
+          "DIMENSION-ID": "Porsche 911 Targa 1996-1998 US",
+          "MODEL": "911",
+          "YEAR": "1996-1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3772,
+          "DIMENSION-ID": "Porsche 911 Targa 2002-2004 US",
+          "MODEL": "911",
+          "YEAR": "2002-2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3773,
+          "DIMENSION-ID": "Porsche 911 Targa 2006-2008 US",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3776,
+          "DIMENSION-ID": "Porsche 911 Targa 2021-2024 US",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3823,
+          "DIMENSION-ID": "Porsche Taycan Turbo GT Sedan 2025-2026 US",
+          "MODEL": "Taycan",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 Taycan仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 39,
+      "non_US_candidate_hits": 24,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 21736,
+          "DIMENSION-ID": "Porsche Carrera gt Convertible 2003-2006 EU",
+          "MODEL": "Carrera gt",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10130,
+          "DIMENSION-ID": "Porsche 911 GT1 Coupe 1997-1998 RU",
+          "MODEL": "911 GT1",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10131,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 1995-1998 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10132,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2000-2005 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10133,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2007-2010 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2007-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10134,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011-2012 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10135,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10136,
+          "DIMENSION-ID": "Porsche 911 GT3 Convertible 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10137,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 1999-2000 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "1999-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10138,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2003-2005 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10139,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2006-2008 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10140,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10141,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10142,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10143,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10144,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10145,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10146,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10147,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10148,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10182,
+          "DIMENSION-ID": "Porsche Carrera GT Targa 2003-2007 RU",
+          "MODEL": "Carrera GT",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10197,
+          "DIMENSION-ID": "Porsche Cayman GT4 Coupe 2015-2016 RU",
+          "MODEL": "Cayman GT4",
+          "YEAR": "2015-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10198,
+          "DIMENSION-ID": "Porsche Cayman GT4 Coupe 2019-2026 RU",
+          "MODEL": "Cayman GT4",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10199,
+          "DIMENSION-ID": "Porsche Cayman GT4 RS Coupe 2019-2026 RU",
+          "MODEL": "Cayman GT4",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "porsche",
+      "same_brand_rows_examined": 103,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 39,
+      "candidates": [
+        {
+          "row_1based": 3731,
+          "DIMENSION-ID": "Porsche 911 Convertible 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3732,
+          "DIMENSION-ID": "Porsche 911 Convertible 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3733,
+          "DIMENSION-ID": "Porsche 911 Convertible 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3734,
+          "DIMENSION-ID": "Porsche 911 Convertible 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3736,
+          "DIMENSION-ID": "Porsche 911 Convertible 2012-2016 US",
+          "MODEL": "911",
+          "YEAR": "2012-2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3737,
+          "DIMENSION-ID": "Porsche 911 Convertible 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3738,
+          "DIMENSION-ID": "Porsche 911 Convertible 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3741,
+          "DIMENSION-ID": "Porsche 911 Coupe 1990-1994 US",
+          "MODEL": "911",
+          "YEAR": "1990-1994",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3742,
+          "DIMENSION-ID": "Porsche 911 Coupe 1995-1998 US",
+          "MODEL": "911",
+          "YEAR": "1995-1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3743,
+          "DIMENSION-ID": "Porsche 911 Coupe 1999-2004 US",
+          "MODEL": "911",
+          "YEAR": "1999-2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3744,
+          "DIMENSION-ID": "Porsche 911 Coupe 2005-2008 US",
+          "MODEL": "911",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3745,
+          "DIMENSION-ID": "Porsche 911 Coupe 2009-2011 US",
+          "MODEL": "911",
+          "YEAR": "2009-2011",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3746,
+          "DIMENSION-ID": "Porsche 911 Coupe 2012-2013 US",
+          "MODEL": "911",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3747,
+          "DIMENSION-ID": "Porsche 911 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3748,
+          "DIMENSION-ID": "Porsche 911 Coupe 2017-2019 US",
+          "MODEL": "911",
+          "YEAR": "2017-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3749,
+          "DIMENSION-ID": "Porsche 911 Coupe 2020-2024 US",
+          "MODEL": "911",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3750,
+          "DIMENSION-ID": "Porsche 911 Coupe 2025-2026 US",
+          "MODEL": "911",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3752,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2002-2005 US",
+          "MODEL": "911",
+          "YEAR": "2002-2005",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3753,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2008-2009 US",
+          "MODEL": "911",
+          "YEAR": "2008-2009",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3754,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011 US",
+          "MODEL": "911",
+          "YEAR": "2011",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3755,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2018 US",
+          "MODEL": "911",
+          "YEAR": "2018",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3756,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2004-2005 US",
+          "MODEL": "911",
+          "YEAR": "2004-2005",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3757,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3758,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3759,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2014-2016 US",
+          "MODEL": "911",
+          "YEAR": "2014-2016",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3760,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2018-2019 US",
+          "MODEL": "911",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3761,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2004 US",
+          "MODEL": "911",
+          "YEAR": "2004",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3762,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2007-2008 US",
+          "MODEL": "911",
+          "YEAR": "2007-2008",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3763,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2010-2011 US",
+          "MODEL": "911",
+          "YEAR": "2010-2011",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3764,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2016 US",
+          "MODEL": "911",
+          "YEAR": "2016",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3765,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2019 US",
+          "MODEL": "911",
+          "YEAR": "2019",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3766,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2025 US",
+          "MODEL": "911",
+          "YEAR": "2025",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3767,
+          "DIMENSION-ID": "Porsche 911 GT3/GT3 RS Coupe 2022-2024 US",
+          "MODEL": "911",
+          "YEAR": "2022-2024",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3770,
+          "DIMENSION-ID": "Porsche 911 Targa 1990-1993 US",
+          "MODEL": "911",
+          "YEAR": "1990-1993",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3771,
+          "DIMENSION-ID": "Porsche 911 Targa 1996-1998 US",
+          "MODEL": "911",
+          "YEAR": "1996-1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3772,
+          "DIMENSION-ID": "Porsche 911 Targa 2002-2004 US",
+          "MODEL": "911",
+          "YEAR": "2002-2004",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3773,
+          "DIMENSION-ID": "Porsche 911 Targa 2006-2008 US",
+          "MODEL": "911",
+          "YEAR": "2006-2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3776,
+          "DIMENSION-ID": "Porsche 911 Targa 2021-2024 US",
+          "MODEL": "911",
+          "YEAR": "2021-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 911仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 3823,
+          "DIMENSION-ID": "Porsche Taycan Turbo GT Sedan 2025-2026 US",
+          "MODEL": "Taycan",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Carrera GT 与 Taycan仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 0,
+      "excluded_search_noise_hits": 39,
+      "non_US_candidate_hits": 24,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 21736,
+          "DIMENSION-ID": "Porsche Carrera gt Convertible 2003-2006 EU",
+          "MODEL": "Carrera gt",
+          "YEAR": "2003-2006",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10130,
+          "DIMENSION-ID": "Porsche 911 GT1 Coupe 1997-1998 RU",
+          "MODEL": "911 GT1",
+          "YEAR": "1997-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10131,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 1995-1998 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "1995-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10132,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2000-2005 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2000-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10133,
+          "DIMENSION-ID": "Porsche 911 GT2 Coupe 2007-2010 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2007-2010",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10134,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2011-2012 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2011-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10135,
+          "DIMENSION-ID": "Porsche 911 GT2 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT2",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10136,
+          "DIMENSION-ID": "Porsche 911 GT3 Convertible 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10137,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 1999-2000 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "1999-2000",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10138,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2003-2005 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2003-2005",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10139,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2006-2008 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2006-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10140,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10141,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10142,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10143,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10144,
+          "DIMENSION-ID": "Porsche 911 GT3 Coupe 2024-2026 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10145,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2009-2011 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2009-2011",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10146,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2013-2017 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2013-2017",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10147,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2017-2019 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2017-2019",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10148,
+          "DIMENSION-ID": "Porsche 911 GT3 RS Coupe 2021-2025 RU",
+          "MODEL": "911 GT3",
+          "YEAR": "2021-2025",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10182,
+          "DIMENSION-ID": "Porsche Carrera GT Targa 2003-2007 RU",
+          "MODEL": "Carrera GT",
+          "YEAR": "2003-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10197,
+          "DIMENSION-ID": "Porsche Cayman GT4 Coupe 2015-2016 RU",
+          "MODEL": "Cayman GT4",
+          "YEAR": "2015-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10198,
+          "DIMENSION-ID": "Porsche Cayman GT4 Coupe 2019-2026 RU",
+          "MODEL": "Cayman GT4",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 10199,
+          "DIMENSION-ID": "Porsche Cayman GT4 RS Coupe 2019-2026 RU",
+          "MODEL": "Cayman GT4",
+          "YEAR": "2019-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "经核对库内无对应记录（当前名称规则口径）",
+  "missing_evidence": "Porsche / Carrera GT原名到明确US目标的可引用身份关系；参考年份2004|2005的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-1e01afd4a875dfa8a76149b0",
+      "MM_ID": "MM-e89ecbec9ea478743fbde5d5",
+      "REGION": "US",
+      "MAKE": "Porsche",
+      "MODEL": "Carrera GT",
+      "YEAR": "2004",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Porsche",
+      "标准MODEL": "Carrera GT",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "42636"
+      ],
+      "source_year_body_or_trim": [
+        "Man 6-spd, 10 cyl, 5.7 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-6975e61d3f871a43425c8ebc",
+      "MM_ID": "MM-e89ecbec9ea478743fbde5d5",
+      "REGION": "US",
+      "MAKE": "Porsche",
+      "MODEL": "Carrera GT",
+      "YEAR": "2005",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Porsche",
+      "标准MODEL": "Carrera GT",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "经核对库内无对应记录（当前名称规则口径）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "42637"
+      ],
+      "source_year_body_or_trim": [
+        "Man 6-spd, 10 cyl, 5.7 L"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Porsche",
+    "MODEL": "Carrera GT",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

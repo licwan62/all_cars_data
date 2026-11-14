@@ -1,0 +1,2776 @@
+{
+  "MAKE": "BMW",
+  "MODEL": "228 xDrive Gran Coupe",
+  "MM_ID": "MM-61b76fd9c931e75a857234ba",
+  "MMY_count": 2,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "BMW",
+    "MODEL": "228 xDrive Gran Coupe",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 2432,
+      "MM_ID": "MM-61b76fd9c931e75a857234ba",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "2433",
+      "raw_make": "BMW",
+      "raw_model": "228 xDrive Gran Coupe",
+      "raw_year": "2025",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AM-S7), 4 cyl, 2.0 L, Turbo"
+    },
+    {
+      "association_row_1based": 2433,
+      "MM_ID": "MM-61b76fd9c931e75a857234ba",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "2434",
+      "raw_make": "BMW",
+      "raw_model": "228 xDrive Gran Coupe",
+      "raw_year": "2026",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AM-S7), 4 cyl, 2.0 L, Turbo"
+    },
+    {
+      "association_row_1based": 2434,
+      "MM_ID": "MM-61b76fd9c931e75a857234ba",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "2435",
+      "raw_make": "BMW",
+      "raw_model": "228 xDrive Gran Coupe",
+      "raw_year": "2027",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto (AM-S7), 4 cyl, 2.0 L, Turbo"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 453,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "bmw",
+      "make_name": "BMW",
+      "model_slug": "alpina-b8-gran",
+      "model_name": "Alpina B8 Gran",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": ""
+    },
+    {
+      "record": 496,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "bmw",
+      "make_name": "BMW",
+      "model_slug": "xdrive30d",
+      "model_name": "XDRIVE30D",
+      "body_types": "hatchback|wagon",
+      "countries": "lu|nl",
+      "regions": "eu",
+      "global_popularity_decile": "9",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": "9"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bmw",
+      "same_brand_rows_examined": 298,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 112,
+      "candidates": [
+        {
+          "row_1based": 189,
+          "DIMENSION-ID": "BMW 1 Series Coupe 2012-2013 US",
+          "MODEL": "1 Series",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 1 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 190,
+          "DIMENSION-ID": "BMW 2 Series Convertible 2015-2021 US",
+          "MODEL": "2 Series",
+          "YEAR": "2015-2021",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 191,
+          "DIMENSION-ID": "BMW 2 Series Coupe 2014 US",
+          "MODEL": "2 Series",
+          "YEAR": "2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 192,
+          "DIMENSION-ID": "BMW 2 Series Coupe 2015-2020 US",
+          "MODEL": "2 Series",
+          "YEAR": "2015-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 193,
+          "DIMENSION-ID": "BMW 2 Series Gran Coupe Sedan 2020-2024 US",
+          "MODEL": "2 Series",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 194,
+          "DIMENSION-ID": "BMW 2 Series Gran Coupe Sedan 2025-2026 US",
+          "MODEL": "2 Series",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 195,
+          "DIMENSION-ID": "BMW 2 Series M2 Coupe 2022-2026 US",
+          "MODEL": "2 Series",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 196,
+          "DIMENSION-ID": "BMW 3 Series Convertible 1987-1991 US",
+          "MODEL": "3 Series",
+          "YEAR": "1987-1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 197,
+          "DIMENSION-ID": "BMW 3 Series Convertible 1994-1999 US",
+          "MODEL": "3 Series",
+          "YEAR": "1994-1999",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 200,
+          "DIMENSION-ID": "BMW 3 Series Coupe 1977-1983 US",
+          "MODEL": "3 Series",
+          "YEAR": "1977-1983",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 201,
+          "DIMENSION-ID": "BMW 3 Series Coupe 1992-1999 US",
+          "MODEL": "3 Series",
+          "YEAR": "1992-1999",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 202,
+          "DIMENSION-ID": "BMW 3 Series Coupe 2000-2006 US",
+          "MODEL": "3 Series",
+          "YEAR": "2000-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 203,
+          "DIMENSION-ID": "BMW 3 Series Coupe 2007-2013 US",
+          "MODEL": "3 Series",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 204,
+          "DIMENSION-ID": "BMW 3 Series GT Hatchback 2014-2019 US",
+          "MODEL": "3 Series",
+          "YEAR": "2014-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 216,
+          "DIMENSION-ID": "BMW 4 Series Coupe 2014-2020 US",
+          "MODEL": "4 Series",
+          "YEAR": "2014-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 217,
+          "DIMENSION-ID": "BMW 4 Series Gran Coupe Sedan 2015-2020 US",
+          "MODEL": "4 Series",
+          "YEAR": "2015-2020",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 218,
+          "DIMENSION-ID": "BMW 4 Series Gran Coupe Sedan 2022-2026 US",
+          "MODEL": "4 Series",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 220,
+          "DIMENSION-ID": "BMW 4 Series M4 Coupe 2021-2026 US",
+          "MODEL": "4 Series",
+          "YEAR": "2021-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 221,
+          "DIMENSION-ID": "BMW 5 Series GT Sedan 2010-2016 US",
+          "MODEL": "5 Series",
+          "YEAR": "2010-2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 5 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 234,
+          "DIMENSION-ID": "BMW 6 Series Convertible 2004-2010 US",
+          "MODEL": "6 Series",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 236,
+          "DIMENSION-ID": "BMW 6 Series Coupe 1977-1989 US",
+          "MODEL": "6 Series",
+          "YEAR": "1977-1989",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 237,
+          "DIMENSION-ID": "BMW 6 Series Coupe 2004-2010 US",
+          "MODEL": "6 Series",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 238,
+          "DIMENSION-ID": "BMW 6 Series Coupe 2012-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2012-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 239,
+          "DIMENSION-ID": "BMW 6 Series GT Hatchback 2018-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 240,
+          "DIMENSION-ID": "BMW 6 Series Gran Coupe Sedan 2013-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2013-2019",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 241,
+          "DIMENSION-ID": "BMW 6 Series Hatchback 2018-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 249,
+          "DIMENSION-ID": "BMW 8 Series Convertible 2019-2026 US",
+          "MODEL": "8 Series",
+          "YEAR": "2019-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 250,
+          "DIMENSION-ID": "BMW 8 Series Coupe 1991-1997 US",
+          "MODEL": "8 Series",
+          "YEAR": "1991-1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 251,
+          "DIMENSION-ID": "BMW 8 Series Coupe 2019-2026 US",
+          "MODEL": "8 Series",
+          "YEAR": "2019-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 252,
+          "DIMENSION-ID": "BMW 8 Series Gran Coupe Sedan 2020-2026 US",
+          "MODEL": "8 Series",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 254,
+          "DIMENSION-ID": "BMW X1 SUV 2013-2015 US",
+          "MODEL": "X1",
+          "YEAR": "2013-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 255,
+          "DIMENSION-ID": "BMW X1 SUV 2016-2022 US",
+          "MODEL": "X1",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 256,
+          "DIMENSION-ID": "BMW X1 SUV 2023-2026 US",
+          "MODEL": "X1",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 259,
+          "DIMENSION-ID": "BMW X2 SUV 2018-2023 US",
+          "MODEL": "X2",
+          "YEAR": "2018-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 260,
+          "DIMENSION-ID": "BMW X2 SUV 2024-2026 US",
+          "MODEL": "X2",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 261,
+          "DIMENSION-ID": "BMW X3 SUV 2004-2010 US",
+          "MODEL": "X3",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 262,
+          "DIMENSION-ID": "BMW X3 SUV 2011-2017 US",
+          "MODEL": "X3",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 263,
+          "DIMENSION-ID": "BMW X3 SUV 2018-2024 US",
+          "MODEL": "X3",
+          "YEAR": "2018-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 264,
+          "DIMENSION-ID": "BMW X3 SUV 2025-2026 US",
+          "MODEL": "X3",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 265,
+          "DIMENSION-ID": "BMW X4 SUV 2015-2018 US",
+          "MODEL": "X4",
+          "YEAR": "2015-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 266,
+          "DIMENSION-ID": "BMW X4 SUV 2019-2025 US",
+          "MODEL": "X4",
+          "YEAR": "2019-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 268,
+          "DIMENSION-ID": "BMW X5 SUV 2007-2013 US",
+          "MODEL": "X5",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 269,
+          "DIMENSION-ID": "BMW X5 SUV 2014-2018 US",
+          "MODEL": "X5",
+          "YEAR": "2014-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 270,
+          "DIMENSION-ID": "BMW X5 SUV 2019-2023 US",
+          "MODEL": "X5",
+          "YEAR": "2019-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 271,
+          "DIMENSION-ID": "BMW X5 SUV 2024-2026 US",
+          "MODEL": "X5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 272,
+          "DIMENSION-ID": "BMW X6 SUV 2008-2014 US",
+          "MODEL": "X6",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 273,
+          "DIMENSION-ID": "BMW X6 SUV 2015-2019 US",
+          "MODEL": "X6",
+          "YEAR": "2015-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 274,
+          "DIMENSION-ID": "BMW X6 SUV 2020-2026 US",
+          "MODEL": "X6",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 275,
+          "DIMENSION-ID": "BMW X7 M60i SUV 2023-2026 US",
+          "MODEL": "X7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 276,
+          "DIMENSION-ID": "BMW X7 SUV 2019-2022 US",
+          "MODEL": "X7",
+          "YEAR": "2019-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 279,
+          "DIMENSION-ID": "BMW Z3 Convertible 1997-2002 US",
+          "MODEL": "Z3",
+          "YEAR": "1997-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Z3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 280,
+          "DIMENSION-ID": "BMW Z3 Coupe 1999-2002 US",
+          "MODEL": "Z3",
+          "YEAR": "1999-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Z3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 286,
+          "DIMENSION-ID": "BMW i4 Fastback 2022-2026 US",
+          "MODEL": "i4",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 287,
+          "DIMENSION-ID": "BMW i5 Sedan 2024-2026 US",
+          "MODEL": "i5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 288,
+          "DIMENSION-ID": "BMW i7 Sedan 2023-2026 US",
+          "MODEL": "i7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 289,
+          "DIMENSION-ID": "BMW i8 Convertible 2019-2020 US",
+          "MODEL": "i8",
+          "YEAR": "2019-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 290,
+          "DIMENSION-ID": "BMW i8 Coupe 2014-2020 US",
+          "MODEL": "i8",
+          "YEAR": "2014-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 291,
+          "DIMENSION-ID": "BMW iX SUV 2022-2025 US",
+          "MODEL": "iX",
+          "YEAR": "2022-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 292,
+          "DIMENSION-ID": "BMW iX SUV 2026 US",
+          "MODEL": "iX",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4510,
+          "DIMENSION-ID": "BMW 2 Series Coupe 2027 US",
+          "MODEL": "2 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4511,
+          "DIMENSION-ID": "BMW 4 Series Coupe 2027 US",
+          "MODEL": "4 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4512,
+          "DIMENSION-ID": "BMW 5 Series Sedan 2027 US",
+          "MODEL": "5 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 5 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4515,
+          "DIMENSION-ID": "BMW X2 SUV 2027 US",
+          "MODEL": "X2",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4516,
+          "DIMENSION-ID": "BMW X5 SUV 2027 US",
+          "MODEL": "X5",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4517,
+          "DIMENSION-ID": "BMW X6 Coupe 2027 US",
+          "MODEL": "X6",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4520,
+          "DIMENSION-ID": "BMW i7 Sedan 2027 US",
+          "MODEL": "i7",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5092,
+          "DIMENSION-ID": "BMW 1 Series M Coupe Coupe 2011 US",
+          "MODEL": "1 Series M Coupe",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词coupe，但228 xDrive Gran Coupe到1 Series M Coupe缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5094,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1969 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5095,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1970 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1970",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5096,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1971 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1971",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5097,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1972 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1972",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5098,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1973 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1973",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5099,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1974 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1974",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5105,
+          "DIMENSION-ID": "BMW 8 Series Coupe 1998 US",
+          "MODEL": "8 Series",
+          "YEAR": "1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5106,
+          "DIMENSION-ID": "BMW 8 Series Coupe 1999 US",
+          "MODEL": "8 Series",
+          "YEAR": "1999",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5113,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1956 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5114,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1957 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5115,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1958 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5116,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1959 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1959",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5117,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1960 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1960",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5118,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1961 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1961",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5119,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1962 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1962",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5125,
+          "DIMENSION-ID": "BMW M2 Coupe 2016 US",
+          "MODEL": "M2",
+          "YEAR": "2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5126,
+          "DIMENSION-ID": "BMW M2 Coupe 2017 US",
+          "MODEL": "M2",
+          "YEAR": "2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5127,
+          "DIMENSION-ID": "BMW M2 Coupe 2018 US",
+          "MODEL": "M2",
+          "YEAR": "2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5128,
+          "DIMENSION-ID": "BMW M2 Coupe 2019 US",
+          "MODEL": "M2",
+          "YEAR": "2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5129,
+          "DIMENSION-ID": "BMW M2 Coupe 2020 US",
+          "MODEL": "M2",
+          "YEAR": "2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5130,
+          "DIMENSION-ID": "BMW M2 Coupe 2021 US",
+          "MODEL": "M2",
+          "YEAR": "2021",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5131,
+          "DIMENSION-ID": "BMW M2 Coupe 2022 US",
+          "MODEL": "M2",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5132,
+          "DIMENSION-ID": "BMW M2 Coupe 2023 US",
+          "MODEL": "M2",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5133,
+          "DIMENSION-ID": "BMW M2 Coupe 2024 US",
+          "MODEL": "M2",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5134,
+          "DIMENSION-ID": "BMW M2 Coupe 2025 US",
+          "MODEL": "M2",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5135,
+          "DIMENSION-ID": "BMW M2 Coupe 2026 US",
+          "MODEL": "M2",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5167,
+          "DIMENSION-ID": "BMW M4 Coupe 2015 US",
+          "MODEL": "M4",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5168,
+          "DIMENSION-ID": "BMW M4 Coupe 2016 US",
+          "MODEL": "M4",
+          "YEAR": "2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5169,
+          "DIMENSION-ID": "BMW M4 Coupe 2017 US",
+          "MODEL": "M4",
+          "YEAR": "2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5170,
+          "DIMENSION-ID": "BMW M4 Coupe 2018 US",
+          "MODEL": "M4",
+          "YEAR": "2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5171,
+          "DIMENSION-ID": "BMW M4 Coupe 2019 US",
+          "MODEL": "M4",
+          "YEAR": "2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5172,
+          "DIMENSION-ID": "BMW M4 Coupe 2022 US",
+          "MODEL": "M4",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5173,
+          "DIMENSION-ID": "BMW M4 Coupe 2023 US",
+          "MODEL": "M4",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5174,
+          "DIMENSION-ID": "BMW M4 Coupe 2024 US",
+          "MODEL": "M4",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5175,
+          "DIMENSION-ID": "BMW M4 Coupe 2025 US",
+          "MODEL": "M4",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5176,
+          "DIMENSION-ID": "BMW M4 Coupe 2026 US",
+          "MODEL": "M4",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5206,
+          "DIMENSION-ID": "BMW M6 Coupe 1987 US",
+          "MODEL": "M6",
+          "YEAR": "1987",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5207,
+          "DIMENSION-ID": "BMW M6 Coupe 1988 US",
+          "MODEL": "M6",
+          "YEAR": "1988",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5208,
+          "DIMENSION-ID": "BMW M6 Coupe 1989 US",
+          "MODEL": "M6",
+          "YEAR": "1989",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5209,
+          "DIMENSION-ID": "BMW M6 Coupe 1990 US",
+          "MODEL": "M6",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5224,
+          "DIMENSION-ID": "BMW M8 Coupe 2022 US",
+          "MODEL": "M8",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5225,
+          "DIMENSION-ID": "BMW M8 Coupe 2023 US",
+          "MODEL": "M8",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5226,
+          "DIMENSION-ID": "BMW M8 Coupe 2024 US",
+          "MODEL": "M8",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5227,
+          "DIMENSION-ID": "BMW M8 Coupe 2025 US",
+          "MODEL": "M8",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5266,
+          "DIMENSION-ID": "BMW Z4 M Roadster Coupe 2008 US",
+          "MODEL": "Z4 M Roadster",
+          "YEAR": "2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Z4 M Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 1,
+      "excluded_search_noise_hits": 111,
+      "non_US_candidate_hits": 2,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 984,
+          "DIMENSION-ID": "BMW 2 серии Gran Tourer Gran Tourer MPV 2015-2018 RU",
+          "MODEL": "2 серии Gran Tourer",
+          "YEAR": "2015-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 985,
+          "DIMENSION-ID": "BMW 2 серии Gran Tourer Gran Tourer MPV 2018-2022 RU",
+          "MODEL": "2 серии Gran Tourer",
+          "YEAR": "2018-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "bmw",
+      "same_brand_rows_examined": 298,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 112,
+      "candidates": [
+        {
+          "row_1based": 189,
+          "DIMENSION-ID": "BMW 1 Series Coupe 2012-2013 US",
+          "MODEL": "1 Series",
+          "YEAR": "2012-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 1 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 190,
+          "DIMENSION-ID": "BMW 2 Series Convertible 2015-2021 US",
+          "MODEL": "2 Series",
+          "YEAR": "2015-2021",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 191,
+          "DIMENSION-ID": "BMW 2 Series Coupe 2014 US",
+          "MODEL": "2 Series",
+          "YEAR": "2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 192,
+          "DIMENSION-ID": "BMW 2 Series Coupe 2015-2020 US",
+          "MODEL": "2 Series",
+          "YEAR": "2015-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 193,
+          "DIMENSION-ID": "BMW 2 Series Gran Coupe Sedan 2020-2024 US",
+          "MODEL": "2 Series",
+          "YEAR": "2020-2024",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 194,
+          "DIMENSION-ID": "BMW 2 Series Gran Coupe Sedan 2025-2026 US",
+          "MODEL": "2 Series",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 195,
+          "DIMENSION-ID": "BMW 2 Series M2 Coupe 2022-2026 US",
+          "MODEL": "2 Series",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 196,
+          "DIMENSION-ID": "BMW 3 Series Convertible 1987-1991 US",
+          "MODEL": "3 Series",
+          "YEAR": "1987-1991",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 197,
+          "DIMENSION-ID": "BMW 3 Series Convertible 1994-1999 US",
+          "MODEL": "3 Series",
+          "YEAR": "1994-1999",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 200,
+          "DIMENSION-ID": "BMW 3 Series Coupe 1977-1983 US",
+          "MODEL": "3 Series",
+          "YEAR": "1977-1983",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 201,
+          "DIMENSION-ID": "BMW 3 Series Coupe 1992-1999 US",
+          "MODEL": "3 Series",
+          "YEAR": "1992-1999",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 202,
+          "DIMENSION-ID": "BMW 3 Series Coupe 2000-2006 US",
+          "MODEL": "3 Series",
+          "YEAR": "2000-2006",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 203,
+          "DIMENSION-ID": "BMW 3 Series Coupe 2007-2013 US",
+          "MODEL": "3 Series",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 204,
+          "DIMENSION-ID": "BMW 3 Series GT Hatchback 2014-2019 US",
+          "MODEL": "3 Series",
+          "YEAR": "2014-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 216,
+          "DIMENSION-ID": "BMW 4 Series Coupe 2014-2020 US",
+          "MODEL": "4 Series",
+          "YEAR": "2014-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 217,
+          "DIMENSION-ID": "BMW 4 Series Gran Coupe Sedan 2015-2020 US",
+          "MODEL": "4 Series",
+          "YEAR": "2015-2020",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 218,
+          "DIMENSION-ID": "BMW 4 Series Gran Coupe Sedan 2022-2026 US",
+          "MODEL": "4 Series",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 220,
+          "DIMENSION-ID": "BMW 4 Series M4 Coupe 2021-2026 US",
+          "MODEL": "4 Series",
+          "YEAR": "2021-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 221,
+          "DIMENSION-ID": "BMW 5 Series GT Sedan 2010-2016 US",
+          "MODEL": "5 Series",
+          "YEAR": "2010-2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 5 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 234,
+          "DIMENSION-ID": "BMW 6 Series Convertible 2004-2010 US",
+          "MODEL": "6 Series",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 236,
+          "DIMENSION-ID": "BMW 6 Series Coupe 1977-1989 US",
+          "MODEL": "6 Series",
+          "YEAR": "1977-1989",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 237,
+          "DIMENSION-ID": "BMW 6 Series Coupe 2004-2010 US",
+          "MODEL": "6 Series",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 238,
+          "DIMENSION-ID": "BMW 6 Series Coupe 2012-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2012-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 239,
+          "DIMENSION-ID": "BMW 6 Series GT Hatchback 2018-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 240,
+          "DIMENSION-ID": "BMW 6 Series Gran Coupe Sedan 2013-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2013-2019",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 241,
+          "DIMENSION-ID": "BMW 6 Series Hatchback 2018-2019 US",
+          "MODEL": "6 Series",
+          "YEAR": "2018-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 6 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 249,
+          "DIMENSION-ID": "BMW 8 Series Convertible 2019-2026 US",
+          "MODEL": "8 Series",
+          "YEAR": "2019-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 250,
+          "DIMENSION-ID": "BMW 8 Series Coupe 1991-1997 US",
+          "MODEL": "8 Series",
+          "YEAR": "1991-1997",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 251,
+          "DIMENSION-ID": "BMW 8 Series Coupe 2019-2026 US",
+          "MODEL": "8 Series",
+          "YEAR": "2019-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 252,
+          "DIMENSION-ID": "BMW 8 Series Gran Coupe Sedan 2020-2026 US",
+          "MODEL": "8 Series",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "版本词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 254,
+          "DIMENSION-ID": "BMW X1 SUV 2013-2015 US",
+          "MODEL": "X1",
+          "YEAR": "2013-2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 255,
+          "DIMENSION-ID": "BMW X1 SUV 2016-2022 US",
+          "MODEL": "X1",
+          "YEAR": "2016-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 256,
+          "DIMENSION-ID": "BMW X1 SUV 2023-2026 US",
+          "MODEL": "X1",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X1仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 259,
+          "DIMENSION-ID": "BMW X2 SUV 2018-2023 US",
+          "MODEL": "X2",
+          "YEAR": "2018-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 260,
+          "DIMENSION-ID": "BMW X2 SUV 2024-2026 US",
+          "MODEL": "X2",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 261,
+          "DIMENSION-ID": "BMW X3 SUV 2004-2010 US",
+          "MODEL": "X3",
+          "YEAR": "2004-2010",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 262,
+          "DIMENSION-ID": "BMW X3 SUV 2011-2017 US",
+          "MODEL": "X3",
+          "YEAR": "2011-2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 263,
+          "DIMENSION-ID": "BMW X3 SUV 2018-2024 US",
+          "MODEL": "X3",
+          "YEAR": "2018-2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 264,
+          "DIMENSION-ID": "BMW X3 SUV 2025-2026 US",
+          "MODEL": "X3",
+          "YEAR": "2025-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 265,
+          "DIMENSION-ID": "BMW X4 SUV 2015-2018 US",
+          "MODEL": "X4",
+          "YEAR": "2015-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 266,
+          "DIMENSION-ID": "BMW X4 SUV 2019-2025 US",
+          "MODEL": "X4",
+          "YEAR": "2019-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 268,
+          "DIMENSION-ID": "BMW X5 SUV 2007-2013 US",
+          "MODEL": "X5",
+          "YEAR": "2007-2013",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 269,
+          "DIMENSION-ID": "BMW X5 SUV 2014-2018 US",
+          "MODEL": "X5",
+          "YEAR": "2014-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 270,
+          "DIMENSION-ID": "BMW X5 SUV 2019-2023 US",
+          "MODEL": "X5",
+          "YEAR": "2019-2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 271,
+          "DIMENSION-ID": "BMW X5 SUV 2024-2026 US",
+          "MODEL": "X5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 272,
+          "DIMENSION-ID": "BMW X6 SUV 2008-2014 US",
+          "MODEL": "X6",
+          "YEAR": "2008-2014",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 273,
+          "DIMENSION-ID": "BMW X6 SUV 2015-2019 US",
+          "MODEL": "X6",
+          "YEAR": "2015-2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 274,
+          "DIMENSION-ID": "BMW X6 SUV 2020-2026 US",
+          "MODEL": "X6",
+          "YEAR": "2020-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 275,
+          "DIMENSION-ID": "BMW X7 M60i SUV 2023-2026 US",
+          "MODEL": "X7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 276,
+          "DIMENSION-ID": "BMW X7 SUV 2019-2022 US",
+          "MODEL": "X7",
+          "YEAR": "2019-2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 279,
+          "DIMENSION-ID": "BMW Z3 Convertible 1997-2002 US",
+          "MODEL": "Z3",
+          "YEAR": "1997-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Z3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 280,
+          "DIMENSION-ID": "BMW Z3 Coupe 1999-2002 US",
+          "MODEL": "Z3",
+          "YEAR": "1999-2002",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Z3仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 286,
+          "DIMENSION-ID": "BMW i4 Fastback 2022-2026 US",
+          "MODEL": "i4",
+          "YEAR": "2022-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 287,
+          "DIMENSION-ID": "BMW i5 Sedan 2024-2026 US",
+          "MODEL": "i5",
+          "YEAR": "2024-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 288,
+          "DIMENSION-ID": "BMW i7 Sedan 2023-2026 US",
+          "MODEL": "i7",
+          "YEAR": "2023-2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 289,
+          "DIMENSION-ID": "BMW i8 Convertible 2019-2020 US",
+          "MODEL": "i8",
+          "YEAR": "2019-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 290,
+          "DIMENSION-ID": "BMW i8 Coupe 2014-2020 US",
+          "MODEL": "i8",
+          "YEAR": "2014-2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 291,
+          "DIMENSION-ID": "BMW iX SUV 2022-2025 US",
+          "MODEL": "iX",
+          "YEAR": "2022-2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 292,
+          "DIMENSION-ID": "BMW iX SUV 2026 US",
+          "MODEL": "iX",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 iX仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4510,
+          "DIMENSION-ID": "BMW 2 Series Coupe 2027 US",
+          "MODEL": "2 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 2 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4511,
+          "DIMENSION-ID": "BMW 4 Series Coupe 2027 US",
+          "MODEL": "4 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 4 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4512,
+          "DIMENSION-ID": "BMW 5 Series Sedan 2027 US",
+          "MODEL": "5 Series",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 5 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4515,
+          "DIMENSION-ID": "BMW X2 SUV 2027 US",
+          "MODEL": "X2",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4516,
+          "DIMENSION-ID": "BMW X5 SUV 2027 US",
+          "MODEL": "X5",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X5仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4517,
+          "DIMENSION-ID": "BMW X6 Coupe 2027 US",
+          "MODEL": "X6",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 X6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 4520,
+          "DIMENSION-ID": "BMW i7 Sedan 2027 US",
+          "MODEL": "i7",
+          "YEAR": "2027",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 i7仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5092,
+          "DIMENSION-ID": "BMW 1 Series M Coupe Coupe 2011 US",
+          "MODEL": "1 Series M Coupe",
+          "YEAR": "2011",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "具体车型词coupe，但228 xDrive Gran Coupe到1 Series M Coupe缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 5094,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1969 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1969",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5095,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1970 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1970",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5096,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1971 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1971",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5097,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1972 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1972",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5098,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1973 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1973",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5099,
+          "DIMENSION-ID": "BMW 3.0CS Coupe 1974 US",
+          "MODEL": "3.0CS",
+          "YEAR": "1974",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 3.0CS仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5105,
+          "DIMENSION-ID": "BMW 8 Series Coupe 1998 US",
+          "MODEL": "8 Series",
+          "YEAR": "1998",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5106,
+          "DIMENSION-ID": "BMW 8 Series Coupe 1999 US",
+          "MODEL": "8 Series",
+          "YEAR": "1999",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 8 Series仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5113,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1956 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1956",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5114,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1957 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1957",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5115,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1958 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1958",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5116,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1959 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1959",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5117,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1960 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1960",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5118,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1961 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1961",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5119,
+          "DIMENSION-ID": "BMW Isetta 300 Coupe 1962 US",
+          "MODEL": "Isetta 300",
+          "YEAR": "1962",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Isetta 300仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5125,
+          "DIMENSION-ID": "BMW M2 Coupe 2016 US",
+          "MODEL": "M2",
+          "YEAR": "2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5126,
+          "DIMENSION-ID": "BMW M2 Coupe 2017 US",
+          "MODEL": "M2",
+          "YEAR": "2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5127,
+          "DIMENSION-ID": "BMW M2 Coupe 2018 US",
+          "MODEL": "M2",
+          "YEAR": "2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5128,
+          "DIMENSION-ID": "BMW M2 Coupe 2019 US",
+          "MODEL": "M2",
+          "YEAR": "2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5129,
+          "DIMENSION-ID": "BMW M2 Coupe 2020 US",
+          "MODEL": "M2",
+          "YEAR": "2020",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5130,
+          "DIMENSION-ID": "BMW M2 Coupe 2021 US",
+          "MODEL": "M2",
+          "YEAR": "2021",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5131,
+          "DIMENSION-ID": "BMW M2 Coupe 2022 US",
+          "MODEL": "M2",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5132,
+          "DIMENSION-ID": "BMW M2 Coupe 2023 US",
+          "MODEL": "M2",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5133,
+          "DIMENSION-ID": "BMW M2 Coupe 2024 US",
+          "MODEL": "M2",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5134,
+          "DIMENSION-ID": "BMW M2 Coupe 2025 US",
+          "MODEL": "M2",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5135,
+          "DIMENSION-ID": "BMW M2 Coupe 2026 US",
+          "MODEL": "M2",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M2仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5167,
+          "DIMENSION-ID": "BMW M4 Coupe 2015 US",
+          "MODEL": "M4",
+          "YEAR": "2015",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5168,
+          "DIMENSION-ID": "BMW M4 Coupe 2016 US",
+          "MODEL": "M4",
+          "YEAR": "2016",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5169,
+          "DIMENSION-ID": "BMW M4 Coupe 2017 US",
+          "MODEL": "M4",
+          "YEAR": "2017",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5170,
+          "DIMENSION-ID": "BMW M4 Coupe 2018 US",
+          "MODEL": "M4",
+          "YEAR": "2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5171,
+          "DIMENSION-ID": "BMW M4 Coupe 2019 US",
+          "MODEL": "M4",
+          "YEAR": "2019",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5172,
+          "DIMENSION-ID": "BMW M4 Coupe 2022 US",
+          "MODEL": "M4",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5173,
+          "DIMENSION-ID": "BMW M4 Coupe 2023 US",
+          "MODEL": "M4",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5174,
+          "DIMENSION-ID": "BMW M4 Coupe 2024 US",
+          "MODEL": "M4",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5175,
+          "DIMENSION-ID": "BMW M4 Coupe 2025 US",
+          "MODEL": "M4",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5176,
+          "DIMENSION-ID": "BMW M4 Coupe 2026 US",
+          "MODEL": "M4",
+          "YEAR": "2026",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M4仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5206,
+          "DIMENSION-ID": "BMW M6 Coupe 1987 US",
+          "MODEL": "M6",
+          "YEAR": "1987",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5207,
+          "DIMENSION-ID": "BMW M6 Coupe 1988 US",
+          "MODEL": "M6",
+          "YEAR": "1988",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5208,
+          "DIMENSION-ID": "BMW M6 Coupe 1989 US",
+          "MODEL": "M6",
+          "YEAR": "1989",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5209,
+          "DIMENSION-ID": "BMW M6 Coupe 1990 US",
+          "MODEL": "M6",
+          "YEAR": "1990",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M6仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5224,
+          "DIMENSION-ID": "BMW M8 Coupe 2022 US",
+          "MODEL": "M8",
+          "YEAR": "2022",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5225,
+          "DIMENSION-ID": "BMW M8 Coupe 2023 US",
+          "MODEL": "M8",
+          "YEAR": "2023",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5226,
+          "DIMENSION-ID": "BMW M8 Coupe 2024 US",
+          "MODEL": "M8",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5227,
+          "DIMENSION-ID": "BMW M8 Coupe 2025 US",
+          "MODEL": "M8",
+          "YEAR": "2025",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 M8仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 5266,
+          "DIMENSION-ID": "BMW Z4 M Roadster Coupe 2008 US",
+          "MODEL": "Z4 M Roadster",
+          "YEAR": "2008",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "228 xDrive Gran Coupe 与 Z4 M Roadster仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        }
+      ],
+      "identity_candidate_hits": 1,
+      "excluded_search_noise_hits": 111,
+      "non_US_candidate_hits": 2,
+      "non_US_candidates": [
+        {
+          "region": "RU",
+          "row_1based": 984,
+          "DIMENSION-ID": "BMW 2 серии Gran Tourer Gran Tourer MPV 2015-2018 RU",
+          "MODEL": "2 серии Gran Tourer",
+          "YEAR": "2015-2018",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 985,
+          "DIMENSION-ID": "BMW 2 серии Gran Tourer Gran Tourer MPV 2018-2022 RU",
+          "MODEL": "2 серии Gran Tourer",
+          "YEAR": "2018-2022",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "BMW / 228 xDrive Gran Coupe原名到明确US目标的可引用身份关系；参考年份2025|2026的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-3e698d2f2ffde913d8afd6ed",
+      "MM_ID": "MM-61b76fd9c931e75a857234ba",
+      "REGION": "US",
+      "MAKE": "BMW",
+      "MODEL": "228 xDrive Gran Coupe",
+      "YEAR": "2025",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "BMW",
+      "标准MODEL": "228 xDrive Gran Coupe",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "2433"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AM-S7), 4 cyl, 2.0 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    },
+    {
+      "MMY_ID": "MMY-e4fe68d656ab5140e4a33b9f",
+      "MM_ID": "MM-61b76fd9c931e75a857234ba",
+      "REGION": "US",
+      "MAKE": "BMW",
+      "MODEL": "228 xDrive Gran Coupe",
+      "YEAR": "2026",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "BMW",
+      "标准MODEL": "228 xDrive Gran Coupe",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "2434"
+      ],
+      "source_year_body_or_trim": [
+        "Auto (AM-S7), 4 cyl, 2.0 L, Turbo"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [],
+          "candidate_same_year_hits": 0
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "BMW",
+    "MODEL": "228 xDrive Gran Coupe",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}

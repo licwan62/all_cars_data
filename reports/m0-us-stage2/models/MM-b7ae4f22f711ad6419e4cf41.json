@@ -1,0 +1,870 @@
+{
+  "MAKE": "Maserati",
+  "MODEL": "Quattroporte/QP Sport GT",
+  "MM_ID": "MM-b7ae4f22f711ad6419e4cf41",
+  "MMY_count": 1,
+  "review_method": "本轮读取当前发布字节，逐模型执行01/02全库、同品牌、名称解析、版本/参考车型和非US候选检索；搜索候选未获批准",
+  "resolved_target": {
+    "MAKE": "Maserati",
+    "MODEL": "Quattroporte/QP Sport GT",
+    "relation": "direct",
+    "basis": ""
+  },
+  "existing_explicit_mapping_hits": [],
+  "existing_member_rule_hits": [],
+  "raw_source_associations": [
+    {
+      "association_row_1based": 32225,
+      "MM_ID": "MM-b7ae4f22f711ad6419e4cf41",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "32226",
+      "raw_make": "Maserati",
+      "raw_model": "Quattroporte/QP Sport GT",
+      "raw_year": "2007",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 6-spd, 8 cyl, 4.2 L, 3MODE"
+    },
+    {
+      "association_row_1based": 32226,
+      "MM_ID": "MM-b7ae4f22f711ad6419e4cf41",
+      "SOURCE": "trimslate",
+      "source_file": "nodes/M0.车型年覆盖/data/data_source/trimslate-vehicles.csv",
+      "source_sha256": "40db27fa912ee84be0d2f62ef590150da24237a5312a15db855861411db9ee7d",
+      "record": "32227",
+      "raw_make": "Maserati",
+      "raw_model": "Quattroporte/QP Sport GT",
+      "raw_year": "2007",
+      "来源别名线索": "",
+      "车辆类别": "",
+      "国家线索": "",
+      "区域线索": "",
+      "配置或身份": "Auto 6-spd, 8 cyl, 4.2 L, SIL 3MODE CLKUP"
+    }
+  ],
+  "vehicles_catalog_checks": [
+    {
+      "record": 3026,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "maserati",
+      "make_name": "Maserati",
+      "model_slug": "3200-gt",
+      "model_name": "3200 GT",
+      "body_types": "coupe",
+      "countries": "au|ch|fi|gb|nl|no|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/maserati/3200|car/maserati/3200gt",
+      "mass_popularity_decile": "3"
+    },
+    {
+      "record": 3027,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "maserati",
+      "make_name": "Maserati",
+      "model_slug": "3500-gt",
+      "model_name": "3500 GT",
+      "body_types": "coupe",
+      "countries": "ch|nl|nz",
+      "regions": "eu|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/maserati/3500|car/maserati/3500gt",
+      "mass_popularity_decile": "5"
+    },
+    {
+      "record": 3044,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "maserati",
+      "make_name": "Maserati",
+      "model_slug": "gt2-stradale",
+      "model_name": "GT2 Stradale",
+      "body_types": "hatchback",
+      "countries": "ca|us",
+      "regions": "na",
+      "global_popularity_decile": "",
+      "aliases": "",
+      "former_ids": "",
+      "mass_popularity_decile": ""
+    },
+    {
+      "record": 3056,
+      "match_reason": [
+        "车型词命中，仅候选"
+      ],
+      "kind": "car",
+      "make_slug": "maserati",
+      "make_name": "Maserati",
+      "model_slug": "quattroporte",
+      "model_name": "Quattroporte",
+      "body_types": "sedan",
+      "countries": "au|ca|ch|de|es|fi|gb|il|lu|my|nl|no|nz|ua|us",
+      "regions": "as|eu|na|oc",
+      "global_popularity_decile": "5",
+      "aliases": "",
+      "former_ids": "car/maserati/quattroporte-diesel|car/maserati/quattroporte-gt|car/maserati/quattroporte-modena|car/maserati/quattroporte-s|car/maserati/quattroporte-s-q4|car/maserati/quattroporte-sq4|car/maserati/quattroporte-trofeo",
+      "mass_popularity_decile": "2"
+    }
+  ],
+  "current_record_checks": {
+    "01": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "maserati",
+      "same_brand_rows_examined": 18,
+      "same_brand_inventory_reference": "inventory.json.gz → 01:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 2718,
+          "DIMENSION-ID": "Maserati Levante SUV 2017-2018 US",
+          "MODEL": "Levante",
+          "YEAR": "2017-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quattroporte/QP Sport GT 与 Levante仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2721,
+          "DIMENSION-ID": "Maserati Levante SUV 2024 US",
+          "MODEL": "Levante",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quattroporte/QP Sport GT 与 Levante仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2724,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2005-2008 US",
+          "MODEL": "Quattroporte",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词quattroporte，但Quattroporte/QP Sport GT到Quattroporte缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2725,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2009-2013 US",
+          "MODEL": "Quattroporte",
+          "YEAR": "2009-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词quattroporte，但Quattroporte/QP Sport GT到Quattroporte缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2726,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2014-2024 US",
+          "MODEL": "Quattroporte",
+          "YEAR": "2014-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词quattroporte，但Quattroporte/QP Sport GT到Quattroporte缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 3,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 32,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 13314,
+          "DIMENSION-ID": "Maserati 3200 gt Coupe 1998-2002 EU",
+          "MODEL": "3200 gt",
+          "YEAR": "1998-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13315,
+          "DIMENSION-ID": "Maserati 4200 gt / Coupe 2002-2007 EU",
+          "MODEL": "4200 gt /",
+          "YEAR": "2002-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13316,
+          "DIMENSION-ID": "Maserati 4200 gt spyder Convertible 2001-2026 EU",
+          "MODEL": "4200 gt spyder",
+          "YEAR": "2001-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13395,
+          "DIMENSION-ID": "Maserati Quattroporte i Sedan 1962-1970 EU",
+          "MODEL": "Quattroporte i",
+          "YEAR": "1962-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13396,
+          "DIMENSION-ID": "Maserati Quattroporte ii Sedan 1974-1978 EU",
+          "MODEL": "Quattroporte ii",
+          "YEAR": "1974-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13397,
+          "DIMENSION-ID": "Maserati Quattroporte iii Sedan 1979-1985 EU",
+          "MODEL": "Quattroporte iii",
+          "YEAR": "1979-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13398,
+          "DIMENSION-ID": "Maserati Quattroporte iii Sedan 1979-1989 EU",
+          "MODEL": "Quattroporte iii",
+          "YEAR": "1979-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13399,
+          "DIMENSION-ID": "Maserati Quattroporte iv Sedan 1994-1998 EU",
+          "MODEL": "Quattroporte iv",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13400,
+          "DIMENSION-ID": "Maserati Quattroporte iv Sedan 1995-2001 EU",
+          "MODEL": "Quattroporte iv",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13401,
+          "DIMENSION-ID": "Maserati Quattroporte v Sedan 2008-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13402,
+          "DIMENSION-ID": "Maserati Quattroporte v Sedan 2011-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13403,
+          "DIMENSION-ID": "Maserati Quattroporte v facelift Sedan 2004-2012 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13404,
+          "DIMENSION-ID": "Maserati Quattroporte v facelift Sedan 2004-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13405,
+          "DIMENSION-ID": "Maserati Quattroporte v prefl Sedan 2004-2012 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13406,
+          "DIMENSION-ID": "Maserati Quattroporte v prefl Sedan 2004-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13407,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2013-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13408,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2016-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13409,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2017-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13410,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2020-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7093,
+          "DIMENSION-ID": "Maserati 3200 GT Coupe 1998-2002 RU",
+          "MODEL": "3200 GT",
+          "YEAR": "1998-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7094,
+          "DIMENSION-ID": "Maserati 3500 GT Coupe 1957-1964 RU",
+          "MODEL": "3500 GT",
+          "YEAR": "1957-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7095,
+          "DIMENSION-ID": "Maserati 3500 GT Spyder Convertible 1957-1964 RU",
+          "MODEL": "3500 GT",
+          "YEAR": "1957-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7097,
+          "DIMENSION-ID": "Maserati 4200 GT Convertible 2002-2007 RU",
+          "MODEL": "4200 GT",
+          "YEAR": "2002-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7098,
+          "DIMENSION-ID": "Maserati 4200 GT Coupe 2002-2007 RU",
+          "MODEL": "4200 GT",
+          "YEAR": "2002-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7105,
+          "DIMENSION-ID": "Maserati GT2 Stradale Coupe 2024-2026 RU",
+          "MODEL": "GT2 Stradale",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7131,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 1979-1990 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "1979-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7132,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 1994-2001 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "1994-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7133,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2003-2008 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2003-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7134,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2008-2012 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7135,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2012-2016 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2012-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7136,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2016-2020 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7137,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2020-2024 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    },
+    "02": {
+      "all_US_rows_searched": 6352,
+      "resolved_brand": "maserati",
+      "same_brand_rows_examined": 18,
+      "same_brand_inventory_reference": "inventory.json.gz → 02:US，按resolved_brand筛选",
+      "exact_resolved_name_hits": 0,
+      "exact_rows": [],
+      "candidate_hits": 5,
+      "candidates": [
+        {
+          "row_1based": 2718,
+          "DIMENSION-ID": "Maserati Levante SUV 2017-2018 US",
+          "MODEL": "Levante",
+          "YEAR": "2017-2018",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quattroporte/QP Sport GT 与 Levante仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2721,
+          "DIMENSION-ID": "Maserati Levante SUV 2024 US",
+          "MODEL": "Levante",
+          "YEAR": "2024",
+          "match_reason": [
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "已排除检索噪声",
+          "exclusion": "Quattroporte/QP Sport GT 与 Levante仅单字符、泛称、版本或参考词重合，无同车型身份依据"
+        },
+        {
+          "row_1based": 2724,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2005-2008 US",
+          "MODEL": "Quattroporte",
+          "YEAR": "2005-2008",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词quattroporte，但Quattroporte/QP Sport GT到Quattroporte缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2725,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2009-2013 US",
+          "MODEL": "Quattroporte",
+          "YEAR": "2009-2013",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词quattroporte，但Quattroporte/QP Sport GT到Quattroporte缺少批准关系及必要车身/代际范围；不据此映射"
+        },
+        {
+          "row_1based": 2726,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2014-2024 US",
+          "MODEL": "Quattroporte",
+          "YEAR": "2014-2024",
+          "match_reason": [
+            "车型词命中，仅检索",
+            "参考车型词命中，仅检索"
+          ],
+          "assessment": "身份关系仍待证据",
+          "exclusion": "完整型号主干包含、具体车型词quattroporte，但Quattroporte/QP Sport GT到Quattroporte缺少批准关系及必要车身/代际范围；不据此映射"
+        }
+      ],
+      "identity_candidate_hits": 3,
+      "excluded_search_noise_hits": 2,
+      "non_US_candidate_hits": 32,
+      "non_US_candidates": [
+        {
+          "region": "EU",
+          "row_1based": 13314,
+          "DIMENSION-ID": "Maserati 3200 gt Coupe 1998-2002 EU",
+          "MODEL": "3200 gt",
+          "YEAR": "1998-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13315,
+          "DIMENSION-ID": "Maserati 4200 gt / Coupe 2002-2007 EU",
+          "MODEL": "4200 gt /",
+          "YEAR": "2002-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13316,
+          "DIMENSION-ID": "Maserati 4200 gt spyder Convertible 2001-2026 EU",
+          "MODEL": "4200 gt spyder",
+          "YEAR": "2001-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13395,
+          "DIMENSION-ID": "Maserati Quattroporte i Sedan 1962-1970 EU",
+          "MODEL": "Quattroporte i",
+          "YEAR": "1962-1970",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13396,
+          "DIMENSION-ID": "Maserati Quattroporte ii Sedan 1974-1978 EU",
+          "MODEL": "Quattroporte ii",
+          "YEAR": "1974-1978",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13397,
+          "DIMENSION-ID": "Maserati Quattroporte iii Sedan 1979-1985 EU",
+          "MODEL": "Quattroporte iii",
+          "YEAR": "1979-1985",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13398,
+          "DIMENSION-ID": "Maserati Quattroporte iii Sedan 1979-1989 EU",
+          "MODEL": "Quattroporte iii",
+          "YEAR": "1979-1989",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13399,
+          "DIMENSION-ID": "Maserati Quattroporte iv Sedan 1994-1998 EU",
+          "MODEL": "Quattroporte iv",
+          "YEAR": "1994-1998",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13400,
+          "DIMENSION-ID": "Maserati Quattroporte iv Sedan 1995-2001 EU",
+          "MODEL": "Quattroporte iv",
+          "YEAR": "1995-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13401,
+          "DIMENSION-ID": "Maserati Quattroporte v Sedan 2008-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2008-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13402,
+          "DIMENSION-ID": "Maserati Quattroporte v Sedan 2011-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2011-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13403,
+          "DIMENSION-ID": "Maserati Quattroporte v facelift Sedan 2004-2012 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13404,
+          "DIMENSION-ID": "Maserati Quattroporte v facelift Sedan 2004-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13405,
+          "DIMENSION-ID": "Maserati Quattroporte v prefl Sedan 2004-2012 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13406,
+          "DIMENSION-ID": "Maserati Quattroporte v prefl Sedan 2004-2026 EU",
+          "MODEL": "Quattroporte v",
+          "YEAR": "2004-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13407,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2013-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2013-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13408,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2016-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2016-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13409,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2017-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2017-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "EU",
+          "row_1based": 13410,
+          "DIMENSION-ID": "Maserati Quattroporte vi Sedan 2020-2026 EU",
+          "MODEL": "Quattroporte vi",
+          "YEAR": "2020-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7093,
+          "DIMENSION-ID": "Maserati 3200 GT Coupe 1998-2002 RU",
+          "MODEL": "3200 GT",
+          "YEAR": "1998-2002",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7094,
+          "DIMENSION-ID": "Maserati 3500 GT Coupe 1957-1964 RU",
+          "MODEL": "3500 GT",
+          "YEAR": "1957-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7095,
+          "DIMENSION-ID": "Maserati 3500 GT Spyder Convertible 1957-1964 RU",
+          "MODEL": "3500 GT",
+          "YEAR": "1957-1964",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7097,
+          "DIMENSION-ID": "Maserati 4200 GT Convertible 2002-2007 RU",
+          "MODEL": "4200 GT",
+          "YEAR": "2002-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7098,
+          "DIMENSION-ID": "Maserati 4200 GT Coupe 2002-2007 RU",
+          "MODEL": "4200 GT",
+          "YEAR": "2002-2007",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7105,
+          "DIMENSION-ID": "Maserati GT2 Stradale Coupe 2024-2026 RU",
+          "MODEL": "GT2 Stradale",
+          "YEAR": "2024-2026",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7131,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 1979-1990 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "1979-1990",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7132,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 1994-2001 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "1994-2001",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7133,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2003-2008 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2003-2008",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7134,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2008-2012 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2008-2012",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7135,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2012-2016 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2012-2016",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7136,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2016-2020 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2016-2020",
+          "exclusion": "非US发布记录，不替代US目标"
+        },
+        {
+          "region": "RU",
+          "row_1based": 7137,
+          "DIMENSION-ID": "Maserati Quattroporte Sedan 2020-2024 RU",
+          "MODEL": "Quattroporte",
+          "YEAR": "2020-2024",
+          "exclusion": "非US发布记录，不替代US目标"
+        }
+      ]
+    }
+  },
+  "conclusion": "证据不足（候选关系未裁决）",
+  "missing_evidence": "Maserati / Quattroporte/QP Sport GT原名到明确US目标的可引用身份关系；参考年份2007的适用范围；现有目录国家线索无年份",
+  "closure_condition": "确认同一品牌/车型身份、独立或组合层级及必要的年款/车身限定；如确无目标，须在01独立证据审核并正常发布后再核对；不把本次0命中登记人工缺车型裁决",
+  "suggested_action": "优先读取原厂年款规格/命名或监管原始资料；按候选记录身份核实，无法裁决保留待核",
+  "new_market_confirmations": 0,
+  "formal_resolved": false,
+  "identities": [
+    {
+      "MMY_ID": "MMY-f26f7aab4d032eef39bfd4a5",
+      "MM_ID": "MM-b7ae4f22f711ad6419e4cf41",
+      "REGION": "US",
+      "MAKE": "Maserati",
+      "MODEL": "Quattroporte/QP Sport GT",
+      "YEAR": "2007",
+      "SOURCE": "trimslate",
+      "状态": "名称未匹配（车型待核）",
+      "01状态": "名称未匹配（车型待核）",
+      "02原始状态": "名称未匹配（车型待核）",
+      "映射前状态": "车型缺口／名称待核",
+      "标准MAKE": "Maserati",
+      "标准MODEL": "Quattroporte/QP Sport GT",
+      "映射层级": "direct",
+      "映射依据": "",
+      "缺口解释": "名称未对应不能判定车型不存在",
+      "年份范围": "评估年内",
+      "计入分母": "是",
+      "市场依据": "车型年市场未核",
+      "国家线索": "",
+      "车辆类别线索": "",
+      "01_DIMENSION-ID": "",
+      "02_DIMENSION-ID": "",
+      "裁决依据": "",
+      "review_conclusion": "证据不足（候选关系未裁决）",
+      "review_status": "已核查仍无法裁决",
+      "formal_resolved": false,
+      "source_year_records": [
+        "32226",
+        "32227"
+      ],
+      "source_year_body_or_trim": [
+        "Auto 6-spd, 8 cyl, 4.2 L, 3MODE",
+        "Auto 6-spd, 8 cyl, 4.2 L, SIL 3MODE CLKUP"
+      ],
+      "user_evidence_year_scope_check": [],
+      "current_checks": {
+        "01": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Maserati Quattroporte Sedan 2005-2008 US"
+          ],
+          "candidate_same_year_hits": 1
+        },
+        "02": {
+          "approved_name_match_status": "车型缺口／名称待核",
+          "approved_name_DIMENSION_ID": "",
+          "candidate_same_year_DIMENSION_IDs": [
+            "Maserati Quattroporte Sedan 2005-2008 US"
+          ],
+          "candidate_same_year_hits": 1
+        }
+      }
+    }
+  ],
+  "initial_review_snapshot": {
+    "baseline_commit": "569fd2f3214349df270a46a913860efea39f6057",
+    "data_version": "20261112_44",
+    "html_version": "20261112_45",
+    "fields": [
+      "resolved_target",
+      "existing_explicit_mapping_hits",
+      "existing_member_rule_hits",
+      "current_record_checks",
+      "current_checks"
+    ],
+    "meaning": "以上字段为尾批前实际检查快照；后续正式解析及结果分列保存"
+  },
+  "formal_current_name_resolution": {
+    "MAKE": "Maserati",
+    "MODEL": "Quattroporte/QP Sport GT",
+    "relation": "direct",
+    "basis": "",
+    "data_version": "20261113_02",
+    "new_rule_evidence": "../tail-evidence.json"
+  }
+}
